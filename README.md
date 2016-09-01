@@ -139,9 +139,20 @@ Comment savoir un téléphone SIP a été enregistré dans le serveur
 ====
 Son numéro d'appel s'affiche sur l'écran.
 
+
+
+
 Phones Sangoma
 ====
 http://wiki.freepbx.org/display/PHON
+
+Comment trouver l'IP d'un phone sangoma
+---
+menu -> Status -> information
+
+Comment rebooter
+----
+Menu button -> * key 3 fois -> down arrow pour 10 s. Le téléphone reboot
 
 3 facons de configurer un phone
 
@@ -171,6 +182,11 @@ The hard way
 from the GUI of the phone
 login/password : admin/admin
 management -> Auto Provision - upgrade mode - config server path - autoprovision Now click
+
+
+Connecter un sangoma phone à freepbx  
+======
+http://wiki.freepbx.org/display/PHON/Connecting+Sangoma+Phone+to+FreePBX+or+PBXact+Indepth
 Fax 
 ===
 voir module User Management 
