@@ -1,5 +1,15 @@
 # freepx_config
 
+
+Comment mettre à jour l'achat de modules commerciaux
+====
+Admin -> Sys admin -> Activation -> Update activation (en bas à droite)
+
+
+Comment mettre à jour les modules?
+====
+Admin -> Module Admin
+
 Amportal commands
 ====
 http://wiki.freepbx.org/display/L1/amportal+commands
