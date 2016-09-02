@@ -203,8 +203,9 @@ Phone Polycom
 ===
 LOgin / Password :
 
-reset factory : loading software cancel -> hold 1;3;5 keys -> demande un password : 456 et c'est fait
-Users
+reset factory : loading software cancel -> hold 1;3;5 keys -> demande un password : 456 et c'est fait. Non pas toujours
+Reboot-> 0;1;3 ne marche pas
+1;5;9 ne marche pas
 ===
 Admin -> USer management 
 Fax 
