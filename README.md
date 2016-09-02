@@ -10,7 +10,7 @@ on y arrive avec un ssh sur la machine ou est installé freepbx/asterix.
 Liste de commande
 -----
 
-1 `amportal restart` pour relancer asterisk et autre process nécessaire à asterisk. On utilise cette commande et pas un /etc/init.d asterisk.
+1 **amportal restart** pour relancer asterisk et autre process nécessaire à asterisk. On utilise cette commande et pas un /etc/init.d asterisk.
 2 amportal stop
 
 3 **amportal chown** change toutes les permissions vers l'utilisateur apache.
