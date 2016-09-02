@@ -67,9 +67,9 @@ Fichiers de configuration
 
  La configuration d'Asterisk s'articule sur les fichiers de configuration suivants :
 
-    /etc/asterisk/sip.conf : Configuration globale d'Asterisk
+    /etc/asterisk/sip.conf : Configuration globale d'Asterisk. toutes les modifications sur ce fichiers doivent être faites par le web GUI
     /etc/asterisk/users.conf : Configuration des utilisateurs
-    /etc/asterisk/extensions.conf : Configuration du Dialplan
+    /etc/asterisk/extensions.conf : Configuration du Dialplan. Toutes les modifications sur ce fichiers doivent être faites par le web GUI
 
 [work]			; Nom du contexte  
 exten => _6XXX,1,Dial(SIP/${EXTEN},20)  
@@ -121,7 +121,7 @@ Settings -> EndPointManager -> Global Settings
 
 Mappage d'un IP phone vers une extension
 ====
--> Extension Mapping -> Add Extension
+-> Extension Mapping -> Add Extension (dans le sous menu de Settings->EndPoint Manager)
 -> Extension/Name select l'extension et le compte que l'on veut associer au téléphone.
 -> select le brand du telephone 
 -> entrer sa mac address
@@ -164,9 +164,9 @@ redirection service (zero-touch auto-provisioning)
 ----
 Dans le web GUI on verifie
 * EndPointManagement -> Global Setting 
-* Group Permissions dans User Management -> **groups** tab -> on verifie que le user est bien dans le group "All Users"
-* onglet **Phone Apps** -> Allow Access -> Yes
-* Users -> Edit button verifier que les permission sont sur Inherit from the group.
+* Admin -> USer management -> Onglet Groups -> on verifie que le user est bien dans le group "All Users"
+* Edit -> onglet **Phone Apps** -> Allow Access -> Yes
+* Users -> Edit button -> Onglet General -> verifier que les permission sont sur Inherit from the group.
 
 register le phone
 ----
@@ -181,12 +181,30 @@ The hard way
 ----
 from the GUI of the phone
 login/password : admin/admin
-management -> Auto Provision - upgrade mode - config server path - autoprovision Now click
+Management -> Auto Provision - upgrade mode - config server path - autoprovision Now click
 
 
 Connecter un sangoma phone à freepbx  
 ======
 http://wiki.freepbx.org/display/PHON/Connecting+Sangoma+Phone+to+FreePBX+or+PBXact+Indepth
+
+
+Phone Polycom 
+===
+LOgin / Password :
+
+reset factory : loading software cancel -> hold 1;3;5 keys -> demande un password : 456 et c'est fait
+Users
+===
+Admin -> USer management 
 Fax 
 ===
 voir module User Management 
+
+BLF
+===
+Busy Lamp Field c'est une LED sur un IP phone qui te dit si une autre extension connecté au meme PBX est occupé ou non. 
+
+Modules commerciaux
+=====
+Call recording Reports : http://wiki.freepbx.org/display/FCM/Call+Recording+Reports
