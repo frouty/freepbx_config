@@ -10,6 +10,13 @@ Comment mettre à jour les modules?
 ====
 Admin -> Module Admin
 
+Comment installer en ligne de commande un module 
+====
+fwconsole ma --edge upgrade framework  
+Le plus dur va etre pour trouver le nom du module.
+
+
+
 Amportal commands
 ====
 http://wiki.freepbx.org/display/L1/amportal+commands
@@ -204,10 +211,13 @@ Phone Polycom
 LOgin / Password :
 
 reset factory : loading software cancel -> hold 1;3;5 keys -> demande un password : 456 et c'est fait. Non pas toujours
-Reboot-> 0;1;3 ne marche pas
+Reboot-> 0;1;3 ne marche pas  
 1;5;9 ne marche pas
-===
-Admin -> USer management 
+
+Quels sont les services que l'on peut utiliser pour tester son phone
+====
+Admin -> Feature code
+
 Fax 
 ===
 voir module User Management 
