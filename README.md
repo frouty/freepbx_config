@@ -1,5 +1,13 @@
 # freepx_config
 
+Comment configurer le firewall?
+====
+http://wiki.freepbx.org/display/FPG/Firewall+Command+Line
+
+fwconsole firewall --help 
+
+fwconsole firewall disable  
+puis en GUI recherche -> firewall -> enable --> re-run wizard
 
 Comment mettre à jour l'achat de modules commerciaux
 ====
@@ -218,6 +226,7 @@ Quels sont les services que l'on peut utiliser pour tester son phone
 ====
 Admin -> Feature code
 
+Clock *60
 Fax 
 ===
 voir module User Management 
