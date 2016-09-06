@@ -219,14 +219,20 @@ Phone Polycom
 LOgin / Password :
 
 reset factory : loading software cancel -> hold 1;3;5 keys -> demande un password : 456 et c'est fait. Non pas toujours
+mais avec la mac address à la place de 456 c'est OK
 Reboot-> 0;1;3 ne marche pas  
 1;5;9 ne marche pas
+
+Dans le menu du phone: home - settings - advanced -- provisioning server j'ai rentré l'adresse du server freepbx, j'ai laissé user et login. Et c'est bon.
+
 
 Quels sont les services que l'on peut utiliser pour tester son phone
 ====
 Admin -> Feature code
 
-Clock *60
+Clock *60  
+echo test *43
+
 Fax 
 ===
 voir module User Management 
