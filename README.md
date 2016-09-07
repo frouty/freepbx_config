@@ -171,15 +171,17 @@ Phones Sangoma
 ====
 http://wiki.freepbx.org/display/PHON
 
-Comment trouver l'IP d'un phone sangoma
+Reset factory s500
 ---
-menu -> Status -> information
+Web GUI
+Management -> Upgrade -> reset to factory
 
-Comment rebooter
-----
-Menu button -> * key 3 fois -> down arrow pour 10 s. Le téléphone reboot
+Connecter un sangoma phone à freepbx  
+======
+http://wiki.freepbx.org/display/PHON/Connecting+Sangoma+Phone+to+FreePBX+or+PBXact+Indepth
 
 3 facons de configurer un phone
+---
 
 1  redirection service (zero-touch auto-provisioning)
 2  DHCP option 66
@@ -209,9 +211,21 @@ login/password : admin/admin
 Management -> Auto Provision - upgrade mode - config server path - autoprovision Now click
 
 
-Connecter un sangoma phone à freepbx  
-======
-http://wiki.freepbx.org/display/PHON/Connecting+Sangoma+Phone+to+FreePBX+or+PBXact+Indepth
+Comment trouver l'IP d'un phone sangoma
+---
+menu -> Status -> information
+
+Comment rebooter
+----
+Menu button -> * key 3 fois -> down arrow pour 10 s. Le téléphone reboot
+
+
+provisioning success
+----
+Settings - Endpoint manager - Brands - sangoma - Template - sangoma_default - firmware management
+et provision server Protocole : TFTP 
+
+Et configuration sur le phone de l'adresse tftp://ip_du_freepbx
 
 
 Phone Polycom 
