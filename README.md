@@ -247,6 +247,23 @@ Admin -> Feature code
 Clock *60  
 echo test *43
 
+configuration des FXO
+====
+DADHI
+----
+connectivity - DADHI Config - DADHI write disable disclaimer  [ENABLE]
+Analog Hardware : type : FXO ports Ports : 1.2.3.4
+
+Appeler un autre systeme SIP, un autre systeme analogique par une carte FXO il faut un trunk http://wiki.freepbx.org/display/FPG/Trunks+Module 
+
+Connectivity -> Trunk 
+
+J'ai un dadhi trunk. Mais je n'arrive pas a appeler l'exterieur
+
+Connectivity - Outbound routes : on y définit les regles qui s'appliquent en fonction du numéro composé.  
+Quelques exemples de regles: http://wiki.freepbx.org/display/FPG/Outbound+Routes+Configuration+Examples
+Le module outbound route: http://wiki.freepbx.org/display/FPG/Outbound+Routes+Module
+
 Fax 
 ===
 voir module User Management 
