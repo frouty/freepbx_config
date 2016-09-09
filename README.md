@@ -275,3 +275,11 @@ Busy Lamp Field c'est une LED sur un IP phone qui te dit si une autre extension 
 Modules commerciaux
 =====
 Call recording Reports : http://wiki.freepbx.org/display/FCM/Call+Recording+Reports
+
+Voicemail
+====
+Comment modifier le nombre de sonnerie avant passage sur la voicemail?
+----
+Settings - Advanced settings - Dialplan and operationnal - ringtime default.
+On peut le configurer dans l'extension:
+Applications - Extension - choix de l'extension Edit - [Onglet] Advanced - Extension Options : Ring Time
