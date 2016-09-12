@@ -264,6 +264,8 @@ Connectivity - Outbound routes : on y définit les regles qui s'appliquent en fo
 Quelques exemples de regles: http://wiki.freepbx.org/display/FPG/Outbound+Routes+Configuration+Examples
 Le module outbound route: http://wiki.freepbx.org/display/FPG/Outbound+Routes+Module
 
+Configuration des appels entrants sur le freepbx server
+====
 Fax 
 ===
 voir module User Management 
@@ -275,11 +277,3 @@ Busy Lamp Field c'est une LED sur un IP phone qui te dit si une autre extension 
 Modules commerciaux
 =====
 Call recording Reports : http://wiki.freepbx.org/display/FCM/Call+Recording+Reports
-
-Voicemail
-====
-Comment modifier le nombre de sonnerie avant passage sur la voicemail?
-----
-Settings - Advanced settings - Dialplan and operationnal - ringtime default.
-On peut le configurer dans l'extension:
-Applications - Extension - choix de l'extension Edit - [Onglet] Advanced - Extension Options : Ring Time
