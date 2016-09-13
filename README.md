@@ -264,6 +264,8 @@ Connectivity - Outbound routes : on y définit les regles qui s'appliquent en fo
 Quelques exemples de regles: http://wiki.freepbx.org/display/FPG/Outbound+Routes+Configuration+Examples
 Le module outbound route: http://wiki.freepbx.org/display/FPG/Outbound+Routes+Module
 
+Configuration des appels entrants sur le freepbx server
+====
 Fax 
 ===
 voir module User Management 
