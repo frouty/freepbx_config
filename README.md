@@ -253,6 +253,8 @@ echo test *43
 configuration des FXO
 ====
 
+http://wiki.freepbx.org/display/FPG/DAHDI+Configs  
+
 http://documentation.xivo.io/en/stable/administration/hardware/hardware.html
 
 http://www.voip-info.org/wiki/view/DAHDI
@@ -433,4 +435,9 @@ Call recording Reports : http://wiki.freepbx.org/display/FCM/Call+Recording+Repo
 Quelles sont les applications qui sont supportés par les IP phones. Liste
 =====
 http://wiki.freepbx.org/display/FPG/Phone+Apps-Supported+Devices
+
+
+Echo cancellation troubleshooting
+=====
+http://wiki.freepbx.org/display/PC/Verify+if+Hardware+Echo+Cancellation+is+being+used
 
