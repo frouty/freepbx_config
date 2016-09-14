@@ -257,14 +257,12 @@ http://documentation.xivo.io/en/stable/administration/hardware/hardware.html
 
 http://www.voip-info.org/wiki/view/DAHDI
 
+/proc/dahdi   
+dahdi_hardware  
+asterisk -rvd  
 
-
-/proc/dahdi 
-dahdi_hardware
-asterisk -rvd
-
-The userspace tools to control DAHDI spans/channels:-
-dahdi_cfg
+The userspace tools to control DAHDI spans/channels: 
+dahdi_cfg  
 The DAHDI Configurator, which parses system.conf
 dahdi_genconf
 Generates /etc/dahdi/system.conf, so it's better that you don't hand edit system.conf. Uses /etc/dahdi/genconf_parameters to define it's actions.
