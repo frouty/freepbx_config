@@ -330,35 +330,21 @@ This example will show you a few steps how to get asterisk and two Digium cards 
 
 DAHDI
 ----
-connectivity - DADHI Config - DADHI write disable disclaimer  [ENABLE]
-Analog Hardware : type : FXO ports Ports : 1.2.3.4
+connectivity - DADHI Config - DADHI write disable disclaimer  [ENABLE]  
+Analog Hardware : type : FXO ports Ports : 1.2.3.4  
 
-Appeler un autre systeme SIP, un autre systeme analogique par une carte FXO il faut un trunk http://wiki.freepbx.org/display/FPG/Trunks+Module 
+Appeler un autre systeme SIP, un autre systeme analogique par une carte FXO il faut un trunk:
+http://wiki.freepbx.org/display/FPG/Trunks+Module 
 
 Connectivity -> Trunk 
 
-J'ai un dadhi trunk. Mais je n'arrive pas a appeler l'exterieur
+J'ai un dahdi trunk. Mais je n'arrive pas a appeler l'exterieur
 
 Connectivity - Outbound routes : on y définit les regles qui s'appliquent en fonction du numéro composé.  
-Quelques exemples de regles: http://wiki.freepbx.org/display/FPG/Outbound+Routes+Configuration+Examples
+Quelques exemples de regles: http://wiki.freepbx.org/display/FPG/Outbound+Routes+Configuration+Examples  
 Le module outbound route: http://wiki.freepbx.org/display/FPG/Outbound+Routes+Module
 
-Configuration des appels entrants sur le freepbx server
-====
 
-Fax 
-===
-voir module User Management 
-
-BLF
-===
-Busy Lamp Field c'est une LED sur un IP phone qui te dit si une autre extension connecté au meme PBX est occupé ou non. 
-
-Modules commerciaux
-=====
-Call recording Reports : http://wiki.freepbx.org/display/FCM/Call+Recording+Reports
-
-<<<<<<< HEAD
 Trunk
 ===
 J'ai 4 ports FXO. Comment attrribuer ces ports.
@@ -417,16 +403,34 @@ The DAHDI Channel number to map to a DID. For example, If you have a 4-port card
 
 Connectivity -DAHDI channel DID pour définir un DID par port FXO (1, 2 , 3 , 4). Puis j'utilise ce DID dans la configuration des Connectivity - Inbound Route - Set destination.
 
+
+Configuration des appels entrants sur le freepbx server
+====
+TODO
+
+Fax 
+===
+voir module User Management 
+
+
 On définit la detection de fax dans : applications - extension. Mais cela n'a pas marché. 
 Dans Connectivity -DHADI config - global setting - fax detection --> Yes et on essaye à nouveau
 
-Inbound route - set destination - fax destination user 2 ne marche pas non plus.
+Si je mets dans Connectivity -Inbound Route - set destination - Fax recipient user2 ne marche pas.
 
-Si je mets dans Connectivity -Inbound Route - set destination - Fax recipient user2
-=======
+
+BLF
+===
+Busy Lamp Field c'est une LED sur un IP phone qui te dit si une autre extension connecté au meme PBX est occupé ou non. 
+
+Modules commerciaux
+=====
+Call recording Reports : http://wiki.freepbx.org/display/FCM/Call+Recording+Reports
+
+
 
 
 Quelles sont les applications qui sont supportés par les IP phones. Liste
 =====
 http://wiki.freepbx.org/display/FPG/Phone+Apps-Supported+Devices
->>>>>>> master
+
