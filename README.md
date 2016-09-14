@@ -262,55 +262,52 @@ dahdi_hardware
 asterisk -rvd  
 
 The userspace tools to control DAHDI spans/channels: 
-__dahdi_cfg__ 
-The DAHDI Configurator, which parses system.conf  
-__dahdi_genconf__  
+__dahdi_cfg__  
+The DAHDI Configurator, which parses system.conf: __dahdi_genconf__    
 Generates /etc/dahdi/system.conf, so it's better that you don't hand edit system.conf. Uses /etc/dahdi/genconf_parameters to define it's actions.  
-dahdi_hardware : Displays listing of DAHDI hardware detected  
-dahdi_monitor : Monitors signal level on analog channel allows you to record audio from it
-Usage: dahdi_monitor <channel num> -v -m -o -p -l limit -f FILE -s FILE -r FILE1 -t FILE2 -F FILE -S FILE -R FILE1 -T FILE2
-example :- dahdi_monitor 1 -vv
-note: extremly usefull, but otherwise not mentioned, that the raw format output is 8Khz 16bit signed. Use sox to convert to a wav. sox -r 8000 -s -w rx.raw rx.wav
-dahdi_scan
-Generates a list of things DAHDI channels, with some details
-dahdi_test
-Measures accuracy of the FXO/FXS board software digital signal processing
-dahdi_tool
-A nice tool to see what your boards are doing.
+__dahdi_hardware__ : Displays listing of DAHDI hardware detected  
+dahdi_monitor : Monitors signal level on analog channel allows you to record audio from it  
+Usage: dahdi_monitor <channel num> -v -m -o -p -l limit -f FILE -s FILE -r FILE1 -t FILE2 -F FILE -S FILE -R FILE1 -T FILE2  
+example :- dahdi_monitor 1 -vv  
+note: extremly usefull, but otherwise not mentioned, that the raw format output is 8Khz 16bit signed. Use sox to convert to a wav. sox -r 8000 -s -w rx.raw rx.wav  
+__dahdi_scan__ :Generates a list of things DAHDI channels, with some details  
+__dahdi_test__ : Measures accuracy of the FXO/FXS board software digital signal processing  
+__dahdi_tool__ : A nice tool to see what your boards are doing.  
 
  Sample installation
+ ---
 
 After compiling and installing of dahdi and asterisk, you have to perform some further steps to use your hardware.
 This example will show you a few steps how to get asterisk and two Digium cards enabled:
 
-1.) Detect your hardware
-  # (this will generate /etc/dahdi/system.conf and  /etc/asterisk/dahdi-channels.conf)
- asterisk:~# dahdi_genconf
-2.) Read systm.conf file and configure the kernel
- asterisk:~# dahdi_cfg -v
-3.) Restart dahdi to unload and reload all modules and drivers
-  asterisk:~#  /etc/init.d/dahdi restart
-4.) Point file chan_dahdi.conf to /etc/asterisk/dahdi-channels.conf
+1.) Detect your hardware  
+  # (this will generate /etc/dahdi/system.conf and  /etc/asterisk/dahdi-channels.conf)  
+ asterisk:~# dahdi_genconf  
+2.) Read systm.conf file and configure the kernel  
+ asterisk:~# dahdi_cfg -v  
+3.) Restart dahdi to unload and reload all modules and drivers  
+  asterisk:~#  /etc/init.d/dahdi restart  
+4.) Point file chan_dahdi.conf to /etc/asterisk/dahdi-channels.conf  
 
-  # open chan_dahdi.conf and include it under the section [channels]
-  #
-  # NOTE: You can edit and configure /etc/asterisk/dahdi-channels.conf at any time 
-  # to set up your specific options there.
-  ...
-  [channels]
-  ...
-  #include /etc/asterisk/dahdi-channels.conf
-  ...
-5.) Restart asterisk
-  asterisk:~#  /etc/init.d/asterisk restart
-5.a) Verify your current system status. You should get some output like this:
-  asterisk*CLI> dahdi show status
-  Description                              Alarms     IRQ        bpviol     CRC4      
-  Wildcard TDM410P Board 1                 OK         0          0          0         
-  Wildcard TDM800P Board 2                 OK         0          0          0    
+  # open chan_dahdi.conf and include it under the section [channels]  
+  #  
+  # NOTE: You can edit and configure /etc/asterisk/dahdi-channels.conf at any time   
+  # to set up your specific options there.  
+  ...  
+  [channels]  
+  ...  
+  #include /etc/asterisk/dahdi-channels.conf  
+  ...  
+5.) Restart asterisk  
+  asterisk:~#  /etc/init.d/asterisk restart  
+5.a) Verify your current system status. You should get some output like this:  
+  asterisk*CLI> dahdi show status  
+  Description                              Alarms     IRQ        bpviol     CRC4        
+  Wildcard TDM410P Board 1                 OK         0          0          0           
+  Wildcard TDM800P Board 2                 OK         0          0          0      
 
-5.b) Verify your configured channels
-  asterisk*CLI> dahdi show channels
+5.b) Verify your configured channels  
+  asterisk*CLI> dahdi show channels  
     Chan Extension  Context         Language   MOH Interpret       
   pseudo            default                    default             
        1            from-pstn       de         default             
@@ -331,7 +328,7 @@ This example will show you a few steps how to get asterisk and two Digium cards 
 
 
 
-DADHI
+DAHDI
 ----
 connectivity - DADHI Config - DADHI write disable disclaimer  [ENABLE]
 Analog Hardware : type : FXO ports Ports : 1.2.3.4
