@@ -277,3 +277,31 @@ Busy Lamp Field c'est une LED sur un IP phone qui te dit si une autre extension 
 Modules commerciaux
 =====
 Call recording Reports : http://wiki.freepbx.org/display/FCM/Call+Recording+Reports
+
+Trunk
+===
+J'ai 4 ports FXO. Comment attrribuer ces ports.
+
+Connectivity -> Trunk (tout en bas) Je peux choisir les ports que j'ai déjà configuré dans Connectivity --> DADHI Config en leur donnant des numéro de group.
+
+Je peux dans leur donner un groupe/
+Add a DADHI trunk
+Me demande de configurer l'outbound callerID je ne comprends pas. Ce n'est pas défini dans le premier trunk. TODO
+
+Dans Connectivity - Inbound Route je ne peux pas configurer le port FXO je ne comprends pas pourquoi.
+Dans connectivity - outbound route je peux configurer le port FXO par l'intermediaire du parametre : Trunk Sequence for Matched Routes
+
+Since the PBX routes all inbound calls based on the DID or number dialed, we need to map each analog port or channel to a fake number so we can match that number to an inbound route number and route your calls.
+
+Connectivity - DADHI channel DID - add DADHI DID - channel : g1 (mais je ne suis pas sur) 
+Channel : 
+The DAHDI Channel number to map to a DID. For example, If you have a 4-port card, your channels would be ports 1-4.
+
+Connectivity -DAHDI channel DID pour définir un DID par port FXO (1, 2 , 3 , 4). Puis j'utilise ce DID dans la configuration des Connectivity - Inbound Route - Set destination.
+
+On définit la detection de fax dans : applications - extension. Mais cela n'a pas marché. 
+Dans Connectivity -DHADI config - global setting - fax detection --> Yes et on essaye à nouveau
+
+Inbound route - set destination - fax destination user 2 ne marche pas non plus.
+
+Si je mets dans Connectivity -Inbound Route - set destination - Fax recipient user2
