@@ -262,14 +262,12 @@ dahdi_hardware
 asterisk -rvd  
 
 The userspace tools to control DAHDI spans/channels: 
-dahdi_cfg  
-The DAHDI Configurator, which parses system.conf
-dahdi_genconf
-Generates /etc/dahdi/system.conf, so it's better that you don't hand edit system.conf. Uses /etc/dahdi/genconf_parameters to define it's actions.
-dahdi_hardware
-Displays listing of DAHDI hardware detected
-dahdi_monitor
-Monitors signal level on analog channel allows you to record audio from it
+__dahdi_cfg__ 
+The DAHDI Configurator, which parses system.conf  
+__dahdi_genconf__  
+Generates /etc/dahdi/system.conf, so it's better that you don't hand edit system.conf. Uses /etc/dahdi/genconf_parameters to define it's actions.  
+dahdi_hardware : Displays listing of DAHDI hardware detected  
+dahdi_monitor : Monitors signal level on analog channel allows you to record audio from it
 Usage: dahdi_monitor <channel num> -v -m -o -p -l limit -f FILE -s FILE -r FILE1 -t FILE2 -F FILE -S FILE -R FILE1 -T FILE2
 example :- dahdi_monitor 1 -vv
 note: extremly usefull, but otherwise not mentioned, that the raw format output is 8Khz 16bit signed. Use sox to convert to a wav. sox -r 8000 -s -w rx.raw rx.wav
