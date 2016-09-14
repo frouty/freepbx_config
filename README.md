@@ -177,10 +177,10 @@ Web GUI
 Management -> Upgrade -> reset to factory
 
 Connecter un sangoma phone à freepbx  
-======
+---
 http://wiki.freepbx.org/display/PHON/Connecting+Sangoma+Phone+to+FreePBX+or+PBXact+Indepth
 
-3 facons de configurer un phone
+3 facons de configurer un phone Sangoma
 ---
 
 1  redirection service (zero-touch auto-provisioning)
@@ -211,11 +211,11 @@ login/password : admin/admin
 Management -> Auto Provision - upgrade mode - config server path - autoprovision Now click
 
 
-Comment trouver l'IP d'un phone sangoma
+Comment trouver l'IP d'un phone Sangoma
 ---
 menu -> Status -> information
 
-Comment rebooter
+Comment rebooter un phone Sangoma
 ----
 Menu button -> * key 3 fois -> down arrow pour 10 s. Le téléphone reboot
 
@@ -240,7 +240,7 @@ Reboot-> 0;1;3 ne marche pas
 Dans le menu du phone: home - settings - advanced -- provisioning server j'ai rentré l'adresse du server freepbx, j'ai laissé user et login. Et c'est bon.
 
 
-Quels sont les services que l'on peut utiliser pour tester son phone
+Quels sont les services que l'on peut utiliser pour tester son phone SIP
 ====
 Admin -> Feature code
 
@@ -266,6 +266,7 @@ Le module outbound route: http://wiki.freepbx.org/display/FPG/Outbound+Routes+Mo
 
 Configuration des appels entrants sur le freepbx server
 ====
+
 Fax 
 ===
 voir module User Management 
@@ -282,11 +283,48 @@ Trunk
 ===
 J'ai 4 ports FXO. Comment attrribuer ces ports.
 
-Connectivity -> Trunk (tout en bas) Je peux choisir les ports que j'ai déjà configuré dans Connectivity --> DADHI Config en leur donnant des numéro de group.
+Connectivity -> Trunk (tout en bas) Je peux choisir les ports que j'ai déjà configuré dans Connectivity --> DADHI Config en leur donnant des numéro de group Mais je n'ai pas que le numéro de group comme choix j'ai aussi : analog 1 analog 2 analog 3
 
 Je peux dans leur donner un groupe/
 Add a DADHI trunk
 Me demande de configurer l'outbound callerID je ne comprends pas. Ce n'est pas défini dans le premier trunk. TODO
+
+Création des trunks puis Créations des outbound route qui vont utiliser ces trunks.
+
+Outbound Route
+----
+on définit:
+* le trunk qui va etre utilisé. On peut définir plusieurs trunk. il faut donc définir le trunk avant l'outbound route.
+* le CID 
+* le dial pattern qui va etre utilisé par cette route.
+
+On peut utiliser ce dial pattern pour forcer l'utilisation d'une route. Par example pour forcer l'utilisation de la ligne de fax on peut imaginer de taper 000numeroducorrespondant. Mais comment on fait pour modifier ce dial pattern pour que seul le numéro du correspondant soit envoyé sur l'OPT?
+http://wiki.freepbx.org/display/FPG/Trunk+Sample+Configurations
+
+X   matches any digit from 0-9
+Z   matches any digit from 1-9
+N   matches any digit from 2-9
+[1237-9] matches any digit or letter in the brackets (in this example, 1,2,3,7,8,9)
+.   wildcard, matches one or more characters (not allowed before a | or +)
+
+Exemples 
+----
+
+Dialed Number Manipulation Rules:
+
+(49)+0|Z                           : this will strip the 0 from long distance Germany calls and add insted cuntry code 49
+
+(49711)+|N                         : this will add country code 49 and area code 711 to local calls
+
+()+00|Z                            : this will just strip the double 0 for international calls
+
+(18882472425) + 411 |  empty        : re-routes 411 calls to 1-888-247-2425.
+
+(1212) + empty | XXXXXXX            : adds 1 + 212 to the beginning of any number that is seven digits long
+
+(1) + empty | XXXXXXXXXX            : adds 1 + to the beginning of any ten digit number.  
+
+
 
 Dans Connectivity - Inbound Route je ne peux pas configurer le port FXO je ne comprends pas pourquoi.
 Dans connectivity - outbound route je peux configurer le port FXO par l'intermediaire du parametre : Trunk Sequence for Matched Routes
