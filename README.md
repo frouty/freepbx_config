@@ -441,3 +441,21 @@ Echo cancellation troubleshooting
 =====
 http://wiki.freepbx.org/display/PC/Verify+if+Hardware+Echo+Cancellation+is+being+used
 
+Asterisk
+====
+Logger
+----
+https://wiki.asterisk.org/wiki/display/AST/Collecting+Debug+Information
+
+Comment annuler les log output in CLI asterisk: CLI> __logger mute__
+
+version
+----
+asterisk -r 
+pour CLI> core show version
+
+dahdi
+----
+CLI> core show help dahdi
+CLI> dahdi show channels group <num du group>
+
