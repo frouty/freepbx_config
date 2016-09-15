@@ -369,6 +369,10 @@ match pattern:	Le numéro composé est comparé à prefix + pattern. S'il y a co
 
 CallerID:	Si le callerID est fournie, le numéro composé correspondra au prefix + pattern si le caller ID transmit correspond à ce callerID. When extensions make outbound calls, the CallerID will be their extension number and NOT their Outbound CID. The above special matching sequences can be used for CallerID matching similar to other number matches.
 
+https://wiki.asterisk.org/wiki/display/AST/Pattern+Matching
+
+
+
 Trunk
 ===
 J'ai 4 ports FXO. Comment attrribuer ces ports.
@@ -436,11 +440,29 @@ Fax
 ===
 voir module User Management 
 
+J'ai le module fax pro qui permet d'envoyer des fax. Le module fax gratuit ne permet pas d'envoyer des fax.
 
-On définit la detection de fax dans : applications - extension. Mais cela n'a pas marché. 
-Dans Connectivity -DHADI config - global setting - fax detection --> Yes et on essaye à nouveau
+Fax - Émission de fax
+----
+J'ai une outbound route. Sans configuration particuliere pour les fax.  
+
+Il n'y a pas de parametre de fax dans l'outbound route.  
+
+Dans Admin - User management - onglet Fax pour autoriser le user à utiliser les fax.  
+
+on va dans l'UCP est on fait "send new fax". cela marche.
+
+A noter qu'il ne faut que la vielle machine de fax soit brancher sur la ligne qui envoie le fax.
+
+Fax - Réception de fax
+---
+
+On définit la detection de fax dans : applications - extension. Mais cela n'a pas marché. Je ne trouve pas de parametre de fax dans application - extension
+
+Dans Connectivity -DHADI config - global setting - fax detection --> Yes et on essaye à nouveau.  
 
 Si je mets dans Connectivity -Inbound Route - set destination - Fax recipient user2 ne marche pas.
+Si je mets dans Connectivity - Inbound Route - Fax - Fax destination user2 cela marche mieux car il semble que la machine de fax envoie le fax mais je ne trouve pas le fax dans l'inbox de l'UCP portal.
 
 
 BLF
