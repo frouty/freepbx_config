@@ -346,6 +346,28 @@ Connectivity - Outbound routes : on y définit les regles qui s'appliquent en fo
 Quelques exemples de regles: http://wiki.freepbx.org/display/FPG/Outbound+Routes+Configuration+Examples  
 Le module outbound route: http://wiki.freepbx.org/display/FPG/Outbound+Routes+Module
 
+Outbound route - dial pattern
+------
+
+(prepend) prefix | [pattern]/caller_id  
+
+Un Dial Pattern est un ensemble unique de numéro qui va selectionner cette route et envoyer l'appel au trunk désigné.  
+Si le dial pattern correspond à cette route, aucune autre route ne sera essayée. Si "Time Groups" est actif, les routes suivantes seront essayé pour chercher une correspondance en dehors du temps désigné.  
+Les régles:
+
+X	matches tous les chiffres de 0-9  
+Z	matches tous les chiffres de 1-9  
+N	matches tous les chiffres de 2-9  
+[1237-9]	matches tous les chiffres ou lettres entre crochets. (in this example, 1,2,3,7,8,9)
+.	wildcard, matches un ou plusieurs characteres. 
+
+prepend:	Digits to prepend to a successful match. If the dialed number matches the patterns specified by the subsequent columns, then this will be prepended before sending to the trunks.
+
+prefix:	Prefix sera enlevé sur une correspondance. Le numéro composé est comparé au prefix et à la colonne suivante (le pattern). S'il y a correspondance, le prefix est supprimé du numéro composé avant d'étre envoyé au trunk.
+
+match pattern:	Le numéro composé est comparé à prefix + pattern. S'il y a correspondance la partie "pattern" sera envoyée au trunk. 
+
+CallerID:	Si le callerID est fournie, le numéro composé correspondra au prefix + pattern si le caller ID transmit correspond à ce callerID. When extensions make outbound calls, the CallerID will be their extension number and NOT their Outbound CID. The above special matching sequences can be used for CallerID matching similar to other number matches.
 
 Trunk
 ===
@@ -451,11 +473,14 @@ Comment annuler les log output in CLI asterisk: CLI> __logger mute__
 
 version
 ----
-asterisk -r 
-pour CLI> core show version
+asterisk -r..
+ou  
+CLI> core show version
 
 dahdi
 ----
-CLI> core show help dahdi
-CLI> dahdi show channels group <num du group>
+CLI> core show help dahdi  
+CLI> dahdi show channels group <num du group>  
+
+
 
