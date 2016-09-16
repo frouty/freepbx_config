@@ -461,9 +461,29 @@ On définit la detection de fax dans : applications - extension. Mais cela n'a p
 
 Dans Connectivity -DHADI config - global setting - fax detection --> Yes et on essaye à nouveau.  
 
-Si je mets dans Connectivity -Inbound Route - set destination - Fax recipient user2 ne marche pas.
-Si je mets dans Connectivity - Inbound Route - Fax - Fax destination user2 cela marche mieux car il semble que la machine de fax envoie le fax mais je ne trouve pas le fax dans l'inbox de l'UCP portal.
+Configuration pour recevoir les faxs:
+Connectivity -Inbound Route:
+   - set destination - Fax recipient user2  
+   - Fax - Fax destination user2 
+    mais je ne trouve pas le fax dans l'inbox de l'UCP portal. Le fax est envoyé par mail.
 
+Comment faire pour ne pas recevoir le fax par email mais le retrouver dans l'inbox.
+---
+j'essaie :
+Setting - Fax config - email address (not the outgoing email address) : leave empty  
+Ca ne marche pas. Continue à l'envoyer par email
+
+Setting - Fax config - outgoing email address (and email adress) : leave empty  
+
+Rien à faire j'ai toujours mon fax qui arrive par mail.
+
+email address --> une autre adress mail non je recois toujours francois.oph@gmail.com
+
+Admin - Feature Code admin - Dial system fax c'est quoi?
+---
+http://www.emetrotel.com/tsd/content/dial-system-fax
+
+Mais cela ne me dit pas ce que je peux en faire.
 
 BLF
 ===
