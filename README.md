@@ -465,13 +465,20 @@ Configuration pour recevoir les faxs:
 Connectivity -Inbound Route:
    - set destination - Fax recipient user2  
    - Fax - Fax destination user2 
-    mais je ne trouve pas le fax dans l'inbox de l'UCP portal. Le fax est envoyé par mail.
+=
+
 
 Comment faire pour ne pas recevoir le fax par email mais le retrouver dans l'inbox.
 ---
 j'essaie :
 Setting - Fax config - email address (not the outgoing email address) : leave empty  
 Ca ne marche pas. Continue à l'envoyer par email
+Si les deux champs 
+Setting -Fax config - outgoing email adress : empty.
+Ca ne marche 
+
+user config - fax - email result -never ne marche pas non plus pour ne pas recevoir de fax
+
 
 Setting - Fax config - outgoing email address (and email adress) : leave empty  
 
