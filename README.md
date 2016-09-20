@@ -66,12 +66,14 @@ Comment configurer les notifications par mail
 Admin>System Admin>Notification Settings
 
 
-Creer une extension
-=====
-Application -> Extension -> Quick Extension Create
+
 
 Extension
 ====
+Creer une extension
+---
+Application -> Extension -> Quick Extension Create
+
 **Applications -> Extension**
 
 Normalement chaque IP phone est assigné à une extension. S'il y a plusieurs lines button sur le phone (?) http://wiki.freepbx.org/display/FPG/Extensions+Module
@@ -87,6 +89,9 @@ Extension Module marche avec d'autres modules
   * Advanced Settings Module can be used to enable Device and User Mode. When Device and User Mode is enabled, the Extensions Module will disappear and be replaced with two separate modules called "Devices" and "Users."
 
 * User Management Module. In the User Management Module, a user may have a "primary linked extension." (?)
+
+
+
 
 DADHI extension c'est quoi?
 ---
@@ -225,10 +230,15 @@ Menu button -> * key 3 fois -> down arrow pour 10 s. Le téléphone reboot
 
 provisioning success
 ----
+dans le web GUI freepbx
 Settings - Endpoint manager - Brands - sangoma - Template - sangoma_default - firmware management
 et provision server Protocole : TFTP 
 
-Et configuration sur le phone de l'adresse tftp://ip_du_freepbx
+Et configuration sur le phone de l'adresse tftp://ip_du_freepbx:
+advanced - password : 222222 - autoprovisionning - upgrade mode - tftp
+advanced - password : 222222 - Device reboot
+
+
 
 
 Phone Polycom 
@@ -240,8 +250,16 @@ mais avec la mac address à la place de 456 c'est OK
 Reboot-> 0;1;3 ne marche pas  
 1;5;9 ne marche pas
 
-Dans le menu du phone: home - settings - advanced -- provisioning server j'ai rentré l'adresse du server freepbx, j'ai laissé user et login. Et c'est bon.
+Dans le menu du phone: home - settings - advanced - administration setting - Network Configuration - provisioning server
+Server type : TFTP  
+server address : ip du freepbx   
+server user / server password inchangé.  
+back back back   
+save config  
+back  
+reboot phone  
 
+Settings - endpoint manager - brands - polycom - save rebuild config and update phone : submit n'a pas marché
 
 Quels sont les services que l'on peut utiliser pour tester son phone SIP
 ====
@@ -259,7 +277,7 @@ http://documentation.xivo.io/en/stable/administration/hardware/hardware.html
 
 http://www.voip-info.org/wiki/view/DAHDI
 
-/proc/dahdi   
+cat /proc/dahdi   
 dahdi_hardware  
 asterisk -rvd  
 
@@ -267,7 +285,7 @@ The userspace tools to control DAHDI spans/channels:
 __dahdi_cfg__  
 The DAHDI Configurator, which parses system.conf: __dahdi_genconf__    
 Generates /etc/dahdi/system.conf, so it's better that you don't hand edit system.conf. Uses /etc/dahdi/genconf_parameters to define it's actions.  
-__dahdi_hardware__ : Displays listing of DAHDI hardware detected  
+__dahdi_hardware__ : Displays listing of DAHDI hardware detected. Fournit le nom de la carte et le DAHDI kernel module pour cette carte.
 __dahdi_monitor__ : Monitors signal level on analog channel allows you to record audio from it  
 Usage: dahdi_monitor <channel num> -v -m -o -p -l limit -f FILE -s FILE -r FILE1 -t FILE2 -F FILE -S FILE -R FILE1 -T FILE2  
 example :- dahdi_monitor 1 -vv  
@@ -329,9 +347,27 @@ This example will show you a few steps how to get asterisk and two Digium cards 
 
 
 
-
 DAHDI
 ----
+
+Les fichiers de configurations:
+----
+
+etc/dahdi/system.conf  
+un span est créé pour chaque card port
+
+/etc/asterisk/chan_dahdi.conf __
+contient les paramètres généraux du DAHDI channel.
+
+/etc/asterisk/dahdi_channels.conf
+contient les parametres de chaque channel.
+
+Debug
+----
+
+cat /proc/dahdi/<span number>  
+
+
 connectivity - DADHI Config - DADHI write disable disclaimer  [ENABLE]  
 Analog Hardware : type : FXO ports Ports : 1.2.3.4  
 
@@ -345,6 +381,8 @@ J'ai un dahdi trunk. Mais je n'arrive pas a appeler l'exterieur
 Connectivity - Outbound routes : on y définit les regles qui s'appliquent en fonction du numéro composé.  
 Quelques exemples de regles: http://wiki.freepbx.org/display/FPG/Outbound+Routes+Configuration+Examples  
 Le module outbound route: http://wiki.freepbx.org/display/FPG/Outbound+Routes+Module
+
+
 
 Outbound route - dial pattern
 ------
@@ -531,5 +569,8 @@ dahdi
 CLI> core show help dahdi  
 CLI> dahdi show channels group <num du group>  
 
+pourquoi mes ip phone n'obtiennent pas d'adress IP?
+====
+Je ne les vois dans openwrt. malgré plusieurs boot.
 
 
