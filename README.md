@@ -245,7 +245,15 @@ mais avec la mac address à la place de 456 c'est OK
 Reboot-> 0;1;3 ne marche pas  
 1;5;9 ne marche pas
 
-Dans le menu du phone: home - settings - advanced -- provisioning server j'ai rentré l'adresse du server freepbx, j'ai laissé user et login. Et c'est bon.
+Dans le menu du phone: home - settings - advanced - administration setting - Network Configuration - provisioning server
+Server type : TFTP
+server address : ip du freepbx 
+server user / server password inchangé.
+back back back 
+save config
+back
+reboot phone
+
 
 
 Quels sont les services que l'on peut utiliser pour tester son phone SIP
