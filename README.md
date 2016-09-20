@@ -503,7 +503,9 @@ Configuration pour recevoir les faxs:
 Connectivity -Inbound Route:
    - set destination - Fax recipient user2  
    - Fax - Fax destination user2 
-=
+
+Pas de configuration des ports fxo dans les inbound route. Il faut travailler avec le DID. A faire. pour voir si cela marche.
+
 
 
 Comment faire pour ne pas recevoir le fax par email mais le retrouver dans l'inbox.
@@ -573,4 +575,16 @@ pourquoi mes ip phone n'obtiennent pas d'adress IP?
 ====
 Je ne les vois dans openwrt. malgré plusieurs boot.
 
-
+Troubleshooting
+=====
+Le system a perdu son adress ip. Le fait de brancher débrancher le cable rj45 ne regle pas le probleme.
+Je reboot. Mais comme il n'a pas d'adress ip pas moyen d'utiliser ssh.
+Donc je travaille en mode console avec un écran sur le port VGA. 
+A noter un temps tres long pour booter avec uniquement un curseur qui clignote.
+ensuite attention clavier qwerty. 
+password root sangoma
+nano /etc/syslog/keyboard 
+change us pour fr. 
+reboot.
+et là on a le clavier en azerty.
+Ce probleme d'ip c'est réglé quand j'ai branché port eth0 sur le router wrt54gl
