@@ -230,10 +230,15 @@ Menu button -> * key 3 fois -> down arrow pour 10 s. Le téléphone reboot
 
 provisioning success
 ----
+dans le web GUI freepbx
 Settings - Endpoint manager - Brands - sangoma - Template - sangoma_default - firmware management
 et provision server Protocole : TFTP 
 
-Et configuration sur le phone de l'adresse tftp://ip_du_freepbx
+Et configuration sur le phone de l'adresse tftp://ip_du_freepbx:
+advanced - password : 222222 - autoprovisionning - upgrade mode - tftp
+advanced - password : 222222 - Device reboot
+
+
 
 
 Phone Polycom 
@@ -246,15 +251,15 @@ Reboot-> 0;1;3 ne marche pas
 1;5;9 ne marche pas
 
 Dans le menu du phone: home - settings - advanced - administration setting - Network Configuration - provisioning server
-Server type : TFTP
-server address : ip du freepbx 
-server user / server password inchangé.
-back back back 
-save config
-back
-reboot phone
+Server type : TFTP  
+server address : ip du freepbx   
+server user / server password inchangé.  
+back back back   
+save config  
+back  
+reboot phone  
 
-
+Settings - endpoint manager - brands - polycom - save rebuild config and update phone : submit n'a pas marché
 
 Quels sont les services que l'on peut utiliser pour tester son phone SIP
 ====
@@ -537,5 +542,8 @@ dahdi
 CLI> core show help dahdi  
 CLI> dahdi show channels group <num du group>  
 
+pourquoi mes ip phone n'obtiennent pas d'adress IP?
+====
+Je ne les vois dans openwrt. malgré plusieurs boot.
 
 
