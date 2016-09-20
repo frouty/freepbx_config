@@ -532,4 +532,16 @@ CLI> core show help dahdi
 CLI> dahdi show channels group <num du group>  
 
 
-
+Troubleshooting
+=====
+Le system a perdu son adress ip. Le fait de brancher débrancher le cable rj45 ne regle pas le probleme.
+Je reboot. Mais comme il n'a pas d'adress ip pas moyen d'utiliser ssh.
+Donc je travaille en mode console avec un écran sur le port VGA. 
+A noter un temps tres long pour booter avec uniquement un curseur qui clignote.
+ensuite attention clavier qwerty. 
+password root sangoma
+nano /etc/syslog/keyboard 
+change us pour fr. 
+reboot.
+et là on a le clavier en azerty.
+Ce probleme d'ip c'est réglé quand j'ai branché port eth0 sur le router wrt54gl
