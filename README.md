@@ -465,7 +465,9 @@ Configuration pour recevoir les faxs:
 Connectivity -Inbound Route:
    - set destination - Fax recipient user2  
    - Fax - Fax destination user2 
-=
+
+Pas de configuration des ports fxo dans les inbound route. Il faut travailler avec le DID. A faire. pour voir si cela marche.
+
 
 
 Comment faire pour ne pas recevoir le fax par email mais le retrouver dans l'inbox.
