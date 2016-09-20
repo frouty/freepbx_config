@@ -2,6 +2,19 @@
 
 http://kb.digium.com/
 
+Architecture réseau  
+===
+freepbx sur cisco
+phone ip sur cisco
+cisco sur wrt54GL 
+
+
+                                       PC
+                                       |
+freepbx ------ Cisco switch ----- Wrt54Gl ---- Internet
+                 |     |             | 
+                 |     phone IP     PC
+                 phone ip
 
 Comment configurer le firewall?
 ====
