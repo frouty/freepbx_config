@@ -452,10 +452,11 @@ Trunk
 ===
 J'ai 4 ports FXO. Comment attrribuer ces ports.
 
-
 Connectivity -> Trunk (tout en bas) Je peux choisir les ports que j'ai déjà configuré dans Connectivity --> DADHI Config en leur donnant des numéro de group Mais je n'ai pas que le numéro de group comme choix j'ai aussi : analog 1 analog 2 analog 3
 
 Je ne vois pas de lien avec les inbound route.
+
+Connectivity -  Trunk - Asterisk Trunk Dial Options : C'est quoi?  
 
 Je peux lier un trunk à un ou plusieurs ports FXO : Connectivity - Trunks - tab DAHDI Settingd -  DADHI Trunks
 Je peux dans leur donner un groupe/
@@ -647,3 +648,120 @@ Inbound route DID : 281608
 Tout cela ne marche pas. Je modifie mon trunks - dahdi settings - dahdi trunk pour qu'il soit liés à un dahdi group ou channel ce qui correspond à un fxo port donc à une pstn line. Je refais pareil une seule ligne une seule inbound route.
 Si inbound route DID: 281600 the number you have dialed is not in service si DID : ANY c'est OK
 
+Voici le log de cette affaire.
+
+[2016-09-23 16:43:01] VERBOSE[11591][C-0000000c] sig_analog.c: -- Starting simple switch on 'DAHDI/3-1'
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-analog:1] NoOp("DAHDI/3-1", "Entering from-dahdi with DID == ") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-analog:2] Ringing("DAHDI/3-1", "") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-analog:3] Set("DAHDI/3-1", "DID=s") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-analog:4] NoOp("DAHDI/3-1", "DID is now s") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-analog:5] GotoIf("DAHDI/3-1", "1?dahdiok:checkzap") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Goto (from-analog,s,9)
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-analog:9] NoOp("DAHDI/3-1", "Is a DAHDi Channel") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-analog:10] Set("DAHDI/3-1", "CHAN=3-1") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-analog:11] Set("DAHDI/3-1", "CHAN=3") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-analog:12] Macro("DAHDI/3-1", "from-dahdi-3,s,1") in new stack
+[2016-09-23 16:43:02] WARNING[11591][C-0000000c] app_macro.c: No such context 'macro-from-dahdi-3' for macro 'from-dahdi-3'. Was called by s@from-analog
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-analog:13] NoOp("DAHDI/3-1", "Returned from Macro from-dahdi-3") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-analog:14] Goto("DAHDI/3-1", "from-pstn,s,1") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Goto (from-pstn,s,1)
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-pstn:1] Set("DAHDI/3-1", "__DIRECTION=INBOUND") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-pstn:2] Gosub("DAHDI/3-1", "sub-record-check,s,1(in,s,force)") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@sub-record-check:1] GotoIf("DAHDI/3-1", "0?initialized") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@sub-record-check:2] Set("DAHDI/3-1", "__REC_STATUS=INITIALIZED") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@sub-record-check:3] Set("DAHDI/3-1", "NOW=1474609382") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@sub-record-check:4] Set("DAHDI/3-1", "__DAY=23") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@sub-record-check:5] Set("DAHDI/3-1", "__MONTH=09") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@sub-record-check:6] Set("DAHDI/3-1", "__YEAR=2016") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@sub-record-check:7] Set("DAHDI/3-1", "__TIMESTR=20160923-164302") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@sub-record-check:8] Set("DAHDI/3-1", "__FROMEXTEN=unknown") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@sub-record-check:9] Set("DAHDI/3-1", "__MON_FMT=wav") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@sub-record-check:10] NoOp("DAHDI/3-1", "Recordings initialized") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@sub-record-check:11] ExecIf("DAHDI/3-1", "0?Set(ARG3=dontcare)") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@sub-record-check:12] Set("DAHDI/3-1", "REC_POLICY_MODE_SAVE=") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@sub-record-check:13] ExecIf("DAHDI/3-1", "0?Set(REC_STATUS=NO)") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@sub-record-check:14] GotoIf("DAHDI/3-1", "2?checkaction") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Goto (sub-record-check,s,17)
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@sub-record-check:17] GotoIf("DAHDI/3-1", "1?sub-record-check,in,1") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Goto (sub-record-check,in,1)
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [in@sub-record-check:1] NoOp("DAHDI/3-1", "Inbound Recording Check to s") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [in@sub-record-check:2] Set("DAHDI/3-1", "FROMEXTEN=unknown") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [in@sub-record-check:3] ExecIf("DAHDI/3-1", "6?Set(FROMEXTEN=784112)") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [in@sub-record-check:4] Gosub("DAHDI/3-1", "recordcheck,1(force,in,s)") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [recordcheck@sub-record-check:1] NoOp("DAHDI/3-1", "Starting recording check against force") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [recordcheck@sub-record-check:2] Goto("DAHDI/3-1", "force") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Goto (sub-record-check,recordcheck,5)
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [recordcheck@sub-record-check:5] Set("DAHDI/3-1", "__REC_POLICY_MODE=FORCE") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [recordcheck@sub-record-check:6] GotoIf("DAHDI/3-1", "1?startrec") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Goto (sub-record-check,recordcheck,16)
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [recordcheck@sub-record-check:16] NoOp("DAHDI/3-1", "Starting recording: in, s") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [recordcheck@sub-record-check:17] Set("DAHDI/3-1", "AUDIOHOOK_INHERIT(MixMonitor)=yes") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [recordcheck@sub-record-check:18] Set("DAHDI/3-1", "__CALLFILENAME=in-s-784112-20160923-164302-1474609381.12") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [recordcheck@sub-record-check:19] MixMonitor("DAHDI/3-1", "2016/09/23/in-s-784112-20160923-164302-1474609381.12.wav,ai(LOCAL_MIXMON_ID),") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [recordcheck@sub-record-check:20] Set("DAHDI/3-1", "__MIXMON_ID=0x7fa720003b10") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [recordcheck@sub-record-check:21] Set("DAHDI/3-1", "__RECORD_ID=DAHDI/3-1") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [recordcheck@sub-record-check:22] Set("DAHDI/3-1", "__REC_STATUS=RECORDING") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [recordcheck@sub-record-check:23] Set("DAHDI/3-1", "CDR(recordingfile)=in-s-784112-20160923-164302-1474609381.12.wav") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [recordcheck@sub-record-check:24] Return("DAHDI/3-1", "") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [in@sub-record-check:5] Return("DAHDI/3-1", "") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-pstn:3] Gosub("DAHDI/3-1", "app-blacklist-check,s,1()") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@app-blacklist-check:1] GotoIf("DAHDI/3-1", "0?blacklisted") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@app-blacklist-check:2] Set("DAHDI/3-1", "CALLED_BLACKLIST=1") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@app-blacklist-check:3] Return("DAHDI/3-1", "") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-pstn:4] ExecIf("DAHDI/3-1", "1?Set(__FROM_DID=s)") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-pstn:5] Set("DAHDI/3-1", "CDR(did)=s") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-pstn:6] ExecIf("DAHDI/3-1", "1 ?Set(CALLERID(name)=784112)") in new stack
+[2016-09-23 16:43:02] VERBOSE[11607][C-0000000c] app_mixmonitor.c: == Begin MixMonitor Recording DAHDI/3-1
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-pstn:7] Set("DAHDI/3-1", "__MOHCLASS=") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-pstn:8] Set("DAHDI/3-1", "__REVERSAL_REJECT=FALSE") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-pstn:9] GotoIf("DAHDI/3-1", "1?post-reverse-charge") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Goto (from-pstn,s,11)
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-pstn:11] NoOp("DAHDI/3-1", "") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-pstn:12] Set("DAHDI/3-1", "__CALLINGNAMEPRES_SV=allowed_not_screened") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-pstn:13] Set("DAHDI/3-1", "__CALLINGNUMPRES_SV=allowed_not_screened") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-pstn:14] Set("DAHDI/3-1", "CALLERID(name-pres)=allowed_not_screened") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-pstn:15] Set("DAHDI/3-1", "CALLERID(num-pres)=allowed_not_screened") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-pstn:16] NoOp("DAHDI/3-1", "CallerID Entry Point") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-pstn:17] Goto("DAHDI/3-1", "ext-fax,7,1") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Goto (ext-fax,7,1)
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [7@ext-fax:1] Set("DAHDI/3-1", "FAX_FOR=user2 (7)") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [7@ext-fax:2] NoOp("DAHDI/3-1", "Receiving Fax for: user2 (7), From: "784112" <784112>") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [7@ext-fax:3] Set("DAHDI/3-1", "FAX_RX_USER=7") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [7@ext-fax:4] Set("DAHDI/3-1", "FAX_RX_EMAIL_LEN=22") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [7@ext-fax:5] ExecIf("DAHDI/3-1", "1?Set(ARIUSER=7)") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [7@ext-fax:6] ExecIf("DAHDI/3-1", "1?AGI(fax.agi)") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] res_agi.c: -- Launched AGI Script /var/lib/asterisk/agi-bin/fax.agi
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] res_agi.c: -- <DAHDI/3-1>AGI Script fax.agi completed, returning 0
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [7@ext-fax:7] Goto("DAHDI/3-1", "s,receivefax") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Goto (ext-fax,s,3)
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@ext-fax:3] StopPlayTones("DAHDI/3-1", "") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@ext-fax:4] ReceiveFAX("DAHDI/3-1", "/var/spool/asterisk/fax/1474609381.12.tif,f") in new stack
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] res_fax.c: -- Channel 'DAHDI/3-1' receiving FAX '/var/spool/asterisk/fax/1474609381.12.tif'
+[2016-09-23 16:43:24] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@ext-fax:5] ExecIf("DAHDI/3-1", "1?Set(FAXSTATUS="FAILED: error: Disconnected after permitted retries statusstr: Disconnected after permitted retries")") in new stack
+[2016-09-23 16:43:24] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@ext-fax:6] Hangup("DAHDI/3-1", "") in new stack
+[2016-09-23 16:43:24] VERBOSE[11591][C-0000000c] pbx.c: == Spawn extension (ext-fax, s, 6) exited non-zero on 'DAHDI/3-1'
+[2016-09-23 16:43:24] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [h@ext-fax:1] GotoIf("DAHDI/3-1", "1?failed") in new stack
+[2016-09-23 16:43:24] VERBOSE[11591][C-0000000c] pbx.c: -- Goto (ext-fax,h,104)
+[2016-09-23 16:43:24] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [h@ext-fax:104] NoOp("DAHDI/3-1", "FAX "FAILED: error: Disconnected after permitted retries statusstr: Disconnected after permitted retries" for: user2 (7) , From: "784112" <784112>") in new stack
+[2016-09-23 16:43:24] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [h@ext-fax:105] Macro("DAHDI/3-1", "hangupcall,") in new stack
+[2016-09-23 16:43:24] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@macro-hangupcall:1] ExecIf("DAHDI/3-1", "0?Set(CDR(recordingfile)=in-s-784112-20160923-164302-1474609381.12.wav)") in new stack
+[2016-09-23 16:43:24] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@macro-hangupcall:2] GotoIf("DAHDI/3-1", "1?theend") in new stack
+[2016-09-23 16:43:24] VERBOSE[11591][C-0000000c] pbx.c: -- Goto (macro-hangupcall,s,4)
+[2016-09-23 16:43:24] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@macro-hangupcall:4] ExecIf("DAHDI/3-1", "0?Set(CDR(recordingfile)=)") in new stack
+[2016-09-23 16:43:24] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@macro-hangupcall:5] Hangup("DAHDI/3-1", "") in new stack
+[2016-09-23 16:43:24] VERBOSE[11591][C-0000000c] app_macro.c: == Spawn extension (macro-hangupcall, s, 5) exited non-zero on 'DAHDI/3-1' in macro 'hangupcall'
+[2016-09-23 16:43:24] VERBOSE[11591][C-0000000c] pbx.c: == Spawn extension (ext-fax, h, 105) exited non-zero on 'DAHDI/3-1'
+[2016-09-23 16:43:24] VERBOSE[11591][C-0000000c] sig_analog.c: -- Hanging up on 'DAHDI/3-1'
+[2016-09-23 16:43:24] VERBOSE[11591][C-0000000c] chan_dahdi.c: -- Hungup 'DAHDI/3-1'
+[2016-09-23 16:43:24] VERBOSE[11607][C-0000000c] app_mixmonitor.c: == MixMonitor close filestream (mixed)
+[2016-09-23 16:43:24] VERBOSE[11607][C-0000000c] app_mixmonitor.c: == End MixMonitor Recording DAHDI/3-1
+
+http://wiki.freepbx.org/display/FPG/DAHDI+(Analog)+Channel+DIDs  
+What is the DAHDI Channel DIDs module used for?
+The DAHDI Channel DIDs module allows you to assign a DID or phone number to specific analog channels.
+Unlike SIP or PRI trunks, analog lines do not send a DID or dialed number to the PBX. Since the PBX routes all inbound calls based on the DID or number dialed, we need to map each analog port or channel to a fake number so we can match that number to an Inbound Route number and route your calls.
+Each channel can be mapped to the same phone number if you want all calls on the analog lines to go to the same destination. This would be a common scenario if you have multiple POTS lines that are on a hunt group from your provider.
+You MUST assign the channel's context to from-analog for these settings to have effect. It will be a line that looks like: context = from-analog in your chan_dahdi.conf configuration affecting the specified channel(s). Once you have assigned DIDs, you can use standard Inbound Routes with the specified DIDs to route your calls.
+
+Channel
+The DAHDI Channel number to map to a DID. For example, If you have a 4-port card, your channels would be ports 1-4.
