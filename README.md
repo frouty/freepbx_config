@@ -198,7 +198,7 @@ Comment savoir un téléphone SIP a été enregistré dans le serveur
 Son numéro d'appel s'affiche sur l'écran.
 
 
-Inbounc route
+Inbound route
 ====
 When a call comes into your system from the outside, it will usually arrive along with information about the telephone number that was dialed (also known as the "DID") and the Caller ID of the person who called.
 The Inbound Routes module is the mechanism used to tell your PBX where to route inbound calls based on the phone number or DID dialed
@@ -211,6 +211,9 @@ CID (Caller ID) Number
 ====
 Routing calls based on the caller ID : numero composé par l'appelant. Leave this field blank to match any or no CID info. In addition to standard dial sequences, you can also put “Private,” “Blocked,” “Unknown,” “Restricted,” “Anonymous” or “Unavailable” in order to catch these special cases if the telco transmits them.
 
+IP Phones
+====
+https://supportforums.cisco.com/document/113336/ip-phone-registration-issues
 
 Phones Sangoma
 ====
