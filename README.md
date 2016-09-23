@@ -452,8 +452,12 @@ Trunk
 ===
 J'ai 4 ports FXO. Comment attrribuer ces ports.
 
+
 Connectivity -> Trunk (tout en bas) Je peux choisir les ports que j'ai déjà configuré dans Connectivity --> DADHI Config en leur donnant des numéro de group Mais je n'ai pas que le numéro de group comme choix j'ai aussi : analog 1 analog 2 analog 3
 
+Je ne vois pas de lien avec les inbound route.
+
+Je peux lier un trunk à un ou plusieurs ports FXO : Connectivity - Trunks - tab DAHDI Settingd -  DADHI Trunks
 Je peux dans leur donner un groupe/
 Add a DADHI trunk
 Me demande de configurer l'outbound callerID je ne comprends pas. Ce n'est pas défini dans le premier trunk. TODO
@@ -639,4 +643,7 @@ J'enleve cette inbound route et je modifie la premiere.
 Inbound route did : any / set destination : fax recipient et Fax - detect fax : No (c'est l'aide qui me dit si fax exclusif mettre à No). Avec cette configuration j'entend une courte sonnerie sur Sip phone et puis la tonalité fax.  
 On essaie le DID  
 Inbound route DID : 281608
+
+Tout cela ne marche pas. Je modifie mon trunks - dahdi settings - dahdi trunk pour qu'il soit liés à un dahdi group ou channel ce qui correspond à un fxo port donc à une pstn line. Je refais pareil une seule ligne une seule inbound route.
+Si inbound route DID: 281600 the number you have dialed is not in service si DID : ANY c'est OK
 
