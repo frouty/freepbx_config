@@ -39,7 +39,19 @@ Comment installer en ligne de commande un module
 fwconsole ma --edge upgrade framework  
 Le plus dur va etre pour trouver le nom du module.
 
+Asterisk
+====
+CLI
+---
+on peut utiliser les commandes CLI dans le web GUI.
+On peut les utiliser apres un ssh root@freepbxIP
 
+Si on fait un CLI> core stop now.
+Mais là on ne peut plus se reconnecter à asterisk. 
+
+Faire un ssh puis 
+fwconsole stop
+fwconsole restart
 
 Amportal commands
 ====
@@ -613,3 +625,12 @@ change us pour fr.
 reboot.
 et là on a le clavier en azerty.
 Ce probleme d'ip c'est réglé quand j'ai branché port eth0 sur le router wrt54gl
+
+
+probleme
+====
+1 Ligne PSTN branchée - Inbound route DID any fax recipient. je recois les faxs. On a une tonalité fax 
+Pas moyen de paramétrer le DID. Si je mets le numero de la ligne me dit que le "number you have dialed is not on service"  
+
+Je branche la deuxieme ligne et là si j'appelle la deuxieme ligne j'ai aussi la tonalité fax. C'est normale je n'ai qu'une seule inbound route celle qui meme au fax. 
+Je branche la deuxieme ligne 
