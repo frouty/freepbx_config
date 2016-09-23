@@ -633,4 +633,10 @@ probleme
 Pas moyen de paramétrer le DID. Si je mets le numero de la ligne me dit que le "number you have dialed is not on service"  
 
 Je branche la deuxieme ligne et là si j'appelle la deuxieme ligne j'ai aussi la tonalité fax. C'est normale je n'ai qu'une seule inbound route celle qui meme au fax. 
-Je branche la deuxieme ligne 
+Je fais une deuxieme inbound route DID : 28 16 00 Fax no detection pareil tonalité de fax.
+
+J'enleve cette inbound route et je modifie la premiere. 
+Inbound route did : any / set destination : fax recipient et Fax - detect fax : No (c'est l'aide qui me dit si fax exclusif mettre à No). Avec cette configuration j'entend une courte sonnerie sur Sip phone et puis la tonalité fax.  
+On essaie le DID  
+Inbound route DID : 281608
+
