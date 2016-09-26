@@ -81,6 +81,14 @@ Liste de commande
     * enableall|en active UCP login pour tous les USER MANAGER: **amportal a ucp enableall**
     * unlock|u unlock session in UCP: **amportal a ucp u**
 
+fwconsole
+=====
+amportal commands : deprecated
+
+Utiliser plutot : __fwconsole__
+
+http://wiki.freepbx.org/pages/viewpage.action?pageId=37912685
+
 Comment configurer son serveur de mail
 ====
 todo
