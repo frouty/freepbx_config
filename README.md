@@ -624,12 +624,17 @@ dahdi
 CLI> core show help dahdi  
 CLI> dahdi show channels group <num du group>  
 
-pourquoi mes ip phone n'obtiennent pas d'adress IP?
+
+mes ip phone n'obtiennent pas d'adress IP?
 ====
 Je ne les vois dans openwrt. malgré plusieurs boot.
 Mon architecture réseau n'était pas bonne.  
 Server Freepbx + IP phone sur le switch Cisco et switch Cisco sur router wrt54GL.
 
+server freepbx n'obtient pas d'adresse IP
+===
+Le serveur freepbx apres avoir débrancher le cable rj45 n'obtient pas l'adress IP.  
+reboot est-il la seule solution?
 Troubleshooting
 =====
 Le system a perdu son adress ip. Le fait de brancher débrancher le cable rj45 ne regle pas le probleme.
