@@ -713,12 +713,12 @@ Announcements : jouait pour les agents et les membres
 Login de l'agent
 ---
 Toutes les queues:  
-\*45 log in /log out  dans toutes les queues dans lesquels l'agent est un membre dynamic.  
+*\*45* log in /log out  dans toutes les queues dans lesquels l'agent est un membre dynamic.  
 Une seule queue:  
-\*45xxx log in / log out d'une queue spécifique s'il est dynamic  
+*\*45xxx* log in / log out d'une queue spécifique s'il est dynamic  
 Autre méthode:  
-123\* : log in  
-123\*\*: log out si agent dynamique.  
+*123\** : log in  
+*123\*\**: log out si agent dynamique.  
 
 Configuration
 ====
@@ -730,7 +730,7 @@ Queue name : un petit nom pour aider à l'identifier.
 
 Queue password : optionnel. C'est un control d'accés.
 
-Generate device hints: format : *45devicenumber(en général le meme que l'extension)*numeroqueue  
+Generate device hints: format : \*45devicenumber(en général le meme que l'extension)\*numeroqueue  
 
 Call confirm  si YES rien compris  
 
@@ -746,7 +746,31 @@ Restrict Dynamic agents : Si YES seuls les agents dynamic listés dans l'onglet 
 
 Agent restrictions : rien  compris
 
-Ring strategy
+Ring strategy:  
+- ringall toutes les agents sonnent jusqu'a ce qu'un réponde.  
+- leastrecent : sonne l'agent qui a été appelé il y a le plus longtemps  
+-fewestcall: le moins d'appel terminé dans cette queue  
+-random : aléatoire  
+-rrmemory : Round robin avec mémoire. (se souvient de l'endroit quitté lors du dernier passage)  
+-linear : sonne dans un ordre spécifié. Pour les agents dynamic dans l'ordre de log.  
+-wrandom : au hasard avec la penalité comme facteur.  
+
+Autofill si YES lance tous les appels sur les agents. si NO le PBX garde la ligne jusqu'à ce qu'un agent réponde à l'appel le plus haut dans la liste.  
+
+Skip Busy Agent:  
+- No tous les agents sont appelés meme si leur téléphone est occupé.  
+- Yes + pas compris  
+-Queue Calls Only :pas compris.  
+ 
+ Queue Weight: priority level. Plus le chiffre est élévé plus c'est prioritaire. Default=0
+
+Music on Hold Class : musique jouait à l'appelant quand il attend pour un agent disponible.
+-inherit ce qui est en cours
+-MoH only joue la music jusqu'a ce que l'agent décroche
+-agent Ringing : joue de la musique puis sonne si l'appel est présenté à un agent et retourne à la musique si l'agent ne répond pas.
+-Ring Only
+
+
 
 Comment enregistrer des annonces
 ====
