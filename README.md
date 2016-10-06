@@ -696,3 +696,17 @@ Comment faire pour qu'une ligne pstn soit affectée à une certaine inbound rout
 Connectivity - DAHDI Channel DIDs :
 On configure le DID pour les ports FXO donc les lignes PSTN
 Puis dans Inbound Route on utilise ce DID.
+
+Queue
+===
+Utile qd plus d'appel entrant que de personne pour répondre.  
+Un appel entrant mis dans une queue va ententre une annonce qui peut etre de la musique jusqu'a ce que quelqu'un prenne l'appel.  
+Vocabulaire
+---
+Caller: l'appelant placé dans la queue  
+Agent: Membre qui répond aux appels de la queue (peut etre un user ou une extension)
+Agent static : l'agent est tjs dans la queue et ne peut log out
+Agent dynamic : l'agent peut se loguer ou se déloguer de la queue
+MoH: annonce sonore diffusé à l'appelant dans la queue.
+Announcements : jouait pour les agents et les membres
+
