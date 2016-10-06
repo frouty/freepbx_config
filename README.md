@@ -681,5 +681,5 @@ The DAHDI Channel number to map to a DID. For example, If you have a 4-port card
 Comment faire pour qu'une ligne pstn soit affectée à une certaine inbound route?
 ====
 Connectivity - DAHDI Channel DIDs :
-On configure le DID pour les ports FXO donc les lignes PSTN
+On configure le DID pour les ports FXO donc les lignes PSTN  
 Puis dans Inbound Route on utilise ce DID.
