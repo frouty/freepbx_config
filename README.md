@@ -699,7 +699,7 @@ Puis dans Inbound Route on utilise ce DID.
 
 Queue
 ===
-Utile qd plus d'appel entrant que de personne pour répondre.  
+Utile qd plus d'appels entrants que de personnes pour répondre.  
 Un appel entrant mis dans une queue va ententre une annonce qui peut etre de la musique jusqu'a ce que quelqu'un prenne l'appel.  
 Vocabulaire
 ---
@@ -713,12 +713,12 @@ Announcements : jouait pour les agents et les membres
 Login de l'agent
 ---
 Toutes les queues:  
-*45 log in /log out  dans toutes les queues dans lesquels l'agent est un membre dynamic.  
-Une seule queue:
-*45xxx log in / log out d'une queue spécifique s'il est dynamic
-Autre méthode:
-123* : log in
-123**: log out si agent dynamique.
+\*45 log in /log out  dans toutes les queues dans lesquels l'agent est un membre dynamic.  
+Une seule queue:  
+\*45xxx log in / log out d'une queue spécifique s'il est dynamic  
+Autre méthode:  
+123\* : log in  
+123\*\*: log out si agent dynamique.  
 
 Configuration
 ====
@@ -734,12 +734,19 @@ Generate device hints: format : *45devicenumber(en général le meme que l'exten
 
 Call confirm  si YES rien compris  
 
-Call Confirm Annouce : Annonce jouait aux agents  annoncant un appel dans la queue
+Call Confirm Annouce : Annonce jouait aux agents  annoncant un appel dans la queue  
 
-CID name prefix : prefix qui sera mis avant le caller ID et afficher sur l'IP phone.
+CID name prefix : prefix qui sera mis avant le caller ID et afficher sur l'IP phone.  
 
-Wait time prefix: YES affiche le temps total d'attente dans la queue comme cela l'agent sait combien de temps l'appelant  a attendu.
+Wait time prefix: YES affiche le temps total d'attente dans la queue comme cela l'agent sait combien de temps l'appelant  a attendu.  
 
+Alert info : optionnal. Sonnerie distincte sur les IP phone.  
+
+Restrict Dynamic agents : Si YES seuls les agents dynamic listés dans l'onglet "queue agent" pourront se logguer. Aucun autre agent ne pourra se logguer en temps que membre dynamic.
+
+Agent restrictions : rien  compris
+
+Ring strategy
 
 Comment enregistrer des annonces
 ====
