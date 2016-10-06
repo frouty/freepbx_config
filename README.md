@@ -81,6 +81,14 @@ Liste de commande
     * enableall|en active UCP login pour tous les USER MANAGER: **amportal a ucp enableall**
     * unlock|u unlock session in UCP: **amportal a ucp u**
 
+fwconsole
+=====
+amportal commands : deprecated
+
+Utiliser plutot : __fwconsole__
+
+http://wiki.freepbx.org/pages/viewpage.action?pageId=37912685
+
 Comment configurer son serveur de mail
 ====
 todo
@@ -616,12 +624,17 @@ dahdi
 CLI> core show help dahdi  
 CLI> dahdi show channels group <num du group>  
 
-pourquoi mes ip phone n'obtiennent pas d'adress IP?
+
+mes ip phone n'obtiennent pas d'adress IP?
 ====
 Je ne les vois dans openwrt. malgré plusieurs boot.
 Mon architecture réseau n'était pas bonne.  
 Server Freepbx + IP phone sur le switch Cisco et switch Cisco sur router wrt54GL.
 
+server freepbx n'obtient pas d'adresse IP
+===
+Le serveur freepbx apres avoir débrancher le cable rj45 n'obtient pas l'adress IP.  
+reboot est-il la seule solution?
 Troubleshooting
 =====
 Le system a perdu son adress ip. Le fait de brancher débrancher le cable rj45 ne regle pas le probleme.
@@ -683,3 +696,17 @@ Comment faire pour qu'une ligne pstn soit affectée à une certaine inbound rout
 Connectivity - DAHDI Channel DIDs :
 On configure le DID pour les ports FXO donc les lignes PSTN  
 Puis dans Inbound Route on utilise ce DID.
+
+Queue
+===
+Utile qd plus d'appel entrant que de personne pour répondre.  
+Un appel entrant mis dans une queue va ententre une annonce qui peut etre de la musique jusqu'a ce que quelqu'un prenne l'appel.  
+Vocabulaire
+---
+Caller: l'appelant placé dans la queue  
+Agent: Membre qui répond aux appels de la queue (peut etre un user ou une extension)
+Agent static : l'agent est tjs dans la queue et ne peut log out
+Agent dynamic : l'agent peut se loguer ou se déloguer de la queue
+MoH: annonce sonore diffusé à l'appelant dans la queue.
+Announcements : jouait pour les agents et les membres
+
