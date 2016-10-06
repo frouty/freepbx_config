@@ -710,3 +710,39 @@ Agent dynamic : l'agent peut se loguer ou se déloguer de la queue
 MoH: annonce sonore diffusé à l'appelant dans la queue.
 Announcements : jouait pour les agents et les membres
 
+Login de l'agent
+---
+Toutes les queues:  
+*45 log in /log out  dans toutes les queues dans lesquels l'agent est un membre dynamic.  
+Une seule queue:
+*45xxx log in / log out d'une queue spécifique s'il est dynamic
+Autre méthode:
+123* : log in
+123**: log out si agent dynamique.
+
+Configuration
+====
+Applications -> Queue
+
+Queue number : n° pour se logguer ou pour transférer un appel dans cette queue.
+
+Queue name : un petit nom pour aider à l'identifier.
+
+Queue password : optionnel. C'est un control d'accés.
+
+Generate device hints: format : *45devicenumber(en général le meme que l'extension)*numeroqueue  
+
+Call confirm  si YES rien compris  
+
+Call Confirm Annouce : Annonce jouait aux agents  annoncant un appel dans la queue
+
+CID name prefix : prefix qui sera mis avant le caller ID et afficher sur l'IP phone.
+
+Wait time prefix: YES affiche le temps total d'attente dans la queue comme cela l'agent sait combien de temps l'appelant  a attendu.
+
+
+Comment enregistrer des annonces
+====
+System recordings
+
+
