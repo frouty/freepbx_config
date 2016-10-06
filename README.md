@@ -770,7 +770,16 @@ Music on Hold Class : musique jouait à l'appelant quand il attend pour un agent
 -agent Ringing : joue de la musique puis sonne si l'appel est présenté à un agent et retourne à la musique si l'agent ne répond pas.
 -Ring Only
 
+Join announcement : annonce jouait à l'appelant avant qu'il ne rejoigne la queue:
+- Always
+- When no Free Agents
+- When no Ready Agents
 
+Call recording:
+
+Mark calls answered elsewhere : YES pas bien compris. l'appel n'est pas marqué comme appel manqué sur l'ip phone.
+
+Fail Over Destination
 
 Comment enregistrer des annonces
 ====
