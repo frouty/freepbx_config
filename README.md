@@ -822,13 +822,34 @@ Admin -> System Recordings
 System recordings. C'est le module qui permet d'enregistrer ou d'uloader des messages qui pourront être joués aux appelants dans d'autres modules. On peut l'utiliser aussi pour des annonces pre-installées d'Asterisk.
 On peut utiliser un message dans un IVR, dans un annoucement. Pour cela on route l'appel entrant vers l'annoucement ou l'IVR en utilisant l'Inbound Route Module.
 
-Les modules qui permettent d'utiliser ces enregistrements sont:
--IVR
--Announcements
--Follow me
--Queue
--Ring Group
+Les modules qui permettent d'utiliser ces enregistrements sont:  
+-IVR  
+-Announcements  
+-Follow me  
+-Queue  
+-Ring Group  
 
+Name : doit etre unique sinon ecrase le premier
+
+Description: aide à l'identification.
+
+File List For (Language): On peut concatener plusieurs fichiers en un seul enregistrement. Lecture du haut vers le bas.
+
+Replacing a file : on peut les remplacer.
+
+Upload Recording: format ogg, wav, flac, mais il y a bcp d'autres formats.
+
+Record in Browser : enregistrement en utilisant le PC
+
+Record over extension : le system appelle l'extension spécifiée. Tu décroches. Tu parles apres le bip. Tu raccroches qd c'est fini.
+
+Add system Recording : Pas compris ce que cela apporte
+
+Link to feature code: Pas compris
+
+Feature Code Password
+
+Convert To
 
 
 
