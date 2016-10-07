@@ -791,7 +791,7 @@ Timing & agent options
 -Max wait time : temps maximum qu'un appelant peut rester dans la queue avant d'en etre sorti.
 -Max wait time mode:
 - strict pulled immediately after Max Wait Time
-- Loose : si l'appel sonne chez un agent le systeme attend un événement avant de sortir l'appel de la queue.
+- Loose : si l'appel est en train de sonner chez un agent le systeme attend un événement avant de sortir l'appel de la queue.
 
 -Agent time out: durée en seconde de sonnerie de l'extension. Cela peut etre limité par le system ring time, des valeurs par défaut des extensions.
 
@@ -805,8 +805,30 @@ Timing & agent options
 
 -Agent Annoucement : exemple "this call is from the Sales Queue"
 
+-Report hold time: YES le temps d'attente de l'appelant est notifié à l'agent avant la connection à l'agent.
+
+-Auto Pause: pas compris
+
+-Auto Pause on busy:
+
+-Auto Pause on Unavailable
+
+-Auto Pause delay: 
+
 Comment enregistrer des annonces
 ====
-System recordings
+Admin -> System Recordings
+
+System recordings. C'est le module qui permet d'enregistrer ou d'uloader des messages qui pourront être joués aux appelants dans d'autres modules. On peut l'utiliser aussi pour des annonces pre-installées d'Asterisk.
+On peut utiliser un message dans un IVR, dans un annoucement. Pour cela on route l'appel entrant vers l'annoucement ou l'IVR en utilisant l'Inbound Route Module.
+
+Les modules qui permettent d'utiliser ces enregistrements sont:
+-IVR
+-Announcements
+-Follow me
+-Queue
+-Ring Group
+
+
 
 
