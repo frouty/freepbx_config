@@ -783,9 +783,27 @@ Fail Over Destination : c'est la destination en cas d'échec de l'appel: maximum
 
 Queue agent
 * Static ceux sont des extensions qui sont tjs dans la queue. Avantage pas besoin de se loguer/deloguer. On les met une par ligne. On peut mettre une extension sur un systeme remote, un numero externe.  
-On peut mettre l'extension , une penalité
+On peut mettre < l'extension , une penalité >
 * Dynamic. Ceux sont des extensions qui peuvent se loguer/deloguer. Les extensions qui sont là ne seront pas loguées automatiquement dans la queue.
 
+Timing & agent options
+
+-Max wait time : temps maximum qu'un appelant peut rester dans la queue avant d'en etre sorti.
+-Max wait time mode:
+- strict pulled immediately after Max Wait Time
+- Loose : si l'appel sonne chez un agent le systeme attend un événement avant de sortir l'appel de la queue.
+
+-Agent time out: durée en seconde de sonnerie de l'extension. Cela peut etre limité par le system ring time, des valeurs par défaut des extensions.
+
+-Agent Time Out Restart: YES le timeout d'un agent est remis à zero à la réception d'un busy ou d'un congestion.
+
+-Retry
+
+-Wrap Up Time : default 0. C'est le temps à attendre apres un appel répondu pour envoyer un autre appel sur un agent.
+
+-Member Delay: pas compris
+
+-Agent Annoucement : exemple "this call is from the Sales Queue"
 
 Comment enregistrer des annonces
 ====
