@@ -749,11 +749,11 @@ Agent restrictions : rien  compris
 Ring strategy:  
 - ringall toutes les agents sonnent jusqu'a ce qu'un réponde.  
 - leastrecent : sonne l'agent qui a été appelé il y a le plus longtemps  
--fewestcall: le moins d'appel terminé dans cette queue  
--random : aléatoire  
--rrmemory : Round robin avec mémoire. (se souvient de l'endroit quitté lors du dernier passage)  
--linear : sonne dans un ordre spécifié. Pour les agents dynamic dans l'ordre de log.  
--wrandom : au hasard avec la penalité comme facteur.  
+- fewestcall: le moins d'appel terminé dans cette queue  
+- random : aléatoire  
+- rrmemory : Round robin avec mémoire. (se souvient de l'endroit quitté lors du dernier passage)  
+- linear : sonne dans un ordre spécifié. Pour les agents dynamic dans l'ordre de log.  
+- wrandom : au hasard avec la penalité comme facteur.  
 
 Autofill si YES lance tous les appels sur les agents. si NO le PBX garde la ligne jusqu'à ce qu'un agent réponde à l'appel le plus haut dans la liste.  
 
@@ -762,7 +762,7 @@ Skip Busy Agent:
 - Yes + pas compris  
 -Queue Calls Only :pas compris.  
  
- Queue Weight: priority level. Plus le chiffre est élévé plus c'est prioritaire. Default=0
+Queue Weight: priority level. Plus le chiffre est élévé plus c'est prioritaire. Default=0
 
 Music on Hold Class : musique jouait à l'appelant quand il attend pour un agent disponible.
 -inherit ce qui est en cours
@@ -779,7 +779,13 @@ Call recording:
 
 Mark calls answered elsewhere : YES pas bien compris. l'appel n'est pas marqué comme appel manqué sur l'ip phone.
 
-Fail Over Destination
+Fail Over Destination : c'est la destination en cas d'échec de l'appel: maximum wait time, queue capacity, ...
+
+Queue agent
+* Static ceux sont des extensions qui sont tjs dans la queue. Avantage pas besoin de se loguer/deloguer. On les met une par ligne. On peut mettre une extension sur un systeme remote, un numero externe.  
+On peut mettre l'extension , une penalité
+* Dynamic. Ceux sont des extensions qui peuvent se loguer/deloguer. Les extensions qui sont là ne seront pas loguées automatiquement dans la queue.
+
 
 Comment enregistrer des annonces
 ====
