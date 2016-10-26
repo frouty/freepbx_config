@@ -858,5 +858,23 @@ Application -- Extension
 Et on peut relier un user à une extension dans:  
 Admin - User Management - Primary Linked Extension
 
+Admin -> system recording
+====
+Va permettre d'enregistrer des messages qui pourront etre joué à l'appelant par d'autres modules.  
+File list for english : j'ai l'impression que ce la permet de concatener plusieurs fichiers qui serons lus l'un à la suite de l'autre c'est comme cela que je le comprends.
 
+Applications -> Annoucement
+====
+Ne pas confondre ce module avec le system recording.  
+Le module annoucement permet de jouer une annonce créee avec system recording et de poursuivre le call flow.  
 
+recording : ne propose que les announces faites dans le system recording. Il faut donc créer l'annonce dans le module system recording.  
+
+Je ne comprends pas qd on définit à qui est joué cette annonces. Ce n'est pas dans le module que l'on définit qd/où est joué l'annonce mais dans d'autres modules
+
+Jouer une annonce à tous les appels entrants:
+===
+1 Créer le fichier son dans Admin - System recordings.
+2 Créer un announcement dans Applications - Announcement
+3 Connectivity - Inbound Route - Destination : choisir l'announcement  
+Et cela marche. Testé
