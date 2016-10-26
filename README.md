@@ -863,6 +863,9 @@ Admin -> system recording
 Va permettre d'enregistrer des messages qui pourront etre joué à l'appelant par d'autres modules.  
 File list for english : j'ai l'impression que ce la permet de concatener plusieurs fichiers qui serons lus l'un à la suite de l'autre c'est comme cela que je le comprends.
 
+Si je veux pouvoir accéder à l'enregistrement via un ip phone :(pas sûr que cela soit utile)  
+Link to Feature Code  - YES  
+
 Applications -> Annoucement
 ====
 Ne pas confondre ce module avec le system recording.  
