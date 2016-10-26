@@ -852,4 +852,9 @@ Feature Code Password
 Convert To
 
 
+Comment savoir à quelle IP phone un user est relié?
+===
+Application -- Extension  
+
+
 
