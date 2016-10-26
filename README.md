@@ -187,19 +187,19 @@ Settings -> EndPointManager -> Global Settings
 
 Mappage d'un IP phone vers une extension
 ====
--> Extension Mapping -> Add Extension (dans le sous menu de Settings->EndPoint Manager)
--> Extension/Name select l'extension et le compte que l'on veut associer au téléphone.
--> select le brand du telephone 
--> entrer sa mac address
--> select le template du phone et le model du phone
--> save and rebuilt is selected
--> use selected click
--> firmware management click
--> brand click
--> drag and drop the latest firmware to slot1
--> submit click
--> wait reload the page ou confirm from submission. Green msg confirmant l'installation du firmware.
--> sur le téléphone:
+-> Extension Mapping -> Add Extension (dans le sous menu de Settings->EndPoint Manager)  
+-> Extension/Name select l'extension et le compte que l'on veut associer au téléphone.  
+-> select le brand du telephone   
+-> entrer sa mac address  
+-> select le template du phone et le model du phone   
+-> save and rebuilt is selected  
+-> use selected click  
+-> firmware management click  
+-> brand click  
+-> drag and drop the latest firmware to slot1  
+-> submit click  
+-> wait reload the page ou confirm from submission. Green msg confirmant l'installation du firmware.  
+-> sur le téléphone:  
 
 Comment savoir un téléphone SIP a été enregistré dans le serveur
 ====
