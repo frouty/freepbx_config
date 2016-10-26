@@ -874,7 +874,7 @@ Je ne comprends pas qd on définit à qui est joué cette annonces. Ce n'est pas
 
 Jouer une annonce à tous les appels entrants:
 ===
-1 Créer le fichier son dans Admin - System recordings.
-2 Créer un announcement dans Applications - Announcement
-3 Connectivity - Inbound Route - Destination : choisir l'announcement  
-Et cela marche. Testé
+1 Créer le fichier son dans Admin - System recordings.  
+2 Créer un announcement dans Applications - Announcement  
+3 Connectivity - Inbound Route - Destination : choisir l'announcement     
+Et cela marche. Testé  
