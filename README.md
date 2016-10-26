@@ -855,6 +855,8 @@ Convert To
 Comment savoir à quelle IP phone un user est relié?
 ===
 Application -- Extension  
+Et on peut relier un user à une extension dans:  
+Admin - User Management - Primary Linked Extension
 
 
 
