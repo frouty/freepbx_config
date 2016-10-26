@@ -881,3 +881,7 @@ Jouer une annonce à tous les appels entrants:
 2 Créer un announcement dans Applications - Announcement  
 3 Connectivity - Inbound Route - Destination : choisir l'announcement     
 Et cela marche. Testé  
+
+Musique d'attente . MoH Music on Hold
+===
+Setting - MoH
