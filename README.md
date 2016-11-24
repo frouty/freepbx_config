@@ -543,7 +543,7 @@ Dans Admin - User management - onglet Fax pour autoriser le user à utiliser les
 
 on va dans l'UCP est on fait "send new fax". cela marche.
 
-A noter qu'il ne faut que la vielle machine de fax soit brancher sur la ligne qui envoie le fax.
+A noter qu'il ne faut pas que la vielle machine de fax soit brancher sur la ligne qui envoie le fax.
 
 Fax - Réception de fax
 ---
