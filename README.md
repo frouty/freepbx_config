@@ -889,3 +889,9 @@ Setting - MoH
 Fail2Ban
 ===
 admin - System admin - Intrusion detection
+
+Couldn't connect to asterisk
+===
+Apres un reboot forcé par interruption du courant j'ai le msg  
+*couldn't connect to asterisk*  
+je n'ai rien fait j'ai attendu un peu.
