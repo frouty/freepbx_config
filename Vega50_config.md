@@ -17,7 +17,8 @@ Il faut un serveur dhcp fonctionnel.
                                                             
 acceder au vega avec son IP dans un browser
 
-Récupérer/backup la license :
+## Récupérer/backup la license :  
+ATTENTION a faire avant un reset sinon on perd la licence.  
 1- System / expert config / upgrade license  
 2- Copy/paste la key de la licence.
 
@@ -64,3 +65,6 @@ On doit voir Chan_Sip Peers,  que les extensions ont comme host l'adresse IP du 
 Quand le FreePBX est disponible ITSP est UP : Status / ITSP is UP  
 Et les extensions sont listées dans *SIP Proxy Registered Users*  
 
+## Backup/restore Gateway config  
+- Expert Config / system / System management / Configuration / Receive file from gateway / Download  
+- On recupere un fichier *config.txt* que l'on peut renomer.  
