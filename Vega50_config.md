@@ -38,6 +38,9 @@ Quick config / basic config tab country et variant
 
 On peut rajouter d'autres fichiers de config par pays voir : http://wiki.freepbx.org/display/VG/Custom+Tones
 
+## Freepbx trunk
+http://wiki.freepbx.org/display/VG/Freepbx
+
 ## config ENP avec FreePBX  
 
 ENP : Enhanced Network Proxy
