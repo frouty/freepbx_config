@@ -50,10 +50,10 @@ Ajouter chaque extension username et password dans **SIP Proxy Auth Users**. S'a
 5- **Expert Config / SIP / SIP Profiles**. Click modify pour le profile 1.  
     - dans le champ **Local domain** adresse IP du Freepbx.  
     - laisser tous les autres parametres par défauts. 
-    - Scrolldown jusqu'à la section  **sip profile 1 proxy parameters 1**, click *modify* sur le premier *SIP proxy* et entrer l'adresse IP du **Vega** et port number à 5060 qui est le port de l'ENP. 
+    - Scrolldown jusqu'à la section  **sip profile 1 proxy parameters 1**, click *modify* sur le premier *SIP proxy* et entrer l'adresse IP du **Vega** et port number à 5060 qui est le port de l'ENP.  
 6- Aller à *Expert Config -> SIP*. On doit voir *General* en haut de la page. On change le port à *5062* (qui est le port de la gateway)  
 7- Expert Config -> SIP. enable registration en checkant la box *enable registration* dans la page registration  
-8- Sur l'IP-phone :
+8- Sur l'IP-phone :  
     - Outbound proxy server : IP vega enp port : 5060
     - SiP server server host IP du FreePBX et port 5060
 9- Sur le FreePBX il faut créer les extensions:
