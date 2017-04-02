@@ -40,6 +40,8 @@ On peut rajouter d'autres fichiers de config par pays voir : http://wiki.freepbx
 
 ## config ENP avec FreePBX  
 
+ENP : Enhanced Network Proxy
+
 http://wiki.freepbx.org/display/VG/How+to+configure+ENP+with+FreePBX
 
 1- Expert Config->ENP. Dans le champ **Realm** on trouve l'IP du Freepbx. Ne pas mettre le port.   
@@ -67,4 +69,7 @@ Et les extensions sont listées dans *SIP Proxy Registered Users*
 
 ## Backup/restore Gateway config  
 - Expert Config / system / System management / Configuration / Receive file from gateway / Download  
-- On recupere un fichier *config.txt* que l'on peut renomer.  
+- On recupere un fichier *config.txt* que l'on peut renomer. 
+
+
+http://wiki.freepbx.org/pages/viewpage.action?pageId=60522602
