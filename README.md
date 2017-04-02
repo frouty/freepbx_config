@@ -206,13 +206,13 @@ Comment savoir un téléphone SIP a été enregistré dans le serveur
 Son numéro d'appel s'affiche sur l'écran.
 
 
-Inbound route
+Inbound route  
 ====
 When a call comes into your system from the outside, it will usually arrive along with information about the telephone number that was dialed (also known as the "DID") and the Caller ID of the person who called.
 The Inbound Routes module is the mechanism used to tell your PBX where to route inbound calls based on the phone number or DID dialed
 Calls come into your system on trunks that are configured in the Trunks module.
 
-DID (Direct Inward Dialing) Number
+DID (Direct Inward Dialing) Number  
 ===
 Routing is based on the trunk on which the call is coming in. In the DID field, you will define the expected “DID Number“ if your trunk passes the DID on incoming calls. Leave this blank to match calls with any or no DID info. The DID number entered must match the format of the provider sending the DID. You can also use a pattern match to match a range of numbers. Patterns must begin with an underscore (_) to signify they are patterns. Within patterns, X will match the numbers 0-9 and specific numbers can be matched if they are placed between square parentheses. This field can also be left blank to match calls from all DIDs. This will also match calls that have no DID information.
 CID (Caller ID) Number
