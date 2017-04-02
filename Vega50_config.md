@@ -37,4 +37,10 @@ Quick config / basic config tab country et variant
 
 On peut rajouter d'autres fichiers de config par pays voir : http://wiki.freepbx.org/display/VG/Custom+Tones
 
-** config ENP avec FreePBX  
+## config ENP avec FreePBX  
+
+1- Expert Config->ENP. Dans le champ **Realm** on trouve l'IP du Freepbx. Ne pas mettre le port.   
+Mode est mis sur **forward_to_itsp**.  
+Ajouter chaque extension username et password dans **SIP Proxy Auth Users**. S'assurer que c'est sur **Enable**. Ceux sont les mêmes username et password que dans le Freepbx.  
+2- Scrolldown : on peut laisser les champs **SIP Proxy IP filters** vident..
+3- **SIP ITSP proxies** mettre l'adresse IP et le port du Freepbx.  Diminuer le Test interval à 10. Proxy Test : options
