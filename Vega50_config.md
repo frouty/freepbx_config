@@ -15,10 +15,9 @@ Si ca marche pas : arp -a
 
 Il faut un serveur dhcp fonctionnel.
                                                             
-acceder au vega avec son IP dans un browser
+acceder au vega avec son IP dans un browser 
 
-
-## Configuring Vega with freepbx   
+## Configuring Vega with Freepbx  
 http://wiki.freepbx.org/display/VG/Registering+Vega+with+FreePBX  
 Ce lien explique entre autre comment créer le sip trunk entre le freepbx et le vega.
 
@@ -26,6 +25,8 @@ Et
 
 Vega50/60G with a generic PBX  
 http://wiki.freepbx.org/pages/viewpage.action?pageId=60522602  
+
+
 
 ## Backup/restore Gateway config  
 - Expert Config / system / System management / Configuration / Receive file from gateway / Download  
