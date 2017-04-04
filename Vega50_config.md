@@ -18,7 +18,7 @@ Il faut un serveur dhcp fonctionnel.
 acceder au vega avec son IP dans un browser
 
 
-## Configuring Vega with freepbx 
+## Configuring Vega with freepbx   
 http://wiki.freepbx.org/display/VG/Registering+Vega+with+FreePBX  
 Ce lien explique entre autre comment créer le sip trunk entre le freepbx et le vega.
 
