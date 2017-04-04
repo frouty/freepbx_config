@@ -17,6 +17,24 @@ Il faut un serveur dhcp fonctionnel.
                                                             
 acceder au vega avec son IP dans un browser
 
+
+## Configuring Vega with freepbx 
+http://wiki.freepbx.org/display/VG/Registering+Vega+with+FreePBX  
+Ce lien explique entre autre comment créer le sip trunk entre le freepbx et le vega.
+
+Et  
+
+Vega50/60G with a generic PBX  
+http://wiki.freepbx.org/pages/viewpage.action?pageId=60522602  
+
+## Backup/restore Gateway config  
+- Expert Config / system / System management / Configuration / Receive file from gateway / Download  
+- On recupere un fichier *config.txt* que l'on peut renomer. 
+
+
+http://wiki.freepbx.org/pages/viewpage.action?pageId=60522602
+
+
 ## Récupérer/backup la license :  
 ATTENTION a faire avant un reset sinon on perd la licence.  
 1- System / expert config / upgrade license  
@@ -70,9 +88,3 @@ On doit voir Chan_Sip Peers,  que les extensions ont comme host l'adresse IP du 
 Quand le FreePBX est disponible ITSP est UP : Status / ITSP is UP  
 Et les extensions sont listées dans *SIP Proxy Registered Users*  
 
-## Backup/restore Gateway config  
-- Expert Config / system / System management / Configuration / Receive file from gateway / Download  
-- On recupere un fichier *config.txt* que l'on peut renomer. 
-
-
-http://wiki.freepbx.org/pages/viewpage.action?pageId=60522602
