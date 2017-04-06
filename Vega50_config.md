@@ -89,7 +89,7 @@ Ce SIP trunk sera utilisé par le vega50 pour se register avec le server Freepbx
 
 - Onglet : *Basic Config*    
         - General / Country : FR  
-        - LAN / Physical / Duplex : full 
+        - LAN 1 Configuration / Physical / Duplex : full 
 - Onglet : *VoIP*
     - *VoIP Routing Mode*  : thick *send calls via VoIP Service Provider proxy*. Pas sûr qu'il y est cette information sur ma version ou modele de gateway.
     - *VoIP Device configuration*:
