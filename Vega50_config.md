@@ -1,3 +1,6 @@
+# Installation vega 50 BRI 
+
+
 Noter la mac adress du vega : au dessus du code, au dessus du port lan
 
 Intaller le vega
