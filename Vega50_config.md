@@ -27,7 +27,7 @@ Il faut un serveur dhcp fonctionnel.
                                                             
 acceder au vega avec son IP dans un browser 
 
-## Comment éteindre le Vega 50
+##  Comment éteindre le Vega 50
 
 To switch off the Vega simply unplug the power cord. Il n'y a pas de bouton off. Débrancher le cable d'alimentation.
 
@@ -51,6 +51,8 @@ http://wiki.freepbx.org/pages/viewpage.action?pageId=60522602
 http://wiki.freepbx.org/pages/viewpage.action?pageId=60522602  
 
 ## Config Vega50 BRI avec Elastisk  
+
+###  Sur le serveur elastisk (freepbx)
 
 - add Sip Trunk
     - Trunk Name : VegaTrunk
@@ -82,8 +84,8 @@ Ce SIP trunk sera utilisé par le vega50 pour se register avec le server Freepbx
     - Trunk sequence for matched routes:    
         - 0: VegaTrunk (nom de la SIP Trunk)  
         - 1: est vide  
-        
-### Configuration du Vega gateway  
+###   Configuration du vega gateway          
+
 
 - Onglet : *Basic Config*    
         - General / Country : FR  
@@ -157,7 +159,7 @@ Ce qui veut dire que tout ce qui arrive de l'interface d'ID 9901 (SIP interface)
 - Submit / apply /save changes 
 - Expert config / BRI / line type : **pp** (point to point)
 
-## registered users  
+##   Registered users  
 - regarder dans status / Sip registrations / registered users / show  
 - Expert config / SIP  
 - Registration / show SIP registration users :
