@@ -38,7 +38,7 @@ Et
 Vega50/60G with a generic PBX  
 http://wiki.freepbx.org/pages/viewpage.action?pageId=60522602  
 
-
+`sip show peers`
 
 ## Backup/restore Gateway config  
 - Expert Config / system / System management / Configuration / Receive file from gateway / Download  
