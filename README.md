@@ -20,9 +20,9 @@ Comment configurer le firewall?
 ====
 http://wiki.freepbx.org/display/FPG/Firewall+Command+Line
 
-fwconsole firewall --help 
+`fwconsole firewall --help`   
+`fwconsole firewall disable`  
 
-fwconsole firewall disable  
 puis en GUI recherche -> firewall -> enable --> re-run wizard
 
 Comment mettre à jour l'achat de modules commerciaux
