@@ -52,7 +52,7 @@ On peut les utiliser apres un ssh root@freepbxIP
 
 
 Si on fait un CLI> core stop now.  
-Mais là on ne peut plus se reconnecter à asterisk. 
+Mais là on ne peut plus se reconnecter à asterisk.   
 
 Faire un ssh puis 
 fwconsole stop  
@@ -61,8 +61,8 @@ fwconsole restart
 #### Pour entrer dans les commands line d'asterisk  
 `asterisk -r | asterisk -rvvv`    
 Le prompt change en localhost\*CLI>  
-? pour avoir toute les commandes
-le log est sous /var/log/asterisk/full
+? pour avoir toute les commandes  
+le log est sous /var/log/asterisk/full  
 
 `sip show peers` 
 
@@ -74,7 +74,8 @@ le log est sous /var/log/asterisk/full
 
 Version asterisk
 ====
-core show version
+core show version  
+
 Amportal commands
 ====
 http://wiki.freepbx.org/display/L1/amportal+commands
