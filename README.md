@@ -44,14 +44,21 @@ Asterisk
 CLI
 ---
 on peut utiliser les commandes CLI dans le web GUI.
+
+- Admin
+- Asterisk CLI
+
 On peut les utiliser apres un ssh root@freepbxIP
 
-Si on fait un CLI> core stop now.
+
+Si on fait un CLI> core stop now.  
 Mais là on ne peut plus se reconnecter à asterisk. 
 
 Faire un ssh puis 
-fwconsole stop
-fwconsole restart
+fwconsole stop  
+fwconsole restart  
+
+
 
 Amportal commands
 ====
