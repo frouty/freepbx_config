@@ -54,9 +54,9 @@ On peut les utiliser apres un ssh root@freepbxIP
 Si on fait un CLI> core stop now.  
 Mais là on ne peut plus se reconnecter à asterisk.   
 
-Faire un ssh puis 
+Faire un ssh puis  
 fwconsole stop  
-fwconsole restart  
+fwconsole restart    
 
 #### Pour entrer dans les commands line d'asterisk  
 `asterisk -r | asterisk -rvvv`    
@@ -86,8 +86,8 @@ on y arrive avec un ssh sur la machine ou est installé freepbx/asterix.
 Liste de commande
 -----
 
-1 **amportal restart** pour relancer asterisk et autre process nécessaire à asterisk. On utilise cette commande et pas un /etc/init.d asterisk.
-2 amportal stop
+1 **amportal restart** pour relancer asterisk et autre process nécessaire à asterisk. On utilise cette commande et pas un /etc/init.d asterisk.  
+2 amportal stop  
 
 3 **amportal chown** change toutes les permissions vers l'utilisateur apache.
 
