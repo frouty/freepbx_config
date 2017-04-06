@@ -120,7 +120,21 @@ Si c'est registered:
 - Submit / apply change / Save
 - Go to **expert config / dial plan**
 - Click **modify** de **Profil / To_SIP**
-- Changer : Source : IF:0301,TEL:<.*>,TELC:<.*>
+- Changer : Source : **IF:0301,TEL:<.*>,TELC:<.*>** Destination : **IF:9901,TEL:<1>,TELC:(<2>)**  
+Cela veut dire que tout ce qui arrive de l'interface avec l'ID 0301 (que l'on retrouve dans Quick config / onglet BRI) est redirigé vers l'interface avec l'ID 9901 (Sip interface, id que l'on retrouve dans Expert config / SIP)  
+TEL est le numéro appelé   
+TELC est le numero appelant  
+**.*** veut dire que l'on accepte tous les numéros.  
+- Submit / apply /save changes  
+- Go back to **Dial plan**
+    - click **modify** for **To_BRI**
+    - delete the last 3 entries, garder la première
+    - make the changes:
+        -source: **IF:9901,TEL:<.*>**
+        -destination: **IF:0301,TEL:<1>**  
+Ce qui veut dire que tout ce qui arrive de l'interface d'ID 9901 (SIP interface) sera redirigé vers l'interface avec l'ID 0301. TEL est le numero appelé. **.*** tous les numero composés sont acceptés. On utilise seulement l'interface 1 du vega 50 BRI. On peut ajouter d'autres routes.
+- Submit / apply /save changes 
+- Expert config / BRI / line type : **pp** (point to point)
 
 ## Récupérer/backup la license :  
 ATTENTION a faire avant un reset sinon on perd la licence.  
