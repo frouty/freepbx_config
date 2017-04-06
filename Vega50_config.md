@@ -24,7 +24,7 @@ Il faut un serveur dhcp fonctionnel.
                                                             
 acceder au vega avec son IP dans un browser 
 
-## Comment éteindre le VEGA 50  
+Comment éteindre le VEGA 50  
 
 To switch off the Vega simply unplug the power cord. Il n'y a pas de bouton off. Débrancher le cable d'alimentation.
 
@@ -48,6 +48,26 @@ http://wiki.freepbx.org/pages/viewpage.action?pageId=60522602
 http://wiki.freepbx.org/pages/viewpage.action?pageId=60522602
 
 
+Config Vega50 BRI avec Elastisk  
+
+- add Sip Trunk
+    - Trunk Name : VegaTrunk
+- outgoing Settings:
+    - Trunk Name = Vega50BRi
+    - Peer details:
+        - host=dynamic
+        - username=Vega50BRI
+        - secret=jx8FkOUI3sv6
+        - qualify=yes
+        - type=peer
+        - insecure=very
+       
+Ce SIP trunk sera utilisé par le vega50 pour se register avec le server Freepbx.
+
+- Configurer une outbound routes pour configurer une outbound route vers le Vega50 gateway. 
+    -Route Name: 8_vega (il mette le 8 pour la reperer par rapport à l'extension 8)
+    -*Prexif* :8 | *match pattern* : . (dot) 
+        
 ## Récupérer/backup la license :  
 ATTENTION a faire avant un reset sinon on perd la licence.  
 1- System / expert config / upgrade license  
