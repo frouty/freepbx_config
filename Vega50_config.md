@@ -24,7 +24,7 @@ Il faut un serveur dhcp fonctionnel.
                                                             
 acceder au vega avec son IP dans un browser 
 
-Comment éteindre le VEGA 50  
+## Comment éteindre le Vega 50
 
 To switch off the Vega simply unplug the power cord. Il n'y a pas de bouton off. Débrancher le cable d'alimentation.
 
@@ -86,7 +86,7 @@ Ce SIP trunk sera utilisé par le vega50 pour se register avec le server Freepbx
         - General / Country : FR  
         - LAN / Physical / Duplex : full 
 - Onglet : *VoIP*
-    - *VoIP Routing Mode*  : thick *send calls via VoIP Service Provider proxy*
+    - *VoIP Routing Mode*  : thick *send calls via VoIP Service Provider proxy*. Pas sûr qu'il y est cette information sur ma version ou modele de gateway.
     - *VoIP Device configuration*:
         - **proxy domain name**: default-reg-domain.com
         - **proxy address** : IP adresse du server freepbx
@@ -135,6 +135,14 @@ TELC est le numero appelant
 Ce qui veut dire que tout ce qui arrive de l'interface d'ID 9901 (SIP interface) sera redirigé vers l'interface avec l'ID 0301. TEL est le numero appelé. **.*** tous les numero composés sont acceptés. On utilise seulement l'interface 1 du vega 50 BRI. On peut ajouter d'autres routes.
 - Submit / apply /save changes 
 - Expert config / BRI / line type : **pp** (point to point)
+
+##  PEER details  
+http://wiki.freepbx.org/display/FPG/Trunk+Sample+Configurations
+
+Pour debogger : select "Asterisk Info," and then select "Full Report" on right.  In many cases, the information in this report can guide you in the right direction.
+
+
+
 
 ## Récupérer/backup la license :  
 ATTENTION a faire avant un reset sinon on perd la licence.  
@@ -188,4 +196,13 @@ On doit voir Chan_Sip Peers,  que les extensions ont comme host l'adresse IP du 
 11- Check status dans le Vega : Expert config -> ENP  
 Quand le FreePBX est disponible ITSP est UP : Status / ITSP is UP  
 Et les extensions sont listées dans *SIP Proxy Registered Users*  
+
+## Factory reset
+
+**faire un backup de la key de licence**  
+- advance 
+- CLI commands 
+- `help` / submit
+- command `factory reset` / submit
+- `reboot system`
 
