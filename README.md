@@ -2,6 +2,9 @@
 
 http://kb.digium.com/
 
+http://wiki.freepbx.org/display/PPS/FreePBX+Distro+First+Steps+After+Installation
+
+
 Architecture réseau  
 ===
 freepbx sur cisco
