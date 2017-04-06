@@ -95,6 +95,24 @@ Ce SIP trunk sera utilisé par le vega50 pour se register avec le server Freepbx
         - **Registration mode**: gateway
         - **Registration and Authentification ID**: c'est le username dans peer detail dans *outgoing settings* du SIP trunk défini dans le Freepbx.
         - **Authentification password**: c'est le secret dans peer detail dans *outgoing settings* du SIP trunk défini dans le Freepbx.  
+    - Avec crosstalk je n'ai pas cette interface. J'ai:
+        - Quick config / onglet Voip
+            - registration mode : gateway
+            - Outbound proxy user : no
+            - Sip local port : 5060
+            - Sip domain : ip du freepbx
+            - Sip outbound Server transport mode : udp
+            - Sip server IP/Name:  ip du freepbx
+            - outbound proxy ip/Name: 0.0.0.0
+            - Sip Outbound Server port: 5060
+            - registration and authentification: vega50
+            - Authentification passworr: ********
+            - codecs avec des priority. Il prend:
+                - g711ulaw64k
+                - g711alaw64k
+                - g729
+            - submit
+            
 - Onglet: *BRI*:
     - Rien compris a ce qu'ils disent. Et en plus il y a pas grand chose.
 - Apply
@@ -136,12 +154,66 @@ Ce qui veut dire que tout ce qui arrive de l'interface d'ID 9901 (SIP interface)
 - Submit / apply /save changes 
 - Expert config / BRI / line type : **pp** (point to point)
 
-##  PEER details  
+## registered users  
+- regarder dans status / Sip registrations / registered users / show  
+- Expert config / SIP  
+- Registration / show SIP registration users :
+```
+SIP REG
+--------------
+SIP Profile 1 registration expiry = 600s
+--------------
+SIP REG USER 1
+----address     -vega@192.168.200.5
+----auth user   -vega
+----contact blabla
+----state       -unregistered (user 1)
+blablabla
+```  
+- SIP profile / Modify
+    - Name : profile 1
+    - interface ID : 9901
+    - Local domain : IP address du freepbx
+    - alternative local domain: alt-reg-domain.org
+    - from Header userinfo : Authentification username
+    - contact header userinfo : Calling party
+    - P header userinfo : calling party
+    - from header host : local domain
+    - to header host: local domain
+    - redirection host : local domain
+    - transport : udp
+    - capability set 2 voice +t38Udp
+    - blablabla
+    - SIP profile
+        - SIP authentificaton configuration / sip authentification / modify
+            - enable : thick
+            - SIP profile : 1
+            - Username : vega
+            - password : ****
+            - Subscriber : IF:(idduportBRI)
+        - SIP profile 1 proxy parameters 1:
+        - SIP proxy : 1 Enable : 1  IP/DNS name: ip address du freepbx
+    - SIP registration 
+        
+## PEER details    
 http://wiki.freepbx.org/display/FPG/Trunk+Sample+Configurations
 
 Pour debogger : select "Asterisk Info," and then select "Full Report" on right.  In many cases, the information in this report can guide you in the right direction.
 
-
+### Peer details  
+-outgoing settings
+    - trunk name:
+ 
+    - host=ip address du vega
+    - username=vega
+    - secret    
+    - disallow=all
+    - allow=ulaw
+    - dtmfmode=rfc2883
+    - context=from-trunk
+    -from-domain=ip adress du vega
+    -type=peer
+    -insecure=invite,port
 
 
 ## Récupérer/backup la license :  
@@ -156,6 +228,7 @@ Quick Config / Un check "Obtain Settings automatically using DHCP"
 click submit  
 
 ## Vega CLI Commands 
+Expert config / advanced / CLI commands  
 
 http://wiki.freepbx.org/display/VG/Vega+CLI+Commands
 
