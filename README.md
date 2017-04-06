@@ -55,9 +55,9 @@ Si on fait un CLI> core stop now.
 Mais là on ne peut plus se reconnecter à asterisk.   
 
 Faire un ssh puis  
-fwconsole stop  
-fwconsole restart    
-
+`fwconsole stop`  
+`fwconsole restart`  
+`fwconsole trunks`
 #### Pour entrer dans les commands line d'asterisk  
 `asterisk -r | asterisk -rvvv`    
 Le prompt change en localhost\*CLI>  
@@ -74,7 +74,7 @@ le log est sous /var/log/asterisk/full
 
 Version asterisk
 ====
-core show version  
+`core show version`  
 
 Amportal commands
 ====
