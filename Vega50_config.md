@@ -2,7 +2,9 @@ Noter la mac adress du vega :
 
 Intaller le vega
 
-brancher le lan
+brancher le lan:  
+    -LAN1 cable RJ45 vers le switch
+    -LAN2/ You may leave LAN 2 unconnected as it is not typical used. (LAN 1 is configured to retrieve an IP address from DHCP)
 
 brancher le power
 
@@ -16,6 +18,11 @@ Si ca marche pas : arp -a
 Il faut un serveur dhcp fonctionnel.
                                                             
 acceder au vega avec son IP dans un browser 
+
+## Comment éteindre le VEGA 50  
+
+To switch off the Vega simply unplug the power cord. Il n'y a pas de bouton off
+
 
 ## Configuring Vega with Freepbx  
 http://wiki.freepbx.org/display/VG/Registering+Vega+with+FreePBX  
