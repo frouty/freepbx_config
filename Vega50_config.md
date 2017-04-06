@@ -1,4 +1,4 @@
-Noter la mac adress du vega :
+Noter la mac adress du vega : au dessus du code, au dessus du port lan
 
 Intaller le vega
 
@@ -11,9 +11,14 @@ brancher le power
 ground?
 
 
-trouver l'adresse IP avec : nmap -sP <ip range>
+trouver l'adresse IP avec : nmap -sP <ip range>  
+On obtient l'ip range dans opewrt / Status /route /Active IP-V4 Routes.  
 
-Si ca marche pas : arp -a
+Si ca marche pas : arp -a. 
+
+J'essaie nmap -A mais c'est laborieux. il faut tester ip par ip. 
+
+J'essaie avec le routeur mais c'est laborieux je ne vois pas apparaitre l'adresse IP du vega. Je reboote et ca ne change rien. 
 
 Il faut un serveur dhcp fonctionnel.
                                                             
@@ -21,7 +26,7 @@ acceder au vega avec son IP dans un browser
 
 ## Comment éteindre le VEGA 50  
 
-To switch off the Vega simply unplug the power cord. Il n'y a pas de bouton off
+To switch off the Vega simply unplug the power cord. Il n'y a pas de bouton off. Débrancher le cable d'alimentation.
 
 
 ## Configuring Vega with Freepbx  
