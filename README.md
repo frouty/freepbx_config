@@ -58,8 +58,23 @@ Faire un ssh puis
 fwconsole stop  
 fwconsole restart  
 
+#### Pour entrer dans les commands line d'asterisk  
+`asterisk -r | asterisk -rvvv`    
+Le prompt change en localhost\*CLI>  
+? pour avoir toute les commandes
+le log est sous /var/log/asterisk/full
 
+`sip show peers` 
 
+`sip show peer <extension number>`
+
+`sip show regestry`
+
+`sip set debug on`
+
+Version asterisk
+====
+core show version
 Amportal commands
 ====
 http://wiki.freepbx.org/display/L1/amportal+commands
