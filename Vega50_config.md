@@ -45,10 +45,9 @@ http://wiki.freepbx.org/pages/viewpage.action?pageId=60522602
 - On recupere un fichier *config.txt* que l'on peut renomer. 
 
 
-http://wiki.freepbx.org/pages/viewpage.action?pageId=60522602
+http://wiki.freepbx.org/pages/viewpage.action?pageId=60522602  
 
-
-Config Vega50 BRI avec Elastisk  
+## Config Vega50 BRI avec Elastisk  
 
 - add Sip Trunk
     - Trunk Name : VegaTrunk
@@ -64,9 +63,32 @@ Config Vega50 BRI avec Elastisk
        
 Ce SIP trunk sera utilisé par le vega50 pour se register avec le server Freepbx.
 
-- Configurer une outbound routes pour configurer une outbound route vers le Vega50 gateway. 
-    -Route Name: 8_vega (il mette le 8 pour la reperer par rapport à l'extension 8)
-    -*Prexif* :8 | *match pattern* : . (dot) 
+- Configurer une outbound routes pour configurer une outbound route vers le Vega50 gateway.  
+    -Route settings:  
+        -Route Name: 8_vega (il mette le 8 pour la reperer par rapport à l'extension 8)
+        -Route CID : vide  
+        -Route password: vide
+        -Route type: vide  
+        -Music on Hold: default  
+        -Time group: permanent route  
+        -Route position:Last after
+        
+    -Dial Patterns:
+        -*Prexif* :8 | *match pattern* : . (dot)
+        
+    -Trunk sequence for matched routes:    
+        -0: VegaTrunk (nom de la SIP Trunk)  
+        -1: est vide  
+        
+### Configuration du Vega gateway  
+
+- Onglet : *Basic Config*    
+        -General / Country : FR  
+        -LAN / Physical / Duplex : full 
+-Onglet : *VoIP*
+    -*VoIP Routing Mode*  : thick *send calls via VoIP Service Provider proxy*
+    -*VoIP Device configuration*
+
         
 ## Récupérer/backup la license :  
 ATTENTION a faire avant un reset sinon on perd la licence.  
