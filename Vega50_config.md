@@ -64,32 +64,64 @@ http://wiki.freepbx.org/pages/viewpage.action?pageId=60522602
 Ce SIP trunk sera utilisé par le vega50 pour se register avec le server Freepbx.
 
 - Configurer une outbound routes pour configurer une outbound route vers le Vega50 gateway.  
-    -Route settings:  
-        -Route Name: 8_vega (il mette le 8 pour la reperer par rapport à l'extension 8)
-        -Route CID : vide  
-        -Route password: vide
-        -Route type: vide  
-        -Music on Hold: default  
-        -Time group: permanent route  
-        -Route position:Last after
+    - Route settings:
+        - Route Name: 8_vega (il mette le 8 pour la reperer par rapport à l'extension 8)
+        - Route CID : vide  
+        - Route password: vide
+        - Route type: vide  
+        - Music on Hold: default  
+        - Time group: permanent route  
+        - Route position:Last after
         
-    -Dial Patterns:
-        -*Prexif* :8 | *match pattern* : . (dot)
+    - Dial Patterns:
+        - *Prexif* :8 | *match pattern* : . (dot)
         
-    -Trunk sequence for matched routes:    
-        -0: VegaTrunk (nom de la SIP Trunk)  
-        -1: est vide  
+    - Trunk sequence for matched routes:    
+        - 0: VegaTrunk (nom de la SIP Trunk)  
+        - 1: est vide  
         
 ### Configuration du Vega gateway  
 
 - Onglet : *Basic Config*    
-        -General / Country : FR  
-        -LAN / Physical / Duplex : full 
--Onglet : *VoIP*
-    -*VoIP Routing Mode*  : thick *send calls via VoIP Service Provider proxy*
-    -*VoIP Device configuration*
+        - General / Country : FR  
+        - LAN / Physical / Duplex : full 
+- Onglet : *VoIP*
+    - *VoIP Routing Mode*  : thick *send calls via VoIP Service Provider proxy*
+    - *VoIP Device configuration*:
+        - **proxy domain name**: default-reg-domain.com
+        - **proxy address** : IP adresse du server freepbx
+        - **Registar address**: IP adresse du server freepbx  
+        - **outbound proxy adress**: 0.0.0.0
+        - **Registration mode**: gateway
+        - **Registration and Authentification ID**: c'est le username dans peer detail dans *outgoing settings* du SIP trunk défini dans le Freepbx.
+        - **Authentification password**: c'est le secret dans peer detail dans *outgoing settings* du SIP trunk défini dans le Freepbx.  
+- Onglet: *BRI*:
+    - Rien compris a ce qu'ils disent. Et en plus il y a pas grand chose.
+- Apply
+- Status dans la colonne de gauche. On devrait voir:
+    ```
+    SIP REG
+    -----------------------------------
+    SIP Profile : Registration expiry = 600s
+    -----------------------------------
+    SIP REG USER 1:
+    --- Addess :    -vega50BRI@default-reg-domain.com
+    --- auth user   -vega50BRI *(c'est le **registration and authentification ID** defini dans l'onglet *VoIP* du *quick config*)*
+    ---contact      -sip:vega50BRI@192.168.5.191 (je ne sais qu'elle est cette adress ip. Ce n'est pas celle du serveur. C'est peut etre celle du vega)
+    ---TTL          -327 seconds
+    SIP REG USER 2:
+    ---address      -02@default-reg-domain.com
+    ```
+Si ce n'est pas registered il faut vérifier que les settings sont bon.  
+Si c'est registered:
+- Expert config / SIP 
+- Section : **SIP profile** / click **modify**
+- set parameter **from header user info** to **Calling party**
+- Submit / apply change / Save
+- Go to **expert config / dial plan**
+- Click **modify** de **Profil / To_SIP**
+- Changer : Source : IF:0301,TEL:<.*>,TELC:<.*>
 
-        
 ## Récupérer/backup la license :  
 ATTENTION a faire avant un reset sinon on perd la licence.  
 1- System / expert config / upgrade license  
