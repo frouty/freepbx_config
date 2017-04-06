@@ -1,9 +1,8 @@
 # freepx_config
 
+
+ 
 http://kb.digium.com/
-
-http://wiki.freepbx.org/display/PPS/FreePBX+Distro+First+Steps+After+Installation
-
 
 Architecture réseau  
 ===
@@ -32,6 +31,9 @@ Comment mettre à jour l'achat de modules commerciaux
 ====
 Admin -> Sys admin -> Activation -> Update activation (en bas à droite)
 
+Comment lire les fichiers de config  
+====
+Admin / Config Edit
 
 Comment mettre à jour les modules?
 ====
@@ -74,6 +76,8 @@ le log est sous /var/log/asterisk/full
 `sip show regestry`
 
 `sip set debug on`
+
+`asterisk -rx "sip show users"`
 
 Version asterisk
 ====
