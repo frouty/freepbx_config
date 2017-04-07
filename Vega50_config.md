@@ -89,6 +89,9 @@ Ce SIP trunk sera utilisé par le vega50 pour se register avec le server Freepbx
     - Trunk sequence for matched routes:    
         - 0: VegaTrunk (nom de la SIP Trunk)  
         - 1: est vide  
+        
+Mais j'ai un message d'erreur qui me idt que ce n'est pas configuré en dynamic host=dynamic. 
+Je le mets dans les deux outgoing et incoming host=dynamic
 ###   Configuration du vega gateway          
 
 
