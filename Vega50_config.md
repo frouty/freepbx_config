@@ -27,6 +27,11 @@ Il faut un serveur dhcp fonctionnel.
                                                             
 acceder au vega avec son IP dans un browser 
 
+
+## configurer sans registration
+
+http://wiki.freepbx.org/display/VG/Trunk+between+Vega+and+freepbx+without+registration
+
 ##  Comment éteindre le Vega 50
 
 To switch off the Vega simply unplug the power cord. Il n'y a pas de bouton off. Débrancher le cable d'alimentation.
