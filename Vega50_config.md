@@ -169,7 +169,7 @@ SIP REG
 SIP Profile 1 registration expiry = 600s
 --------------
 SIP REG USER 1
-----address     -vega@192.168.200.5
+----address     -vega@192.168.200.5 (ip du freepbx)
 ----auth user   -vega
 ----contact blabla
 ----state       -unregistered (user 1)
@@ -203,10 +203,10 @@ blablabla
 ## PEER details    
 http://wiki.freepbx.org/display/FPG/Trunk+Sample+Configurations
 
-Pour debogger : select "Asterisk Info," and then select "Full Report" on right.  In many cases, the information in this report can guide you in the right direction.
+Pour debogger : Freepbx GUI / select "Reports / Asterisk Info," and then select "Full Report" on right.  In many cases, the information in this report can guide you in the right direction.
 
 ### Peer details  
--outgoing settings
+- sip settings / outgoing settings
     - trunk name:
  
     - host=ip address du vega
@@ -220,6 +220,8 @@ Pour debogger : select "Asterisk Info," and then select "Full Report" on right. 
     -type=peer
     -insecure=invite,port
 
+- sip settings / incoming settiings:
+    - **USER context** doit etre le meme que le username : chez moi vega50
 
 ## Récupérer/backup la license :  
 ATTENTION a faire avant un reset sinon on perd la licence.  
