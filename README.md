@@ -320,22 +320,38 @@ dans le web GUI freepbx
 Settings - Endpoint manager - Brands - sangoma - Template - sangoma_default - firmware management
 et provision server Protocole : TFTP 
 
-Et configuration sur le phone de l'adresse tftp://ip_du_freepbx:
-advanced - password : 222222 - autoprovisionning - upgrade mode - tftp
-advanced - password : 222222 - Device reboot
+Et configuration sur le phone de l'adresse tftp://ip_du_freepbx:  
+advanced - password : 222222 - autoprovisionning - upgrade mode - tftp  
+advanced - password : 222222 - Device reboot  
+
+Ce password 222222 se trouve dans le freepbx à : *TODO*
 
 
 
 
 Phone Polycom 
 ===
-LOgin / Password :
+# LOgin / Password : 
+Username = Polycom (case sensitive)  
+Admin Password = 456  
+User Password = 123  
 
-reset factory : loading software cancel -> hold 1;3;5 keys -> demande un password : 456 et c'est fait. Non pas toujours
+admin acces unrestricted. user acces restricted  
+
+### Reboot the Phone  
+ - Press and hold the dial pad keys 0, 1, and 3 simultaneously for about three seconds, or until you hear a confirmation tone.  
+###  Restore Factory Defaults
+ - Press and hold the dial pad keys 1, 3, and 5 simultaneously during the Updater process until the password prompt appears.       - Enter the administrator password to initiate the reset. 
+ - Resetting to factory defaults will also reset the administrator password to 456.  
+### Upload Log Files  
+ - Press and hold the dial pad keys 1, 5, and 9 simultaneously until you hear a three-second confirmation tone.  
+### reset factory : 
+ - loading software cancel -> hold 1;3;5 keys -> demande un password : 456 et c'est fait. Non pas toujours
 mais avec la mac address à la place de 456 c'est OK
 Reboot-> 0;1;3 ne marche pas  
 1;5;9 ne marche pas
-
+  
+### configuration du provisioning
 Dans le menu du phone: home - settings - advanced - administration setting - Network Configuration - provisioning server
 Server type : TFTP  
 server address : ip du freepbx   
