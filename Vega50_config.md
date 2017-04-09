@@ -158,6 +158,9 @@ TELC est le numero appelant
 **.*** veut dire que l'on accepte tous les numéros.  
 - Submit / apply /save changes  
 - Go back to **Dial plan**
+    - Dans le plan de numérotation, sous « dialplan », on va configurer deux règles:  
+        - une de ISDN à SIP  
+        - et une de SIP à ISDN afin que tous les appels soient routés depuis / vers Freepbx
     - click **modify** for **To_BRI**
     - delete the last 3 entries, garder la première
     - make the changes:
