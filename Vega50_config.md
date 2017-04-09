@@ -297,3 +297,5 @@ Et les extensions sont listées dans *SIP Proxy Registered Users*
 - command `factory reset` / submit
 - `reboot system`
 
+## Degugging
+http://wiki.freepbx.org/display/VG/Vega+Detailed+Logging
