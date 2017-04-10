@@ -175,14 +175,13 @@ TEL est le numéro appelé
 TELC est le numero appelant  
 **.*** veut dire que l'on accepte tous les numéros.  
 - Submit / apply /save changes  
-- Go back to **Dial plan**
-    
+- Go back to **Dial plan**  
     - click **modify** for **To_BRI**
     - delete the last 3 entries, garder la première
     - make the changes:
         -source: **IF:9901,TEL:<.*>**
         -destination: **IF:0301,TEL:<1>**  
-Ce qui veut dire que tout ce qui arrive de l'interface d'ID 9901 (SIP interface) sera redirigé vers l'interface avec l'ID 0301. TEL est le numero appelé. **.*** tous les numero composés sont acceptés. On utilise seulement l'interface 1 du vega 50 BRI. On peut ajouter d'autres routes.
+Ce qui veut dire que tout ce qui arrive de l'interface d'ID 9901 (SIP interface) sera redirigé vers l'interface avec l'ID 0301. TEL est le numero appelé. **.*** tous les numero composés sont acceptés. On utilise seulement l'interface 1 du vega 50 BRI. On peut ajouter d'autres routes.  
 - Submit / apply /save changes 
 - Expert config / BRI / line type : **pp** (point to point)
 
@@ -234,9 +233,8 @@ Pour debogger : Freepbx GUI / select "Reports / Asterisk Info," and then select 
 
 ### Peer details  
 - sip settings / outgoing settings
-    - trunk name:
- 
-    - host=ip address du vega
+    - trunk name: ce que tu veux comme nom mais pas un déjà donné.
+     - host=ip address du vega
     - username=vega le meme que celui defini dans le vega
     - secret= lememe que celui défini dans le vega.  
     - disallow=all
