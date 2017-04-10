@@ -100,7 +100,7 @@ Je le mets dans les deux outgoing et incoming host=dynamic
         - LAN 1 Configuration / Physical / Duplex : full 
 - Onglet : *VoIP*
     - *VoIP Routing Mode*  : thick *send calls via VoIP Service Provider proxy*. Pas sûr qu'il y est cette information sur ma version ou modele de gateway.
-    - *VoIP Device configuration*:
+    - *VoIP Device configuration*: (on va définir des parametres que l'on va utiliser dans la config du sip trunk dans le freepbx)
         - **proxy domain name**: default-reg-domain.com
         - **proxy address** : IP adresse du server freepbx
         - **Registar address**: IP adresse du server freepbx  
@@ -128,6 +128,17 @@ Je le mets dans les deux outgoing et incoming host=dynamic
             
 - Onglet: *BRI*:
     - Rien compris a ce qu'ils disent. Et en plus il y a pas grand chose.
+    - Dans un document de configuration du vega avec Elastisk j'ai trouvé:  
+        - network protocole : etsi  
+        - framing: s_t  
+        - line_encoding : azi
+        - NT : decoché
+        - bus master priory 1 pour le port 1 et 2 pour le port 2  
+        - Restart layer 2 after disconnect: décoché
+        - NT phantom power : decoche
+        -Line Type : pp 
+        -TEI : 0 
+        
 - Apply
 - Status dans la colonne de gauche. On devrait voir:
     ```
@@ -146,21 +157,26 @@ Je le mets dans les deux outgoing et incoming host=dynamic
 Si ce n'est pas registered il faut vérifier que les settings sont bon.  
 Si c'est registered:
 - Expert config / SIP 
-- Section : **SIP profile** / click **modify**
-- set parameter **from header user info** to **Calling party**
-- Submit / apply change / Save
+    - Section : **SIP profile** / click **modify**
+    - set parameter **from header user info** to **Calling party**
+    - from header host : local domain
+    - To header host : local domain
+    - Redirection host : local domain
+    - Transport : udp
+    - Submit / apply change / Save
+- Dans le plan de numérotation, sous « dialplan », on va configurer deux règles:  
+        - une de ISDN à SIP  
+        - et une de SIP à ISDN afin que tous les appels soient routés depuis / vers Freepbx
 - Go to **expert config / dial plan**
-- Click **modify** de **Profil / To_SIP**
-- Changer : Source : **IF:0301,TEL:<.*>,TELC:<.*>** Destination : **IF:9901,TEL:<1>,TELC:(<2>)**  
+    - Click **modify** de **Profil / To_SIP**
+    - Changer : Source : **IF:0301,TEL:<.*>,TELC:<.*>** Destination : **IF:9901,TEL:<1>,TELC:(<2>)**  
 Cela veut dire que tout ce qui arrive de l'interface avec l'ID 0301 (que l'on retrouve dans Quick config / onglet BRI) est redirigé vers l'interface avec l'ID 9901 (Sip interface, id que l'on retrouve dans Expert config / SIP)  
 TEL est le numéro appelé   
 TELC est le numero appelant  
 **.*** veut dire que l'on accepte tous les numéros.  
 - Submit / apply /save changes  
 - Go back to **Dial plan**
-    - Dans le plan de numérotation, sous « dialplan », on va configurer deux règles:  
-        - une de ISDN à SIP  
-        - et une de SIP à ISDN afin que tous les appels soient routés depuis / vers Freepbx
+    
     - click **modify** for **To_BRI**
     - delete the last 3 entries, garder la première
     - make the changes:
