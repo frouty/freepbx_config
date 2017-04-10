@@ -221,8 +221,8 @@ Pour debogger : Freepbx GUI / select "Reports / Asterisk Info," and then select 
     - trunk name:
  
     - host=ip address du vega
-    - username=vega
-    - secret    
+    - username=vega le meme que celui defini dans le vega
+    - secret= lememe que celui défini dans le vega.  
     - disallow=all
     - allow=ulaw
     - dtmfmode=rfc2883
@@ -232,7 +232,17 @@ Pour debogger : Freepbx GUI / select "Reports / Asterisk Info," and then select 
     -insecure=invite,port
 
 - sip settings / incoming settiings:
-    - **USER context** doit etre le meme que le username : chez moi vega50
+    - **USER context** doit etre **le meme** que le username : chez moi vega50
+    - host=dynamic (il faudrait vérifier s'il ne faut pas aussi host=dynamic aussi dans le outgoing settings)
+    - username=vega le meme que celui defini dans le vega
+    - secret= lememe que celui défini dans le vega.  
+    - disallow=all
+    - allow=ulaw
+    - dtmfmode=rfc2883
+    - context=from-trunk
+    -from-domain=ip adress du vega
+    -type=peer
+    -insecure=invite,port
 
 ## Récupérer/backup la license :  
 ATTENTION a faire avant un reset sinon on perd la licence.  
