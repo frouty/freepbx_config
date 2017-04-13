@@ -338,6 +338,12 @@ User Password = 123
 
 admin acces unrestricted. user acces restricted  
 
+# web gui login password 
+il est défini par le freepbx :  
+- settings/ end point manager / global settings /   
+- phone admin password .  
+outboubnc- 
+
 ### Reboot the Phone  
  - Press and hold the dial pad keys 0, 1, and 3 simultaneously for about three seconds, or until you hear a confirmation tone.  
 ###  Restore Factory Defaults
@@ -848,8 +854,7 @@ Timing & agent options
 - Loose : si l'appel est en train de sonner chez un agent le systeme attend un événement avant de sortir l'appel de la queue.
 
 -Agent time out: durée en seconde de sonnerie de l'extension. Cela peut etre limité par le system ring time, des valeurs par défaut des extensions.
-
--Agent Time Out Restart: YES le timeout d'un agent est remis à zero à la réception d'un busy ou d'un congestion.
+ar-Agent Time Out Restart: YES le timeout d'un agent est remis à zero à la réception d'un busy ou d'un congestion.
 
 -Retry
 
@@ -954,3 +959,12 @@ je n'ai rien fait j'ai attendu un peu.
 ### CLI command ###
 j'ai comme message d'erreur : 'yum upgrade nodejs' from the CLI as root
 Comment on fait?
+
+** power off
+admin / system admin / power option
+
+### si pas de audio de voix
+- Freepbx / settings / asterisk sip setting 
+- local network 192.168.1.0 / 24
+
+[1-3]9

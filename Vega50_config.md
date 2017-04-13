@@ -128,7 +128,7 @@ Je le mets dans les deux outgoing et incoming host=dynamic
             
 - Onglet: *BRI*:
     - Rien compris a ce qu'ils disent. Et en plus il y a pas grand chose.
-    - Dans un document de configuration du vega avec Elastisk j'ai trouvé:  
+    - Dans un document de configuration du vega avec Elastisk j'ai trouvé: (dans mon interface je n'ai pas du tout cela)  
         - network protocole : etsi  
         - framing: s_t  
         - line_encoding : azi
@@ -323,3 +323,40 @@ Et les extensions sont listées dans *SIP Proxy Registered Users*
 
 ## Degugging
 http://wiki.freepbx.org/display/VG/Vega+Detailed+Logging
+
+
+## backup clef de licence
+
+current license key:
+001200505820526800043008160000000f000331b102c5880d1198853f4a74ea5c0ca8R08xxxxx
+
+current system license status:
+LICENSE KEY = OK
+System licensed for 4 TDM<-->SIP calls
+start date: 30/8/2016
+expiry date: none
+licensed CODECs: Octet,G711Alaw,G711Ulaw,G729,G729AnnexA,G723.1,T38TCP,T38UDP
+system NOT licensed for SIP TLS
+system NOT licensed for SRTP
+system licensed for DSL topology E1 T1
+
+system license status available on reboot:
+LICENSE KEY = OK
+System licensed for 4 TDM<-->SIP calls
+start date: 30/8/2016
+expiry date: none
+licensed CODECs: Octet,G711Alaw,G711Ulaw,G729,G729AnnexA,G723.1,T38TCP,T38UDP
+system NOT licensed for SIP TLS
+system NOT licensed for SRTP
+system licensed for DSL topology E1 T1
+
+	
+Enter New License Key
+
+
+mac adress vega50 005058205268
+Je le mets en dhcp static pour avoir toujours la meme adresse IP
+
+### si pas de audio de voix
+- Freepbx / settings / asterisk sip setting 
+- local network 192.168.1.0 / 24
