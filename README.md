@@ -14,10 +14,11 @@ cisco sur wrt54GL
                                        PC
                                        |
 freepbx ------ Cisco switch ----- Wrt54Gl ---- Internet
-                 |     |             | 
-                 |     phone IP     PC
-                 phone ip
-
+                 |  |   |             | 
+                 |  |   phone IP     PC
+           phone ip |   
+				    |
+                   vega
 Comment configurer le firewall?
 ====
 http://wiki.freepbx.org/display/FPG/Firewall+Command+Line
