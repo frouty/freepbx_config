@@ -736,14 +736,15 @@ Reports - Asterisk log
 
 
 
-[2016-09-23 16:43:01] VERBOSE[11591][C-0000000c] sig_analog.c: -- Starting simple switch on 'DAHDI/3-1'
-[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-analog:1] NoOp("DAHDI/3-1", "Entering from-dahdi with DID == ") in new stack
-[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-analog:2] Ringing("DAHDI/3-1", "") in new stack
+[2016-09-23 16:43:01] VERBOSE[11591][C-0000000c] sig_analog.c: -- Starting simple switch on 'DAHDI/3-1'  
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-analog:1] NoOp("DAHDI/3-1", "Entering from-dahdi with DID == ") in new stack  
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-analog:2] Ringing("DAHDI/3-1", "") in new stack  
 
 Je vois  que le DID n'est pas passé.
 
 http://wiki.freepbx.org/display/FPG/DAHDI+(Analog)+Channel+DIDs  
-What is the DAHDI Channel DIDs module used for?
+
+### What is the DAHDI Channel DIDs module used for?  
 The DAHDI Channel DIDs module allows you to assign a DID or phone number to specific analog channels.
 Unlike SIP or PRI trunks, analog lines do not send a DID or dialed number to the PBX. Since the PBX routes all inbound calls based on the DID or number dialed, we need to map each analog port or channel to a fake number so we can match that number to an Inbound Route number and route your calls.
 Each channel can be mapped to the same phone number if you want all calls on the analog lines to go to the same destination. This would be a common scenario if you have multiple POTS lines that are on a hunt group from your provider.
