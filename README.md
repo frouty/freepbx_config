@@ -262,6 +262,9 @@ IP Phones
 ====
 https://supportforums.cisco.com/document/113336/ip-phone-registration-issues
 
+Le phone va s'enregistrer aupres du PBX. L'adresse IP du Phone n'a pas d'importance elle peut rester en DHCP.
+L'incovénient c'est que pour utiliser le web GUI du phone cela ne va pas etre facile. Il faudra connaitre l'adresse IP. On peut la trouver sur le phone dans les menus.
+
 Phones Sangoma
 ====
 http://wiki.freepbx.org/display/PHON
@@ -964,7 +967,7 @@ Comment on fait?
 
 
 ### Comment forwarder vers un numéro extérieur
-miscellenious destination
+miscellenious destination  
 follow-me : si quelqu'un appelle mon extension, et que cela sonne 4 fois, i dont peek up instead of going to voice mail va vers mon cell phone.
 
 Je parle de miscelenious destination.
@@ -991,3 +994,11 @@ admin / system admin / power option
 
 # Comment on gere les SDA du tronc numeris?
 ## Comment diriger les appels du 29629x vers un user phone?
+## Comment rediriger un appel vers un user phone vers un numéro extérieur?
+
+# call flow control
+## Comment faire pour modifier le flow de l'appel en compasant un code sur le phoneIP?
+Application / call flow control / add call flow taggle code /
+-2 Description ce qu'on veut
+-3 password pas nécessaire
+-4 
