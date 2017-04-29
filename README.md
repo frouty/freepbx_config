@@ -332,18 +332,18 @@ Ce password 222222 se trouve dans le freepbx à : *TODO*
 
 Phone Polycom 
 ===
-# LOgin / Password : 
+### Login / Password : 
 Username = Polycom (case sensitive)  
 Admin Password = 456  
 User Password = 123  
-
+### difference entre user et admin
 admin acces unrestricted. user acces restricted  
 
-# web gui login password 
+### web gui login password 
 il est défini par le freepbx :  
 - settings/ end point manager / global settings /   
 - phone admin password .  
-outboubnc- 
+ 
 
 ### Reboot the Phone  
  - Press and hold the dial pad keys 0, 1, and 3 simultaneously for about three seconds, or until you hear a confirmation tone.  
@@ -962,7 +962,7 @@ je n'ai rien fait j'ai attendu un peu.
 j'ai comme message d'erreur : 'yum upgrade nodejs' from the CLI as root
 Comment on fait?
 
-<<<<<<< HEAD
+
 ### Comment forwarder vers un numéro extérieur
 miscellenious destination
 follow-me : si quelqu'un appelle mon extension, et que cela sonne 4 fois, i dont peek up instead of going to voice mail va vers mon cell phone.
@@ -979,13 +979,12 @@ Avec un ring group or a queue vous pouvez definir le fail over destination to be
 8 et en bas on a "destination if no answer" on met a la place d'extension mis destination.
 
 D'autre utilise le follow me sur l'extension.
-=======
-** power off
+
+
+# power off
 admin / system admin / power option
 
-### si pas de audio de voix
+#si pas de audio de voix
 - Freepbx / settings / asterisk sip setting 
 - local network 192.168.1.0 / 24
 
-[1-3]9
->>>>>>> bd5f70c6007fd4bddd1277a24ae4a0009588c6fe
