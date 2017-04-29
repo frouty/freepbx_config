@@ -970,9 +970,9 @@ follow-me : si quelqu'un appelle mon extension, et que cela sonne 4 fois, i dont
 Je parle de miscelenious destination.
 Avec un ring group or a queue vous pouvez definir le fail over destination to be a cell phone or a miscellianus destination.
 
-1 créer le miscelianious destination Application / Mis Destination
-2 description ce qu'on veut
-3 Dial : il faut l'écrire exactement comme on le ferait si on composait sur une extension. (8 chez nous)
+- 1 créer le miscelianious destination Application / Mis Destination  
+- 2 description ce qu'on veut  
+- 3 Dial : il faut l'écrire exactement comme on le ferait si on composait sur une extension. (8 chez nous)
 4 Apply config
 6 add it to a ring group
 7 Application / Ring group
@@ -984,7 +984,7 @@ D'autre utilise le follow me sur l'extension.
 # power off
 admin / system admin / power option
 
-#si pas de audio de voix
+# si pas de audio de voix
 - Freepbx / settings / asterisk sip setting 
 - local network 192.168.1.0 / 24
 
