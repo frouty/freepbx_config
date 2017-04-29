@@ -988,3 +988,6 @@ admin / system admin / power option
 - Freepbx / settings / asterisk sip setting 
 - local network 192.168.1.0 / 24
 
+
+# Comment on gere les SDA du tronc numeris?
+## Comment diriger les appels du 29629x vers un user phone?
