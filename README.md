@@ -264,6 +264,7 @@ https://supportforums.cisco.com/document/113336/ip-phone-registration-issues
 
 Le phone va s'enregistrer aupres du PBX. L'adresse IP du Phone n'a pas d'importance elle peut rester en DHCP.
 L'incovénient c'est que pour utiliser le web GUI du phone cela ne va pas etre facile. Il faudra connaitre l'adresse IP. On peut la trouver sur le phone dans les menus.
+Un phone peut avoir plusieurs extensions. A quoi cela sert? 
 
 Phones Sangoma
 ====
@@ -1002,3 +1003,29 @@ Application / call flow control / add call flow taggle code /
 -2 Description ce qu'on veut
 -3 password pas nécessaire
 -4 
+
+# Inbound group
+
+Connectivity / Inbound routes /
+incoming route. Il est possible de filtrer les appels en fonction du DID (destination ID) le numéro de téléphone qui a été appelé ou en fonction du caller ID qui est le numéro de celui qui vous appele.
+Incoming route / Set destination
+
+
+# Ring group
+C'est un ensemble d'extension qui vont sonner en meme temps.
+Application / ring group
+On choisit les users. On peut utiliser Extension Quick Pick
+Destination if no answer.
+Ensuite il faut aller sur une incoming route et mettre set destination avec le ring group.
+
+
+# Times conditions
+la possibilité de diriger les appels en fonction d'horaire.
+
+Application / Time groups
+
+Il est juste nécessaire de définir le business hour. Pas de définition du after business hour.
+
+ensuite Application / Time condition.
+- On y definit le `Time Groups`. Ceux que l'on a définit juste avant. 
+- On y définit le `Destination if time matches`  
