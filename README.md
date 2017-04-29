@@ -973,10 +973,10 @@ Avec un ring group or a queue vous pouvez definir le fail over destination to be
 - 1 créer le miscelianious destination Application / Mis Destination  
 - 2 description ce qu'on veut  
 - 3 Dial : il faut l'écrire exactement comme on le ferait si on composait sur une extension. (8 chez nous)
-4 Apply config
-6 add it to a ring group
-7 Application / Ring group
-8 et en bas on a "destination if no answer" on met a la place d'extension mis destination.
+- 4 Apply config
+- 6 add it to a ring group
+- 7 Application / Ring group
+- 8 et en bas on a "destination if no answer" on met a la place d'extension mis destination.
 
 D'autre utilise le follow me sur l'extension.
 
