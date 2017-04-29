@@ -100,7 +100,7 @@ Je le mets dans les deux outgoing et incoming host=dynamic
         - LAN 1 Configuration / Physical / Duplex : full 
 - Onglet : *VoIP*
     - *VoIP Routing Mode*  : thick *send calls via VoIP Service Provider proxy*. Pas sûr qu'il y est cette information sur ma version ou modele de gateway.
-    - *VoIP Device configuration*:
+    - *VoIP Device configuration*: (on va définir des parametres que l'on va utiliser dans la config du sip trunk dans le freepbx)
         - **proxy domain name**: default-reg-domain.com
         - **proxy address** : IP adresse du server freepbx
         - **Registar address**: IP adresse du server freepbx  
@@ -128,6 +128,17 @@ Je le mets dans les deux outgoing et incoming host=dynamic
             
 - Onglet: *BRI*:
     - Rien compris a ce qu'ils disent. Et en plus il y a pas grand chose.
+    - Dans un document de configuration du vega avec Elastisk j'ai trouvé: (dans mon interface je n'ai pas du tout cela)  
+        - network protocole : etsi  
+        - framing: s_t  
+        - line_encoding : azi
+        - NT : decoché
+        - bus master priory 1 pour le port 1 et 2 pour le port 2  
+        - Restart layer 2 after disconnect: décoché
+        - NT phantom power : decoche
+        -Line Type : pp 
+        -TEI : 0 
+        
 - Apply
 - Status dans la colonne de gauche. On devrait voir:
     ```
@@ -146,27 +157,31 @@ Je le mets dans les deux outgoing et incoming host=dynamic
 Si ce n'est pas registered il faut vérifier que les settings sont bon.  
 Si c'est registered:
 - Expert config / SIP 
-- Section : **SIP profile** / click **modify**
-- set parameter **from header user info** to **Calling party**
-- Submit / apply change / Save
+    - Section : **SIP profile** / click **modify**
+    - set parameter **from header user info** to **Calling party**
+    - from header host : local domain
+    - To header host : local domain
+    - Redirection host : local domain
+    - Transport : udp
+    - Submit / apply change / Save
+- Dans le plan de numérotation, sous « dialplan », on va configurer deux règles:  
+        - une de ISDN à SIP  
+        - et une de SIP à ISDN afin que tous les appels soient routés depuis / vers Freepbx
 - Go to **expert config / dial plan**
-- Click **modify** de **Profil / To_SIP**
-- Changer : Source : **IF:0301,TEL:<.*>,TELC:<.*>** Destination : **IF:9901,TEL:<1>,TELC:(<2>)**  
+    - Click **modify** de **Profil / To_SIP**
+    - Changer : Source : **IF:0301,TEL:<.*>,TELC:<.*>** Destination : **IF:9901,TEL:<1>,TELC:(<2>)**  
 Cela veut dire que tout ce qui arrive de l'interface avec l'ID 0301 (que l'on retrouve dans Quick config / onglet BRI) est redirigé vers l'interface avec l'ID 9901 (Sip interface, id que l'on retrouve dans Expert config / SIP)  
 TEL est le numéro appelé   
 TELC est le numero appelant  
 **.*** veut dire que l'on accepte tous les numéros.  
 - Submit / apply /save changes  
-- Go back to **Dial plan**
-    - Dans le plan de numérotation, sous « dialplan », on va configurer deux règles:  
-        - une de ISDN à SIP  
-        - et une de SIP à ISDN afin que tous les appels soient routés depuis / vers Freepbx
+- Go back to **Dial plan**  
     - click **modify** for **To_BRI**
     - delete the last 3 entries, garder la première
     - make the changes:
         -source: **IF:9901,TEL:<.*>**
         -destination: **IF:0301,TEL:<1>**  
-Ce qui veut dire que tout ce qui arrive de l'interface d'ID 9901 (SIP interface) sera redirigé vers l'interface avec l'ID 0301. TEL est le numero appelé. **.*** tous les numero composés sont acceptés. On utilise seulement l'interface 1 du vega 50 BRI. On peut ajouter d'autres routes.
+Ce qui veut dire que tout ce qui arrive de l'interface d'ID 9901 (SIP interface) sera redirigé vers l'interface avec l'ID 0301. TEL est le numero appelé. **.*** tous les numero composés sont acceptés. On utilise seulement l'interface 1 du vega 50 BRI. On peut ajouter d'autres routes.  
 - Submit / apply /save changes 
 - Expert config / BRI / line type : **pp** (point to point)
 
@@ -218,11 +233,10 @@ Pour debogger : Freepbx GUI / select "Reports / Asterisk Info," and then select 
 
 ### Peer details  
 - sip settings / outgoing settings
-    - trunk name:
- 
-    - host=ip address du vega
-    - username=vega
-    - secret    
+    - trunk name: ce que tu veux comme nom mais pas un déjà donné.
+     - host=ip address du vega
+    - username=vega le meme que celui defini dans le vega
+    - secret= lememe que celui défini dans le vega.  
     - disallow=all
     - allow=ulaw
     - dtmfmode=rfc2883
@@ -232,7 +246,17 @@ Pour debogger : Freepbx GUI / select "Reports / Asterisk Info," and then select 
     -insecure=invite,port
 
 - sip settings / incoming settiings:
-    - **USER context** doit etre le meme que le username : chez moi vega50
+    - **USER context** doit etre **le meme** que le username : chez moi vega50
+    - host=dynamic (il faudrait vérifier s'il ne faut pas aussi host=dynamic aussi dans le outgoing settings)
+    - username=vega le meme que celui defini dans le vega
+    - secret= lememe que celui défini dans le vega.  
+    - disallow=all
+    - allow=ulaw
+    - dtmfmode=rfc2883
+    - context=from-trunk
+    -from-domain=ip adress du vega
+    -type=peer
+    -insecure=invite,port
 
 ## Récupérer/backup la license :  
 ATTENTION a faire avant un reset sinon on perd la licence.  
@@ -299,3 +323,40 @@ Et les extensions sont listées dans *SIP Proxy Registered Users*
 
 ## Degugging
 http://wiki.freepbx.org/display/VG/Vega+Detailed+Logging
+
+
+## backup clef de licence
+
+current license key:
+001200505820526800043008160000000f000331b102c5880d1198853f4a74ea5c0ca8R08xxxxx
+
+current system license status:
+LICENSE KEY = OK
+System licensed for 4 TDM<-->SIP calls
+start date: 30/8/2016
+expiry date: none
+licensed CODECs: Octet,G711Alaw,G711Ulaw,G729,G729AnnexA,G723.1,T38TCP,T38UDP
+system NOT licensed for SIP TLS
+system NOT licensed for SRTP
+system licensed for DSL topology E1 T1
+
+system license status available on reboot:
+LICENSE KEY = OK
+System licensed for 4 TDM<-->SIP calls
+start date: 30/8/2016
+expiry date: none
+licensed CODECs: Octet,G711Alaw,G711Ulaw,G729,G729AnnexA,G723.1,T38TCP,T38UDP
+system NOT licensed for SIP TLS
+system NOT licensed for SRTP
+system licensed for DSL topology E1 T1
+
+	
+Enter New License Key
+
+
+mac adress vega50 005058205268
+Je le mets en dhcp static pour avoir toujours la meme adresse IP
+
+### si pas de audio de voix
+- Freepbx / settings / asterisk sip setting 
+- local network 192.168.1.0 / 24

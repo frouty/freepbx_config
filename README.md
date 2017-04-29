@@ -14,10 +14,11 @@ cisco sur wrt54GL
                                        PC
                                        |
 freepbx ------ Cisco switch ----- Wrt54Gl ---- Internet
-                 |     |             | 
-                 |     phone IP     PC
-                 phone ip
-
+                 |  |   |             | 
+                 |  |   phone IP     PC
+           phone ip |   
+				    |
+                   vega
 Comment configurer le firewall?
 ====
 http://wiki.freepbx.org/display/FPG/Firewall+Command+Line
@@ -337,6 +338,12 @@ Admin Password = 456
 User Password = 123  
 
 admin acces unrestricted. user acces restricted  
+
+# web gui login password 
+il est défini par le freepbx :  
+- settings/ end point manager / global settings /   
+- phone admin password .  
+outboubnc- 
 
 ### Reboot the Phone  
  - Press and hold the dial pad keys 0, 1, and 3 simultaneously for about three seconds, or until you hear a confirmation tone.  
@@ -729,14 +736,15 @@ Reports - Asterisk log
 
 
 
-[2016-09-23 16:43:01] VERBOSE[11591][C-0000000c] sig_analog.c: -- Starting simple switch on 'DAHDI/3-1'
-[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-analog:1] NoOp("DAHDI/3-1", "Entering from-dahdi with DID == ") in new stack
-[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-analog:2] Ringing("DAHDI/3-1", "") in new stack
+[2016-09-23 16:43:01] VERBOSE[11591][C-0000000c] sig_analog.c: -- Starting simple switch on 'DAHDI/3-1'  
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-analog:1] NoOp("DAHDI/3-1", "Entering from-dahdi with DID == ") in new stack  
+[2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-analog:2] Ringing("DAHDI/3-1", "") in new stack  
 
 Je vois  que le DID n'est pas passé.
 
 http://wiki.freepbx.org/display/FPG/DAHDI+(Analog)+Channel+DIDs  
-What is the DAHDI Channel DIDs module used for?
+
+### What is the DAHDI Channel DIDs module used for?  
 The DAHDI Channel DIDs module allows you to assign a DID or phone number to specific analog channels.
 Unlike SIP or PRI trunks, analog lines do not send a DID or dialed number to the PBX. Since the PBX routes all inbound calls based on the DID or number dialed, we need to map each analog port or channel to a fake number so we can match that number to an Inbound Route number and route your calls.
 Each channel can be mapped to the same phone number if you want all calls on the analog lines to go to the same destination. This would be a common scenario if you have multiple POTS lines that are on a hunt group from your provider.
@@ -848,8 +856,7 @@ Timing & agent options
 - Loose : si l'appel est en train de sonner chez un agent le systeme attend un événement avant de sortir l'appel de la queue.
 
 -Agent time out: durée en seconde de sonnerie de l'extension. Cela peut etre limité par le system ring time, des valeurs par défaut des extensions.
-
--Agent Time Out Restart: YES le timeout d'un agent est remis à zero à la réception d'un busy ou d'un congestion.
+ar-Agent Time Out Restart: YES le timeout d'un agent est remis à zero à la réception d'un busy ou d'un congestion.
 
 -Retry
 
@@ -955,6 +962,7 @@ je n'ai rien fait j'ai attendu un peu.
 j'ai comme message d'erreur : 'yum upgrade nodejs' from the CLI as root
 Comment on fait?
 
+<<<<<<< HEAD
 ### Comment forwarder vers un numéro extérieur
 miscellenious destination
 follow-me : si quelqu'un appelle mon extension, et que cela sonne 4 fois, i dont peek up instead of going to voice mail va vers mon cell phone.
@@ -971,3 +979,13 @@ Avec un ring group or a queue vous pouvez definir le fail over destination to be
 8 et en bas on a "destination if no answer" on met a la place d'extension mis destination.
 
 D'autre utilise le follow me sur l'extension.
+=======
+** power off
+admin / system admin / power option
+
+### si pas de audio de voix
+- Freepbx / settings / asterisk sip setting 
+- local network 192.168.1.0 / 24
+
+[1-3]9
+>>>>>>> bd5f70c6007fd4bddd1277a24ae4a0009588c6fe
