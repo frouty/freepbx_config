@@ -954,3 +954,20 @@ je n'ai rien fait j'ai attendu un peu.
 ### CLI command ###
 j'ai comme message d'erreur : 'yum upgrade nodejs' from the CLI as root
 Comment on fait?
+
+### Comment forwarder vers un numéro extérieur
+miscellenious destination
+follow-me : si quelqu'un appelle mon extension, et que cela sonne 4 fois, i dont peek up instead of going to voice mail va vers mon cell phone.
+
+Je parle de miscelenious destination.
+Avec un ring group or a queue vous pouvez definir le fail over destination to be a cell phone or a miscellianus destination.
+
+1 créer le miscelianious destination Application / Mis Destination
+2 description ce qu'on veut
+3 Dial : il faut l'écrire exactement comme on le ferait si on composait sur une extension. (8 chez nous)
+4 Apply config
+6 add it to a ring group
+7 Application / Ring group
+8 et en bas on a "destination if no answer" on met a la place d'extension mis destination.
+
+D'autre utilise le follow me sur l'extension.
