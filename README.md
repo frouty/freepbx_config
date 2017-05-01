@@ -1004,7 +1004,7 @@ Application / call flow control / add call flow taggle code /
 -3 password pas nécessaire
 -4 
 
-# Inbound group
+# Inbound Route
 
 Connectivity / Inbound routes /
 incoming route. Il est possible de filtrer les appels en fonction du DID (destination ID) le numéro de téléphone qui a été appelé ou en fonction du caller ID qui est le numéro de celui qui vous appele.
@@ -1028,4 +1028,17 @@ Il est juste nécessaire de définir le business hour. Pas de définition du aft
 
 ensuite Application / Time condition.
 - On y definit le `Time Groups`. Ceux que l'on a définit juste avant. 
-- On y définit le `Destination if time matches`  
+- On y définit le `Destination if time matches`
+- Et `Destination if time does not match`
+- Ensuite il faut aller dans `Connectivity / Inbound Route`et changer `Set destination` avec `Time Conditions` et on choisit la time condition qui nous interesse.
+
+
+
+# How to install pbx on raspberry
+download http://raspberry-asterisk.org/downloads
+Quand on a l'image il faut la placer sur le SD-card. Class 10 est plus rapide.
+- 1 sha1sum le.zip
+- 2 unzîp le.zip
+- 3 dd bs=4M status=progress if=le.zip of=/dev/sdx
+- 4 to monitor progress : `dd bs=4M if=2014-09-09-wheezy-raspbian.img | pv | dd of=/dev/mmcblk0`
+- 5 `sync`
