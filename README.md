@@ -1033,7 +1033,13 @@ ensuite Application / Time condition.
 - Ensuite il faut aller dans `Connectivity / Inbound Route`et changer `Set destination` avec `Time Conditions` et on choisit la time condition qui nous interesse.
 
 # Comment diriger les appels entrant vers un IPphone en fonction du SDA # 
-Pour voir le SDA qui est présenté à Freepbx :
+- 1- Pour voir le SDA qui est présenté à Freepbx  car ce n'est pas forcement celui que l'on attend.
+	- ssh root@IP_Freepbx
+	- login
+	- asterisk -rvvvv
+	- faire un appel
+- 2-Le champ à renseigner c'est `CID` 
+- 3 et ` Set destination` ou pourra mettre l'extension. 
 
 
 # How to install pbx on raspberry
