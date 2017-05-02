@@ -1040,6 +1040,8 @@ ensuite Application / Time condition.
 	- faire un appel
 - 2-Le champ à renseigner c'est `CID` 
 - 3 et ` Set destination` ou pourra mettre l'extension. 
+## On peut diriger vers un numero exterieur en faisant une misc destination ##
+Et on met `Set destination` sur cette miscellaneous destination
 
 
 # How to install pbx on raspberry
