@@ -1032,6 +1032,8 @@ ensuite Application / Time condition.
 - Et `Destination if time does not match`
 - Ensuite il faut aller dans `Connectivity / Inbound Route`et changer `Set destination` avec `Time Conditions` et on choisit la time condition qui nous interesse.
 
+# Comment diriger les appels entrant vers un IPphone en fonction du SDA # 
+Pour voir le SDA qui est présenté à Freepbx :
 
 
 # How to install pbx on raspberry
