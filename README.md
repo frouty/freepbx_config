@@ -120,9 +120,17 @@ Utiliser plutot : __fwconsole__
 
 http://wiki.freepbx.org/pages/viewpage.action?pageId=37912685
 
-Comment configurer son serveur de mail
-====
-todo
+# Comment configurer son serveur de mail
+Admin / System Admin / Email Setup  
+## Choix du SMTP server
+J'ai essayé gmail mais je n'ai pas réussi.  
+`Use built in SMTP server`  
+- hostname = ?
+- origin = ?
+- Domain = ?
+### Debug 
+Click sur debug. On va sur la page de debug et on peut lancer un tester de mail. A essayer.
+
 
 Comment configurer les notifications par mail
 ====
