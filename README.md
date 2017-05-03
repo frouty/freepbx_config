@@ -27,6 +27,8 @@ http://wiki.freepbx.org/display/FPG/Firewall+Command+Line
 `fwconsole firewall disable`  
 
 puis en GUI recherche -> firewall -> enable --> re-run wizard
+# Power off
+`̀Admin / Sysadmin / Power Options / Power off`
 
 Comment mettre à jour l'achat de modules commerciaux
 ====
@@ -64,11 +66,12 @@ Faire un ssh puis
 `fwconsole stop`  
 `fwconsole restart`  
 `fwconsole trunks`
+
 #### Pour entrer dans les commands line d'asterisk  
 `asterisk -r | asterisk -rvvv`    
 Le prompt change en localhost\*CLI>  
 ? pour avoir toute les commandes  
-le log est sous /var/log/asterisk/full  
+le log est sous /var/log/asterisk/full    
 
 `sip show peers` 
 
@@ -83,6 +86,11 @@ le log est sous /var/log/asterisk/full
 Version asterisk
 ====
 `core show version`  
+
+## Déboger Asterisk
+- ssh root@FreePBXIP
+- asterisk -rvvv
+
 
 Amportal commands
 ====
