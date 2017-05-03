@@ -127,7 +127,7 @@ J'ai essayé gmail mais je n'ai pas réussi.
 `Use built in SMTP server`  
 - hostname = ?
 - origin = ?
-- Domain = ?
+- Domain = ?  
 ### Debug 
 Click sur debug. On va sur la page de debug et on peut lancer un tester de mail. A essayer.
 
