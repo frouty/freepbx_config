@@ -29,7 +29,8 @@ http://wiki.freepbx.org/display/FPG/Firewall+Command+Line
 puis en GUI recherche -> firewall -> enable --> re-run wizard
 # Power off
 `̀Admin / Sysadmin / Power Options / Power off`
-
+# Comment savoir l'état du disk
+`̀Admin / Sysadmin / Storage`
 Comment mettre à jour l'achat de modules commerciaux
 ====
 Admin -> Sys admin -> Activation -> Update activation (en bas à droite)
