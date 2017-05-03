@@ -128,17 +128,12 @@ J'ai essayé gmail mais je n'ai pas réussi.
 - hostname = ?
 - origin = ?
 - Domain = ?  
-### Debug 
+## Debug
 Click sur debug. On va sur la page de debug et on peut lancer un tester de mail. A essayer.
 
 
-Comment configurer les notifications par mail
-====
-
+# Comment configurer les notifications par mail
 Admin>System Admin>Notification Settings
-
-
-
 
 Extension
 ====
