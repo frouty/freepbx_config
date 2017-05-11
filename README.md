@@ -1064,3 +1064,8 @@ Quand on a l'image il faut la placer sur le SD-card. Class 10 est plus rapide.
 - 3 dd bs=4M status=progress if=le.zip of=/dev/sdx
 - 4 to monitor progress : `dd bs=4M if=2014-09-09-wheezy-raspbian.img | pv | dd of=/dev/mmcblk0`
 - 5 `sync`
+
+# je ne veux qu'un user ait accés au enregistrement de conversation
+- 1 *User Manager / UCP / Call Event Logging* tab
+- 2 Allow CEL / No  
+CEL = CALL EVENT LOGGING
