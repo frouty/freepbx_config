@@ -1068,4 +1068,13 @@ Quand on a l'image il faut la placer sur le SD-card. Class 10 est plus rapide.
 # je ne veux qu'un user ait accés au enregistrement de conversation
 - 1 *User Manager / UCP / Call Event Logging* tab
 - 2 Allow CEL / No  
+Mais les anciens messages sont toujours là.
 CEL = CALL EVENT LOGGING
+
+# Application / Call flow control  #
+- 1 Call Flow Toggle Feature code index : je n'ai pas compris
+- Description : OK
+- 3 Recording for normal mode | Recording for override mode : ou on met le message qui sera joué en mode normal.
+- 4 Optional password : ? 
+- 5 Normal Flow | Override Flow : == Choose one == 
+
