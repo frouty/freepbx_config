@@ -1068,13 +1068,21 @@ Quand on a l'image il faut la placer sur le SD-card. Class 10 est plus rapide.
 # je ne veux qu'un user ait accés au enregistrement de conversation
 - 1 *User Manager / UCP / Call Event Logging* tab
 - 2 Allow CEL / No  
-Mais les anciens messages sont toujours là.
+Mais les anciens messages sont toujours là.  
+J'ai aussi fait :
+- 1  *User Manager / UCP / Call History* tab
+- 2 Allow CDR downlaods NO
+- 3 Allow CDR playback et là l'historique est présent mais on ne peut pas écouter c'est ce que je veux.
 CEL = CALL EVENT LOGGING
 
 # Application / Call flow control  #
 - 1 Call Flow Toggle Feature code index : je n'ai pas compris
 - Description : OK
-- 3 Recording for normal mode | Recording for override mode : ou on met le message qui sera joué en mode normal.
+- 3 Recording for normal mode | Recording for override mode : ou on met le message qui sera joué en mode normal. cela se définit dans *Admin / System recording*.
 - 4 Optional password : ? 
 - 5 Normal Flow | Override Flow : == Choose one == 
 
+# Admin / System recording
+
+On y enregistre des messages. On peut concatener des messages. 
+On peut mettre ces messages dans connectivity / Inbound route / set destination / Play recording / on choisit un des messages que l'on aura enregistrer auparavant.
