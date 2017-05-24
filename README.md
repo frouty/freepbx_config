@@ -343,7 +343,8 @@ advanced - password : 222222 - Device reboot
 
 Ce password 222222 se trouve dans le freepbx à : *TODO*
 
-
+Page tres complete sur le provisionning d'un tel sangoma:  
+https://wiki.freepbx.org/display/PHON/Setup+Phone+by+hard+setting+provisioning+server
 
 
 Phone Polycom 
