@@ -146,9 +146,9 @@ Admin>System Admin>Notification Settings
 
 # Extension
 ## Comment Creer une extension
-- 1 On crée un user qui pourra etre linké à cette extension.
+- 1 On crée un user qui pourra être linké à cette extension.
 	- Pour créer un user : Admin /user Management
-- 2 On crée l'extension : Application / Extension / Add Extension / Add New DAHDI Extension
+- 2 On crée l'extension : Application / Extension / Add Extension / Add New CHAN_SIP Extension
 - 3 On la link à un user  
 ## Une fois que l'on a crée l'extension on va la linker à un poste IP phone.
 - Settings / EndPoint Manager / Extension Mapping
