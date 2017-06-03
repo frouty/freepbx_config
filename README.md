@@ -144,9 +144,18 @@ Click sur debug. On va sur la page de debug et on peut lancer un tester de mail.
 # Comment configurer les notifications par mail
 Admin>System Admin>Notification Settings
 
-Extension
-====
-Creer une extension
+# Extension
+## Comment Creer une extension
+- 1 On crée un user qui pourra etre linké à cette extension.
+	- Pour créer un user : Admin /user Management
+- 2 On crée l'extension : Application / Extension / Add Extension / Add New DAHDI Extension
+- 3 On la link à un user  
+## Une fois que l'on a crée l'extension on va la linker à un poste IP phone.
+- Settings / EndPoint Manager / Extension Mapping
+- Là on a le choix de mapper:
+	- un user avec un account (cet account est quelque chose dans le téléphone)
+	- une extension avec une MAC adress d'IP Phone.
+	
 ---
 Application -> Extension -> Quick Extension Create
 
@@ -166,8 +175,20 @@ Extension Module marche avec d'autres modules
 
 * User Management Module. In the User Management Module, a user may have a "primary linked extension." (?)
 
+# FXO
+-1 Je branche une ligne de mon PTOS vers un port FXO du freepbx  
+-2 Connectivity / DADY channel DID : je choisi ce Chanel correspondant au port FXO que je viens de connecter à mon PTOS. Et je lui donne un DID de mon choix que je vais pouvoir utiliser par la suite.
+-3 Une fois que j'ai défini un DID à ce channel je vais pouvoir créer une inbound route.
+-4 A cette inbound Route il faut lui donner une destination. Qui peut etre une extension.
 
-
+# Comment mettre une Outbound route qui va utiliser un port FXO.
+Exemple les orthoptiste utilisent leur ligne FXO pour appeler.
+- Connection / Outbound Route
+	- On me demande la Trunk sequence for matched route.
+	- Il faut créer un trunk avant
+		- Connectivity / Trunk / Add trunk / de type :  DAHDI
+		- dans l'onglet dahdi settings : Analog channel 2 (je suppose que c'est le port FXO N°2)
+	
 
 DADHI extension c'est quoi?
 ---
@@ -1087,3 +1108,7 @@ CEL = CALL EVENT LOGGING
 
 On y enregistre des messages. On peut concatener des messages. 
 On peut mettre ces messages dans connectivity / Inbound route / set destination / Play recording / on choisit un des messages que l'on aura enregistrer auparavant.
+
+# Surcharger le caller ID qui s'affiche sur le téléphone de la personne qui recoit l'appel.
+- 1 J'ai essayé dans : Connectivity / Outbound Route / Route CID . Cela ne marche pas
+- 2 En mettant Override Extension à YES. Cela ne marche pas.
