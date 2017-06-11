@@ -231,7 +231,8 @@ http://wiki.freepbx.org/display/FPG/Trunk+Sample+Configurations
 
 Pour debogger : Freepbx GUI / select "Reports / Asterisk Info," and then select "Full Report" on right.  In many cases, the information in this report can guide you in the right direction.
 
-### Peer details  
+### Peer details
+
 - sip settings / outgoing settings
     - trunk name: ce que tu veux comme nom mais pas un déjà donné.
      - host=ip address du vega
