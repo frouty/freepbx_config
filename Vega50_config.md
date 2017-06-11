@@ -1,20 +1,18 @@
 # Installation vega 50 BRI 
 
 
-Noter la mac adress du vega : au dessus du code, au dessus du port lan
+- 1 Noter la mac adress du vega : au dessus du code, au dessus du port lan
 
-Intaller le vega
-
-brancher le lan:  
-    -LAN1 cable RJ45 vers le switch
-    -LAN2/ You may leave LAN 2 unconnected as it is not typical used. (LAN 1 is configured to retrieve an IP address from DHCP)
-
-brancher le power
+- 2 Intaller le vega
+- 3 brancher le lan:  
+    - LAN1 cable RJ45 vers le switch
+    - LAN2/ You may leave LAN 2 unconnected as it is not typical used. (LAN 1 is configured to retrieve an IP address from DHCP)
+- 4 brancher le power
 
 ground?
 
-
-trouver l'adresse IP avec : nmap -sP <ip range>  
+ 
+- 5 trouver l'adresse IP avec : nmap -sP <ip range>  
 On obtient l'ip range dans opewrt / Status /route /Active IP-V4 Routes.  
 
 Si ca marche pas : arp -a. 
@@ -25,7 +23,7 @@ J'essaie avec le routeur mais c'est laborieux je ne vois pas apparaitre l'adress
 
 Il faut un serveur dhcp fonctionnel.
                                                             
-acceder au vega avec son IP dans un browser 
+- 6 acceder au vega avec son IP dans un browser 
 
 
 ## configurer sans registration
