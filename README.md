@@ -997,12 +997,6 @@ Apres un reboot forcé par interruption du courant j'ai le msg
 *couldn't connect to asterisk*  
 je n'ai rien fait j'ai attendu un peu.
 
-
-### CLI command ###
-j'ai comme message d'erreur : 'yum upgrade nodejs' from the CLI as root
-Comment on fait?
-
-
 ### Comment forwarder vers un numéro extérieur
 miscellenious destination  
 follow-me : si quelqu'un appelle mon extension, et que cela sonne 4 fois, i dont peek up instead of going to voice mail va vers mon cell phone.
@@ -1040,6 +1034,40 @@ Application / call flow control / add call flow taggle code /
 -3 password pas nécessaire
 -4 
 
+# Trunk module
+Il est utilisé pour connecté le Freepbx/asterisk à un autre systeme de VOIP. Comme cela on peut envoyer ou recevoir des apels depuis et vers cet autre système VOIP. 
+Comme :
+- Internet Telephone Service Providers
+- Autre système Freepbx/asterisk
+- FXO gateway qui connecte une ligne téléphonique ordinaire avec systeme de VOIP.
+- FXO cards qui permet de se connecter à un systeme téléphonique ordinaire.
+
+Si tu n'as pas de trunk de configuré, alors on ne peut faire des appels que vers les extensions du système.
+
+Trunk module est rélié à:
+- 1 Outbound Route
+- 2 Inbound Route
+
+Deux principaux type de trunk:
+- 1 SIP
+- 2 DAHDI
+
+## Trunk Name 
+un nom pour décrire le trunk
+## Outbound CallerID
+Utiliser ce champ pour ?  
+J'ai l'impression que cela ne sert pas.
+## CID Options
+## Maximum Channels 
+controle le nombre maximum d'outbound chanel (appels simultanés)
+## Continue if busy
+## Disable trunk
+## Dial pattern manipulation rules
+
+
+
+
+
 # Inbound Route
 https://wiki.freepbx.org/display/FPG/Inbound+Route+User+Guide  
 Connectivity / Inbound routes /
@@ -1066,7 +1094,8 @@ C'est le numéro composé par l'appelant. On peut filtrer sur ce numéro. PE : 2
 ## Caller ID
 C'est le numéro de l'appelant. On pouvoir router en fonction de l'appelant.
 ## CID Priority route
-YES/NO pour décider si cette route est une Priority Route caller ID. Cela n'affecte que les routes qui n'ont pas d'entrée dans le DID.
+YES/NO pour décider si cette route est une Priority Route caller ID. Cela n'affecte que les routes qui n'ont pas d'entrée dans le DID.  
+Si sur YES alors meme s'il existe  une route pour le DID qui a été appelé alors c'est cette route qui est utilisée. Le comportement normal est que la DID route prenne l'appel. 
 # Ring group
 C'est un ensemble d'extension qui vont sonner en meme temps.
 Application / ring group
@@ -1140,5 +1169,8 @@ On peut mettre ces messages dans connectivity / Inbound route / set destination 
 - Sur le polycom phone
 - en faisant le 296 297 donc en passant par le vega50 et le Trunk Sip VEGA50
 - c'est vega50 qui s'affiche.
+
+Je ne trouve rien sur ce sujet dans le module inbound route.
+
 
 
