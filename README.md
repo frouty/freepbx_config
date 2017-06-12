@@ -1183,3 +1183,11 @@ https://community.freepbx.org/t/incoming-caller-id-vega-50-freepbx-how-can-i-get
 - Freepbx / settings / asterisk sip setting 
 - local network 192.168.1.0 / 24
 
+# Module backup and restore
+Admin / backup and restore
+
+Backups : backups job, Quand, et tous les combiens, ce qui doit etre inclus dans le backup.
+Restores: On peut restorer à partir d'un dossier en local, ou en FTP, SSH...
+Servers : Serveurs PBX, DATABASE ou linux box, FTP servers, où on veut mettre le backup.
+Template c'est l'arborescence que l'on veut mettre dans le backup.
+Backup items
