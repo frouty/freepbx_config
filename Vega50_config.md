@@ -21,7 +21,7 @@ J'essaie nmap -A mais c'est laborieux. il faut tester ip par ip.
 
 J'essaie avec le routeur mais c'est laborieux je ne vois pas apparaitre l'adresse IP du vega. Je reboote et ca ne change rien. 
 
-Il faut un serveur dhcp fonctionnel.
+~~Il faut un serveur dhcp fonctionnel.~~ J'ai eu un probleme de changement d'adresse IP du VEGA donc il n'était plus possible d'appeler. Je suis passé en IP static.
                                                             
 - 6 acceder au vega avec son IP dans un browser 
 
@@ -44,7 +44,7 @@ Et
 Vega50/60G with a generic PBX  
 http://wiki.freepbx.org/pages/viewpage.action?pageId=60522602  
 
-`sip show peers`
+`sip show peers` sur le freepbx apres un ssh root@<ip du freepbx>
 
 ## Backup/restore Gateway config  
 - Expert Config / system / System management / Configuration / Receive file from gateway / Download  
@@ -88,10 +88,10 @@ Ce SIP trunk sera utilisé par le vega50 pour se register avec le server Freepbx
         - 0: VegaTrunk (nom de la SIP Trunk)  
         - 1: est vide  
         
-Mais j'ai un message d'erreur qui me idt que ce n'est pas configuré en dynamic host=dynamic. 
-Je le mets dans les deux outgoing et incoming host=dynamic
-###   Configuration du vega gateway          
+Mais j'ai un message d'erreur qui me dit que ce n'est pas configuré en dynamic host=dynamic. 
+Je le mets dans les deux outgoing et incoming host=dynamic  
 
+###   Configuration du vega gateway          
 
 - Onglet : *Basic Config*    
         - General / Country : FR  
@@ -356,6 +356,4 @@ Enter New License Key
 mac adress vega50 005058205268
 Je le mets en dhcp static pour avoir toujours la meme adresse IP
 
-### si pas de audio de voix
-- Freepbx / settings / asterisk sip setting 
-- local network 192.168.1.0 / 24
+
