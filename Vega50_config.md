@@ -264,9 +264,7 @@ ATTENTION a faire avant un reset sinon on perd la licence.
 
 pour plus d'infos : http://wiki.freepbx.org/display/VG/Factory+Reset  
 
-## Comment installer une adresse IP static  
-Quick Config / Un check "Obtain Settings automatically using DHCP"  
-click submit  
+
 
 ## Vega CLI Commands 
 Expert config / advanced / CLI commands  
@@ -354,6 +352,9 @@ Enter New License Key
 
 
 mac adress vega50 005058205268
-Je le mets en dhcp static pour avoir toujours la meme adresse IP
 
+Je le mets en dhcp static pour avoir toujours la meme adresse IP. Comme j'ai eu un probleme d'IP avec un DHCP qui n'avait pas marché. j'ai décidé de passer en static.
 
+## Comment installer une adresse IP static  
+Quick Config / Un check "Obtain Settings automatically using DHCP"  
+click submit  
