@@ -181,6 +181,8 @@ Extension Module marche avec d'autres modules
 -3 Une fois que j'ai défini un DID à ce channel je vais pouvoir créer une inbound route.
 -4 A cette inbound Route il faut lui donner une destination. Qui peut etre une extension.
 
+On donne un DID car avec  le fournisseur téléphonique PTOS il n'y a pas de DID.
+
 # Comment mettre une Outbound route qui va utiliser un port FXO.
 Exemple les orthoptiste utilisent leur ligne FXO pour appeler.
 - Connection / Outbound Route
@@ -1039,12 +1041,32 @@ Application / call flow control / add call flow taggle code /
 -4 
 
 # Inbound Route
-
+https://wiki.freepbx.org/display/FPG/Inbound+Route+User+Guide  
 Connectivity / Inbound routes /
-incoming route. Il est possible de filtrer les appels en fonction du DID (destination ID) le numéro de téléphone qui a été appelé ou en fonction du caller ID qui est le numéro de celui qui vous appele.
+incoming route. Il est possible de filtrer les appels en fonction du DID (destination ID) le numéro de téléphone qui a été composé ou en fonction du caller ID qui est le numéro de celui qui vous appelle, ou en fonction des deux.  
+Si on laisse blanc les deux : DID number et CallerID number on crée une route qui attrape tous les numéros entrants.
+
 Incoming route / Set destination
 
+Quand un appel arrive de l'extérieur dans le systeme, il arrive avec du numéro de téléphone qui a été composé (DID) et le caller ID de la personne qui appelle. 
+Le module Inbound Route est utilisé pour dire au systeme ce qu'il doit faire d'un appel qui arrive dans le systeme sur n'importe quel trunk qui a le parametre  `context=from-trunk` dans le PEER detail  
 
+L'appel arrive dans le system sur un trunk qui est configuré dans le trunk module. Le module Inbound Route dit alors où envoyer l'appel et c'est varié:
+- Extensions
+- Ring group
+- Queue
+- IVR
+- Time condition
+- Feature code 
+- DISA
+- Conference 
+- etc ...  
+## DID number 
+C'est le numéro composé par l'appelant. On peut filtrer sur ce numéro. PE : 296 298
+## Caller ID
+C'est le numéro de l'appelant. On pouvoir router en fonction de l'appelant.
+## CID Priority route
+YES/NO pour décider si cette route est une Priority Route caller ID. Cela n'affecte que les routes qui n'ont pas d'entrée dans le DID.
 # Ring group
 C'est un ensemble d'extension qui vont sonner en meme temps.
 Application / ring group
@@ -1112,3 +1134,11 @@ On peut mettre ces messages dans connectivity / Inbound route / set destination 
 # Surcharger le caller ID qui s'affiche sur le téléphone de la personne qui recoit l'appel.
 - 1 J'ai essayé dans : Connectivity / Outbound Route / Route CID . Cela ne marche pas
 - 2 En mettant Override Extension à YES. Cela ne marche pas.
+
+# le caller id de l'appelant ne s'affiche plus sur les IP phone
+- Sur les sangoma phone
+- Sur le polycom phone
+- en faisant le 296 297 donc en passant par le vega50 et le Trunk Sip VEGA50
+- c'est vega50 qui s'affiche.
+
+
