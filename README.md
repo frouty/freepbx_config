@@ -1179,5 +1179,7 @@ Je ne trouve rien sur ce sujet dans le module inbound route.
 https://community.freepbx.org/t/incoming-caller-id-vega-50-freepbx-how-can-i-get-this-working-pls/35898/6
 
 
-
+### si pas de audio, de voix
+- Freepbx / settings / asterisk sip setting 
+- local network 192.168.1.0 / 24
 
