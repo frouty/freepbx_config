@@ -1172,5 +1172,12 @@ On peut mettre ces messages dans connectivity / Inbound route / set destination 
 
 Je ne trouve rien sur ce sujet dans le module inbound route.
 
+##ssh root@ipvega
+- `log display on`
+- make an inbound call
+- on devrait voir qu'elle route le vega va utiliser.
+https://community.freepbx.org/t/incoming-caller-id-vega-50-freepbx-how-can-i-get-this-working-pls/35898/6
+
+
 
 
