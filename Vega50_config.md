@@ -259,6 +259,13 @@ Pour debogger : Freepbx GUI / select "Reports / Asterisk Info," and then select 
     -type=peer
     -insecure=invite,port
 
+# My config qui marche du dial planner du vega50
+Permet d'avoir la présentation du numéro sur l'IP phone.
+
+Experct config / Dial plan / To_SIP modify
+source : IF:0[3]..,TEL:<.*>,TELC:<.*>
+destination : IF:9901,TEL:<1>,TELC:(<2>)
+
 ## Récupérer/backup la license :  
 ATTENTION a faire avant un reset sinon on perd la licence.  
 1- System / expert config / upgrade license  
