@@ -1191,3 +1191,5 @@ Restores: On peut restorer à partir d'un dossier en local, ou en FTP, SSH...
 Servers : Serveurs PBX, DATABASE ou linux box, FTP servers, où on veut mettre le backup.
 Template c'est l'arborescence que l'on veut mettre dans le backup.
 Backup items
+
+https://wiki.freepbx.org/display/FPG/Using+the+Backup+module#UsingtheBackupmodule-Overview
