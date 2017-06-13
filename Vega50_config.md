@@ -7,12 +7,14 @@
 - 3 brancher le lan:  
     - LAN1 cable RJ45 vers le switch
     - LAN2/ You may leave LAN 2 unconnected as it is not typical used. (LAN 1 is configured to retrieve an IP address from DHCP)
-- 4 brancher le power
+ - 4 brancher le port BRI sur le boitier de l'OPT
+ 
+- 5 brancher le power
 
 ground?
 
  
-- 5 trouver l'adresse IP avec : nmap -sP <ip range>  
+- 6 trouver l'adresse IP avec : nmap -sP <ip range>  
 On obtient l'ip range dans opewrt / Status /route /Active IP-V4 Routes.  
 
 Si ca marche pas : arp -a. 
@@ -23,7 +25,7 @@ J'essaie avec le routeur mais c'est laborieux je ne vois pas apparaitre l'adress
 
 ~~Il faut un serveur dhcp fonctionnel.~~ J'ai eu un probleme de changement d'adresse IP du VEGA donc il n'était plus possible d'appeler. Je suis passé en IP static.
                                                             
-- 6 acceder au vega avec son IP dans un browser 
+- 7 acceder au vega avec son IP dans un browser 
 
 
 ## configurer sans registration
@@ -199,12 +201,12 @@ SIP REG USER 1
 ----state       -unregistered (user 1)
 blablabla
 ```  
-- SIP profile / Modify
+-Expert config /  SIP profile / Modify
     - Name : profile 1
     - interface ID : 9901
     - Local domain : IP address du freepbx
     - alternative local domain: alt-reg-domain.org
-    - from Header userinfo : Authentification username
+    - from Header userinfo : Authentification username. Mais j'ai vu qu'il fallait mettre 'calling party'
     - contact header userinfo : Calling party
     - P header userinfo : calling party
     - from header host : local domain
@@ -224,7 +226,7 @@ blablabla
         - SIP proxy : 1 Enable : 1  IP/DNS name: ip address du freepbx
     - SIP registration 
         
-## PEER details    
+## PEER details dans le freepbx au niveau de connection / Trunk   
 http://wiki.freepbx.org/display/FPG/Trunk+Sample+Configurations
 
 Pour debogger : Freepbx GUI / select "Reports / Asterisk Info," and then select "Full Report" on right.  In many cases, the information in this report can guide you in the right direction.
@@ -244,7 +246,7 @@ Pour debogger : Freepbx GUI / select "Reports / Asterisk Info," and then select 
     -type=peer
     -insecure=invite,port
 
-- sip settings / incoming settiings:
+- sip settings / incoming settings:
     - **USER context** doit etre **le meme** que le username : chez moi vega50
     - host=dynamic (il faudrait vérifier s'il ne faut pas aussi host=dynamic aussi dans le outgoing settings)
     - username=vega le meme que celui defini dans le vega
