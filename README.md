@@ -1125,18 +1125,7 @@ Destination if no answer.
 Ensuite il faut aller sur une incoming route et mettre set destination avec le ring group.
 
 
-# Times conditions
-la possibilité de diriger les appels en fonction d'horaire.
 
-Application / Time groups
-
-Il est juste nécessaire de définir le business hour. Pas de définition du after business hour.
-
-ensuite Application / Time condition.
-- On y definit le `Time Groups`. Ceux que l'on a définit juste avant. 
-- On y définit le `Destination if time matches`
-- Et `Destination if time does not match`
-- Ensuite il faut aller dans `Connectivity / Inbound Route`et changer `Set destination` avec `Time Conditions` et on choisit la time condition qui nous interesse.
 
 # Comment diriger les appels entrant vers un IPphone en fonction du SDA # 
 - 1- Pour voir le SDA qui est présenté à Freepbx  car ce n'est pas forcement celui que l'on attend.
@@ -1229,6 +1218,7 @@ Ce qui permet de changer le code directement par le user, sans passer par l'admi
 uniquement des digit.  
 
 # Announcements module
+la possibilité de diriger les appels en fonction d'horaire.
 Il permet de créer une destination qui va jouer un message à un appelant. Apres le message, l'appel va vers une autre destination. Où est défini cette autre destination?  
 Ce module est lié à tout module qui a un champ `Set Destination`:
 - 1 IVR
@@ -1260,8 +1250,9 @@ Laisser No c'est plus sur.
 
 # Time condition module
 controle le call flow par rapport à des horaires. 
-Time condition crée une destination que l'on va utiliser dans une set destination. Qd l'appel arrive sur une destination Time Condition le systeme va regarder si l'appel correspond à cette time condition et diriger vers deux destinations en fonction du résultat.
-Crée deux destination.
+Time condition crée une destination que l'on va utiliser dans une set destination.  
+Qd l'appel arrive sur une destination `Time Condition` le systeme va regarder si l'appel correspond à cette time condition et diriger vers deux destinations en fonction du résultat.
+Chaque objet Time Condition est une destination qui peut etre utilisé s'il y a un champ ̀`Set Destination` et il crée deux destinations.
 - 1 si la time condition est valide
 - 2 si la time condition n'est pas valide.
 
@@ -1289,9 +1280,51 @@ This destination will be used as the call target when the current time matches t
 ## Destination non-matches
 This destination will be used as the call target when the current time does not match the time group selected above.
 
+
+Application / Time groups
+
+Il est juste nécessaire de définir le business hour. Pas de définition du after business hour.
+
+ensuite Application / Time condition.
+- On y definit le `Time Groups`. Ceux que l'on a définit juste avant. 
+- On y définit le `Destination if time matches`
+- Et `Destination if time does not match`
+- Ensuite il faut aller dans `Connectivity / Inbound Route`et changer `Set destination` avec `Time Conditions` et on choisit la time condition qui nous interesse.
+
+# Call Flow module
+Il est utile pour crée une destination qui agit comme un switch qui peut être activé par toute personne qui a acces à un ip phone. Par passer de daytime mode à night time mode.  
+Call flow est un switch manuel et Time Condition est un switch automatic.
+
+Call flow peut etre utilisé dans les champ `Set Destination`
+## Call flow Toggle Feature Code 
+Tous les feature code pour les call flow commencent par \*28. L'index ie la derniere partie du code va de 0 à 99. Si on choisit 90 ici il faudra composer \*2890  
+## Current mode 
+- Normal (Green/BLF off). 
+- Override (REd/BLF on). 
+Pas compris
+## Recording for Normal Mode
+C'est ce qui est joué quand on fait le feature code.  
+The default recording played when toggling into normal mode is to beep and say "feature code deactivated." You can record your own announcement in the System Recordings module and pick that recording within the Call Flow Control module to override the default recording.
+## Recording for Override Mode
+The default recording played when toggling into override mode is to beep and say "feature code activated." You can record your own announcement in the System Recordings module and pick that recording within the Call Flow Control module to override the default recording.
+## Optional Password
+## Normal Flow Destination
+This is the destination to route the call to when in Normal (Green/BLF off) mode of the toggle. This destination can be:
+- extension, 
+- announcement, 
+- queue,
+- ...
+## Override Flow
+This is the destination to route the call to when in Override (Red/BLF on) mode of the toggle. This destination can be:
+- extension, 
+- announcement, 
+- queue,
+- ...
 # Surcharger le caller ID qui s'affiche sur le téléphone de la personne qui recoit l'appel.
+faire que la personne appelée voit un numero que j'aurai paramétré dans le freepbx.
 - 1 J'ai essayé dans : Connectivity / Outbound Route / Route CID . Cela ne marche pas
 - 2 En mettant Override Extension à YES. Cela ne marche pas.
+
 
 # le caller id de l'appelant ne s'affiche plus sur les IP phone
 - Sur les sangoma phone
