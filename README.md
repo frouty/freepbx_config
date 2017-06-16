@@ -802,7 +802,7 @@ Puis dans Inbound Route on utilise ce DID.
 Queue
 ===
 Utile qd plus d'appels entrants que de personnes pour répondre.  
-Un appel entrant mis dans une queue va ententre une annonce qui peut etre de la musique jusqu'a ce que quelqu'un prenne l'appel.  
+Un appel entrant mis dans une queue va entendre une annonce qui peut etre de la musique jusqu'a ce que quelqu'un prenne l'appel.  
 Vocabulaire
 ---
 Caller: l'appelant placé dans la queue  
@@ -1064,17 +1064,19 @@ controle le nombre maximum d'outbound chanel (appels simultanés)
 ## Disable trunk
 ## Dial pattern manipulation rules
 
-
-
-
-
 # Inbound Route
 https://wiki.freepbx.org/display/FPG/Inbound+Route+User+Guide  
-Connectivity / Inbound routes /
+
+C'est un module critique. Tres important
+Une configuration typique est une inbound route en association avec une time condition ensuite vers un IVR ou service de reponse en cas de fermeture en fonction de l'horaire.
+
+## Connectivity / Inbound routes /
 incoming route. Il est possible de filtrer les appels en fonction du DID (destination ID) le numéro de téléphone qui a été composé ou en fonction du caller ID qui est le numéro de celui qui vous appelle, ou en fonction des deux.  
 Si on laisse blanc les deux : DID number et CallerID number on crée une route qui attrape tous les numéros entrants.
+## DID (Direct Inward Dialing) Number
+S'il y a un match alors l'appel passe par cette inbound route.
 
-Incoming route / Set destination
+## Incoming route / Set destination
 
 Quand un appel arrive de l'extérieur dans le systeme, il arrive avec du numéro de téléphone qui a été composé (DID) et le caller ID de la personne qui appelle. 
 Le module Inbound Route est utilisé pour dire au systeme ce qu'il doit faire d'un appel qui arrive dans le systeme sur n'importe quel trunk qui a le parametre  `context=from-trunk` dans le PEER detail  
@@ -1089,13 +1091,32 @@ L'appel arrive dans le system sur un trunk qui est configuré dans le trunk modu
 - DISA
 - Conference 
 - etc ...  
-## DID number 
+
+## DID number 
 C'est le numéro composé par l'appelant. On peut filtrer sur ce numéro. PE : 296 298
-## Caller ID
+## Caller ID
 C'est le numéro de l'appelant. On pouvoir router en fonction de l'appelant.
-## CID Priority route
+## CID Priority route
 YES/NO pour décider si cette route est une Priority Route caller ID. Cela n'affecte que les routes qui n'ont pas d'entrée dans le DID.  
 Si sur YES alors meme s'il existe  une route pour le DID qui a été appelé alors c'est cette route qui est utilisée. Le comportement normal est que la DID route prenne l'appel. 
+
+## Exemples d'inbound route
+### DeadRestricted
+Avec cette route les appels entrants qui ne correspondent à aucune autre inbound sont rejetté. C'est une mesure de sécurité.
+- Description : DeadRestricted
+- Set destination : Terminate Call: Hangup
+- Laisser tous les autres champs vides.
+### DID Number Route
+C'est la route que j'ai configuré.
+### SuperCaller
+Elle va diriger un Caller ID vers une route particulière. Le tél du président qui fait sonner tous les postes, les téléphones des épouses qui sont redirigés vers le bon poste.
+- Description ce qu'on veut
+- DID Number:  (Leave Blank, or fill in a DID if you prefer the Supercaller to only function when he calls one particular phone number)
+- CallerID Number:  Enter the CallerID of the Caller who will receive priority
+- CID Priority Route:  Check this box only if you leave the DID Number field (above) blank
+- Set Destination:  Use this field to choose where incoming calls from the SuperCaller should go.
+
+
 # Ring group
 C'est un ensemble d'extension qui vont sonner en meme temps.
 Application / ring group
@@ -1157,8 +1178,116 @@ CEL = CALL EVENT LOGGING
 
 # Admin / System recording
 
-On y enregistre des messages. On peut concatener des messages. 
+On y enregistre des messages. 
+On peut concatener des messages. 
+On peut utiliser ces messages dans les modules qui supportent la lecture des recordigns, comme:
+- IVR
+- Announcement 
+- Follow Me
+- Queues 
+- Ring group
+Ceux sont des modules qui ont des options pour selectionner un recording.
+
 On peut mettre ces messages dans connectivity / Inbound route / set destination / Play recording / on choisit un des messages que l'on aura enregistrer auparavant.
+
+Si un message est rouge cela veut dire qu'il n'est pas disponible.  
+Ma croix rouge c'est pour supprimer le fichier.  
+
+## Comment enregistrer un message?
+- 1 upload à partir de fichier de l'ordinateur: `upload recording`
+- 2 enregistrer avec l'ordinateur : `record in browser`. Mais il faut un micro
+- 3 enregister à partir un téléphone : `record over extension`
+	- 1 enter extension
+	- 2 click call
+	- 3 le téléphone sonne. Répondre. Et parler apres le beep. 
+	- 4 raccrocher qd c'est fini
+	- 5 save and name le message ou delete.
+
+### on peut utiliser audacity.  http://whymailbox.blogspot.com/2009/06/create-great-sounding-recordings-in.html
+et aussi 
+For recording software I use Audacity.  
+Go into Preference > Quality and set the “Default Sample Rate” to 8000 and “Default Sample Format” to 32 bit.  
+Go ahead and record your tracks (in Mono) and do any cleanup/trimming necessary.  
+Then you need to get the file out; go to File > Export. 
+Use “Other uncompressed files” > Options, set “Headers” to WAV and Encoding to “U-law”.
+Change the extension of filename to ulaw. 
+Upload du fichier dans asterisk
+On peut aussi le convertir dans asterisk avec `file convert /full/path/before.ulaw /full/path/after.g729`
+
+## Add System recording
+permet d'ajouter n'importe quel system recording préalablement enregistré à la liste.
+
+## Link to Feature Code
+YES/NO  
+permet ou pas à un utilisateur de réengistrer ce message en composant un feature code.
+YES permet de créer un feature code qui va permettre de changer le recording directement par le user.  
+Ce qui permet de changer le code directement par le user, sans passer par l'administrateur.  
+- 1 Composer le feature code depuis un téléphone.
+- 2 Suivre les instructions données par le systeme
+- 3 confirmer, raccrocher.
+## Feature code password
+uniquement des digit.  
+
+# Announcements module
+Il permet de créer une destination qui va jouer un message à un appelant. Apres le message, l'appel va vers une autre destination. Où est défini cette autre destination?  
+Ce module est lié à tout module qui a un champ `Set Destination`:
+- 1 IVR
+- 2 Inbound Routes Module
+- 3 Ring group module
+- 4 Queues Module
+- 5 Call Flow control module 
+- 6 Time Conditions module
+- 7 Miscellaneous applications module.
+
+Announcement module va chercher les recording du module system recordiong.  
+
+## Description
+## Recording
+C'est là que l'on choisit son message. Il est crée dans system recording
+## Repeat
+On peut choisir une touche que l'appelant appui pour rejouer le message.  
+Il faudra mettre les instructions dans le msg : "To hear our hours again, press pound."  
+## Allow skip
+YES/No allow the caller to press any key to end the message. Et ensuite l'appel va vers la destination définie dans cet annoucement.  
+## Return to IVR
+YES/NO  
+ If set to Yes, a caller who came from an IVR will be sent back to the IVR after the announcement, instead of being sent to the destination set below. This is handy if you have more than one IVR pointing to this announcement, because otherwise you would need to create a separate announcement for each IVR. (A single announcement can only route the caller to one defined destination.) If set to No, the caller will only be routed to the destination set below, and will not be sent back to the IVR they came from.
+ ## Don't answer Channel
+No Answer the call and play the message.  
+YES joue le message comme early media. J'ai pas compris à quoi cela sert.  
+Laisser No c'est plus sur.  
+## Destination after playback
+
+# Time condition module
+controle le call flow par rapport à des horaires. 
+Time condition crée une destination que l'on va utiliser dans une set destination. Qd l'appel arrive sur une destination Time Condition le systeme va regarder si l'appel correspond à cette time condition et diriger vers deux destinations en fonction du résultat.
+Crée deux destination.
+- 1 si la time condition est valide
+- 2 si la time condition n'est pas valide.
+
+Ce module utilise le module time group.  
+Il faut d'abord créer un time group puis créer un time condition
+
+Ce module peut etre utilisé dès qu'il y a le champ `Set Destination`:
+- 1 IVR
+- 2 Inbound Routes Module
+- 3 Ring group module
+- 4 Queues Module
+- 5 Call Flow control module 
+- 6 Time Conditions module
+- 7 Miscellaneous applications module.
+##Invert BLF Hint
+YES/NO permet d'inverser le busy lamp field. Le parametrage par défaut pouvant géné les utilisateurs.   
+Par défaut NO (invert BLF Hint = No) the BLF is in use quand la time condition ne matche pas. Et not in use quand elle matche.  
+YES. BLF in use si time condition matche et not in use si ne matche pas.
+## Change Override
+Rien compris.
+## Time Group
+The time group this time condition will be checked against. A time group defines the times that are considered a "match."
+## Destination matches
+This destination will be used as the call target when the current time matches the time group selected above.
+## Destination non-matches
+This destination will be used as the call target when the current time does not match the time group selected above.
 
 # Surcharger le caller ID qui s'affiche sur le téléphone de la personne qui recoit l'appel.
 - 1 J'ai essayé dans : Connectivity / Outbound Route / Route CID . Cela ne marche pas
@@ -1169,6 +1298,7 @@ On peut mettre ces messages dans connectivity / Inbound route / set destination 
 - Sur le polycom phone
 - en faisant le 296 297 donc en passant par le vega50 et le Trunk Sip VEGA50
 - c'est vega50 qui s'affiche.
+- [SOLVE]voir la configuration du dial plan dans le webGUI du vega pour régler le probleme.
 
 Je ne trouve rien sur ce sujet dans le module inbound route.
 
@@ -1178,6 +1308,11 @@ Je ne trouve rien sur ce sujet dans le module inbound route.
 - on devrait voir qu'elle route le vega va utiliser.
 https://community.freepbx.org/t/incoming-caller-id-vega-50-freepbx-how-can-i-get-this-working-pls/35898/6
 
+# Voicemail blasting module 
+permet d'envoyer un msg à plusieurs utilisateurs.
+- 1 crée un group de users
+- 2 assigne un numero à ce group
+- 3 un user peut composer ce numéro pour laisser un message à ce groupe.
 
 ### si pas de audio, de voix
 - Freepbx / settings / asterisk sip setting 
