@@ -796,125 +796,10 @@ The DAHDI Channel number to map to a DID. For example, If you have a 4-port card
 Comment faire pour qu'une ligne pstn soit affectée à une certaine inbound route?
 ====
 Connectivity - DAHDI Channel DIDs :
-On configure le DID pour les ports FXO donc les lignes PSTN  
+On configure le DID pour les ports FXO donc les lignes PSTN 
+Car le fournisseur ne passe pas le DID dans les lignes analogiques.
 Puis dans Inbound Route on utilise ce DID.
 
-Queue
-===
-Utile qd plus d'appels entrants que de personnes pour répondre.  
-Un appel entrant mis dans une queue va entendre une annonce qui peut etre de la musique jusqu'a ce que quelqu'un prenne l'appel.  
-Vocabulaire
----
-Caller: l'appelant placé dans la queue  
-Agent: Membre qui répond aux appels de la queue (peut etre un user ou une extension)
-Agent static : l'agent est tjs dans la queue et ne peut log out
-Agent dynamic : l'agent peut se loguer ou se déloguer de la queue
-MoH: annonce sonore diffusé à l'appelant dans la queue.
-Announcements : jouait pour les agents et les membres
-
-Login de l'agent
----
-Toutes les queues:  
-*\*45* log in /log out  dans toutes les queues dans lesquels l'agent est un membre dynamic.  
-Une seule queue:  
-*\*45xxx* log in / log out d'une queue spécifique s'il est dynamic  
-Autre méthode:  
-*123\** : log in  
-*123\*\**: log out si agent dynamique.  
-
-Configuration
-====
-Applications -> Queue
-
-Queue number : n° pour se logguer ou pour transférer un appel dans cette queue.
-
-Queue name : un petit nom pour aider à l'identifier.
-
-Queue password : optionnel. C'est un control d'accés.
-
-Generate device hints: format : \*45devicenumber(en général le meme que l'extension)\*numeroqueue  
-
-Call confirm  si YES rien compris  
-
-Call Confirm Annouce : Annonce jouait aux agents  annoncant un appel dans la queue  
-
-CID name prefix : prefix qui sera mis avant le caller ID et afficher sur l'IP phone.  
-
-Wait time prefix: YES affiche le temps total d'attente dans la queue comme cela l'agent sait combien de temps l'appelant  a attendu.  
-
-Alert info : optionnal. Sonnerie distincte sur les IP phone.  
-
-Restrict Dynamic agents : Si YES seuls les agents dynamic listés dans l'onglet "queue agent" pourront se logguer. Aucun autre agent ne pourra se logguer en temps que membre dynamic.
-
-Agent restrictions : rien  compris
-
-Ring strategy:  
-- ringall toutes les agents sonnent jusqu'a ce qu'un réponde.  
-- leastrecent : sonne l'agent qui a été appelé il y a le plus longtemps  
-- fewestcall: le moins d'appel terminé dans cette queue  
-- random : aléatoire  
-- rrmemory : Round robin avec mémoire. (se souvient de l'endroit quitté lors du dernier passage)  
-- linear : sonne dans un ordre spécifié. Pour les agents dynamic dans l'ordre de log.  
-- wrandom : au hasard avec la penalité comme facteur.  
-
-Autofill si YES lance tous les appels sur les agents. si NO le PBX garde la ligne jusqu'à ce qu'un agent réponde à l'appel le plus haut dans la liste.  
-
-Skip Busy Agent:  
-- No tous les agents sont appelés meme si leur téléphone est occupé.  
-- Yes + pas compris  
--Queue Calls Only :pas compris.  
- 
-Queue Weight: priority level. Plus le chiffre est élévé plus c'est prioritaire. Default=0
-
-Music on Hold Class : musique jouait à l'appelant quand il attend pour un agent disponible.
--inherit ce qui est en cours
--MoH only joue la music jusqu'a ce que l'agent décroche
--agent Ringing : joue de la musique puis sonne si l'appel est présenté à un agent et retourne à la musique si l'agent ne répond pas.
--Ring Only
-
-Join announcement : annonce jouait à l'appelant avant qu'il ne rejoigne la queue:
-- Always
-- When no Free Agents
-- When no Ready Agents
-
-Call recording:
-
-Mark calls answered elsewhere : YES pas bien compris. l'appel n'est pas marqué comme appel manqué sur l'ip phone.
-
-Fail Over Destination : c'est la destination en cas d'échec de l'appel: maximum wait time, queue capacity, ...
-
-Queue agent
-* Static ceux sont des extensions qui sont tjs dans la queue. Avantage pas besoin de se loguer/deloguer. On les met une par ligne. On peut mettre une extension sur un systeme remote, un numero externe.  
-On peut mettre < l'extension , une penalité >
-* Dynamic. Ceux sont des extensions qui peuvent se loguer/deloguer. Les extensions qui sont là ne seront pas loguées automatiquement dans la queue.
-
-Timing & agent options
-
--Max wait time : temps maximum qu'un appelant peut rester dans la queue avant d'en etre sorti.
--Max wait time mode:
-- strict pulled immediately after Max Wait Time
-- Loose : si l'appel est en train de sonner chez un agent le systeme attend un événement avant de sortir l'appel de la queue.
-
--Agent time out: durée en seconde de sonnerie de l'extension. Cela peut etre limité par le system ring time, des valeurs par défaut des extensions.
-ar-Agent Time Out Restart: YES le timeout d'un agent est remis à zero à la réception d'un busy ou d'un congestion.
-
--Retry
-
--Wrap Up Time : default 0. C'est le temps à attendre apres un appel répondu pour envoyer un autre appel sur un agent.
-
--Member Delay: pas compris
-
--Agent Annoucement : exemple "this call is from the Sales Queue"
-
--Report hold time: YES le temps d'attente de l'appelant est notifié à l'agent avant la connection à l'agent.
-
--Auto Pause: pas compris
-
--Auto Pause on busy:
-
--Auto Pause on Unavailable
-
--Auto Pause delay: 
 
 Comment enregistrer des annonces
 ====
@@ -1320,6 +1205,121 @@ This is the destination to route the call to when in Override (Red/BLF on) mode 
 - announcement, 
 - queue,
 - ...
+
+
+# Queue
+Utile qd plus d'appels entrants que de personnes pour répondre.  
+Un appel entrant mis dans une queue va entendre une annonce qui peut etre de la musique jusqu'a ce que quelqu'un prenne l'appel.  
+## Vocabulaire
+- *Caller*: l'appelant placé dans la queue  
+- *Agent*: Membre qui répond aux appels de la queue (peut etre un user ou une extension)
+- *Agent static* : l'agent est tjs dans la queue et ne peut log out
+- *Agent dynamic* : l'agent peut se loguer ou se déloguer de la queue
+- *MoH*: annonce sonore diffusé à l'appelant dans la queue.
+- *Announcements* : jouait pour les agents et les membres
+
+## Login de l'agent
+- Toutes les queues:  
+*\*45* log in /log out  dans toutes les queues dans lesquels l'agent est un membre dynamic.  
+- Une seule queue:  
+*\*45xxx* log in / log out d'une queue spécifique s'il est dynamic  
+- Autre méthode:  
+*123\** : log in  
+*123\*\**: log out si agent dynamique.  
+
+# Configuration
+Applications -> Queue  
+
+Queue number : n° pour se logguer ou pour transférer un appel dans cette queue.  
+
+Queue name : un petit nom pour aider à l'identifier.  
+
+Queue password : optionnel. C'est un control d'accés.  
+
+Generate device hints: format : \*45devicenumber(en général le meme que l'extension)\*numeroqueue  
+
+Call confirm  si YES rien compris  
+
+Call Confirm Annouce : Annonce jouait aux agents  annoncant un appel dans la queue  
+
+CID name prefix : prefix qui sera mis avant le caller ID et afficher sur l'IP phone.  
+
+Wait time prefix: YES affiche le temps total d'attente dans la queue comme cela l'agent sait combien de temps l'appelant  a attendu.  
+
+Alert info : optionnal. Sonnerie distincte sur les IP phone.  
+
+Restrict Dynamic agents : Si YES seuls les agents dynamic listés dans l'onglet "queue agent" pourront se logguer. Aucun autre agent ne pourra se logguer en temps que membre dynamic.
+
+Agent restrictions : rien  compris
+
+Ring strategy:  
+- ringall toutes les agents sonnent jusqu'a ce qu'un réponde.  
+- leastrecent : sonne l'agent qui a été appelé il y a le plus longtemps  
+- fewestcall: le moins d'appel terminé dans cette queue  
+- random : aléatoire  
+- rrmemory : Round robin avec mémoire. (se souvient de l'endroit quitté lors du dernier passage)  
+- linear : sonne dans un ordre spécifié. Pour les agents dynamic dans l'ordre de log.  
+- wrandom : au hasard avec la penalité comme facteur.  
+
+Autofill si YES lance tous les appels sur les agents. si NO le PBX garde la ligne jusqu'à ce qu'un agent réponde à l'appel le plus haut dans la liste.  
+
+Skip Busy Agent:  
+- No tous les agents sont appelés meme si leur téléphone est occupé.  
+- Yes + pas compris  
+-Queue Calls Only :pas compris.  
+ 
+Queue Weight: priority level. Plus le chiffre est élévé plus c'est prioritaire. Default=0
+
+Music on Hold Class : musique jouait à l'appelant quand il attend pour un agent disponible.
+-inherit ce qui est en cours
+-MoH only joue la music jusqu'a ce que l'agent décroche
+-agent Ringing : joue de la musique puis sonne si l'appel est présenté à un agent et retourne à la musique si l'agent ne répond pas.
+-Ring Only
+
+Join announcement : annonce jouait à l'appelant avant qu'il ne rejoigne la queue:
+- Always
+- When no Free Agents
+- When no Ready Agents
+
+Call recording:
+
+Mark calls answered elsewhere : YES pas bien compris. l'appel n'est pas marqué comme appel manqué sur l'ip phone.
+
+Fail Over Destination : c'est la destination en cas d'échec de l'appel: maximum wait time, queue capacity, ...
+
+Queue agent
+* Static ceux sont des extensions qui sont tjs dans la queue. Avantage pas besoin de se loguer/deloguer. On les met une par ligne. On peut mettre une extension sur un systeme remote, un numero externe.  
+On peut mettre < l'extension , une penalité >
+* Dynamic. Ceux sont des extensions qui peuvent se loguer/deloguer. Les extensions qui sont là ne seront pas loguées automatiquement dans la queue.
+
+Timing & agent options
+
+-Max wait time : temps maximum qu'un appelant peut rester dans la queue avant d'en etre sorti.
+-Max wait time mode:
+- strict pulled immediately after Max Wait Time
+- Loose : si l'appel est en train de sonner chez un agent le systeme attend un événement avant de sortir l'appel de la queue.
+
+-Agent time out: durée en seconde de sonnerie de l'extension. Cela peut etre limité par le system ring time, des valeurs par défaut des extensions.
+ar-Agent Time Out Restart: YES le timeout d'un agent est remis à zero à la réception d'un busy ou d'un congestion.
+
+-Retry
+
+-Wrap Up Time : default 0. C'est le temps à attendre apres un appel répondu pour envoyer un autre appel sur un agent.
+
+-Member Delay: pas compris
+
+-Agent Annoucement : exemple "this call is from the Sales Queue"
+
+-Report hold time: YES le temps d'attente de l'appelant est notifié à l'agent avant la connection à l'agent.
+
+-Auto Pause: pas compris
+
+-Auto Pause on busy:
+
+-Auto Pause on Unavailable
+
+-Auto Pause delay: 
+
 # Surcharger le caller ID qui s'affiche sur le téléphone de la personne qui recoit l'appel.
 faire que la personne appelée voit un numero que j'aurai paramétré dans le freepbx.
 - 1 J'ai essayé dans : Connectivity / Outbound Route / Route CID . Cela ne marche pas
@@ -1361,3 +1361,15 @@ Template c'est l'arborescence que l'on veut mettre dans le backup.
 Backup items
 
 https://wiki.freepbx.org/display/FPG/Using+the+Backup+module#UsingtheBackupmodule-Overview
+
+# Comment mettre son téléphone sur répondeur.
+- 1 Créer une annonce dans system recording
+- 2 Créer une announcement
+- 3 Créer un Call flow avec comme:
+	- normal flow destination son extension et 
+	- Override flow annoucement
+Les questions qu'il faut se poser sont :
+- 1 est ce que c'est à horaire fixe si oui faire une time condition 
+- 2 si non faire un call flow
+- 3 que veut on pour les deux possibilité du call flow
+- 4 toujours penser à ce que l'on fait apres. Apres un annoucement. 
