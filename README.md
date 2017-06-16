@@ -1361,7 +1361,11 @@ Template c'est l'arborescence que l'on veut mettre dans le backup.
 Backup items
 
 https://wiki.freepbx.org/display/FPG/Using+the+Backup+module#UsingtheBackupmodule-Overview
-
+# Voicemail 
+## Comment accéder à sa voicemail
+- 1 a partir du téléphone:
+	- 1 le bouton avec l'icone enveloppe
+	- 2 le code : *\*97* 
 # Comment mettre son téléphone sur répondeur.
 - 1 Créer une annonce dans system recording
 - 2 Créer une announcement
