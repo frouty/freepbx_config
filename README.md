@@ -1085,6 +1085,7 @@ Go ahead and record your tracks (in Mono) and do any cleanup/trimming necessary.
 Then you need to get the file out; go to File > Export. 
 Use “Other uncompressed files” > Options, set “Headers” to WAV and Encoding to “U-law”.
 Change the extension of filename to ulaw. 
+Finally, I have found it necessary to boost the sound. You can do this by going to the "Effect" menu, then select "Amplify..." In my case, I set my "Amplification (db)" to 12-15. For some reason, that sounds a bit loud at my computer, but it sounds fine when it is uploaded to my PBX.
 Upload du fichier dans asterisk
 On peut aussi le convertir dans asterisk avec `file convert /full/path/before.ulaw /full/path/after.g729`
 
@@ -1377,3 +1378,12 @@ Les questions qu'il faut se poser sont :
 - 2 si non faire un call flow
 - 3 que veut on pour les deux possibilité du call flow
 - 4 toujours penser à ce que l'on fait apres. Apres un annoucement. 
+
+# Voicemail. Les messages sont de mauvaise qualité.
+`module show like timer` Mais je ne sais pas ce que je dois faire apres avec le résultat de cette commande.
+
+This greeting is in the users base directory of their voicemail (see /var/spool/asterisk/voicemail)
+
+TODO regarder sur l'extension setup page Unavailable and Busy fail overs voir si ca pointe vers un announcement.
+
+http://www.speedyshare.com/cszZT/pbxsound.wav
