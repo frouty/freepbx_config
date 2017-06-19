@@ -1387,3 +1387,8 @@ This greeting is in the users base directory of their voicemail (see /var/spool/
 TODO regarder sur l'extension setup page Unavailable and Busy fail overs voir si ca pointe vers un announcement.
 
 http://www.speedyshare.com/cszZT/pbxsound.wav
+
+You can watch the audio packets passing from the Asterisk CLI with `rtp set debug on`
+
+https://wiki.freepbx.org/display/PC/Analog-+Audio+Issues
+
