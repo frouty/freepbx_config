@@ -1043,6 +1043,24 @@ J'ai aussi fait :
 - 3 Allow CDR playback et là l'historique est présent mais on ne peut pas écouter c'est ce que je veux.
 CEL = CALL EVENT LOGGING
 
+# Music on hold
+Settings / Music on Hold  
+Ce module est utilisé pour uploader des fichiers audio, que l'on peut classer par catégories. 
+Ces fichiers audio sont là pour rassurer l'appelant. 
+Il y a deux types de MoH:
+- 1 Fichier static wav ou mp3
+- 2 streaming audio connecte à une soure audio.
+
+MoH peut etre appliqué :
+- Queue
+- ring groups
+- outbound route 
+- conference
+
+les files sont dans :
+- /var/lib/asterisk/moh
+- /var/lib/asterisk/moh/name of category
+
 # Application / Call flow control  #
 - 1 Call Flow Toggle Feature code index : je n'ai pas compris
 - Description : OK
