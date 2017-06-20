@@ -1392,3 +1392,32 @@ You can watch the audio packets passing from the Asterisk CLI with `rtp set debu
 
 https://wiki.freepbx.org/display/PC/Analog-+Audio+Issues
 
+- `dahdi show channels`
+- `dahdi show channel 1` pour avoir le détail.
+- `dahdi_cfg -vvv`
+# checking sangoma FXO status
+In order to check the analog status for a given analog channel in a Sangoma card you can do the following:
+`wanpipemon -i w1g1 -c astats -m 1`
+- i specify l'interface wanpipe. On trouve les interfaces wanpipe avec la commande ifconfig. elles sont nommées de la forme :wXg1
+- c commande à lancer dans l'interface
+- m channel analog. 
+
+https://moythreads.com/wordpress/2011/04/01/wanpipemon-cookies-checking-sangoma-fxo-status/
+
+ when developing or troubleshooting audio problems is often desirable to switch on/off the echo canceller to see the effects (perhaps, the echo canceller is being very aggressive and disrupting non-voice signals, such as DTMF).
+ 
+ This is how you can check the status of the echo canceller: `wan_ec_client wanpipe1 stats`  
+ If you want statistics for a particular channel you can execute the ‘stats_full’ version: `wan_ec_client wanpipe1 stats_full 1`  
+ You can completely shut down the EC operation on a given channel (you most likely don’t want to do this unless you know what you’re doing): `wan_ec_client wanpipe1 mpd 1`
+ mpd = mode power down `wan_ec_client wanpipe1 mpd 1`
+ mn =mode normal `wan_ec_client wanpipe1 mn 1`
+ msr = mode speech recognition `wan_ec_client wanpipe1 msr 1`  
+ Plutot que de désactiver l'EC il vaut mieux le bypasser. bypass enable l'audio passe au travers de l'EC. Bypass disable l'audio bypass l'EC mais l'EC continue de tourner. 
+`wan_ec_client wanpipe1 bd all`  
+enable the bypass back: `wan_ec_client wanpipe1 be all`  
+On peut vérifier le statut de l'EC avec : wanpipemon -i w1g1 -c ehw
+
+https://www.voip-info.org/wiki/view/DAHDI
+
+http://wiki.openvox.cn/index.php/Troubleshooting_of_Analog_cards
+ 
