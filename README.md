@@ -1439,3 +1439,7 @@ https://www.voip-info.org/wiki/view/DAHDI
 
 http://wiki.openvox.cn/index.php/Troubleshooting_of_Analog_cards
  
+ # Probleme avec le busy now.
+ 
+"Dial failed for some reason with DIALSTATUS = CONGESTION and HANGUPCAUSE = 38"
+TRUNK Dial failed due to CONGESTION HANGUPCAUSE: 38
