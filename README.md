@@ -443,10 +443,10 @@ This example will show you a few steps how to get asterisk and two Digium cards 
   	- `asterisk:~#  /etc/init.d/dahdi restart`
 - 4 Point file chan_dahdi.conf to /etc/asterisk/dahdi-channels.conf  
 
-  # open chan_dahdi.conf and include it under the section [channels]  
-  #  
-  # NOTE: You can edit and configure /etc/asterisk/dahdi-channels.conf at any time   
-  # to set up your specific options there.  
+  \# open chan_dahdi.conf and include it under the section [channels]  
+  \#  
+  \# NOTE: You can edit and configure /etc/asterisk/dahdi-channels.conf at any time   
+  \# to set up your specific options there.  
   ...  
   [channels]  
   ...  
@@ -495,7 +495,6 @@ un span est créé pour chaque card port
 ## Debug
 cat /proc/dahdi/<span number>  
 
-
 connectivity - DADHI Config - DADHI write disable disclaimer  [ENABLE]  
 Analog Hardware : type : FXO ports Ports : 1.2.3.4  
 
@@ -522,37 +521,39 @@ Il *FAUT* que le *context* du channel soit à *from-analog* : `context = from-an
 
 # DAHDI Configs module
 Permet de configurer les DAHDI PSTN card (analog, T1/E1/PRI or BRI’s.).  
+
 On clique sur `Connectivity / DAHDI`  
 
-https://wiki.freepbx.org/display/FPG/DAHDI+Configs
+https://wiki.freepbx.org/display/FPG/DAHDI+Configs pour plus de détails.
 
 
-## En haut de la fénétre on voit en haut les cartes installées.
+## En haut de la fénétre on voit les cartes installées.
 Chaque span correspond à un port.  
-Si Signaling = Not Yet Defined la carte n'est pas encore configurée. 
-Clique Edit
-Quand on configure une DAHDI cards on doit casser les channels dans des groupes. Ensuite quand va définir les trunks on va pouvoir définir quel groups chaque trunk va utiliser pour les outbound call. 
+Si Signaling = Not Yet Defined la carte n'est pas encore configurée.  
+Clique `Edit`    
+Quand on configure une DAHDI cards on doit placer les channels dans des groups. Ensuite quand va définir les trunks on va pouvoir définir quel groups chaque trunk va utiliser pour les outbound call:  
+`Connectivity / Trunk / Add DAHDI Trunk` 
+En bas , `Outgoing Settings / DAHDI Trunks:` choose a group crée dans le module DAHDI configs.
 
 ## Analog FXO ports 
 - `port X settings`:
-	- en général ici la seule chose que l'on change ici c'est le group.
+	- en général ici la seule chose que l'on change c'est le group.
 	- Signaling : Kewl start ou Loop Start. Presque toujours Kewl start
 	- group : on assigne un group à chaque port. Un port peut appartenir à n'importe quel groupe.
 	- context : doit toujours être à *from-analog* unless you know what you're doing
 	
-
 Dans le module Outbound Route on va pouvoir utiliser ce group pour rediriger l'appel vers ce group si le SIP vega trunk ne marche. TODO.
 
-## Dans la barre de navigation à droite on trouve les settings que l'on peut configurer dans ce module:
-- global settings: si on fait des modifs:  
-`Save / Apply config / Reload Asterisk Dahdi Module`. Les modifications faites ici ne nécessitent pas un Restart Dahdi & Asterisk. 
+## En haut à droite on trouve les settings que l'on peut configurer dans ce module:
+- global settings:
 	- Select language
 	- Enable Busy detect
 	- Busy Detect count
 	- User call ID
-	- Enable Call Waitting : YES un extension occupée entendra un call-waiting tone.
+	- Enable Call Waitting : YES une extension occupée entendra un call-waiting tone.
 	- ...
-	
+Si on fait des modifs, faire:    
+`Save / Apply config / Reload Asterisk Dahdi Module`. Les modifications faites ici ne nécessitent pas un Restart Dahdi & Asterisk. 
 - System settings : en général il n'y a rien à modifier. 
 Les modifications faites ici  nécessitent un Restart Dahdi & Asterisk.  
 `Save / Apply config / Restart Asterisk Dahdi`. 
@@ -563,11 +564,8 @@ Les modifications faites ici  nécessitent un Restart Dahdi & Asterisk.
 Les modifications faites ici  nécessitent un Restart Dahdi & Asterisk.  
 `Save / Apply config / Restart Asterisk Dahdi`. 
 - Sangoma setting:
-	- Run Wanpipe in DAHDI/DIGIUM Mode: YES si on veut manager dans ce module des cards Sangoma avec des cartes d'autres marques. Je pense que pour moi c'est NON.
-Les modifications faites ici  nécessitent un Restart Dahdi & Asterisk.  
-`Save / Apply config / Restart Asterisk Dahdi`. 
-## `Connectivity / Trunk / Add DAHDI Trunk` 
-En bas , `Outgoing Settings / DAHDI Trunks:` choose a group crée dans le module DAHDI configs.
+	- Run Wanpipe in DAHDI/DIGIUM Mode: YES si on veut manager dans ce module des cards Sangoma avec des cartes d'autres marques. Je pense que pour moi c'est NO.
+Les modifications faites ici  nécessitent un `Restart Dahdi & Asterisk`: `Save / Apply config / Restart Asterisk Dahdi`. 
 
 
 # Outbound route - dial pattern
