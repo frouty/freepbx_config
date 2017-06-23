@@ -1371,11 +1371,11 @@ Backup items
 
 https://wiki.freepbx.org/display/FPG/Using+the+Backup+module#UsingtheBackupmodule-Overview
 # Voicemail 
-## Comment accéder à sa voicemail
+## Comment accéder à sa voicemail
 - 1 a partir du téléphone:
 	- 1 le bouton avec l'icone enveloppe
 	- 2 le code : *\*97* 
-# Comment mettre son téléphone sur répondeur.
+## Comment mettre son téléphone sur répondeur.
 - 1 Créer une annonce dans system recording
 - 2 Créer une announcement
 - 3 Créer un Call flow avec comme:
@@ -1387,7 +1387,7 @@ Les questions qu'il faut se poser sont :
 - 3 que veut on pour les deux possibilité du call flow
 - 4 toujours penser à ce que l'on fait apres. Apres un annoucement. 
 
-# Voicemail. Les messages sont de mauvaise qualité.
+## Voicemail. Les messages sont de mauvaise qualité.
 `module show like timer` Mais je ne sais pas ce que je dois faire apres avec le résultat de cette commande.
 
 module show like timer  
@@ -1395,6 +1395,19 @@ CLI> module show like timer
 Module                         Description                              Use Count   
 res_timing_timerfd.so          Timerfd Timing Interface                 1           
 1 modules loaded  
+
+## Comment changer le msg de la voicemail
+I'm going to assume you want a standard message played for everybody's extension. The good news is that it's fairly simple, the bad news is that it has to be done individually for each extension,
+
+For each extension...
+
+- 1     Create an announcement using your pre recorded message. Note: Make sure you understand the format requirements for uploaded audio.
+
+- 2    Point the announcement fail over to the appropriate VM box for that extension.
+
+- 3    On the extension setup page, point the Unavailable and Busy fail overs to the above created announcement.
+
+TODO
 
 This greeting is in the users base directory of their voicemail (see /var/spool/asterisk/voicemail)
 
@@ -1408,6 +1421,7 @@ https://wiki.freepbx.org/display/PC/Analog-+Audio+Issues
 
 - `dahdi show channels`
 - `dahdi show channel 1` pour avoir le détail.
+
 # checking sangoma FXO status
 In order to check the analog status for a given analog channel in a Sangoma card you can do the following:
 `wanpipemon -i w1g1 -c astats -m 1`
