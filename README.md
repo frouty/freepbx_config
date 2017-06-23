@@ -290,20 +290,17 @@ CID (Caller ID) Number
 ====
 Routing calls based on the caller ID : numero composé par l'appelant. Leave this field blank to match any or no CID info. In addition to standard dial sequences, you can also put “Private,” “Blocked,” “Unknown,” “Restricted,” “Anonymous” or “Unavailable” in order to catch these special cases if the telco transmits them.
 
-IP Phones
-====
+# IP Phones
 https://supportforums.cisco.com/document/113336/ip-phone-registration-issues
 
 Le phone va s'enregistrer aupres du PBX. L'adresse IP du Phone n'a pas d'importance elle peut rester en DHCP.
 L'incovénient c'est que pour utiliser le web GUI du phone cela ne va pas etre facile. Il faudra connaitre l'adresse IP. On peut la trouver sur le phone dans les menus.
 Un phone peut avoir plusieurs extensions. A quoi cela sert? 
 
-Phones Sangoma
-====
+## Phones Sangoma
 http://wiki.freepbx.org/display/PHON
 
-Reset factory s500
----
+### Reset factory s500
 Web GUI
 Management -> Upgrade -> reset to factory
 
@@ -832,17 +829,15 @@ You MUST assign the channel's context to from-analog for these settings to have 
 Channel
 The DAHDI Channel number to map to a DID. For example, If you have a 4-port card, your channels would be ports 1-4.
 
-Comment faire pour qu'une ligne pstn soit affectée à une certaine inbound route?
-====
+# Comment faire pour qu'une ligne pstn soit affectée à une certaine inbound route?
 Connectivity - DAHDI Channel DIDs :
 On configure le DID pour les ports FXO donc les lignes PSTN 
 Car le fournisseur ne passe pas le DID dans les lignes analogiques.
 Puis dans Inbound Route on utilise ce DID.
 
 
-Comment enregistrer des annonces
-====
-Admin -> System Recordings
+# Comment enregistrer des annonces
+`Admin -> System Recordings`
 
 System recordings. C'est le module qui permet d'enregistrer ou d'uloader des messages qui pourront être joués aux appelants dans d'autres modules. On peut l'utiliser aussi pour des annonces pre-installées d'Asterisk.
 On peut utiliser un message dans un IVR, dans un annoucement. Pour cela on route l'appel entrant vers l'annoucement ou l'IVR en utilisant l'Inbound Route Module.
@@ -900,16 +895,15 @@ recording : ne propose que les announces faites dans le system recording. Il fau
 
 Je ne comprends pas qd on définit à qui est joué cette annonces. Ce n'est pas dans le module que l'on définit qd/où est joué l'annonce mais dans d'autres modules
 
-Jouer une annonce à tous les appels entrants:
-===
-1 Créer le fichier son dans Admin - System recordings.  
-2 Créer un announcement dans Applications - Announcement  
-3 Connectivity - Inbound Route - Destination : choisir l'announcement     
+# Jouer une annonce à tous les appels entrants:
+- 1 Créer le fichier son dans Admin - System recordings.  
+- 2 Créer un announcement dans Applications - Announcement  
+- 3 Connectivity - Inbound Route - Destination : choisir l'announcement     
 Et cela marche. Testé  
 
-Musique d'attente . MoH Music on Hold
-===
-Setting - MoH
+# Musique d'attente . MoH Music on Hold
+`Setting - MoH`  
+Je n'ai jamais entendu une telle music. TODO
 
 Fail2Ban
 ===
@@ -921,11 +915,11 @@ Apres un reboot forcé par interruption du courant j'ai le msg
 *couldn't connect to asterisk*  
 je n'ai rien fait j'ai attendu un peu.
 
-### Comment forwarder vers un numéro extérieur
-miscellenious destination  
-follow-me : si quelqu'un appelle mon extension, et que cela sonne 4 fois, i dont peek up instead of going to voice mail va vers mon cell phone.
+# Comment forwarder vers un numéro extérieur
+- `miscellenious destination ` ou
+- `follow-me` : si quelqu'un appelle mon extension, et que cela sonne 4 fois, i dont peek up instead of going to voice mail va vers mon cell phone.
 
-Je parle de miscelenious destination.
+Je parle de `miscelenious destination`.
 Avec un ring group or a queue vous pouvez definir le fail over destination to be a cell phone or a miscellianus destination.
 
 - 1 créer le miscelianious destination Application / Mis Destination  
@@ -938,14 +932,12 @@ Avec un ring group or a queue vous pouvez definir le fail over destination to be
 
 D'autre utilise le follow me sur l'extension.
 
-
 # power off
-admin / system admin / power option
+`admin / system admin / power option`
 
 # si pas de audio de voix
 - Freepbx / settings / asterisk sip setting 
 - local network 192.168.1.0 / 24
-
 
 # Comment on gere les SDA du tronc numeris?
 ## Comment diriger les appels du 29629x vers un user phone?
@@ -1040,16 +1032,12 @@ Elle va diriger un Caller ID vers une route particulière. Le tél du président
 - CID Priority Route:  Check this box only if you leave the DID Number field (above) blank
 - Set Destination:  Use this field to choose where incoming calls from the SuperCaller should go.
 
-
 # Ring group
 C'est un ensemble d'extension qui vont sonner en meme temps.
 Application / ring group
 On choisit les users. On peut utiliser Extension Quick Pick
 Destination if no answer.
 Ensuite il faut aller sur une incoming route et mettre set destination avec le ring group.
-
-
-
 
 # Comment diriger les appels entrant vers un IPphone en fonction du SDA # 
 - 1- Pour voir le SDA qui est présenté à Freepbx  car ce n'est pas forcement celui que l'on attend.
@@ -1061,7 +1049,6 @@ Ensuite il faut aller sur une incoming route et mettre set destination avec le r
 - 3 et ` Set destination` ou pourra mettre l'extension. 
 ## On peut diriger vers un numero exterieur en faisant une misc destination ##
 Et on met `Set destination` sur cette miscellaneous destination
-
 
 # How to install pbx on raspberry
 download http://raspberry-asterisk.org/downloads
@@ -1083,7 +1070,7 @@ J'ai aussi fait :
 CEL = CALL EVENT LOGGING
 
 # Music on hold
-Settings / Music on Hold  
+`Settings / Music on Hold`
 Ce module est utilisé pour uploader des fichiers audio, que l'on peut classer par catégories. 
 Ces fichiers audio sont là pour rassurer l'appelant. 
 Il y a deux types de MoH:
@@ -1100,7 +1087,7 @@ les files sont dans :
 - /var/lib/asterisk/moh
 - /var/lib/asterisk/moh/name of category
 
-# Application / Call flow control  #
+# Application / Call flow control  
 - 1 Call Flow Toggle Feature code index : je n'ai pas compris
 - Description : OK
 - 3 Recording for normal mode | Recording for override mode : ou on met le message qui sera joué en mode normal. cela se définit dans *Admin / System recording*.
