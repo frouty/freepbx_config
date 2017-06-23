@@ -180,9 +180,6 @@ Extension Module marche avec d'autres modules
  `Application / Extension / Onglet Advanced / Extension Options / Ring time`  
  On me dit que la valeur default se régle dans `àdvanced setting`. J'ai regardé dans `settings / Advanced Settings ` j'ai pas trouvé.
 
-
-
-
 # FXO
 -1 Je branche une ligne de mon PTOS vers un port FXO du freepbx  
 -2 Connectivity / DADY channel DID : je choisi ce Chanel correspondant au port FXO que je viens de connecter à mon PTOS. Et je lui donne un DID de mon choix que je vais pouvoir utiliser par la suite.
@@ -200,10 +197,10 @@ Exemple les orthoptiste utilisent leur ligne FXO pour appeler.
 		- dans l'onglet dahdi settings : Analog channel 2 (je suppose que c'est le port FXO N°2)
 	
 
-DADHI extension c'est quoi?
----
-Fichiers de configuration
-====
+# DADHI extension c'est quoi?
+TODO
+# Fichiers de configuration
+
 
  La configuration d'Asterisk s'articule sur les fichiers de configuration suivants :
 
@@ -421,8 +418,7 @@ Admin -> Feature code
 Clock *60  
 echo test *43
 
-configuration des FXO
-====
+# configuration des FXO
 
 http://wiki.freepbx.org/display/FPG/DAHDI+Configs  
 
@@ -438,7 +434,7 @@ The userspace tools to control DAHDI spans/channels:
 __dahdi_cfg__  
 The DAHDI Configurator, which parses system.conf: __dahdi_genconf__    
 Generates /etc/dahdi/system.conf, so it's better that you don't hand edit system.conf. Uses /etc/dahdi/genconf_parameters to define it's actions.  
-__dahdi_hardware__ : Displays listing of DAHDI hardware detected. Fournit le nom de la carte et le DAHDI kernel module pour cette carte.
+__dahdi_hardware__ : Displays listing of DAHDI hardware detected. Fournit le nom de la carte et le DAHDI kernel module pour cette carte.  
 __dahdi_monitor__ : Monitors signal level on analog channel allows you to record audio from it  
 Usage: dahdi_monitor <channel num> -v -m -o -p -l limit -f FILE -s FILE -r FILE1 -t FILE2 -F FILE -S FILE -R FILE1 -T FILE2  
 example :- dahdi_monitor 1 -vv  
@@ -447,20 +443,17 @@ __dahdi_scan__ :Generates a list of things DAHDI channels, with some details
 __dahdi_test__ : Measures accuracy of the FXO/FXS board software digital signal processing  
 __dahdi_tool__ : A nice tool to see what your boards are doing.  
 
- Sample installation
- ---
-
+ # Sample installation
 After compiling and installing of dahdi and asterisk, you have to perform some further steps to use your hardware.
 This example will show you a few steps how to get asterisk and two Digium cards enabled:
 
-1.) Detect your hardware  
-  # (this will generate /etc/dahdi/system.conf and  /etc/asterisk/dahdi-channels.conf)  
- asterisk:~# dahdi_genconf  
-2.) Read systm.conf file and configure the kernel  
- asterisk:~# dahdi_cfg -v  
-3.) Restart dahdi to unload and reload all modules and drivers  
-  asterisk:~#  /etc/init.d/dahdi restart  
-4.) Point file chan_dahdi.conf to /etc/asterisk/dahdi-channels.conf  
+- 1 Detect your hardware (this will generate /etc/dahdi/system.conf and  /etc/asterisk/dahdi-channels.conf)  
+ 	- `asterisk:~# dahdi_genconf`  
+- 2 Read systm.conf file and configure the kernel  
+	- `asterisk:~# dahdi_cfg -v`
+- 3 Restart dahdi to unload and reload all modules and drivers  
+  	- `asterisk:~#  /etc/init.d/dahdi restart`
+- 4 Point file chan_dahdi.conf to /etc/asterisk/dahdi-channels.conf  
 
   # open chan_dahdi.conf and include it under the section [channels]  
   #  
@@ -471,16 +464,16 @@ This example will show you a few steps how to get asterisk and two Digium cards 
   ...  
   #include /etc/asterisk/dahdi-channels.conf  
   ...  
-5.) Restart asterisk  
-  asterisk:~#  /etc/init.d/asterisk restart  
-5.a) Verify your current system status. You should get some output like this:  
-  asterisk*CLI> dahdi show status  
+- 5 Restart asterisk  
+  	- `asterisk:~#  /etc/init.d/asterisk restart`
+- 5.a) Verify your current system status. You should get some output like this:  
+  	- `asterisk*CLI> dahdi show status`
   Description                              Alarms     IRQ        bpviol     CRC4        
   Wildcard TDM410P Board 1                 OK         0          0          0           
   Wildcard TDM800P Board 2                 OK         0          0          0      
 
-5.b) Verify your configured channels  
-  asterisk*CLI> dahdi show channels  
+- 5.b) Verify your configured channels  
+  	- `asterisk*CLI> dahdi show channels`  
     Chan Extension  Context         Language   MOH Interpret       
   pseudo            default                    default             
        1            from-pstn       de         default             
@@ -500,24 +493,17 @@ This example will show you a few steps how to get asterisk and two Digium cards 
 
 
 
-DAHDI
-----
-
-Les fichiers de configurations:
-----
+# DAHDI
+## Les fichiers de configurations:
 
 etc/dahdi/system.conf  
 un span est créé pour chaque card port
 
-/etc/asterisk/chan_dahdi.conf __
-contient les paramètres généraux du DAHDI channel.
+/etc/asterisk/chan_dahdi.conf : contient les paramètres généraux du DAHDI channel.
 
-/etc/asterisk/dahdi_channels.conf
-contient les parametres de chaque channel.
+/etc/asterisk/dahdi_channels.conf : contient les parametres de chaque channel.
 
-Debug
-----
-
+## Debug
 cat /proc/dahdi/<span number>  
 
 
@@ -535,10 +521,15 @@ Connectivity - Outbound routes : on y définit les regles qui s'appliquent en fo
 Quelques exemples de regles: http://wiki.freepbx.org/display/FPG/Outbound+Routes+Configuration+Examples  
 Le module outbound route: http://wiki.freepbx.org/display/FPG/Outbound+Routes+Module
 
+# DAHDI (Analog) Channel DIDs module
+ce module permet d'assigner un DID (un numero de téléphone) à un channel anlogique spécifique. Contrairement SIP ou PRI trunk, les lignes analogique n'envoie pas le DID ou le numero composé. Et nous avons besoin de mapper chaque port analogique ou channel a un numero fake comme cela nous pouvons matcher ce numero à une Inbound Route et router l'appel.  
+Il est possible de mapper sur le même numéro de téléphone plusieurs channels.
 
+Il *FAUT* que le *context* du channel soit à *from-analog* : `context = from-analog` in your chan_dahdi.conf 
 
-Outbound route - dial pattern
-------
+Une fois que l'on a assigné un DID, on peut utiliser les Inbound Route pour router l'appel.
+
+# Outbound route - dial pattern
 
 (prepend) prefix | [pattern]/caller_id  
 
