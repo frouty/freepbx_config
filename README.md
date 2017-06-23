@@ -162,6 +162,26 @@ Extension Module marche avec d'autres modules
   * Advanced Settings Module can be used to enable Device and User Mode. When Device and User Mode is enabled, the Extensions Module will disappear and be replaced with two separate modules called "Devices" and "Users."
 
 * User Management Module. In the User Management Module, a user may have a "primary linked extension." (?)
+# Où Est ce que l'on configure ce qui se passe lorsque l'on ne répond à son téléphone IP?
+ `Application / Extension / Onglet Advanced / `
+ - `No answer` choix de : 
+ 	- unavailable voicemail if enable 
+	- Extension 
+	- follow me 
+	- conference
+	- Fax
+	- call flow control
+	- ...
+- `Busy` choix de :
+	- busy voicemail if enabld
+	- ...
+- `̀Not Reachable` qd le phone n'est pas branché.
+## On configure le ring time dans :
+ `Application / Extension / Onglet Advanced / Extension Options / Ring time`  
+ On me dit que la valeur default se régle dans `àdvanced setting`. J'ai regardé dans `settings / Advanced Settings ` j'ai pas trouvé.
+
+
+
 
 # FXO
 -1 Je branche une ligne de mon PTOS vers un port FXO du freepbx  
@@ -255,20 +275,16 @@ Mappage d'un IP phone vers une extension
 -> wait reload the page ou confirm from submission. Green msg confirmant l'installation du firmware.  
 -> sur le téléphone:  
 
-Comment savoir un téléphone SIP a été enregistré dans le serveur
-====
+# Comment savoir un téléphone SIP a été enregistré dans le serveur
 Son numéro d'appel s'affiche sur l'écran.
 
 
-Inbound route  
-====
+# Inbound route  
 When a call comes into your system from the outside, it will usually arrive along with information about the telephone number that was dialed (also known as the "DID") and the Caller ID of the person who called.
 The Inbound Routes module is the mechanism used to tell your PBX where to route inbound calls based on the phone number or DID dialed
 Calls come into your system on trunks that are configured in the Trunks module.
 
-DID (Direct Inward Dialing) Number
-====
-
+# DID (Direct Inward Dialing) Number
 Routing is based on the trunk on which the call is coming in. In the DID field, you will define the expected **DID Number** if your trunk passes the DID on incoming calls. Leave this blank to match calls with any or no DID info.  
 
 The DID number entered must match the format of the provider sending the DID. You can also use a pattern match to match a range of numbers.
@@ -1377,8 +1393,8 @@ https://wiki.freepbx.org/display/FPG/Using+the+Backup+module#UsingtheBackupmodul
 - 1 Créer une annonce dans system recording
 - 2 Créer une announcement
 - 3 Créer un Call flow avec comme:
-	- normal flow destination son extension et 
-	- Override flow annoucement
+	- normal flow : destination son extension et 
+	- Override flow : annoucement  
 Les questions qu'il faut se poser sont :
 - 1 est ce que c'est à horaire fixe si oui faire une time condition 
 - 2 si non faire un call flow
@@ -1387,6 +1403,12 @@ Les questions qu'il faut se poser sont :
 
 # Voicemail. Les messages sont de mauvaise qualité.
 `module show like timer` Mais je ne sais pas ce que je dois faire apres avec le résultat de cette commande.
+
+module show like timer  
+CLI> module show like timer  
+Module                         Description                              Use Count   
+res_timing_timerfd.so          Timerfd Timing Interface                 1           
+1 modules loaded  
 
 This greeting is in the users base directory of their voicemail (see /var/spool/asterisk/voicemail)
 
@@ -1400,13 +1422,54 @@ https://wiki.freepbx.org/display/PC/Analog-+Audio+Issues
 
 - `dahdi show channels`
 - `dahdi show channel 1` pour avoir le détail.
-- `dahdi_cfg -vvv`
 # checking sangoma FXO status
 In order to check the analog status for a given analog channel in a Sangoma card you can do the following:
 `wanpipemon -i w1g1 -c astats -m 1`
 - i specify l'interface wanpipe. On trouve les interfaces wanpipe avec la commande ifconfig. elles sont nommées de la forme :wXg1
 - c commande à lancer dans l'interface
 - m channel analog. 
+
+## results
+### wanpipemon -i w1g1 -c astats -m 1  
+
+	------- Voltage Status  (FXO,port 0) -------  
+
+VOLTAGE	: 53 Volts  
+
+	------- Line Status  (FXO,port 0) -------  
+
+Line	: connected   
+
+### wanpipemon -i w1g1 -c astats -m 2
+
+	------- Voltage Status  (FXO,port 1) -------
+
+VOLTAGE	: 56 Volts
+
+	------- Line Status  (FXO,port 1) -------
+
+Line	: connected
+
+### wanpipemon -i w1g1 -c astats -m 3
+
+	------- Voltage Status  (FXO,port 2) -------
+
+VOLTAGE	: 0 Volts
+
+	------- Line Status  (FXO,port 2) -------
+
+Line	: disconnected
+
+### wanpipemon -i w1g1 -c astats -m 4
+
+	------- Voltage Status  (FXO,port 3) -------
+
+VOLTAGE	: 1 Volts
+
+	------- Line Status  (FXO,port 3) -------
+
+Line	: disconnected
+
 
 https://moythreads.com/wordpress/2011/04/01/wanpipemon-cookies-checking-sangoma-fxo-status/
 
@@ -1415,12 +1478,12 @@ https://moythreads.com/wordpress/2011/04/01/wanpipemon-cookies-checking-sangoma-
  This is how you can check the status of the echo canceller: `wan_ec_client wanpipe1 stats`  
  If you want statistics for a particular channel you can execute the ‘stats_full’ version: `wan_ec_client wanpipe1 stats_full 1`  
  You can completely shut down the EC operation on a given channel (you most likely don’t want to do this unless you know what you’re doing): `wan_ec_client wanpipe1 mpd 1`
- mpd = mode power down `wan_ec_client wanpipe1 mpd 1`
- mn =mode normal `wan_ec_client wanpipe1 mn 1`
- msr = mode speech recognition `wan_ec_client wanpipe1 msr 1`  
+ - mpd = mode power down `wan_ec_client wanpipe1 mpd 1`
+ - mn =mode normal `wan_ec_client wanpipe1 mn 1`
+ - msr = mode speech recognition `wan_ec_client wanpipe1 msr 1`  
  Plutot que de désactiver l'EC il vaut mieux le bypasser. bypass enable l'audio passe au travers de l'EC. Bypass disable l'audio bypass l'EC mais l'EC continue de tourner. 
-`wan_ec_client wanpipe1 bd all`  
-enable the bypass back: `wan_ec_client wanpipe1 be all`  
+- `wan_ec_client wanpipe1 bd all`  
+- enable the bypass back: `wan_ec_client wanpipe1 be all`  
 On peut vérifier le statut de l'EC avec : wanpipemon -i w1g1 -c ehw
 
 https://www.voip-info.org/wiki/view/DAHDI
