@@ -4,11 +4,10 @@
  
 http://kb.digium.com/
 
-Architecture réseau  
-===
-freepbx sur cisco
-phone ip sur cisco
-cisco sur wrt54GL 
+# Architecture réseau  
+freepbx sur cisco  
+phone ip sur cisco  
+cisco sur wrt54GL   
 
 
                                        PC
@@ -17,10 +16,10 @@ freepbx ------ Cisco switch ----- Wrt54Gl ---- Internet
                  |  |   |             | 
                  |  |   phone IP     PC
            phone ip |   
-				    |
+				    
                    vega
-Comment configurer le firewall?
-====
+# Comment configurer le firewall?
+
 http://wiki.freepbx.org/display/FPG/Firewall+Command+Line
 
 `fwconsole firewall --help`   
@@ -29,29 +28,21 @@ http://wiki.freepbx.org/display/FPG/Firewall+Command+Line
 puis en GUI recherche -> firewall -> enable --> re-run wizard
 # Power off
 `̀Admin / Sysadmin / Power Options / Power off`
-# Comment savoir l'état du disk
+# Comment savoir l'état du disk  
 `̀Admin / Sysadmin / Storage`
-Comment mettre à jour l'achat de modules commerciaux
-====
-Admin -> Sys admin -> Activation -> Update activation (en bas à droite)
+# Comment mettre à jour l'achat de modules commerciaux
+`Admin -> Sys admin -> Activation -> Update activation` (en bas à droite)
+# Comment lire les fichiers de config  
+`Admin / Config Edit`
+# Comment mettre à jour les modules?
+`Admin -> Module Admin`
 
-Comment lire les fichiers de config  
-====
-Admin / Config Edit
-
-Comment mettre à jour les modules?
-====
-Admin -> Module Admin
-
-Comment installer en ligne de commande un module 
-====
+# Comment installer en ligne de commande un module 
 fwconsole ma --edge upgrade framework  
 Le plus dur va etre pour trouver le nom du module.
 
-Asterisk
-====
-CLI
----
+# Asterisk
+## CLI
 on peut utiliser les commandes CLI dans le web GUI.
 
 - Admin
@@ -93,15 +84,13 @@ Version asterisk
 - asterisk -rvvv
 
 
-Amportal commands
-====
+# Amportal commands
 http://wiki.freepbx.org/display/L1/amportal+commands
 
-linux command qui controle freepbx
+linux command qui controle freepbx  
 on y arrive avec un ssh sur la machine ou est installé freepbx/asterix.
 
-Liste de commande
------
+## Liste de commande
 
 1 **amportal restart** pour relancer asterisk et autre process nécessaire à asterisk. On utilise cette commande et pas un /etc/init.d asterisk.  
 2 amportal stop  
@@ -121,8 +110,7 @@ Liste de commande
     * enableall|en active UCP login pour tous les USER MANAGER: **amportal a ucp enableall**
     * unlock|u unlock session in UCP: **amportal a ucp u**
 
-fwconsole
-=====
+# fwconsole
 amportal commands : deprecated
 
 Utiliser plutot : __fwconsole__
