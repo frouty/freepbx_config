@@ -594,30 +594,25 @@ https://wiki.asterisk.org/wiki/display/AST/Pattern+Matching
 
 
 
-Trunk
-===
-J'ai 4 ports FXO. Comment attrribuer ces ports.
+# J'ai 4 ports FXO. Comment attribuer ces ports.
 
-Connectivity -> Trunk (tout en bas) Je peux choisir les ports que j'ai déjà configuré dans Connectivity --> DADHI Config en leur donnant des numéro de group Mais je n'ai pas que le numéro de group comme choix j'ai aussi : analog 1 analog 2 analog 3
+`Connectivity / Trunk` (tout en bas) Je peux choisir les ports que j'ai déjà configuré dans `Connectivity / DADHI Config` en leur donnant des numéros de group.  Mais je n'ai pas que le numéro de group comme choix j'ai aussi : analog 1 analog 2 analog 3
 
 Je ne vois pas de lien avec les inbound route.
 
-Connectivity -  Trunk - Asterisk Trunk Dial Options : C'est quoi?  
+`Connectivity -  Trunk - Asterisk Trunk Dial Options` : C'est quoi?  
 
-Je peux lier un trunk à un ou plusieurs ports FXO : Connectivity - Trunks - tab DAHDI Settingd -  DADHI Trunks
-Je peux dans leur donner un groupe/
-Add a DADHI trunk
-Me demande de configurer l'outbound callerID je ne comprends pas. Ce n'est pas défini dans le premier trunk. TODO
-
+Je peux lier un trunk à un ou plusieurs ports FXO : `Connectivity - Trunks - tab DAHDI Settingd -  DADHI Trunks`  
+Je peux dans leur donner un groupe.    
+`Add a DADHI trunk` Me demande de configurer l'outbound callerID je ne comprends pas. Ce n'est pas défini dans le premier trunk. TODO  
 Création des trunks puis Créations des outbound route qui vont utiliser ces trunks.
 
-Outbound Route
-----
+# Outbound Route
 on définit:
 * le trunk qui va etre utilisé. On peut définir plusieurs trunk. il faut donc définir le trunk avant l'outbound route.
 * le CID 
 * le dial pattern qui va etre utilisé par cette route.
-
+On peut filtrer uniquement sur le CID, uniquement sur le Dial pattern ou les deux.  
 On peut utiliser ce dial pattern pour forcer l'utilisation d'une route. Par example pour forcer l'utilisation de la ligne de fax on peut imaginer de taper 000numeroducorrespondant. Mais comment on fait pour modifier ce dial pattern pour que seul le numéro du correspondant soit envoyé sur l'OPT?
 http://wiki.freepbx.org/display/FPG/Trunk+Sample+Configurations
 
@@ -627,8 +622,7 @@ N   matches any digit from 2-9
 [1237-9] matches any digit or letter in the brackets (in this example, 1,2,3,7,8,9)
 .   wildcard, matches one or more characters (not allowed before a | or +)
 
-Exemples 
-----
+## Exemples 
 
 Dialed Number Manipulation Rules:
 
@@ -654,50 +648,36 @@ Since the PBX routes all inbound calls based on the DID or number dialed, we nee
 Connectivity - DADHI channel DID - add DADHI DID - channel : g1 (mais je ne suis pas sur) 
 Channel : 
 The DAHDI Channel number to map to a DID. For example, If you have a 4-port card, your channels would be ports 1-4.
+### en résumé pour router un appel arrivant d'une ligne analogique sur un port FXO:
+`Connectivity -DAHDI channel DID` pour définir un DID par port FXO (1, 2 , 3 , 4). Puis j'utilise ce DID dans la configuration des `Connectivity - Inbound Route - Set destination`.
 
-Connectivity -DAHDI channel DID pour définir un DID par port FXO (1, 2 , 3 , 4). Puis j'utilise ce DID dans la configuration des Connectivity - Inbound Route - Set destination.
-
-
-Configuration des appels entrants sur le freepbx server
-====
-TODO
-
-Fax 
-===
+# Fax 
 voir module User Management 
 
 J'ai le module fax pro qui permet d'envoyer des fax. Le module fax gratuit ne permet pas d'envoyer des fax.
 
-Fax - Émission de fax
-----
+## Fax - Émission de fax
 J'ai une outbound route. Sans configuration particuliere pour les fax.  
-
 Il n'y a pas de parametre de fax dans l'outbound route.  
-
 Dans Admin - User management - onglet Fax pour autoriser le user à utiliser les fax.  
 
 on va dans l'UCP est on fait "send new fax". cela marche.
 
 A noter qu'il ne faut pas que la vielle machine de fax soit brancher sur la ligne qui envoie le fax.
 
-Fax - Réception de fax
----
-
+## Fax - Réception de fax
 On définit la detection de fax dans : applications - extension. Mais cela n'a pas marché. Je ne trouve pas de parametre de fax dans application - extension
 
 Dans Connectivity -DHADI config - global setting - fax detection --> Yes et on essaye à nouveau.  
 
 Configuration pour recevoir les faxs:
-Connectivity -Inbound Route:
-   - set destination - Fax recipient user2  
+`Connectivity -Inbound Route`:
+   - `set destination - Fax recipient user2`  
    - Fax - Fax destination user2 
 
 Pas de configuration des ports fxo dans les inbound route. Il faut travailler avec le DID. A faire. pour voir si cela marche.
 
-
-
-Comment faire pour ne pas recevoir le fax par email mais le retrouver dans l'inbox.
----
+## Comment faire pour ne pas recevoir le fax par email mais le retrouver dans l'inbox.
 j'essaie :
 Setting - Fax config - email address (not the outgoing email address) : leave empty  
 Ca ne marche pas. Continue à l'envoyer par email
@@ -720,30 +700,21 @@ http://www.emetrotel.com/tsd/content/dial-system-fax
 
 Mais cela ne me dit pas ce que je peux en faire.
 
-BLF
-===
+# BLF
 Busy Lamp Field c'est une LED sur un IP phone qui te dit si une autre extension connecté au meme PBX est occupé ou non. 
 
-Modules commerciaux
-=====
+# Modules commerciaux
 Call recording Reports : http://wiki.freepbx.org/display/FCM/Call+Recording+Reports
 
-
-
-
-Quelles sont les applications qui sont supportés par les IP phones. Liste
-=====
+# Quelles sont les applications qui sont supportés par les IP phones. Liste
 http://wiki.freepbx.org/display/FPG/Phone+Apps-Supported+Devices
 
 
-Echo cancellation troubleshooting
-=====
+# Echo cancellation troubleshooting
 http://wiki.freepbx.org/display/PC/Verify+if+Hardware+Echo+Cancellation+is+being+used
 
-Asterisk
-====
-Logger
-----
+# Asterisk
+# Logger
 https://wiki.asterisk.org/wiki/display/AST/Collecting+Debug+Information
 
 Comment annuler les log output in CLI asterisk: CLI> __logger mute__
@@ -760,18 +731,15 @@ CLI> core show help dahdi
 CLI> dahdi show channels group <num du group>  
 
 
-mes ip phone n'obtiennent pas d'adress IP?
-====
-Je ne les vois dans openwrt. malgré plusieurs boot.
+# mes ip phone n'obtiennent pas d'adress IP?
+Je ne les vois pas dans openwrt. malgré plusieurs boot.
 Mon architecture réseau n'était pas bonne.  
 Server Freepbx + IP phone sur le switch Cisco et switch Cisco sur router wrt54GL.
 
-server freepbx n'obtient pas d'adresse IP
-===
+# server freepbx n'obtient pas d'adresse IP
 Le serveur freepbx apres avoir débrancher le cable rj45 n'obtient pas l'adress IP.  
 reboot est-il la seule solution?
-Troubleshooting
-=====
+# Troubleshooting
 Le system a perdu son adress ip. Le fait de brancher débrancher le cable rj45 ne regle pas le probleme.
 Je reboot. Mais comme il n'a pas d'adress ip pas moyen d'utiliser ssh.
 Donc je travaille en mode console avec un écran sur le port VGA. 
@@ -785,8 +753,7 @@ et là on a le clavier en azerty.
 Ce probleme d'ip c'est réglé quand j'ai branché port eth0 sur le router wrt54gl
 
 
-probleme
-====
+# probleme
 1 Ligne PSTN branchée - Inbound route DID any fax recipient. je recois les faxs. On a une tonalité fax 
 Pas moyen de paramétrer le DID. Si je mets le numero de la ligne me dit que le "number you have dialed is not on service"  
 
@@ -827,12 +794,11 @@ You MUST assign the channel's context to from-analog for these settings to have 
 Channel
 The DAHDI Channel number to map to a DID. For example, If you have a 4-port card, your channels would be ports 1-4.
 
-# Comment faire pour qu'une ligne pstn soit affectée à une certaine inbound route?
-Connectivity - DAHDI Channel DIDs :
-On configure le DID pour les ports FXO donc les lignes PSTN 
-Car le fournisseur ne passe pas le DID dans les lignes analogiques.
-Puis dans Inbound Route on utilise ce DID.
-
+### Comment faire pour qu'une ligne pstn soit affectée à une certaine inbound route?
+`Connectivity - DAHDI Channel DIDs` :
+A chaque ports FXO on assigne un DID (un numero de téléphone fictif. On mettra celui de la ligne PSTN). On mappe ainsi les FXO à une ligne PSTN.  
+Car le fournisseur ne passe pas le DID dans les lignes analogiques.  
+Puis dans Inbound Route on utilise ce DID pour router l'appel.
 
 # Comment enregistrer des annonces
 `Admin -> System Recordings`
@@ -1511,6 +1477,9 @@ https://www.voip-info.org/wiki/view/DAHDI
 http://wiki.openvox.cn/index.php/Troubleshooting_of_Analog_cards
  
  # Probleme avec le busy now.
- 
 "Dial failed for some reason with DIALSTATUS = CONGESTION and HANGUPCAUSE = 38"
 TRUNK Dial failed due to CONGESTION HANGUPCAUSE: 38
+## une solution
+configurer l'outbound route pour que qd le Trunk vega ne marche pas on passe sur une outbound route analogique.
+Mais pour cela il faudra attendre que l'analogique marche correctement.
+
