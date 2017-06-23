@@ -369,7 +369,8 @@ Page tres complete sur le provisionning d'un tel sangoma:
 https://wiki.freepbx.org/display/PHON/Setup+Phone+by+hard+setting+provisioning+server
 
 
-# Phone Polycom 
+## Phone Polycom 
+http://kb.digium.com/articles/Configuration/Polycom-Phone-Provisioning-Guide?retURL=%2Fapex%2FknowledgeProduct&popup=false
 ### Login / Password : 
 Username = Polycom (case sensitive)  
 Admin Password = 456  
@@ -1433,6 +1434,7 @@ In order to check the analog status for a given analog channel in a Sangoma card
 - i specify l'interface wanpipe. On trouve les interfaces wanpipe avec la commande ifconfig. elles sont nommées de la forme :wXg1
 - c commande à lancer dans l'interface
 - m channel analog. 
+The typical voltage pour une ligne open is : 53.53 volts.
 
 ## results
 ### wanpipemon -i w1g1 -c astats -m 1  
