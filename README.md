@@ -522,12 +522,31 @@ Quelques exemples de regles: http://wiki.freepbx.org/display/FPG/Outbound+Routes
 Le module outbound route: http://wiki.freepbx.org/display/FPG/Outbound+Routes+Module
 
 # DAHDI (Analog) Channel DIDs module
-ce module permet d'assigner un DID (un numero de téléphone) à un channel anlogique spécifique. Contrairement SIP ou PRI trunk, les lignes analogique n'envoie pas le DID ou le numero composé. Et nous avons besoin de mapper chaque port analogique ou channel a un numero fake comme cela nous pouvons matcher ce numero à une Inbound Route et router l'appel.  
-Il est possible de mapper sur le même numéro de téléphone plusieurs channels.
+`Connectivity / DAHDI Channel DIDs`  
 
-Il *FAUT* que le *context* du channel soit à *from-analog* : `context = from-analog` in your chan_dahdi.conf 
+Ce module permet d'assigner un DID (un numero de téléphone) à un channel anlogique spécifique. Contrairement SIP ou PRI trunk, les lignes analogique n'envoie pas le DID ou le numero composé. Et nous avons besoin de mapper chaque port analogique ou channel a un numero fake comme cela nous pouvons matcher ce numero à une Inbound Route et router l'appel.  
 
-Une fois que l'on a assigné un DID, on peut utiliser les Inbound Route pour router l'appel.
+Il est possible de mapper sur le même numéro de téléphone plusieurs channels.  
+Une fois que l'on a assigné un DID, on peut utiliser les Inbound Route pour router l'appel.  
+
+Il *FAUT* que le *context* du channel soit à *from-analog* : `context = from-analog` in your chan_dahdi.conf. Cela se fait dans le DAHDI config module
+
+# DAHDI Configs module
+Permet de configurer les DAHDI PSTN card.  
+
+On clique sur `Connectivity / DAHDI`  
+## En haut de la fénétre on voit en haut les cartes installées.
+Si Signaling = Not Yet Defined la carte n'est pas encore configurée. 
+Clique Edit
+Quand on configure une DAHDI cards on doit casser les channels dans des groupes. Ensuite quand va définir les trunks on va pouvoir définir quel groups chaque trunk va utiliser pour les outbound call. 
+
+## Analog FXO ports 
+- port X settings:
+	- Signaling : Kewl start ou Loop Start. Presque toujours Kewl start
+	- group : on assigne un group à chaque port. Un port peut appartenir à n'importe quel groupe.
+	- context : doit toujours être à *from-analog* unless you know what you're doing
+
+Dans le module Outbound Route on va pouvoir utiliser ce group pour rediriger l'appel vers ce group si le SIP vega trunk ne marche. TODO.
 
 # Outbound route - dial pattern
 
