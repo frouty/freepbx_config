@@ -1,7 +1,12 @@
 # freepx_config
 
+# My Config
+My config: Sangoma appliance, ip phones: sangoma s500 et polycom vx400  
+vega50 gateway for one BRI line, an sangoma FXO card 4 ports, 2 analogic lines.  
+Cisco SG500-28P switch  
 
- 
+
+# FAQ asterisk knowledgebase
 http://kb.digium.com/
 
 # Architecture réseau  
