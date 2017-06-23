@@ -36,20 +36,16 @@ puis en GUI recherche -> firewall -> enable --> re-run wizard
 `Admin / Config Edit`
 # Comment mettre à jour les modules?
 `Admin -> Module Admin`
-
 # Comment installer en ligne de commande un module 
 fwconsole ma --edge upgrade framework  
 Le plus dur va etre pour trouver le nom du module.
-
 # Asterisk
 ## CLI
 on peut utiliser les commandes CLI dans le web GUI.
-
 - Admin
 - Asterisk CLI
 
 On peut les utiliser apres un ssh root@freepbxIP
-
 
 Si on fait un CLI> core stop now.  
 Mais là on ne peut plus se reconnecter à asterisk.   
@@ -198,7 +194,7 @@ Exemple les orthoptiste utilisent leur ligne FXO pour appeler.
 	
 
 # DADHI extension c'est quoi?
-TODO
+Je pense que c'est pour configuer un device analogique branché sur une FXS.  
 # Fichiers de configuration
 
 
@@ -371,21 +367,17 @@ Page tres complete sur le provisionning d'un tel sangoma:
 https://wiki.freepbx.org/display/PHON/Setup+Phone+by+hard+setting+provisioning+server
 
 
-Phone Polycom 
-===
+# Phone Polycom 
 ### Login / Password : 
 Username = Polycom (case sensitive)  
 Admin Password = 456  
 User Password = 123  
 ### difference entre user et admin
 admin acces unrestricted. user acces restricted  
-
 ### web gui login password 
 il est défini par le freepbx :  
 - settings/ end point manager / global settings /   
 - phone admin password .  
- 
-
 ### Reboot the Phone  
  - Press and hold the dial pad keys 0, 1, and 3 simultaneously for about three seconds, or until you hear a confirmation tone.  
 ###  Restore Factory Defaults
@@ -398,7 +390,6 @@ il est défini par le freepbx :
 mais avec la mac address à la place de 456 c'est OK
 Reboot-> 0;1;3 ne marche pas  
 1;5;9 ne marche pas
-  
 ### configuration du provisioning
 Dans le menu du phone: home - settings - advanced - administration setting - Network Configuration - provisioning server
 Server type : TFTP  
@@ -494,6 +485,7 @@ This example will show you a few steps how to get asterisk and two Digium cards 
 
 
 # DAHDI
+DAHDI sont les drivers qui connectent le PBX au PSTN soit en analogique, soit en T1/E1/PRI ou BRI.
 ## Les fichiers de configurations:
 
 etc/dahdi/system.conf  
@@ -532,21 +524,54 @@ Une fois que l'on a assigné un DID, on peut utiliser les Inbound Route pour rou
 Il *FAUT* que le *context* du channel soit à *from-analog* : `context = from-analog` in your chan_dahdi.conf. Cela se fait dans le DAHDI config module
 
 # DAHDI Configs module
-Permet de configurer les DAHDI PSTN card.  
-
+Permet de configurer les DAHDI PSTN card (analog, T1/E1/PRI or BRI’s.).  
 On clique sur `Connectivity / DAHDI`  
+
+https://wiki.freepbx.org/display/FPG/DAHDI+Configs
+
+
 ## En haut de la fénétre on voit en haut les cartes installées.
+Chaque span correspond à un port.  
 Si Signaling = Not Yet Defined la carte n'est pas encore configurée. 
 Clique Edit
 Quand on configure une DAHDI cards on doit casser les channels dans des groupes. Ensuite quand va définir les trunks on va pouvoir définir quel groups chaque trunk va utiliser pour les outbound call. 
 
 ## Analog FXO ports 
-- port X settings:
+- `port X settings`:
+	- en général ici la seule chose que l'on change ici c'est le group.
 	- Signaling : Kewl start ou Loop Start. Presque toujours Kewl start
 	- group : on assigne un group à chaque port. Un port peut appartenir à n'importe quel groupe.
 	- context : doit toujours être à *from-analog* unless you know what you're doing
+	
 
 Dans le module Outbound Route on va pouvoir utiliser ce group pour rediriger l'appel vers ce group si le SIP vega trunk ne marche. TODO.
+
+## Dans la barre de navigation à droite on trouve les settings que l'on peut configurer dans ce module:
+- global settings: si on fait des modifs:  
+`Save / Apply config / Reload Asterisk Dahdi Module`. Les modifications faites ici ne nécessitent pas un Restart Dahdi & Asterisk. 
+	- Select language
+	- Enable Busy detect
+	- Busy Detect count
+	- User call ID
+	- Enable Call Waitting : YES un extension occupée entendra un call-waiting tone.
+	- ...
+	
+- System settings : en général il n'y a rien à modifier. 
+Les modifications faites ici  nécessitent un Restart Dahdi & Asterisk.  
+`Save / Apply config / Restart Asterisk Dahdi`. 
+- Modprobe Settings :  controle le system linux qui manage les drivers. Il peut y avoir des modifications à apporter si on est outside america.
+Les modifications faites ici  nécessitent un Restart Dahdi & Asterisk.  
+`Save / Apply config / Restart Asterisk Dahdi`. 
+- Module settings: On définit les modules qui seront chargés pour les cartes.
+Les modifications faites ici  nécessitent un Restart Dahdi & Asterisk.  
+`Save / Apply config / Restart Asterisk Dahdi`. 
+- Sangoma setting:
+	- Run Wanpipe in DAHDI/DIGIUM Mode: YES si on veut manager dans ce module des cards Sangoma avec des cartes d'autres marques. Je pense que pour moi c'est NON.
+Les modifications faites ici  nécessitent un Restart Dahdi & Asterisk.  
+`Save / Apply config / Restart Asterisk Dahdi`. 
+## `Connectivity / Trunk / Add DAHDI Trunk` 
+En bas , `Outgoing Settings / DAHDI Trunks:` choose a group crée dans le module DAHDI configs.
+
 
 # Outbound route - dial pattern
 
