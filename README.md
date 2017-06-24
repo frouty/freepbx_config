@@ -1563,3 +1563,5 @@ After recording a message (incoming message, busy/unavailable greeting, or name)
 (1) Prompts for these are only played if these options are enabled in voicemail.conf
 
 (2) On FreePBX based systems *98 will prompt you for your user extension and pin number. *97 will provide direct access to the voicemail of the extension you are calling from.
+# message conversion
+http://wiki.kolmisoft.com/index.php/Convert_WAV_file_to_Asterisk_playable_format
