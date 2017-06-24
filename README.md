@@ -1504,3 +1504,62 @@ TRUNK Dial failed due to CONGESTION HANGUPCAUSE: 38
 configurer l'outbound route pour que qd le Trunk vega ne marche pas on passe sur une outbound route analogique.
 Mais pour cela il faudra attendre que l'analogique marche correctement.
 
+
+Asterisk Voicemail Menu
+Changing/setting voicemail greetings in asterisk, as well as FreePBX and other asterisk based solutions, can be done from the handset.
+See your PBX administrator for the access code to access your voicemail (Common codes are *98, *97 )[2] In many systems, your phone may have a message button that is preconfigured to directly access your voicemail options. Some menu items may be disabled by your administrator.
+
+    1 Read voicemail messages
+        3 Advanced options
+            1 Reply
+            2 Call back(1)
+            3 Envelope
+            4 Outgoing call(1)
+            5 Send Message (only available if sendvoicemail=yes in voicemail.conf)
+        4 Play the previous message
+        5 Repeat current message
+        6 Play next message
+        7 Delete current message
+        8 Forward message to another mailbox
+            1 Use Voicemail number (only available if usedirectory=yes in voicemail.conf)
+            2 Use Voicemail Directory (only available if usedirectory=yes in voicemail.conf)
+        9 Save message in a folder
+            0 Save in new Messages
+            1 Save in old Messages
+            2 Save in Work Messages
+            3 Save in Family Messages
+            4 Save in Friends Messages
+        * Help; during msg playback: Rewind
+        # Exit; during msg playback: Skip forward
+    2 Change folders
+        0 Switch to new Messages
+        1 Switch to old Messages
+        2 Switch to Work Messages
+        3 Switch to Family Messages
+        4 Switch to Friends Messages
+    3 Advanced Options
+        5 Send Message (only available if sendvoicemail=yes in voicemail.conf)
+            1 Use Voicemail number (only available if usedirectory=yes in voicemail.conf)
+            2 Use Voicemail Directory (only available if usedirectory=yes in voicemail.conf)
+    0 Mailbox options
+        1 Record your unavailable message
+        2 Record your busy message
+        3 Record your name
+        4 Record your temporary message (new in Asterisk v1.2)
+            1 Record your temporary message
+            2 Erase your temporary message (going back to the standard message)
+        5 Change your password
+        * Return to the main menu
+    * Help
+    # Exit
+
+After recording a message (incoming message, busy/unavailable greeting, or name)
+
+    1 – Accept
+    2 – Review
+    3 – Re-record
+    0 – Reach operator(1) (not available when recording greetings/name)
+
+(1) Prompts for these are only played if these options are enabled in voicemail.conf
+
+(2) On FreePBX based systems *98 will prompt you for your user extension and pin number. *97 will provide direct access to the voicemail of the extension you are calling from.
