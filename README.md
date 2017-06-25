@@ -720,7 +720,7 @@ http://wiki.freepbx.org/display/FPG/Phone+Apps-Supported+Devices
 http://wiki.freepbx.org/display/PC/Verify+if+Hardware+Echo+Cancellation+is+being+used
 
 # Asterisk
-# Logger
+## Logger
 https://wiki.asterisk.org/wiki/display/AST/Collecting+Debug+Information
 
 Comment annuler les log output in CLI asterisk: CLI> __logger mute__
@@ -736,6 +736,11 @@ dahdi
 CLI> core show help dahdi  
 CLI> dahdi show channels group <num du group>  
 
+## How to activate Asterisk full debugging?
+`vi /etc/asterisk/logger.conf`  
+uncomment : `̀full => notice, warning, error, debug, verbose, dtmf, fax`  
+
+Toutes les infos de debugging seront logguées dans /var/log/asterisk/full.
 
 # mes ip phone n'obtiennent pas d'adress IP?
 Je ne les vois pas dans openwrt. malgré plusieurs boot.
@@ -777,9 +782,8 @@ Si inbound route DID: 281600 the number you have dialed is not in service si DID
 
 Voici le log de cette affaire.
 
-Comment obtenir le log?
-====
-Reports - Asterisk log
+# Comment obtenir le log?
+`Reports - Asterisk log`
 
 
 
@@ -1427,7 +1431,9 @@ https://wiki.freepbx.org/display/PC/Analog-+Audio+Issues
 
 - `dahdi show channels`
 - `dahdi show channel 1` pour avoir le détail.
-
+# wanpipe 
+C'est une suite pour linux/windows de driver pour le kernel et d'utilities qui controle les cartes TDM sangoma. 
+https://wiki.freepbx.org/display/PC/Card+Driver-+Overview
 # checking sangoma FXO status
 In order to check the analog status for a given analog channel in a Sangoma card you can do the following:
 `wanpipemon -i w1g1 -c astats -m 1`
@@ -1496,7 +1502,11 @@ On peut vérifier le statut de l'EC avec : wanpipemon -i w1g1 -c ehw
 https://www.voip-info.org/wiki/view/DAHDI
 
 http://wiki.openvox.cn/index.php/Troubleshooting_of_Analog_cards
- 
+
+https://wiki.freepbx.org/display/PC/Driver+Overview+Statistics. Il semble qu'il y ya eiat TODOD
+
+# Dynamic port configuration
+
  # Probleme avec le busy now.
 "Dial failed for some reason with DIALSTATUS = CONGESTION and HANGUPCAUSE = 38"
 TRUNK Dial failed due to CONGESTION HANGUPCAUSE: 38
@@ -1505,7 +1515,7 @@ configurer l'outbound route pour que qd le Trunk vega ne marche pas on passe sur
 Mais pour cela il faudra attendre que l'analogique marche correctement.
 
 
-Asterisk Voicemail Menu
+# Asterisk Voicemail Menu Flow
 Changing/setting voicemail greetings in asterisk, as well as FreePBX and other asterisk based solutions, can be done from the handset.
 See your PBX administrator for the access code to access your voicemail (Common codes are *98, *97 )[2] In many systems, your phone may have a message button that is preconfigured to directly access your voicemail options. Some menu items may be disabled by your administrator.
 
