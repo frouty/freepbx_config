@@ -1505,6 +1505,40 @@ http://wiki.openvox.cn/index.php/Troubleshooting_of_Analog_cards
 
 https://wiki.freepbx.org/display/PC/Driver+Overview+Statistics. Il semble qu'il y ya eiat TODOD
 
+# Troubleshooting and diagnostic commands for telephony cards
+## Framer statistic
+̀`wanpipemon -i w1g1 -c Ta`
+- Errors:
+	- Rx Level:
+		- doit etre -2.5db
+		- si Rx level is not -2.5db il y a un probleme de cable.
+	- Line, bit, out of frame error:
+		- ne doivent pas être incrémentées (?)
+		- si incrémentée, the clock on the T1/E1 line is bad.
+		- One can try to configure wanpipe port to MASTER clock. (je crois que cela se fait dans DAHDI config à voir)
+		- However the telco is suppose to provede the clock
+## Echo canceler statistic
+`wan_ec_client wanpipe1 stats`  
+peut se faire sur chaque wanpipe device listés dans wanrouter status  
+- Errors:
+	- H.100 Errors
+		- The echo canceler is expecting a clean stable clock. 
+		- The echo canceler clock is supplied by the T1/E1 line.
+		- If the clock coming from the line is not up to spec the echo canceler chip will increment the H.100 errors. 
+## Vérifier si l'echo cancellation est en marche
+`wanrouter hwprobe`  
+- HWEC=0 no hardware echo chancellor
+- HWEC=tout sauf zero il y a echo cancellor hardware
+## Vérifier si l'echo cancellation est active
+`wanpipemon -i wxg1 -c ehw`
+
+
+https://wiki.freepbx.org/display/PC/Capture+Audio+Recording+from+card
+
+# Analog audio issue
+
+https://wiki.freepbx.org/display/PC/Analog-+Audio+Issues
+
 # Dynamic port configuration
 
  # Probleme avec le busy now.
