@@ -813,7 +813,7 @@ Puis dans Inbound Route on utilise ce DID pour router l'appel.
 # Comment enregistrer des annonces
 `Admin -> System Recordings`
 
-System recordings. C'est le module qui permet d'enregistrer ou d'uloader des messages qui pourront être joués aux appelants dans d'autres modules. On peut l'utiliser aussi pour des annonces pre-installées d'Asterisk.
+System recordings. C'est le module qui permet d'enregistrer ou d'uploader des messages qui pourront être joués aux appelants dans d'autres modules. On peut l'utiliser aussi pour des annonces pre-installées d'Asterisk.
 On peut utiliser un message dans un IVR, dans un annoucement. Pour cela on route l'appel entrant vers l'annoucement ou l'IVR en utilisant l'Inbound Route Module.
 
 Les modules qui permettent d'utiliser ces enregistrements sont:  
@@ -846,30 +846,48 @@ Feature Code Password
 Convert To
 
 
-Comment savoir à quelle IP phone un user est relié?
-===
-Application -- Extension  
+# Comment savoir à quelle IP phone un user est relié?
+`Application -- Extension` 
 Et on peut relier un user à une extension dans:  
-Admin - User Management - Primary Linked Extension
+`Admin - User Management - Primary Linked Extension` 
 
-Admin -> system recording
-====
+# Admin -> system recording
 Va permettre d'enregistrer des messages qui pourront etre joué à l'appelant par d'autres modules.  
-File list for english : j'ai l'impression que ce la permet de concatener plusieurs fichiers qui serons lus l'un à la suite de l'autre c'est comme cela que je le comprends.
+File list for english : j'ai l'impression que cela permet de concatener plusieurs fichiers qui serons lus l'un à la suite de l'autre c'est comme cela que je le comprends.
 
 Si je veux pouvoir accéder à l'enregistrement via un ip phone :(pas sûr que cela soit utile)  
 Link to Feature Code  - YES  
 
-Applications -> Annoucement
-====
-Ne pas confondre ce module avec le system recording.  
+# Module Applications -> Annoucement
+Ne pas confondre ce module avec le system recording. 
+Il va chercher les recording du module system recording.    
+On définit dans un annoucement une destination. On ne peut définir q'une seule destination par Annoucement
 Le module annoucement permet de jouer une annonce créee avec system recording et de poursuivre le call flow.  
-
-recording : ne propose que les announces faites dans le system recording. Il faut donc créer l'annonce dans le module system recording.  
+- Add Annoucement
+- description
+- recording : ne propose que les announces faites dans le system recording. Il faut donc créer l'annonce dans le module system recording.  
+- Repeat : le caller peut taper une touche pour répeter le message.IL faudra donner l'info dans le message.
+- allow skip: le caller peut taper une touche pour passer l'annonce. Cela skip vers la destination qui est définie dans cet annoucement.  
+- Return à l'IVR au lieu de partir sur la destination. C'est interessant si on plusieurs IVR qui pointent sur cet annoucement. Sans cela il faudrait autant d'annoucement que d'IVR pour avoir autant de destination que d'IVR.  
+- Don't answer channel:
+	- No recommended. Repond à l'appel et joue l'annonce
+	- Yes j'ai pas compris.  
+- Destination after playback
 
 Je ne comprends pas qd on définit à qui est joué cette annonces. Ce n'est pas dans le module que l'on définit qd/où est joué l'annonce mais dans d'autres modules
 
-# Jouer une annonce à tous les appels entrants:
+Ce module permet donc de créer une destination qui va jouer un message à un appelant. Apres le message, l'appel va vers une autre destination. Où est défini cette autre destination?  
+Ce module est lié à tout module qui a un champ `Set Destination` comme:
+- 1 IVR
+- 2 Inbound Routes Module
+- 3 Ring group module
+- 4 Queues Module
+- 5 Call Flow control module 
+- 6 Time Conditions module
+- 7 Miscellaneous applications module.
+
+
+# Jouer une annonce à *tous* les appels entrants?
 - 1 Créer le fichier son dans Admin - System recordings.  
 - 2 Créer un announcement dans Applications - Announcement  
 - 3 Connectivity - Inbound Route - Destination : choisir l'announcement     
@@ -877,19 +895,25 @@ Et cela marche. Testé
 
 # Musique d'attente . MoH Music on Hold
 `Setting - MoH`  
-Je n'ai jamais entendu une telle music. TODO
+Je n'ai jamais entendu une telle music. Il faut mettre l'appel en attente. TODO
+On peut mettre des .wav, .mp3, stream des live feed.  
+On définit des catégories. On peut mettre plusieurs fichiers dans une catégories. 
+On peut appliquer des catégories à :
+- Inbound Route  
+- Queues
+- ring groups
+- Outbound route 
+- conference
 
-Fail2Ban
-===
-admin - System admin - Intrusion detection
+# Fail2Ban
+`Admin - System admin - Intrusion detection`
 
-Couldn't connect to asterisk
-===
+# Couldn't connect to asterisk
 Apres un reboot forcé par interruption du courant j'ai le msg  
 *couldn't connect to asterisk*  
 je n'ai rien fait j'ai attendu un peu.
 
-# Comment forwarder vers un numéro extérieur
+# Comment forwarder/rediriger vers un numéro extérieur?
 - `miscellenious destination ` ou
 - `follow-me` : si quelqu'un appelle mon extension, et que cela sonne 4 fois, i dont peek up instead of going to voice mail va vers mon cell phone.
 
@@ -915,17 +939,13 @@ D'autre utilise le follow me sur l'extension.
 
 # Comment on gere les SDA du tronc numeris?
 ## Comment diriger les appels du 29629x vers un user phone?
-## Comment rediriger un appel vers un user phone vers un numéro extérieur?
-
-# call flow control
-## Comment faire pour modifier le flow de l'appel en compasant un code sur le phoneIP?
-Application / call flow control / add call flow taggle code /
--2 Description ce qu'on veut
--3 password pas nécessaire
--4 
+Cela se définit dans `Connectivity/Inbound route`
+# Comment faire pour modifier le flow de l'appel en composant un code sur le phoneIP?
+`Application / call flow control / add call flow taggle code /`
+Pour plus de détail voir ci dessous la description du module ou https://wiki.freepbx.org/display/F2/Call+Flow+Control+User+Guide
 
 # Trunk module
-Il est utilisé pour connecté le Freepbx/asterisk à un autre systeme de VOIP. Comme cela on peut envoyer ou recevoir des apels depuis et vers cet autre système VOIP. 
+Il est utilisé pour connecté le Freepbx/asterisk à un autre système de VOIP. Comme cela on peut envoyer ou recevoir des apels depuis et vers cet autre système VOIP. 
 Comme :
 - Internet Telephone Service Providers
 - Autre système Freepbx/asterisk
@@ -1061,12 +1081,7 @@ les files sont dans :
 - /var/lib/asterisk/moh
 - /var/lib/asterisk/moh/name of category
 
-# Application / Call flow control  
-- 1 Call Flow Toggle Feature code index : je n'ai pas compris
-- Description : OK
-- 3 Recording for normal mode | Recording for override mode : ou on met le message qui sera joué en mode normal. cela se définit dans *Admin / System recording*.
-- 4 Optional password : ? 
-- 5 Normal Flow | Override Flow : == Choose one == 
+
 
 # Admin / System recording
 
@@ -1121,19 +1136,7 @@ Ce qui permet de changer le code directement par le user, sans passer par l'admi
 ## Feature code password
 uniquement des digit.  
 
-# Announcements module
-la possibilité de diriger les appels en fonction d'horaire.
-Il permet de créer une destination qui va jouer un message à un appelant. Apres le message, l'appel va vers une autre destination. Où est défini cette autre destination?  
-Ce module est lié à tout module qui a un champ `Set Destination`:
-- 1 IVR
-- 2 Inbound Routes Module
-- 3 Ring group module
-- 4 Queues Module
-- 5 Call Flow control module 
-- 6 Time Conditions module
-- 7 Miscellaneous applications module.
 
-Announcement module va chercher les recording du module system recordiong.  
 
 ## Description
 ## Recording
@@ -1196,16 +1199,19 @@ ensuite Application / Time condition.
 - Ensuite il faut aller dans `Connectivity / Inbound Route`et changer `Set destination` avec `Time Conditions` et on choisit la time condition qui nous interesse.
 
 # Call Flow module
-Il est utile pour crée une destination qui agit comme un switch qui peut être activé par toute personne qui a acces à un ip phone. Par passer de daytime mode à night time mode.  
-Call flow est un switch manuel et Time Condition est un switch automatic.
-
-Call flow peut etre utilisé dans les champ `Set Destination`
+Il est utile pour crée une destination qui agit comme un switch qui peut être activé par toute personne qui a acces à un ip phone.  
+Par exemple: pour passer de daytime mode à night time mode.  
+Call flow est un switch manuel et Time Condition est un switch automatic.  
+Call flow peut etre utilisé dans les champ `Set Destination`  
 ## Call flow Toggle Feature Code 
-Tous les feature code pour les call flow commencent par \*28. L'index ie la derniere partie du code va de 0 à 99. Si on choisit 90 ici il faudra composer \*2890  
+Tous les feature code pour les call flow commencent par \*28. 
+L'index est la derniere partie du code va de 0 à 99. Si on choisit 90 ici il faudra composer \*2890  
 ## Current mode 
 - Normal (Green/BLF off). 
 - Override (REd/BLF on). 
-Pas compris
+Pas compris. On y parle de boutton mais aussi de light.
+## Recording 
+Recording for normal mode | Recording for override mode : ou on met le message qui sera joué en mode normal. cela se définit dans *Admin / System recording*.
 ## Recording for Normal Mode
 C'est ce qui est joué quand on fait le feature code.  
 The default recording played when toggling into normal mode is to beep and say "feature code deactivated." You can record your own announcement in the System Recordings module and pick that recording within the Call Flow Control module to override the default recording.
@@ -1224,7 +1230,6 @@ This is the destination to route the call to when in Override (Red/BLF on) mode 
 - announcement, 
 - queue,
 - ...
-
 
 # Queue
 Utile qd plus d'appels entrants que de personnes pour répondre.  
@@ -1609,3 +1614,24 @@ After recording a message (incoming message, busy/unavailable greeting, or name)
 (2) On FreePBX based systems *98 will prompt you for your user extension and pin number. *97 will provide direct access to the voicemail of the extension you are calling from.
 # message conversion
 http://wiki.kolmisoft.com/index.php/Convert_WAV_file_to_Asterisk_playable_format
+
+
+# streaming music
+southcast. Trouver un stream l'entete http  
+mpg123 doit etre installé dans freepbx  
+`settings - Music on Hold - Add streaming category`
+La commande : /usr/bin/mpg123 -q -r 8000 -f 8192 --mono -s https://<ipadress>:<portnumber>  
+Paste cette  commande dans le champ : application  
+Ensuite on va utiliser ce stream dans un autre module. Il y a de nombreux module où on peut l'utiliser.  
+Par exemple : Inbound Route    
+https://wiki.freepbx.org/display/FPG/Music+on+Hold+User+Guide
+
+# Distinging ringing
+## queue call vs normal
+## extenstion to extension
+## external call
+Cela se fait par le téléphone.  Setting / Ring  on définit les info internal info text
+Puis freepbx / Connectivity Inbound route / Options / Alert info. On met les infos que l'on a mis dans internal info text.
+
+# Comment jouer un message d'accueil aux appels entrants
+Voir le module Annoucement
