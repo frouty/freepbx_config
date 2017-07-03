@@ -1544,6 +1544,8 @@ https://wiki.freepbx.org/display/PC/Capture+Audio+Recording+from+card
 
 https://wiki.freepbx.org/display/PC/Analog-+Audio+Issues
 
+## exemple de fichier audio
+http://www.voiptroubleshooter.com/problems/robotic.html
 # Dynamic port configuration
 
  # Probleme avec le busy now.
