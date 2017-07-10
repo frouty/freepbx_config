@@ -338,23 +338,20 @@ register le phone
 pour utiliser le redirection service il faut l'enregistrer sur le portal de sangoma.
 https://portal.sangoma.com cloud service > sangoma phones > register phone tab
 
-DHCP option 66
-----
+## DHCP option 66
 ll faut que le serveur dhcp du routeur support le dhcp option 66
 
-The hard way
-----
+## The hard way
 from the GUI of the phone
 login/password : admin/admin
 Management -> Auto Provision - upgrade mode - config server path - autoprovision Now click
 
 
-Comment trouver l'IP d'un phone Sangoma
----
+# Comment trouver l'IP d'un phone Sangoma
+
 menu -> Status -> information
 
-Comment rebooter un phone Sangoma
-----
+# Comment rebooter un phone Sangoma
 Menu button -> * key 3 fois -> down arrow pour 10 s. Le téléphone reboot
 
 
@@ -373,7 +370,8 @@ Ce password 222222 se trouve dans le freepbx à : *TODO*
 Page tres complete sur le provisionning d'un tel sangoma:  
 https://wiki.freepbx.org/display/PHON/Setup+Phone+by+hard+setting+provisioning+server
 
-
+## COmment changer le ring tone
+- 1 dans le web GUI c'est dans les templates : `Settings / Endpoint management /brand`
 ## Phone Polycom 
 http://kb.digium.com/articles/Configuration/Polycom-Phone-Provisioning-Guide?retURL=%2Fapex%2FknowledgeProduct&popup=false
 ### Login / Password : 
