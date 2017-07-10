@@ -240,8 +240,7 @@ Dans le fichier /etc/asterisk/users.conf il y a un parametre : context = unconte
 
 On retrouve ce context uncontext dans les extensions.  
 
-Configuration d'une phone IP avec End Point Manager (EPM)
-====
+# Configuration d'une phone IP avec End Point Manager (EPM)
 
 Il faut avoir une extension et un user manager account
 
@@ -262,8 +261,7 @@ Settings -> EndPointManager -> Global Settings
 * line key section : select Type:line. Label and Value disappear. Select Account: Account1
 * save model
 
-Mappage d'un IP phone vers une extension
-====
+# Mappage d'un IP phone vers une extension
 -> Extension Mapping -> Add Extension (dans le sous menu de Settings->EndPoint Manager)  
 -> Extension/Name select l'extension et le compte que l'on veut associer au téléphone.  
 -> select le brand du telephone   
@@ -409,9 +407,8 @@ reboot phone
 
 Settings - endpoint manager - brands - polycom - save rebuild config and update phone : submit n'a pas marché
 
-Quels sont les services que l'on peut utiliser pour tester son phone SIP
-====
-Admin -> Feature code
+# Quels sont les services que l'on peut utiliser pour tester son phone SIP
+`Admin -> Feature code`
 
 Clock *60  
 echo test *43
@@ -441,7 +438,7 @@ __dahdi_scan__ :Generates a list of things DAHDI channels, with some details
 __dahdi_test__ : Measures accuracy of the FXO/FXS board software digital signal processing  
 __dahdi_tool__ : A nice tool to see what your boards are doing.  
 
- # Sample installation
+## Sample installation
 After compiling and installing of dahdi and asterisk, you have to perform some further steps to use your hardware.
 This example will show you a few steps how to get asterisk and two Digium cards enabled:
 
