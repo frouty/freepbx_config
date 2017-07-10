@@ -348,7 +348,6 @@ Management -> Auto Provision - upgrade mode - config server path - autoprovision
 
 
 # Comment trouver l'IP d'un phone Sangoma
-
 menu -> Status -> information
 
 # Comment rebooter un phone Sangoma
@@ -370,8 +369,10 @@ Ce password 222222 se trouve dans le freepbx à : *TODO*
 Page tres complete sur le provisionning d'un tel sangoma:  
 https://wiki.freepbx.org/display/PHON/Setup+Phone+by+hard+setting+provisioning+server
 
-## COmment changer le ring tone
+## Comment changer le ring tone
 - 1 dans le web GUI c'est dans les templates : `Settings / Endpoint management /brand`
+- 2 dans le telephone : Menu / settings /basic settings / Ring tones
+
 ## Phone Polycom 
 http://kb.digium.com/articles/Configuration/Polycom-Phone-Provisioning-Guide?retURL=%2Fapex%2FknowledgeProduct&popup=false
 ### Login / Password : 
