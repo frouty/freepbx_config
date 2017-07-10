@@ -1040,14 +1040,16 @@ On choisit les users. On peut utiliser Extension Quick Pick
 Destination if no answer.
 Ensuite il faut aller sur une incoming route et mettre set destination avec le ring group.
 
-# Comment diriger les appels entrant vers un IPphone en fonction du SDA # 
+# Comment diriger les appels entrant vers un IPphone en fonction du SDA
+`Connection / Inbound Route`
 - 1- Pour voir le SDA qui est présenté à Freepbx  car ce n'est pas forcement celui que l'on attend.
 	- ssh root@IP_Freepbx
 	- login
 	- asterisk -rvvvv
 	- faire un appel
-- 2-Le champ à renseigner c'est `CID` 
-- 3 et ` Set destination` ou pourra mettre l'extension. 
+- 2-Le champ à renseigner c'est `DID` 
+- 3 et ` Set destination` ou pourra mettre l'extension.
+
 ## On peut diriger vers un numero exterieur en faisant une misc destination ##
 Et on met `Set destination` sur cette miscellaneous destination
 
@@ -1198,6 +1200,7 @@ Ce module peut etre utilisé dès qu'il y a le champ `Set Destination`:
 - 5 Call Flow control module 
 - 6 Time Conditions module
 - 7 Miscellaneous applications module.
+
 ##Invert BLF Hint
 YES/NO permet d'inverser le busy lamp field. Le parametrage par défaut pouvant géné les utilisateurs.   
 Par défaut NO (invert BLF Hint = No) the BLF is in use quand la time condition ne matche pas. Et not in use quand elle matche.  
@@ -1212,7 +1215,7 @@ This destination will be used as the call target when the current time matches t
 This destination will be used as the call target when the current time does not match the time group selected above.
 
 
-Application / Time groups
+# Application / Time groups
 
 Il est juste nécessaire de définir le business hour. Pas de définition du after business hour.
 
@@ -1221,6 +1224,9 @@ ensuite Application / Time condition.
 - On y définit le `Destination if time matches`
 - Et `Destination if time does not match`
 - Ensuite il faut aller dans `Connectivity / Inbound Route`et changer `Set destination` avec `Time Conditions` et on choisit la time condition qui nous interesse.
+
+On peut l'utiliser dans une time condition mais aussi dans une outboud route pour limiter l'utilisation de certaines routes à certaines heures.
+C'est le champ todo?
 
 # Call Flow module
 Il est utile pour crée une destination qui agit comme un switch qui peut être activé par toute personne qui a acces à un ip phone. Par passer de daytime mode à night time mode.  
