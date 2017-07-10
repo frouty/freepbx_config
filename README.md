@@ -921,6 +921,32 @@ D'autre utilise le follow me sur l'extension.
 # Comment on gere les SDA du tronc numeris?
 ## Comment diriger les appels du 29629x vers un user phone?
 ## Comment rediriger un appel vers un user phone vers un numéro extérieur?
+J'utilise le module `Applications / Miscellaneous destination`
+Il y juste deux choses à remplir:
+- 1 Description 
+- 2 le numero que le systeme doit composer pour atteindre la destination finale.
+Ensuite on va mapper l'appel entrant et cette miscellaneous destination qui est le numero vers lequel on veut faire suivre l'appel dans le module `Connection / Inbound Route`. Pour cela on a les champs :
+- 1 `DID Number` On regarde dans le log quel est le numéro DID qui passe dans le systeme pour l'utiliser ici.
+- 2 `Set Destination`. On choisit `Miscellaneous Destination` et la miscellanous destination qui nous interesse.
+
+Mais je ne comprends comment l'`Inbound Route`est reliée au port sur lequel est branché la ligne téléphonique.
+
+### log d'un appel exterieur vers le 281600 qui est redirigé vers un numero exterieur(ie plateforme telephonique)
+```
+ == Spawn extension (macro-hangupcall, s, 5) exited non-zero on 'SIP/vegaOut-000008e1' in macro 'hangupcall'
+  == Spawn extension (macro-dialout-trunk, h, 1) exited non-zero on 'SIP/vegaOut-000008e1'
+  == Spawn extension (macro-dialout-trunk, s, 23) exited non-zero on 'SIP/vegaOut-000008e1' in macro 'dialout-trunk'
+  == Spawn extension (outbound-allroutes, 8231249, 7) exited non-zero on 'SIP/vegaOut-000008e1'
+  == MixMonitor close filestream (mixed)
+  == End MixMonitor Recording SIP/vegaOut-000008e1
+  == Using SIP RTP TOS bits 184
+  == Using SIP RTP CoS mark 5
+  == Begin MixMonitor Recording SIP/vegaOut-000008e3
+  == Using SIP RTP TOS bits 184
+  == Using SIP RTP CoS mark 5
+```
+Je remarque qu'a aucun moment on voit le numéro de la redirection.
+
 
 # call flow control
 ## Comment faire pour modifier le flow de l'appel en compasant un code sur le phoneIP?
