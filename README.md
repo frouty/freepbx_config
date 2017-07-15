@@ -166,6 +166,7 @@ Extension Module marche avec d'autres modules
 # Où sst ce que l'on configure ce qui se passe lorsque l'on ne répond à son téléphone IP?
  On peut configurer le cas ou :
  - il n'y a pas de réponse. Le temps d'attente avant de passer en non réponse se configure dans : `Application / Extension / Onglet Advanced / Extension Options / Ring time` 
+ Ne doit pas etre dans une Queue ou un Ring Group.
  - le poste est occupé
  - le poste n'est pas joingnable =  Le poste n'est pas branché
  `Application / Extension / Onglet Advanced / `
@@ -184,7 +185,8 @@ Extension Module marche avec d'autres modules
 
 ## On configure le ring time dans :
  `Application / Extension / Onglet Advanced / Extension Options / Ring time`  
- On me dit que la valeur default se régle dans `àdvanced setting`. J'ai regardé dans `settings / Advanced Settings ` j'ai pas trouvé.
+ On me dit que la valeur default se régle dans `àdvanced setting`. J'ai regardé dans `settings / Advanced Settings ` j'ai pas trouvé. Chercher `Ring Time Default`.
+
 
 # FXO
 -1 Je branche une ligne de mon PTOS vers un port FXO du freepbx  
