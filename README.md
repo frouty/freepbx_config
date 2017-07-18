@@ -1685,7 +1685,7 @@ Dans le module standard vs le module pro, il n'y a que le default parking lot.
 ## Pick Up Parked Call Feature Code 
 \*85  
 On peut le modifier dans le module `Feature code`
-## Phone Apps Parking
+## Phone Apps Parking
 Cette application permet de voir tous les parked calls, prendre les parked call, et park les appels.
 Comment ajouter une application à un phone: https://wiki.freepbx.org/display/FPG/Phone+Apps-Adding+a+Phone+Application+to+a+device
 # Phone apps
