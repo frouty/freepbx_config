@@ -1650,6 +1650,38 @@ http://wiki.kolmisoft.com/index.php/Convert_WAV_file_to_Asterisk_playable_format
 
 # Parking module
 Àpplication / Parking`
+
+Dans le module standard vs le module pro, il n'y a que le default parking lot. 
+## Parking lot settings
+- General settings
+	- Parking lot Extension
+	- Parking Lot Name
+	- Parking Lot Starting Position : le premier slot. n'est pas la meme chose que le parking lot extension.
+	- Number of Slots. Si l'extension est 70 et que l'on met 8 ici on les parking slot 71 à 78.
+	- Parking Timeout (seconds). Si l'appel n'est pas pris avant la fin de cette durée l'appel est envoyé à la timeout destination configurée dans `Alternate Destination` section.
+	- Parked Music Class : music jouait à l'appelant qui attend dans le parking lot.
+	- Find slot:
+		- Next : utilise le slot suivant.
+		- First: utilise le premier slot disponible. C'est interressant si on a que quelques boutons programmés pour le parking slot. Cela augmente les chances que le call soit parqué dans les premiers slots.
+- Returned Call Behavior
+	- Pickup Courtesy Tone:
+		Caller/Parked/Both/Neither Rien compris
+	- Re-Parking capability
+		-Caller/Parked/Both/Neither
+	- Parking alert info: tag qui s'ajoute à l'appel lorsqu'il est renvoyé vers l'origine ou l'alternate destination.
+	- CallerID Prepend
+	- Auto CallerID Prepend
+		- None
+		- Slot le parking slot
+		- Extension : la user extension qui a parqué l'appel
+		- Name : le nom de l'extension qui a parqué l'appel
+	- Announcement : le message qui est joué lorsque l'appel est renvoyé vers l'origine ou vers l'alternate destination
+	
+- Alternate Destination
+	- Come back to origin	
+		- Yes/No. Si Yes un appel parqué time out sera renvoyé à l'origine mais si l'origine est unavailable ou ne répond pas la destination définie ci dessous sera utilisée.
+	- Destination c'est la destination d'un appel timeout. Soit direct si Come Back to Origin = No ou qd le device n'est pas joignable ou ne repond pas.
+	
 # Phone apps
 Elles permettent de modifier le comportement du systeme à partir du téléphone. Elles sont donc manipulés par le end user. Elles évitent de passer par des featuring code, de passer par l'administrateur systeme pour faire des modifications dans le web gui.
 - Call flow control
