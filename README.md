@@ -1644,12 +1644,13 @@ After recording a message (incoming message, busy/unavailable greeting, or name)
 (1) Prompts for these are only played if these options are enabled in voicemail.conf
 
 (2) On FreePBX based systems *98 will prompt you for your user extension and pin number. *97 will provide direct access to the voicemail of the extension you are calling from.
+
 # message conversion
 http://wiki.kolmisoft.com/index.php/Convert_WAV_file_to_Asterisk_playable_format
 
 
 # Parking module
-Àpplication / Parking`
+`Application / Parking`
 
 Dans le module standard vs le module pro, il n'y a que le default parking lot. 
 ## Parking lot settings
@@ -1659,7 +1660,7 @@ Dans le module standard vs le module pro, il n'y a que le default parking lot.
 	- Parking Lot Starting Position : le premier slot. n'est pas la meme chose que le parking lot extension.
 	- Number of Slots. Si l'extension est 70 et que l'on met 8 ici on les parking slot 71 à 78.
 	- Parking Timeout (seconds). Si l'appel n'est pas pris avant la fin de cette durée l'appel est envoyé à la timeout destination configurée dans `Alternate Destination` section.
-	- Parked Music Class : music jouait à l'appelant qui attend dans le parking lot.
+	- Parked Music Class : music jouèe à l'appelant qui attend dans le parking lot.
 	- Find slot:
 		- Next : utilise le slot suivant.
 		- First: utilise le premier slot disponible. C'est interressant si on a que quelques boutons programmés pour le parking slot. Cela augmente les chances que le call soit parqué dans les premiers slots.
@@ -1672,7 +1673,7 @@ Dans le module standard vs le module pro, il n'y a que le default parking lot.
 	- CallerID Prepend
 	- Auto CallerID Prepend
 		- None
-		- Slot le parking slot
+		- Slot:  le parking slot number
 		- Extension : la user extension qui a parqué l'appel
 		- Name : le nom de l'extension qui a parqué l'appel
 	- Announcement : le message qui est joué lorsque l'appel est renvoyé vers l'origine ou vers l'alternate destination
@@ -1681,7 +1682,12 @@ Dans le module standard vs le module pro, il n'y a que le default parking lot.
 	- Come back to origin	
 		- Yes/No. Si Yes un appel parqué time out sera renvoyé à l'origine mais si l'origine est unavailable ou ne répond pas la destination définie ci dessous sera utilisée.
 	- Destination c'est la destination d'un appel timeout. Soit direct si Come Back to Origin = No ou qd le device n'est pas joignable ou ne repond pas.
-	
+## Pick Up Parked Call Feature Code 
+\*85  
+On peut le modifier dans le module `Feature code`
+## Phone Apps Parking
+Cette application permet de voir tous les parked calls, prendre les parked call, et park les appels.
+Comment ajouter une application à un phone: https://wiki.freepbx.org/display/FPG/Phone+Apps-Adding+a+Phone+Application+to+a+device
 # Phone apps
 Elles permettent de modifier le comportement du systeme à partir du téléphone. Elles sont donc manipulés par le end user. Elles évitent de passer par des featuring code, de passer par l'administrateur systeme pour faire des modifications dans le web gui.
 - Call flow control
