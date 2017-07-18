@@ -1646,3 +1646,25 @@ After recording a message (incoming message, busy/unavailable greeting, or name)
 (2) On FreePBX based systems *98 will prompt you for your user extension and pin number. *97 will provide direct access to the voicemail of the extension you are calling from.
 # message conversion
 http://wiki.kolmisoft.com/index.php/Convert_WAV_file_to_Asterisk_playable_format
+
+
+# Parking module
+Àpplication / Parking`
+# Phone apps
+Elles permettent de modifier le comportement du systeme à partir du téléphone. Elles sont donc manipulés par le end user. Elles évitent de passer par des featuring code, de passer par l'administrateur systeme pour faire des modifications dans le web gui.
+- Call flow control
+- Call forward
+- Conference room
+- Contacts
+- Endpoint (login logout)
+- Follow me
+- Parking
+- Presence
+- Queue agents
+- Queues
+- Time conditions
+- Transfer to voicemail
+- Visual voicemail
+
+https://wiki.freepbx.org/display/FPG/Phone+Apps-Adding+a+Phone+Application+to+a+device
+
