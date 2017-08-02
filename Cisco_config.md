@@ -83,7 +83,8 @@ switch(config-if)# ip address 192.168.10.2 255.255.255.0
 switch(config-if)# exit
 ```
 ### Creation d'un VLAN 5 pour les guests
-`̀̀ `switch(config)# vlan 5
+```
+switch(config)# vlan 5
 switch(config)# interface vlan 5
 switch(config-if)# name Guest-VLAN
 switch(config-if)# ip address 192.168.50.2 255.255.255.0
