@@ -69,11 +69,12 @@ Mais par default il est layer 2. Il faut passer en layer 3 = router mode . Et qu
   
  ## creation des vlan
  ### Creation d'un VLAN 1 
- `̀ ̀
+```
 switch# configure terminal
 switch(config)# interface vlan 1
 switch(config-if)# ip address 192.168.1.2 255.255.255.0
-switch(config-if)# exit```
+switch(config-if)# exit
+```
 
 ### Creation d'un VLAN 2 pour Voice VLAN
 ```switch(config)# vlan 2
