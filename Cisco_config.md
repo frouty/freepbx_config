@@ -133,3 +133,49 @@ Quand on crée des vlan on segmente le réseau. On diminue le broadcasting et on
   - serveur d'impression
 Mais il faut qu'un user d'un vlan puisse utilise un service d'un autre vlan.
 ###VLAN routing solutions
+
+
+# Tagged/untagged
+Le vlan c'est une séparation logique des réseaux. Sans vlan il faut un switch pour chaque broadcast domain. 
+si on a plus d'un vlan sur un port (trunk port) il faut un moyen de savoir quel paquet appartient à quel vlan de l'autre coté. On fait cela avec un tag. On VLAN tag le paquet ou VLAN header. C'est le 802.1Q qui contient un VLAN-ID et d'autres trucs (qui l'on peut trouver dans le 
+
+
+The above answers are quite technical. Think of it this way:
+
+In fact VLANs and tagging is nothing more than a logical separation of networks in contrast to a physical one. Now what does that mean?
+
+If there were no VLANs you would need one switch for each broadcast domain. Imagine the cabling involved and also the potential number of NICs required at the hosts. So first, VLANs allow you to have multiple independent layer 2 constructs within the same switch.
+
+Since now you can have multiple networks on each link/port you have to somehow be able to distinguish which packet belongs to which network. That's why they are tagged. If a port carries more than one VLAN it's also usually called a trunk. (for n>1 VLANs, at least n-1 VLANs have to be tagged and there can be one untagged VLAN, the native VLAN)
+
+Generally you have to distinguish packets at port ingress (incoming "from the cable") and egress (outgoing "into the cable"):
+
+Ingress
+
+    ingress untagged: this is where the native vlan of the port comes in. If the switch has multiple VLANs configured, you have to tell the switch to which VLAN an incoming untagged packet belongs ;
+
+    ingress tagged: well, if it comes in tagged, then it's tagged, and you can't do much about it. If the switch doesn't know about tagging or about that precise VLAN, it will reject it, sometimes you have to activate some kind of ingress-filter though. You can also force a port to accept untagged or tagged packets only.
+
+Egress
+
+    egress untagged: for each port you can select one VLAN whose outgoing packets on that port are not tagged (e.g. because the host doesn't support it, or only one VLAN is required for example for a PC, printer, etc.) ;
+
+    egress tagged: You have to tell the switch which VLANs to make available on the port and if more than one, all but one have to be tagged anyway.
+
+What happens inside the switch
+
+A switch has an FDB (Forwarding DataBase) which
+
+    in a switch that is not VLAN capable (sometimes called "unmanaged" or "dumb", ...): associates a host (MAC address) to a port: the FDB is a table comprised of tuples of two elements: (MAC, port)
+
+    in a switch that is VLAN capable (sometimes called "managed" or "smart", ...): associates (VLAN, MAC) tuples to a port: the FDB is a table comprised of tuples of three elements: (MAC, port, VLAN).
+
+    The only restriction here is that one MAC address cannot appear in the same VLAN twice, even if on different ports (essentially the VLAN in VLAN-capable switches replaces the notion of port in non-VLAN-capable switches). In other words:
+    There can be multiple VLANs per port (which is why there need to be tags at some point).
+    There can be multiple VLANs per port and per MAC: the same MAC address can appear in different VLANs and on the same port (although I wouldn't recommend that for sanity purposes).
+    The same MAC address still cannot appear on the same VLAN but on different ports (different hosts having the same MAC address in the same layer 2 network).
+
+On groupe les ports du switch dans des VLAN. Chaque VLAN a un ID. Chaque port du switch peut etre `Tagged`, `Untagged`,`Excluded`. 
+Les paquets tagged ne sont compris que par les device qui acceptent les VLAN. 
+Si le port est untagged. il ne mettra pas de tag au paquet sortant et enlevera le tag du paquet entrant.
+Excluded. Les paquet avec ce VLAN-ID ne sera jamais envoyé.
