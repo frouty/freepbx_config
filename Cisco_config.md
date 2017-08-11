@@ -174,8 +174,27 @@ A switch has an FDB (Forwarding DataBase) which
     There can be multiple VLANs per port (which is why there need to be tags at some point).
     There can be multiple VLANs per port and per MAC: the same MAC address can appear in different VLANs and on the same port (although I wouldn't recommend that for sanity purposes).
     The same MAC address still cannot appear on the same VLAN but on different ports (different hosts having the same MAC address in the same layer 2 network).
+    
+    tagged port = trunk port   
+    Un device connecté à un tagged port doit comprendre les VLAN. 
+    Si on veut accesder à un devic à partir de VLAN multiples, on a plusieurs options:
+      - Utiliser un device avec des capacités de routage (router ou layer 3 switch)
+      - Utiliser plusieurs interfaces dans le device, une pour chaque VLAN.  Et on connecte chaque interface à un untagged port sur son VLAN correspondant.
 
 On groupe les ports du switch dans des VLAN. Chaque VLAN a un ID. Chaque port du switch peut etre `Tagged`, `Untagged`,`Excluded`. 
 Les paquets tagged ne sont compris que par les device qui acceptent les VLAN. 
 Si le port est untagged. il ne mettra pas de tag au paquet sortant et enlevera le tag du paquet entrant.
 Excluded. Les paquet avec ce VLAN-ID ne sera jamais envoyé.
+
+Prenons 3 VLAN: 
+VLAN 1 has IP net 192.168.1.0/24
+VLAN 2 has IP net 192.168.2.0/24
+VLAN 3 has IP net 192.168.3.0/24
+
+Ces 3 VLAN sont des reseaux séparés qui partagent le meme switch. Comment est ce qu'on connecte un device de stockage?  
+-1 On met en place de intervlan routing. On creé un VLAN 4 et on met le storage device dans ce réseau. On le connecte à un untagged access port. Et mettre en place des regles de routage pour que les autres VLAN peuvent joindre le VLAN 4. 
+-2 On ne veut/peut pas mettre en place. On connecte le device de storage à un tagged port membre du VLAN 1-3 et créer 3 interfaces sur le device une pour chaque VLAN. 
+## IEEE 802.1Q
+Est le standard qui supporte le VLAN avec tagging.
+### Multiple Spanning Tree Protocol
+C'est une révision de ce protocole.
