@@ -60,7 +60,15 @@ Mais par default il est layer 2. Il faut passer en layer 3 = router mode . Et qu
 Status and statistic / system Summary  
 - system informations:
   - System operational mode : pour savoir si on est layer 2 ou layer 3
+### Router show command
+`show running-config`
+`show ip interface brief`
+`show ip route`
+`show arp`
+`show cdp neighbors`
 
+`show mac address-table`
+`show vlan brief`
 
 ## comment passer en layer 3 
 - 1 brancher le cable.
@@ -84,7 +92,8 @@ switch(config-if)# exit
 ```
 
 ### Creation d'un VLAN 2 pour Voice VLAN
-```switch(config)# vlan 2
+```
+switch(config)# vlan 2
 switch(config)# interface vlan 2
 switch(config-if)# name Voice-VLAN
 switch(config-if)# ip address 192.168.10.2 255.255.255.0
@@ -104,7 +113,7 @@ switch(config)# hostname SG500
 SG500 (config)# ip default-gateway 192.168.1.1
 SG500 (config)# ip name-server 192.168.1.1
 SG500 (config)# ip routing # enable ip routing
-`̀ ` 
+```
 
 VLAN 2 (VLAN ID equals 2), our Voice VLAN, and configured all but one port to carry VLAN 2 traffic as Tagged. When configuring a VLAN as Tagged traffic, the port automatically becomes a trunk port  
 When configuring a VLAN to Untagged it then becomes the Native VLAN for that port. 
@@ -119,7 +128,7 @@ Vlan management / Voice Vlan / properties /
 - desable Dynamic Voice Vlan
 
 Note: If problems are experienced with the IP Phones registering to CallManager or CallManager Express, make sure to Enable the Dynamic Voice VLAN feature and setting it to Enable Auto Voice VLAN.
-###Copy/Save configuration
+### Copy/Save configuration
 Les configuration du switch sont volatiles. Pour les rendre persistentes au prochain démarrage il faut faire 
 - Source File Name : Running configuration
 - Destination file name : Startup configuration.
@@ -134,8 +143,11 @@ Quand on crée des vlan on segmente le réseau. On diminue le broadcasting et on
   - serveur de fichier
   - serveur d'impression
 Mais il faut qu'un user d'un vlan puisse utilise un service d'un autre vlan.
-###VLAN routing solutions
 
+### VLAN routing solutions
+On peut brancher un cable pour chaque sur le switch et brancher sur  router.
+On peut utiliser un seul lien qui transporte de multiples VLAN. Mais le routeur doit etre capable de tagger 
+On peut utiliser un switch layer 3
 
 # Tagged/untagged
 Le vlan c'est une séparation logique des réseaux. Sans vlan il faut un switch pour chaque broadcast domain. 
