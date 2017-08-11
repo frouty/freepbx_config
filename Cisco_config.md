@@ -144,6 +144,12 @@ Quand on crée des vlan on segmente le réseau. On diminue le broadcasting et on
   - serveur d'impression
 Mais il faut qu'un user d'un vlan puisse utilise un service d'un autre vlan.
 
+-1 IP route enable
+  - IP configuration / Management and IPinterfaces / IPv4 interface
+  - Double check IPv4 interface table
+-2 Verifier la VLAN configuration
+  -Si un port rejoint un VLAN le port peut etre ACCESS ou TRUNK
+  -Si un port rejoint plusieurs VLAN / Port peut etre mis à TRUNK ou GENERAL
 ### VLAN routing solutions
 On peut brancher un cable pour chaque sur le switch et brancher sur  router.
 On peut utiliser un seul lien qui transporte de multiples VLAN. Mais le routeur doit etre capable de tagger 
