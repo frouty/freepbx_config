@@ -99,10 +99,12 @@ switch(config-if)# ip address 192.168.50.2 255.255.255.0
 switch(config-if)# exit
 ```
 ### set the hostname of the switch
-```switch(config)# hostname SG500
+```
+switch(config)# hostname SG500
 SG500 (config)# ip default-gateway 192.168.1.1
 SG500 (config)# ip name-server 192.168.1.1
-SG500 (config)# ip routing # enable ip routing`̀ ` 
+SG500 (config)# ip routing # enable ip routing
+`̀ ` 
 
 VLAN 2 (VLAN ID equals 2), our Voice VLAN, and configured all but one port to carry VLAN 2 traffic as Tagged. When configuring a VLAN as Tagged traffic, the port automatically becomes a trunk port  
 When configuring a VLAN to Untagged it then becomes the Native VLAN for that port. 
