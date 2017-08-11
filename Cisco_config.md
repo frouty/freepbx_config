@@ -60,6 +60,9 @@ Mais par default il est layer 2. Il faut passer en layer 3 = router mode . Et qu
 Status and statistic / system Summary  
 - system informations:
   - System operational mode : pour savoir si on est layer 2 ou layer 3
+  
+  `show system mode`
+  
 ### Router show command
 `show running-config`
 `show ip interface brief`
