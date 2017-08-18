@@ -131,16 +131,25 @@ Vlan management / Voice Vlan / properties /
 - desable Dynamic Voice Vlan
 
 Note: If problems are experienced with the IP Phones registering to CallManager or CallManager Express, make sure to Enable the Dynamic Voice VLAN feature and setting it to Enable Auto Voice VLAN.
+
 ### Copy/Save configuration
 Les configuration du switch sont volatiles. Pour les rendre persistentes au prochain démarrage il faut faire 
 - Source File Name : Running configuration
 - Destination file name : Startup configuration.
 - Apply
+
 ### configuration backup
 File Management > Download/Backup Configuration/Log from the main menu. Here, select HTTP method and Backup action. Finally select Running or Startup Configuration depending on your requirements and Apply
 
 
+
+### Verify
+
+
 ## inter vlan routing
+
+https://www.cisco.com/c/en/us/support/docs/lan-switching/inter-vlan-routing/41860-howto-L3-intervlanrouting.html
+
 Quand on crée des vlan on segmente le réseau. On diminue le broadcasting et on améliore la sécurité.
 - un réseau pour les services critiques:
   - serveur de fichier
