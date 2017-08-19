@@ -307,13 +307,27 @@ Il faut configurer le firewall  : Network / Firewall. guest zone edit. et là je
        option proto 'static'
        option ipaddr '10.0.0.1'
        option netmask '255.255.255.0'```
-* 2  
-config wifi-iface
+* 2 On configure l'interface wifi. 
+```config wifi-iface
        option device     '???'
        option mode       'ap'
        option network    'guest'
        option ssid       'guest'
-       option encryption 'none'
+       option encryption 'none'```
+       option isolate 1 # parfois non supportée par certains matériels. 
+
+option device : on me la valeur de option 'device' dans la section wifi-device.
+
+* 3 On configure DHCP pour cette interface.
+edit /etc/config/dhcp
+[..]
+  config dhcp 'guest'
+    option interface 'guest'
+    option start '50'
+    option limit '200'
+    option leasetime '1h'
+  [..]
+       
 # failsafe mode
 - débrancher tous les cables rj45 du tp link archer
 - power on et en meme temps wds button. Attendre c'est long que la deuxieme diode en partant de la gauche clignote rapidement c'est long. 
