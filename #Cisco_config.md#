@@ -144,7 +144,8 @@ File Management > Download/Backup Configuration/Log from the main menu. Here, se
 
 
 ### Verify
-
+`show ip route`  
+`show ip interface brief`  
 
 ## inter vlan routing
 
