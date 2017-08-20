@@ -315,9 +315,9 @@ Il faut configurer le firewall  : Network / Firewall. guest zone edit. et là je
        option mode       'ap'
        option network    'guest'
        option ssid       'guest'
-       option encryption 'none'```
+       option encryption 'none'
        option isolate 1 # parfois non supportée par certains matériels. 
-
+```
 option device : on me la valeur de option 'device' dans la section wifi-device.
 
 * 3 On configure DHCP pour cette interface.
