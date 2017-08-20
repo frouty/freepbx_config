@@ -322,6 +322,7 @@ option device : on me la valeur de option 'device' dans la section wifi-device.
 
 * 3 On configure DHCP pour cette interface.
 edit /etc/config/dhcp
+```
 [..]
   config dhcp 'guest'
     option interface 'guest'
@@ -329,7 +330,8 @@ edit /etc/config/dhcp
     option limit '200'
     option leasetime '1h'
   [..]
-       
+```
+
 # failsafe mode
 - débrancher tous les cables rj45 du tp link archer
 - power on et en meme temps wds button. Attendre c'est long que la deuxieme diode en partant de la gauche clignote rapidement c'est long. 
