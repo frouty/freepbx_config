@@ -306,7 +306,9 @@ Il faut configurer le firewall  : Network / Firewall. guest zone edit. et là je
 ```config interface 'guest'
        option proto 'static'
        option ipaddr '10.0.0.1'
-       option netmask '255.255.255.0'```
+       option netmask '255.255.255.0
+'```
+
 * 2 On configure l'interface wifi. 
 ```config wifi-iface
        option device     '???'
