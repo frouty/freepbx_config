@@ -38,7 +38,7 @@ Il faut avoir un acces au switch.
 
 That will set a new password in the running (and startup config) so that you will be able to access the switch after a reboot.
 
-# -
+## Vlans
 port vlan peuvent être:  
 - tagged = trunk
 - untagged = access
@@ -54,6 +54,7 @@ Les trunks sont plus compliqués à configurer. Les deux terminaisons du link do
 
 SG500 est un switch layer 3 on peut créer de multiples vlan et router entre eux = interVLAN routing.   
 Mais par default il est layer 2. Il faut passer en layer 3 = router mode . Et quand on passe en layer 2 on perd toute configuration
+
 ## Obtenir des infos sur le switch
 ### Comment savoir si le switch est en layer 2 ou layer 3 
 
@@ -85,8 +86,8 @@ Status and statistic / system Summary
   - `show system mode`
   - `set system mode router`
   
- ## creation des vlan
- ### Creation d'un VLAN 1 
+## Creation des vlan
+### Creation d'un VLAN 1 
 ```
 switch# configure terminal
 switch(config)# interface vlan 1

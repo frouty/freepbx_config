@@ -1,0 +1,827 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>/home/lof/freepx_config/.Cisco_config.md.html</title>
+
+
+<style type="text/css">
+body {
+	color: #333;
+	font: 13px/1.4 "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	background: transparent;
+	color: #4183c4;
+	text-decoration: none;
+}
+
+a:active,
+a:hover {
+	outline: 0 none;
+	text-decoration: underline;
+}
+
+abbr[title] {
+	border-bottom: 1px dotted;
+}
+
+b,
+strong {
+	font-weight: bold;
+}
+
+dfn {
+	font-style: italic;
+}
+h1 {
+	font-size: 2em;
+	margin: 0.67em 0;
+}
+mark {
+	background: #ff0;
+	color: #000;
+}
+small {
+	font-size: 80%;
+}
+sub, sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sup {
+	top: -0.5em;
+}
+sub {
+	bottom: -0.25em;
+}
+img {
+	border: 0 none;
+}
+svg:not(:root) {
+	overflow: hidden;
+}
+figure {
+	margin: 1em 40px;
+}
+hr {
+	box-sizing: content-box;
+	height: 0;
+}
+
+code,
+kbd,
+pre,
+samp {
+	font-family: monospace,monospace;
+	font-size: 1em;
+}
+
+pre {
+	overflow: auto;
+	font: 12px Consolas,"Liberation Mono",Menlo,Courier,monospace;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+.markdown-body {
+	padding: 30px;
+	font-size: 16px;
+	line-height: 1.6;
+	word-wrap: break-word;
+}
+
+.markdown-body>*:first-child {
+	margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+	margin-bottom: 0 !important;
+}
+
+.markdown-body .absent {
+	color: #c00;
+}
+
+.markdown-body .anchor {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	display: block;
+	padding-right: 6px;
+	padding-left: 30px;
+	margin-left: -30px;
+}
+
+.markdown-body .anchor:focus {
+	outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+	position: relative;
+	margin-top: 1em;
+	margin-bottom: 16px;
+	font-weight: bold;
+	line-height: 1.4;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+	display: none;
+	color: #000;
+	vertical-align: middle;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+	padding-left: 8px;
+	margin-left: -30px;
+	line-height: 1;
+	text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+	display: inline-block;
+}
+
+.markdown-body h1 tt,
+.markdown-body h1 code,
+.markdown-body h2 tt,
+.markdown-body h2 code,
+.markdown-body h3 tt,
+.markdown-body h3 code,
+.markdown-body h4 tt,
+.markdown-body h4 code,
+.markdown-body h5 tt,
+.markdown-body h5 code,
+.markdown-body h6 tt,
+.markdown-body h6 code {
+	font-size: inherit;
+}
+
+.markdown-body h1 {
+	padding-bottom: 0.3em;
+	font-size: 2.25em;
+	line-height: 1.2;
+	border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+	padding-bottom: 0.3em;
+	font-size: 1.75em;
+	line-height: 1.225;
+	border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+	font-size: 1.5em;
+	line-height: 1.43;
+}
+
+.markdown-body h4 {
+	font-size: 1.25em;
+}
+
+.markdown-body h5 {
+	font-size: 1em;
+}
+
+.markdown-body h6 {
+	font-size: 1em;
+	color: #777;
+}
+
+.markdown-body p,.markdown-body blockquote,
+.markdown-body ul,.markdown-body ol,
+.markdown-body dl,.markdown-body table,
+.markdown-body pre {
+	margin-top: 0;
+	margin-bottom: 16px;
+}
+
+.markdown-body hr {
+	height: 4px;
+	padding: 0;
+	margin: 16px 0;
+	background-color: #e7e7e7;
+	border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+	padding-left: 2em;
+}
+
+.markdown-body ul.no-list,
+.markdown-body ol.no-list {
+	padding: 0;
+	list-style-type: none;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.markdown-body li>p {
+	margin-top: 16px;
+}
+
+.markdown-body dl {
+	padding: 0;
+}
+
+.markdown-body dl dt {
+	padding: 0;
+	margin-top: 16px;
+	font-size: 1em;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.markdown-body dl dd {
+	padding: 0 16px;
+	margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+	padding: 0 15px;
+	color: #777;
+	border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+	margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+	margin-bottom: 0;
+}
+
+.markdown-body table {
+	display: block;
+	width: 100%;
+	overflow: auto;
+	word-break: normal;
+	word-break: keep-all;
+}
+
+.markdown-body table th {
+	font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+	padding: 6px 13px;
+	border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+	background-color: #fff;
+	border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+	background-color: #f8f8f8;
+}
+
+.markdown-body img {
+	max-width: 100%;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.markdown-body span.frame {
+	display: block;
+	overflow: hidden;
+}
+
+.markdown-body span.frame>span {
+	display: block;
+	float: left;
+	width: auto;
+	padding: 7px;
+	margin: 13px 0 0;
+	overflow: hidden;
+	border: 1px solid #ddd;
+}
+
+.markdown-body span.frame span img {
+	display: block;
+	float: left;
+}
+
+.markdown-body span.frame span span {
+	display: block;
+	padding: 5px 0 0;
+	clear: both;
+	color: #333;
+}
+
+.markdown-body span.align-center {
+	display: block;
+	overflow: hidden;
+	clear: both;
+}
+
+.markdown-body span.align-center>span {
+	display: block;
+	margin: 13px auto 0;
+	overflow: hidden;
+	text-align: center;
+}
+
+.markdown-body span.align-center span img {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.markdown-body span.align-right {
+	display: block;
+	overflow: hidden;
+	clear: both;
+}
+
+.markdown-body span.align-right>span {
+	display: block;
+	margin: 13px 0 0;
+	overflow: hidden;
+	text-align: right;
+}
+
+.markdown-body span.align-right span img {
+	margin: 0;
+	text-align: right;
+}
+
+.markdown-body span.float-left {
+	display: block;
+	float: left;
+	margin-right: 13px;
+	overflow: hidden;
+}
+
+.markdown-body span.float-left span {
+	margin: 13px 0 0;
+}
+
+.markdown-body span.float-right {
+	display: block;
+	float: right;
+	margin-left: 13px;
+	overflow: hidden;
+}
+
+.markdown-body span.float-right>span {
+	display: block;
+	margin: 13px auto 0;
+	overflow: hidden;
+	text-align: right;
+}
+
+.markdown-body code,.markdown-body tt {
+	padding: 0;
+	padding-top: 0.2em;
+	padding-bottom: 0.2em;
+	margin: 0;
+	font-size: 85%;
+	background-color: rgba(0,0,0,0.04);
+	border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after,
+.markdown-body tt:before,
+.markdown-body tt:after {
+	letter-spacing: -0.2em;
+	content: "\00a0";
+}
+
+.markdown-body code br,
+.markdown-body tt br {
+	display: none;
+}
+
+.markdown-body del code {
+	text-decoration: inherit;
+}
+
+.markdown-body pre>code {
+	padding: 0;
+	margin: 0;
+	font-size: 100%;
+	word-break: normal;
+	white-space: pre;
+	background: transparent;
+	border: 0;
+}
+
+.markdown-body .highlight {
+	margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+	padding: 16px;
+	overflow: auto;
+	font-size: 85%;
+	line-height: 1.45;
+	background-color: #f7f7f7;
+	border-radius: 3px;
+}
+
+.markdown-body .highlight pre {
+	margin-bottom: 0;
+	word-break: normal;
+}
+
+.markdown-body pre {
+	word-wrap: normal;
+}
+
+.markdown-body pre code,
+.markdown-body pre tt {
+	display: inline;
+	max-width: initial;
+	padding: 0;
+	margin: 0;
+	overflow: initial;
+	line-height: inherit;
+	word-wrap: normal;
+	background-color: transparent;
+	border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after,
+.markdown-body pre tt:before,
+.markdown-body pre tt:after {
+	content: normal;
+}
+
+.highlight .pl-coc,
+.highlight .pl-entl,
+.highlight .pl-entm,
+.highlight .pl-eoa,
+.highlight .pl-mai .pl-sf,
+.highlight .pl-mm,
+.highlight .pl-pdv,
+.highlight .pl-sc,
+.highlight .pl-som,
+.highlight .pl-sr,
+.highlight .pl-v,
+.highlight .pl-vpf {
+	color: #0086b3;
+}
+.highlight .pl-eoac,
+.highlight .pl-mdht,
+.highlight .pl-mi1,
+.highlight .pl-mri,
+.highlight .pl-va,
+.highlight .pl-vpu {
+	color: #008080;
+}
+.highlight .pl-c,
+.highlight .pl-pdc {
+	color: #b4b7b4;
+	font-style: italic;
+}
+.highlight .pl-k,
+.highlight .pl-ko,
+.highlight .pl-kolp,
+.highlight .pl-mc,
+.highlight .pl-mr,
+.highlight .pl-ms,
+.highlight .pl-s,
+.highlight .pl-sok,
+.highlight .pl-st {
+	color: #6e5494;
+}
+.highlight .pl-ef,
+.highlight .pl-enf,
+.highlight .pl-enm,
+.highlight .pl-entc,
+.highlight .pl-eoi,
+.highlight .pl-sf,
+.highlight .pl-smc {
+	color: #d12089;
+}
+.highlight .pl-ens,
+.highlight .pl-eoai,
+.highlight .pl-kos,
+.highlight .pl-mh .pl-pdh,
+.highlight .pl-mp,
+.highlight .pl-pde,
+.highlight .pl-stp {
+	color: #458;
+}
+.highlight .pl-enti {
+	color: #d12089;
+	font-weight: bold;
+}
+.highlight .pl-cce,
+.highlight .pl-enc,
+.highlight .pl-kou,
+.highlight .pl-mq {
+	color: #f93;
+}
+.highlight .pl-mp1 .pl-sf {
+	color: #458;
+	font-weight: bold;
+}
+.highlight .pl-cos,
+.highlight .pl-ent,
+.highlight .pl-md,
+.highlight .pl-mdhf,
+.highlight .pl-ml,
+.highlight .pl-pdc1,
+.highlight .pl-pds,
+.highlight .pl-s1,
+.highlight .pl-scp,
+.highlight .pl-sol {
+	color: #df5000;
+}
+.highlight .pl-c1,
+.highlight .pl-cn,
+.highlight .pl-pse,
+.highlight .pl-pse .pl-s2,
+.highlight .pl-vi {
+	color: #a31515;
+}
+.highlight .pl-mb,
+.highlight .pl-pdb {
+	color: #df5000;
+	font-weight: bold;
+}
+.highlight .pl-mi,
+.highlight .pl-pdi {
+	color: #6e5494;
+	font-style: italic;
+}
+.highlight .pl-ms1 {
+	background-color: #f5f5f5;
+}
+.highlight .pl-mdh,
+.highlight .pl-mdi {
+	font-weight: bold;
+}
+.highlight .pl-mdr {
+	color: #0086b3;
+	font-weight: bold;
+}
+.highlight .pl-s2 {
+	color: #333;
+}
+.highlight .pl-ii {
+	background-color: #df5000;
+	color: #fff;
+}
+.highlight .pl-ib {
+	background-color: #f93;
+}
+.highlight .pl-id {
+	background-color: #a31515;
+	color: #fff;
+}
+.highlight .pl-iu {
+	background-color: #b4b7b4;
+}
+.highlight .pl-mo {
+	color: #969896;
+}
+
+</style>
+
+
+<script type="text/javascript">
+
+function getDocumentScrollTop() 
+{
+   var res = document.body.scrollTop || document.documentElement.scrollTop || window.pageYOffset || 0;
+   // alert(res);
+   return res;
+}
+
+function setDocumentScrollTop(ypos) 
+{
+	window.scrollTo(0, ypos);
+}
+
+</script>
+
+
+</head>
+<body class="markdown-body">
+<h1> <a id="cisco" class="anchor" href="#cisco" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Cisco</h1> 
+<p>sg500-28P</p> 
+<h2> <a id="default" class="anchor" href="#default" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Default</h2> 
+<p>login : cisco<br /> passwd : cisco</p> 
+<h2> <a id="recuperer-le-passwd" class="anchor" href="#recuperer-le-passwd" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>recuperer le passwd</h2> 
+<p>pas possible &agrave; faire &agrave; distance : http, ssh<br /> Il faut avoir un acces au switch.</p> 
+<ul> 
+ <li>Step 1. Connect the switch to the computer using a standard 9-pin serial cable sur le port rj45 marqu&eacute; <code>console</code> </li> 
+ <li>connectique RJ45 sur le switch</li> 
+ <li>connectique DB9 sur le PC</li> 
+ <li>utiliser secureCRT, Tera term, putty</li> 
+ <li><a href="https://sbkb.cisco.com/CiscoSB/ukp.aspx?pid=3&amp;vw=1&amp;articleid=4984">https://sbkb.cisco.com/CiscoSB/ukp.aspx?pid=3&amp;vw=1&amp;articleid=4984</a></li> 
+ <li>Set 
+  <ul> 
+   <li>115000 baud</li> 
+   <li>8 data bits</li> 
+   <li>no parity</li> 
+   <li>1 stop bit</li> 
+   <li>no flow control</li> 
+  </ul> </li> 
+ <li>reboot the switch</li> 
+ <li>Apparition du logo</li> 
+ <li>taper escape ou return</li> 
+ <li>choisir [3] Password Recovery Procedure : press 3. Reset the password to null</li> 
+ <li>'current password will be ignored'</li> 
+ <li>Enter</li> 
+ <li>Exit to exit. This start the autoboot sequence</li> 
+ <li>le switch ne fait rien mais attendre qu'il boot.</li> 
+ <li>Switch&gt;enable</li> 
+ <li>Switch&gt; copy startup-config running-config pour eviter de surcharger la configuration existante du switch.</li> 
+ <li>Enter global configuration mode : Switch#&gt;config</li> 
+ <li>Create a new username and password combination (username can be whatever, password too) : 
+  <ul> 
+   <li>Switch (config)#&gt;username cisco password P@$$w0rd privilege 15</li> 
+   <li>Switch (config)#&gt;exit</li> 
+   <li>Switch (config)#&gt;write</li> 
+   <li>Switch (config)#&gt;reload to reboot and</li> 
+  </ul> </li> 
+ <li>Save the password into the startup config 
+  <ul> 
+   <li>Switch#&gt;copy run start</li> 
+  </ul> </li> 
+</ul> 
+<p>That will set a new password in the running (and startup config) so that you will be able to access the switch after a reboot.</p> 
+<h2> <a id="vlans" class="anchor" href="#vlans" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Vlans</h2> 
+<p>port vlan peuvent &ecirc;tre:</p> 
+<ul> 
+ <li>tagged = trunk</li> 
+ <li>untagged = access</li> 
+</ul> 
+<p>Le trunk c'est pour faire passer le traffic de plusieurs vlan et l'access c'est pour un seul vlan.<br /> En pratique le trunk c'est pour relier des switch et l'access c'est pour se relier &agrave; des end devices.</p> 
+<p>Les trunks sont plus compliqu&eacute;s &agrave; configurer. Les deux terminaisons du link doivent etre configur&eacute;s de la meme facon:<br /> -Encapsulation -Allowed vlan's -Native Vlan.</p> 
+<p>SG500 est un switch layer 3 on peut cr&eacute;er de multiples vlan et router entre eux = interVLAN routing.<br /> Mais par default il est layer 2. Il faut passer en layer 3 = router mode . Et quand on passe en layer 2 on perd toute configuration</p> 
+<h2> <a id="obtenir-des-infos-sur-le-switch" class="anchor" href="#obtenir-des-infos-sur-le-switch" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Obtenir des infos sur le switch</h2> 
+<h3> <a id="comment-savoir-si-le-switch-est-en-layer-2-ou-layer-3" class="anchor" href="#comment-savoir-si-le-switch-est-en-layer-2-ou-layer-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment savoir si le switch est en layer 2 ou layer 3</h3> 
+<p>Status and statistic / system Summary</p> 
+<ul> 
+ <li> <p>system informations:</p> 
+  <ul> 
+   <li>System operational mode : pour savoir si on est layer 2 ou layer 3</li> 
+  </ul> <p><code>show system mode</code></p> </li> 
+</ul> 
+<h3> <a id="router-show-command" class="anchor" href="#router-show-command" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Router show command</h3> 
+<p><code>show running-config</code><br /> <code>show ip interface brief</code><br /> <code>show ip route</code><br /> <code>show arp</code><br /> <code>show cdp neighbors</code></p> 
+<p><code>show mac address-table</code><br /> <code>show vlan brief</code></p> 
+<h2> <a id="comment-passer-en-layer-3" class="anchor" href="#comment-passer-en-layer-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>comment passer en layer 3</h2> 
+<ul> 
+ <li>1 brancher le cable.</li> 
+ <li>2 configurations: 
+  <ul> 
+   <li> <p>115200 baud rate</p> </li> 
+   <li> <p>8 data bits</p> </li> 
+   <li> <p>No parity.</p> </li> 
+   <li> <p>1 Stop bit</p> </li> 
+   <li> <p>No flow control.</p> </li> 
+   <li> <p><code>show system mode</code></p> </li> 
+   <li> <p><code>set system mode router</code></p> </li> 
+  </ul> </li> 
+</ul> 
+<h2> <a id="creation-des-vlan" class="anchor" href="#creation-des-vlan" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creation des vlan</h2> 
+<h3> <a id="creation-dun-vlan-1" class="anchor" href="#creation-dun-vlan-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creation d'un VLAN 1</h3> 
+<pre><code>switch# configure terminal
+switch(config)# interface vlan 1
+switch(config-if)# ip address 192.168.1.2 255.255.255.0
+switch(config-if)# exit
+</code></pre> 
+<h3> <a id="creation-dun-vlan-2-pour-voice-vlan" class="anchor" href="#creation-dun-vlan-2-pour-voice-vlan" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creation d'un VLAN 2 pour Voice VLAN</h3> 
+<pre><code>switch(config)# vlan 2
+switch(config)# interface vlan 2
+switch(config-if)# name Voice-VLAN
+switch(config-if)# ip address 192.168.10.2 255.255.255.0
+switch(config-if)# exit
+</code></pre> 
+<h3> <a id="creation-dun-vlan-5-pour-les-guests" class="anchor" href="#creation-dun-vlan-5-pour-les-guests" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creation d'un VLAN 5 pour les guests</h3> 
+<pre><code>switch(config)# vlan 5
+switch(config)# interface vlan 5
+switch(config-if)# name Guest-VLAN
+switch(config-if)# ip address 192.168.50.2 255.255.255.0
+switch(config-if)# exit
+</code></pre> 
+<h3> <a id="set-the-hostname-of-the-switch" class="anchor" href="#set-the-hostname-of-the-switch" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>set the hostname of the switch</h3> 
+<pre><code>switch(config)# hostname SG500
+SG500 (config)# ip default-gateway 192.168.1.1
+SG500 (config)# ip name-server 192.168.1.1
+SG500 (config)# ip routing # enable ip routing
+</code></pre> 
+<p>VLAN 2 (VLAN ID equals 2), our Voice VLAN, and configured all but one port to carry VLAN 2 traffic as Tagged. When configuring a VLAN as Tagged traffic, the port automatically becomes a trunk port<br /> When configuring a VLAN to Untagged it then becomes the Native VLAN for that port.</p> 
+<p>Finally, Port GE1 is forbidden to carry VLAN2 traffic. The reason for this is that we plan to connect our Internet router on port GE1 and there is no reason for our Voice VLAN traffic to exist on that port, for security reasons of course.</p> 
+<p>prot to vlan et port Vlan membership ca permet de configurer les vlans. C'est un peu la meme chose. Mas port to vlan est plus pratique.</p> 
+<h3> <a id="configuring-voice-vlan" class="anchor" href="#configuring-voice-vlan" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configuring Voice VLAN</h3> 
+<p>Vlan management / Voice Vlan / properties /</p> 
+<ul> 
+ <li>voice vlan ID : 2</li> 
+ <li>desable Dynamic Voice Vlan</li> 
+</ul> 
+<p>Note: If problems are experienced with the IP Phones registering to CallManager or CallManager Express, make sure to Enable the Dynamic Voice VLAN feature and setting it to Enable Auto Voice VLAN.</p> 
+<h3> <a id="copysave-configuration" class="anchor" href="#copysave-configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Copy/Save configuration</h3> 
+<p>Les configuration du switch sont volatiles. Pour les rendre persistentes au prochain d&eacute;marrage il faut faire</p> 
+<ul> 
+ <li>Source File Name : Running configuration</li> 
+ <li>Destination file name : Startup configuration.</li> 
+ <li>Apply</li> 
+</ul> 
+<h3> <a id="configuration-backup" class="anchor" href="#configuration-backup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>configuration backup</h3> 
+<p>File Management &gt; Download/Backup Configuration/Log from the main menu. Here, select HTTP method and Backup action. Finally select Running or Startup Configuration depending on your requirements and Apply</p> 
+<h3> <a id="verify" class="anchor" href="#verify" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Verify</h3> 
+<h2> <a id="inter-vlan-routing" class="anchor" href="#inter-vlan-routing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>inter vlan routing</h2> 
+<p><a href="https://www.cisco.com/c/en/us/support/docs/lan-switching/inter-vlan-routing/41860-howto-L3-intervlanrouting.html">https://www.cisco.com/c/en/us/support/docs/lan-switching/inter-vlan-routing/41860-howto-L3-intervlanrouting.html</a></p> 
+<p>Quand on cr&eacute;e des vlan on segmente le r&eacute;seau. On diminue le broadcasting et on am&eacute;liore la s&eacute;curit&eacute;.</p> 
+<ul> 
+ <li>un r&eacute;seau pour les services critiques: 
+  <ul> 
+   <li>serveur de fichier</li> 
+   <li>serveur d'impression Mais il faut qu'un user d'un vlan puisse utilise un service d'un autre vlan.</li> 
+  </ul> </li> 
+</ul> 
+<p>-1 IP route enable</p> 
+<ul> 
+ <li>IP configuration / Management and IPinterfaces / IPv4 interface</li> 
+ <li>Double check IPv4 interface table -2 Verifier la VLAN configuration -Si un port rejoint un VLAN le port peut etre ACCESS ou TRUNK -Si un port rejoint plusieurs VLAN / Port peut etre mis &agrave; TRUNK ou GENERAL</li> 
+</ul> 
+<h3> <a id="vlan-routing-solutions" class="anchor" href="#vlan-routing-solutions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VLAN routing solutions</h3> 
+<p>On peut brancher un cable pour chaque sur le switch et brancher sur router. On peut utiliser un seul lien qui transporte de multiples VLAN. Mais le routeur doit etre capable de tagger On peut utiliser un switch layer 3</p> 
+<h1> <a id="taggeduntagged" class="anchor" href="#taggeduntagged" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tagged/untagged</h1> 
+<p>Le vlan c'est une s&eacute;paration logique des r&eacute;seaux. Sans vlan il faut un switch pour chaque broadcast domain. si on a plus d'un vlan sur un port (trunk port) il faut un moyen de savoir quel paquet appartient &agrave; quel vlan de l'autre cot&eacute;. On fait cela avec un tag. On VLAN tag le paquet ou VLAN header. C'est le 802.1Q qui contient un VLAN-ID et d'autres trucs (qui l'on peut trouver dans le</p> 
+<p>The above answers are quite technical. Think of it this way:</p> 
+<p>In fact VLANs and tagging is nothing more than a logical separation of networks in contrast to a physical one. Now what does that mean?</p> 
+<p>If there were no VLANs you would need one switch for each broadcast domain. Imagine the cabling involved and also the potential number of NICs required at the hosts. So first, VLANs allow you to have multiple independent layer 2 constructs within the same switch.</p> 
+<p>Since now you can have multiple networks on each link/port you have to somehow be able to distinguish which packet belongs to which network. That's why they are tagged. If a port carries more than one VLAN it's also usually called a trunk. (for n&gt;1 VLANs, at least n-1 VLANs have to be tagged and there can be one untagged VLAN, the native VLAN)</p> 
+<p>Generally you have to distinguish packets at port ingress (incoming &quot;from the cable&quot;) and egress (outgoing &quot;into the cable&quot;):</p> 
+<p>Ingress</p> 
+<pre><code>ingress untagged: this is where the native vlan of the port comes in. If the switch has multiple VLANs configured, you have to tell the switch to which VLAN an incoming untagged packet belongs ;
+
+ingress tagged: well, if it comes in tagged, then it's tagged, and you can't do much about it. If the switch doesn't know about tagging or about that precise VLAN, it will reject it, sometimes you have to activate some kind of ingress-filter though. You can also force a port to accept untagged or tagged packets only.
+</code></pre> 
+<p>Egress</p> 
+<pre><code>egress untagged: for each port you can select one VLAN whose outgoing packets on that port are not tagged (e.g. because the host doesn't support it, or only one VLAN is required for example for a PC, printer, etc.) ;
+
+egress tagged: You have to tell the switch which VLANs to make available on the port and if more than one, all but one have to be tagged anyway.
+</code></pre> 
+<p>What happens inside the switch</p> 
+<p>A switch has an FDB (Forwarding DataBase) which</p> 
+<pre><code>in a switch that is not VLAN capable (sometimes called &quot;unmanaged&quot; or &quot;dumb&quot;, ...): associates a host (MAC address) to a port: the FDB is a table comprised of tuples of two elements: (MAC, port)
+
+in a switch that is VLAN capable (sometimes called &quot;managed&quot; or &quot;smart&quot;, ...): associates (VLAN, MAC) tuples to a port: the FDB is a table comprised of tuples of three elements: (MAC, port, VLAN).
+
+The only restriction here is that one MAC address cannot appear in the same VLAN twice, even if on different ports (essentially the VLAN in VLAN-capable switches replaces the notion of port in non-VLAN-capable switches). In other words:
+There can be multiple VLANs per port (which is why there need to be tags at some point).
+There can be multiple VLANs per port and per MAC: the same MAC address can appear in different VLANs and on the same port (although I wouldn't recommend that for sanity purposes).
+The same MAC address still cannot appear on the same VLAN but on different ports (different hosts having the same MAC address in the same layer 2 network).
+
+tagged port = trunk port   
+Un device connect&eacute; &agrave; un tagged port doit comprendre les VLAN. 
+Si on veut accesder &agrave; un devic &agrave; partir de VLAN multiples, on a plusieurs options:
+  - Utiliser un device avec des capacit&eacute;s de routage (router ou layer 3 switch)
+  - Utiliser plusieurs interfaces dans le device, une pour chaque VLAN.  Et on connecte chaque interface &agrave; un untagged port sur son VLAN correspondant.
+</code></pre> 
+<p>On groupe les ports du switch dans des VLAN. Chaque VLAN a un ID. Chaque port du switch peut etre <code>Tagged</code>, <code>Untagged</code>,<code>Excluded</code>. Les paquets tagged ne sont compris que par les device qui acceptent les VLAN. Si le port est untagged. il ne mettra pas de tag au paquet sortant et enlevera le tag du paquet entrant. Excluded. Les paquet avec ce VLAN-ID ne sera jamais envoy&eacute;.</p> 
+<p>Prenons 3 VLAN: VLAN 1 has IP net 192.168.1.0/24 VLAN 2 has IP net 192.168.2.0/24 VLAN 3 has IP net 192.168.3.0/24</p> 
+<p>Ces 3 VLAN sont des reseaux s&eacute;par&eacute;s qui partagent le meme switch. Comment est ce qu'on connecte un device de stockage?<br /> -1 On met en place de intervlan routing. On cre&eacute; un VLAN 4 et on met le storage device dans ce r&eacute;seau. On le connecte &agrave; un untagged access port. Et mettre en place des regles de routage pour que les autres VLAN peuvent joindre le VLAN 4. -2 On ne veut/peut pas mettre en place. On connecte le device de storage &agrave; un tagged port membre du VLAN 1-3 et cr&eacute;er 3 interfaces sur le device une pour chaque VLAN.</p> 
+<h2> <a id="ieee-8021q" class="anchor" href="#ieee-8021q" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>IEEE 802.1Q</h2> 
+<p>Est le standard qui supporte le VLAN avec tagging.</p> 
+<h3> <a id="multiple-spanning-tree-protocol" class="anchor" href="#multiple-spanning-tree-protocol" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Multiple Spanning Tree Protocol</h3> 
+<p>C'est une r&eacute;vision de ce protocole.</p>
+</body>
+</html>
