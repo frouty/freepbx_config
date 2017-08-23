@@ -278,7 +278,7 @@ Settings -> EndPointManager -> Global Settings
 -> wait reload the page ou confirm from submission. Green msg confirmant l'installation du firmware.  
 -> sur le téléphone:  
 
-# Comment savoir un téléphone SIP a été enregistré dans le serveur
+# Comment savoir si un téléphone SIP a été enregistré dans le serveur
 Son numéro d'appel s'affiche sur l'écran.
 
 
@@ -582,7 +582,7 @@ Les modifications faites ici  nécessitent un `Restart Dahdi & Asterisk`: `Save 
 (prepend) prefix | [pattern]/caller_id  
 
 Un Dial Pattern est un ensemble unique de numéro qui va selectionner cette route et envoyer l'appel au trunk désigné.  
-Si le dial pattern correspond à cette route, aucune autre route ne sera essayée. Si "Time Groups" est actif, les routes suivantes seront essayé pour chercher une correspondance en dehors du temps désigné.  
+Si le dial pattern correspond à cette route,aucune autre route ne sera essayée. Si "Time Groups" est actif, les routes suivantes seront essayé pour chercher une correspondance en dehors du temps désigné.  
 Les régles:
 
 X	matches tous les chiffres de 0-9  

@@ -1,0 +1,1857 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>/home/lof/freepx_config/.README.md.html</title>
+
+
+<style type="text/css">
+body {
+	color: #333;
+	font: 13px/1.4 "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	background: transparent;
+	color: #4183c4;
+	text-decoration: none;
+}
+
+a:active,
+a:hover {
+	outline: 0 none;
+	text-decoration: underline;
+}
+
+abbr[title] {
+	border-bottom: 1px dotted;
+}
+
+b,
+strong {
+	font-weight: bold;
+}
+
+dfn {
+	font-style: italic;
+}
+h1 {
+	font-size: 2em;
+	margin: 0.67em 0;
+}
+mark {
+	background: #ff0;
+	color: #000;
+}
+small {
+	font-size: 80%;
+}
+sub, sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sup {
+	top: -0.5em;
+}
+sub {
+	bottom: -0.25em;
+}
+img {
+	border: 0 none;
+}
+svg:not(:root) {
+	overflow: hidden;
+}
+figure {
+	margin: 1em 40px;
+}
+hr {
+	box-sizing: content-box;
+	height: 0;
+}
+
+code,
+kbd,
+pre,
+samp {
+	font-family: monospace,monospace;
+	font-size: 1em;
+}
+
+pre {
+	overflow: auto;
+	font: 12px Consolas,"Liberation Mono",Menlo,Courier,monospace;
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+.markdown-body {
+	padding: 30px;
+	font-size: 16px;
+	line-height: 1.6;
+	word-wrap: break-word;
+}
+
+.markdown-body>*:first-child {
+	margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+	margin-bottom: 0 !important;
+}
+
+.markdown-body .absent {
+	color: #c00;
+}
+
+.markdown-body .anchor {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	display: block;
+	padding-right: 6px;
+	padding-left: 30px;
+	margin-left: -30px;
+}
+
+.markdown-body .anchor:focus {
+	outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+	position: relative;
+	margin-top: 1em;
+	margin-bottom: 16px;
+	font-weight: bold;
+	line-height: 1.4;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+	display: none;
+	color: #000;
+	vertical-align: middle;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+	padding-left: 8px;
+	margin-left: -30px;
+	line-height: 1;
+	text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+	display: inline-block;
+}
+
+.markdown-body h1 tt,
+.markdown-body h1 code,
+.markdown-body h2 tt,
+.markdown-body h2 code,
+.markdown-body h3 tt,
+.markdown-body h3 code,
+.markdown-body h4 tt,
+.markdown-body h4 code,
+.markdown-body h5 tt,
+.markdown-body h5 code,
+.markdown-body h6 tt,
+.markdown-body h6 code {
+	font-size: inherit;
+}
+
+.markdown-body h1 {
+	padding-bottom: 0.3em;
+	font-size: 2.25em;
+	line-height: 1.2;
+	border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+	padding-bottom: 0.3em;
+	font-size: 1.75em;
+	line-height: 1.225;
+	border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+	font-size: 1.5em;
+	line-height: 1.43;
+}
+
+.markdown-body h4 {
+	font-size: 1.25em;
+}
+
+.markdown-body h5 {
+	font-size: 1em;
+}
+
+.markdown-body h6 {
+	font-size: 1em;
+	color: #777;
+}
+
+.markdown-body p,.markdown-body blockquote,
+.markdown-body ul,.markdown-body ol,
+.markdown-body dl,.markdown-body table,
+.markdown-body pre {
+	margin-top: 0;
+	margin-bottom: 16px;
+}
+
+.markdown-body hr {
+	height: 4px;
+	padding: 0;
+	margin: 16px 0;
+	background-color: #e7e7e7;
+	border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+	padding-left: 2em;
+}
+
+.markdown-body ul.no-list,
+.markdown-body ol.no-list {
+	padding: 0;
+	list-style-type: none;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.markdown-body li>p {
+	margin-top: 16px;
+}
+
+.markdown-body dl {
+	padding: 0;
+}
+
+.markdown-body dl dt {
+	padding: 0;
+	margin-top: 16px;
+	font-size: 1em;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.markdown-body dl dd {
+	padding: 0 16px;
+	margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+	padding: 0 15px;
+	color: #777;
+	border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+	margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+	margin-bottom: 0;
+}
+
+.markdown-body table {
+	display: block;
+	width: 100%;
+	overflow: auto;
+	word-break: normal;
+	word-break: keep-all;
+}
+
+.markdown-body table th {
+	font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+	padding: 6px 13px;
+	border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+	background-color: #fff;
+	border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+	background-color: #f8f8f8;
+}
+
+.markdown-body img {
+	max-width: 100%;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.markdown-body span.frame {
+	display: block;
+	overflow: hidden;
+}
+
+.markdown-body span.frame>span {
+	display: block;
+	float: left;
+	width: auto;
+	padding: 7px;
+	margin: 13px 0 0;
+	overflow: hidden;
+	border: 1px solid #ddd;
+}
+
+.markdown-body span.frame span img {
+	display: block;
+	float: left;
+}
+
+.markdown-body span.frame span span {
+	display: block;
+	padding: 5px 0 0;
+	clear: both;
+	color: #333;
+}
+
+.markdown-body span.align-center {
+	display: block;
+	overflow: hidden;
+	clear: both;
+}
+
+.markdown-body span.align-center>span {
+	display: block;
+	margin: 13px auto 0;
+	overflow: hidden;
+	text-align: center;
+}
+
+.markdown-body span.align-center span img {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.markdown-body span.align-right {
+	display: block;
+	overflow: hidden;
+	clear: both;
+}
+
+.markdown-body span.align-right>span {
+	display: block;
+	margin: 13px 0 0;
+	overflow: hidden;
+	text-align: right;
+}
+
+.markdown-body span.align-right span img {
+	margin: 0;
+	text-align: right;
+}
+
+.markdown-body span.float-left {
+	display: block;
+	float: left;
+	margin-right: 13px;
+	overflow: hidden;
+}
+
+.markdown-body span.float-left span {
+	margin: 13px 0 0;
+}
+
+.markdown-body span.float-right {
+	display: block;
+	float: right;
+	margin-left: 13px;
+	overflow: hidden;
+}
+
+.markdown-body span.float-right>span {
+	display: block;
+	margin: 13px auto 0;
+	overflow: hidden;
+	text-align: right;
+}
+
+.markdown-body code,.markdown-body tt {
+	padding: 0;
+	padding-top: 0.2em;
+	padding-bottom: 0.2em;
+	margin: 0;
+	font-size: 85%;
+	background-color: rgba(0,0,0,0.04);
+	border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after,
+.markdown-body tt:before,
+.markdown-body tt:after {
+	letter-spacing: -0.2em;
+	content: "\00a0";
+}
+
+.markdown-body code br,
+.markdown-body tt br {
+	display: none;
+}
+
+.markdown-body del code {
+	text-decoration: inherit;
+}
+
+.markdown-body pre>code {
+	padding: 0;
+	margin: 0;
+	font-size: 100%;
+	word-break: normal;
+	white-space: pre;
+	background: transparent;
+	border: 0;
+}
+
+.markdown-body .highlight {
+	margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+	padding: 16px;
+	overflow: auto;
+	font-size: 85%;
+	line-height: 1.45;
+	background-color: #f7f7f7;
+	border-radius: 3px;
+}
+
+.markdown-body .highlight pre {
+	margin-bottom: 0;
+	word-break: normal;
+}
+
+.markdown-body pre {
+	word-wrap: normal;
+}
+
+.markdown-body pre code,
+.markdown-body pre tt {
+	display: inline;
+	max-width: initial;
+	padding: 0;
+	margin: 0;
+	overflow: initial;
+	line-height: inherit;
+	word-wrap: normal;
+	background-color: transparent;
+	border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after,
+.markdown-body pre tt:before,
+.markdown-body pre tt:after {
+	content: normal;
+}
+
+.highlight .pl-coc,
+.highlight .pl-entl,
+.highlight .pl-entm,
+.highlight .pl-eoa,
+.highlight .pl-mai .pl-sf,
+.highlight .pl-mm,
+.highlight .pl-pdv,
+.highlight .pl-sc,
+.highlight .pl-som,
+.highlight .pl-sr,
+.highlight .pl-v,
+.highlight .pl-vpf {
+	color: #0086b3;
+}
+.highlight .pl-eoac,
+.highlight .pl-mdht,
+.highlight .pl-mi1,
+.highlight .pl-mri,
+.highlight .pl-va,
+.highlight .pl-vpu {
+	color: #008080;
+}
+.highlight .pl-c,
+.highlight .pl-pdc {
+	color: #b4b7b4;
+	font-style: italic;
+}
+.highlight .pl-k,
+.highlight .pl-ko,
+.highlight .pl-kolp,
+.highlight .pl-mc,
+.highlight .pl-mr,
+.highlight .pl-ms,
+.highlight .pl-s,
+.highlight .pl-sok,
+.highlight .pl-st {
+	color: #6e5494;
+}
+.highlight .pl-ef,
+.highlight .pl-enf,
+.highlight .pl-enm,
+.highlight .pl-entc,
+.highlight .pl-eoi,
+.highlight .pl-sf,
+.highlight .pl-smc {
+	color: #d12089;
+}
+.highlight .pl-ens,
+.highlight .pl-eoai,
+.highlight .pl-kos,
+.highlight .pl-mh .pl-pdh,
+.highlight .pl-mp,
+.highlight .pl-pde,
+.highlight .pl-stp {
+	color: #458;
+}
+.highlight .pl-enti {
+	color: #d12089;
+	font-weight: bold;
+}
+.highlight .pl-cce,
+.highlight .pl-enc,
+.highlight .pl-kou,
+.highlight .pl-mq {
+	color: #f93;
+}
+.highlight .pl-mp1 .pl-sf {
+	color: #458;
+	font-weight: bold;
+}
+.highlight .pl-cos,
+.highlight .pl-ent,
+.highlight .pl-md,
+.highlight .pl-mdhf,
+.highlight .pl-ml,
+.highlight .pl-pdc1,
+.highlight .pl-pds,
+.highlight .pl-s1,
+.highlight .pl-scp,
+.highlight .pl-sol {
+	color: #df5000;
+}
+.highlight .pl-c1,
+.highlight .pl-cn,
+.highlight .pl-pse,
+.highlight .pl-pse .pl-s2,
+.highlight .pl-vi {
+	color: #a31515;
+}
+.highlight .pl-mb,
+.highlight .pl-pdb {
+	color: #df5000;
+	font-weight: bold;
+}
+.highlight .pl-mi,
+.highlight .pl-pdi {
+	color: #6e5494;
+	font-style: italic;
+}
+.highlight .pl-ms1 {
+	background-color: #f5f5f5;
+}
+.highlight .pl-mdh,
+.highlight .pl-mdi {
+	font-weight: bold;
+}
+.highlight .pl-mdr {
+	color: #0086b3;
+	font-weight: bold;
+}
+.highlight .pl-s2 {
+	color: #333;
+}
+.highlight .pl-ii {
+	background-color: #df5000;
+	color: #fff;
+}
+.highlight .pl-ib {
+	background-color: #f93;
+}
+.highlight .pl-id {
+	background-color: #a31515;
+	color: #fff;
+}
+.highlight .pl-iu {
+	background-color: #b4b7b4;
+}
+.highlight .pl-mo {
+	color: #969896;
+}
+
+</style>
+
+
+<script type="text/javascript">
+
+function getDocumentScrollTop() 
+{
+   var res = document.body.scrollTop || document.documentElement.scrollTop || window.pageYOffset || 0;
+   // alert(res);
+   return res;
+}
+
+function setDocumentScrollTop(ypos) 
+{
+	window.scrollTo(0, ypos);
+}
+
+</script>
+
+
+</head>
+<body class="markdown-body">
+<h1> <a id="freepx_config" class="anchor" href="#freepx_config" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>freepx_config</h1> 
+<h1> <a id="my-config" class="anchor" href="#my-config" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>My Config</h1> 
+<p>My config: Sangoma appliance, ip phones: sangoma s500 et polycom vx400<br /> vega50 gateway for one BRI line, an sangoma FXO card 4 ports, 2 analogic lines.<br /> Cisco SG500-28P switch</p> 
+<h1> <a id="faq-asterisk-knowledgebase" class="anchor" href="#faq-asterisk-knowledgebase" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FAQ asterisk knowledgebase</h1> 
+<p><a href="http://kb.digium.com/">http://kb.digium.com/</a></p> 
+<h1> <a id="architecture-r&eacute;seau" class="anchor" href="#architecture-r%C3%A9seau" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Architecture r&eacute;seau</h1> 
+<p>freepbx sur cisco<br /> phone ip sur cisco<br /> cisco sur wrt54GL</p> 
+<pre><code>                                   PC
+                                   |
+</code></pre> 
+<p>freepbx ------ Cisco switch ----- Wrt54Gl ---- Internet | | | | | | phone IP PC phone ip |</p> 
+<pre><code>               vega
+</code></pre> 
+<h1> <a id="comment-configurer-le-firewall" class="anchor" href="#comment-configurer-le-firewall" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment configurer le firewall?</h1> 
+<p><a href="http://wiki.freepbx.org/display/FPG/Firewall+Command+Line">http://wiki.freepbx.org/display/FPG/Firewall+Command+Line</a></p> 
+<p><code>fwconsole firewall --help</code><br /> <code>fwconsole firewall disable</code></p> 
+<p>puis en GUI recherche -&gt; firewall -&gt; enable --&gt; re-run wizard</p> 
+<h1> <a id="power-off" class="anchor" href="#power-off" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Power off</h1> 
+<p><code>̀Admin / Sysadmin / Power Options / Power off</code></p> 
+<h1> <a id="comment-savoir-l&eacute;tat-du-disk" class="anchor" href="#comment-savoir-l%C3%A9tat-du-disk" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment savoir l'&eacute;tat du disk</h1> 
+<p><code>̀Admin / Sysadmin / Storage</code></p> 
+<h1> <a id="comment-mettre-&agrave;-jour-lachat-de-modules-commerciaux" class="anchor" href="#comment-mettre-%C3%A0-jour-lachat-de-modules-commerciaux" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment mettre &agrave; jour l'achat de modules commerciaux</h1> 
+<p><code>Admin -&gt; Sys admin -&gt; Activation -&gt; Update activation</code> (en bas &agrave; droite)</p> 
+<h1> <a id="comment-lire-les-fichiers-de-config" class="anchor" href="#comment-lire-les-fichiers-de-config" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment lire les fichiers de config</h1> 
+<p><code>Admin / Config Edit</code></p> 
+<h1> <a id="comment-mettre-&agrave;-jour-les-modules" class="anchor" href="#comment-mettre-%C3%A0-jour-les-modules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment mettre &agrave; jour les modules?</h1> 
+<p><code>Admin -&gt; Module Admin</code></p> 
+<h1> <a id="comment-installer-en-ligne-de-commande-un-module" class="anchor" href="#comment-installer-en-ligne-de-commande-un-module" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment installer en ligne de commande un module</h1> 
+<p>fwconsole ma --edge upgrade framework<br /> Le plus dur va etre pour trouver le nom du module.</p> 
+<h1> <a id="asterisk" class="anchor" href="#asterisk" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Asterisk</h1> 
+<h2> <a id="cli" class="anchor" href="#cli" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CLI</h2> 
+<p>on peut utiliser les commandes CLI dans le web GUI.</p> 
+<ul> 
+ <li>Admin</li> 
+ <li>Asterisk CLI</li> 
+</ul> 
+<p>On peut les utiliser apres un ssh root@freepbxIP</p> 
+<p>Si on fait un CLI&gt; core stop now.<br /> Mais l&agrave; on ne peut plus se reconnecter &agrave; asterisk.</p> 
+<p>Faire un ssh puis<br /> <code>fwconsole stop</code><br /> <code>fwconsole restart</code><br /> <code>fwconsole trunks</code></p> 
+<h4> <a id="pour-entrer-dans-les-commands-line-dasterisk" class="anchor" href="#pour-entrer-dans-les-commands-line-dasterisk" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pour entrer dans les commands line d'asterisk</h4> 
+<p><code>asterisk -r | asterisk -rvvv</code><br /> Le prompt change en localhost*CLI&gt;<br /> ? pour avoir toute les commandes<br /> le log est sous /var/log/asterisk/full</p> 
+<p><code>sip show peers</code></p> 
+<p><code>sip show peer &lt;extension number&gt;</code></p> 
+<p><code>sip show regestry</code></p> 
+<p><code>sip set debug on</code></p> 
+<p><code>asterisk -rx &quot;sip show users&quot;</code></p> 
+<h1> <a id="version-asterisk" class="anchor" href="#version-asterisk" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Version asterisk</h1> 
+<p><code>core show version</code></p> 
+<h2> <a id="d&eacute;boger-asterisk" class="anchor" href="#d%C3%A9boger-asterisk" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>D&eacute;boger Asterisk</h2> 
+<ul> 
+ <li>ssh root@FreePBXIP</li> 
+ <li>asterisk -rvvv</li> 
+</ul> 
+<h1> <a id="amportal-commands" class="anchor" href="#amportal-commands" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Amportal commands</h1> 
+<p><a href="http://wiki.freepbx.org/display/L1/amportal+commands">http://wiki.freepbx.org/display/L1/amportal+commands</a></p> 
+<p>linux command qui controle freepbx<br /> on y arrive avec un ssh sur la machine ou est install&eacute; freepbx/asterix.</p> 
+<h2> <a id="liste-de-commande" class="anchor" href="#liste-de-commande" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Liste de commande</h2> 
+<p>1 <strong>amportal restart</strong> pour relancer asterisk et autre process n&eacute;cessaire &agrave; asterisk. On utilise cette commande et pas un /etc/init.d asterisk.<br /> 2 amportal stop</p> 
+<p>3 <strong>amportal chown</strong> change toutes les permissions vers l'utilisateur apache.</p> 
+<p>4 <strong>amportal a r</strong> reload de tout le dialplan et de tous les modules. Equivalent &agrave; cliquer sur Apply Changes dans le web GUI</p> 
+<p>5 <strong>amportal a u phpsessionID</strong> permet de d&eacute;verouiller le GUI login si on oublie le password. Comment obtenir le phpsessionID: ouverture de la page de login avec htttp://ipduserver/admin --&gt; ctrl a --&gt; en bas a gauche : phpsessionID</p> 
+<p>6 <strong>amportal a m</strong> log dans la database mysql</p> 
+<p>7 <strong>amportal a s</strong> resync the credential (?)</p> 
+<p>8 UCP</p> 
+<ul> 
+ <li>amportal admin|a ucp <code>&lt;option&gt;</code> 
+  <ul> 
+   <li>enableall|en active UCP login pour tous les USER MANAGER: <strong>amportal a ucp enableall</strong> </li> 
+   <li>unlock|u unlock session in UCP: <strong>amportal a ucp u</strong> </li> 
+  </ul> </li> 
+</ul> 
+<h1> <a id="fwconsole" class="anchor" href="#fwconsole" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>fwconsole</h1> 
+<p>amportal commands : deprecated</p> 
+<p>Utiliser plutot : <strong>fwconsole</strong></p> 
+<p><a href="http://wiki.freepbx.org/pages/viewpage.action?pageId=37912685">http://wiki.freepbx.org/pages/viewpage.action?pageId=37912685</a></p> 
+<h1> <a id="comment-configurer-son-serveur-de-mail" class="anchor" href="#comment-configurer-son-serveur-de-mail" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment configurer son serveur de mail</h1> 
+<p>Admin / System Admin / Email Setup</p> 
+<h2> <a id="choix-du-smtp-server" class="anchor" href="#choix-du-smtp-server" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Choix du SMTP server</h2> 
+<p>J'ai essay&eacute; gmail mais je n'ai pas r&eacute;ussi.<br /> <code>Use built in SMTP server</code></p> 
+<ul> 
+ <li>hostname = ?</li> 
+ <li>origin = ?</li> 
+ <li>Domain = ?</li> 
+</ul> 
+<h2> <a id="debug" class="anchor" href="#debug" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Debug</h2> 
+<p>Click sur debug. On va sur la page de debug et on peut lancer un tester de mail. A essayer.</p> 
+<h1> <a id="comment-configurer-les-notifications-par-mail" class="anchor" href="#comment-configurer-les-notifications-par-mail" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment configurer les notifications par mail</h1> 
+<p>Admin&gt;System Admin&gt;Notification Settings</p> 
+<h1> <a id="extension" class="anchor" href="#extension" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Extension</h1> 
+<h2> <a id="comment-creer-une-extension" class="anchor" href="#comment-creer-une-extension" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment Creer une extension</h2> 
+<ul> 
+ <li>1 On cr&eacute;e un user qui pourra &ecirc;tre link&eacute; &agrave; cette extension. 
+  <ul> 
+   <li>Pour cr&eacute;er un user : Admin /user Management</li> 
+  </ul> </li> 
+ <li>2 On cr&eacute;e l'extension : Application / Extension / Add Extension / Add New CHAN_SIP Extension</li> 
+ <li>3 On la link &agrave; un user<br /> ##&nbsp;Une fois que l'on a cr&eacute;e l'extension on va la linker &agrave; un poste IP phone.</li> 
+ <li>Settings / EndPoint Manager / Extension Mapping</li> 
+ <li>L&agrave; on a le choix de mapper: 
+  <ul> 
+   <li>un user avec un account (cet account est quelque chose dans le t&eacute;l&eacute;phone)</li> 
+   <li>une extension avec une MAC adress d'IP Phone.</li> 
+  </ul> </li> 
+</ul> 
+<hr /> 
+<p>Application -&gt; Extension -&gt; Quick Extension Create</p> 
+<p><strong>Applications -&gt; Extension</strong></p> 
+<p>Normalement chaque IP phone est assign&eacute; &agrave; une extension. S'il y a plusieurs lines button sur le phone (?) <a href="http://wiki.freepbx.org/display/FPG/Extensions+Module">http://wiki.freepbx.org/display/FPG/Extensions+Module</a></p> 
+<p>Extension Module marche avec d'autres modules</p> 
+<ul> 
+ <li> <p>Inbound Routes Module,</p> </li> 
+ <li> <p>Ring Groups Module,</p> </li> 
+ <li> <p>Queues Module,</p> </li> 
+ <li> <p>Paging Module,</p> </li> 
+ <li> <p>Follow Me Module, because each extension can have its own Follow Me options (?).</p> </li> 
+ <li> <p>Advanced Settings Module.</p> 
+  <ul> 
+   <li>Device Settings section of the Advanced Settings Module, you can change a number of the default settings that will apply when you create a new extension.</li> 
+   <li>Advanced Settings Module can be used to enable Device and User Mode. When Device and User Mode is enabled, the Extensions Module will disappear and be replaced with two separate modules called &quot;Devices&quot; and &quot;Users.&quot;</li> 
+  </ul> </li> 
+ <li> <p>User Management Module. In the User Management Module, a user may have a &quot;primary linked extension.&quot; (?)</p> </li> 
+</ul> 
+<h1> <a id="o&ugrave;-sst-ce-que-lon-configure-ce-qui-se-passe-lorsque-lon-ne-r&eacute;pond-&agrave;-son-t&eacute;l&eacute;phone-ip" class="anchor" href="#o%C3%B9-sst-ce-que-lon-configure-ce-qui-se-passe-lorsque-lon-ne-r%C3%A9pond-%C3%A0-son-t%C3%A9l%C3%A9phone-ip" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>O&ugrave; sst ce que l'on configure ce qui se passe lorsque l'on ne r&eacute;pond &agrave; son t&eacute;l&eacute;phone IP?</h1> 
+<p>On peut configurer le cas ou :</p> 
+<ul> 
+ <li>il n'y a pas de r&eacute;ponse. Le temps d'attente avant de passer en non r&eacute;ponse se configure dans : <code>Application / Extension / Onglet Advanced / Extension Options / Ring time</code> Ne doit pas etre dans une Queue ou un Ring Group.</li> 
+ <li>le poste est occup&eacute;</li> 
+ <li>le poste n'est pas joingnable = Le poste n'est pas branch&eacute; <code>Application / Extension / Onglet Advanced /</code> </li> 
+ <li> <code>No answer</code> choix de : 
+  <ul> 
+   <li>unavailable voicemail if enable</li> 
+   <li>Extension</li> 
+   <li>follow me</li> 
+   <li>conference</li> 
+   <li>Fax</li> 
+   <li>call flow control</li> 
+   <li>...</li> 
+  </ul> </li> 
+ <li> <code>Busy</code> choix de : 
+  <ul> 
+   <li>busy voicemail if enabld</li> 
+   <li>...</li> 
+  </ul> </li> 
+ <li> <code>Reachable</code> qd le phone n'est pas branch&eacute;.</li> 
+</ul> 
+<h2> <a id="on-configure-le-ring-time-dans-" class="anchor" href="#on-configure-le-ring-time-dans-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>On configure le ring time dans :</h2> 
+<p><code>Application / Extension / Onglet Advanced / Extension Options / Ring time</code><br /> On me dit que la valeur default se r&eacute;gle dans <code>&agrave;dvanced setting</code>. J'ai regard&eacute; dans <code>settings / Advanced Settings</code> j'ai pas trouv&eacute;. Chercher <code>Ring Time Default</code>.</p> 
+<h1> <a id="fxo" class="anchor" href="#fxo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FXO</h1> 
+<p>-1 Je branche une ligne de mon PTOS vers un port FXO du freepbx<br /> -2 Connectivity / DADY channel DID : je choisi ce Chanel correspondant au port FXO que je viens de connecter &agrave; mon PTOS. Et je lui donne un DID de mon choix que je vais pouvoir utiliser par la suite. -3 Une fois que j'ai d&eacute;fini un DID &agrave; ce channel je vais pouvoir cr&eacute;er une inbound route. -4 A cette inbound Route il faut lui donner une destination. Qui peut etre une extension.</p> 
+<p>On donne un DID car avec le fournisseur t&eacute;l&eacute;phonique PTOS il n'y a pas de DID.</p> 
+<h1> <a id="comment-mettre-une-outbound-route-qui-va-utiliser-un-port-fxo" class="anchor" href="#comment-mettre-une-outbound-route-qui-va-utiliser-un-port-fxo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment mettre une Outbound route qui va utiliser un port FXO.</h1> 
+<p>Exemple les orthoptiste utilisent leur ligne FXO pour appeler.</p> 
+<ul> 
+ <li>Connection / Outbound Route 
+  <ul> 
+   <li>On me demande la Trunk sequence for matched route.</li> 
+   <li>Il faut cr&eacute;er un trunk avant 
+    <ul> 
+     <li>Connectivity / Trunk / Add trunk / de type : DAHDI</li> 
+     <li>dans l'onglet dahdi settings : Analog channel 2 (je suppose que c'est le port FXO N&deg;2)</li> 
+    </ul> </li> 
+  </ul> </li> 
+</ul> 
+<h1> <a id="dadhi-extension-cest-quoi" class="anchor" href="#dadhi-extension-cest-quoi" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>DADHI extension c'est quoi?</h1> 
+<p>Je pense que c'est pour configuer un device analogique branch&eacute; sur une FXS.</p> 
+<h1> <a id="fichiers-de-configuration" class="anchor" href="#fichiers-de-configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Fichiers de configuration</h1> 
+<p>La configuration d'Asterisk s'articule sur les fichiers de configuration suivants :</p> 
+<pre><code>/etc/asterisk/sip.conf : Configuration globale d'Asterisk. toutes les modifications sur ce fichiers doivent &ecirc;tre faites par le web GUI
+/etc/asterisk/users.conf : Configuration des utilisateurs
+/etc/asterisk/extensions.conf : Configuration du Dialplan. Toutes les modifications sur ce fichiers doivent &ecirc;tre faites par le web GUI
+</code></pre> 
+<p>[work] ; Nom du contexte<br /> exten =&gt; _6XXX,1,Dial(SIP/${EXTEN},20)<br /> exten =&gt; _6XXX,2,Hangup()</p> 
+<p>Dans ces trois lignes nous allons voir deux choses, les contextes et les extensions. [work] est le contexte c’est une sorte de conteneur dans lequel les utilisateurs faisant partis de ce contexte pourrons communiquer entre eux. Lors de la cr&eacute;ation de nos deux utilisateurs nous avons sp&eacute;cifi&eacute; le contexte work.</p> 
+<pre><code>exten ⇒ : d&eacute;clare l’extension (on peut aussi simplement dire num&eacute;ros)
+_6XXX : Prend les extensions (ou num&eacute;ros) de 6000 a 6999 le &laquo; _ &raquo; permet d’utiliser des regex
+1 : Ordre de l’extension
+Dial : application qui va &ecirc;tre utilis&eacute;
+SIP: Protocol qui va &ecirc;tre utilis&eacute;
+${EXTEN} : variable de l’extension compos&eacute;, si on appelle le 6001 la variable ${EXTEN} prendra comme valeur 6001
+20: temps d’attente avant de passer a l’&eacute;tape suivante.
+</code></pre> 
+<p>Donc la ligne exten ⇒ _6XXX,1,Dial(SIP/${EXTEN},20) se traduit par: Quand on compose le num&eacute;ro (par exemple) 6001, on appelle le num&eacute;ro 6001 et si au bout de 20 secondes il n’y a pas de r&eacute;ponses on passe &agrave; la ligne du dessous.</p> 
+<p>La seconde ligne : exten ⇒ _6XXX,2,Hangup() permet de raccrocher si il n’y a pas de r&eacute;ponses au bout des 20 secondes.</p> 
+<h1> <a id="le-num&eacute;ro-&agrave;-appeler-pour-joindre-un-utilisateur-est-d&eacute;fini-dans-le-fichier-etcasteriskusersconfcontext" class="anchor" href="#le-num%C3%A9ro-%C3%A0-appeler-pour-joindre-un-utilisateur-est-d%C3%A9fini-dans-le-fichier-etcasteriskusersconfcontext" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Le num&eacute;ro &agrave; appeler pour joindre un utilisateur est d&eacute;fini dans le fichier /etc/asterisk/users.conf<br /> Context</h1> 
+<p>? Dans le fichier /etc/asterisk/users.conf il y a un parametre : context = uncontext</p> 
+<p>On retrouve ce context uncontext dans les extensions.</p> 
+<h1> <a id="configuration-dune-phone-ip-avec-end-point-manager-epm" class="anchor" href="#configuration-dune-phone-ip-avec-end-point-manager-epm" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configuration d'une phone IP avec End Point Manager (EPM)</h1> 
+<p>Il faut avoir une extension et un user manager account</p> 
+<p>Settings -&gt; EndPointManager -&gt; Global Settings</p> 
+<ul> 
+ <li>internal address: ipadressipbx</li> 
+ <li>external IP Address : (?)</li> 
+</ul> 
+<p>-&gt; Add brand</p> 
+<ul> 
+ <li>internal destination address : will pull the IP address from global settings</li> 
+ <li>external: l'address IP ou FQDN si le t&eacute;l&eacute;phone n'est pas local.</li> 
+ <li>firmware version select firmware slot 1</li> 
+ <li>Provision Server Address c'est la destination address</li> 
+ <li>Provision Server Protocol HTTP (depend de l'IP phone)</li> 
+ <li>Save template.</li> 
+ <li>Aller &agrave; la page Settings-&gt;EndPointManager-&gt;Brands(name)-&gt;Manage(nom du template)</li> 
+ <li>Cliquer sur le boutton blue du phone que l'on veut configurer.</li> 
+ <li>line key section : select Type:line. Label and Value disappear. Select Account: Account1</li> 
+ <li>save model</li> 
+</ul> 
+<h1> <a id="mappage-dun-ip-phone-vers-une-extension" class="anchor" href="#mappage-dun-ip-phone-vers-une-extension" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mappage d'un IP phone vers une extension</h1> 
+<p>-&gt; Extension Mapping -&gt; Add Extension (dans le sous menu de Settings-&gt;EndPoint Manager)<br /> -&gt; Extension/Name select l'extension et le compte que l'on veut associer au t&eacute;l&eacute;phone.<br /> -&gt; select le brand du telephone<br /> -&gt; entrer sa mac address<br /> -&gt; select le template du phone et le model du phone<br /> -&gt; save and rebuilt is selected<br /> -&gt; use selected click<br /> -&gt; firmware management click<br /> -&gt; brand click<br /> -&gt; drag and drop the latest firmware to slot1<br /> -&gt; submit click<br /> -&gt; wait reload the page ou confirm from submission. Green msg confirmant l'installation du firmware.<br /> -&gt; sur le t&eacute;l&eacute;phone:</p> 
+<h1> <a id="comment-savoir-si-un-t&eacute;l&eacute;phone-sip-a-&eacute;t&eacute;-enregistr&eacute;-dans-le-serveur" class="anchor" href="#comment-savoir-si-un-t%C3%A9l%C3%A9phone-sip-a-%C3%A9t%C3%A9-enregistr%C3%A9-dans-le-serveur" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment savoir si un t&eacute;l&eacute;phone SIP a &eacute;t&eacute; enregistr&eacute; dans le serveur</h1> 
+<p>Son num&eacute;ro d'appel s'affiche sur l'&eacute;cran.</p> 
+<h1> <a id="inbound-route" class="anchor" href="#inbound-route" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Inbound route</h1> 
+<p>When a call comes into your system from the outside, it will usually arrive along with information about the telephone number that was dialed (also known as the &quot;DID&quot;) and the Caller ID of the person who called. The Inbound Routes module is the mechanism used to tell your PBX where to route inbound calls based on the phone number or DID dialed Calls come into your system on trunks that are configured in the Trunks module.</p> 
+<h1> <a id="did-direct-inward-dialing-number" class="anchor" href="#did-direct-inward-dialing-number" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>DID (Direct Inward Dialing) Number</h1> 
+<p>Routing is based on the trunk on which the call is coming in. In the DID field, you will define the expected <strong>DID Number</strong> if your trunk passes the DID on incoming calls. Leave this blank to match calls with any or no DID info.</p> 
+<p>The DID number entered must match the format of the provider sending the DID. You can also use a pattern match to match a range of numbers.</p> 
+<p>Patterns must begin with an underscore (_) to signify they are patterns. Within patterns, X will match the numbers 0-9 and specific numbers can be matched if they are placed between square parentheses.</p> 
+<p>This field can also be left blank to match calls from all DIDs. This will also match calls that have no DID information.</p> 
+<h1> <a id="cid-caller-id-number" class="anchor" href="#cid-caller-id-number" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CID (Caller ID) Number</h1> 
+<p>Routing calls based on the caller ID : numero compos&eacute; par l'appelant. Leave this field blank to match any or no CID info. In addition to standard dial sequences, you can also put “Private,” “Blocked,” “Unknown,” “Restricted,” “Anonymous” or “Unavailable” in order to catch these special cases if the telco transmits them.</p> 
+<h1> <a id="ip-phones" class="anchor" href="#ip-phones" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>IP Phones</h1> 
+<p><a href="https://supportforums.cisco.com/document/113336/ip-phone-registration-issues">https://supportforums.cisco.com/document/113336/ip-phone-registration-issues</a></p> 
+<p>Le phone va s'enregistrer aupres du PBX. L'adresse IP du Phone n'a pas d'importance elle peut rester en DHCP. L'incov&eacute;nient c'est que pour utiliser le web GUI du phone cela ne va pas etre facile. Il faudra connaitre l'adresse IP. On peut la trouver sur le phone dans les menus. Un phone peut avoir plusieurs extensions. A quoi cela sert?</p> 
+<h2> <a id="phones-sangoma" class="anchor" href="#phones-sangoma" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Phones Sangoma</h2> 
+<p><a href="http://wiki.freepbx.org/display/PHON">http://wiki.freepbx.org/display/PHON</a></p> 
+<h3> <a id="reset-factory-s500" class="anchor" href="#reset-factory-s500" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Reset factory s500</h3> 
+<p>Web GUI Management -&gt; Upgrade -&gt; reset to factory</p> 
+<h2> <a id="connecter-un-sangoma-phone-&agrave;-freepbx" class="anchor" href="#connecter-un-sangoma-phone-%C3%A0-freepbx" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Connecter un sangoma phone &agrave; freepbx</h2> 
+<p><a href="http://wiki.freepbx.org/display/PHON/Connecting+Sangoma+Phone+to+FreePBX+or+PBXact+Indepth">http://wiki.freepbx.org/display/PHON/Connecting+Sangoma+Phone+to+FreePBX+or+PBXact+Indepth</a></p> 
+<h2> <a id="3-facons-de-configurer-un-phone-sangoma" class="anchor" href="#3-facons-de-configurer-un-phone-sangoma" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3 facons de configurer un phone Sangoma</h2> 
+<p>1 redirection service (zero-touch auto-provisioning) 2 DHCP option 66 3 hard setting provisioning server</p> 
+<h2> <a id="redirection-service-zero-touch-auto-provisioning" class="anchor" href="#redirection-service-zero-touch-auto-provisioning" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>redirection service (zero-touch auto-provisioning)</h2> 
+<p>Dans le web GUI on verifie</p> 
+<ul> 
+ <li>EndPointManagement -&gt; Global Setting</li> 
+ <li>Admin -&gt; USer management -&gt; Onglet Groups -&gt; on verifie que le user est bien dans le group &quot;All Users&quot;</li> 
+ <li>Edit -&gt; onglet <strong>Phone Apps</strong> -&gt; Allow Access -&gt; Yes</li> 
+ <li>Users -&gt; Edit button -&gt; Onglet General -&gt; verifier que les permission sont sur Inherit from the group.</li> 
+</ul> 
+<h2> <a id="register-le-phone" class="anchor" href="#register-le-phone" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>register le phone</h2> 
+<p>pour utiliser le redirection service il faut l'enregistrer sur le portal de sangoma. <a href="https://portal.sangoma.com">https://portal.sangoma.com</a> cloud service &gt; sangoma phones &gt; register phone tab</p> 
+<h2> <a id="dhcp-option-66" class="anchor" href="#dhcp-option-66" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>DHCP option 66</h2> 
+<p>ll faut que le serveur dhcp du routeur support le dhcp option 66</p> 
+<h2> <a id="the-hard-way" class="anchor" href="#the-hard-way" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The hard way</h2> 
+<p>from the GUI of the phone login/password : admin/admin Management -&gt; Auto Provision - upgrade mode - config server path - autoprovision Now click</p> 
+<h1> <a id="comment-trouver-lip-dun-phone-sangoma" class="anchor" href="#comment-trouver-lip-dun-phone-sangoma" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment trouver l'IP d'un phone Sangoma</h1> 
+<p>menu -&gt; Status -&gt; information</p> 
+<h1> <a id="comment-rebooter-un-phone-sangoma" class="anchor" href="#comment-rebooter-un-phone-sangoma" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment rebooter un phone Sangoma</h1> 
+<p>Menu button -&gt; * key 3 fois -&gt; down arrow pour 10 s. Le t&eacute;l&eacute;phone reboot</p> 
+<h2> <a id="provisioning-success" class="anchor" href="#provisioning-success" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>provisioning success</h2> 
+<p>dans le web GUI freepbx Settings - Endpoint manager - Brands - sangoma - Template - sangoma_default - firmware management et provision server Protocole : TFTP</p> 
+<p>Et configuration sur le phone de l'adresse tftp://ip_du_freepbx:<br /> advanced - password : 222222 - autoprovisionning - upgrade mode - tftp<br /> advanced - password : 222222 - Device reboot</p> 
+<p>Ce password 222222 se trouve dans le freepbx &agrave; : <em>TODO</em></p> 
+<p>Page tres complete sur le provisionning d'un tel sangoma:<br /> <a href="https://wiki.freepbx.org/display/PHON/Setup+Phone+by+hard+setting+provisioning+server">https://wiki.freepbx.org/display/PHON/Setup+Phone+by+hard+setting+provisioning+server</a></p> 
+<h2> <a id="comment-changer-le-ring-tone" class="anchor" href="#comment-changer-le-ring-tone" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment changer le ring tone</h2> 
+<ul> 
+ <li>1 dans le web GUI c'est dans les templates : <code>Settings / Endpoint management /brand</code> </li> 
+ <li>2 dans le telephone : Menu / settings /basic settings / Ring tones</li> 
+</ul> 
+<h2> <a id="phone-polycom" class="anchor" href="#phone-polycom" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Phone Polycom</h2> 
+<p><a href="http://kb.digium.com/articles/Configuration/Polycom-Phone-Provisioning-Guide?retURL=%2Fapex%2FknowledgeProduct&amp;popup=false">http://kb.digium.com/articles/Configuration/Polycom-Phone-Provisioning-Guide?retURL=%2Fapex%2FknowledgeProduct&amp;popup=false</a></p> 
+<h3> <a id="login--password-" class="anchor" href="#login--password-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Login / Password :</h3> 
+<p>Username = Polycom (case sensitive)<br /> Admin Password = 456<br /> User Password = 123</p> 
+<h3> <a id="difference-entre-user-et-admin" class="anchor" href="#difference-entre-user-et-admin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>difference entre user et admin</h3> 
+<p>admin acces unrestricted. user acces restricted</p> 
+<h3> <a id="web-gui-login-password" class="anchor" href="#web-gui-login-password" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>web gui login password</h3> 
+<p>il est d&eacute;fini par le freepbx :</p> 
+<ul> 
+ <li>settings/ end point manager / global settings /</li> 
+ <li>phone admin password .</li> 
+</ul> 
+<h3> <a id="reboot-the-phone" class="anchor" href="#reboot-the-phone" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Reboot the Phone</h3> 
+<ul> 
+ <li>Press and hold the dial pad keys 0, 1, and 3 simultaneously for about three seconds, or until you hear a confirmation tone.</li> 
+</ul> 
+<h3> <a id="restore-factory-defaults" class="anchor" href="#restore-factory-defaults" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Restore Factory Defaults</h3> 
+<ul> 
+ <li>Press and hold the dial pad keys 1, 3, and 5 simultaneously during the Updater process until the password prompt appears. - Enter the administrator password to initiate the reset.</li> 
+ <li>Resetting to factory defaults will also reset the administrator password to 456.</li> 
+</ul> 
+<h3> <a id="upload-log-files" class="anchor" href="#upload-log-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Upload Log Files</h3> 
+<ul> 
+ <li>Press and hold the dial pad keys 1, 5, and 9 simultaneously until you hear a three-second confirmation tone.</li> 
+</ul> 
+<h3> <a id="reset-factory-" class="anchor" href="#reset-factory-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>reset factory :</h3> 
+<ul> 
+ <li>loading software cancel -&gt; hold 1;3;5 keys -&gt; demande un password : 456 et c'est fait. Non pas toujours mais avec la mac address &agrave; la place de 456 c'est OK Reboot-&gt; 0;1;3 ne marche pas<br /> 1;5;9 ne marche pas</li> 
+</ul> 
+<h3> <a id="configuration-du-provisioning" class="anchor" href="#configuration-du-provisioning" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>configuration du provisioning</h3> 
+<p>Dans le menu du phone: home - settings - advanced - administration setting - Network Configuration - provisioning server Server type : TFTP<br /> server address : ip du freepbx<br /> server user / server password inchang&eacute;.<br /> back back back<br /> save config<br /> back<br /> reboot phone</p> 
+<p>Settings - endpoint manager - brands - polycom - save rebuild config and update phone : submit n'a pas march&eacute;</p> 
+<h1> <a id="quels-sont-les-services-que-lon-peut-utiliser-pour-tester-son-phone-sip" class="anchor" href="#quels-sont-les-services-que-lon-peut-utiliser-pour-tester-son-phone-sip" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Quels sont les services que l'on peut utiliser pour tester son phone SIP</h1> 
+<p><code>Admin -&gt; Feature code</code></p> 
+<p>Clock *60<br /> echo test *43</p> 
+<h1> <a id="configuration-des-fxo" class="anchor" href="#configuration-des-fxo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>configuration des FXO</h1> 
+<p><a href="http://wiki.freepbx.org/display/FPG/DAHDI+Configs">http://wiki.freepbx.org/display/FPG/DAHDI+Configs</a></p> 
+<p><a href="http://documentation.xivo.io/en/stable/administration/hardware/hardware.html">http://documentation.xivo.io/en/stable/administration/hardware/hardware.html</a></p> 
+<p><a href="http://www.voip-info.org/wiki/view/DAHDI">http://www.voip-info.org/wiki/view/DAHDI</a></p> 
+<p>cat /proc/dahdi<br /> dahdi_hardware<br /> asterisk -rvd</p> 
+<p>The userspace tools to control DAHDI spans/channels: <strong>dahdi_cfg</strong><br /> The DAHDI Configurator, which parses system.conf: <strong>dahdi_genconf</strong><br /> Generates /etc/dahdi/system.conf, so it's better that you don't hand edit system.conf. Uses /etc/dahdi/genconf_parameters to define it's actions.<br /> <strong>dahdi_hardware</strong> : Displays listing of DAHDI hardware detected. Fournit le nom de la carte et le DAHDI kernel module pour cette carte.<br /> <strong>dahdi_monitor</strong> : Monitors signal level on analog channel allows you to record audio from it<br /> Usage: dahdi_monitor -v -m -o -p -l limit -f FILE -s FILE -r FILE1 -t FILE2 -F FILE -S FILE -R FILE1 -T FILE2<br /> example :- dahdi_monitor 1 -vv<br /> note: extremly usefull, but otherwise not mentioned, that the raw format output is 8Khz 16bit signed. Use sox to convert to a wav. sox -r 8000 -s -w rx.raw rx.wav<br /> <strong>dahdi_scan</strong> :Generates a list of things DAHDI channels, with some details<br /> <strong>dahdi_test</strong> : Measures accuracy of the FXO/FXS board software digital signal processing<br /> <strong>dahdi_tool</strong> : A nice tool to see what your boards are doing.</p> 
+<h2> <a id="sample-installation" class="anchor" href="#sample-installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sample installation</h2> 
+<p>After compiling and installing of dahdi and asterisk, you have to perform some further steps to use your hardware. This example will show you a few steps how to get asterisk and two Digium cards enabled:</p> 
+<ul> 
+ <li> <p>1 Detect your hardware (this will generate /etc/dahdi/system.conf and /etc/asterisk/dahdi-channels.conf)</p> 
+  <ul> 
+   <li><code>asterisk:~# dahdi_genconf</code></li> 
+  </ul> </li> 
+ <li> <p>2 Read systm.conf file and configure the kernel</p> 
+  <ul> 
+   <li><code>asterisk:~# dahdi_cfg -v</code></li> 
+  </ul> </li> 
+ <li> <p>3 Restart dahdi to unload and reload all modules and drivers</p> 
+  <ul> 
+   <li><code>asterisk:~# /etc/init.d/dahdi restart</code></li> 
+  </ul> </li> 
+ <li> <p>4 Point file chan_dahdi.conf to /etc/asterisk/dahdi-channels.conf</p> <p># open chan_dahdi.conf and include it under the section [channels]<br /> #<br /> # NOTE: You can edit and configure /etc/asterisk/dahdi-channels.conf at any time<br /> # to set up your specific options there.<br /> ...<br /> [channels]<br /> ...<br /> #include /etc/asterisk/dahdi-channels.conf<br /> ...</p> </li> 
+ <li> <p>5 Restart asterisk</p> 
+  <ul> 
+   <li><code>asterisk:~# /etc/init.d/asterisk restart</code></li> 
+  </ul> </li> 
+ <li> <p>5.a) Verify your current system status. You should get some output like this:</p> 
+  <ul> 
+   <li> <code>asterisk*CLI&gt; dahdi show status</code> Description Alarms IRQ bpviol CRC4<br /> Wildcard TDM410P Board 1 OK 0 0 0<br /> Wildcard TDM800P Board 2 OK 0 0 0</li> 
+  </ul> </li> 
+ <li> <p>5.b) Verify your configured channels</p> 
+  <ul> 
+   <li> <code>asterisk*CLI&gt; dahdi show channels</code><br /> Chan Extension Context Language MOH Interpret<br /> pseudo default default<br /> 1 from-pstn de default<br /> 2 from-pstn de default<br /> 3 from-pstn de default<br /> 4 from-pstn de default<br /> 5 from-pstn de default<br /> 6 from-pstn de default<br /> 7 from-pstn de default<br /> 8 from-pstn de default<br /> 9 from-pstn de default<br /> 10 from-pstn de default<br /> 11 from-pstn de default<br /> 12 from-pstn de default<br /> asterisk*CLI&gt;</li> 
+  </ul> </li> 
+</ul> 
+<h1> <a id="dahdi" class="anchor" href="#dahdi" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>DAHDI</h1> 
+<p>DAHDI sont les drivers qui connectent le PBX au PSTN soit en analogique, soit en T1/E1/PRI ou BRI.</p> 
+<h2> <a id="les-fichiers-de-configurations" class="anchor" href="#les-fichiers-de-configurations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Les fichiers de configurations:</h2> 
+<p>etc/dahdi/system.conf<br /> un span est cr&eacute;&eacute; pour chaque card port</p> 
+<p>/etc/asterisk/chan_dahdi.conf : contient les param&egrave;tres g&eacute;n&eacute;raux du DAHDI channel.</p> 
+<p>/etc/asterisk/dahdi_channels.conf : contient les parametres de chaque channel.</p> 
+<h2> <a id="debug-1" class="anchor" href="#debug-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Debug</h2> 
+<p>cat /proc/dahdi/</p> 
+<p>connectivity - DADHI Config - DADHI write disable disclaimer [ENABLE]<br /> Analog Hardware : type : FXO ports Ports : 1.2.3.4</p> 
+<p>Appeler un autre systeme SIP, un autre systeme analogique par une carte FXO il faut un trunk: <a href="http://wiki.freepbx.org/display/FPG/Trunks+Module">http://wiki.freepbx.org/display/FPG/Trunks+Module</a></p> 
+<p>Connectivity -&gt; Trunk</p> 
+<p>J'ai un dahdi trunk. Mais je n'arrive pas a appeler l'exterieur</p> 
+<p>Connectivity - Outbound routes : on y d&eacute;finit les regles qui s'appliquent en fonction du num&eacute;ro compos&eacute;.<br /> Quelques exemples de regles: <a href="http://wiki.freepbx.org/display/FPG/Outbound+Routes+Configuration+Examples">http://wiki.freepbx.org/display/FPG/Outbound+Routes+Configuration+Examples</a><br /> Le module outbound route: <a href="http://wiki.freepbx.org/display/FPG/Outbound+Routes+Module">http://wiki.freepbx.org/display/FPG/Outbound+Routes+Module</a></p> 
+<h1> <a id="dahdi-analog-channel-dids-module" class="anchor" href="#dahdi-analog-channel-dids-module" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>DAHDI (Analog) Channel DIDs module</h1> 
+<p><code>Connectivity / DAHDI Channel DIDs</code></p> 
+<p>Ce module permet d'assigner un DID (un numero de t&eacute;l&eacute;phone) &agrave; un channel anlogique sp&eacute;cifique. Contrairement SIP ou PRI trunk, les lignes analogique n'envoie pas le DID ou le numero compos&eacute;. Et nous avons besoin de mapper chaque port analogique ou channel a un numero fake comme cela nous pouvons matcher ce numero &agrave; une Inbound Route et router l'appel.</p> 
+<p>Il est possible de mapper sur le m&ecirc;me num&eacute;ro de t&eacute;l&eacute;phone plusieurs channels.<br /> Une fois que l'on a assign&eacute; un DID, on peut utiliser les Inbound Route pour router l'appel.</p> 
+<p>Il <em>FAUT</em> que le <em>context</em> du channel soit &agrave; <em>from-analog</em> : <code>context = from-analog</code> in your chan_dahdi.conf. Cela se fait dans le DAHDI config module</p> 
+<h1> <a id="dahdi-configs-module" class="anchor" href="#dahdi-configs-module" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>DAHDI Configs module</h1> 
+<p>Permet de configurer les DAHDI PSTN card (analog, T1/E1/PRI or BRI’s.).</p> 
+<p>On clique sur <code>Connectivity / DAHDI</code></p> 
+<p><a href="https://wiki.freepbx.org/display/FPG/DAHDI+Configs">https://wiki.freepbx.org/display/FPG/DAHDI+Configs</a> pour plus de d&eacute;tails.</p> 
+<h2> <a id="en-haut-de-la-f&eacute;n&eacute;tre-on-voit-les-cartes-install&eacute;es" class="anchor" href="#en-haut-de-la-f%C3%A9n%C3%A9tre-on-voit-les-cartes-install%C3%A9es" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>En haut de la f&eacute;n&eacute;tre on voit les cartes install&eacute;es.</h2> 
+<p>Chaque span correspond &agrave; un port.<br /> Si Signaling = Not Yet Defined la carte n'est pas encore configur&eacute;e.<br /> Clique <code>Edit</code><br /> Quand on configure une DAHDI cards on doit placer les channels dans des groups. Ensuite quand va d&eacute;finir les trunks on va pouvoir d&eacute;finir quel groups chaque trunk va utiliser pour les outbound call:<br /> <code>Connectivity / Trunk / Add DAHDI Trunk</code> En bas , <code>Outgoing Settings / DAHDI Trunks:</code> choose a group cr&eacute;e dans le module DAHDI configs.</p> 
+<h2> <a id="analog-fxo-ports" class="anchor" href="#analog-fxo-ports" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Analog FXO ports</h2> 
+<ul> 
+ <li> <code>port X settings</code>: 
+  <ul> 
+   <li>en g&eacute;n&eacute;ral ici la seule chose que l'on change c'est le group.</li> 
+   <li>Signaling : Kewl start ou Loop Start. Presque toujours Kewl start</li> 
+   <li>group : on assigne un group &agrave; chaque port. Un port peut appartenir &agrave; n'importe quel groupe.</li> 
+   <li>context : doit toujours &ecirc;tre &agrave; <em>from-analog</em> unless you know what you're doing</li> 
+  </ul> </li> 
+</ul> 
+<p>Dans le module Outbound Route on va pouvoir utiliser ce group pour rediriger l'appel vers ce group si le SIP vega trunk ne marche. TODO.</p> 
+<h2> <a id="en-haut-&agrave;-droite-on-trouve-les-settings-que-lon-peut-configurer-dans-ce-module" class="anchor" href="#en-haut-%C3%A0-droite-on-trouve-les-settings-que-lon-peut-configurer-dans-ce-module" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>En haut &agrave; droite on trouve les settings que l'on peut configurer dans ce module:</h2> 
+<ul> 
+ <li>global settings: 
+  <ul> 
+   <li>Select language</li> 
+   <li>Enable Busy detect</li> 
+   <li>Busy Detect count</li> 
+   <li>User call ID</li> 
+   <li>Enable Call Waitting : YES une extension occup&eacute;e entendra un call-waiting tone.</li> 
+   <li>... Si on fait des modifs, faire:<br /> <code>Save / Apply config / Reload Asterisk Dahdi Module</code>. Les modifications faites ici ne n&eacute;cessitent pas un Restart Dahdi &amp; Asterisk.</li> 
+  </ul> </li> 
+ <li>System settings : en g&eacute;n&eacute;ral il n'y a rien &agrave; modifier. Les modifications faites ici n&eacute;cessitent un Restart Dahdi &amp; Asterisk.<br /> <code>Save / Apply config / Restart Asterisk Dahdi</code>.</li> 
+ <li>Modprobe Settings : controle le system linux qui manage les drivers. Il peut y avoir des modifications &agrave; apporter si on est outside america. Les modifications faites ici n&eacute;cessitent un Restart Dahdi &amp; Asterisk.<br /> <code>Save / Apply config / Restart Asterisk Dahdi</code>.</li> 
+ <li>Module settings: On d&eacute;finit les modules qui seront charg&eacute;s pour les cartes. Les modifications faites ici n&eacute;cessitent un Restart Dahdi &amp; Asterisk.<br /> <code>Save / Apply config / Restart Asterisk Dahdi</code>.</li> 
+ <li>Sangoma setting: 
+  <ul> 
+   <li>Run Wanpipe in DAHDI/DIGIUM Mode: YES si on veut manager dans ce module des cards Sangoma avec des cartes d'autres marques. Je pense que pour moi c'est NO. Les modifications faites ici n&eacute;cessitent un <code>Restart Dahdi &amp; Asterisk</code>: <code>Save / Apply config / Restart Asterisk Dahdi</code>.</li> 
+  </ul> </li> 
+</ul> 
+<h1> <a id="outbound-route---dial-pattern" class="anchor" href="#outbound-route---dial-pattern" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Outbound route - dial pattern</h1> 
+<p>(prepend) prefix | [pattern]/caller_id</p> 
+<p>Un Dial Pattern est un ensemble unique de num&eacute;ro qui va selectionner cette route et envoyer l'appel au trunk d&eacute;sign&eacute;.<br /> Si le dial pattern correspond &agrave; cette route,aucune autre route ne sera essay&eacute;e. Si &quot;Time Groups&quot; est actif, les routes suivantes seront essay&eacute; pour chercher une correspondance en dehors du temps d&eacute;sign&eacute;.<br /> Les r&eacute;gles:</p> 
+<p>X matches tous les chiffres de 0-9<br /> Z matches tous les chiffres de 1-9<br /> N matches tous les chiffres de 2-9<br /> [1237-9] matches tous les chiffres ou lettres entre crochets. (in this example, 1,2,3,7,8,9) . wildcard, matches un ou plusieurs characteres.</p> 
+<p>prepend: Digits to prepend to a successful match. If the dialed number matches the patterns specified by the subsequent columns, then this will be prepended before sending to the trunks.</p> 
+<p>prefix: Prefix sera enlev&eacute; sur une correspondance. Le num&eacute;ro compos&eacute; est compar&eacute; au prefix et &agrave; la colonne suivante (le pattern). S'il y a correspondance, le prefix est supprim&eacute; du num&eacute;ro compos&eacute; avant d'&eacute;tre envoy&eacute; au trunk.</p> 
+<p>match pattern: Le num&eacute;ro compos&eacute; est compar&eacute; &agrave; prefix + pattern. S'il y a correspondance la partie &quot;pattern&quot; sera envoy&eacute;e au trunk.</p> 
+<p>CallerID: Si le callerID est fournie, le num&eacute;ro compos&eacute; correspondra au prefix + pattern si le caller ID transmit correspond &agrave; ce callerID. When extensions make outbound calls, the CallerID will be their extension number and NOT their Outbound CID. The above special matching sequences can be used for CallerID matching similar to other number matches.</p> 
+<p><a href="https://wiki.asterisk.org/wiki/display/AST/Pattern+Matching">https://wiki.asterisk.org/wiki/display/AST/Pattern+Matching</a></p> 
+<h1> <a id="jai-4-ports-fxo-comment-attribuer-ces-ports" class="anchor" href="#jai-4-ports-fxo-comment-attribuer-ces-ports" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>J'ai 4 ports FXO. Comment attribuer ces ports.</h1> 
+<p><code>Connectivity / Trunk</code> (tout en bas) Je peux choisir les ports que j'ai d&eacute;j&agrave; configur&eacute; dans <code>Connectivity / DADHI Config</code> en leur donnant des num&eacute;ros de group. Mais je n'ai pas que le num&eacute;ro de group comme choix j'ai aussi : analog 1 analog 2 analog 3</p> 
+<p>Je ne vois pas de lien avec les inbound route.</p> 
+<p><code>Connectivity - Trunk - Asterisk Trunk Dial Options</code> : C'est quoi?</p> 
+<p>Je peux lier un trunk &agrave; un ou plusieurs ports FXO : <code>Connectivity - Trunks - tab DAHDI Settingd - DADHI Trunks</code><br /> Je peux dans leur donner un groupe.<br /> <code>Add a DADHI trunk</code> Me demande de configurer l'outbound callerID je ne comprends pas. Ce n'est pas d&eacute;fini dans le premier trunk. TODO<br /> Cr&eacute;ation des trunks puis Cr&eacute;ations des outbound route qui vont utiliser ces trunks.</p> 
+<h1> <a id="outbound-route" class="anchor" href="#outbound-route" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Outbound Route</h1> 
+<p>on d&eacute;finit:</p> 
+<ul> 
+ <li>le trunk qui va etre utilis&eacute;. On peut d&eacute;finir plusieurs trunk. il faut donc d&eacute;finir le trunk avant l'outbound route.</li> 
+ <li>le CID</li> 
+ <li>le dial pattern qui va etre utilis&eacute; par cette route. On peut filtrer uniquement sur le CID, uniquement sur le Dial pattern ou les deux.<br /> On peut utiliser ce dial pattern pour forcer l'utilisation d'une route. Par example pour forcer l'utilisation de la ligne de fax on peut imaginer de taper 000numeroducorrespondant. Mais comment on fait pour modifier ce dial pattern pour que seul le num&eacute;ro du correspondant soit envoy&eacute; sur l'OPT? <a href="http://wiki.freepbx.org/display/FPG/Trunk+Sample+Configurations">http://wiki.freepbx.org/display/FPG/Trunk+Sample+Configurations</a> </li> 
+</ul> 
+<p>X matches any digit from 0-9 Z matches any digit from 1-9 N matches any digit from 2-9 [1237-9] matches any digit or letter in the brackets (in this example, 1,2,3,7,8,9) . wildcard, matches one or more characters (not allowed before a | or +)</p> 
+<h2> <a id="exemples" class="anchor" href="#exemples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Exemples</h2> 
+<p>Dialed Number Manipulation Rules:</p> 
+<p>(49)+0|Z : this will strip the 0 from long distance Germany calls and add insted cuntry code 49</p> 
+<p>(49711)+|N : this will add country code 49 and area code 711 to local calls</p> 
+<p>()+00|Z : this will just strip the double 0 for international calls</p> 
+<p>(18882472425) + 411 | empty : re-routes 411 calls to 1-888-247-2425.</p> 
+<p>(1212) + empty | XXXXXXX : adds 1 + 212 to the beginning of any number that is seven digits long</p> 
+<p>(1) + empty | XXXXXXXXXX : adds 1 + to the beginning of any ten digit number.</p> 
+<p>Dans Connectivity - Inbound Route je ne peux pas configurer le port FXO je ne comprends pas pourquoi. Dans connectivity - outbound route je peux configurer le port FXO par l'intermediaire du parametre : Trunk Sequence for Matched Routes</p> 
+<p>Since the PBX routes all inbound calls based on the DID or number dialed, we need to map each analog port or channel to a fake number so we can match that number to an inbound route number and route your calls.</p> 
+<p>Connectivity - DADHI channel DID - add DADHI DID - channel : g1 (mais je ne suis pas sur) Channel : The DAHDI Channel number to map to a DID. For example, If you have a 4-port card, your channels would be ports 1-4.</p> 
+<h3> <a id="en-r&eacute;sum&eacute;-pour-router-un-appel-arrivant-dune-ligne-analogique-sur-un-port-fxo" class="anchor" href="#en-r%C3%A9sum%C3%A9-pour-router-un-appel-arrivant-dune-ligne-analogique-sur-un-port-fxo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>en r&eacute;sum&eacute; pour router un appel arrivant d'une ligne analogique sur un port FXO:</h3> 
+<p><code>Connectivity -DAHDI channel DID</code> pour d&eacute;finir un DID par port FXO (1, 2 , 3 , 4). Puis j'utilise ce DID dans la configuration des <code>Connectivity - Inbound Route - Set destination</code>.</p> 
+<h1> <a id="fax" class="anchor" href="#fax" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Fax</h1> 
+<p>voir module User Management</p> 
+<p>J'ai le module fax pro qui permet d'envoyer des fax. Le module fax gratuit ne permet pas d'envoyer des fax.</p> 
+<p>##&nbsp;Fax - &Eacute;mission de fax J'ai une outbound route. Sans configuration particuliere pour les fax.<br /> Il n'y a pas de parametre de fax dans l'outbound route.<br /> Dans Admin - User management - onglet Fax pour autoriser le user &agrave; utiliser les fax.</p> 
+<p>on va dans l'UCP est on fait &quot;send new fax&quot;. cela marche.</p> 
+<p>A noter qu'il ne faut pas que la vielle machine de fax soit brancher sur la ligne qui envoie le fax.</p> 
+<h2> <a id="fax---r&eacute;ception-de-fax" class="anchor" href="#fax---r%C3%A9ception-de-fax" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Fax - R&eacute;ception de fax</h2> 
+<p>On d&eacute;finit la detection de fax dans : applications - extension. Mais cela n'a pas march&eacute;. Je ne trouve pas de parametre de fax dans application - extension</p> 
+<p>Dans Connectivity -DHADI config - global setting - fax detection --&gt; Yes et on essaye &agrave; nouveau.</p> 
+<p>Configuration pour recevoir les faxs: <code>Connectivity -Inbound Route</code>:</p> 
+<ul> 
+ <li><code>set destination - Fax recipient user2</code></li> 
+ <li>Fax - Fax destination user2</li> 
+</ul> 
+<p>Pas de configuration des ports fxo dans les inbound route. Il faut travailler avec le DID. A faire. pour voir si cela marche.</p> 
+<h2> <a id="comment-faire-pour-ne-pas-recevoir-le-fax-par-email-mais-le-retrouver-dans-linbox" class="anchor" href="#comment-faire-pour-ne-pas-recevoir-le-fax-par-email-mais-le-retrouver-dans-linbox" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment faire pour ne pas recevoir le fax par email mais le retrouver dans l'inbox.</h2> 
+<p>j'essaie : Setting - Fax config - email address (not the outgoing email address) : leave empty<br /> Ca ne marche pas. Continue &agrave; l'envoyer par email Si les deux champs Setting -Fax config - outgoing email adress : empty. Ca ne marche</p> 
+<p>user config - fax - email result -never ne marche pas non plus pour ne pas recevoir de fax</p> 
+<p>Setting - Fax config - outgoing email address (and email adress) : leave empty</p> 
+<p>Rien &agrave; faire j'ai toujours mon fax qui arrive par mail.</p> 
+<p>email address --&gt; une autre adress mail non je recois toujours <a href="mailto:francois.oph@gmail.com">francois.oph@gmail.com</a></p> 
+<h2> <a id="admin---feature-code-admin---dial-system-fax-cest-quoi" class="anchor" href="#admin---feature-code-admin---dial-system-fax-cest-quoi" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Admin - Feature Code admin - Dial system fax c'est quoi?</h2> 
+<p><a href="http://www.emetrotel.com/tsd/content/dial-system-fax">http://www.emetrotel.com/tsd/content/dial-system-fax</a></p> 
+<p>Mais cela ne me dit pas ce que je peux en faire.</p> 
+<h1> <a id="blf" class="anchor" href="#blf" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>BLF</h1> 
+<p>Busy Lamp Field c'est une LED sur un IP phone qui te dit si une autre extension connect&eacute; au meme PBX est occup&eacute; ou non.</p> 
+<h1> <a id="modules-commerciaux" class="anchor" href="#modules-commerciaux" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Modules commerciaux</h1> 
+<p>Call recording Reports : <a href="http://wiki.freepbx.org/display/FCM/Call+Recording+Reports">http://wiki.freepbx.org/display/FCM/Call+Recording+Reports</a></p> 
+<h1> <a id="quelles-sont-les-applications-qui-sont-support&eacute;s-par-les-ip-phones-liste" class="anchor" href="#quelles-sont-les-applications-qui-sont-support%C3%A9s-par-les-ip-phones-liste" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Quelles sont les applications qui sont support&eacute;s par les IP phones. Liste</h1> 
+<p><a href="http://wiki.freepbx.org/display/FPG/Phone+Apps-Supported+Devices">http://wiki.freepbx.org/display/FPG/Phone+Apps-Supported+Devices</a></p> 
+<h1> <a id="echo-cancellation-troubleshooting" class="anchor" href="#echo-cancellation-troubleshooting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Echo cancellation troubleshooting</h1> 
+<p><a href="http://wiki.freepbx.org/display/PC/Verify+if+Hardware+Echo+Cancellation+is+being+used">http://wiki.freepbx.org/display/PC/Verify+if+Hardware+Echo+Cancellation+is+being+used</a></p> 
+<h1> <a id="asterisk-1" class="anchor" href="#asterisk-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Asterisk</h1> 
+<h2> <a id="logger" class="anchor" href="#logger" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Logger</h2> 
+<p><a href="https://wiki.asterisk.org/wiki/display/AST/Collecting+Debug+Information">https://wiki.asterisk.org/wiki/display/AST/Collecting+Debug+Information</a></p> 
+<p>Comment annuler les log output in CLI asterisk: CLI&gt; <strong>logger mute</strong></p> 
+<h2> <a id="version" class="anchor" href="#version" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>version</h2> 
+<p>asterisk -r.. ou<br /> CLI&gt; core show version</p> 
+<h2> <a id="dahdi-1" class="anchor" href="#dahdi-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>dahdi</h2> 
+<p>CLI&gt; core show help dahdi<br /> CLI&gt; dahdi show channels group </p> 
+<h2> <a id="how-to-activate-asterisk-full-debugging" class="anchor" href="#how-to-activate-asterisk-full-debugging" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to activate Asterisk full debugging?</h2> 
+<p><code>vi /etc/asterisk/logger.conf</code><br /> uncomment : <code>̀full =&gt; notice, warning, error, debug, verbose, dtmf, fax</code></p> 
+<p>Toutes les infos de debugging seront loggu&eacute;es dans /var/log/asterisk/full.</p> 
+<h1> <a id="mes-ip-phone-nobtiennent-pas-dadress-ip" class="anchor" href="#mes-ip-phone-nobtiennent-pas-dadress-ip" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>mes ip phone n'obtiennent pas d'adress IP?</h1> 
+<p>Je ne les vois pas dans openwrt. malgr&eacute; plusieurs boot. Mon architecture r&eacute;seau n'&eacute;tait pas bonne.<br /> Server Freepbx + IP phone sur le switch Cisco et switch Cisco sur router wrt54GL.</p> 
+<h1> <a id="server-freepbx-nobtient-pas-dadresse-ip" class="anchor" href="#server-freepbx-nobtient-pas-dadresse-ip" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>server freepbx n'obtient pas d'adresse IP</h1> 
+<p>Le serveur freepbx apres avoir d&eacute;brancher le cable rj45 n'obtient pas l'adress IP.<br /> reboot est-il la seule solution?</p> 
+<h1> <a id="troubleshooting" class="anchor" href="#troubleshooting" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Troubleshooting</h1> 
+<p>Le system a perdu son adress ip. Le fait de brancher d&eacute;brancher le cable rj45 ne regle pas le probleme. Je reboot. Mais comme il n'a pas d'adress ip pas moyen d'utiliser ssh. Donc je travaille en mode console avec un &eacute;cran sur le port VGA. A noter un temps tres long pour booter avec uniquement un curseur qui clignote. ensuite attention clavier qwerty. password root sangoma nano /etc/syslog/keyboard change us pour fr. reboot. et l&agrave; on a le clavier en azerty. Ce probleme d'ip c'est r&eacute;gl&eacute; quand j'ai branch&eacute; port eth0 sur le router wrt54gl</p> 
+<h1> <a id="probleme" class="anchor" href="#probleme" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>probleme</h1> 
+<p>1 Ligne PSTN branch&eacute;e - Inbound route DID any fax recipient. je recois les faxs. On a une tonalit&eacute; fax Pas moyen de param&eacute;trer le DID. Si je mets le numero de la ligne me dit que le &quot;number you have dialed is not on service&quot;</p> 
+<p>Je branche la deuxieme ligne et l&agrave; si j'appelle la deuxieme ligne j'ai aussi la tonalit&eacute; fax. C'est normale je n'ai qu'une seule inbound route celle qui meme au fax. Je fais une deuxieme inbound route DID : 28 16 00 Fax no detection pareil tonalit&eacute; de fax.</p> 
+<p>J'enleve cette inbound route et je modifie la premiere. Inbound route did : any / set destination : fax recipient et Fax - detect fax : No (c'est l'aide qui me dit si fax exclusif mettre &agrave; No). Avec cette configuration j'entend une courte sonnerie sur Sip phone et puis la tonalit&eacute; fax.<br /> On essaie le DID<br /> Inbound route DID : 281608</p> 
+<p>Tout cela ne marche pas. Je modifie mon trunks - dahdi settings - dahdi trunk pour qu'il soit li&eacute;s &agrave; un dahdi group ou channel ce qui correspond &agrave; un fxo port donc &agrave; une pstn line. Je refais pareil une seule ligne une seule inbound route. Si inbound route DID: 281600 the number you have dialed is not in service si DID : ANY c'est OK</p> 
+<p>Voici le log de cette affaire.</p> 
+<h1> <a id="comment-obtenir-le-log" class="anchor" href="#comment-obtenir-le-log" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment obtenir le log?</h1> 
+<p><code>Reports - Asterisk log</code></p> 
+<p>[2016-09-23 16:43:01] VERBOSE[11591][C-0000000c] sig_analog.c: -- Starting simple switch on 'DAHDI/3-1'<br /> [2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-analog:1] NoOp(&quot;DAHDI/3-1&quot;, &quot;Entering from-dahdi with DID == &quot;) in new stack<br /> [2016-09-23 16:43:02] VERBOSE[11591][C-0000000c] pbx.c: -- Executing [s@from-analog:2] Ringing(&quot;DAHDI/3-1&quot;, &quot;&quot;) in new stack</p> 
+<p>Je vois que le DID n'est pas pass&eacute;.</p> 
+<p><a href="http://wiki.freepbx.org/display/FPG/DAHDI+(Analog)+Channel+DIDs">http://wiki.freepbx.org/display/FPG/DAHDI+(Analog)+Channel+DIDs</a></p> 
+<h3> <a id="what-is-the-dahdi-channel-dids-module-used-for" class="anchor" href="#what-is-the-dahdi-channel-dids-module-used-for" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What is the DAHDI Channel DIDs module used for?</h3> 
+<p>The DAHDI Channel DIDs module allows you to assign a DID or phone number to specific analog channels. Unlike SIP or PRI trunks, analog lines do not send a DID or dialed number to the PBX. Since the PBX routes all inbound calls based on the DID or number dialed, we need to map each analog port or channel to a fake number so we can match that number to an Inbound Route number and route your calls. Each channel can be mapped to the same phone number if you want all calls on the analog lines to go to the same destination. This would be a common scenario if you have multiple POTS lines that are on a hunt group from your provider. You MUST assign the channel's context to from-analog for these settings to have effect. It will be a line that looks like: context = from-analog in your chan_dahdi.conf configuration affecting the specified channel(s). Once you have assigned DIDs, you can use standard Inbound Routes with the specified DIDs to route your calls.</p> 
+<p>Channel The DAHDI Channel number to map to a DID. For example, If you have a 4-port card, your channels would be ports 1-4.</p> 
+<h3> <a id="comment-faire-pour-quune-ligne-pstn-soit-affect&eacute;e-&agrave;-une-certaine-inbound-route" class="anchor" href="#comment-faire-pour-quune-ligne-pstn-soit-affect%C3%A9e-%C3%A0-une-certaine-inbound-route" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment faire pour qu'une ligne pstn soit affect&eacute;e &agrave; une certaine inbound route?</h3> 
+<p><code>Connectivity - DAHDI Channel DIDs</code> : A chaque ports FXO on assigne un DID (un numero de t&eacute;l&eacute;phone fictif. On mettra celui de la ligne PSTN). On mappe ainsi les FXO &agrave; une ligne PSTN.<br /> Car le fournisseur ne passe pas le DID dans les lignes analogiques.<br /> Puis dans Inbound Route on utilise ce DID pour router l'appel.</p> 
+<h1> <a id="comment-enregistrer-des-annonces" class="anchor" href="#comment-enregistrer-des-annonces" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment enregistrer des annonces</h1> 
+<p><code>Admin -&gt; System Recordings</code></p> 
+<p>System recordings. C'est le module qui permet d'enregistrer ou d'uloader des messages qui pourront &ecirc;tre jou&eacute;s aux appelants dans d'autres modules. On peut l'utiliser aussi pour des annonces pre-install&eacute;es d'Asterisk. On peut utiliser un message dans un IVR, dans un annoucement. Pour cela on route l'appel entrant vers l'annoucement ou l'IVR en utilisant l'Inbound Route Module.</p> 
+<p>Les modules qui permettent d'utiliser ces enregistrements sont:<br /> -IVR<br /> -Announcements<br /> -Follow me<br /> -Queue<br /> -Ring Group</p> 
+<p>Name : doit etre unique sinon ecrase le premier</p> 
+<p>Description: aide &agrave; l'identification.</p> 
+<p>File List For (Language): On peut concatener plusieurs fichiers en un seul enregistrement. Lecture du haut vers le bas.</p> 
+<p>Replacing a file : on peut les remplacer.</p> 
+<p>Upload Recording: format ogg, wav, flac, mais il y a bcp d'autres formats.</p> 
+<p>Record in Browser : enregistrement en utilisant le PC</p> 
+<p>Record over extension : le system appelle l'extension sp&eacute;cifi&eacute;e. Tu d&eacute;croches. Tu parles apres le bip. Tu raccroches qd c'est fini.</p> 
+<p>Add system Recording : Pas compris ce que cela apporte</p> 
+<p>Link to feature code: Pas compris</p> 
+<p>Feature Code Password</p> 
+<p>Convert To</p> 
+<h1> <a id="comment-savoir-&agrave;-quelle-ip-phone-un-user-est-reli&eacute;" class="anchor" href="#comment-savoir-%C3%A0-quelle-ip-phone-un-user-est-reli%C3%A9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment savoir &agrave; quelle IP phone un user est reli&eacute;?</h1> 
+<p>Application -- Extension<br /> Et on peut relier un user &agrave; une extension dans:<br /> Admin - User Management - Primary Linked Extension</p> 
+<h1> <a id="admin---system-recording" class="anchor" href="#admin---system-recording" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Admin -&gt; system recording</h1> 
+<p>Va permettre d'enregistrer des messages qui pourront etre jou&eacute; &agrave; l'appelant par d'autres modules.<br /> File list for english : j'ai l'impression que ce la permet de concatener plusieurs fichiers qui serons lus l'un &agrave; la suite de l'autre c'est comme cela que je le comprends.</p> 
+<p>Si je veux pouvoir acc&eacute;der &agrave; l'enregistrement via un ip phone :(pas s&ucirc;r que cela soit utile)<br /> Link to Feature Code - YES</p> 
+<h1> <a id="applications---annoucement" class="anchor" href="#applications---annoucement" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Applications -&gt; Annoucement</h1> 
+<p>Ne pas confondre ce module avec le system recording.<br /> Le module annoucement permet de jouer une annonce cr&eacute;ee avec system recording et de poursuivre le call flow.</p> 
+<p>recording : ne propose que les announces faites dans le system recording. Il faut donc cr&eacute;er l'annonce dans le module system recording.</p> 
+<p>Je ne comprends pas qd on d&eacute;finit &agrave; qui est jou&eacute; cette annonces. Ce n'est pas dans le module que l'on d&eacute;finit qd/o&ugrave; est jou&eacute; l'annonce mais dans d'autres modules</p> 
+<h1> <a id="jouer-une-annonce-&agrave;-tous-les-appels-entrants" class="anchor" href="#jouer-une-annonce-%C3%A0-tous-les-appels-entrants" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Jouer une annonce &agrave; tous les appels entrants:</h1> 
+<ul> 
+ <li>1 Cr&eacute;er le fichier son dans Admin - System recordings.</li> 
+ <li>2 Cr&eacute;er un announcement dans Applications - Announcement</li> 
+ <li>3 Connectivity - Inbound Route - Destination : choisir l'announcement<br /> Et cela marche. Test&eacute;</li> 
+</ul> 
+<h1> <a id="musique-dattente--moh-music-on-hold" class="anchor" href="#musique-dattente--moh-music-on-hold" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Musique d'attente . MoH Music on Hold</h1> 
+<p><code>Setting - MoH</code><br /> Je n'ai jamais entendu une telle music. TODO</p> 
+<h1> <a id="fail2ban" class="anchor" href="#fail2ban" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Fail2Ban</h1> 
+<p>admin - System admin - Intrusion detection</p> 
+<h1> <a id="couldnt-connect-to-asterisk" class="anchor" href="#couldnt-connect-to-asterisk" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Couldn't connect to asterisk</h1> 
+<p>Apres un reboot forc&eacute; par interruption du courant j'ai le msg<br /> <em>couldn't connect to asterisk</em><br /> je n'ai rien fait j'ai attendu un peu.</p> 
+<h1> <a id="comment-forwarder-vers-un-num&eacute;ro-ext&eacute;rieur" class="anchor" href="#comment-forwarder-vers-un-num%C3%A9ro-ext%C3%A9rieur" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment forwarder vers un num&eacute;ro ext&eacute;rieur</h1> 
+<ul> 
+ <li> <code>miscellenious destination</code> ou</li> 
+ <li> <code>follow-me</code> : si quelqu'un appelle mon extension, et que cela sonne 4 fois, i dont peek up instead of going to voice mail va vers mon cell phone.</li> 
+</ul> 
+<p>Je parle de <code>miscelenious destination</code>. Avec un ring group or a queue vous pouvez definir le fail over destination to be a cell phone or a miscellianus destination.</p> 
+<ul> 
+ <li>1 cr&eacute;er le miscelianious destination Application / Mis Destination</li> 
+ <li>2 description ce qu'on veut</li> 
+ <li>3 Dial : il faut l'&eacute;crire exactement comme on le ferait si on composait sur une extension. (8 chez nous)</li> 
+ <li>4 Apply config</li> 
+ <li>6 add it to a ring group</li> 
+ <li>7 Application / Ring group</li> 
+ <li>8 et en bas on a &quot;destination if no answer&quot; on met a la place d'extension mis destination.</li> 
+</ul> 
+<p>D'autre utilise le follow me sur l'extension.</p> 
+<h1> <a id="power-off-1" class="anchor" href="#power-off-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>power off</h1> 
+<p><code>admin / system admin / power option</code></p> 
+<h1> <a id="si-pas-de-audio-de-voix" class="anchor" href="#si-pas-de-audio-de-voix" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>si pas de audio de voix</h1> 
+<ul> 
+ <li>Freepbx / settings / asterisk sip setting</li> 
+ <li>local network 192.168.1.0 / 24</li> 
+</ul> 
+<h1> <a id="comment-on-gere-les-sda-du-tronc-numeris" class="anchor" href="#comment-on-gere-les-sda-du-tronc-numeris" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment on gere les SDA du tronc numeris?</h1> 
+<h2> <a id="comment-diriger-les-appels-du-29629x-vers-un-user-phone" class="anchor" href="#comment-diriger-les-appels-du-29629x-vers-un-user-phone" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment diriger les appels du 29629x vers un user phone?</h2> 
+<h2> <a id="comment-rediriger-un-appel-vers-un-user-phone-vers-un-num&eacute;ro-ext&eacute;rieur" class="anchor" href="#comment-rediriger-un-appel-vers-un-user-phone-vers-un-num%C3%A9ro-ext%C3%A9rieur" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment rediriger un appel vers un user phone vers un num&eacute;ro ext&eacute;rieur?</h2> 
+<p>J'utilise le module <code>Applications / Miscellaneous destination</code> Il y juste deux choses &agrave; remplir:</p> 
+<ul> 
+ <li>1 Description</li> 
+ <li>2 le numero que le systeme doit composer pour atteindre la destination finale. Ensuite on va mapper l'appel entrant et cette miscellaneous destination qui est le numero vers lequel on veut faire suivre l'appel dans le module <code>Connection / Inbound Route</code>. Pour cela on a les champs :</li> 
+ <li>1 <code>DID Number</code> On regarde dans le log quel est le num&eacute;ro DID qui passe dans le systeme pour l'utiliser ici.</li> 
+ <li>2 <code>Set Destination</code>. On choisit <code>Miscellaneous Destination</code> et la miscellanous destination qui nous interesse.</li> 
+</ul> 
+<p>Mais je ne comprends comment l'<code>Inbound Route</code>est reli&eacute;e au port sur lequel est branch&eacute; la ligne t&eacute;l&eacute;phonique.</p> 
+<p>###&nbsp;log d'un appel exterieur vers le 281600 qui est redirig&eacute; vers un numero exterieur(ie plateforme telephonique)</p> 
+<pre><code> == Spawn extension (macro-hangupcall, s, 5) exited non-zero on 'SIP/vegaOut-000008e1' in macro 'hangupcall'
+  == Spawn extension (macro-dialout-trunk, h, 1) exited non-zero on 'SIP/vegaOut-000008e1'
+  == Spawn extension (macro-dialout-trunk, s, 23) exited non-zero on 'SIP/vegaOut-000008e1' in macro 'dialout-trunk'
+  == Spawn extension (outbound-allroutes, 8231249, 7) exited non-zero on 'SIP/vegaOut-000008e1'
+  == MixMonitor close filestream (mixed)
+  == End MixMonitor Recording SIP/vegaOut-000008e1
+  == Using SIP RTP TOS bits 184
+  == Using SIP RTP CoS mark 5
+  == Begin MixMonitor Recording SIP/vegaOut-000008e3
+  == Using SIP RTP TOS bits 184
+  == Using SIP RTP CoS mark 5
+</code></pre> 
+<p>Je remarque qu'a aucun moment on voit le num&eacute;ro de la redirection.</p> 
+<h1> <a id="call-flow-control" class="anchor" href="#call-flow-control" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>call flow control</h1> 
+<h2> <a id="comment-faire-pour-modifier-le-flow-de-lappel-en-compasant-un-code-sur-le-phoneip" class="anchor" href="#comment-faire-pour-modifier-le-flow-de-lappel-en-compasant-un-code-sur-le-phoneip" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment faire pour modifier le flow de l'appel en compasant un code sur le phoneIP?</h2> 
+<p>Application / call flow control / add call flow taggle code / -2 Description ce qu'on veut -3 password pas n&eacute;cessaire -4</p> 
+<h1> <a id="trunk-module" class="anchor" href="#trunk-module" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Trunk module</h1> 
+<p>Il est utilis&eacute; pour connect&eacute; le Freepbx/asterisk &agrave; un autre systeme de VOIP. Comme cela on peut envoyer ou recevoir des apels depuis et vers cet autre syst&egrave;me VOIP. Comme :</p> 
+<ul> 
+ <li>Internet Telephone Service Providers</li> 
+ <li>Autre syst&egrave;me Freepbx/asterisk</li> 
+ <li>FXO gateway qui connecte une ligne t&eacute;l&eacute;phonique ordinaire avec systeme de VOIP.</li> 
+ <li>FXO cards qui permet de se connecter &agrave; un systeme t&eacute;l&eacute;phonique ordinaire.</li> 
+</ul> 
+<p>Si tu n'as pas de trunk de configur&eacute;, alors on ne peut faire des appels que vers les extensions du syst&egrave;me.</p> 
+<p>Trunk module est r&eacute;li&eacute; &agrave;:</p> 
+<ul> 
+ <li>1 Outbound Route</li> 
+ <li>2 Inbound Route</li> 
+</ul> 
+<p>Deux principaux type de trunk:</p> 
+<ul> 
+ <li>1 SIP</li> 
+ <li>2 DAHDI</li> 
+</ul> 
+<h2> <a id="trunk-name" class="anchor" href="#trunk-name" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Trunk Name</h2> 
+<p>un nom pour d&eacute;crire le trunk</p> 
+<h2> <a id="outbound-callerid" class="anchor" href="#outbound-callerid" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Outbound CallerID</h2> 
+<p>Utiliser ce champ pour ?<br /> J'ai l'impression que cela ne sert pas.</p> 
+<h2> <a id="cid-options" class="anchor" href="#cid-options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CID Options</h2> 
+<h2> <a id="maximum-channels" class="anchor" href="#maximum-channels" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Maximum Channels</h2> 
+<p>controle le nombre maximum d'outbound chanel (appels simultan&eacute;s)</p> 
+<h2> <a id="continue-if-busy" class="anchor" href="#continue-if-busy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Continue if busy</h2> 
+<h2> <a id="disable-trunk" class="anchor" href="#disable-trunk" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Disable trunk</h2> 
+<h2> <a id="dial-pattern-manipulation-rules" class="anchor" href="#dial-pattern-manipulation-rules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dial pattern manipulation rules</h2> 
+<h1> <a id="inbound-route-1" class="anchor" href="#inbound-route-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Inbound Route</h1> 
+<p><a href="https://wiki.freepbx.org/display/FPG/Inbound+Route+User+Guide">https://wiki.freepbx.org/display/FPG/Inbound+Route+User+Guide</a></p> 
+<p>C'est un module critique. Tres important Une configuration typique est une inbound route en association avec une time condition ensuite vers un IVR ou service de reponse en cas de fermeture en fonction de l'horaire.</p> 
+<h2> <a id="connectivity--inbound-routes-" class="anchor" href="#connectivity--inbound-routes-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Connectivity / Inbound routes /</h2> 
+<p>incoming route. Il est possible de filtrer les appels en fonction du DID (destination ID) le num&eacute;ro de t&eacute;l&eacute;phone qui a &eacute;t&eacute; compos&eacute; ou en fonction du caller ID qui est le num&eacute;ro de celui qui vous appelle, ou en fonction des deux.<br /> Si on laisse blanc les deux : DID number et CallerID number on cr&eacute;e une route qui attrape tous les num&eacute;ros entrants.</p> 
+<h2> <a id="did-direct-inward-dialing-number-1" class="anchor" href="#did-direct-inward-dialing-number-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>DID (Direct Inward Dialing) Number</h2> 
+<p>S'il y a un match alors l'appel passe par cette inbound route.</p> 
+<h2> <a id="incoming-route--set-destination" class="anchor" href="#incoming-route--set-destination" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Incoming route / Set destination</h2> 
+<p>Quand un appel arrive de l'ext&eacute;rieur dans le systeme, il arrive avec du num&eacute;ro de t&eacute;l&eacute;phone qui a &eacute;t&eacute; compos&eacute; (DID) et le caller ID de la personne qui appelle. Le module Inbound Route est utilis&eacute; pour dire au systeme ce qu'il doit faire d'un appel qui arrive dans le systeme sur n'importe quel trunk qui a le parametre <code>context=from-trunk</code> dans le PEER detail</p> 
+<p>L'appel arrive dans le system sur un trunk qui est configur&eacute; dans le trunk module. Le module Inbound Route dit alors o&ugrave; envoyer l'appel et c'est vari&eacute;:</p> 
+<ul> 
+ <li>Extensions</li> 
+ <li>Ring group</li> 
+ <li>Queue</li> 
+ <li>IVR</li> 
+ <li>Time condition</li> 
+ <li>Feature code</li> 
+ <li>DISA</li> 
+ <li>Conference</li> 
+ <li>etc ...</li> 
+</ul> 
+<h2> <a id="did-number" class="anchor" href="#did-number" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>DID number</h2> 
+<p>C'est le num&eacute;ro compos&eacute; par l'appelant. On peut filtrer sur ce num&eacute;ro. PE : 296 298</p> 
+<h2> <a id="caller-id" class="anchor" href="#caller-id" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Caller ID</h2> 
+<p>C'est le num&eacute;ro de l'appelant. On pouvoir router en fonction de l'appelant.</p> 
+<h2> <a id="cid-priority-route" class="anchor" href="#cid-priority-route" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CID Priority route</h2> 
+<p>YES/NO pour d&eacute;cider si cette route est une Priority Route caller ID. Cela n'affecte que les routes qui n'ont pas d'entr&eacute;e dans le DID.<br /> Si sur YES alors meme s'il existe une route pour le DID qui a &eacute;t&eacute; appel&eacute; alors c'est cette route qui est utilis&eacute;e. Le comportement normal est que la DID route prenne l'appel.</p> 
+<h2> <a id="exemples-dinbound-route" class="anchor" href="#exemples-dinbound-route" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Exemples d'inbound route</h2> 
+<h3> <a id="deadrestricted" class="anchor" href="#deadrestricted" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>DeadRestricted</h3> 
+<p>Avec cette route les appels entrants qui ne correspondent &agrave; aucune autre inbound sont rejett&eacute;. C'est une mesure de s&eacute;curit&eacute;.</p> 
+<ul> 
+ <li>Description : DeadRestricted</li> 
+ <li>Set destination : Terminate Call: Hangup</li> 
+ <li>Laisser tous les autres champs vides.</li> 
+</ul> 
+<h3> <a id="did-number-route" class="anchor" href="#did-number-route" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>DID Number Route</h3> 
+<p>C'est la route que j'ai configur&eacute;.</p> 
+<h3> <a id="supercaller" class="anchor" href="#supercaller" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SuperCaller</h3> 
+<p>Elle va diriger un Caller ID vers une route particuli&egrave;re. Le t&eacute;l du pr&eacute;sident qui fait sonner tous les postes, les t&eacute;l&eacute;phones des &eacute;pouses qui sont redirig&eacute;s vers le bon poste.</p> 
+<ul> 
+ <li>Description ce qu'on veut</li> 
+ <li>DID Number: (Leave Blank, or fill in a DID if you prefer the Supercaller to only function when he calls one particular phone number)</li> 
+ <li>CallerID Number: Enter the CallerID of the Caller who will receive priority</li> 
+ <li>CID Priority Route: Check this box only if you leave the DID Number field (above) blank</li> 
+ <li>Set Destination: Use this field to choose where incoming calls from the SuperCaller should go.</li> 
+</ul> 
+<h1> <a id="ring-group" class="anchor" href="#ring-group" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Ring group</h1> 
+<p>C'est un ensemble d'extension qui vont sonner en meme temps. Application / ring group On choisit les users. On peut utiliser Extension Quick Pick Destination if no answer. Ensuite il faut aller sur une incoming route et mettre set destination avec le ring group.</p> 
+<h1> <a id="comment-diriger-les-appels-entrant-vers-un-ipphone-en-fonction-du-sda" class="anchor" href="#comment-diriger-les-appels-entrant-vers-un-ipphone-en-fonction-du-sda" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment diriger les appels entrant vers un IPphone en fonction du SDA</h1> 
+<p><code>Connection / Inbound Route</code></p> 
+<ul> 
+ <li>1- Pour voir le SDA qui est pr&eacute;sent&eacute; &agrave; Freepbx car ce n'est pas forcement celui que l'on attend. 
+  <ul> 
+   <li>ssh root@IP_Freepbx</li> 
+   <li>login</li> 
+   <li>asterisk -rvvvv</li> 
+   <li>faire un appel</li> 
+  </ul> </li> 
+ <li>2-Le champ &agrave; renseigner c'est <code>DID</code> </li> 
+ <li>3 et <code>Set destination</code> ou pourra mettre l'extension.</li> 
+</ul> 
+<h2> <a id="on-peut-diriger-vers-un-numero-exterieur-en-faisant-une-misc-destination" class="anchor" href="#on-peut-diriger-vers-un-numero-exterieur-en-faisant-une-misc-destination" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>On peut diriger vers un numero exterieur en faisant une misc destination</h2> 
+<p>Et on met <code>Set destination</code> sur cette miscellaneous destination</p> 
+<h1> <a id="how-to-install-pbx-on-raspberry" class="anchor" href="#how-to-install-pbx-on-raspberry" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to install pbx on raspberry</h1> 
+<p>download <a href="http://raspberry-asterisk.org/downloads">http://raspberry-asterisk.org/downloads</a> Quand on a l'image il faut la placer sur le SD-card. Class 10 est plus rapide.</p> 
+<ul> 
+ <li>1 sha1sum le.zip</li> 
+ <li>2 unz&icirc;p le.zip</li> 
+ <li>3 dd bs=4M status=progress if=le.zip of=/dev/sdx</li> 
+ <li>4 to monitor progress : <code>dd bs=4M if=2014-09-09-wheezy-raspbian.img | pv | dd of=/dev/mmcblk0</code> </li> 
+ <li>5 <code>sync</code> </li> 
+</ul> 
+<h1> <a id="je-ne-veux-quun-user-ait-acc&eacute;s-au-enregistrement-de-conversation" class="anchor" href="#je-ne-veux-quun-user-ait-acc%C3%A9s-au-enregistrement-de-conversation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>je ne veux qu'un user ait acc&eacute;s au enregistrement de conversation</h1> 
+<ul> 
+ <li>1 <em>User Manager / UCP / Call Event Logging</em> tab</li> 
+ <li>2 Allow CEL / No<br /> Mais les anciens messages sont toujours l&agrave;.<br /> J'ai aussi fait :</li> 
+ <li>1 <em>User Manager / UCP / Call History</em> tab</li> 
+ <li>2 Allow CDR downlaods NO</li> 
+ <li>3 Allow CDR playback et l&agrave; l'historique est pr&eacute;sent mais on ne peut pas &eacute;couter c'est ce que je veux. CEL = CALL EVENT LOGGING</li> 
+</ul> 
+<h1> <a id="music-on-hold" class="anchor" href="#music-on-hold" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Music on hold</h1> 
+<p><code>Settings / Music on Hold</code> Ce module est utilis&eacute; pour uploader des fichiers audio, que l'on peut classer par cat&eacute;gories. Ces fichiers audio sont l&agrave; pour rassurer l'appelant. Il y a deux types de MoH:</p> 
+<ul> 
+ <li>1 Fichier static wav ou mp3</li> 
+ <li>2 streaming audio connecte &agrave; une soure audio.</li> 
+</ul> 
+<p>MoH peut etre appliqu&eacute; :</p> 
+<ul> 
+ <li>Queue</li> 
+ <li>ring groups</li> 
+ <li>outbound route</li> 
+ <li>conference</li> 
+</ul> 
+<p>les files sont dans :</p> 
+<ul> 
+ <li>/var/lib/asterisk/moh</li> 
+ <li>/var/lib/asterisk/moh/name of category</li> 
+</ul> 
+<h1> <a id="application--call-flow-control" class="anchor" href="#application--call-flow-control" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Application / Call flow control</h1> 
+<ul> 
+ <li>1 Call Flow Toggle Feature code index : je n'ai pas compris</li> 
+ <li>Description : OK</li> 
+ <li>3 Recording for normal mode | Recording for override mode : ou on met le message qui sera jou&eacute; en mode normal. cela se d&eacute;finit dans <em>Admin / System recording</em>.</li> 
+ <li>4 Optional password : ?</li> 
+ <li>5 Normal Flow | Override Flow : == Choose one ==</li> 
+</ul> 
+<h1> <a id="admin--system-recording" class="anchor" href="#admin--system-recording" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Admin / System recording</h1> 
+<p>On y enregistre des messages. On peut concatener des messages. On peut utiliser ces messages dans les modules qui supportent la lecture des recordigns, comme:</p> 
+<ul> 
+ <li>IVR</li> 
+ <li>Announcement</li> 
+ <li>Follow Me</li> 
+ <li>Queues</li> 
+ <li>Ring group Ceux sont des modules qui ont des options pour selectionner un recording.</li> 
+</ul> 
+<p>On peut mettre ces messages dans connectivity / Inbound route / set destination / Play recording / on choisit un des messages que l'on aura enregistrer auparavant.</p> 
+<p>Si un message est rouge cela veut dire qu'il n'est pas disponible.<br /> Ma croix rouge c'est pour supprimer le fichier.</p> 
+<h2> <a id="comment-enregistrer-un-message" class="anchor" href="#comment-enregistrer-un-message" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment enregistrer un message?</h2> 
+<ul> 
+ <li>1 upload &agrave; partir de fichier de l'ordinateur: <code>upload recording</code> </li> 
+ <li>2 enregistrer avec l'ordinateur : <code>record in browser</code>. Mais il faut un micro</li> 
+ <li>3 enregister &agrave; partir un t&eacute;l&eacute;phone : <code>record over extension</code> 
+  <ul> 
+   <li>1 enter extension</li> 
+   <li>2 click call</li> 
+   <li>3 le t&eacute;l&eacute;phone sonne. R&eacute;pondre. Et parler apres le beep.</li> 
+   <li>4 raccrocher qd c'est fini</li> 
+   <li>5 save and name le message ou delete.</li> 
+  </ul> </li> 
+</ul> 
+<h3> <a id="on-peut-utiliser-audacity--httpwhymailboxblogspotcom200906create-great-sounding-recordings-inhtml" class="anchor" href="#on-peut-utiliser-audacity--httpwhymailboxblogspotcom200906create-great-sounding-recordings-inhtml" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>on peut utiliser audacity. <a href="http://whymailbox.blogspot.com/2009/06/create-great-sounding-recordings-in.html">http://whymailbox.blogspot.com/2009/06/create-great-sounding-recordings-in.html</a> </h3> 
+<p>et aussi For recording software I use Audacity.<br /> Go into Preference &gt; Quality and set the “Default Sample Rate” to 8000 and “Default Sample Format” to 32 bit.<br /> Go ahead and record your tracks (in Mono) and do any cleanup/trimming necessary.<br /> Then you need to get the file out; go to File &gt; Export. Use “Other uncompressed files” &gt; Options, set “Headers” to WAV and Encoding to “U-law”. Change the extension of filename to ulaw. Finally, I have found it necessary to boost the sound. You can do this by going to the &quot;Effect&quot; menu, then select &quot;Amplify...&quot; In my case, I set my &quot;Amplification (db)&quot; to 12-15. For some reason, that sounds a bit loud at my computer, but it sounds fine when it is uploaded to my PBX. Upload du fichier dans asterisk On peut aussi le convertir dans asterisk avec <code>file convert /full/path/before.ulaw /full/path/after.g729</code></p> 
+<h2> <a id="add-system-recording" class="anchor" href="#add-system-recording" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Add System recording</h2> 
+<p>permet d'ajouter n'importe quel system recording pr&eacute;alablement enregistr&eacute; &agrave; la liste.</p> 
+<h2> <a id="link-to-feature-code" class="anchor" href="#link-to-feature-code" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Link to Feature Code</h2> 
+<p>YES/NO<br /> permet ou pas &agrave; un utilisateur de r&eacute;engistrer ce message en composant un feature code. YES permet de cr&eacute;er un feature code qui va permettre de changer le recording directement par le user.<br /> Ce qui permet de changer le code directement par le user, sans passer par l'administrateur.</p> 
+<ul> 
+ <li>1 Composer le feature code depuis un t&eacute;l&eacute;phone.</li> 
+ <li>2 Suivre les instructions donn&eacute;es par le systeme</li> 
+ <li>3 confirmer, raccrocher.</li> 
+</ul> 
+<h2> <a id="feature-code-password" class="anchor" href="#feature-code-password" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Feature code password</h2> 
+<p>uniquement des digit.</p> 
+<h1> <a id="announcements-module" class="anchor" href="#announcements-module" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Announcements module</h1> 
+<p>la possibilit&eacute; de diriger les appels en fonction d'horaire. Il permet de cr&eacute;er une destination qui va jouer un message &agrave; un appelant. Apres le message, l'appel va vers une autre destination. O&ugrave; est d&eacute;fini cette autre destination?<br /> Ce module est li&eacute; &agrave; tout module qui a un champ <code>Set Destination</code>:</p> 
+<ul> 
+ <li>1 IVR</li> 
+ <li>2 Inbound Routes Module</li> 
+ <li>3 Ring group module</li> 
+ <li>4 Queues Module</li> 
+ <li>5 Call Flow control module</li> 
+ <li>6 Time Conditions module</li> 
+ <li>7 Miscellaneous applications module.</li> 
+</ul> 
+<p>Announcement module va chercher les recording du module system recordiong.</p> 
+<h2> <a id="description" class="anchor" href="#description" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2> 
+<h2> <a id="recording" class="anchor" href="#recording" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Recording</h2> 
+<p>C'est l&agrave; que l'on choisit son message. Il est cr&eacute;e dans system recording</p> 
+<h2> <a id="repeat" class="anchor" href="#repeat" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Repeat</h2> 
+<p>On peut choisir une touche que l'appelant appui pour rejouer le message.<br /> Il faudra mettre les instructions dans le msg : &quot;To hear our hours again, press pound.&quot;</p> 
+<h2> <a id="allow-skip" class="anchor" href="#allow-skip" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Allow skip</h2> 
+<p>YES/No allow the caller to press any key to end the message. Et ensuite l'appel va vers la destination d&eacute;finie dans cet annoucement.</p> 
+<h2> <a id="return-to-ivr" class="anchor" href="#return-to-ivr" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Return to IVR</h2> 
+<p>YES/NO<br /> If set to Yes, a caller who came from an IVR will be sent back to the IVR after the announcement, instead of being sent to the destination set below. This is handy if you have more than one IVR pointing to this announcement, because otherwise you would need to create a separate announcement for each IVR. (A single announcement can only route the caller to one defined destination.) If set to No, the caller will only be routed to the destination set below, and will not be sent back to the IVR they came from.</p> 
+<h2> <a id="dont-answer-channel" class="anchor" href="#dont-answer-channel" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Don't answer Channel</h2> 
+<p>No Answer the call and play the message.<br /> YES joue le message comme early media. J'ai pas compris &agrave; quoi cela sert.<br /> Laisser No c'est plus sur.</p> 
+<h2> <a id="destination-after-playback" class="anchor" href="#destination-after-playback" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Destination after playback</h2> 
+<h1> <a id="time-condition-module" class="anchor" href="#time-condition-module" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Time condition module</h1> 
+<p>controle le call flow par rapport &agrave; des horaires. Time condition cr&eacute;e une destination que l'on va utiliser dans une set destination.<br /> Qd l'appel arrive sur une destination <code>Time Condition</code> le systeme va regarder si l'appel correspond &agrave; cette time condition et diriger vers deux destinations en fonction du r&eacute;sultat. Chaque objet Time Condition est une destination qui peut etre utilis&eacute; s'il y a un champ ̀<code>Set Destination</code> et il cr&eacute;e deux destinations.</p> 
+<ul> 
+ <li>1 si la time condition est valide</li> 
+ <li>2 si la time condition n'est pas valide.</li> 
+</ul> 
+<p>Ce module utilise le module time group.<br /> Il faut d'abord cr&eacute;er un time group puis cr&eacute;er un time condition</p> 
+<p>Ce module peut etre utilis&eacute; d&egrave;s qu'il y a le champ <code>Set Destination</code>:</p> 
+<ul> 
+ <li>1 IVR</li> 
+ <li>2 Inbound Routes Module</li> 
+ <li>3 Ring group module</li> 
+ <li>4 Queues Module</li> 
+ <li>5 Call Flow control module</li> 
+ <li>6 Time Conditions module</li> 
+ <li>7 Miscellaneous applications module.</li> 
+</ul> 
+<p>##Invert BLF Hint YES/NO permet d'inverser le busy lamp field. Le parametrage par d&eacute;faut pouvant g&eacute;n&eacute; les utilisateurs.<br /> Par d&eacute;faut NO (invert BLF Hint = No) the BLF is in use quand la time condition ne matche pas. Et not in use quand elle matche.<br /> YES. BLF in use si time condition matche et not in use si ne matche pas.</p> 
+<h2> <a id="change-override" class="anchor" href="#change-override" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Change Override</h2> 
+<p>Rien compris.</p> 
+<h2> <a id="time-group" class="anchor" href="#time-group" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Time Group</h2> 
+<p>The time group this time condition will be checked against. A time group defines the times that are considered a &quot;match.&quot;</p> 
+<h2> <a id="destination-matches" class="anchor" href="#destination-matches" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Destination matches</h2> 
+<p>This destination will be used as the call target when the current time matches the time group selected above.</p> 
+<h2> <a id="destination-non-matches" class="anchor" href="#destination-non-matches" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Destination non-matches</h2> 
+<p>This destination will be used as the call target when the current time does not match the time group selected above.</p> 
+<h1> <a id="application--time-groups" class="anchor" href="#application--time-groups" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Application / Time groups</h1> 
+<p>Il est juste n&eacute;cessaire de d&eacute;finir le business hour. Pas de d&eacute;finition du after business hour.</p> 
+<p>ensuite Application / Time condition.</p> 
+<ul> 
+ <li>On y definit le <code>Time Groups</code>. Ceux que l'on a d&eacute;finit juste avant.</li> 
+ <li>On y d&eacute;finit le <code>Destination if time matches</code> </li> 
+ <li>Et <code>Destination if time does not match</code> </li> 
+ <li>Ensuite il faut aller dans <code>Connectivity / Inbound Route</code>et changer <code>Set destination</code> avec <code>Time Conditions</code> et on choisit la time condition qui nous interesse.</li> 
+</ul> 
+<p>On peut l'utiliser dans une time condition mais aussi dans une outboud route pour limiter l'utilisation de certaines routes &agrave; certaines heures. C'est le champ todo?</p> 
+<h1> <a id="call-flow-module" class="anchor" href="#call-flow-module" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Call Flow module</h1> 
+<p>Il est utile pour cr&eacute;e une destination qui agit comme un switch qui peut &ecirc;tre activ&eacute; par toute personne qui a acces &agrave; un ip phone. Par passer de daytime mode &agrave; night time mode.<br /> Call flow est un switch manuel et Time Condition est un switch automatic.</p> 
+<p>Call flow peut etre utilis&eacute; dans les champ <code>Set Destination</code></p> 
+<h2> <a id="call-flow-toggle-feature-code" class="anchor" href="#call-flow-toggle-feature-code" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Call flow Toggle Feature Code</h2> 
+<p>Tous les feature code pour les call flow commencent par *28. L'index ie la derniere partie du code va de 0 &agrave; 99. Si on choisit 90 ici il faudra composer *2890</p> 
+<h2> <a id="current-mode" class="anchor" href="#current-mode" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Current mode</h2> 
+<ul> 
+ <li>Normal (Green/BLF off).</li> 
+ <li>Override (REd/BLF on). Pas compris</li> 
+</ul> 
+<h2> <a id="recording-for-normal-mode" class="anchor" href="#recording-for-normal-mode" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Recording for Normal Mode</h2> 
+<p>C'est ce qui est jou&eacute; quand on fait le feature code.<br /> The default recording played when toggling into normal mode is to beep and say &quot;feature code deactivated.&quot; You can record your own announcement in the System Recordings module and pick that recording within the Call Flow Control module to override the default recording.</p> 
+<h2> <a id="recording-for-override-mode" class="anchor" href="#recording-for-override-mode" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Recording for Override Mode</h2> 
+<p>The default recording played when toggling into override mode is to beep and say &quot;feature code activated.&quot; You can record your own announcement in the System Recordings module and pick that recording within the Call Flow Control module to override the default recording.</p> 
+<h2> <a id="optional-password" class="anchor" href="#optional-password" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Optional Password</h2> 
+<h2> <a id="normal-flow-destination" class="anchor" href="#normal-flow-destination" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Normal Flow Destination</h2> 
+<p>This is the destination to route the call to when in Normal (Green/BLF off) mode of the toggle. This destination can be:</p> 
+<ul> 
+ <li>extension,</li> 
+ <li>announcement,</li> 
+ <li>queue,</li> 
+ <li>...</li> 
+</ul> 
+<h2> <a id="override-flow" class="anchor" href="#override-flow" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Override Flow</h2> 
+<p>This is the destination to route the call to when in Override (Red/BLF on) mode of the toggle. This destination can be:</p> 
+<ul> 
+ <li>extension,</li> 
+ <li>announcement,</li> 
+ <li>queue,</li> 
+ <li>...</li> 
+</ul> 
+<h1> <a id="queue" class="anchor" href="#queue" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Queue</h1> 
+<p>Utile qd plus d'appels entrants que de personnes pour r&eacute;pondre.<br /> Un appel entrant mis dans une queue va entendre une annonce qui peut etre de la musique jusqu'a ce que quelqu'un prenne l'appel.</p> 
+<h2> <a id="vocabulaire" class="anchor" href="#vocabulaire" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Vocabulaire</h2> 
+<ul> 
+ <li> <em>Caller</em>: l'appelant plac&eacute; dans la queue</li> 
+ <li> <em>Agent</em>: Membre qui r&eacute;pond aux appels de la queue (peut etre un user ou une extension)</li> 
+ <li> <em>Agent static</em> : l'agent est tjs dans la queue et ne peut log out</li> 
+ <li> <em>Agent dynamic</em> : l'agent peut se loguer ou se d&eacute;loguer de la queue</li> 
+ <li> <em>MoH</em>: annonce sonore diffus&eacute; &agrave; l'appelant dans la queue.</li> 
+ <li> <em>Announcements</em> : jouait pour les agents et les membres</li> 
+</ul> 
+<h2> <a id="login-de-lagent" class="anchor" href="#login-de-lagent" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Login de l'agent</h2> 
+<ul> 
+ <li>Toutes les queues:<br /> <em>*45</em> log in /log out dans toutes les queues dans lesquels l'agent est un membre dynamic.</li> 
+ <li>Une seule queue:<br /> <em>*45xxx</em> log in / log out d'une queue sp&eacute;cifique s'il est dynamic</li> 
+ <li>Autre m&eacute;thode:<br /> <em>123*</em> : log in<br /> <em>123**</em>: log out si agent dynamique.</li> 
+</ul> 
+<h1> <a id="configuration" class="anchor" href="#configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configuration</h1> 
+<p>Applications -&gt; Queue</p> 
+<p>Queue number : n&deg; pour se logguer ou pour transf&eacute;rer un appel dans cette queue.</p> 
+<p>Queue name : un petit nom pour aider &agrave; l'identifier.</p> 
+<p>Queue password : optionnel. C'est un control d'acc&eacute;s.</p> 
+<p>Generate device hints: format : *45devicenumber(en g&eacute;n&eacute;ral le meme que l'extension)*numeroqueue</p> 
+<p>Call confirm si YES rien compris</p> 
+<p>Call Confirm Annouce : Annonce jouait aux agents annoncant un appel dans la queue</p> 
+<p>CID name prefix : prefix qui sera mis avant le caller ID et afficher sur l'IP phone.</p> 
+<p>Wait time prefix: YES affiche le temps total d'attente dans la queue comme cela l'agent sait combien de temps l'appelant a attendu.</p> 
+<p>Alert info : optionnal. Sonnerie distincte sur les IP phone.</p> 
+<p>Restrict Dynamic agents : Si YES seuls les agents dynamic list&eacute;s dans l'onglet &quot;queue agent&quot; pourront se logguer. Aucun autre agent ne pourra se logguer en temps que membre dynamic.</p> 
+<p>Agent restrictions : rien compris</p> 
+<p>Ring strategy:</p> 
+<ul> 
+ <li>ringall toutes les agents sonnent jusqu'a ce qu'un r&eacute;ponde.</li> 
+ <li>leastrecent : sonne l'agent qui a &eacute;t&eacute; appel&eacute; il y a le plus longtemps</li> 
+ <li>fewestcall: le moins d'appel termin&eacute; dans cette queue</li> 
+ <li>random : al&eacute;atoire</li> 
+ <li>rrmemory : Round robin avec m&eacute;moire. (se souvient de l'endroit quitt&eacute; lors du dernier passage)</li> 
+ <li>linear : sonne dans un ordre sp&eacute;cifi&eacute;. Pour les agents dynamic dans l'ordre de log.</li> 
+ <li>wrandom : au hasard avec la penalit&eacute; comme facteur.</li> 
+</ul> 
+<p>Autofill si YES lance tous les appels sur les agents. si NO le PBX garde la ligne jusqu'&agrave; ce qu'un agent r&eacute;ponde &agrave; l'appel le plus haut dans la liste.</p> 
+<p>Skip Busy Agent:</p> 
+<ul> 
+ <li>No tous les agents sont appel&eacute;s meme si leur t&eacute;l&eacute;phone est occup&eacute;.</li> 
+ <li>Yes + pas compris<br /> -Queue Calls Only :pas compris.</li> 
+</ul> 
+<p>Queue Weight: priority level. Plus le chiffre est &eacute;l&eacute;v&eacute; plus c'est prioritaire. Default=0</p> 
+<p>Music on Hold Class : musique jouait &agrave; l'appelant quand il attend pour un agent disponible. -inherit ce qui est en cours -MoH only joue la music jusqu'a ce que l'agent d&eacute;croche -agent Ringing : joue de la musique puis sonne si l'appel est pr&eacute;sent&eacute; &agrave; un agent et retourne &agrave; la musique si l'agent ne r&eacute;pond pas. -Ring Only</p> 
+<p>Join announcement : annonce jouait &agrave; l'appelant avant qu'il ne rejoigne la queue:</p> 
+<ul> 
+ <li>Always</li> 
+ <li>When no Free Agents</li> 
+ <li>When no Ready Agents</li> 
+</ul> 
+<p>Call recording:</p> 
+<p>Mark calls answered elsewhere : YES pas bien compris. l'appel n'est pas marqu&eacute; comme appel manqu&eacute; sur l'ip phone.</p> 
+<p>Fail Over Destination : c'est la destination en cas d'&eacute;chec de l'appel: maximum wait time, queue capacity, ...</p> 
+<p>Queue agent</p> 
+<ul> 
+ <li>Static ceux sont des extensions qui sont tjs dans la queue. Avantage pas besoin de se loguer/deloguer. On les met une par ligne. On peut mettre une extension sur un systeme remote, un numero externe.<br /> On peut mettre &lt; l'extension , une penalit&eacute; &gt;</li> 
+ <li>Dynamic. Ceux sont des extensions qui peuvent se loguer/deloguer. Les extensions qui sont l&agrave; ne seront pas logu&eacute;es automatiquement dans la queue.</li> 
+</ul> 
+<p>Timing &amp; agent options</p> 
+<p>-Max wait time : temps maximum qu'un appelant peut rester dans la queue avant d'en etre sorti. -Max wait time mode:</p> 
+<ul> 
+ <li>strict pulled immediately after Max Wait Time</li> 
+ <li>Loose : si l'appel est en train de sonner chez un agent le systeme attend un &eacute;v&eacute;nement avant de sortir l'appel de la queue.</li> 
+</ul> 
+<p>-Agent time out: dur&eacute;e en seconde de sonnerie de l'extension. Cela peut etre limit&eacute; par le system ring time, des valeurs par d&eacute;faut des extensions. ar-Agent Time Out Restart: YES le timeout d'un agent est remis &agrave; zero &agrave; la r&eacute;ception d'un busy ou d'un congestion.</p> 
+<p>-Retry</p> 
+<p>-Wrap Up Time : default 0. C'est le temps &agrave; attendre apres un appel r&eacute;pondu pour envoyer un autre appel sur un agent.</p> 
+<p>-Member Delay: pas compris</p> 
+<p>-Agent Annoucement : exemple &quot;this call is from the Sales Queue&quot;</p> 
+<p>-Report hold time: YES le temps d'attente de l'appelant est notifi&eacute; &agrave; l'agent avant la connection &agrave; l'agent.</p> 
+<p>-Auto Pause: pas compris</p> 
+<p>-Auto Pause on busy:</p> 
+<p>-Auto Pause on Unavailable</p> 
+<p>-Auto Pause delay:</p> 
+<h1> <a id="surcharger-le-caller-id-qui-saffiche-sur-le-t&eacute;l&eacute;phone-de-la-personne-qui-recoit-lappel" class="anchor" href="#surcharger-le-caller-id-qui-saffiche-sur-le-t%C3%A9l%C3%A9phone-de-la-personne-qui-recoit-lappel" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Surcharger le caller ID qui s'affiche sur le t&eacute;l&eacute;phone de la personne qui recoit l'appel.</h1> 
+<p>faire que la personne appel&eacute;e voit un numero que j'aurai param&eacute;tr&eacute; dans le freepbx.</p> 
+<ul> 
+ <li>1 J'ai essay&eacute; dans : Connectivity / Outbound Route / Route CID . Cela ne marche pas</li> 
+ <li>2 En mettant Override Extension &agrave; YES. Cela ne marche pas.</li> 
+</ul> 
+<h1> <a id="le-caller-id-de-lappelant-ne-saffiche-plus-sur-les-ip-phone" class="anchor" href="#le-caller-id-de-lappelant-ne-saffiche-plus-sur-les-ip-phone" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>le caller id de l'appelant ne s'affiche plus sur les IP phone</h1> 
+<ul> 
+ <li>Sur les sangoma phone</li> 
+ <li>Sur le polycom phone</li> 
+ <li>en faisant le 296 297 donc en passant par le vega50 et le Trunk Sip VEGA50</li> 
+ <li>c'est vega50 qui s'affiche.</li> 
+ <li>[SOLVE]voir la configuration du dial plan dans le webGUI du vega pour r&eacute;gler le probleme.</li> 
+</ul> 
+<p>Je ne trouve rien sur ce sujet dans le module inbound route.</p> 
+<p>##ssh root@ipvega</p> 
+<ul> 
+ <li><code>log display on</code></li> 
+ <li>make an inbound call</li> 
+ <li>on devrait voir qu'elle route le vega va utiliser. <a href="https://community.freepbx.org/t/incoming-caller-id-vega-50-freepbx-how-can-i-get-this-working-pls/35898/6">https://community.freepbx.org/t/incoming-caller-id-vega-50-freepbx-how-can-i-get-this-working-pls/35898/6</a> </li> 
+</ul> 
+<h1> <a id="voicemail-blasting-module" class="anchor" href="#voicemail-blasting-module" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Voicemail blasting module</h1> 
+<p>permet d'envoyer un msg &agrave; plusieurs utilisateurs.</p> 
+<ul> 
+ <li>1 cr&eacute;e un group de users</li> 
+ <li>2 assigne un numero &agrave; ce group</li> 
+ <li>3 un user peut composer ce num&eacute;ro pour laisser un message &agrave; ce groupe.</li> 
+</ul> 
+<h3> <a id="si-pas-de-audio-de-voix-1" class="anchor" href="#si-pas-de-audio-de-voix-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>si pas de audio, de voix</h3> 
+<ul> 
+ <li>Freepbx / settings / asterisk sip setting</li> 
+ <li>local network 192.168.1.0 / 24</li> 
+</ul> 
+<h1> <a id="module-backup-and-restore" class="anchor" href="#module-backup-and-restore" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Module backup and restore</h1> 
+<p>Admin / backup and restore</p> 
+<p>Backups : backups job, Quand, et tous les combiens, ce qui doit etre inclus dans le backup. Restores: On peut restorer &agrave; partir d'un dossier en local, ou en FTP, SSH... Servers : Serveurs PBX, DATABASE ou linux box, FTP servers, o&ugrave; on veut mettre le backup. Template c'est l'arborescence que l'on veut mettre dans le backup. Backup items</p> 
+<p><a href="https://wiki.freepbx.org/display/FPG/Using+the+Backup+module#UsingtheBackupmodule-Overview">https://wiki.freepbx.org/display/FPG/Using+the+Backup+module#UsingtheBackupmodule-Overview</a></p> 
+<h1> <a id="voicemail" class="anchor" href="#voicemail" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Voicemail</h1> 
+<h2> <a id="comment-acc&eacute;der-&agrave;-sa-voicemail" class="anchor" href="#comment-acc%C3%A9der-%C3%A0-sa-voicemail" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment acc&eacute;der &agrave; sa voicemail</h2> 
+<ul> 
+ <li>1 a partir du t&eacute;l&eacute;phone: 
+  <ul> 
+   <li>1 le bouton avec l'icone enveloppe</li> 
+   <li>2 le code : <em>*97</em> </li> 
+  </ul> </li> 
+</ul> 
+<h2> <a id="comment-mettre-son-t&eacute;l&eacute;phone-sur-r&eacute;pondeur" class="anchor" href="#comment-mettre-son-t%C3%A9l%C3%A9phone-sur-r%C3%A9pondeur" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment mettre son t&eacute;l&eacute;phone sur r&eacute;pondeur.</h2> 
+<ul> 
+ <li>1 Cr&eacute;er une annonce dans system recording</li> 
+ <li>2 Cr&eacute;er une announcement</li> 
+ <li>3 Cr&eacute;er un Call flow avec comme: 
+  <ul> 
+   <li>normal flow : destination son extension et</li> 
+   <li>Override flow : annoucement<br /> Les questions qu'il faut se poser sont :</li> 
+  </ul> </li> 
+ <li>1 est ce que c'est &agrave; horaire fixe si oui faire une time condition</li> 
+ <li>2 si non faire un call flow</li> 
+ <li>3 que veut on pour les deux possibilit&eacute; du call flow</li> 
+ <li>4 toujours penser &agrave; ce que l'on fait apres. Apres un annoucement.</li> 
+</ul> 
+<h2> <a id="voicemail-les-messages-sont-de-mauvaise-qualit&eacute;" class="anchor" href="#voicemail-les-messages-sont-de-mauvaise-qualit%C3%A9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Voicemail. Les messages sont de mauvaise qualit&eacute;.</h2> 
+<p><code>module show like timer</code> Mais je ne sais pas ce que je dois faire apres avec le r&eacute;sultat de cette commande.</p> 
+<p>module show like timer<br /> CLI&gt; module show like timer<br /> Module Description Use Count<br /> res_timing_timerfd.so Timerfd Timing Interface 1<br /> 1 modules loaded</p> 
+<h2> <a id="comment-changer-le-msg-de-la-voicemail" class="anchor" href="#comment-changer-le-msg-de-la-voicemail" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comment changer le msg de la voicemail</h2> 
+<p>I'm going to assume you want a standard message played for everybody's extension. The good news is that it's fairly simple, the bad news is that it has to be done individually for each extension,</p> 
+<p>For each extension...</p> 
+<ul> 
+ <li> <p>1 Create an announcement using your pre recorded message. Note: Make sure you understand the format requirements for uploaded audio.</p> </li> 
+ <li> <p>2 Point the announcement fail over to the appropriate VM box for that extension.</p> </li> 
+ <li> <p>3 On the extension setup page, point the Unavailable and Busy fail overs to the above created announcement.</p> </li> 
+</ul> 
+<p>TODO</p> 
+<p>This greeting is in the users base directory of their voicemail (see /var/spool/asterisk/voicemail)</p> 
+<p>TODO regarder sur l'extension setup page Unavailable and Busy fail overs voir si ca pointe vers un announcement.</p> 
+<p><a href="http://www.speedyshare.com/cszZT/pbxsound.wav">http://www.speedyshare.com/cszZT/pbxsound.wav</a></p> 
+<p>You can watch the audio packets passing from the Asterisk CLI with <code>rtp set debug on</code></p> 
+<p><a href="https://wiki.freepbx.org/display/PC/Analog-+Audio+Issues">https://wiki.freepbx.org/display/PC/Analog-+Audio+Issues</a></p> 
+<ul> 
+ <li><code>dahdi show channels</code></li> 
+ <li> <code>dahdi show channel 1</code> pour avoir le d&eacute;tail.</li> 
+</ul> 
+<h1> <a id="wanpipe" class="anchor" href="#wanpipe" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>wanpipe</h1> 
+<p>C'est une suite pour linux/windows de driver pour le kernel et d'utilities qui controle les cartes TDM sangoma. <a href="https://wiki.freepbx.org/display/PC/Card+Driver-+Overview">https://wiki.freepbx.org/display/PC/Card+Driver-+Overview</a></p> 
+<h1> <a id="checking-sangoma-fxo-status" class="anchor" href="#checking-sangoma-fxo-status" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>checking sangoma FXO status</h1> 
+<p>In order to check the analog status for a given analog channel in a Sangoma card you can do the following: <code>wanpipemon -i w1g1 -c astats -m 1</code></p> 
+<ul> 
+ <li>i specify l'interface wanpipe. On trouve les interfaces wanpipe avec la commande ifconfig. elles sont nomm&eacute;es de la forme :wXg1</li> 
+ <li>c commande &agrave; lancer dans l'interface</li> 
+ <li>m channel analog. The typical voltage pour une ligne open is : 53.53 volts.</li> 
+</ul> 
+<h2> <a id="results" class="anchor" href="#results" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>results</h2> 
+<h3> <a id="wanpipemon--i-w1g1--c-astats--m-1" class="anchor" href="#wanpipemon--i-w1g1--c-astats--m-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>wanpipemon -i w1g1 -c astats -m 1</h3> 
+<pre><code>------- Voltage Status  (FXO,port 0) -------  
+</code></pre> 
+<p>VOLTAGE : 53 Volts</p> 
+<pre><code>------- Line Status  (FXO,port 0) -------  
+</code></pre> 
+<p>Line : connected</p> 
+<h3> <a id="wanpipemon--i-w1g1--c-astats--m-2" class="anchor" href="#wanpipemon--i-w1g1--c-astats--m-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>wanpipemon -i w1g1 -c astats -m 2</h3> 
+<pre><code>------- Voltage Status  (FXO,port 1) -------
+</code></pre> 
+<p>VOLTAGE : 56 Volts</p> 
+<pre><code>------- Line Status  (FXO,port 1) -------
+</code></pre> 
+<p>Line : connected</p> 
+<h3> <a id="wanpipemon--i-w1g1--c-astats--m-3" class="anchor" href="#wanpipemon--i-w1g1--c-astats--m-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>wanpipemon -i w1g1 -c astats -m 3</h3> 
+<pre><code>------- Voltage Status  (FXO,port 2) -------
+</code></pre> 
+<p>VOLTAGE : 0 Volts</p> 
+<pre><code>------- Line Status  (FXO,port 2) -------
+</code></pre> 
+<p>Line : disconnected</p> 
+<h3> <a id="wanpipemon--i-w1g1--c-astats--m-4" class="anchor" href="#wanpipemon--i-w1g1--c-astats--m-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>wanpipemon -i w1g1 -c astats -m 4</h3> 
+<pre><code>------- Voltage Status  (FXO,port 3) -------
+</code></pre> 
+<p>VOLTAGE : 1 Volts</p> 
+<pre><code>------- Line Status  (FXO,port 3) -------
+</code></pre> 
+<p>Line : disconnected</p> 
+<p><a href="https://moythreads.com/wordpress/2011/04/01/wanpipemon-cookies-checking-sangoma-fxo-status/">https://moythreads.com/wordpress/2011/04/01/wanpipemon-cookies-checking-sangoma-fxo-status/</a></p> 
+<p>when developing or troubleshooting audio problems is often desirable to switch on/off the echo canceller to see the effects (perhaps, the echo canceller is being very aggressive and disrupting non-voice signals, such as DTMF).</p> 
+<p>This is how you can check the status of the echo canceller: <code>wan_ec_client wanpipe1 stats</code><br /> If you want statistics for a particular channel you can execute the ‘stats_full’ version: <code>wan_ec_client wanpipe1 stats_full 1</code><br /> You can completely shut down the EC operation on a given channel (you most likely don’t want to do this unless you know what you’re doing): <code>wan_ec_client wanpipe1 mpd 1</code></p> 
+<ul> 
+ <li>mpd = mode power down <code>wan_ec_client wanpipe1 mpd 1</code> </li> 
+ <li>mn =mode normal <code>wan_ec_client wanpipe1 mn 1</code> </li> 
+ <li>msr = mode speech recognition <code>wan_ec_client wanpipe1 msr 1</code><br /> Plutot que de d&eacute;sactiver l'EC il vaut mieux le bypasser. bypass enable l'audio passe au travers de l'EC. Bypass disable l'audio bypass l'EC mais l'EC continue de tourner.</li> 
+ <li><code>wan_ec_client wanpipe1 bd all</code></li> 
+ <li>enable the bypass back: <code>wan_ec_client wanpipe1 be all</code> &nbsp; On peut v&eacute;rifier le statut de l'EC avec : wanpipemon -i w1g1 -c ehw</li> 
+</ul> 
+<p><a href="https://www.voip-info.org/wiki/view/DAHDI">https://www.voip-info.org/wiki/view/DAHDI</a></p> 
+<p><a href="http://wiki.openvox.cn/index.php/Troubleshooting_of_Analog_cards">http://wiki.openvox.cn/index.php/Troubleshooting_of_Analog_cards</a></p> 
+<p><a href="https://wiki.freepbx.org/display/PC/Driver+Overview+Statistics">https://wiki.freepbx.org/display/PC/Driver+Overview+Statistics</a>. Il semble qu'il y ya eiat TODOD</p> 
+<h1> <a id="troubleshooting-and-diagnostic-commands-for-telephony-cards" class="anchor" href="#troubleshooting-and-diagnostic-commands-for-telephony-cards" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Troubleshooting and diagnostic commands for telephony cards</h1> 
+<h2> <a id="framer-statistic" class="anchor" href="#framer-statistic" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Framer statistic</h2> 
+<p>̀<code>wanpipemon -i w1g1 -c Ta</code></p> 
+<ul> 
+ <li>Errors: 
+  <ul> 
+   <li>Rx Level: 
+    <ul> 
+     <li>doit etre -2.5db</li> 
+     <li>si Rx level is not -2.5db il y a un probleme de cable.</li> 
+    </ul> </li> 
+   <li>Line, bit, out of frame error: 
+    <ul> 
+     <li>ne doivent pas &ecirc;tre incr&eacute;ment&eacute;es (?)</li> 
+     <li>si incr&eacute;ment&eacute;e, the clock on the T1/E1 line is bad.</li> 
+     <li>One can try to configure wanpipe port to MASTER clock. (je crois que cela se fait dans DAHDI config &agrave; voir)</li> 
+     <li>However the telco is suppose to provede the clock</li> 
+    </ul> </li> 
+  </ul> </li> 
+</ul> 
+<h2> <a id="echo-canceler-statistic" class="anchor" href="#echo-canceler-statistic" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Echo canceler statistic</h2> 
+<p><code>wan_ec_client wanpipe1 stats</code><br /> peut se faire sur chaque wanpipe device list&eacute;s dans wanrouter status</p> 
+<ul> 
+ <li>Errors: 
+  <ul> 
+   <li>H.100 Errors 
+    <ul> 
+     <li>The echo canceler is expecting a clean stable clock.</li> 
+     <li>The echo canceler clock is supplied by the T1/E1 line.</li> 
+     <li>If the clock coming from the line is not up to spec the echo canceler chip will increment the H.100 errors.</li> 
+    </ul> </li> 
+  </ul> </li> 
+</ul> 
+<h2> <a id="v&eacute;rifier-si-lecho-cancellation-est-en-marche" class="anchor" href="#v%C3%A9rifier-si-lecho-cancellation-est-en-marche" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>V&eacute;rifier si l'echo cancellation est en marche</h2> 
+<p><code>wanrouter hwprobe</code></p> 
+<ul> 
+ <li>HWEC=0 no hardware echo chancellor</li> 
+ <li>HWEC=tout sauf zero il y a echo cancellor hardware</li> 
+</ul> 
+<h2> <a id="v&eacute;rifier-si-lecho-cancellation-est-active" class="anchor" href="#v%C3%A9rifier-si-lecho-cancellation-est-active" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>V&eacute;rifier si l'echo cancellation est active</h2> 
+<p><code>wanpipemon -i wxg1 -c ehw</code></p> 
+<p><a href="https://wiki.freepbx.org/display/PC/Capture+Audio+Recording+from+card">https://wiki.freepbx.org/display/PC/Capture+Audio+Recording+from+card</a></p> 
+<h1> <a id="analog-audio-issue" class="anchor" href="#analog-audio-issue" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Analog audio issue</h1> 
+<p><a href="https://wiki.freepbx.org/display/PC/Analog-+Audio+Issues">https://wiki.freepbx.org/display/PC/Analog-+Audio+Issues</a></p> 
+<h2> <a id="exemple-de-fichier-audio" class="anchor" href="#exemple-de-fichier-audio" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>exemple de fichier audio</h2> 
+<p><a href="http://www.voiptroubleshooter.com/problems/robotic.html">http://www.voiptroubleshooter.com/problems/robotic.html</a></p> 
+<h1> <a id="dynamic-port-configuration" class="anchor" href="#dynamic-port-configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dynamic port configuration</h1> 
+<h1> <a id="probleme-avec-le-busy-now" class="anchor" href="#probleme-avec-le-busy-now" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Probleme avec le busy now.</h1> 
+<p>&quot;Dial failed for some reason with DIALSTATUS = CONGESTION and HANGUPCAUSE = 38&quot; TRUNK Dial failed due to CONGESTION HANGUPCAUSE: 38</p> 
+<h2> <a id="une-solution" class="anchor" href="#une-solution" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>une solution</h2> 
+<p>configurer l'outbound route pour que qd le Trunk vega ne marche pas on passe sur une outbound route analogique. Mais pour cela il faudra attendre que l'analogique marche correctement.</p> 
+<h1> <a id="asterisk-voicemail-menu-flow" class="anchor" href="#asterisk-voicemail-menu-flow" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Asterisk Voicemail Menu Flow</h1> 
+<p>Changing/setting voicemail greetings in asterisk, as well as FreePBX and other asterisk based solutions, can be done from the handset. See your PBX administrator for the access code to access your voicemail (Common codes are *98, *97 )[2] In many systems, your phone may have a message button that is preconfigured to directly access your voicemail options. Some menu items may be disabled by your administrator.</p> 
+<pre><code>1 Read voicemail messages
+    3 Advanced options
+        1 Reply
+        2 Call back(1)
+        3 Envelope
+        4 Outgoing call(1)
+        5 Send Message (only available if sendvoicemail=yes in voicemail.conf)
+    4 Play the previous message
+    5 Repeat current message
+    6 Play next message
+    7 Delete current message
+    8 Forward message to another mailbox
+        1 Use Voicemail number (only available if usedirectory=yes in voicemail.conf)
+        2 Use Voicemail Directory (only available if usedirectory=yes in voicemail.conf)
+    9 Save message in a folder
+        0 Save in new Messages
+        1 Save in old Messages
+        2 Save in Work Messages
+        3 Save in Family Messages
+        4 Save in Friends Messages
+    * Help; during msg playback: Rewind
+    # Exit; during msg playback: Skip forward
+2 Change folders
+    0 Switch to new Messages
+    1 Switch to old Messages
+    2 Switch to Work Messages
+    3 Switch to Family Messages
+    4 Switch to Friends Messages
+3 Advanced Options
+    5 Send Message (only available if sendvoicemail=yes in voicemail.conf)
+        1 Use Voicemail number (only available if usedirectory=yes in voicemail.conf)
+        2 Use Voicemail Directory (only available if usedirectory=yes in voicemail.conf)
+0 Mailbox options
+    1 Record your unavailable message
+    2 Record your busy message
+    3 Record your name
+    4 Record your temporary message (new in Asterisk v1.2)
+        1 Record your temporary message
+        2 Erase your temporary message (going back to the standard message)
+    5 Change your password
+    * Return to the main menu
+* Help
+# Exit
+</code></pre> 
+<p>After recording a message (incoming message, busy/unavailable greeting, or name)</p> 
+<pre><code>1 – Accept
+2 – Review
+3 – Re-record
+0 – Reach operator(1) (not available when recording greetings/name)
+</code></pre> 
+<p>(1) Prompts for these are only played if these options are enabled in voicemail.conf</p> 
+<p>(2) On FreePBX based systems *98 will prompt you for your user extension and pin number. *97 will provide direct access to the voicemail of the extension you are calling from.</p> 
+<h1> <a id="message-conversion" class="anchor" href="#message-conversion" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>message conversion</h1> 
+<p><a href="http://wiki.kolmisoft.com/index.php/Convert_WAV_file_to_Asterisk_playable_format">http://wiki.kolmisoft.com/index.php/Convert_WAV_file_to_Asterisk_playable_format</a></p> 
+<h1> <a id="parking-module" class="anchor" href="#parking-module" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parking module</h1> 
+<p><code>Application / Parking</code></p> 
+<p>Dans le module standard vs le module pro, il n'y a que le default parking lot.</p> 
+<h2> <a id="parking-lot-settings" class="anchor" href="#parking-lot-settings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parking lot settings</h2> 
+<ul> 
+ <li> <p>General settings</p> 
+  <ul> 
+   <li>Parking lot Extension</li> 
+   <li>Parking Lot Name</li> 
+   <li>Parking Lot Starting Position : le premier slot. n'est pas la meme chose que le parking lot extension.</li> 
+   <li>Number of Slots. Si l'extension est 70 et que l'on met 8 ici on les parking slot 71 &agrave; 78.</li> 
+   <li>Parking Timeout (seconds). Si l'appel n'est pas pris avant la fin de cette dur&eacute;e l'appel est envoy&eacute; &agrave; la timeout destination configur&eacute;e dans <code>Alternate Destination</code> section.</li> 
+   <li>Parked Music Class : music jou&egrave;e &agrave; l'appelant qui attend dans le parking lot.</li> 
+   <li>Find slot: 
+    <ul> 
+     <li>Next : utilise le slot suivant.</li> 
+     <li>First: utilise le premier slot disponible. C'est interressant si on a que quelques boutons programm&eacute;s pour le parking slot. Cela augmente les chances que le call soit parqu&eacute; dans les premiers slots.</li> 
+    </ul> </li> 
+  </ul> </li> 
+ <li> <p>Returned Call Behavior</p> 
+  <ul> 
+   <li>Pickup Courtesy Tone: Caller/Parked/Both/Neither Rien compris</li> 
+   <li>Re-Parking capability -Caller/Parked/Both/Neither</li> 
+   <li>Parking alert info: tag qui s'ajoute &agrave; l'appel lorsqu'il est renvoy&eacute; vers l'origine ou l'alternate destination.</li> 
+   <li>CallerID Prepend</li> 
+   <li>Auto CallerID Prepend 
+    <ul> 
+     <li>None</li> 
+     <li>Slot: le parking slot number</li> 
+     <li>Extension : la user extension qui a parqu&eacute; l'appel</li> 
+     <li>Name : le nom de l'extension qui a parqu&eacute; l'appel</li> 
+    </ul> </li> 
+   <li>Announcement : le message qui est jou&eacute; lorsque l'appel est renvoy&eacute; vers l'origine ou vers l'alternate destination</li> 
+  </ul> </li> 
+ <li> <p>Alternate Destination</p> 
+  <ul> 
+   <li>Come back to origin 
+    <ul> 
+     <li>Yes/No. Si Yes un appel parqu&eacute; time out sera renvoy&eacute; &agrave; l'origine mais si l'origine est unavailable ou ne r&eacute;pond pas la destination d&eacute;finie ci dessous sera utilis&eacute;e.</li> 
+    </ul> </li> 
+   <li>Destination c'est la destination d'un appel timeout. Soit direct si Come Back to Origin = No ou qd le device n'est pas joignable ou ne repond pas.</li> 
+  </ul> </li> 
+</ul> 
+<h2> <a id="pick-up-parked-call-feature-code" class="anchor" href="#pick-up-parked-call-feature-code" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pick Up Parked Call Feature Code</h2> 
+<p>*85<br /> On peut le modifier dans le module <code>Feature code</code></p> 
+<h2> <a id="phone-apps-parking" class="anchor" href="#phone-apps-parking" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Phone Apps Parking</h2> 
+<p>Cette application permet de voir tous les parked calls, prendre les parked call, et park les appels. Comment ajouter une application &agrave; un phone: <a href="https://wiki.freepbx.org/display/FPG/Phone+Apps-Adding+a+Phone+Application+to+a+device">https://wiki.freepbx.org/display/FPG/Phone+Apps-Adding+a+Phone+Application+to+a+device</a></p> 
+<h1> <a id="phone-apps" class="anchor" href="#phone-apps" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Phone apps</h1> 
+<p>Elles permettent de modifier le comportement du systeme &agrave; partir du t&eacute;l&eacute;phone. Elles sont donc manipul&eacute;s par le end user. Elles &eacute;vitent de passer par des featuring code, de passer par l'administrateur systeme pour faire des modifications dans le web gui.</p> 
+<ul> 
+ <li>Call flow control</li> 
+ <li>Call forward</li> 
+ <li>Conference room</li> 
+ <li>Contacts</li> 
+ <li>Endpoint (login logout)</li> 
+ <li>Follow me</li> 
+ <li>Parking</li> 
+ <li>Presence</li> 
+ <li>Queue agents</li> 
+ <li>Queues</li> 
+ <li>Time conditions</li> 
+ <li>Transfer to voicemail</li> 
+ <li>Visual voicemail</li> 
+</ul> 
+<p><a href="https://wiki.freepbx.org/display/FPG/Phone+Apps-Adding+a+Phone+Application+to+a+device">https://wiki.freepbx.org/display/FPG/Phone+Apps-Adding+a+Phone+Application+to+a+device</a></p>
+</body>
+</html>

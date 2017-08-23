@@ -765,25 +765,27 @@ SG500 (config)# ip routing # enable ip routing
 <h3> <a id="configuration-backup" class="anchor" href="#configuration-backup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>configuration backup</h3> 
 <p>File Management &gt; Download/Backup Configuration/Log from the main menu. Here, select HTTP method and Backup action. Finally select Running or Startup Configuration depending on your requirements and Apply</p> 
 <h3> <a id="verify" class="anchor" href="#verify" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Verify</h3> 
+<p><code>show ip route</code> <code>show ip interface brief</code></p> 
 <h2> <a id="inter-vlan-routing" class="anchor" href="#inter-vlan-routing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>inter vlan routing</h2> 
 <p><a href="https://www.cisco.com/c/en/us/support/docs/lan-switching/inter-vlan-routing/41860-howto-L3-intervlanrouting.html">https://www.cisco.com/c/en/us/support/docs/lan-switching/inter-vlan-routing/41860-howto-L3-intervlanrouting.html</a></p> 
 <p>Quand on cr&eacute;e des vlan on segmente le r&eacute;seau. On diminue le broadcasting et on am&eacute;liore la s&eacute;curit&eacute;.</p> 
 <ul> 
- <li>un r&eacute;seau pour les services critiques: 
+ <li> <p>un r&eacute;seau pour les services critiques:</p> 
   <ul> 
    <li>serveur de fichier</li> 
    <li>serveur d'impression Mais il faut qu'un user d'un vlan puisse utilise un service d'un autre vlan.</li> 
   </ul> </li> 
-</ul> 
-<p>-1 IP route enable</p> 
-<ul> 
- <li>IP configuration / Management and IPinterfaces / IPv4 interface</li> 
- <li>Double check IPv4 interface table -2 Verifier la VLAN configuration -Si un port rejoint un VLAN le port peut etre ACCESS ou TRUNK -Si un port rejoint plusieurs VLAN / Port peut etre mis &agrave; TRUNK ou GENERAL</li> 
+ <li> <p>1 IP route enable</p> 
+  <ul> 
+   <li>IP configuration / Management and IPinterfaces / IPv4 interface</li> 
+   <li>Double check IPv4 interface table</li> 
+  </ul> </li> 
+ <li> <p>2 Verifier la VLAN configuration -Si un port rejoint un VLAN le port peut etre ACCESS ou TRUNK -Si un port rejoint plusieurs VLAN / Port peut etre mis &agrave; TRUNK ou GENERAL</p> </li> 
 </ul> 
 <h3> <a id="vlan-routing-solutions" class="anchor" href="#vlan-routing-solutions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VLAN routing solutions</h3> 
 <p>On peut brancher un cable pour chaque sur le switch et brancher sur router. On peut utiliser un seul lien qui transporte de multiples VLAN. Mais le routeur doit etre capable de tagger On peut utiliser un switch layer 3</p> 
 <h1> <a id="taggeduntagged" class="anchor" href="#taggeduntagged" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tagged/untagged</h1> 
-<p>Le vlan c'est une s&eacute;paration logique des r&eacute;seaux. Sans vlan il faut un switch pour chaque broadcast domain. si on a plus d'un vlan sur un port (trunk port) il faut un moyen de savoir quel paquet appartient &agrave; quel vlan de l'autre cot&eacute;. On fait cela avec un tag. On VLAN tag le paquet ou VLAN header. C'est le 802.1Q qui contient un VLAN-ID et d'autres trucs (qui l'on peut trouver dans le</p> 
+<p>Le vlan c'est une s&eacute;paration logique des r&eacute;seaux. Sans vlan il faut un switch pour chaque broadcast domain.<br /> Si on a plus d'un vlan sur un port (trunk port) il faut un moyen de savoir quel paquet appartient &agrave; quel vlan de l'autre cot&eacute;. On fait cela avec un tag. On VLAN tag le paquet ou VLAN header. C'est le 802.1Q qui contient un VLAN-ID et d'autres trucs.</p> 
 <p>The above answers are quite technical. Think of it this way:</p> 
 <p>In fact VLANs and tagging is nothing more than a logical separation of networks in contrast to a physical one. Now what does that mean?</p> 
 <p>If there were no VLANs you would need one switch for each broadcast domain. Imagine the cabling involved and also the potential number of NICs required at the hosts. So first, VLANs allow you to have multiple independent layer 2 constructs within the same switch.</p> 
@@ -809,14 +811,9 @@ The only restriction here is that one MAC address cannot appear in the same VLAN
 There can be multiple VLANs per port (which is why there need to be tags at some point).
 There can be multiple VLANs per port and per MAC: the same MAC address can appear in different VLANs and on the same port (although I wouldn't recommend that for sanity purposes).
 The same MAC address still cannot appear on the same VLAN but on different ports (different hosts having the same MAC address in the same layer 2 network).
-
-tagged port = trunk port   
-Un device connect&eacute; &agrave; un tagged port doit comprendre les VLAN. 
-Si on veut accesder &agrave; un devic &agrave; partir de VLAN multiples, on a plusieurs options:
-  - Utiliser un device avec des capacit&eacute;s de routage (router ou layer 3 switch)
-  - Utiliser plusieurs interfaces dans le device, une pour chaque VLAN.  Et on connecte chaque interface &agrave; un untagged port sur son VLAN correspondant.
 </code></pre> 
-<p>On groupe les ports du switch dans des VLAN. Chaque VLAN a un ID. Chaque port du switch peut etre <code>Tagged</code>, <code>Untagged</code>,<code>Excluded</code>. Les paquets tagged ne sont compris que par les device qui acceptent les VLAN. Si le port est untagged. il ne mettra pas de tag au paquet sortant et enlevera le tag du paquet entrant. Excluded. Les paquet avec ce VLAN-ID ne sera jamais envoy&eacute;.</p> 
+<p>tagged port = trunk port<br /> Un device connect&eacute; &agrave; un tagged port doit comprendre les VLAN. Si on veut acc&eacute;der &agrave; un device &agrave; partir de VLAN multiples, on a plusieurs options: - Utiliser un device avec des capacit&eacute;s de routage (router ou layer 3 switch) - Utiliser plusieurs interfaces dans le device, une pour chaque VLAN. Et on connecte chaque interface &agrave; un untagged port sur son VLAN correspondant.</p> 
+<p>On groupe les ports du switch dans des VLAN. Chaque VLAN a un ID. Chaque port du switch peut etre <code>Tagged</code>, <code>Untagged</code>,<code>Excluded</code>. Les paquets tagged ne sont compris que par les device qui acceptent les VLAN. Si le port est untagged. il ne mettra pas de tag au paquet sortant et enlevera le tag du paquet entrant.<br /> Excluded. Les paquet avec ce VLAN-ID ne sera jamais envoy&eacute;.</p> 
 <p>Prenons 3 VLAN: VLAN 1 has IP net 192.168.1.0/24 VLAN 2 has IP net 192.168.2.0/24 VLAN 3 has IP net 192.168.3.0/24</p> 
 <p>Ces 3 VLAN sont des reseaux s&eacute;par&eacute;s qui partagent le meme switch. Comment est ce qu'on connecte un device de stockage?<br /> -1 On met en place de intervlan routing. On cre&eacute; un VLAN 4 et on met le storage device dans ce r&eacute;seau. On le connecte &agrave; un untagged access port. Et mettre en place des regles de routage pour que les autres VLAN peuvent joindre le VLAN 4. -2 On ne veut/peut pas mettre en place. On connecte le device de storage &agrave; un tagged port membre du VLAN 1-3 et cr&eacute;er 3 interfaces sur le device une pour chaque VLAN.</p> 
 <h2> <a id="ieee-8021q" class="anchor" href="#ieee-8021q" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>IEEE 802.1Q</h2> 
