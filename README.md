@@ -409,6 +409,9 @@ reboot phone
 
 Settings - endpoint manager - brands - polycom - save rebuild config and update phone : submit n'a pas marché
 
+### Comment on fait pour mettre en place les boutons speed-dial
+TODO
+
 # Quels sont les services que l'on peut utiliser pour tester son phone SIP
 `Admin -> Feature code`
 
