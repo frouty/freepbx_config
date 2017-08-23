@@ -145,7 +145,8 @@ File Management > Download/Backup Configuration/Log from the main menu. Here, se
 
 
 ### Verify
-
+`show ip route`
+`show ip interface brief`
 
 ## inter vlan routing
 
@@ -157,20 +158,21 @@ Quand on crée des vlan on segmente le réseau. On diminue le broadcasting et on
   - serveur d'impression
 Mais il faut qu'un user d'un vlan puisse utilise un service d'un autre vlan.
 
--1 IP route enable
+- 1 IP route enable
   - IP configuration / Management and IPinterfaces / IPv4 interface
   - Double check IPv4 interface table
--2 Verifier la VLAN configuration
+- 2 Verifier la VLAN configuration
   -Si un port rejoint un VLAN le port peut etre ACCESS ou TRUNK
   -Si un port rejoint plusieurs VLAN / Port peut etre mis à TRUNK ou GENERAL
+  
 ### VLAN routing solutions
 On peut brancher un cable pour chaque sur le switch et brancher sur  router.
 On peut utiliser un seul lien qui transporte de multiples VLAN. Mais le routeur doit etre capable de tagger 
 On peut utiliser un switch layer 3
 
 # Tagged/untagged
-Le vlan c'est une séparation logique des réseaux. Sans vlan il faut un switch pour chaque broadcast domain. 
-si on a plus d'un vlan sur un port (trunk port) il faut un moyen de savoir quel paquet appartient à quel vlan de l'autre coté. On fait cela avec un tag. On VLAN tag le paquet ou VLAN header. C'est le 802.1Q qui contient un VLAN-ID et d'autres trucs (qui l'on peut trouver dans le 
+Le vlan c'est une séparation logique des réseaux. Sans vlan il faut un switch pour chaque broadcast domain.  
+Si on a plus d'un vlan sur un port (trunk port) il faut un moyen de savoir quel paquet appartient à quel vlan de l'autre coté. On fait cela avec un tag. On VLAN tag le paquet ou VLAN header. C'est le 802.1Q qui contient un VLAN-ID et d'autres trucs.   
 
 
 The above answers are quite technical. Think of it this way:
@@ -208,15 +210,16 @@ A switch has an FDB (Forwarding DataBase) which
     There can be multiple VLANs per port and per MAC: the same MAC address can appear in different VLANs and on the same port (although I wouldn't recommend that for sanity purposes).
     The same MAC address still cannot appear on the same VLAN but on different ports (different hosts having the same MAC address in the same layer 2 network).
     
-    tagged port = trunk port   
-    Un device connecté à un tagged port doit comprendre les VLAN. 
-    Si on veut accesder à un devic à partir de VLAN multiples, on a plusieurs options:
+    
+tagged port = trunk port     
+Un device connecté à un tagged port doit comprendre les VLAN. 
+Si on veut accéder à un device à partir de VLAN multiples, on a plusieurs options:
       - Utiliser un device avec des capacités de routage (router ou layer 3 switch)
       - Utiliser plusieurs interfaces dans le device, une pour chaque VLAN.  Et on connecte chaque interface à un untagged port sur son VLAN correspondant.
 
 On groupe les ports du switch dans des VLAN. Chaque VLAN a un ID. Chaque port du switch peut etre `Tagged`, `Untagged`,`Excluded`. 
 Les paquets tagged ne sont compris que par les device qui acceptent les VLAN. 
-Si le port est untagged. il ne mettra pas de tag au paquet sortant et enlevera le tag du paquet entrant.
+Si le port est untagged. il ne mettra pas de tag au paquet sortant et enlevera le tag du paquet entrant.  
 Excluded. Les paquet avec ce VLAN-ID ne sera jamais envoyé.
 
 Prenons 3 VLAN: 
