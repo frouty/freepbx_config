@@ -1709,3 +1709,13 @@ Elles permettent de modifier le comportement du systeme à partir du téléphone
 
 https://wiki.freepbx.org/display/FPG/Phone+Apps-Adding+a+Phone+Application+to+a+device
 
+
+# Connecter deux machines freepbx
+
+https://www.freepbx.org/connecting-two-freepbx-machines-together/
+
+Dans le freepbx dialplan il y a :
+- *from-trunk* Qd un appel est envoyé dans from-trunk context il est routé en fonction de la logique 'DID' et traité comme s'il était un appel externe.
+- *from-internal*. Un appel envoyé dans from-internal context est traité comme s'il était envoyé depuis un SIP, IAX, Zap extension de votre PABX.
+
+

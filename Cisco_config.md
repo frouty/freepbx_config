@@ -38,7 +38,13 @@ Il faut avoir un acces au switch.
 
 That will set a new password in the running (and startup config) so that you will be able to access the switch after a reboot.
 
-## Vlans
+# Port Configuration on the Sx500 Series Stackable Switches
+https://supportforums.cisco.com/t5/small-business-switches/port-configuration-on-the-sx500-series-stackable-switches/ta-p/3146252
+
+# Installation and Setup of Cisco SG500-52P - 500 Series Stackable Managed Switches
+http://www.firewall.cx/cisco-technical-knowledgebase/cisco-switches/885-cisco-switches-sg500-52p.html
+
+# Vlans
 port vlan peuvent être:  
 - tagged = trunk
 - untagged = access
@@ -164,11 +170,57 @@ Mais il faut qu'un user d'un vlan puisse utilise un service d'un autre vlan.
 - 2 Verifier la VLAN configuration
   -Si un port rejoint un VLAN le port peut etre ACCESS ou TRUNK
   -Si un port rejoint plusieurs VLAN / Port peut etre mis à TRUNK ou GENERAL
-  
-### VLAN routing solutions
+
+# How to inter-VLAN routing with Cisco SG series SMB Layer 3 switches
+- 1 on branche le switch sur le routeur principal. Il obtient une adresse DHCP. On cherche qu'elle est cette adress IP.
+- 2 on utilise un navigateur pour aller sur cette IP. 
+- 3 Changer en mode 3. Administration / System settings / System mode 3 / apply. Toutes la configuration est effacée et le switch reboot. 
+- 4 nouvelle adresse DHCP a retrouver. Mise en place d'une adresse static. IP Configuration / IPv4 Interface.
+Si j'ai bien compris il faut delete le VLAN 1 interface. et Add et donner une adresse static dans le subnet du routeur. 
+ 
+- 5 Creation des VLAN. VLAN Management / Create VLAN / Add / Apply.
+- 6 Assign à chaque VLAN une IP. IP configuration/IPv4 interface/Add/Set interface to VLAN et selectionner VLAN ID. IP address Type Static/. Le switch crée le routing pour le VLAN qu'une fois qu'il y a un device branché sur le VLAN. on peut le vérifier dans IP configuration / IPv4 Routes.  
+
+Le VLAN 1 est créé par défaut. Il répond au serveur DHCP. Mais il a aussi comme IP par défaut: 192.168.1.254
+```
+switch# configure terminal
+switch(config)# interface vlan 1
+switch(config-if)# ip address 192.168.1.2 255.255.255.0
+switch(config-if)# exit
+```
+Apres on configure les autres VLAN
+```
+switch(config)# vlan 2
+switch(config)# interface vlan 2
+switch(config-if)# name Voice-VLAN
+switch(config-if)# ip address 192.168.10.2 255.255.255.0
+switch(config-if)# exit
+switch(config)# vlan 5
+switch(config)# interface vlan 5
+switch(config-if)# name Guest-VLAN
+switch(config-if)# ip address 192.168.50.2 255.255.255.0
+switch(config-if)# exit
+```
+```
+My test vlans are as follows:
+VLAN 1 - Management - 192.168.1.2
+VLAN 2 - Data - 172.16.2.1
+VLAN 3 - Telephony - 172.16.3.1
+VLAN 4 - SecureWireless - 172.16.4.1
+VLAN 5 - GuestWifi - 172.16.5.1
+```
+Sur le switch il faudra une default route : `ip route 0.0.0.0 0.0.0.0 192.168.1.1`
+Sur le routeur il faudra des routes pour les network sur le switch SG500:
+`ip route 172.16.2.0 255.255.255.0 192.168.1.2`
+`ip route 172.16.3.0 255.255.255.0 192.168.1.2`
+`ip route 172.16.4.0 255.255.255.0 192.168.1.2`
+`ip route 172.16.5.0 255.255.255.0 192.168.1.2`
+
+# VLAN routing solutions
 On peut brancher un cable pour chaque sur le switch et brancher sur  router.
 On peut utiliser un seul lien qui transporte de multiples VLAN. Mais le routeur doit etre capable de tagger 
 On peut utiliser un switch layer 3
+
 
 # Tagged/untagged
 Le vlan c'est une séparation logique des réseaux. Sans vlan il faut un switch pour chaque broadcast domain.  
