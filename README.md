@@ -1712,10 +1712,48 @@ https://wiki.freepbx.org/display/FPG/Phone+Apps-Adding+a+Phone+Application+to+a+
 
 # Connecter deux machines freepbx
 
-https://www.freepbx.org/connecting-two-freepbx-machines-together/
+https://www.freepbx.org/connecting-two-freepbx-machines-together/ Bof un peu succint.
+
+https://wiki.freepbx.org/pages/viewpage.action?pageId=4161588 
 
 Dans le freepbx dialplan il y a :
 - *from-trunk* Qd un appel est envoyé dans from-trunk context il est routé en fonction de la logique 'DID' et traité comme s'il était un appel externe.
 - *from-internal*. Un appel envoyé dans from-internal context est traité comme s'il était envoyé depuis un SIP, IAX, Zap extension de votre PABX.
 
+- 1 Configure an IAX2 Trunk on System1,  The Trunk will establish a connection with System2.
+	- sur le system dans les peer detail on donne l'adresse IP du system 2 host = ipadress du system 1
+- 2 Configure an Outbound Route on System1.  The Route will tell System1 which calls to send out to System2.
+- 3 Configure an IAX2 Trunk on System2.  The Trunk will establish a connection with System1.
+- 4 Configure an Outbound Route on System2.  The Route will tell System2 which calls to send out to System1.
 
+
+- 1 System A envoie un message qualify du port 4569 sur le port 4569 du system B
+- 2 Le firewall du system A voit le message sortant vers le system B et ouvre un port 4569 comme cela si un paquet arrive au port 4569 du system B dans les 60 secondes, le message est forwardé à l'adress IP interne du system A. 
+- 3 Le firewall du system est fermé est donc rejette le qualify message. Le systeme B n'abtient jamais le message et n'y repond jamais.
+- 4 entre 25ms et 25 seconds plus tard le system B envoie son propre qualify message de son port 4569 au port 4569 du system A. 
+- 5 Le firewall du system B voit passer le message sortant vers le system A et ouvre le port 4569 afin que tout paquet arrivant au port 4569 du system A dans les 60 seconds soit forwardé à l'adress IP interne du system B. 
+- 6 Le firewall de A qui a ouvert le port 4569 recoit le qualify message de B et le forward à l'adresse IP interne de A. 
+- 7 System A repond au qualify message de B. 
+- 8 le firewall de A voit le message sortant vers A et reset le 60 seconds timeout timer pour accepeter et router les paquets de B sur le port 4569. 
+- 9 entre quelques milliseconds et 25 seconds plus tard le system A envoie un qualify message du port 4569 vers le port 4569 de B.
+- 10 ce processus 6-8 se répéte et aussi pour le firewall de B qui accepte et reset le timer.s
+
+#Remote SIP phone / VPN
+
+tous les VPN peuvent marcher. Ce n'est pas spécifique à la VOIP.  
+Si le sever peut pinguer l'adresse IP privée de l'IPphone remote au bout du tunnel et qu'il répond avec sa propre IP  (no NAT) alors on a une connection réussi.
+
+https://wiki.freepbx.org/display/FPG/System+Admin+-+VPN+Server 
+qui explique comment mettre en route un serveur VPN. 
+
+## OpenWRT openVPN
+https://wiki.openwrt.org/doc/howto/vpn.openvpn   
+Pour se former à openVP 
+- 1 **Default server  ou TUN server**. Le plus simple à configurer. les clients sont gérés par openVPN et le server VPN leur assigne une IP adress dans leur subnet distinct.  
+On peut utiliser le meme subnet que le réseau local mais il doit alors assigner des addresses en dehors du range du serveur DHCP car sinon il y a risque de conflit d'adresse IP. (meme adresse IP une par le VPN l'autre par le DHCP).
+C'est plus secure. Comme on peut mettre les clients sur un subnet différent on peut les firewaller.
+- 2 **Server-Bridge (TAP) Server**. == ethernet-bridge. Cette configuration creée un cable ethernet virtuel entre le server et le client. Ce qui veut dire que le client est traité par le routeur comme s'il était connecté comme un autre ordinateur. Il va lui etre assigné une adresse IP par le serveur DHCP du routeur.
+- 3 **Client** OpenVPN se comporte comme un client et se connecte au serveur remote.
+
+
+https://www.loganmarchione.com/2014/10/openwrt-with-openvpn-client-on-tp-link-tl-mr3020/    
