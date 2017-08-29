@@ -348,3 +348,7 @@ Rebooting ...
 
 
 - est-ce qu'on peut faire firstboot et rien d'autre pour obtenir le meme résultat. Marche pas..
+
+# GUI web Reset to defaults
+Il faut alors brancher directement le routeur sur le pc. 
+IP address 192.168.1.1
