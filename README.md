@@ -1755,5 +1755,25 @@ C'est plus secure. Comme on peut mettre les clients sur un subnet différent on 
 - 2 **Server-Bridge (TAP) Server**. == ethernet-bridge. Cette configuration creée un cable ethernet virtuel entre le server et le client. Ce qui veut dire que le client est traité par le routeur comme s'il était connecté comme un autre ordinateur. Il va lui etre assigné une adresse IP par le serveur DHCP du routeur.
 - 3 **Client** OpenVPN se comporte comme un client et se connecte au serveur remote.
 
+### securite
+2 modes:  
+- 1 SSL/TLS + RSA keys. Option la plus sécure.
+- 2  pre-shared static key. plus simple. 
 
-https://www.loganmarchione.com/2014/10/openwrt-with-openvpn-client-on-tp-link-tl-mr3020/    
+https://www.loganmarchione.com/2014/10/openwrt-with-openvpn-client-on-tp-link-tl-mr3020/   
+
+
+ https://openvpn.net/index.php/open-source/documentation/howto.html  
+ https://openvpn.net/index.php/open-source/documentation/miscellaneous/88-1xhowto.html
+ 
+ Comment connaitre sa version de openvpn? 
+ 
+Dans le fichier de configuration du serveur; On ne donne pas d'adress IM public. On donne deux adresses IP privé des deux bouts du tuyau VPN. 
+Dans le fichier de configuration du client on donne l'adress IP du serveur VPN.
+
+Si le VPN marche on pingue les adresses des bouts du tunnel. 
+Si cela marche on ping à travers le tunnel sur des adresses privé autre que le gateway machine pour tester le routing. 
+Si cela marche c'est bon. 
+ 
+ 
+ Home et office network sont connectés à internet par une gateway a une adresse IP public. Chaque gateway a 2 NIC. Une connectée à l'adress publique et l'autre au réseau privé. La gateway fournit NAT, firewall, service VPN.  
