@@ -126,7 +126,7 @@ remote 192.168.1.160 5712
 ~~~~
 Si votre openvpn est votre routeur ce sera l'adresse du routeur 192.168.1.1.
 
-# configuration du client
+# configuration du clientt
 
 - Création du fichier de configuration du client:
 ~~~
@@ -149,10 +149,13 @@ Et donc qu'elle est l'adresse du serveur?
 
 openvpn client.conf
 
-## depuis le client
+## depuis le clientt
 `ping SERVER_IP_ADDRESS`  
 `traceroute 10.8.0.1` # je ne sais d'ou sort cette IP. Elle n'existe nulle part ailleurs dans les fichiers de config. 
 Si on fait un `traceroute 8.8.8.8` sur une adresse IP public on devrait voir que le traffic utilise l'adress gateway oar défaut du client. 
+
+
+On crée une *forward rule*. Je comprends les choses comme cela. Les paquets ip envoyés depuis le remote client arrive sur l'interface WAN du routeur du serveur openvpn car c'est ce que j'ai mis dans le fichire de configuration du serveur. C'est paquet doivent etre redirigé vers le serveur openrp.  
 
 # configuration du serveur sur une machine qui n'est pas le routeur
 fichier /etc/openvpn/server.conf
