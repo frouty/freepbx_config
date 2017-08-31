@@ -102,18 +102,20 @@ Afficher les log : `logread -f` en console ssh
 
 - If everything went fine, the last log line from OpenVPN should contain Initialization Sequence Completed. There are some warnings and errors ... ignore them.
 
-- s'assurer que le lien est up avec `ifconfig tun0`
+- s'assurer que le lien est up avec `ifconfig tun0`, `ifconfig | grep tun`
 	- on doit avoir une ligne du genre : ` inet addr:10.8.0.6  P-t-P:10.8.0.5  Mask:255.255.255.255`
-- s'assurer que cela fonctionne : `ping 10.8.0.1 -c 2
+- s'assurer que cela fonctionne : `ping 10.8.0.1 -c 2`
 
 - On cherche s'il y a une interface tun avec ifconfig -a
 - On regarde la table de routage avec netsat -nr. On doit avoir et c'est essentiel une route vers le serveur VPN (xxx.xxx.XXX.XXX), une route 
-- On fait un traceroute pour voir si on va vers le server vpn. (?)
+- On fait un traceroute  10.8.0.1 pour voir si on va vers le server vpn. (?)
+ -- `ps | grep openvpn`
 
 # comment tester le server openvpn
 - If you don't mind reconfiguring your network, you could also unplug the modem, plug a computer in its place, set the router WAN to a static IP (192.168.64.1) and the computer on 192.168.64.2, and try connecting to the VPN using the .1 IP.
 - En utilisant une connection 3G
 - En changeant l'option remote pour qu'elle pointe vers l'adresse IP privée du serveur openvpn.
+
 
 
 ~~~client
@@ -147,6 +149,10 @@ Et donc qu'elle est l'adresse du serveur?
 
 openvpn client.conf
 
+## depuis le client
+`ping SERVER_IP_ADDRESS`  
+`traceroute 10.8.0.1` # je ne sais d'ou sort cette IP. Elle n'existe nulle part ailleurs dans les fichiers de config. 
+Si on fait un `traceroute 8.8.8.8` sur une adresse IP public on devrait voir que le traffic utilise l'adress gateway oar défaut du client. 
 
 # configuration du serveur sur une machine qui n'est pas le routeur
 fichier /etc/openvpn/server.conf
