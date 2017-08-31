@@ -1,4 +1,4 @@
-#TPlink Archer C7 V2.0 (V2.0 c'est marqué sur l'etiquette de la boite)
+# TPlink Archer C7 V2.0 (V2.0 c'est marqué sur l'etiquette de la boite)
 
 
 metre dans /etc/profile:   
@@ -22,7 +22,7 @@ https://wiki.openwrt.org/doc/howto/secure.access
 
 Dans la configuration du routeur a aucun moment je n'ai besoin de donner le ipv4 gateway adresse ni l'adresse du dns server. Je ne comprends pas pourquoi.
 
-#interet du vpn:
+# interet du vpn:
 Guest network access can easily be granted because you do not need to care about the things your guests are using your Internet for. 
 
 https://blog.ipredator.se/howto/openwrt/configuring-openvpn-on-openwrt.html
@@ -30,7 +30,7 @@ https://blog.ipredator.se/howto/openwrt/configuring-openvpn-on-openwrt.html
 Cela veut dire qu'il faudra payer un abonnement à un server VPN extérieur.
 
 
-#pour connaitre les paquets disponibles 
+# pour connaitre les paquets disponibles 
 `opkg search openvpn`
 
 # pour voir les log :
@@ -42,7 +42,7 @@ Dans le web GUI : Status / System Log
 Mais cela n'est pas dynamique il faut rafraichir.  
 
 
-#Config du serveur VPN :
+# Config du serveur VPN :
 
 https://wiki.openwrt.org/doc/howto/vpn.openvpn  
 
@@ -102,6 +102,10 @@ Afficher les log : `logread -f` en console ssh
 
 - If everything went fine, the last log line from OpenVPN should contain Initialization Sequence Completed. There are some warnings and errors ... ignore them.
 
+- s'assurer que le lien est up avec `ifconfig tun0`
+	- on doit avoir une ligne du genre : ` inet addr:10.8.0.6  P-t-P:10.8.0.5  Mask:255.255.255.255`
+s'assurer que cela fonctionne : `ping 10.8.0.1 -c 2
+
 - On cherche s'il y a une interface tun avec ifconfig -a
 - On regarde la table de routage avec netsat -nr. On doit avoir et c'est essentiel une route vers le serveur VPN (xxx.xxx.XXX.XXX), une route 
 - On fait un traceroute pour voir si on va vers le server vpn. (?)
@@ -121,10 +125,8 @@ remote 192.168.1.160 5712
 Si votre openvpn est votre routeur ce sera l'adresse du routeur 192.168.1.1.
 
 # configuration du client
+
 openvpn client.conf
-s'assurer que le lien est up avec `ifconfig tun0`
-on doit avoir une ligne du genre : ` inet addr:10.8.0.6  P-t-P:10.8.0.5  Mask:255.255.255.255`
-s'assurer que cela fonctionne : `ping 10.8.0.1 -c 2
 
 
 # configuration du serveur sur une machine qui n'est pas le routeur
