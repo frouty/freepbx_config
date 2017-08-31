@@ -104,7 +104,7 @@ Afficher les log : `logread -f` en console ssh
 
 - s'assurer que le lien est up avec `ifconfig tun0`
 	- on doit avoir une ligne du genre : ` inet addr:10.8.0.6  P-t-P:10.8.0.5  Mask:255.255.255.255`
-s'assurer que cela fonctionne : `ping 10.8.0.1 -c 2
+- s'assurer que cela fonctionne : `ping 10.8.0.1 -c 2
 
 - On cherche s'il y a une interface tun avec ifconfig -a
 - On regarde la table de routage avec netsat -nr. On doit avoir et c'est essentiel une route vers le serveur VPN (xxx.xxx.XXX.XXX), une route 
@@ -126,6 +126,22 @@ Si votre openvpn est votre routeur ce sera l'adresse du routeur 192.168.1.1.
 
 # configuration du client
 
+- Création du fichier de configuration du client:
+~~~
+dev tun
+proto udp
+
+log openvpn.log
+verb 3
+
+ca /etc/openvpn/ca.crt
+cert /etc/openvpn/my-client.crt
+key /etc/openvpn/my-client.key
+
+client
+remote-cert-tls server
+remote SERVER_IP_ADDRESS 1194
+~~~
 openvpn client.conf
 
 
