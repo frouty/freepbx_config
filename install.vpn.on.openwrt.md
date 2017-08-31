@@ -92,7 +92,7 @@ option remote 'pw.openvpn.ipredator.se 1194'
 You can easily find out your OpenVPN server IP address. The syntax is as follows to get tun0 ip address on Unix or Linux:
 `ifconfig tun0`
 
-OR use Linux specific command:
+Or use Linux specific command:
 `ip -a show tun0`
 
 dig TXT +short o-o.myaddr.l.google.com @ns1.google.com
