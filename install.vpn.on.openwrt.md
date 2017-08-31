@@ -142,6 +142,9 @@ client
 remote-cert-tls server
 remote SERVER_IP_ADDRESS 1194
 ~~~
+`SERVER_IP_ADDRESS` on mettra un dyndns fqdm et une regle de NAT sur le firewall pour rediriger vers le serveur.  
+Et donc qu'elle est l'adresse du serveur?
+
 openvpn client.conf
 
 
