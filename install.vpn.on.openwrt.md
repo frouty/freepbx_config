@@ -128,7 +128,16 @@ Si votre openvpn est votre routeur ce sera l'adresse du routeur 192.168.1.1.
 
 # configuration du clientt
 
-- Création du fichier de configuration du client:
+## Quels sont les fichiers à sauvegarder 
+- ca.crt
+- my.client.crt
+- my.client.crs
+- my.client.key
+
+### chemin de la sauvegarde. ? 
+
+
+##  Création du fichier de configuration du client:
 ~~~
 dev tun
 proto udp
@@ -154,9 +163,49 @@ openvpn client.conf
 `traceroute 10.8.0.1` # je ne sais d'ou sort cette IP. Elle n'existe nulle part ailleurs dans les fichiers de config. 
 Si on fait un `traceroute 8.8.8.8` sur une adresse IP public on devrait voir que le traffic utilise l'adress gateway oar défaut du client. 
 
+# Port forwarding
+On crée une *forward rule*. Je comprends les choses comme cela. Les paquets ip envoyés depuis le remote client arrive sur l'interface WAN du routeur du serveur openvpn car c'est ce que j'ai mis dans le fichier de configuration du serveur. C'est paquet doivent etre redirigé vers le serveur openrp.  
+##  Port forwarding 
+permet de forwarder le traffic externe vers un hote interne ou un service.  
+fichier de configuration : /etc/config/firewall
 
-On crée une *forward rule*. Je comprends les choses comme cela. Les paquets ip envoyés depuis le remote client arrive sur l'interface WAN du routeur du serveur openvpn car c'est ce que j'ai mis dans le fichire de configuration du serveur. C'est paquet doivent etre redirigé vers le serveur openrp.  
 
+# Dans le cas d'odoo:
+- *Source zone* : wan
+- *Protocol* : TCP +UDP
+- *external port* 8069
+- *internal ip address*: adress ip du serveur dans le LAN
+- *internal* port (optional): 8069
+Et dans l'onglet Advanced setting
+- *Redirection type*: DNAT
+- *Destination zone*: LAN
+- *intended destination address* : any
+- *Source MAC address* : any
+- *Source port* : 0-65536 
+- *Enable nat loopback*
+
+~~~
+config 'redirect'
+	option '_name' 'Odoo'
+	option 'src' 'wan'
+	option 'proto' 'tcpudp'
+	option 'src_dport' '8069'
+	option 'dest_ip' '192.168.1.110'
+	option 'target' 'DNAT'
+	option 'dest' 'lan'
+	option 'dest_port' '8069'
+~~~
+~~~
+firewall.@redirect[1]._name=Odoo
+firewall.@redirect[1].src=wan
+firewall.@redirect[1].proto=tcpudp
+firewall.@redirect[1].src_dport=8069
+firewall.@redirect[1].dest_ip=192.168.1.110
+firewall.@redirect[1].target=DNAT
+firewall.@redirect[1].dest=lan
+firewall.@redirect[1].dest_port=8069
+firewall.@redirect[2]=redirect
+~~~
 # configuration du serveur sur une machine qui n'est pas le routeur
 fichier /etc/openvpn/server.conf
 - directive `local`: to make it listen to an IP adress. C'est l'adress IP vers qui est forwardé UDP port 1194 par le firewall.
