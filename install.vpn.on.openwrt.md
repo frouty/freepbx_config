@@ -158,10 +158,16 @@ Et donc qu'elle est l'adresse du serveur?
 
 openvpn client.conf
 
-## depuis le clientt
+
+## depuis le client
+
 `ping SERVER_IP_ADDRESS`  
 `traceroute 10.8.0.1` # je ne sais d'ou sort cette IP. Elle n'existe nulle part ailleurs dans les fichiers de config. 
 Si on fait un `traceroute 8.8.8.8` sur une adresse IP public on devrait voir que le traffic utilise l'adress gateway oar défaut du client. 
+`ifconfig` à la recherche d'un tun
+`ping 10.8.0.1` ip address que l'on trouve en faisant un ifconfig tun0
+
+
 
 # Port forwarding
 On crée une *forward rule*. Je comprends les choses comme cela. Les paquets ip envoyés depuis le remote client arrive sur l'interface WAN du routeur du serveur openvpn car c'est ce que j'ai mis dans le fichier de configuration du serveur. C'est paquet doivent etre redirigé vers le serveur openrp.  
