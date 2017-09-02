@@ -234,5 +234,5 @@ ping 192.168.10.65
 `uci show openvpn`  
 `cat /etc/config/openvpn`  
 `cat /var/etc/openvpn-myvpn.conf`
-![GitHub Logo](icono/drawing.png)
+![GitHub Logo](/icono/drawing.png)
 
