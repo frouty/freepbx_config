@@ -233,6 +233,6 @@ ping 192.168.10.65
 # Comment revoir sa configuration
 `uci show openvpn`  
 `cat /etc/config/openvpn`  
-`cat /var/etc/openvpn-myvpn.conf`
-![GitHub Logo](icono/drawing.png)
+`cat /var/etc/openvpn-myvpn.conf`  
+![GitHub Logo](icono/schema.png)
 
