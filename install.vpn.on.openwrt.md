@@ -82,19 +82,21 @@ On regarde la table de routage avec netsat -nr. On doit avoir et c'est essentiel
 On fait un traceroute pour voir si on va vers le server vpn.
 
 # Quand est ce qu'on donne l'adresse du serveur vpn?
-Dans le fichier de configuration du client /etc/config/openvpn : option remote SERVER_IP_ADRESS 1194  
-option remote 'pw.openvpn.ipredator.se 1194'
+Dans le fichier de configuration du client /etc/config/openvpn : 
+- option remote SERVER_IP_ADRESS 1194  
+- option remote 'pw.openvpn.ipredator.se 1194'
 
 
- YOu will need to open port 1194 (TCP) to be forwarding through the firewall to your OpenVPN server.
+YOu will need to open port 1194 (TCP) to be forwarding through the firewall to your OpenVPN server. Cela veut dire qu'il faut faire quoi?
 
-
+# Comment obtenir l'adresse IP du serveur openVPN?
 You can easily find out your OpenVPN server IP address. The syntax is as follows to get tun0 ip address on Unix or Linux:
-`ifconfig tun0`
+`ifconfig tun0` sur le device qui fait tourner le serveur
 
 Or use Linux specific command:
 `ip -a show tun0`
 
+# Comment obtenir l'adresse public
 dig TXT +short o-o.myaddr.l.google.com @ns1.google.com
 
 # Comment voir si tout c'est bien passé:
@@ -102,21 +104,22 @@ Afficher les log : `logread -f` en console ssh
 
 - If everything went fine, the last log line from OpenVPN should contain Initialization Sequence Completed. There are some warnings and errors ... ignore them.
 
-- s'assurer que le lien est up avec `ifconfig tun0`, `ifconfig | grep tun`
+- `ps | grep openvpn`
+
+- s'assurer que le lien est up avec `ifconfig tun0`, `ifconfig | grep tun` `ifconfig -a`
 	- on doit avoir une ligne du genre : ` inet addr:10.8.0.6  P-t-P:10.8.0.5  Mask:255.255.255.255`
+
 - s'assurer que cela fonctionne : `ping 10.8.0.1 -c 2`
 
-- On cherche s'il y a une interface tun avec ifconfig -a
-- On regarde la table de routage avec netsat -nr. On doit avoir et c'est essentiel une route vers le serveur VPN (xxx.xxx.XXX.XXX), une route 
+- On regarde la table de routage avec netsat -nr. On doit avoir et c'est essentiel une route vers le serveur VPN (xxx.xxx.XXX.XXX)
+ 
 - On fait un traceroute  10.8.0.1 pour voir si on va vers le server vpn. (?)
- -- `ps | grep openvpn`
 
-# comment tester le server openvpn
+
+# comment tester le server openvpn depuis le LAN
 - If you don't mind reconfiguring your network, you could also unplug the modem, plug a computer in its place, set the router WAN to a static IP (192.168.64.1) and the computer on 192.168.64.2, and try connecting to the VPN using the .1 IP.
 - En utilisant une connection 3G
 - En changeant l'option remote pour qu'elle pointe vers l'adresse IP privée du serveur openvpn.
-
-
 
 ~~~client
 dev tap
@@ -126,7 +129,7 @@ remote 192.168.1.160 5712
 ~~~~
 Si votre openvpn est votre routeur ce sera l'adresse du routeur 192.168.1.1.
 
-# configuration du clientt
+# configuration du client
 
 ## Quels sont les fichiers à sauvegarder 
 - ca.crt
@@ -134,7 +137,7 @@ Si votre openvpn est votre routeur ce sera l'adresse du routeur 192.168.1.1.
 - my.client.crs
 - my.client.key
 
-### chemin de la sauvegarde. ? 
+###  A sauvegarder dans : /etc/openvp. 
 
 
 ##  Création du fichier de configuration du client:
@@ -160,16 +163,19 @@ openvpn client.conf
 
 
 ## depuis le client
-
+`ifconfig` à la recherche d'un tun  
 `ping SERVER_IP_ADDRESS`  
-`traceroute 10.8.0.1` # je ne sais d'ou sort cette IP. Elle n'existe nulle part ailleurs dans les fichiers de config. 
-Si on fait un `traceroute 8.8.8.8` sur une adresse IP public on devrait voir que le traffic utilise l'adress gateway oar défaut du client. 
-`ifconfig` à la recherche d'un tun
-`ping 10.8.0.1` ip address que l'on trouve en faisant un ifconfig tun0
+`ping 10.8.0.1` <-- ip address que l'on trouve en faisant un ifconfig tun0  
+`traceroute 10.8.0.1` # je ne sais d'ou sort cette IP. Elle n'existe nulle part ailleurs dans les fichiers de config.   
+Si on fait un `traceroute 8.8.8.8` sur une adresse IP public on devrait voir que le traffic utilise l'adress gateway par défaut du client.   
+
 
 
 
 # Port forwarding
+
+Je ne sais pas du tout s'il faut faire du port forwarding pour openvpn.
+
 On crée une *forward rule*. Je comprends les choses comme cela. Les paquets ip envoyés depuis le remote client arrive sur l'interface WAN du routeur du serveur openvpn car c'est ce que j'ai mis dans le fichier de configuration du serveur. C'est paquet doivent etre redirigé vers le serveur openrp.  
 ##  Port forwarding 
 permet de forwarder le traffic externe vers un hote interne ou un service.  
@@ -223,3 +229,8 @@ On doit pouvoir pinguer n'importe qu'elle machine sur le LAN du server à partir
 
 Depuis le client traceroute 192.168.10.65 (ip address LAN du réseau du serveur)
 ping 192.168.10.65
+
+# Comment revoir sa configuration
+`uci show openvpn`  
+`cat /etc/config/openvpn`  
+`cat /var/etc/openvpn-myvpn.conf`
