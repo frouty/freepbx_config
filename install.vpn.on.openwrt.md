@@ -100,8 +100,11 @@ Or use Linux specific command:
 dig TXT +short o-o.myaddr.l.google.com @ns1.google.com
 
 # Comment voir si tout c'est bien passé:
-Afficher les log : `logread -f` en console ssh
-
+Afficher les log : `logread -f` en console ssh. Mais on ne peut plus faire de commande en ssh. Il faut une deuxieme console avec un ssh. 
+~~~
+/etc/init.d/openvpn enable
+/etc/init.d/openvpn start
+~~~
 - If everything went fine, the last log line from OpenVPN should contain Initialization Sequence Completed. There are some warnings and errors ... ignore them.
 
 - `ps | grep openvpn`
@@ -114,6 +117,7 @@ Afficher les log : `logread -f` en console ssh
 - On regarde la table de routage avec netsat -nr. On doit avoir et c'est essentiel une route vers le serveur VPN (xxx.xxx.XXX.XXX)
  
 - On fait un traceroute  10.8.0.1 pour voir si on va vers le server vpn. (?)
+
 
 
 # comment tester le server openvpn depuis le LAN
@@ -141,6 +145,7 @@ Si votre openvpn est votre routeur ce sera l'adresse du routeur 192.168.1.1.
 
 
 ##  Création du fichier de configuration du client:
+
 ~~~
 dev tun
 proto udp
@@ -169,8 +174,10 @@ openvpn client.conf
 `traceroute 10.8.0.1` # je ne sais d'ou sort cette IP. Elle n'existe nulle part ailleurs dans les fichiers de config.   
 Si on fait un `traceroute 8.8.8.8` sur une adresse IP public on devrait voir que le traffic utilise l'adress gateway par défaut du client.   
 
+Il n'y a pas de tun dans le openwrt qui heberge le vpn server.
 
-
+## depuis openerp qui héberge le vpn server.
+- `ifconfig tun0`
 
 # Port forwarding
 
@@ -236,3 +243,29 @@ ping 192.168.10.65
 `cat /var/etc/openvpn-myvpn.conf`  
 ![GitHub Logo](icono/schema.png)
 
+
+# /etc/init.d/openvpn stop
+- /sbin/route del -net 10.8.0.0 netmask 255.255.255.0
+- closing TUN/TAP ifconfig tun0 0.0.0.0
+- vpn0 connectivity loss and down.
+- interface vpn0 is disable.
+- dans le webGUI on ne voit pas grand chose juste network / interface / VPN0 tout est à zero. Et Services myvpn started :no
+
+# /etc/init.d/openvpn start
+- odhcpd[933]: DHCPV6 REBIND IA_NA from 000100011fcb37e7b827eb8af1d3 on br-lan: ok 
+- odhcpd[933]: DHCPV6 CONFIRM IA_NA from 00042a085bb2bdc05a56c90932812284df12 on br-lan: 
+- odhcpd[933]: DHCPV6 SOLICIT IA_NA from 00042a085bb2bdc05a56c90932812284df12 on br-lan: ok
+- dnsmasq[1403]: read /etc/hosts - 1 addresses
+- dnsmasq[1403]: read /tmp/hosts/odhcpd - 0 addresses
+- dnsmasq[1403]: read /tmp/hosts/dhcp - 1 addresses
+- dnsmasq-dhcp[1403]: read /etc/ethers - 0 addresses
+- odhcpd[933]: DHCPV6 REQUEST IA_NA from 00042a085bb2bdc05a56c90932812284df12 on br-lan: ok 8 
+- dnsmasq[1403]: read /etc/hosts - 1 addresses
+- dnsmasq[1403]: read /tmp/hosts/odhcpd - 1 addresses
+- dnsmasq[1403]: read /tmp/hosts/dhcp - 1 addresses
+- dnsmasq-dhcp[1403]: read /etc/ethers - 0 addresses
+- openvpn(myvpn)[2968]: OpenVPN 2.3.6 mips-openwrt-linux-gnu [SSL (OpenSSL)] [LZO] [EPOLL] [MH] [IPv6] built on Jul 25 2015
+- openvpn(myvpn)[2968]: library versions: OpenSSL 1.0.2g  1 Mar 2016, LZO 2.08
+- openvpn(myvpn)[2968]: Diffie-Hellman initialized with 2048 bit key
+- openvpn(myvpn)[2968]: Socket Buffers: R=[163840->131072] S=[163840->131072]
+- netifd: Interface 'vpn0' is enabled
