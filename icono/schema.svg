@@ -16,7 +16,10 @@
    version="1.1"
    id="svg5375"
    inkscape:version="0.92.1 r15371"
-   sodipodi:docname="schema.svg">
+   sodipodi:docname="schema.svg"
+   inkscape:export-filename="/home/lof/freepx_config/icono/schema.png"
+   inkscape:export-xdpi="119"
+   inkscape:export-ydpi="119">
   <defs
      id="defs5369" />
   <sodipodi:namedview
@@ -27,7 +30,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="561.25984"
+     inkscape:cx="872.11669"
      inkscape:cy="397.79976"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -526,7 +529,7 @@
        inkscape:connector-curvature="0" />
     <g
        id="g7210"
-       transform="matrix(0.01701094,0,0,-0.02063175,187.64496,286.9446)"
+       transform="matrix(0.01701094,0,0,-0.02063175,193.46579,287.20918)"
        style="fill:#000000;stroke:none">
       <path
          id="path7192"
@@ -813,7 +816,7 @@
     </g>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 198.02163,279.10453 c 0,0 -46.50893,-17.62871 11.55186,-57.26176"
+       d="m 199.84489,270.80694 c 0,0 -48.33219,-9.33112 9.7286,-48.96417"
        id="path7458"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
@@ -867,5 +870,16 @@
        d="m 145.90036,102.57059 c -26.57328,35.944 -114.151128,60.00847 -114.151128,60.00847"
        id="path7480"
        inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.70416665px;line-height:125%;font-family:Sans;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="213.25417"
+       y="253.87292"
+       id="text7484"><tspan
+         sodipodi:role="line"
+         id="tspan7482"
+         x="213.25417"
+         y="253.87292"
+         style="stroke-width:0.26458332px">VPN client</tspan></text>
   </g>
 </svg>
