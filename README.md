@@ -1965,6 +1965,8 @@ Mon Sep  4 10:02:49 2017 Initialization Sequence Completed
 ```
 - traceroute 10.8.0.1
 ```
+Je dois voir passer le traffic par la gateway classique.
 traceroute to 10.8.0.1 (10.8.0.1), 30 hops max, 60 byte packets
  1  10.8.0.1 (10.8.0.1)  32.545 ms  34.459 ms  36.583 ms
  ```
+ 
