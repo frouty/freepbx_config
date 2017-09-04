@@ -269,3 +269,236 @@ ping 192.168.10.65
 - openvpn(myvpn)[2968]: Diffie-Hellman initialized with 2048 bit key
 - openvpn(myvpn)[2968]: Socket Buffers: R=[163840->131072] S=[163840->131072]
 - netifd: Interface 'vpn0' is enabled
+
+# Mise en route du client openvpn.
+ - avant la mise en route : `ifconfig` ne donne pas d'interface tun
+ - le fichier de config
+ ```
+ ##############################################
+# Sample client-side OpenVPN 2.0 config file #
+# for connecting to multi-client server.     #
+#                                            #
+# This configuration can be used by multiple #
+# clients, however each client should have   #
+# its own cert and key files.                #
+#                                            #
+# On Windows, you might want to rename this  #
+# file so it has a .ovpn extension           #
+##############################################
+
+# Specify that we are a client and that we
+# will be pulling certain config file directives
+# from the server.
+client
+
+# Use the same setting as you are using on
+# the server.
+# On most systems, the VPN will not function
+# unless you partially or fully disable
+# the firewall for the TUN/TAP interface.
+;dev tap
+dev tun
+
+# Windows needs the TAP-Win32 adapter name
+# from the Network Connections panel
+# if you have more than one.  On XP SP2,
+# you may need to disable the firewall
+# for the TAP adapter.
+;dev-node MyTap
+
+# Are we connecting to a TCP or
+# UDP server?  Use the same setting as
+# on the server.
+;proto tcp
+proto udp
+
+# The hostname/IP and port of the server.
+# You can have multiple remote entries
+# to load balance between the servers.
+remote 103.17.45.190 1194
+;remote my-server-2 1194
+
+# Choose a random host from the remote
+# list for load-balancing.  Otherwise
+# try hosts in the order specified.
+;remote-random
+
+# Keep trying indefinitely to resolve the
+# host name of the OpenVPN server.  Very useful
+# on machines which are not permanently connected
+# to the internet such as laptops.
+resolv-retry infinite
+
+# Most clients don't need to bind to
+# a specific local port number.
+nobind
+
+# Downgrade privileges after initialization (non-Windows only)
+;user nobody
+;group nogroup
+
+# Try to preserve some state across restarts.
+persist-key
+persist-tun
+
+# If you are connecting through an
+# HTTP proxy to reach the actual OpenVPN
+# server, put the proxy server/IP and
+# port number here.  See the man page
+# if your proxy server requires
+# authentication.
+;http-proxy-retry # retry on connection failures
+;http-proxy [proxy server] [proxy port #]
+
+# Wireless networks often produce a lot
+# of duplicate packets.  Set this flag
+# to silence duplicate packet warnings.
+;mute-replay-warnings
+
+# SSL/TLS parms.
+# See the server config file for more
+# description.  It's best to use
+# a separate .crt/.key file pair
+# for each client.  A single ca
+# file can be used for all clients.
+ca ca.crt
+cert my.client.crt
+key my.client.key
+
+# Verify server certificate by checking
+# that the certicate has the nsCertType
+# field set to "server".  This is an
+# important precaution to protect against
+# a potential attack discussed here:
+#  http://openvpn.net/howto.html#mitm
+#
+# To use this feature, you will need to generate
+# your server certificates with the nsCertType
+# field set to "server".  The build-key-server
+# script in the easy-rsa folder will do this.
+ns-cert-type server
+
+# If a tls-auth key is used on the server
+# then every client must also have the key.
+;tls-auth ta.key 1
+
+# Select a cryptographic cipher.
+# If the cipher option is used on the server
+# then you must also specify it here.
+;cipher x
+
+# Enable compression on the VPN link.
+# Don't enable this unless it is also
+# enabled in the server config file.
+;comp-lzo
+
+# Set log file verbosity.
+verb 3
+
+# Silence repeating messages
+;mute 20
+```
+
+- sous root (a tester sur un user) : `openvpn client.conf`
+- s'affiche : 
+```
+on Sep  4 09:57:26 2017 OpenVPN 2.3.4 x86_64-pc-linux-gnu [SSL (OpenSSL)] [LZO] [EPOLL] [PKCS11] [MH] [IPv6] built on Nov 12 2015
+Mon Sep  4 09:57:26 2017 library versions: OpenSSL 1.0.1t  3 May 2016, LZO 2.08
+Mon Sep  4 09:57:26 2017 WARNING: file 'my.client.key' is group or others accessible
+Mon Sep  4 09:57:26 2017 Socket Buffers: R=[212992->131072] S=[212992->131072]
+Mon Sep  4 09:57:26 2017 UDPv4 link local: [undef]
+Mon Sep  4 09:57:26 2017 UDPv4 link remote: [AF_INET]103.17.45.190:1194
+Mon Sep  4 09:57:26 2017 TLS: Initial packet from [AF_INET]103.17.45.190:1194, sid=66d68e07 4b481f65
+Mon Sep  4 09:57:26 2017 VERIFY OK: depth=1, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=Fort-Funston CA, name=EasyRSA, emailAddress=me@myhost.mydomain
+Mon Sep  4 09:57:26 2017 VERIFY OK: nsCertType=SERVER
+Mon Sep  4 09:57:26 2017 VERIFY OK: depth=0, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=my.server, name=EasyRSA, emailAddress=me@myhost.mydomain
+Mon Sep  4 09:57:27 2017 Data Channel Encrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Mon Sep  4 09:57:27 2017 Data Channel Encrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Mon Sep  4 09:57:27 2017 Data Channel Decrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Mon Sep  4 09:57:27 2017 Data Channel Decrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Mon Sep  4 09:57:27 2017 Control Channel: TLSv1, cipher TLSv1/SSLv3 DHE-RSA-AES256-SHA, 2048 bit RSA
+Mon Sep  4 09:57:27 2017 [my.server] Peer Connection Initiated with [AF_INET]103.17.45.190:1194
+Mon Sep  4 09:57:29 2017 SENT CONTROL [my.server]: 'PUSH_REQUEST' (status=1)
+Mon Sep  4 09:57:30 2017 PUSH: Received control message: 'PUSH_REPLY,route 10.8.0.1,topology net30,ping 10,ping-restart 120,ifconfig 10.8.0.6 10.8.0.5'
+Mon Sep  4 09:57:30 2017 OPTIONS IMPORT: timers and/or timeouts modified
+Mon Sep  4 09:57:30 2017 OPTIONS IMPORT: --ifconfig/up options modified
+Mon Sep  4 09:57:30 2017 OPTIONS IMPORT: route options modified
+Mon Sep  4 09:57:30 2017 ROUTE_GATEWAY 192.168.1.1/255.255.255.0 IFACE=eth1 HWADDR=50:e5:49:3e:4b:7e
+Mon Sep  4 09:57:30 2017 TUN/TAP device tun0 opened
+Mon Sep  4 09:57:30 2017 TUN/TAP TX queue length set to 100
+Mon Sep  4 09:57:30 2017 do_ifconfig, tt->ipv6=0, tt->did_ifconfig_ipv6_setup=0
+Mon Sep  4 09:57:30 2017 /sbin/ip link set dev tun0 up mtu 1500
+Mon Sep  4 09:57:30 2017 /sbin/ip addr add dev tun0 local 10.8.0.6 peer 10.8.0.5
+Mon Sep  4 09:57:30 2017 /sbin/ip route add 10.8.0.1/32 via 10.8.0.5
+Mon Sep  4 09:57:30 2017 Initialization Sequence Completed
+Mon Sep  4 10:02:43 2017 [my.server] Inactivity timeout (--ping-restart), restarting
+Mon Sep  4 10:02:43 2017 SIGUSR1[soft,ping-restart] received, process restarting
+Mon Sep  4 10:02:43 2017 Restart pause, 2 second(s)
+Mon Sep  4 10:02:45 2017 Socket Buffers: R=[212992->131072] S=[212992->131072]
+Mon Sep  4 10:02:45 2017 UDPv4 link local: [undef]
+Mon Sep  4 10:02:45 2017 UDPv4 link remote: [AF_INET]103.17.45.190:1194
+Mon Sep  4 10:02:45 2017 TLS: Initial packet from [AF_INET]103.17.45.190:1194, sid=12d067d5 ad235fd0
+Mon Sep  4 10:02:46 2017 VERIFY OK: depth=1, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=Fort-Funston CA, name=EasyRSA, emailAddress=me@myhost.mydomain
+Mon Sep  4 10:02:46 2017 VERIFY OK: nsCertType=SERVER
+Mon Sep  4 10:02:46 2017 VERIFY OK: depth=0, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=my.server, name=EasyRSA, emailAddress=me@myhost.mydomain
+Mon Sep  4 10:02:46 2017 Data Channel Encrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Mon Sep  4 10:02:46 2017 Data Channel Encrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Mon Sep  4 10:02:46 2017 Data Channel Decrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Mon Sep  4 10:02:46 2017 Data Channel Decrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Mon Sep  4 10:02:46 2017 Control Channel: TLSv1, cipher TLSv1/SSLv3 DHE-RSA-AES256-SHA, 2048 bit RSA
+Mon Sep  4 10:02:46 2017 [my.server] Peer Connection Initiated with [AF_INET]103.17.45.190:1194
+Mon Sep  4 10:02:49 2017 SENT CONTROL [my.server]: 'PUSH_REQUEST' (status=1)
+Mon Sep  4 10:02:49 2017 PUSH: Received control message: 'PUSH_REPLY,route 10.8.0.1,topology net30,ping 10,ping-restart 120,ifconfig 10.8.0.6 10.8.0.5'
+Mon Sep  4 10:02:49 2017 OPTIONS IMPORT: timers and/or timeouts modified
+Mon Sep  4 10:02:49 2017 OPTIONS IMPORT: --ifconfig/up options modified
+Mon Sep  4 10:02:49 2017 OPTIONS IMPORT: route options modified
+Mon Sep  4 10:02:49 2017 Preserving previous TUN/TAP instance: tun0
+Mon Sep  4 10:02:49 2017 Initialization Sequence Completed
+```
+- traceroute 10.8.0.1
+```
+Je dois voir passer le traffic par la gateway classique.
+traceroute to 10.8.0.1 (10.8.0.1), 30 hops max, 60 byte packets
+ 1  10.8.0.1 (10.8.0.1)  32.545 ms  34.459 ms  36.583 ms
+ ```
+ 
+# Comment arréter le client VPN 
+ 
+ killall -SIGINT openvpn  
+
+```
+# stop the service    
+$ sudo /etc/init.d/openvpn stop
+
+# find the process if for some reason it keeps running
+$ lsof -i | grep openvpn
+
+# kill the proccess(s) by its PID
+$ kill -9 <PID>
+
+# if necessary restart the service again
+$ sudo /etc/init.d/openvpn start
+sudo update-rc.d openvpn disable
+```
+Or edit the config file in /etc/default/openvpn
+
+sudo nano /etc/default/openvpn
+
+And uncomment the line:
+
+#AUTOSTART="none"
+
+So it looks like:
+
+AUTOSTART="none"
+
+Then you'll have to run:
+
+sudo service openvpn start < vpn-name > to manually start the VPN.
+
+sudo service openvpn stop < vpn-name > to manually stop the VPN.
+
+< vpn-name > is the config file name without .conf extension
+
+located in /etc/openvpn and without the < >
+
