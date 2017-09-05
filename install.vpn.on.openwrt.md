@@ -225,7 +225,23 @@ firewall.@redirect[1].dest=lan
 firewall.@redirect[1].dest_port=8069
 firewall.@redirect[2]=redirect
 ~~~
-# configuration du serveur sur une machine qui n'est pas le routeur
+
+# server configuration file
+- crée un VPN en utilisant une interface virtuelle TUN pour le routage. 
+- ecoute sur le port UDP 1194 pour les connection client.
+- distribue des adresses virtuelles aux clients qui se connectent en utilisant le subnet 10.8.0.0/24
+
+# Comment inclure plusieurs machines soit sur le subnet du client soit sur le subnet du serveur?
+
+Il peut etre souhaitable que les clients puisse joindre plusieurs machines sur les subnet du serveur, plutot que seulement le server.
+Le LAN du serveur a comme subnet 10.66.0.0/24  
+Le pool IP Address du VPN est 10.8.0.0/24 comme indiqué dans la directive *server* du fichier de conf  
+
+-1 il faut informer le client que le subnet 10.66.0.0/24 est accessible par le VPN. Cela se fait par la directive dans le server.conf coté server donc:
+	- push "route 10.66.0.0 255.255.255.0"
+-2 il faut mettre en place une route sur le server LAN gateway pour router le subnet du client (10.8.0.0/24) vers le serveur openvpn. C'est seulement nécessaire si le server openvpn et le LAN gateway sont sur des machines différantes.   
+
+# configuration du serveur sur une machine qui n'est pas le routeurr
 fichier /etc/openvpn/server.conf
 - directive `local`: to make it listen to an IP adress. C'est l'adress IP vers qui est forwardé UDP port 1194 par le firewall.
 - Pour que les remote clients quand ils se connectent sur le server, puissent atteindre autre choses que les que le serveur lui meme il faut activer le ip forwarding avec
@@ -505,3 +521,43 @@ located in /etc/openvpn and without the < >
 
 # comment ping les device du LAN du server.
 https://serverfault.com/questions/662500/openvpn-access-to-lan-behind-client-and-vice-versa
+
+# Comprendre les tables de routage
+```
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+192.168.1.0     *               255.255.255.0   U     1      0        0 eth0
+```
+Tous les paquets avec une destination 192.168.1.0 à 192.168.1.255 sera envoyé à travers l'interface eth0 sans utiliser de gateway (sauf s'il y a une autre route qui écrase celle là)    
+
+```
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+default         192.168.1.1     0.0.0.0         UG    0      0        0 eth0
+```
+Tous les paquets qui ont une destination sans autre route sera envoyé à travers eth0 en utilisant la gateway 192.168.1.1
+
+*Default* ca veut que si il n'existe pas d'autre route alors utilise celle là.  
+*Gateway* next hop. 
+
+
+# ifconfig
+```
+eth0      Link encap:Ethernet  HWaddr 00:80:C8:F8:4A:51  
+          inet addr:192.168.99.35  Bcast:192.168.99.255  Mask:255.255.255.0
+```
+l'adresse active est donc 192.168.99.35. Ce qui veut dire que tout paquet envoyé par cette ordinateur aura comme adresse source 192.168.99.35. Et tous les paquets recus par cette ordinateur aura comme destination address 192.168.99.35. 
+
+Gateway : 0.0.0.0 veut dire qu'il n'y en a pas. 
+
+# Unicast vs Broadcast
+- Unicast
+	- HTTP 
+	- SMTP 
+	- POP3
+	- SSH
+	- LDAP
+- Broadcast. S'adresse à tout le subnet. On peut le calculer avec l'IP address et le mask mais on peut donner une autre adresse. Et cela peut poser des problemes.
+	- SMB
+	- Samba
+	- DHCP
+	
+Unicast s'oppose à broadcast.
