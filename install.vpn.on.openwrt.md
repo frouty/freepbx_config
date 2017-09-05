@@ -551,6 +551,8 @@ Je change le subnet IP du serveur --> 10.66.0.0/24
 - essayer de l'enlever.
 
 
+Il faut comprendre le VPN comme un switch unmanaged virtuel auquel est connecté le trafic virtuel du VPN et ce traffic est chainé au switch du LAN
+
 # Comprendre les tables de routage
 
 ```
