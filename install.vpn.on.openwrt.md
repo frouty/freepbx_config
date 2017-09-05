@@ -1,4 +1,4 @@
-# TPlink Archer C7 V2.0 (V2.0 c'est marqué sur l'etiquette de la boite)
+# Tplink Archer C7 V2.0 (V2.0 c'est marqué sur l'etiquette de la boite)
 
 
 metre dans /etc/profile:   
@@ -176,7 +176,7 @@ Si on fait un `traceroute 8.8.8.8` sur une adresse IP public on devrait voir que
 
 Il n'y a pas de tun dans le openwrt qui heberge le vpn server.
 
-## depuis openerp qui héberge le vpn server.
+## depuis openwrt qui héberge le vpn server.
 - `ifconfig tun0`
 
 # Port forwarding
@@ -527,6 +527,31 @@ located in /etc/openvpn and without the < >
 # Comment ping les device du LAN du server.
 https://serverfault.com/questions/662500/openvpn-access-to-lan-behind-client-and-vice-versa
 
+
+# Eviter les conflits d'adresse IP
+Je change le subnet IP du serveur --> 10.66.0.0/24
+
+-1 je crée une interface pour ce subnet dans ma machine pour ce subnet.
+-2 je change l'ip subnet dans openwrt. je change juste network / LAN / General Setup / IPv4 address / Save and apply 
+-2 je reboot openwrt
+-3 j'utilise ma nouvelle interface configuration dans ma machine.
+-4 ping dans les deux sens OK
+-5 ssh openwrt ne marche pas
+-6 reboot openwrt
+-7 ssh openwrt marche à nouveau
+
+-8 uci add_list openvpn.myvpn.push='route 10.66.0.0 255.255.255.0'
+-9 on ne voit pas les changements faits par cette commande dans cat /var/etc/openvpn-myvpn.conf, /etc/config/openvpn/
+-10 uci show openvpn on voit la commande.
+-11 finalement je mets cette option dans le fichier de config /etc/config/openvpn
+-12 je mets d'autres options sur le dhcp notamment.
+
+# ajout d'une new forward rule
+- nom OpenVPN
+- dans firewall / Traffic Rule
+- essayer de l'enlever.
+
+
 # Comprendre les tables de routage
 
 ```
@@ -545,7 +570,7 @@ Tous les paquets qui ont une destination sans autre route sera envoyé à traver
 *Gateway* next hop. 
 
 
-# ifconfig
+## ifconfig
 ```
 eth0      Link encap:Ethernet  HWaddr 00:80:C8:F8:4A:51  
           inet addr:192.168.99.35  Bcast:192.168.99.255  Mask:255.255.255.0
@@ -554,7 +579,7 @@ l'adresse active est donc 192.168.99.35. Ce qui veut dire que tout paquet envoy�
 
 Gateway : 0.0.0.0 veut dire qu'il n'y en a pas. 
 
-# Unicast vs Broadcast
+## Unicast vs Broadcast
 - Unicast
 	- HTTP 
 	- SMTP 
