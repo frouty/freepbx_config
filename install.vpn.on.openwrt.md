@@ -531,20 +531,20 @@ https://serverfault.com/questions/662500/openvpn-access-to-lan-behind-client-and
 # Eviter les conflits d'adresse IP
 Je change le subnet IP du serveur --> 10.66.0.0/24
 
--1 je crée une interface pour ce subnet dans ma machine pour ce subnet.
--2 je change l'ip subnet dans openwrt. je change juste network / LAN / General Setup / IPv4 address / Save and apply 
--2 je reboot openwrt
--3 j'utilise ma nouvelle interface configuration dans ma machine.
--4 ping dans les deux sens OK
--5 ssh openwrt ne marche pas
--6 reboot openwrt
--7 ssh openwrt marche à nouveau
+- 1 je crée une interface pour ce subnet dans ma machine pour ce subnet.
+- 2 je change l'ip subnet dans openwrt. je change juste network / LAN / General Setup / IPv4 address / Save and apply 
+- 2 je reboot openwrt
+- 3 j'utilise ma nouvelle interface configuration dans ma machine.
+- 4 ping dans les deux sens OK
+- 5 ssh openwrt ne marche pas
+- 6 reboot openwrt
+- 7 ssh openwrt marche à nouveau
 
--8 uci add_list openvpn.myvpn.push='route 10.66.0.0 255.255.255.0'
--9 on ne voit pas les changements faits par cette commande dans cat /var/etc/openvpn-myvpn.conf, /etc/config/openvpn/
--10 uci show openvpn on voit la commande.
--11 finalement je mets cette option dans le fichier de config /etc/config/openvpn
--12 je mets d'autres options sur le dhcp notamment.
+- 8 uci add_list openvpn.myvpn.push='route 10.66.0.0 255.255.255.0'
+- 9 on ne voit pas les changements faits par cette commande dans cat /var/etc/openvpn-myvpn.conf, /etc/config/openvpn/
+- 10 uci show openvpn on voit la commande.
+- 11 finalement je mets cette option dans le fichier de config /etc/config/openvpn
+- 12 je mets d'autres options sur le dhcp notamment.
 
 # ajout d'une new forward rule
 - nom OpenVPN
