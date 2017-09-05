@@ -533,7 +533,6 @@ Je change le subnet IP du serveur --> 10.66.0.0/24
 
 - 1 je crée une interface pour ce subnet dans ma machine pour ce subnet.
 - 2 je change l'ip subnet dans openwrt. je change juste network / LAN / General Setup / IPv4 address / Save and apply 
-- 2 je reboot openwrt
 - 3 j'utilise ma nouvelle interface configuration dans ma machine.
 - 4 ping dans les deux sens OK
 - 5 ssh openwrt ne marche pas
