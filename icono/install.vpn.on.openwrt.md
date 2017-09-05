@@ -399,7 +399,7 @@ verb 3
 ;mute 20
 ```
 
-- sous root (a tester sur un user) : `openvpn client.conf`
+- sous root (a tester sur un user) : `cd /etc/openvpn``openvpn client.conf`
 - s'affiche : 
 ```
 on Sep  4 09:57:26 2017 OpenVPN 2.3.4 x86_64-pc-linux-gnu [SSL (OpenSSL)] [LZO] [EPOLL] [PKCS11] [MH] [IPv6] built on Nov 12 2015
@@ -502,3 +502,6 @@ sudo service openvpn stop < vpn-name > to manually stop the VPN.
 
 located in /etc/openvpn and without the < >
 
+
+# comment ping les device du LAN du server.
+https://serverfault.com/questions/662500/openvpn-access-to-lan-behind-client-and-vice-versa
