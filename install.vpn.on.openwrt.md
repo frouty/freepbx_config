@@ -233,7 +233,7 @@ firewall.@redirect[2]=redirect
 
 # Comment inclure plusieurs machines soit sur le subnet du client soit sur le subnet du serveur?
 
-Il peut etre souhaitable que les clients puisse joindre plusieurs machines sur les subnet du serveur, plutot que seulement le server.
+Il peut etre souhaitable que les clients puisse joindre plusieurs machines dans le subnet du serveur, plutot que seulement le server.
 Le LAN du serveur a comme subnet 10.66.0.0/24  
 Le pool IP Address du VPN est 10.8.0.0/24 comme indiqué dans la directive *server* du fichier de conf  
 
@@ -241,7 +241,11 @@ Le pool IP Address du VPN est 10.8.0.0/24 comme indiqué dans la directive *serv
 	- push "route 10.66.0.0 255.255.255.0"
 -2 il faut mettre en place une route sur le server LAN gateway pour router le subnet du client (10.8.0.0/24) vers le serveur openvpn. C'est seulement nécessaire si le server openvpn et le LAN gateway sont sur des machines différantes.   
 
-# configuration du serveur sur une machine qui n'est pas le routeurr
+# Comment inclure de multiples machines dans le subnet du client en utilisant un routed VPN (TUN)
+Si le client VPN est une gateway pour un LAN local et que vous voulez que les machines sur le LAN du client puisse router au travers du VPN.  
+subnet IP client LAN : 192.168.4.0/24  
+ 
+# configuration du serveur sur une machine qui n'est pas le routeur
 fichier /etc/openvpn/server.conf
 - directive `local`: to make it listen to an IP adress. C'est l'adress IP vers qui est forwardé UDP port 1194 par le firewall.
 - Pour que les remote clients quand ils se connectent sur le server, puissent atteindre autre choses que les que le serveur lui meme il faut activer le ip forwarding avec
@@ -289,6 +293,7 @@ ping 192.168.10.65
 # Mise en route du client openvpn.
  - avant la mise en route : `ifconfig` ne donne pas d'interface tun
  - le fichier de config
+ 
  ```
  ##############################################
 # Sample client-side OpenVPN 2.0 config file #
@@ -519,10 +524,11 @@ sudo service openvpn stop < vpn-name > to manually stop the VPN.
 located in /etc/openvpn and without the < >
 
 
-# comment ping les device du LAN du server.
+# Comment ping les device du LAN du server.
 https://serverfault.com/questions/662500/openvpn-access-to-lan-behind-client-and-vice-versa
 
-# Comprendre les tables de routage
+# Comprendre les tables de routage
+
 ```
 Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 192.168.1.0     *               255.255.255.0   U     1      0        0 eth0
