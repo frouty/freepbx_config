@@ -43,7 +43,7 @@ Mais cela n'est pas dynamique il faut rafraichir.
 # UCI CLI
 Qd on lance une commande UCI il faut faire ensuite
 
-> uci commit <le module>
+> uci commit \<le nom du module\>
 
 uci commit openvpn pe.
 
