@@ -40,7 +40,12 @@ C'est bien mais on ne peut plus utiliser la console. Donc c'est bien pour faire 
 
 Dans le web GUI : Status / System Log  
 Mais cela n'est pas dynamique il faut rafraichir.  
+# UCI CLI
+Qd on lance une commande UCI il faut faire ensuite
 
+> uci commit <le module>
+
+uci commit openvpn pe.
 
 # Config du serveur VPN :
 
@@ -548,7 +553,32 @@ Je change le subnet IP du serveur --> 10.66.0.0/24
 # ajout d'une new forward rule
 - nom OpenVPN
 - dans firewall / Traffic Rule
-- essayer de l'enlever.
+- essayer de l'enlever quand cela marchera.
+
+Depuis le client j'arrive à pinguer 10.8.0.5 et 10.8.5.6
+
+Je vois que dans openerp j'ai
+
+/tmp/ipp.txt:
+```
+my.client,10.8.0.4
+```
+/tmp/openvpn-status.log:
+```
+OpenVPN CLIENT LIST
+Updated,Wed Sep  6 19:55:10 2017
+Common Name,Real Address,Bytes Received,Bytes Sent,Connected Since
+my.client,103.17.47.187:58313,226079,227911,Wed Sep  6 10:44:56 2017
+ROUTING TABLE
+Virtual Address,Common Name,Real Address,Last Ref
+10.8.0.6,my.client,103.17.47.187:58313,Wed Sep  6 10:44:58 2017
+GLOBAL STATS
+Max bcast/mcast queue length,0
+END
+```
+cette adresse IP 103.17.47.167 est bien celle de la potiniere.
+
+Mais je n'arrive à pinguer une machine sur le LAN du serveur.
 
 
 Il faut comprendre le VPN comme un switch unmanaged virtuel auquel est connecté le trafic virtuel du VPN et ce traffic est chainé au switch du LAN
