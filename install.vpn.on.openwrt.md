@@ -47,6 +47,8 @@ Qd on lance une commande UCI il faut faire ensuite
 
 uci commit openvpn pe.
 
+Si pas de commit pas de modification dans le fichier de configuration.
+
 # Config du serveur VPN :
 
 https://wiki.openwrt.org/doc/howto/vpn.openvpn  
@@ -71,7 +73,9 @@ On ne doit jamais devoir copier un .key d'un computer à un autre.
 - 3 Build a diffie-helmann parameters necessaire pour la partie server terminale d'une connection SSL/TLS
   - ./build-dh. Au deuxieme essais cette commande a pris un temps fou. Je n'ai pas pu en voir la fin.
 ca n'a pas marché avec les commandes ci dessus.
-
+- 4
+  - ./build-key-server server
+- 5 ./build-key-pkcs12 client1
 
 Mais avec :
   
@@ -80,15 +84,16 @@ Mais avec :
 - pkitool          my-client            ## equivalent to the 'build-key' script (*not build-key-pkcs12)
 - openssl dhparam -out dh2048.pem 2048  ## equivalent to the 'build-dh' script
 
-
+`cp ca.crt ca.key dh1024.pem server.crt server.key /etc/openvpn/`
 
 On cherche s'il y a une interface tun avec ifconfig -a
+
 On regarde la table de routage avec netsat -nr. On doit avoir et c'est essentiel une route vers le serveur VPN (xxx.xxx.XXX.XXX), une route 
 On fait un traceroute pour voir si on va vers le server vpn.
 
 # Quand est ce qu'on donne l'adresse du serveur vpn?
 Dans le fichier de configuration du client /etc/config/openvpn : 
-- option remote SERVER_IP_ADRESS 1194  
+- option remote SERVER_IP_ADRESS_PUBLIC 1194  
 - option remote 'pw.openvpn.ipredator.se 1194'
 
 
@@ -99,7 +104,7 @@ You can easily find out your OpenVPN server IP address. The syntax is as follows
 `ifconfig tun0` sur le device qui fait tourner le serveur
 
 Or use Linux specific command:
-`ip -a show tun0`
+`ip -a show tun0` . Ne marche pas.
 
 # Comment obtenir l'adresse public
 dig TXT +short o-o.myaddr.l.google.com @ns1.google.com
@@ -121,7 +126,7 @@ Afficher les log : `logread -f` en console ssh. Mais on ne peut plus faire de co
 
 - On regarde la table de routage avec netsat -nr. On doit avoir et c'est essentiel une route vers le serveur VPN (xxx.xxx.XXX.XXX)
  
-- On fait un traceroute  10.8.0.1 pour voir si on va vers le server vpn. (?)
+- On fait un traceroute  10.8.0.1 pour voir si on va vers le server vpn. (depuis le client la machine qui heberge le vpn serveur, une machine du LAN du server VPN?)
 
 
 
@@ -146,7 +151,7 @@ Si votre openvpn est votre routeur ce sera l'adresse du routeur 192.168.1.1.
 - my.client.crs
 - my.client.key
 
-###  A sauvegarder dans : /etc/openvp. 
+###  A sauvegarder dans : /etc/openvp. (de la machine client)
 
 
 ##  Création du fichier de configuration du client:
@@ -579,9 +584,41 @@ END
 cette adresse IP 103.17.47.167 est bien celle de la potiniere.
 
 Mais je n'arrive à pinguer une machine sur le LAN du serveur.
-
+Je vois dans /etc/config/openvpn
+```
+config openvpn 'myvpn'
+        option enabled '1'
+        option verb '3'
+        option port '1194'
+        option proto 'udp'
+        option dev 'tun'
+        option server '10.8.0.0 255.255.255.0'
+        option keepalive '10 120'
+        option ca '/etc/openvpn/ca.crt'
+        option dh '/etc/openvpn/dh2048.pem'
+        option cert '/etc/openvpn/my.server.crt'
+        option key '/etc/openvpn/my.server.key'
+        option push 'dhcp-option DOMAIN 10.66.0.1'
+        option status '/tmp/openvpn-status.log'
+        option ifconfig_pool_persist '/tmp/ipp.txt'
+        option log '/tmp/openvpn.log'
+		```
+		Je vois qu'il n'y a pas de push de la route vers le LAN du routeur/vpn openwrt.
+		donc je fais un push : uci 
 
 Il faut comprendre le VPN comme un switch unmanaged virtuel auquel est connecté le trafic virtuel du VPN et ce traffic est chainé au switch du LAN
+
+
+
+It turns out that if you are trying to connect from a non-Windows client, you need to do a couple of extra steps:  
+
+- On Linux
+
+	- Put this line on your client configuration (client.conf or xxxx.ovpnfile): `dhcp-option DNS 11.22.33.44`
+
+	- Call the OpenVPN client in this way: `$ openvpn --script-security 2 --config xxxx.ovpn`
+
+That worked for me.
 
 # Comprendre les tables de routage
 
@@ -623,3 +660,48 @@ Gateway : 0.0.0.0 veut dire qu'il n'y en a pas.
 	- DHCP
 	
 Unicast s'oppose à broadcast.
+
+# DHCP / DNS
+
+le server dhcp a pour role de donner:
+- IP address 
+- subnet mask
+- Default gateway
+- IP adress du DNS server
+- Lease time
+
+une adresse ip a chaque fois qu'une machine en fait la demande.
+le server dhcp fournit aussi les serveur DNS.
+
+Le server DNS fait la traduction entre le domain name et l'adresse IP.
+
+Et ARP/RARP (reverse ARP) fait la traduction entre IP adresse et MAC address et vice versa.
+
+sur openwrt : https://wiki.openwrt.org/doc/uci/dhcp
+
+## dnsmasq
+dnsmasq est un DNS forwarder et DHCP server
+Un DNS forwarder forward les requetes DNS à un server DNS externe.
+
+dig debian.org  
+dig debian.org @8.8.8.8  
+dig debian.org @10.66.1.0  # IP de openwrt.  
+
+## /etc/resolv.conf
+Contient les informations sur les DNS serveur à contacter.
+```
+# Generated by NetworkManager
+search lan lan.
+nameserver 10.66.0.1
+nameserver fd32:5c36:1a94::1
+```
+
+networkmanager surcharge les informations données par dhcp, surcharge resolv.conf.
+networkmanager sauvegarde les configuration dans : `/etc/NetworkManager/system-connections`
+
+
+Dans les bonnes pratiques, on a l'habitude de mettre un adressage dynamique pour tous les PC et de mettre des adresses fixes pour les serveurs et les imprimantes. On n'oubliera pas de réserver des adresses ou des plages pour cela une plage au niveau du DHCP.
+
+Le dhcp se base sur du broadcast. Donc limité au vlan.
+
+Si vous avez un serveur mail, un serveur d'authentification, un intranet, un serveur de gestion d'impression ... => il faut un DNS. Personnes d'autres que vous ne peut savoir où sont vos ressources en internes.
