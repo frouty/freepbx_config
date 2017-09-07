@@ -602,9 +602,9 @@ config openvpn 'myvpn'
         option status '/tmp/openvpn-status.log'
         option ifconfig_pool_persist '/tmp/ipp.txt'
         option log '/tmp/openvpn.log'
-		```
-		Je vois qu'il n'y a pas de push de la route vers le LAN du routeur/vpn openwrt.
-		donc je fais un push : uci 
+```
+Je vois qu'il n'y a pas de push de la route vers le LAN du routeur/vpn openwrt.  
+donc je fais un push : uci add_list 
 
 Il faut comprendre le VPN comme un switch unmanaged virtuel auquel est connecté le trafic virtuel du VPN et ce traffic est chainé au switch du LAN
 
