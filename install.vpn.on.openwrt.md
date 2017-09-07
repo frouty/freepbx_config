@@ -606,6 +606,63 @@ config openvpn 'myvpn'
 Je vois qu'il n'y a pas de push de la route vers le LAN du routeur/vpn openwrt.  
 donc je fais un push : uci add_list 
 
+- uci show openvpn:
+```
+openvpn.myvpn=openvpn
+openvpn.myvpn.enable='1'
+openvpn.myvpn.verb='3'
+openvpn.myvpn.port='1194'
+openvpn.myvpn.proto='udp'
+openvpn.myvpn.dev='tun'
+openvpn.myvpn.server='10.8.0.0 255.255.255.0'
+openvpn.myvpn.keepalive='10 120'
+openvpn.myvpn.ca='/etc/openvpn/ca.crt'
+openvpn.myvpn.dh='/etc/openvpn/dh2048.pem'
+openvpn.myvpn.cert='/etc/openvpn/my.server.crt'
+openvpn.myvpn.key='/etc/openvpn/my.server.key'
+openvpn.myvpn.log='/tmp/openvpn.log'
+openvpn.myvpn.ifconfig_pool_persit='/tmp/ipp.txt'
+openvpn.myvpn.status='/tmp/openvpn-status.log'
+openvpn.myvpn.push='route 10.66.0.0 255.255.255.0' 'dhcp-option DNS 10.66.0.1'
+```
+- #openwrt:/etc/init.d/openvpn stop
+- #openwrt:/etc/init.d/openvpn start
+- marche pas
+- reboot openwrt
+- cat /tmp/openvpn.log
+
+```
+Thu Sep  7 04:16:16 2017 OpenVPN 2.3.6 mips-openwrt-linux-gnu [SSL (OpenSSL)] [LZO] [EPOLL] [MH] [IPv6] built on Jul 25 2015
+Thu Sep  7 04:16:16 2017 library versions: OpenSSL 1.0.2g  1 Mar 2016, LZO 2.08
+Thu Sep  7 04:16:16 2017 Diffie-Hellman initialized with 2048 bit key
+Thu Sep  7 04:16:17 2017 Socket Buffers: R=[163840->131072] S=[163840->131072]
+Thu Sep  7 04:16:17 2017 TUN/TAP device tun0 opened
+Thu Sep  7 04:16:17 2017 TUN/TAP TX queue length set to 100
+Thu Sep  7 04:16:17 2017 do_ifconfig, tt->ipv6=0, tt->did_ifconfig_ipv6_setup=0
+Thu Sep  7 04:16:17 2017 /sbin/ifconfig tun0 10.8.0.1 pointopoint 10.8.0.2 mtu 1500
+Thu Sep  7 04:16:17 2017 /sbin/route add -net 10.8.0.0 netmask 255.255.255.0 gw 10.8.0.2
+Thu Sep  7 04:16:17 2017 UDPv4 link local (bound): [undef]
+Thu Sep  7 04:16:17 2017 UDPv4 link remote: [undef]
+Thu Sep  7 04:16:17 2017 MULTI: multi_init called, r=256 v=256
+Thu Sep  7 04:16:17 2017 IFCONFIG POOL: base=10.8.0.4 size=62, ipv6=0
+Thu Sep  7 04:16:17 2017 Initialization Sequence Completed
+Thu Sep  7 13:15:20 2017 103.17.47.187:44186 TLS: Initial packet from [AF_INET]103.17.47.187:44186, sid=428bc8c9 7a66ea45
+Thu Sep  7 13:15:21 2017 103.17.47.187:44186 VERIFY OK: depth=1, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=Fort-Funston CA, name=EasyRSA, emailAddress=me@myhost.mydomain
+Thu Sep  7 13:15:21 2017 103.17.47.187:44186 VERIFY OK: depth=0, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=my.client, name=EasyRSA, emailAddress=me@myhost.mydomain
+Thu Sep  7 13:15:21 2017 103.17.47.187:44186 Data Channel Encrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Thu Sep  7 13:15:21 2017 103.17.47.187:44186 Data Channel Encrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Thu Sep  7 13:15:21 2017 103.17.47.187:44186 Data Channel Decrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Thu Sep  7 13:15:21 2017 103.17.47.187:44186 Data Channel Decrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Thu Sep  7 13:15:21 2017 103.17.47.187:44186 Control Channel: TLSv1, cipher TLSv1/SSLv3 DHE-RSA-AES256-SHA, 2048 bit RSA
+Thu Sep  7 13:15:21 2017 103.17.47.187:44186 [my.client] Peer Connection Initiated with [AF_INET]103.17.47.187:44186
+Thu Sep  7 13:15:21 2017 my.client/103.17.47.187:44186 MULTI_sva: pool returned IPv4=10.8.0.6, IPv6=(Not enabled)
+Thu Sep  7 13:15:21 2017 my.client/103.17.47.187:44186 MULTI: Learn: 10.8.0.6 -> my.client/103.17.47.187:44186
+Thu Sep  7 13:15:21 2017 my.client/103.17.47.187:44186 MULTI: primary virtual IP for my.client/103.17.47.187:44186: 10.8.0.6
+Thu Sep  7 13:15:24 2017 my.client/103.17.47.187:44186 PUSH: Received control message: 'PUSH_REQUEST'
+Thu Sep  7 13:15:24 2017 my.client/103.17.47.187:44186 send_push_reply(): safe_cap=940
+Thu Sep  7 13:15:24 2017 my.client/103.17.47.187:44186 SENT CONTROL [my.client]: 'PUSH_REPLY,route 10.66.0.0 255.255.255.0,dhcp-option DNS 10.66.0.1,route 10.8.0.1,topology net30,ping 10,ping-restart 120,ifconfig 10.8.0.6 10.8.0.5' (status=1)
+```
+
 Il faut comprendre le VPN comme un switch unmanaged virtuel auquel est connecté le trafic virtuel du VPN et ce traffic est chainé au switch du LAN
 
 
