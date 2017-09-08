@@ -430,61 +430,61 @@ verb 3
 ;mute 20
 ```
 
-- sous root (a tester sur un user) : `cd /etc/openvpn``openvpn client.conf`
+- dans le client, sous root (a tester sur un user) : `cd /etc/openvpn``openvpn client.conf`
 - s'affiche : 
 ```
-on Sep  4 09:57:26 2017 OpenVPN 2.3.4 x86_64-pc-linux-gnu [SSL (OpenSSL)] [LZO] [EPOLL] [PKCS11] [MH] [IPv6] built on Nov 12 2015
-Mon Sep  4 09:57:26 2017 library versions: OpenSSL 1.0.1t  3 May 2016, LZO 2.08
-Mon Sep  4 09:57:26 2017 WARNING: file 'my.client.key' is group or others accessible
-Mon Sep  4 09:57:26 2017 Socket Buffers: R=[212992->131072] S=[212992->131072]
-Mon Sep  4 09:57:26 2017 UDPv4 link local: [undef]
-Mon Sep  4 09:57:26 2017 UDPv4 link remote: [AF_INET]103.17.45.190:1194
-Mon Sep  4 09:57:26 2017 TLS: Initial packet from [AF_INET]103.17.45.190:1194, sid=66d68e07 4b481f65
-Mon Sep  4 09:57:26 2017 VERIFY OK: depth=1, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=Fort-Funston CA, name=EasyRSA, emailAddress=me@myhost.mydomain
-Mon Sep  4 09:57:26 2017 VERIFY OK: nsCertType=SERVER
-Mon Sep  4 09:57:26 2017 VERIFY OK: depth=0, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=my.server, name=EasyRSA, emailAddress=me@myhost.mydomain
-Mon Sep  4 09:57:27 2017 Data Channel Encrypt: Cipher 'BF-CBC' initialized with 128 bit key
-Mon Sep  4 09:57:27 2017 Data Channel Encrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
-Mon Sep  4 09:57:27 2017 Data Channel Decrypt: Cipher 'BF-CBC' initialized with 128 bit key
-Mon Sep  4 09:57:27 2017 Data Channel Decrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
-Mon Sep  4 09:57:27 2017 Control Channel: TLSv1, cipher TLSv1/SSLv3 DHE-RSA-AES256-SHA, 2048 bit RSA
-Mon Sep  4 09:57:27 2017 [my.server] Peer Connection Initiated with [AF_INET]103.17.45.190:1194
-Mon Sep  4 09:57:29 2017 SENT CONTROL [my.server]: 'PUSH_REQUEST' (status=1)
-Mon Sep  4 09:57:30 2017 PUSH: Received control message: 'PUSH_REPLY,route 10.8.0.1,topology net30,ping 10,ping-restart 120,ifconfig 10.8.0.6 10.8.0.5'
-Mon Sep  4 09:57:30 2017 OPTIONS IMPORT: timers and/or timeouts modified
-Mon Sep  4 09:57:30 2017 OPTIONS IMPORT: --ifconfig/up options modified
-Mon Sep  4 09:57:30 2017 OPTIONS IMPORT: route options modified
-Mon Sep  4 09:57:30 2017 ROUTE_GATEWAY 192.168.1.1/255.255.255.0 IFACE=eth1 HWADDR=50:e5:49:3e:4b:7e
-Mon Sep  4 09:57:30 2017 TUN/TAP device tun0 opened
-Mon Sep  4 09:57:30 2017 TUN/TAP TX queue length set to 100
-Mon Sep  4 09:57:30 2017 do_ifconfig, tt->ipv6=0, tt->did_ifconfig_ipv6_setup=0
-Mon Sep  4 09:57:30 2017 /sbin/ip link set dev tun0 up mtu 1500
-Mon Sep  4 09:57:30 2017 /sbin/ip addr add dev tun0 local 10.8.0.6 peer 10.8.0.5
-Mon Sep  4 09:57:30 2017 /sbin/ip route add 10.8.0.1/32 via 10.8.0.5
-Mon Sep  4 09:57:30 2017 Initialization Sequence Completed
-Mon Sep  4 10:02:43 2017 [my.server] Inactivity timeout (--ping-restart), restarting
-Mon Sep  4 10:02:43 2017 SIGUSR1[soft,ping-restart] received, process restarting
-Mon Sep  4 10:02:43 2017 Restart pause, 2 second(s)
-Mon Sep  4 10:02:45 2017 Socket Buffers: R=[212992->131072] S=[212992->131072]
-Mon Sep  4 10:02:45 2017 UDPv4 link local: [undef]
-Mon Sep  4 10:02:45 2017 UDPv4 link remote: [AF_INET]103.17.45.190:1194
-Mon Sep  4 10:02:45 2017 TLS: Initial packet from [AF_INET]103.17.45.190:1194, sid=12d067d5 ad235fd0
-Mon Sep  4 10:02:46 2017 VERIFY OK: depth=1, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=Fort-Funston CA, name=EasyRSA, emailAddress=me@myhost.mydomain
-Mon Sep  4 10:02:46 2017 VERIFY OK: nsCertType=SERVER
-Mon Sep  4 10:02:46 2017 VERIFY OK: depth=0, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=my.server, name=EasyRSA, emailAddress=me@myhost.mydomain
-Mon Sep  4 10:02:46 2017 Data Channel Encrypt: Cipher 'BF-CBC' initialized with 128 bit key
-Mon Sep  4 10:02:46 2017 Data Channel Encrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
-Mon Sep  4 10:02:46 2017 Data Channel Decrypt: Cipher 'BF-CBC' initialized with 128 bit key
-Mon Sep  4 10:02:46 2017 Data Channel Decrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
-Mon Sep  4 10:02:46 2017 Control Channel: TLSv1, cipher TLSv1/SSLv3 DHE-RSA-AES256-SHA, 2048 bit RSA
-Mon Sep  4 10:02:46 2017 [my.server] Peer Connection Initiated with [AF_INET]103.17.45.190:1194
-Mon Sep  4 10:02:49 2017 SENT CONTROL [my.server]: 'PUSH_REQUEST' (status=1)
-Mon Sep  4 10:02:49 2017 PUSH: Received control message: 'PUSH_REPLY,route 10.8.0.1,topology net30,ping 10,ping-restart 120,ifconfig 10.8.0.6 10.8.0.5'
-Mon Sep  4 10:02:49 2017 OPTIONS IMPORT: timers and/or timeouts modified
-Mon Sep  4 10:02:49 2017 OPTIONS IMPORT: --ifconfig/up options modified
-Mon Sep  4 10:02:49 2017 OPTIONS IMPORT: route options modified
-Mon Sep  4 10:02:49 2017 Preserving previous TUN/TAP instance: tun0
-Mon Sep  4 10:02:49 2017 Initialization Sequence Completed
+OpenVPN 2.3.4 x86_64-pc-linux-gnu [SSL (OpenSSL)] [LZO] [EPOLL] [PKCS11] [MH] [IPv6] built on Nov 12 2015
+ library versions: OpenSSL 1.0.1t  3 May 2016, LZO 2.08
+ WARNING: file 'my.client.key' is group or others accessible
+ Socket Buffers: R=[212992->131072] S=[212992->131072]
+ UDPv4 link local: [undef]
+ UDPv4 link remote: [AF_INET]103.17.45.190:1194
+ TLS: Initial packet from [AF_INET]103.17.45.190:1194, sid=66d68e07 4b481f65
+ VERIFY OK: depth=1, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=Fort-Funston CA, name=EasyRSA, emailAddress=me@myhost.mydomain
+ VERIFY OK: nsCertType=SERVER
+ VERIFY OK: depth=0, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=my.server, name=EasyRSA, emailAddress=me@myhost.mydomain
+ Data Channel Encrypt: Cipher 'BF-CBC' initialized with 128 bit key
+ Data Channel Encrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+ Data Channel Decrypt: Cipher 'BF-CBC' initialized with 128 bit key
+ Data Channel Decrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+ Control Channel: TLSv1, cipher TLSv1/SSLv3 DHE-RSA-AES256-SHA, 2048 bit RSA
+ [my.server] Peer Connection Initiated with [AF_INET]103.17.45.190:1194
+ SENT CONTROL [my.server]: 'PUSH_REQUEST' (status=1)
+ PUSH: Received control message: 'PUSH_REPLY,route 10.8.0.1,topology net30,ping 10,ping-restart 120,ifconfig 10.8.0.6 10.8.0.5'
+ OPTIONS IMPORT: timers and/or timeouts modified
+ OPTIONS IMPORT: --ifconfig/up options modified
+ OPTIONS IMPORT: route options modified
+ ROUTE_GATEWAY 192.168.1.1/255.255.255.0 IFACE=eth1 HWADDR=50:e5:49:3e:4b:7e
+ TUN/TAP device tun0 opened
+ TUN/TAP TX queue length set to 100
+ do_ifconfig, tt->ipv6=0, tt->did_ifconfig_ipv6_setup=0
+ /sbin/ip link set dev tun0 up mtu 1500
+ /sbin/ip addr add dev tun0 local 10.8.0.6 peer 10.8.0.5
+ /sbin/ip route add 10.8.0.1/32 via 10.8.0.5
+ Initialization Sequence Completed
+ [my.server] Inactivity timeout (--ping-restart), restarting
+ SIGUSR1[soft,ping-restart] received, process restarting
+ Restart pause, 2 second(s)
+ Socket Buffers: R=[212992->131072] S=[212992->131072]
+ UDPv4 link local: [undef]
+ UDPv4 link remote: [AF_INET]103.17.45.190:1194
+ TLS: Initial packet from [AF_INET]103.17.45.190:1194, sid=12d067d5 ad235fd0
+ VERIFY OK: depth=1, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=Fort-Funston CA, name=EasyRSA, emailAddress=me@myhost.mydomain
+ VERIFY OK: nsCertType=SERVER
+ VERIFY OK: depth=0, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=my.server, name=EasyRSA, emailAddress=me@myhost.mydomain
+ Data Channel Encrypt: Cipher 'BF-CBC' initialized with 128 bit key
+ Data Channel Encrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+ Data Channel Decrypt: Cipher 'BF-CBC' initialized with 128 bit key
+ Data Channel Decrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+ Control Channel: TLSv1, cipher TLSv1/SSLv3 DHE-RSA-AES256-SHA, 2048 bit RSA
+ [my.server] Peer Connection Initiated with [AF_INET]103.17.45.190:1194
+ SENT CONTROL [my.server]: 'PUSH_REQUEST' (status=1)
+ PUSH: Received control message: 'PUSH_REPLY,route 10.8.0.1,topology net30,ping 10,ping-restart 120,ifconfig 10.8.0.6 10.8.0.5'
+ OPTIONS IMPORT: timers and/or timeouts modified
+ OPTIONS IMPORT: --ifconfig/up options modified
+ OPTIONS IMPORT: route options modified
+ Preserving previous TUN/TAP instance: tun0
+ Initialization Sequence Completed
 ```
 - traceroute 10.8.0.1
 ```
@@ -662,6 +662,76 @@ Thu Sep  7 13:15:24 2017 my.client/103.17.47.187:44186 PUSH: Received control me
 Thu Sep  7 13:15:24 2017 my.client/103.17.47.187:44186 send_push_reply(): safe_cap=940
 Thu Sep  7 13:15:24 2017 my.client/103.17.47.187:44186 SENT CONTROL [my.client]: 'PUSH_REPLY,route 10.66.0.0 255.255.255.0,dhcp-option DNS 10.66.0.1,route 10.8.0.1,topology net30,ping 10,ping-restart 120,ifconfig 10.8.0.6 10.8.0.5' (status=1)
 ```
+- et logread -f
+
+~~~ 
+Thu Sep  7 13:33:21 2017 daemon.notice netifd: Network device 'tun0' link is down
+Thu Sep  7 13:33:21 2017 daemon.notice netifd: Interface 'vpn0' has link connectivity loss
+Thu Sep  7 13:33:21 2017 daemon.notice netifd: Interface 'vpn0' is now down
+Thu Sep  7 13:33:21 2017 daemon.notice netifd: Interface 'vpn0' is disabled
+Thu Sep  7 13:33:27 2017 daemon.notice netifd: Interface 'vpn0' is enabled
+Thu Sep  7 13:33:27 2017 daemon.notice netifd: Network device 'tun0' link is up
+Thu Sep  7 13:33:27 2017 daemon.notice netifd: Interface 'vpn0' has link connectivity 
+Thu Sep  7 13:33:27 2017 daemon.notice netifd: Interface 'vpn0' is setting up now
+Thu Sep  7 13:33:27 2017 daemon.notice netifd: Interface 'vpn0' is now up
+Thu Sep  7 13:33:27 2017 user.notice firewall: Reloading firewall due to ifup of vpn0 (tun0)
+Thu Sep  7 13:34:12 2017 daemon.info hostapd: wlan1: STA 78:02:f8:58:69:2a IEEE 802.11: authenticated
+Thu Sep  7 13:34:12 2017 daemon.info hostapd: wlan1: STA 78:02:f8:58:69:2a IEEE 802.11: associated (aid 1)
+Thu Sep  7 13:34:12 2017 daemon.info hostapd: wlan1: STA 78:02:f8:58:69:2a WPA: pairwise key handshake completed (RSN)
+Thu Sep  7 13:34:13 2017 daemon.info dnsmasq-dhcp[1403]: DHCPDISCOVER(br-lan) 78:02:f8:58:69:2a 
+Thu Sep  7 13:34:13 2017 daemon.info dnsmasq-dhcp[1403]: DHCPOFFER(br-lan) 10.66.0.136 78:02:f8:58:69:2a 
+Thu Sep  7 13:34:13 2017 daemon.info dnsmasq-dhcp[1403]: DHCPREQUEST(br-lan) 10.66.0.136 78:02:f8:58:69:2a 
+Thu Sep  7 13:34:13 2017 daemon.info dnsmasq-dhcp[1403]: DHCPACK(br-lan) 10.66.0.136 78:02:f8:58:69:2a 
+Thu Sep  7 13:34:34 2017 daemon.warn odhcpd[934]: DHCPV6 SOLICIT IA_NA from 00010001211e7d78b827ebdc7cee on br-lan: ok fd32:5c36:1a94::6e7/128 
+
+~~~
+- pas de `Iniatialisation sequence completed` ce n'est pas bon signe.
+
+- au niveau client j'ai:
+```
+[...]
+(--ping-restart), restarting
+Thu Sep  7 15:56:21 2017 SIGUSR1[soft,ping-restart] received, process
+restarting
+Thu Sep  7 15:56:21 2017 Restart pause, 2 second(s)
+Thu Sep  7 15:56:23 2017 Socket Buffers: R=[212992->131072]
+S=[212992->131072]
+Thu Sep  7 15:56:23 2017 UDPv4 link local: [undef]
+Thu Sep  7 15:56:23 2017 UDPv4 link remote: [AF_INET]103.17.45.190:1194     -----> IP public openwrt VPN server
+Thu Sep  7 15:56:23 2017 TLS: Initial packet from
+Thu Sep  7 15:56:25 2017 [my.server] Peer Connection Initiated with
+[AF_INET]103.17.45.190:1194         ----> c'est l'ip public de l'openwrt avec le server VPN
+Thu Sep  7 15:56:27 2017 SENT CONTROL [my.server]: 'PUSH_REQUEST' (status=1)
+Thu Sep  7 15:56:27 2017 PUSH: Received control message:
+'PUSH_REPLY,route 10.66.0.0 255.255.255.0,dhcp-option DNS    ----> des informations sur le subnet de openwrt server VPN
+10.66.0.1,route 10.8.0.1,topology net30,ping 10,ping-restart
+120,ifconfig 10.8.0.6 10.8.0.5'
+Thu Sep  7 15:56:27 2017 OPTIONS IMPORT: timers and/or timeouts modified
+Thu Sep  7 15:56:27 2017 OPTIONS IMPORT: --ifconfig/up options modified
+Thu Sep  7 15:56:27 2017 OPTIONS IMPORT: route options modified
+Thu Sep  7 15:56:27 2017 OPTIONS IMPORT: --ip-win32 and/or --dhcp-option
+options modified
+Thu Sep  7 15:56:27 2017 Preserving previous TUN/TAP instance: tun0
+```
+
+- sur le client que donne netstat -nr avant et apres lancement du client VPN.
+
+- que donne un traceroute de 10.8.0.6 et 10.8.0.5
+
+- sur le routeur sans le vpn, netstat -nr donne:
+```
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+202.22.235.254  *               255.255.255.255 UH    0      0        0 pppoe-wan
+192.168.1.0     *               255.255.255.0   U     0      0        0 br-lan
+default         202.22.235.254  0.0.0.0         UG    0      0        0 pppoe-wan
+
+```
+- 202.22.235.254 c'est une adresse mls.
+- traceroute 202.22.235.254 pas de réponse interessante.
+- sur le router avec VPN: netstat -nr
+
+
+
 
 Il faut comprendre le VPN comme un switch unmanaged virtuel auquel est connecté le trafic virtuel du VPN et ce traffic est chainé au switch du LAN
 
