@@ -729,10 +729,57 @@ default         202.22.235.254  0.0.0.0         UG    0      0        0 pppoe-wa
 - 202.22.235.254 c'est une adresse mls.
 - traceroute 202.22.235.254 pas de réponse interessante.
 - sur le router avec VPN: netstat -nr
+```
 
+## openwrt openvpn on
+- netstat -nr
 
+```
+0.0.0.0         202.22.235.254  0.0.0.0         UG        0 0          0 pppoe-wan
+10.8.0.0        10.8.0.2        255.255.255.0   UG        0 0          0 tun0
+10.8.0.2        0.0.0.0         255.255.255.255 UH        0 0          0 tun0
+10.66.0.0       0.0.0.0         255.255.255.0   U         0 0          0 br-lan
+202.22.235.254  0.0.0.0         255.255.255.255 UH        0 0          0 pppoe-wan
+```
+## openwrt openvpn off
+```
+Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+0.0.0.0         202.22.235.254  0.0.0.0         UG        0 0          0 pppoe-wan
+10.66.0.0       0.0.0.0         255.255.255.0   U         0 0          0 br-lan
+202.22.235.254  0.0.0.0         255.255.255.255 UH        0 0          0 pppoe-wan
+```
 
-
+## openvpn sur openwrt
+- /etc/init.d/openvpn start
+- logread -f
+```
+ daemon.notice netifd: Interface 'vpn0' is enabled
+ daemon.notice netifd: Network device 'tun0' link is up
+ daemon.notice netifd: Interface 'vpn0' has link connectivity 
+ daemon.notice netifd: Interface 'vpn0' is setting up now
+ daemon.notice netifd: Interface 'vpn0' is now up
+ user.notice firewall: Reloading firewall due to ifup of vpn0 (tun0)
+ daemon.warn odhcpd[934]: DHCPV6 SOLICIT IA_NA from 00010001211e7d78b827ebdc7cee on br-lan: ok fd32:5c36:1a94::6e7/128 
+```
+- cat /tmp/openvpn.log 
+```
+OpenVPN 2.3.6 mips-openwrt-linux-gnu [SSL (OpenSSL)] [LZO] [EPOLL] [MH] [IPv6] built on Jul 25 2015
+library versions: OpenSSL 1.0.2g  1 Mar 2016, LZO 2.08
+Diffie-Hellman initialized with 2048 bit key
+ Socket Buffers: R=[163840->131072] S=[163840->131072]
+ TUN/TAP device tun0 opened
+ TUN/TAP TX queue length set to 100
+ do_ifconfig, tt->ipv6=0, tt->did_ifconfig_ipv6_setup=0
+ /sbin/ifconfig tun0 10.8.0.1 pointopoint 10.8.0.2 mtu 1500
+ /sbin/route add -net 10.8.0.0 netmask 255.255.255.0 gw 10.8.0.2
+ UDPv4 link local (bound): [undef]
+ UDPv4 link remote: [undef]
+ MULTI: multi_init called, r=256 v=256
+ IFCONFIG POOL: base=10.8.0.4 size=62, ipv6=0
+Initialization Sequence Completed
+ ```
+ 
+ 
 Il faut comprendre le VPN comme un switch unmanaged virtuel auquel est connecté le trafic virtuel du VPN et ce traffic est chainé au switch du LAN
 
 
