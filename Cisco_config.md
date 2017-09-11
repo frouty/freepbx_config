@@ -66,13 +66,13 @@ http://www.firewall.cx/cisco-technical-knowledgebase/cisco-switches/885-cisco-sw
 # name Voice-VLAN
 # ip address 192.168.10.2 255.255.255.0
 # exit
-```
-lan 5
-nterface vlan 5
+#vlan 5
+#interface vlan 5
 # name Guest-VLAN
 # ip address 192.168.50.2 255.255.255.0
 # exit
-``
+```
+
 # Vlans
 port vlan peuvent être:  
 - tagged = trunk
