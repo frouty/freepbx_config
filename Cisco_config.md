@@ -58,7 +58,7 @@ http://www.firewall.cx/cisco-technical-knowledgebase/cisco-switches/885-cisco-sw
 interface vlan 1
 ip address 192.168.1.2 255.255.255.0
 exit
-`̀``
+```
 - on fait la meme chose pour le VLAN2 Voice VLAN et VLAN8 Guest VLAN
 ``
 #vlan 2
