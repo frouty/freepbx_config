@@ -38,11 +38,28 @@ Il faut avoir un acces au switch.
 
 That will set a new password in the running (and startup config) so that you will be able to access the switch after a reboot.
 
+## Changer de passwd
+- débrancher tous les cables
+- reset 
+- et voilà
+
 # Port Configuration on the Sx500 Series Stackable Switches
 https://supportforums.cisco.com/t5/small-business-switches/port-configuration-on-the-sx500-series-stackable-switches/ta-p/3146252
 
 # Installation and Setup of Cisco SG500-52P - 500 Series Stackable Managed Switches
 http://www.firewall.cx/cisco-technical-knowledgebase/cisco-switches/885-cisco-switches-sg500-52p.html
+- show system mode
+- set system mode router
+- show system mode
+- 1 configurer les vlans
+- 2 configurer les vlans interfaces pour les adress IP.
+- `configure terminal`
+```
+interface vlan 1
+ip address 192.168.1.2 255.255.255.0
+exit
+`̀``
+
 
 # Vlans
 port vlan peuvent être:  
@@ -165,7 +182,7 @@ Quand on crée des vlan on segmente le réseau. On diminue le broadcasting et on
 Mais il faut qu'un user d'un vlan puisse utilise un service d'un autre vlan.
 
 - 1 IP route enable
-  - IP configuration / Management and IPinterfaces / IPv4 interface
+  - IP configuration / Management and IP interfaces / IPv4 interface
   - Double check IPv4 interface table
 - 2 Verifier la VLAN configuration
   -Si un port rejoint un VLAN le port peut etre ACCESS ou TRUNK
@@ -286,3 +303,11 @@ Ces 3 VLAN sont des reseaux séparés qui partagent le meme switch. Comment est 
 Est le standard qui supporte le VLAN avec tagging.
 ### Multiple Spanning Tree Protocol
 C'est une révision de ce protocole.
+
+# ACL (access control list) et access control entry (ACE)
+un ACL contient le host qu'un device peut accesder ou pas.
+C'est une liste de source d'address IP qui utilise le layer 3 pour permettre ou pas l'accés.   
+Un ACE contient le critere de l'access rule. L'ACE s'applique à l'ACL. 
+https://sbkb.cisco.com/CiscoSB/ukp.aspx?login=1&pid=2&app=search&vw=1&articleid=3025&donelr=1  
+On crée d'abord un ACL puis on crée un ACE que l'on rattache à un ACL ou plusieurs ACL. 
+
