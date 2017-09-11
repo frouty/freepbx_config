@@ -782,43 +782,46 @@ Initialization Sequence Completed
  - #cd /etc/openvpn
  - #openvpn client.conf
  ```
- Sun Sep 10 22:18:08 2017 OpenVPN 2.3.4 x86_64-pc-linux-gnu [SSL (OpenSSL)] [LZO] [EPOLL] [PKCS11] [MH] [IPv6] built on Nov 12 2015
-Sun Sep 10 22:18:08 2017 library versions: OpenSSL 1.0.1t  3 May 2016, LZO 2.08
-Sun Sep 10 22:18:08 2017 WARNING: file 'my.client.key' is group or others accessible
-Sun Sep 10 22:18:08 2017 Socket Buffers: R=[212992->131072] S=[212992->131072]
-Sun Sep 10 22:18:08 2017 UDPv4 link local: [undef]
-Sun Sep 10 22:18:08 2017 UDPv4 link remote: [AF_INET]103.17.45.190:1194
-Sun Sep 10 22:18:08 2017 TLS: Initial packet from [AF_INET]103.17.45.190:1194, sid=9bc7245d 140a4d35
-Sun Sep 10 22:18:09 2017 VERIFY OK: depth=1, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=Fort-Funston CA, name=EasyRSA, emailAddress=me@myhost.mydomain
-Sun Sep 10 22:18:09 2017 VERIFY OK: nsCertType=SERVER
-Sun Sep 10 22:18:09 2017 VERIFY OK: depth=0, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=my.server, name=EasyRSA, emailAddress=me@myhost.mydomain
-Sun Sep 10 22:18:10 2017 Data Channel Encrypt: Cipher 'BF-CBC' initialized with 128 bit key
-Sun Sep 10 22:18:10 2017 Data Channel Encrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
-Sun Sep 10 22:18:10 2017 Data Channel Decrypt: Cipher 'BF-CBC' initialized with 128 bit key
-Sun Sep 10 22:18:10 2017 Data Channel Decrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
-Sun Sep 10 22:18:10 2017 Control Channel: TLSv1, cipher TLSv1/SSLv3 DHE-RSA-AES256-SHA, 2048 bit RSA
-Sun Sep 10 22:18:10 2017 [my.server] Peer Connection Initiated with [AF_INET]103.17.45.190:1194
-Sun Sep 10 22:18:12 2017 SENT CONTROL [my.server]: 'PUSH_REQUEST' (status=1)
-Sun Sep 10 22:18:12 2017 PUSH: Received control message: 'PUSH_REPLY,route 10.66.0.0 255.255.255.0,dhcp-option DNS 10.66.0.1,route 10.8.0.1,topology net30,ping 10,ping-restart 120,ifconfig 10.8.0.6 10.8.0.5'
-Sun Sep 10 22:18:12 2017 OPTIONS IMPORT: timers and/or timeouts modified
-Sun Sep 10 22:18:12 2017 OPTIONS IMPORT: --ifconfig/up options modified
-Sun Sep 10 22:18:12 2017 OPTIONS IMPORT: route options modified
-Sun Sep 10 22:18:12 2017 OPTIONS IMPORT: --ip-win32 and/or --dhcp-option options modified
-Sun Sep 10 22:18:12 2017 ROUTE_GATEWAY 192.168.1.1/255.255.255.0 IFACE=eth1 HWADDR=50:e5:49:3e:4b:7e
-Sun Sep 10 22:18:12 2017 TUN/TAP device tun0 opened
-Sun Sep 10 22:18:12 2017 TUN/TAP TX queue length set to 100
-Sun Sep 10 22:18:12 2017 do_ifconfig, tt->ipv6=0, tt->did_ifconfig_ipv6_setup=0
-Sun Sep 10 22:18:12 2017 /sbin/ip link set dev tun0 up mtu 1500
-Sun Sep 10 22:18:12 2017 /sbin/ip addr add dev tun0 local 10.8.0.6 peer 10.8.0.5
-Sun Sep 10 22:18:12 2017 /sbin/ip route add 10.66.0.0/24 via 10.8.0.5
-Sun Sep 10 22:18:12 2017 /sbin/ip route add 10.8.0.1/32 via 10.8.0.5
-Sun Sep 10 22:18:12 2017 Initialization Sequence Completed
+7 OpenVPN 2.3.4 x86_64-pc-linux-gnu [SSL (OpenSSL)] [LZO] [EPOLL] [PKCS11] [MH] [IPv6] built on Nov 12 2015
+ library versions: OpenSSL 1.0.1t  3 May 2016, LZO 2.08
+ WARNING: file 'my.client.key' is group or others accessible
+ Socket Buffers: R=[212992->131072] S=[212992->131072]
+ UDPv4 link local: [undef]
+ UDPv4 link remote: [AF_INET]103.17.45.190:1194
+ TLS: Initial packet from [AF_INET]103.17.45.190:1194, sid=9bc7245d 140a4d35
+ VERIFY OK: depth=1, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=Fort-Funston CA, name=EasyRSA, emailAddress=me@myhost.mydomain
+ VERIFY OK: nsCertType=SERVER
+ VERIFY OK: depth=0, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=my.server, name=EasyRSA, emailAddress=me@myhost.mydomain
+ Data Channel Encrypt: Cipher 'BF-CBC' initialized with 128 bit key
+ Data Channel Encrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+ Data Channel Decrypt: Cipher 'BF-CBC' initialized with 128 bit key
+ Data Channel Decrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+ Control Channel: TLSv1, cipher TLSv1/SSLv3 DHE-RSA-AES256-SHA, 2048 bit RSA
+ [my.server] Peer Connection Initiated with [AF_INET]103.17.45.190:1194
+ SENT CONTROL [my.server]: 'PUSH_REQUEST' (status=1)
+ PUSH: Received control message: 'PUSH_REPLY,route 10.66.0.0 255.255.255.0,dhcp-option DNS 10.66.0.1,route 10.8.0.1,topology net30,ping 10,ping-restart 120,ifconfig 10.8.0.6 10.8.0.5'
+ OPTIONS IMPORT: timers and/or timeouts modified
+ OPTIONS IMPORT: --ifconfig/up options modified
+ OPTIONS IMPORT: route options modified
+ OPTIONS IMPORT: --ip-win32 and/or --dhcp-option options modified
+ ROUTE_GATEWAY 192.168.1.1/255.255.255.0 IFACE=eth1 HWADDR=50:e5:49:3e:4b:7e
+ TUN/TAP device tun0 opened
+ TUN/TAP TX queue length set to 100
+ do_ifconfig, tt->ipv6=0, tt->did_ifconfig_ipv6_setup=0
+ /sbin/ip link set dev tun0 up mtu 1500
+ /sbin/ip addr add dev tun0 local 10.8.0.6 peer 10.8.0.5
+ /sbin/ip route add 10.66.0.0/24 via 10.8.0.5
+ /sbin/ip route add 10.8.0.1/32 via 10.8.0.5
+ Initialization Sequence Completed
 ```
-- # ping 10.6.0.10
+- \#ping 10.6.0.10
+tialization Sequence Completed
+```
 PING 10.6.0.10 (10.6.0.10) 56(84) bytes of data.
 From 202.87.128.65 icmp_seq=11 Destination Net Unreachable
-
+```
 - ifconfig tun0
+```
 tun0      Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  
           inet adr:10.8.0.6  P-t-P:10.8.0.5  Masque:255.255.255.255
           UP POINTOPOINT RUNNING NOARP MULTICAST  MTU:1500  Metric:1
@@ -826,15 +829,19 @@ tun0      Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00
           TX packets:5 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 lg file transmission:100 
           RX bytes:336 (336.0 B)  TX bytes:332 (332.0 B)
-
-root@linuxbox:/home/lfs# traceroute 10.8.0.6
+```
+- \#traceroute 10.8.0.6
+```
 traceroute to 10.8.0.6 (10.8.0.6), 30 hops max, 60 byte packets
  1  10.8.0.6 (10.8.0.6)  0.026 ms  0.007 ms  0.007 ms
 root@linuxbox:/home/lfs# traceroute 10.8.0.5
 traceroute to 10.8.0.5 (10.8.0.5), 30 hops max, 60 byte packets
  1  10.8.0.1 (10.8.0.1)  33.723 ms  35.927 ms  37.586 ms
  2  10.8.0.1 (10.8.0.1)  39.769 ms  41.726 ms  43.683 ms
-
+```
+- puis tout d'un coup ca a marché
+- ping 10.66.0.10
+- ssh user@10.66.0.10 et boom.
  
 Il faut comprendre le VPN comme un switch unmanaged virtuel auquel est connecté le trafic virtuel du VPN et ce traffic est chainé au switch du LAN
 

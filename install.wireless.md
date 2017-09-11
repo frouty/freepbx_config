@@ -6,7 +6,9 @@
 # Savoir si nodosplash est on
 `/usr/bin/ndsctl status` 
 # apres avoir edité /etc/config/network
-`/etc/init.d/network reload`
+`/etc/init.d/network reload`  
+https://steven-england.info/2014/11/01/openwrt-how-to-create-a-public-network-without-using-the-wan-interface/
+
 # /etc/config/network
 ## section global
 ## section switch

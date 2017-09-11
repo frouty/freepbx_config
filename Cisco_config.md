@@ -59,8 +59,19 @@ interface vlan 1
 ip address 192.168.1.2 255.255.255.0
 exit
 `̀``
-
-
+- on fait la meme chose pour le VLAN2 Voice VLAN et VLAN8 Guest VLAN
+``
+#vlan 2
+#interface vlan 2
+# name Voice-VLAN
+# ip address 192.168.10.2 255.255.255.0
+# exit
+lan 5
+nterface vlan 5
+# name Guest-VLAN
+# ip address 192.168.50.2 255.255.255.0
+# exit
+``
 # Vlans
 port vlan peuvent être:  
 - tagged = trunk
