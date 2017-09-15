@@ -391,7 +391,6 @@ pc1 192.168.20.102 ---- switch L3  192.168.1.1 ----- 192.168.1.2 Router ----- in
 - 3 Créer les interfaces
 - 4 enable layer 3 function to switchport connected to the router.
 - 5 enable and configure IP routing
-	- 
 - 6 enable une route static
 
 ## for the router
