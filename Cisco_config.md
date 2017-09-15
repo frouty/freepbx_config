@@ -430,7 +430,7 @@ Un trunk link peut aussi être configuré pour se comporter comme un access link
 C'est une méthode qui permet d'identifier les paquets qui passent à travers un trunk link.
 Quand un paquet traverse un trunk link, un tag est ajouté au paquet qui est envoyé dans le trunk link. A la fin du trunk link le tag est enlevé et le paquet est envoyé à l'access link en fonction de la table du switch.
 
-## Protocoles de tagging
+## Protocoles de tagging
 - 1 Interswitch link (ISL)
 - IEEE 802.1Q
 - LANE
@@ -438,13 +438,13 @@ Quand un paquet traverse un trunk link, un tag est ajouté au paquet qui est env
 
 ## INTERVLAN ROUTING
 
-## Regles de sécurite
+## Regles de sécurite
 - ne pas utiliser le VLAN 1 comme data vlan.
 - desable protocole sur les ports : CDP, DTP , PAgP, UDLD.
 - controle de l'inter vlan routing avec des IP access list.
 
 
-## VLAN De gestion
+## VLAN De gestion
 En mode L3, on peut configurer plusieurs adresses IP pour la gestion du systeme et fournit des systemes de routage.
 Oui mais j'ai l'impression qu'il faut les mettre sur des ports différents.
 
@@ -452,7 +452,7 @@ Configuration IP / IPv4 management and interface / interface IPv4
 
 
 
-## Add a vlan
+## Add a vlan
 -VLAN management / Create a vlan
 ## Assign IP adress to VLAN
 IP configuration / IPv4 interface / Add
