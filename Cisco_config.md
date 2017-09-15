@@ -384,7 +384,7 @@ On crée d'abord un ACL puis on crée un ACE que l'on rattache à un ACL ou plus
 # Connection un switch Layer 3 vers internet
 pc1 192.168.20.102 ---- switch L3  192.168.1.1 ----- 192.168.1.2 Router ----- internet
 
-## Layer 3 switch
+## Layer 3 switch
 
 - 1 Créer les vlans
 - 2 Assigner les ports
@@ -394,7 +394,7 @@ pc1 192.168.20.102 ---- switch L3  192.168.1.1 ----- 192.168.1.2 Router ----- in
 	- 
 - 6 enable une route static
 
-## for the router
+## for the router
 pas adapté à ma configuration.
 
 
