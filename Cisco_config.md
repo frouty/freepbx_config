@@ -408,10 +408,54 @@ La facon commune d'utiliser du NAT à la maison c'est de mapper une adresse publ
 
 # VLAN - ACCESS & TRUNK LINKS
 ## ACCESS LINKS
-Correspond au port *configuré* d'un switch.
+C'est un port *configuré* d'un switch.
 Quand on configure un port en *access link* on configure en général un seul VLAN pour ce port. .
-Si on configure 2 VLANS. Ces 22 VLANS ne peuvent communiquer entre eux sauf si on utilise un switch Layer 3( ou routeur) et que l'on configure explicitement pour le routage entre deux VLANS.
+Si on configure 2 VLANS. Ces 2 VLANS ne peuvent communiquer entre eux sauf si on utilise un switch Layer 3( ou routeur) et que l'on configure explicitement pour le routage entre deux VLANS.
 
 Un access port transport les datagrammes d'un seul VLAN. Le device doit etre configuré pour utiliser ce VLAN.
 
+Les frames qui appartiennent à un seul subnet sont *untagged*. Il n'y a pas d'information sur Elles ne contiennent pas d'informations sur le VLAN  
+
+Access link = access link port
+
 ## TRUNK LINK
+Un trunk link est un port qui est configuré pour transporter les paquets de tous les VLAN.
+On voit ce type de port dans les connections entre switch, pour connecter deux VLAN Switch. 
+
+General ou trunk le port peut faire partie de plusieurs vlans.
+
+Un trunk link peut aussi être configuré pour se comporter comme un access link quand un device qui ne supporte pas le VLAN se connecte à lui. Ce qui veut dire que si on a un trunk link et que l'on y connecte un PC le port va automatiquement fournir un acces à un VLAN. Ce VLAN s'appelle le native VLAN. qui un terme pour désigner le VLAN qui est configuré pour un trunk link qui agit comme un access link.
+
+## VLAN TAGGING
+C'est une méthode qui permet d'identifier les paquets qui passent à travers un trunk link.
+Quand un paquet traverse un trunk link, un tag est ajouté au paquet qui est envoyé dans le trunk link. A la fin du trunk link le tag est enlevé et le paquet est envoyé à l'access link en fonction de la table du switch.
+
+## Protocoles de tagging
+- 1 Interswitch link (ISL)
+- IEEE 802.1Q
+- LANE
+- 802.10 (FDDI)
+
+## INTERVLAN ROUTING
+
+## Regles de sécurite
+- ne pas utiliser le VLAN 1 comme data vlan.
+- desable protocole sur les ports : CDP, DTP , PAgP, UDLD.
+- controle de l'inter vlan routing avec des IP access list.
+
+
+## VLAN De gestion
+En mode L3, on peut configurer plusieurs adresses IP pour la gestion du systeme et fournit des systemes de routage.
+Oui mais j'ai l'impression qu'il faut les mettre sur des ports différents.
+
+Configuration IP / IPv4 management and interface / interface IPv4
+
+
+
+## Add a vlan
+-VLAN management / Create a vlan
+## Assign IP adress to VLAN
+IP configuration / IPv4 interface / Add
+static ip address
+IP and mask  
+
