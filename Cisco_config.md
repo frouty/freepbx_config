@@ -384,7 +384,7 @@ On crée d'abord un ACL puis on crée un ACE que l'on rattache à un ACL ou plus
 # Connection un switch Layer 3 vers internet
 pc1 192.168.20.102 ---- switch L3  192.168.1.1 ----- 192.168.1.2 Router ----- internet
 
-## Layer 3 switch
+## for the Layer 3 switch
 
 - 1 Créer les vlans
 - 2 Assigner les ports
@@ -406,3 +406,12 @@ Firstly, One-To-One NAT is mapping multiple public IPs to multiple private IPs.
 La facon commune d'utiliser du NAT à la maison c'est de mapper une adresse public et un port à une adresse privée et un port. On utilise les numéro de port parce qu'on a une seule adresse IP public et utiliser différents ports est un bon moyen pour partager cette unique adresse IP public avec différents services qui tournent sur différents ports. Mais quand on a plusieurs adresses IP public on peut les mapper sur plusieurs adresses IP privés et alors?
 
 
+# VLAN - ACCESS & TRUNK LINKS
+## ACCESS LINKS
+Correspond au port *configuré* d'un switch.
+Quand on configure un port en *access link* on configure en général un seul VLAN pour ce port. .
+Si on configure 2 VLANS. Ces 22 VLANS ne peuvent communiquer entre eux sauf si on utilise un switch Layer 3( ou routeur) et que l'on configure explicitement pour le routage entre deux VLANS.
+
+Un access port transport les datagrammes d'un seul VLAN. Le device doit etre configuré pour utiliser ce VLAN.
+
+## TRUNK LINK
