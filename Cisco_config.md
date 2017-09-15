@@ -401,10 +401,7 @@ pas adapté à ma configuration.
 
 https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/16448-default.html
 
-Firstly, One-To-One NAT is mapping multiple public IPs to multiple private IPs. The common NAT that most of you folks do at home, is to map your public IP address and a port number to a private IP address and a port number. The reason you use port numbers is because you only have 1 public IP address and using different ports are a good way to share that 1 public IP with a host of services you want to run (which obviously run on different ports). When you have a couple of public IPs, you can afford to map the entire public IP to an entire private IP including all its ports. So for example, If I had public IP addresses, eg: 136.130.20.11 – 136.130.20.15 (5 public IPs) I could map each one of those addresses to machines on my private IP range:
+Firstly, One-To-One NAT is mapping multiple public IPs to multiple private IPs.
+La facon commune d'utiliser du NAT à la maison c'est de mapper une adresse public et un port à une adresse privée et un port. On utilise les numéro de port parce qu'on a une seule adresse IP public et utiliser différents ports est un bon moyen pour partager cette unique adresse IP public avec différents services qui tournent sur différents ports. Mais quand on a plusieurs adresses IP public on peut les mapper sur plusieurs adresses IP privés et alors?
 
-136.130.20.11 -> 172.28.1.11
-136.130.20.12 -> 172.28.2.12
-136.130.20.13 -> 172.28.3.13
-136.130.20.14 -> 172.28.9.14
-136.130.20.15 -> 172.28.9.15
+
