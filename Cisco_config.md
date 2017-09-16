@@ -452,9 +452,9 @@ Configuration IP / IPv4 management and interface / interface IPv4
 
 
 
-## Add a vlan
+## 1 Add a vlan
 -VLAN management / Create a vlan
-## Assign IP adress to VLAN
+## 2 Assign IP adress to VLAN
 IP configuration / IPv4 interface / Add
 static ip address
 IP and mask  
