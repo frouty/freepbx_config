@@ -266,7 +266,7 @@ Mais il faut qu'un user d'un vlan puisse utilise un service d'un autre vlan.
 - 3 Changer en mode L3. `Administration / System settings / System mode 3 / apply`. Toutes la configuration est effacée et le switch reboot. 
 - 4 nouvelle adresse DHCP a retrouver.
 	- Nouveau password
-	- Mise en place d'une adresse static. `*IP Configuration / IPv4 Interface*`.
+	- Mise en place d'une adresse static. *IP Configuration / IPv4 Interface*.
 Si j'ai bien compris il faut delete le VLAN 1 interface. et Add et donner une adresse static dans le subnet du routeur(?). 
  
 - 5 Creation des VLAN. `VLAN Management / Create VLAN / Add / Apply`.
