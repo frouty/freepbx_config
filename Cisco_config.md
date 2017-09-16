@@ -3,6 +3,12 @@ sg500-28P
 ## Default  
 login :  cisco  
 passwd : cisco
+
+## Changer de passwd
+- débrancher tous les cables
+- reset 
+- et voilà
+
 ## recuperer le passwd
 pas possible à faire à distance : http, ssh  
 Il faut avoir un acces au switch.   
@@ -38,10 +44,6 @@ Il faut avoir un acces au switch.
 
 That will set a new password in the running (and startup config) so that you will be able to access the switch after a reboot.
 
-## Changer de passwd
-- débrancher tous les cables
-- reset 
-- et voilà
 
 # Port Configuration on the Sx500 Series Stackable Switches
 https://supportforums.cisco.com/t5/small-business-switches/port-configuration-on-the-sx500-series-stackable-switches/ta-p/3146252
@@ -49,7 +51,7 @@ https://supportforums.cisco.com/t5/small-business-switches/port-configuration-on
 # Installation and Setup of Cisco SG500-52P - 500 Series Stackable Managed Switches
 http://www.firewall.cx/cisco-technical-knowledgebase/cisco-switches/885-cisco-switches-sg500-52p.html
 - show system mode
-- set system mode router  ----> cela efface toute configuration comme le mote de passe aussi.
+- set system mode router  ----> cela efface toute configuration comme le mot de passe aussi.
 - show system mode
 - retrouver l'adresse ip du switch
 - http:/ipduswitch (cisco/cisco)
@@ -87,10 +89,12 @@ http://www.firewall.cx/cisco-technical-knowledgebase/cisco-switches/885-cisco-sw
 ```
 - Sauvegarder la configuration
 
-`#copy running-config startup-config`
+`#copy running-config startup-config` ou `#copy run start`
 
-Le switch crée automatiquement le routage pour les device du VLAN quand ils sont pluggés au switch. Pour le voir aller dans IP configuration / IPv4 Routes. Tant qu'il n'y a pas de device branché il n'y a pas de route.
+Le switch crée automatiquement le routage pour les device du VLAN quand ils sont pluggés au switch. Pour le voir aller dans IP configuration / IPv4 Routes.
+Tant qu'il n'y a pas de device branché il n'y a pas de route.
 
+## Accés à internet
 Pour qu'un VLAN puisse accéder à l'internet il faut créer une route static.
 ```
 Navigate to IP Configuration > IPv4 Routes click Add and then create a route with the following information:
@@ -125,7 +129,7 @@ Status and statistic / system Summary
 - system informations:
   - System operational mode : pour savoir si on est layer 2 ou layer 3
   
-  `show system mode`
+  `show system mode`  
   `show run`
 ### Router show command
 `show running-config`  
@@ -133,12 +137,11 @@ Status and statistic / system Summary
 `show ip route`  
 `show arp`  
 `show cdp neighbors`  
-
 `show mac address-table`  
-`show vlan brief`
+`show vlan brief`  
 
-`sh ip int vlan 1`
-`sh ip int vlan 40`
+`sh ip int vlan 1`  
+`sh ip int vlan 40`  
 
 ## comment passer en layer 3 
 - 1 brancher le cable.
@@ -260,11 +263,13 @@ Mais il faut qu'un user d'un vlan puisse utilise un service d'un autre vlan.
 # How to inter-VLAN routing with Cisco SG series SMB Layer 3 switches
 - 1 on branche le switch sur le routeur principal. Il obtient une adresse DHCP. On cherche qu'elle est cette adress IP.
 - 2 on utilise un navigateur pour aller sur cette IP. 
-- 3 Changer en mode 3. Administration / System settings / System mode 3 / apply. Toutes la configuration est effacée et le switch reboot. 
-- 4 nouvelle adresse DHCP a retrouver. Mise en place d'une adresse static. IP Configuration / IPv4 Interface.
-Si j'ai bien compris il faut delete le VLAN 1 interface. et Add et donner une adresse static dans le subnet du routeur. 
+- 3 Changer en mode L3. `Administration / System settings / System mode 3 / apply`. Toutes la configuration est effacée et le switch reboot. 
+- 4 nouvelle adresse DHCP a retrouver.
+	- Nouveau password
+	- Mise en place d'une adresse static. `*IP Configuration / IPv4 Interface*`.
+Si j'ai bien compris il faut delete le VLAN 1 interface. et Add et donner une adresse static dans le subnet du routeur(?). 
  
-- 5 Creation des VLAN. VLAN Management / Create VLAN / Add / Apply.
+- 5 Creation des VLAN. `VLAN Management / Create VLAN / Add / Apply`.
 - 6 Assign à chaque VLAN une IP. IP configuration/IPv4 interface/Add/Set interface to VLAN et selectionner VLAN ID. IP address Type Static/. Le switch crée le routing pour le VLAN qu'une fois qu'il y a un device branché sur le VLAN. on peut le vérifier dans IP configuration / IPv4 Routes.  
 
 Le VLAN 1 est créé par défaut. Il répond au serveur DHCP. Mais il a aussi comme IP par défaut: 192.168.1.254
