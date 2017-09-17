@@ -154,7 +154,19 @@ Status and statistic / system Summary
   
   - `show system mode`
   - `set system mode router`
-  
+
+# Creation des vlan par le gui
+`LAN Management  / Create VLAN / Add / Apply`
+## Assign ports to vlan
+`LAN Management > Port VLAN Membership`
+- Interface : name of the port
+- Mode : trunk ou access
+- Administrative VLAN : (?)
+- Operational VLAN : (?)
+- LAG : name of the LAG auquel appartient ce port
+Choisir le type d'interface que vous voulez ajouter au VLAN / Go
+Click les radio boutons du port ou du LAG que vous voulez ajouter au VLAN
+Click Join VLAN
 ## Creation des vlan
 ### Creation d'un VLAN 1 
 ```
@@ -266,11 +278,11 @@ Mais il faut qu'un user d'un vlan puisse utilise un service d'un autre vlan.
 - 3 Changer en mode L3. `Administration / System settings / System mode 3 / apply`. Toutes la configuration est effacée et le switch reboot. 
 - 4 nouvelle adresse DHCP a retrouver.
 	- Nouveau password
-	- Mise en place d'une adresse static. *IP Configuration / IPv4 Interface*.
+	- Mise en place d'une adresse static. `IP Configuration / IPv4 Interface`.
 Si j'ai bien compris il faut delete le VLAN 1 interface. et Add et donner une adresse static dans le subnet du routeur(?). 
  
 - 5 Creation des VLAN. `VLAN Management / Create VLAN / Add / Apply`.
-- 6 Assign à chaque VLAN une IP. IP configuration/IPv4 interface/Add/Set interface to VLAN et selectionner VLAN ID. IP address Type Static/. Le switch crée le routing pour le VLAN qu'une fois qu'il y a un device branché sur le VLAN. on peut le vérifier dans IP configuration / IPv4 Routes.  
+- 6 Assign à chaque VLAN une IP. `IP configuration/IPv4 interface/Add/Set interface to VLAN`et selectionner VLAN ID. IP address Type Static/. Le switch crée le routing pour le VLAN qu'une fois qu'il y a un device branché sur le VLAN. on peut le vérifier dans `IP configuration / IPv4 Routes`.  
 
 Le VLAN 1 est créé par défaut. Il répond au serveur DHCP. Mais il a aussi comme IP par défaut: 192.168.1.254
 ```
@@ -461,6 +473,24 @@ Configuration IP / IPv4 management and interface / interface IPv4
 -VLAN management / Create a vlan
 ## 2 Assign IP adress to VLAN
 IP configuration / IPv4 interface / Add
-static ip address
+static ip address  
 IP and mask  
 
+# Configuration of Multicast Router Ports on Sx500
+Multicast Router ports are ports that connect to a multicast router(?)
+https://sbkb.cisco.com/CiscoSB/ukp.aspx?login=1&pid=2&app=search&vw=1&articleid=2907&donelr=1
+
+
+# ARP inspection vlan setting
+Address resolution protocole : map ip address to mac addresses.
+ARP inspection protege le system contre ARP attack.
+
+C'est pas urgent de se former à cela.
+
+https://sbkb.cisco.com/CiscoSB/ukp.aspx?login=1&pid=2&app=search&vw=1&articleid=2907&donelr=1
+
+https://supportforums.cisco.com/t5/small-business-switches/port-configuration-on-the-sx500-series-stackable-switches/ta-p/3146252
+
+
+# IP commnands
+https://www.cyberciti.biz/faq/linux-ip-command-examples-usage-syntax/
