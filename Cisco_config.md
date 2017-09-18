@@ -3,12 +3,6 @@ sg500-28P
 ## Default  
 login :  cisco  
 passwd : cisco
-
-## Changer de passwd
-- débrancher tous les cables
-- reset 
-- et voilà
-
 ## recuperer le passwd
 pas possible à faire à distance : http, ssh  
 Il faut avoir un acces au switch.   
@@ -44,6 +38,10 @@ Il faut avoir un acces au switch.
 
 That will set a new password in the running (and startup config) so that you will be able to access the switch after a reboot.
 
+## Changer de passwd
+- débrancher tous les cables
+- reset 
+- et voilà
 
 # Port Configuration on the Sx500 Series Stackable Switches
 https://supportforums.cisco.com/t5/small-business-switches/port-configuration-on-the-sx500-series-stackable-switches/ta-p/3146252
@@ -51,7 +49,7 @@ https://supportforums.cisco.com/t5/small-business-switches/port-configuration-on
 # Installation and Setup of Cisco SG500-52P - 500 Series Stackable Managed Switches
 http://www.firewall.cx/cisco-technical-knowledgebase/cisco-switches/885-cisco-switches-sg500-52p.html
 - show system mode
-- set system mode router  ----> cela efface toute configuration comme le mot de passe aussi.
+- set system mode router  ----> cela efface toute configuration comme le mote de passe aussi.
 - show system mode
 - retrouver l'adresse ip du switch
 - http:/ipduswitch (cisco/cisco)
@@ -89,12 +87,10 @@ http://www.firewall.cx/cisco-technical-knowledgebase/cisco-switches/885-cisco-sw
 ```
 - Sauvegarder la configuration
 
-`#copy running-config startup-config` ou `#copy run start`
+`#copy running-config startup-config`
 
-Le switch crée automatiquement le routage pour les device du VLAN quand ils sont pluggés au switch. Pour le voir aller dans IP configuration / IPv4 Routes.
-Tant qu'il n'y a pas de device branché il n'y a pas de route.
+Le switch crée automatiquement le routage pour les device du VLAN quand ils sont pluggés au switch. Pour le voir aller dans IP configuration / IPv4 Routes. Tant qu'il n'y a pas de device branché il n'y a pas de route.
 
-## Accés à internet
 Pour qu'un VLAN puisse accéder à l'internet il faut créer une route static.
 ```
 Navigate to IP Configuration > IPv4 Routes click Add and then create a route with the following information:
@@ -129,7 +125,7 @@ Status and statistic / system Summary
 - system informations:
   - System operational mode : pour savoir si on est layer 2 ou layer 3
   
-  `show system mode`  
+  `show system mode`
   `show run`
 ### Router show command
 `show running-config`  
@@ -137,11 +133,12 @@ Status and statistic / system Summary
 `show ip route`  
 `show arp`  
 `show cdp neighbors`  
-`show mac address-table`  
-`show vlan brief`  
 
-`sh ip int vlan 1`  
-`sh ip int vlan 40`  
+`show mac address-table`  
+`show vlan brief`
+
+`sh ip int vlan 1`
+`sh ip int vlan 40`
 
 ## comment passer en layer 3 
 - 1 brancher le cable.
@@ -154,19 +151,7 @@ Status and statistic / system Summary
   
   - `show system mode`
   - `set system mode router`
-
-# Creation des vlan par le gui
-`LAN Management  / Create VLAN / Add / Apply`
-## Assign ports to vlan
-`LAN Management > Port VLAN Membership`
-- Interface : name of the port
-- Mode : trunk ou access
-- Administrative VLAN : (?)
-- Operational VLAN : (?)
-- LAG : name of the LAG auquel appartient ce port
-Choisir le type d'interface que vous voulez ajouter au VLAN / Go
-Click les radio boutons du port ou du LAG que vous voulez ajouter au VLAN
-Click Join VLAN
+  
 ## Creation des vlan
 ### Creation d'un VLAN 1 
 ```
@@ -275,14 +260,12 @@ Mais il faut qu'un user d'un vlan puisse utilise un service d'un autre vlan.
 # How to inter-VLAN routing with Cisco SG series SMB Layer 3 switches
 - 1 on branche le switch sur le routeur principal. Il obtient une adresse DHCP. On cherche qu'elle est cette adress IP.
 - 2 on utilise un navigateur pour aller sur cette IP. 
-- 3 Changer en mode L3. `Administration / System settings / System mode 3 / apply`. Toutes la configuration est effacée et le switch reboot. 
-- 4 nouvelle adresse DHCP a retrouver.
-	- Nouveau password
-	- Mise en place d'une adresse static. `IP Configuration / IPv4 Interface`.
-Si j'ai bien compris il faut delete le VLAN 1 interface. et Add et donner une adresse static dans le subnet du routeur(?). 
+- 3 Changer en mode 3. Administration / System settings / System mode 3 / apply. Toutes la configuration est effacée et le switch reboot. 
+- 4 nouvelle adresse DHCP a retrouver. Mise en place d'une adresse static. IP Configuration / IPv4 Interface.
+Si j'ai bien compris il faut delete le VLAN 1 interface. et Add et donner une adresse static dans le subnet du routeur. 
  
-- 5 Creation des VLAN. `VLAN Management / Create VLAN / Add / Apply`.
-- 6 Assign à chaque VLAN une IP. `IP configuration/IPv4 interface/Add/Set interface to VLAN`et selectionner VLAN ID. IP address Type Static/. Le switch crée le routing pour le VLAN qu'une fois qu'il y a un device branché sur le VLAN. on peut le vérifier dans `IP configuration / IPv4 Routes`.  
+- 5 Creation des VLAN. VLAN Management / Create VLAN / Add / Apply.
+- 6 Assign à chaque VLAN une IP. IP configuration/IPv4 interface/Add/Set interface to VLAN et selectionner VLAN ID. IP address Type Static/. Le switch crée le routing pour le VLAN qu'une fois qu'il y a un device branché sur le VLAN. on peut le vérifier dans IP configuration / IPv4 Routes.  
 
 Le VLAN 1 est créé par défaut. Il répond au serveur DHCP. Mais il a aussi comme IP par défaut: 192.168.1.254
 ```
@@ -401,16 +384,15 @@ On crée d'abord un ACL puis on crée un ACE que l'on rattache à un ACL ou plus
 # Connection un switch Layer 3 vers internet
 pc1 192.168.20.102 ---- switch L3  192.168.1.1 ----- 192.168.1.2 Router ----- internet
 
-## for the Layer 3 switch
-
-- 1 Créer les vlans
-- 2 Assigner les ports
-- 3 Créer les interfaces
-- 4 enable layer 3 function to switchport connected to the router.
-- 5 enable and configure IP routing
-- 6 enable une route static
-
-## for the router
+## Layer 3 switch
+-1 Créer les vlans
+-2 Assigner les ports
+-3 Créer les interfaces
+-4 enable layer 3 function to switchport connected to the router.
+-5 enable and configure IP routing
+	- 
+	-6 enable une route static
+## for the router
 pas adapté à ma configuration.
 
 
@@ -419,78 +401,23 @@ pas adapté à ma configuration.
 
 https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/16448-default.html
 
-Firstly, One-To-One NAT is mapping multiple public IPs to multiple private IPs.
-La facon commune d'utiliser du NAT à la maison c'est de mapper une adresse public et un port à une adresse privée et un port. On utilise les numéro de port parce qu'on a une seule adresse IP public et utiliser différents ports est un bon moyen pour partager cette unique adresse IP public avec différents services qui tournent sur différents ports. Mais quand on a plusieurs adresses IP public on peut les mapper sur plusieurs adresses IP privés et alors?
+Firstly, One-To-One NAT is mapping multiple public IPs to multiple private IPs. The common NAT that most of you folks do at home, is to map your public IP address and a port number to a private IP address and a port number. The reason you use port numbers is because you only have 1 public IP address and using different ports are a good way to share that 1 public IP with a host of services you want to run (which obviously run on different ports). When you have a couple of public IPs, you can afford to map the entire public IP to an entire private IP including all its ports. So for example, If I had public IP addresses, eg: 136.130.20.11 – 136.130.20.15 (5 public IPs) I could map each one of those addresses to machines on my private IP range:
 
+136.130.20.11 -> 172.28.1.11
+136.130.20.12 -> 172.28.2.12
+136.130.20.13 -> 172.28.3.13
+136.130.20.14 -> 172.28.9.14
+136.130.20.15 -> 172.28.9.15
 
-# VLAN - ACCESS & TRUNK LINKS
-## ACCESS LINKS
-C'est un port *configuré* d'un switch.
-Quand on configure un port en *access link* on configure en général un seul VLAN pour ce port. .
-Si on configure 2 VLANS. Ces 2 VLANS ne peuvent communiquer entre eux sauf si on utilise un switch Layer 3( ou routeur) et que l'on configure explicitement pour le routage entre deux VLANS.
+# Passage en L3
+Administration / System mode and stack management / System mode / L3 mode  
+apply and reboot  
+toujours en L2  
+Il fallait autoriser les popup bloqués par firefox.  OK
+success  
+apply and reboot  
+déconnection du pc
+reconnection avec ifup (n'a pas marché avec wicd)  
+on tout perdu dans la config du cisco notamment du passwd.
+new passwd  
 
-Un access port transport les datagrammes d'un seul VLAN. Le device doit etre configuré pour utiliser ce VLAN.
-
-Les frames qui appartiennent à un seul subnet sont *untagged*. Il n'y a pas d'information sur Elles ne contiennent pas d'informations sur le VLAN  
-
-Access link = access link port
-
-## TRUNK LINK
-Un trunk link est un port qui est configuré pour transporter les paquets de tous les VLAN.
-On voit ce type de port dans les connections entre switch, pour connecter deux VLAN Switch. 
-
-General ou trunk le port peut faire partie de plusieurs vlans.
-
-Un trunk link peut aussi être configuré pour se comporter comme un access link quand un device qui ne supporte pas le VLAN se connecte à lui. Ce qui veut dire que si on a un trunk link et que l'on y connecte un PC le port va automatiquement fournir un acces à un VLAN. Ce VLAN s'appelle le native VLAN. qui un terme pour désigner le VLAN qui est configuré pour un trunk link qui agit comme un access link.
-
-## VLAN TAGGING
-C'est une méthode qui permet d'identifier les paquets qui passent à travers un trunk link.
-Quand un paquet traverse un trunk link, un tag est ajouté au paquet qui est envoyé dans le trunk link. A la fin du trunk link le tag est enlevé et le paquet est envoyé à l'access link en fonction de la table du switch.
-
-## Protocoles de tagging
-- 1 Interswitch link (ISL)
-- IEEE 802.1Q
-- LANE
-- 802.10 (FDDI)
-
-## INTERVLAN ROUTING
-
-## Regles de sécurite
-- ne pas utiliser le VLAN 1 comme data vlan.
-- desable protocole sur les ports : CDP, DTP , PAgP, UDLD.
-- controle de l'inter vlan routing avec des IP access list.
-
-
-## VLAN De gestion
-En mode L3, on peut configurer plusieurs adresses IP pour la gestion du systeme et fournit des systemes de routage.
-Oui mais j'ai l'impression qu'il faut les mettre sur des ports différents.
-
-Configuration IP / IPv4 management and interface / interface IPv4
-
-
-
-## 1 Add a vlan
--VLAN management / Create a vlan
-## 2 Assign IP adress to VLAN
-IP configuration / IPv4 interface / Add
-static ip address  
-IP and mask  
-
-# Configuration of Multicast Router Ports on Sx500
-Multicast Router ports are ports that connect to a multicast router(?)
-https://sbkb.cisco.com/CiscoSB/ukp.aspx?login=1&pid=2&app=search&vw=1&articleid=2907&donelr=1
-
-
-# ARP inspection vlan setting
-Address resolution protocole : map ip address to mac addresses.
-ARP inspection protege le system contre ARP attack.
-
-C'est pas urgent de se former à cela.
-
-https://sbkb.cisco.com/CiscoSB/ukp.aspx?login=1&pid=2&app=search&vw=1&articleid=2907&donelr=1
-
-https://supportforums.cisco.com/t5/small-business-switches/port-configuration-on-the-sx500-series-stackable-switches/ta-p/3146252
-
-
-# IP commnands
-https://www.cyberciti.biz/faq/linux-ip-command-examples-usage-syntax/
