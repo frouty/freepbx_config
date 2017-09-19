@@ -159,7 +159,19 @@ Status and statistic / system Summary
   
   - `show system mode`
   - `set system mode router`
-  
+
+## Passage en L3
+Administration / System mode and stack management / System mode / L3 mode  
+apply and reboot  
+toujours en L2  
+Il fallait autoriser les popup bloqués par firefox.  OK
+success  
+apply and reboot  
+déconnection du pc
+reconnection avec ifup (n'a pas marché avec wicd)  
+on a tout perdu dans la config du cisco notamment du passwd.
+new passwd  
+
 ## Creation des vlan
 ### Creation d'un VLAN 1 
 ```
@@ -412,16 +424,16 @@ ARP table:
 Je n'ai que trois entrée 192.168.1 et 11  (mon PC) et 52 (?). Je l'attendais à plus d'entrées. car d'autres PC sont allumés en ce moment.
 
 # IP configuration du VLAN 2
-IP configuration / IPv4 interface / add / interface : VLAN 2 / IP address type : static IP adress 192.168.2.1 network mask 255.255.255.0 / apply./ close.
+IP configuration / IPv4 interface / add / interface : VLAN 2 / IP address type : static IP adress 192.168.2.1 network mask 255.255.255.0 / apply / close.
 
 La qu'est ce que j'ai fait.
-Est ce que l'ip du port 22 qui est associé au VLAN 2 est à 192.168.2.1?
-Est ce que les clients qui vont se brancher sur les ports du VLAN 2 vont etre servis par la dhcp avec du 192.168.2.0?
+Est ce que l'ip du port 22 qui est associé au VLAN 2 est à 192.168.2.1?  
+Est ce que les clients qui vont se brancher sur les ports du VLAN 2 vont etre servis par la dhcp avec du 192.168.2.0?  
 
 # Connection un switch Layer 3 vers internet
 pc1 192.168.20.102 ---- switch L3  192.168.1.1 ----- 192.168.1.2 Router ----- internet
 
-## Layer 3 switch
+## Layer 3 switch
 -1 Créer les vlans
 -2 Assigner les ports
 -3 Créer les interfaces
@@ -429,7 +441,7 @@ pc1 192.168.20.102 ---- switch L3  192.168.1.1 ----- 192.168.1.2 Router ----- in
 -5 enable and configure IP routing
 	- 
 	-6 enable une route static
-## for the router
+## for the router
 pas adapté à ma configuration.
 
 
@@ -446,16 +458,28 @@ Firstly, One-To-One NAT is mapping multiple public IPs to multiple private IPs. 
 136.130.20.14 -> 172.28.9.14
 136.130.20.15 -> 172.28.9.15
 
-# Passage en L3
-Administration / System mode and stack management / System mode / L3 mode  
-apply and reboot  
-toujours en L2  
-Il fallait autoriser les popup bloqués par firefox.  OK
-success  
-apply and reboot  
-déconnection du pc
-reconnection avec ifup (n'a pas marché avec wicd)  
-on tout perdu dans la config du cisco notamment du passwd.
-new passwd  
 
 
+
+# Configurer un switch avec une IP.
+
+On peut assigner une IP static avec `ip address ip_address network_mask`
+Dynamic :`ip address dhcp`
+
+## Sur quel type d'interface peut ton assigner une IP?
+## Quelle est la différence entre un switch port et une interface.
+- switch port n'a pas d'intelligence, il performe uniquement du L2 en forwardant les frames basés sur la MAC address. C'est comme un bridge, forwardant d'une layer à une même layer. Pas d'assignation possible d'une IP virtuelle. Il n'y a qu'une adress MAC.
+- interface a sa propre intelligence, il encapsule les frames depuis L2 vers les laayers supérieurs en paquet. Une interface est multilayer et a une adresse MAC et peut avoir une adresse IP virtuelle L3.
+
+Comme les switch L2 ne peuvent avoir d'IP virtuelle sur aucun des ports, Cisco a introduit le concept de SVI (Switch Virtual Interface), sur lequel on peut assigner une IP.
+
+Sur switch L3 on peut utiliser les SVI et lui assigner une IP ou on peut assigner directement une IP à une interface.
+
+Mais un switch L3 peut avoir une switch port ou une interface. Comment tranformer un switch port vers une interface:  
+`switchport` ou `noswitchport` 
+
+```
+SW(config)#interface f0/1
+SW(config-if)#no switchport
+SW(config-if)#ip address ip_address network_mask
+```
