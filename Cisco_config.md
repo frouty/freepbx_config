@@ -57,8 +57,15 @@ https://supportforums.cisco.com/t5/small-business-switches/port-configuration-on
 # Installation and Setup of Cisco SG500-52P - 500 Series Stackable Managed Switches
 http://www.firewall.cx/cisco-technical-knowledgebase/cisco-switches/885-cisco-switches-sg500-52p.html
 - show system mode
-- set system mode router
+- set system mode router  ----> cela efface toute configuration comme le mote de passe aussi.
 - show system mode
+- retrouver l'adresse ip du switch
+- http:/ipduswitch (cisco/cisco)
+- changement de password.
+- passer en IP static
+- IP configuration / IPv4 Interface
+- check the box to the VLAN 1 interface et delete it
+- click add new interface pour VLAN 1 
 - 1 configurer les vlans
 - 2 configurer les vlans interfaces pour les adress IP.
 - `configure terminal`
@@ -72,13 +79,34 @@ http://www.firewall.cx/cisco-technical-knowledgebase/cisco-switches/885-cisco-sw
 #vlan 2
 #interface vlan 2
 # name Voice-VLAN
-# ip address 192.168.10.2 255.255.255.0
+# ip address 192.168.10.2 255.255.255.0  ----> 192.168.10.2 - 192.168.10.254
 # exit
 #vlan 5
 #interface vlan 5
 # name Guest-VLAN
 # ip address 192.168.50.2 255.255.255.0
 # exit
+```
+```
+# hostname SG500
+# ip default-gateway 192.168.1.1
+# ip name-server 192.168.1.1
+# ip routing
+```
+- Sauvegarder la configuration
+
+`#copy running-config startup-config`
+
+Le switch crée automatiquement le routage pour les device du VLAN quand ils sont pluggés au switch. Pour le voir aller dans IP configuration / IPv4 Routes. Tant qu'il n'y a pas de device branché il n'y a pas de route.
+
+Pour qu'un VLAN puisse accéder à l'internet il faut créer une route static.
+```
+Navigate to IP Configuration > IPv4 Routes click Add and then create a route with the following information:
+Destination Prefix; 0.0.0.0
+Mask: Prefix Length: 0
+Route Type: Remote
+Next Hop Router IP Address: The address to your firewall -> mine is 10.20.30.1
+Metric: 1
 ```
 
 # Vlans
@@ -106,7 +134,7 @@ Status and statistic / system Summary
   - System operational mode : pour savoir si on est layer 2 ou layer 3
   
   `show system mode`
-  
+  `show run`
 ### Router show command
 `show running-config`  
 `show ip interface brief`  
@@ -116,6 +144,9 @@ Status and statistic / system Summary
 
 `show mac address-table`  
 `show vlan brief`
+
+`sh ip int vlan 1`
+`sh ip int vlan 40`
 
 ## comment passer en layer 3 
 - 1 brancher le cable.
@@ -182,14 +213,40 @@ Les configuration du switch sont volatiles. Pour les rendre persistentes au proc
 - Destination file name : Startup configuration.
 - Apply
 
-### configuration backup
+### configuration backup restore
+https://sbkb.cisco.com/CiscoSB/GetArticle.aspx?docid=c590f1ecbe8a4b80a57ea955a3407534_Download_Backup_Configuration_File_on_the_Sx500_Series_Stack.xml&pid=2&converted=0
+
+Administration / File management / Download/backup configuration/log.
+
+- Running configuration la configuration courante
+- Startup memory la config qui est enregistrée dans le bootup memory
+- Backup configuration un backup
+- Mirror configuration
+- Flash log
+
+
 File Management > Download/Backup Configuration/Log from the main menu. Here, select HTTP method and Backup action. Finally select Running or Startup Configuration depending on your requirements and Apply
-
-
 
 ### Verify
 `show ip route`
 `show ip interface brief`
+
+
+#Configuration des devices branchés sur le switch Cisco.
+Est ce qu'on peut utiliser le DHCP?
+- Créer un pool DHCP sur le switch L3, qui va assigner aux end devices, qui sont sur différents subnets, une adresse IP.
+-configure
+-dhcp pool vlan-10
+-network 10.0.0.0 255.255.255.0 ---> on met le subnet du vlan.
+-default-routeur on met l'adresse IP de l'interface du VLAN.
+-`show running-config`
+- et on met les end device en dhcp. 
+
+
+Sinon le parametre gateway du end device est l'adresse IP de l'interface VLAN. 
+
+Si j'ai bien compris on peut ping depuis un device sur un VLAN vers un autre device d'un autre VLAN sans rien configurer de particulier.
+
 
 ## inter vlan routing
 
@@ -331,6 +388,7 @@ Un ACE contient le critere de l'access rule. L'ACE s'applique à l'ACL.
 https://sbkb.cisco.com/CiscoSB/ukp.aspx?login=1&pid=2&app=search&vw=1&articleid=3025&donelr=1  
 On crée d'abord un ACL puis on crée un ACE que l'on rattache à un ACL ou plusieurs ACL. 
 
+<<<<<<< HEAD
 # Save de la configuration avant de passer en L3:
 
 # Cisco traceroute
@@ -359,4 +417,45 @@ IP configuration / IPv4 interface / add / interface : VLAN 2 / IP address type :
 La qu'est ce que j'ai fait.
 Est ce que l'ip du port 22 qui est associé au VLAN 2 est à 192.168.2.1?
 Est ce que les clients qui vont se brancher sur les ports du VLAN 2 vont etre servis par la dhcp avec du 192.168.2.0?
+
+# Connection un switch Layer 3 vers internet
+pc1 192.168.20.102 ---- switch L3  192.168.1.1 ----- 192.168.1.2 Router ----- internet
+
+## Layer 3 switch
+-1 Créer les vlans
+-2 Assigner les ports
+-3 Créer les interfaces
+-4 enable layer 3 function to switchport connected to the router.
+-5 enable and configure IP routing
+	- 
+	-6 enable une route static
+## for the router
+pas adapté à ma configuration.
+
+
+
+# configuring a gateway of last resort using IP command.
+
+https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/16448-default.html
+
+Firstly, One-To-One NAT is mapping multiple public IPs to multiple private IPs. The common NAT that most of you folks do at home, is to map your public IP address and a port number to a private IP address and a port number. The reason you use port numbers is because you only have 1 public IP address and using different ports are a good way to share that 1 public IP with a host of services you want to run (which obviously run on different ports). When you have a couple of public IPs, you can afford to map the entire public IP to an entire private IP including all its ports. So for example, If I had public IP addresses, eg: 136.130.20.11 – 136.130.20.15 (5 public IPs) I could map each one of those addresses to machines on my private IP range:
+
+136.130.20.11 -> 172.28.1.11
+136.130.20.12 -> 172.28.2.12
+136.130.20.13 -> 172.28.3.13
+136.130.20.14 -> 172.28.9.14
+136.130.20.15 -> 172.28.9.15
+
+# Passage en L3
+Administration / System mode and stack management / System mode / L3 mode  
+apply and reboot  
+toujours en L2  
+Il fallait autoriser les popup bloqués par firefox.  OK
+success  
+apply and reboot  
+déconnection du pc
+reconnection avec ifup (n'a pas marché avec wicd)  
+on tout perdu dans la config du cisco notamment du passwd.
+new passwd  
+
 
