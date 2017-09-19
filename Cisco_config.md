@@ -463,11 +463,11 @@ Firstly, One-To-One NAT is mapping multiple public IPs to multiple private IPs. 
 
 # Configurer un switch avec une IP.
 
-On peut assigner une IP static avec `ip address ip_address network_mask`
+On peut assigner une IP static avec `ip address ip_address network_mask`  
 Dynamic :`ip address dhcp`
 
-## Sur quel type d'interface peut ton assigner une IP?
-## Quelle est la différence entre un switch port et une interface.
+## Sur quel type d'interface peut-on assigner une IP?
+## Quelle est la différence entre un switch port et une interface.
 - switch port n'a pas d'intelligence, il performe uniquement du L2 en forwardant les frames basés sur la MAC address. C'est comme un bridge, forwardant d'une layer à une même layer. Pas d'assignation possible d'une IP virtuelle. Il n'y a qu'une adress MAC.
 - interface a sa propre intelligence, il encapsule les frames depuis L2 vers les laayers supérieurs en paquet. Une interface est multilayer et a une adresse MAC et peut avoir une adresse IP virtuelle L3.
 
@@ -483,3 +483,54 @@ SW(config)#interface f0/1
 SW(config-if)#no switchport
 SW(config-if)#ip address ip_address network_mask
 ```
+
+# CLI
+
+SW1> c'est le user mode  pour passer en administrateur on fait:
+SW1> enable
+SW1# priviledge mode
+SW1# disable  
+SW1# Erase  
+SW1# erase startup-config  
+SW1# delete flash:vlan.dat  
+SW1# reload  
+
+SW1# configure terminal
+SW1(config)#
+SW1(config)#hostname NEWNAME
+NEWNAME(config)# end
+
+NEWNAME# show ip route
+
+## Comment définir une IP address pour le switch
+il faut le faire pour pouvoir le manager à distance. C'est une management IP address
+SW1# config t
+SW1(config)# interface VLAN 1
+SW1(config-if)# ip address 192.168.1.254 255.255.255.0
+
+## default gateway
+SW1(config-if)# exit
+SW1(config)#ip default-gateway ip-adress-du-router-local (qui est dans le meme subnet que le switch)
+SW1(config)#exit
+SW1# copy running-config startup-config
+SW1#reload
+
+## confirmation
+SW1# show startup-config
+SW1# show running-config
+sW1# show version
+SW1# show interfaces
+SW1# show interfaces fa0/22
+
+## MAC address table (layer 2)
+SW1# show mac address-table dynamic
+
+## 
+SW1# on peut faire du ping.
+
+# routing protocoles
+-EIGRP
+-RIPV2
+-OSPF
+
+# static routing
