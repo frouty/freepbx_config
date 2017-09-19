@@ -590,4 +590,6 @@ https://supportforums.cisco.com/t5/small-business-switches/sg500-vlan-configurat
 
 show inventory gigabitethernet 2/1/49
 
+essayer `sh int status`
+
 https://www.packet6.com/getting-started-with-ciscos-500-series-smb-switches/
