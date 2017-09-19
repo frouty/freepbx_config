@@ -43,6 +43,14 @@ That will set a new password in the running (and startup config) so that you wil
 - reset 
 - et voilà
 
+## time
+Time setting / System time : Main Clock Source (SNTP Servers):	 Enable
+SNTP unicast 
+SNTP Client Unicast: Enable
+Uncicast SNTP Server Table : Add adress domain name server.
+
+
+
 # Port Configuration on the Sx500 Series Stackable Switches
 https://supportforums.cisco.com/t5/small-business-switches/port-configuration-on-the-sx500-series-stackable-switches/ta-p/3146252
 
@@ -322,4 +330,33 @@ C'est une liste de source d'address IP qui utilise le layer 3 pour permettre ou 
 Un ACE contient le critere de l'access rule. L'ACE s'applique à l'ACL. 
 https://sbkb.cisco.com/CiscoSB/ukp.aspx?login=1&pid=2&app=search&vw=1&articleid=3025&donelr=1  
 On crée d'abord un ACL puis on crée un ACE que l'on rattache à un ACL ou plusieurs ACL. 
+
+# Save de la configuration avant de passer en L3:
+
+# Cisco traceroute
+traceroute 8.8.8.8
+192.168.1.1
+[....]
+
+traceroute 192.168.1.11
+192.168.1.11
+
+# File management / Download Backup configuration
+ne marche pas sur chrome
+
+# IP configuration
+IPv4 interface table. Je vois que le VLAN 1 a : IP adress type : dhcp , IP address: 192.168.1.48 qui est l'adresse pour l'administration. Je l'attends à voir les autres ip pour les différents ports.
+
+IPv4 Routes est assez clair. 0.0.0.0 route type: remote next hop 192.168.1.1 qui est l'ip du router.
+192.168.1.0/24 local next hop: 0.0.0.0
+
+ARP table:
+Je n'ai que trois entrée 192.168.1 et 11  (mon PC) et 52 (?). Je l'attendais à plus d'entrées. car d'autres PC sont allumés en ce moment.
+
+# IP configuration du VLAN 2
+IP configuration / IPv4 interface / add / interface : VLAN 2 / IP address type : static IP adress 192.168.2.1 network mask 255.255.255.0 / apply./ close.
+
+La qu'est ce que j'ai fait.
+Est ce que l'ip du port 22 qui est associé au VLAN 2 est à 192.168.2.1?
+Est ce que les clients qui vont se brancher sur les ports du VLAN 2 vont etre servis par la dhcp avec du 192.168.2.0?
 
