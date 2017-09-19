@@ -529,9 +529,9 @@ SW1# show mac address-table dynamic
 SW1# on peut faire du ping.
 
 # routing protocoles
--EIGRP
--RIPV2
--OSPF
+-EIGRP  
+-RIPV2  
+-OSPF  
 
 # static routing
 
@@ -541,13 +541,13 @@ SW1# show ip route
 
 On peut ajouter une route static
 
-SW1# conf t
+SW1# conf t  
 SW1(config)#  ip route ip_subnet_you_want_to_go subnetmask nominterface(fa0/0) ou IP
-SW1#(config)# end
-SW1# show ip table
-SW1# ping ip_you_want_to_go. Ca ne marche pas.
+SW1#(config)# end  
+SW1# show ip table  
+SW1# ping ip_you_want_to_go. Ca ne marche pas.  
 
 Attention il faut etre sur que le ping puisse revenir.
 
-SW1# ip route 0.0.0.0 0.0.0.0 ip. Cela veut dire que quoi que ce soit je l'envois sur ip.
+SW1# ip route 0.0.0.0 0.0.0.0 ip. Cela veut dire que quoi que ce soit je l'envois sur ip.  
 SW1# show ip route on voit une asterisk. Gateway of last resort.
