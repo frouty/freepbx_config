@@ -597,4 +597,18 @@ https://www.packet6.com/getting-started-with-ciscos-500-series-smb-switches/
 `sh vlan brief` on the switch. This will show you the vlans on the switch and which ports are allocated into which vlan. You should then see, as Glen said, that port allocated to vlan 1.
 Un port ne peut etre unallocated il est par defaut VLAN1
 
-how ip interface brief
+`show ip interface brief`
+
+
+```
+switch(config)# interface fa0/1
+switch(config-if)# switchport access vlan 9
+switch(config-if)# switchport mode access
+
+
+switch# show run
+
+switch# sh vlan br
+```
+
+Voir page 1223 du cli guide
