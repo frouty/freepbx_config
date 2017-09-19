@@ -90,7 +90,7 @@ http://www.firewall.cx/cisco-technical-knowledgebase/cisco-switches/885-cisco-sw
 ```
 # hostname SG500
 # ip default-gateway 192.168.1.1
-# ip name-server 192.168.1.1
+# ip name-server 192.168.1.1 for dns resolution.
 # ip routing
 ```
 - Sauvegarder la configuration
@@ -551,3 +551,43 @@ Attention il faut etre sur que le ping puisse revenir.
 
 SW1# ip route 0.0.0.0 0.0.0.0 ip. Cela veut dire que quoi que ce soit je l'envois sur ip.  
 SW1# show ip route on voit une asterisk. Gateway of last resort.
+
+
+SW1#show running-config
+
+# configuration de l'ip par port
+
+
+ IP Configuration - IPV$ address - ADD - Interface = port.
+
+
+# interface naming convention
+
+Type d'interface:
+- Gigabit Ethernet gi ou GE
+- TenGigabit Ethernet port : te ou xg
+- LAG (port channel) po
+- VLAN
+- Tunnel tu
+
+Unit number. Qd il y a pas de stack c'est toujours 1
+
+Slot number 1 toujours
+
+
+##
+Tous les pc peuvent se pinguer : inter-vlan marche
+Le pc du vlan 1 peut sortir sur internet par le router qui est dans le vlan1
+Les pc du VLAN2 ne peuvent aller sur internet.
+Cela veut dire qu'il manque une route static dans le router back vers chaque VLAN.
+
+
+VLAN 1 (192.168.9.254) qui est connecté au router(192.168.9.29)
+Dans le switch ip default-gateway 192.168.2.29
+
+Les interfaces VLAN du switch savent passer le traffic WAN vers 192.168.2.254 et VLAN 1 sait que la passerelle c'est 192.168.2.29. Le probleme c'est que 192.168.2.29 ne sait pas comment atteindre 192.168.20.0/24 192.168.60.0/24 ....
+https://supportforums.cisco.com/t5/small-business-switches/sg500-vlan-configuration/td-p/2243839
+
+show inventory gigabitethernet 2/1/49
+
+https://www.packet6.com/getting-started-with-ciscos-500-series-smb-switches/
