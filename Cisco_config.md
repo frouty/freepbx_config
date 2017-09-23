@@ -6,7 +6,8 @@ passwd : cisco
 
 ## emulator
 https://www.cisco.com/assets/sol/sb/SG500_Emulators/SG500_Emulator_v1-2-9/config/home_SG_500-52P_1_2_9.htm
-
+## firmware
+https://software.cisco.com/download/release.html?mdfid=284099563&softwareid=282463181&release=1.2.0.97
 ## recuperer le passwd
 pas possible à faire à distance : http, ssh  
 Il faut avoir un acces au switch.   
