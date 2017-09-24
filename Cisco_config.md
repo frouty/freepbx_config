@@ -626,11 +626,11 @@ prompt = nom du switch suivi par #.
 Un utilisateur de niveau 7 à 15 se logue automatiquement en priviliged
 `enable` `disable`
 ## Global config mode
-pour configurer au niveau system
-seul les utilisateurs 7 à 15 peuvent y accéder
-`configure`
-prompt = nom du switch suivi par (config)#
-go back : `exit` `end` `CTRL Z`
+pour configurer au niveau system  
+seul les utilisateurs 7 à 15 peuvent y accéder  
+`configure`  
+prompt = nom du switch suivi par (config)#  
+go back : `exit` `end` `CTRL Z`  
 ## Sous mode de global config
 - 1 Interface
   - port
@@ -643,11 +643,11 @@ go back : `exit` `end` `CTRL Z`
 - 3 VLAN database
   - `vlan database`
 - 4 Management access list
- - `management access-list`
- - 5 Port Channel
+  - `management access-list`
+- 5 Port Channel
    - `interface port-channel`
 - 6 QoS
-- `qos`
+  - `qos`
 - 7 MAC access List
   - `mac access-list`
 - Exit : `exit`
