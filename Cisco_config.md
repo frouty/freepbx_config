@@ -669,6 +669,17 @@ Sw(config-if)#
 - 4 effacer une statique route du subnet 194.1.1.0 vers 1.1.1.1
 	- SW(config)# no ip route 194.1.1.0/24 1.1.1.1
 
+# Switchport mode
+## exemple
+interface gi1/1/1
+switchport mode access
+switchport access vlan 2
+
+# switchport trunk allowed vlan
+# switchport trunk native vlan
+# switchport general allowed vlan
+
+
 
 commands ||
 -------  | ------|
