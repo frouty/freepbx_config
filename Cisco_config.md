@@ -693,7 +693,6 @@ show ip route||
 show ip route summary||
 interface ip ip-address | ip int|
 copy running-config startup-config||
-
 ip default-gateway 192.168.0.1 | |
 
 
