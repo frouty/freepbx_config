@@ -646,7 +646,14 @@ go back : `exit` `end` `CTRL Z`
  - `management access-list`
  - 5 Port Channel
    - `interface port-channel`
+- 6 QoS
+- `qos`
+- 7 MAC access List
+  - `mac access-list`
+- Exit : `exit`
   
+
+
 ## interface configuration mode
 sous mode de glob
 
