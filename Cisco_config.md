@@ -659,14 +659,14 @@ Sw(config-if)#
 
 # ip route
 ## exemple
--1 router les paquets pour le subnet 172.3.0.0 to a router à 172.31.6.6
+- 1 router les paquets pour le subnet 172.3.0.0 to a router à 172.31.6.6
 	- SW(congig)# ip route 172.3.0.0 255.255.255.0.0 172.31.6.6
 	- SW(congig)# ip route 172.3.0.0/16 172.31.6.6
--2 rejeter les paquets pour le subnet194.1.1.0
+- 2 rejeter les paquets pour le subnet194.1.1.0
 	- SW(config)# ip route 194.1.1.0 255.255.255.0 reject-route
--3 effacer toutes les routes statiques pour 194.1.1.0
+- 3 effacer toutes les routes statiques pour 194.1.1.0
 	- SW(config)# no ip route 194.1.1.0/24
--4 effacer une statique route du subnet 194.1.1.0 vers 1.1.1.1
+- 4 effacer une statique route du subnet 194.1.1.0 vers 1.1.1.1
 	- SW(config)# no ip route 194.1.1.0/24 1.1.1.1
 
 
