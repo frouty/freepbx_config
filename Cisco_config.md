@@ -670,10 +670,10 @@ Sw(config-if)#
 	- SW(config)# no ip route 194.1.1.0/24 1.1.1.1
 
 # Switchport mode
-## exemple
-interface gi1/1/1
-switchport mode access
-switchport access vlan 2
+## exemple
+interface gi1/1/1  
+switchport mode access  
+switchport access vlan 2  
 
 # switchport trunk allowed vlan
 # switchport trunk native vlan
