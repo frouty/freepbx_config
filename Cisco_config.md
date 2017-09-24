@@ -617,3 +617,40 @@ switch# sh vlan br
 ```
 
 Voir page 1223 du cli guide
+
+
+# CLI commnands
+## user level
+prompt = nom du switch suivi par #.
+## Priviliged mode
+Un utilisateur de niveau 7 à 15 se logue automatiquement en priviliged
+`enable` `disable`
+## Global config mode
+pour configurer au niveau system
+seul les utilisateurs 7 à 15 peuvent y accéder
+`configure`
+prompt = nom du switch suivi par (config)#
+go back : `exit` `end` `CTRL Z`
+## Sous mode de global config
+- 1 Interface
+  - port
+  - VLAN
+  - Port channel (tunnel)
+
+- 2 Line Interface
+  - `line` pour entrer dans ce mode
+  - configure management connections for console, telnet, ssh
+- 3 VLAN database
+  - `vlan database`
+- 4 Management access list
+ - `management access-list`
+ - 5 Port Channel
+   - `interface port-channel`
+  
+## interface configuration mode
+sous mode de glob
+
+
+Commands |
+-------  | ------
+show 
