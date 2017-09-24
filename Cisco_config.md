@@ -657,10 +657,21 @@ Slot number 1 toujours
 SW(config)#interface gi1/1/1  
 Sw(config-if)#
 
+# ip route
+## exemple
+-1 router les paquets pour le subnet 172.3.0.0 to a router à 172.31.6.6
+	
+	- SW(congig)# ip route 172.3.0.0 255.255.255.0.0 172.31.6.6
+	- SW(congig)# ip route 172.3.0.0/16 172.31.6.6
 
-
-
-
-Commands ||
+mmands ||
 -------  | ------|
 show ip interface [interface_id :gi1/1/22]||
+show ip interface vlan 1||
+show arp||
+show ip dhcp client interface| | 
+
+interface ip ip-address | ip int
+
+
+
