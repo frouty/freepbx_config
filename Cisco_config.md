@@ -671,9 +671,9 @@ Sw(config-if)#
 
 # Switchport mode
 ## exemple
-interface gi1/1/1  
-switchport mode access  
-switchport access vlan 2  
+SW(coonfig)#interface gi1/1/1  
+SW(config-if)#switchport mode access  
+SW(config-if)#switchport access vlan 2  
 
 # switchport trunk allowed vlan
 # switchport trunk native vlan
