@@ -672,6 +672,7 @@ Sw(config-if)#
 
 commands ||
 -------  | ------|
+sh run | | 
 show ip interface [interface_id :gi1/1/22]||
 show ip interface vlan 1||
 show arp||
@@ -680,6 +681,14 @@ show ip protocols [summary] |for debugging routing|
 show ip route||
 show ip route summary||
 interface ip ip-address | ip int|
+copy running-config startup-config||
+
+ip default-gateway 192.168.0.1 | |
 
 
+
+
+- If a switchport will only be on 1 van, use access mode, not trunk mode.  
+switchport mode access  
+switchport access vlan X
 
