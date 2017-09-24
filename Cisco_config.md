@@ -566,18 +566,6 @@ SW1#show running-config
  IP Configuration - IPV$ address - ADD - Interface = port.
 
 
-# interface naming convention
-
-Type d'interface:
-- Gigabit Ethernet gi ou GE
-- TenGigabit Ethernet port : te ou xg
-- LAG (port channel) po
-- VLAN
-- Tunnel tu
-
-Unit number. Qd il y a pas de stack c'est toujours 1
-
-Slot number 1 toujours
 
 
 ##
@@ -653,11 +641,26 @@ go back : `exit` `end` `CTRL Z`
 - Exit : `exit`
   
 
+# interface naming convention
 
-## interface configuration mode
-sous mode de glob
+Type d'interface:
+- Gigabit Ethernet gi ou GE
+- TenGigabit Ethernet port : te ou xg
+- LAG (port channel) po
+- VLAN
+- Tunnel tu
+
+Unit number. Qd il y a pas de stack c'est toujours 1
+
+Slot number 1 toujours
+
+SW(config)#interface gi1/1/1  
+Sw(config-if)#
 
 
-Commands |
--------  | ------
-show 
+
+
+
+Commands ||
+-------  | ------|
+show ip interface [interface_id :gi1/1/22]||
