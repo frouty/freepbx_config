@@ -699,6 +699,8 @@ interface ip ip-address | ip int|
 copy running-config startup-config||
 ip default-gateway 192.168.0.1 | |
 
+Native vlan vs Regular vlan c'est que les frame de et vers le native sont untagged. c'est tout.
+
 
 
 
