@@ -931,6 +931,10 @@ Il y juste deux choses à remplir:
 Ensuite on va mapper l'appel entrant et cette miscellaneous destination qui est le numero vers lequel on veut faire suivre l'appel dans le module `Connection / Inbound Route`. Pour cela on a les champs :
 - 1 `DID Number` On regarde dans le log (en faisant un ssh sur le serveur) quel est le numéro DID qui passe dans le systeme pour l'utiliser ici.
 - 2 `Set Destination`. On choisit `Miscellaneous Destination` et la miscellanous destination qui nous interesse.
+- 3 A la place de Set destination / Miscellaneous destination on peut utiliser : set destination / Time condition / goeen open hours.  Mais je ne comprends dans le goeen open hours ou est configuré le forward hello cab.
+- 4 C'est cascade de time condition en time condition. Dans Time Condition / goeen open hours / Destination matches / Time Conditions = Holidays
+
+Dans un time group on ne met que des horaires. pas d'informations de set destination.
 
 Mais je ne comprends comment l'`Inbound Route`est reliée au port sur lequel est branché la ligne téléphonique.
 
