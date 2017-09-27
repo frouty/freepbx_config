@@ -405,7 +405,7 @@ Un ACE contient le critere de l'access rule. L'ACE s'applique à l'ACL.
 https://sbkb.cisco.com/CiscoSB/ukp.aspx?login=1&pid=2&app=search&vw=1&articleid=3025&donelr=1  
 On crée d'abord un ACL puis on crée un ACE que l'on rattache à un ACL ou plusieurs ACL. 
 
-<<<<<<< HEAD
+
 # Save de la configuration avant de passer en L3:
 
 # Cisco traceroute
@@ -489,11 +489,16 @@ SW(config-if)#no switchport
 SW(config-if)#ip address ip_address network_mask
 ```
 
+# SSH ENABLE  
+ssh ne fonctionne pas.  
+Pour le mettre en route.
+security / TCP/UDP service / ssh enable.
+
 # CLI
 
 SW1> c'est le user mode  pour passer en administrateur on fait:
-SW1> enable
-SW1# priviledge mode
+SW1> enable  
+SW1# priviledge mode  
 SW1# disable  
 SW1# Erase  
 SW1# erase startup-config  
@@ -501,13 +506,13 @@ SW1# delete flash:vlan.dat
 SW1# reload  
 
 SW1# configure terminal
-SW1(config)#
-SW1(config)#hostname NEWNAME
-NEWNAME(config)# end
+SW1(config)#  
+SW1(config)#hostname NEWNAME  
+NEWNAME(config)# end  
 
-NEWNAME# show ip route
+NEWNAME# show ip route  
 
-## Comment définir une IP address pour le switch
+## Comment définir une IP address pour le switch
 il faut le faire pour pouvoir le manager à distance. C'est une management IP address
 SW1# config t
 SW1(config)# interface VLAN 1
