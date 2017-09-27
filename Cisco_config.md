@@ -518,7 +518,7 @@ SW1# config t
 SW1(config)# interface VLAN 1  
 SW1(config-if)# ip address 192.168.1.254 255.255.255.0  
 
-## default gateway  
+## default gateway  
 SW1(config-if)# exit  
 SW1(config)#ip default-gateway ip-adress-du-router-local (qui est dans le meme subnet que le switch)  
 SW1(config)#exit  
