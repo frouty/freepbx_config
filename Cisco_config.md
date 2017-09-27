@@ -45,7 +45,7 @@ That will set a new password in the running (and startup config) so that you wil
 
 ## Changer de passwd
 - débrancher tous les cables
-- reset 
+- appuyer sur reset avec un trombone en facade avant du switch  
 - et voilà
 
 ## time
@@ -699,6 +699,8 @@ interface ip ip-address | ip int|
 copy running-config startup-config||
 ip default-gateway 192.168.0.1 | |
 
-
+# Comment obtenir une nouvelle adress ip sur un client?
+`sudo dhclient -r`  
+Je ne sais pas si cela marche
 
 
