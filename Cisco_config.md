@@ -514,23 +514,23 @@ NEWNAME# show ip route
 
 ## Comment définir une IP address pour le switch
 il faut le faire pour pouvoir le manager à distance. C'est une management IP address
-SW1# config t
-SW1(config)# interface VLAN 1
-SW1(config-if)# ip address 192.168.1.254 255.255.255.0
+SW1# config t  
+SW1(config)# interface VLAN 1  
+SW1(config-if)# ip address 192.168.1.254 255.255.255.0  
 
-## default gateway
-SW1(config-if)# exit
-SW1(config)#ip default-gateway ip-adress-du-router-local (qui est dans le meme subnet que le switch)
-SW1(config)#exit
-SW1# copy running-config startup-config
-SW1#reload
+## default gateway  
+SW1(config-if)# exit  
+SW1(config)#ip default-gateway ip-adress-du-router-local (qui est dans le meme subnet que le switch)  
+SW1(config)#exit  
+SW1# copy running-config startup-config  
+SW1#reload  
 
 ## confirmation
-SW1# show startup-config
-SW1# show running-config
-sW1# show version
-SW1# show interfaces
-SW1# show interfaces fa0/22
+SW1# show startup-config  
+SW1# show running-config  
+sW1# show version  
+SW1# show interfaces  
+SW1# show interfaces fa0/22  
 
 ## MAC address table (layer 2)
 SW1# show mac address-table dynamic
