@@ -529,8 +529,8 @@ SW1#reload
 SW1# show startup-config  
 SW1# show running-config  
 sW1# show version  
-SW1# show interfaces  
-SW1# show interfaces fa0/22  
+SW1# show interfaces #incomplete command  
+SW1# show interfaces gi1/1/22  commands non reconnue  
 
 ## MAC address table (layer 2)
 SW1# show mac address-table dynamic
@@ -588,14 +588,15 @@ https://supportforums.cisco.com/t5/small-business-switches/sg500-vlan-configurat
 
 show inventory gigabitethernet 2/1/49
 
-essayer `sh int status`
+essayer:
+ `SW#sh int status`
 
 https://www.packet6.com/getting-started-with-ciscos-500-series-smb-switches/
 
-`sh vlan brief` on the switch. This will show you the vlans on the switch and which ports are allocated into which vlan. You should then see, as Glen said, that port allocated to vlan 1.
+`SW#sh vlan` on the switch. This will show you the vlans on the switch and which ports are allocated into which vlan. You should then see, as Glen said, that port allocated to vlan 1.
 Un port ne peut etre unallocated il est par defaut VLAN1
 
-`show ip interface brief`
+`SW#show ip interface`
 
 
 ```
@@ -680,7 +681,7 @@ SW(coonfig)#interface gi1/1/1
 SW(config-if)#switchport mode access  
 SW(config-if)#switchport access vlan 2  
 
-- If a switchport will only be on 1 van, use access mode, not trunk mode.  
+- If a switchport will only be on one van, use access mode, not trunk mode.  
 switchport mode access  
 switchport access vlan X
 
@@ -707,5 +708,13 @@ ip default-gateway 192.168.0.1 | |
 # Comment obtenir une nouvelle adress ip sur un client?
 `sudo dhclient -r`  
 Je ne sais pas si cela marche
+
+# comment savoir si on a une address dhcp
+## log 
+`cat /var/log/syslog | grep -i dhcp`
+## dhcp lease
+`ls /var/lib/dhcp`  
+cat dhclient-*****  
+
 
 
