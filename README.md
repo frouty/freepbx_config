@@ -1594,6 +1594,11 @@ TRUNK Dial failed due to CONGESTION HANGUPCAUSE: 38
 configurer l'outbound route pour que qd le Trunk vega ne marche pas on passe sur une outbound route analogique.
 Mais pour cela il faudra attendre que l'analogique marche correctement.
 
+# Comment modifier/changer le numero forwardé (ex cabinet Goeen)
+`Inbound Routes / Destination /` click on link on keep going 
+
+# Comment retrouver le code à composer pour utiliser certaines lignes physiques (analogique, numerique, ...)
+`Outbound Routes \ tab :Dial Patterns`
 
 # Asterisk Voicemail Menu Flow
 Changing/setting voicemail greetings in asterisk, as well as FreePBX and other asterisk based solutions, can be done from the handset.
