@@ -1789,4 +1789,6 @@ Si cela marche c'est bon.
  
  Home et office network sont connectés à internet par une gateway a une adresse IP public. Chaque gateway a 2 NIC. Une connectée à l'adress publique et l'autre au réseau privé. La gateway fournit NAT, firewall, service VPN.  
  
- 
+ # Comment rajouter une ligne pour les appels sortants?
+ Notamment quand on a des problemes avec le msg "busy".
+ `Outbound Route / Outbound Vega / Trunk sequence for matched routes / Add a trunk  : Trunk DAHDI_g0`
