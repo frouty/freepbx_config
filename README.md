@@ -165,7 +165,7 @@ Extension Module marche avec d'autres modules
   * Advanced Settings Module can be used to enable Device and User Mode. When Device and User Mode is enabled, the Extensions Module will disappear and be replaced with two separate modules called "Devices" and "Users."
 
 * User Management Module. In the User Management Module, a user may have a "primary linked extension." (?)
-# Où sst ce que l'on configure ce qui se passe lorsque l'on ne répond à son téléphone IP?
+# Où est ce que l'on configure ce qui se passe lorsque l'on ne répond à son téléphone IP?
  On peut configurer le cas ou :
  - il n'y a pas de réponse. Le temps d'attente avant de passer en non réponse se configure dans : `Application / Extension / Onglet Advanced / Extension Options / Ring time` 
  Ne doit pas etre dans une Queue ou un Ring Group.
@@ -377,6 +377,7 @@ https://wiki.freepbx.org/display/PHON/Setup+Phone+by+hard+setting+provisioning+s
 
 ## Phone Polycom 
 http://kb.digium.com/articles/Configuration/Polycom-Phone-Provisioning-Guide?retURL=%2Fapex%2FknowledgeProduct&popup=false
+
 ### Login / Password : 
 Username = Polycom (case sensitive)  
 Admin Password = 456  
@@ -386,19 +387,24 @@ admin acces unrestricted. user acces restricted
 ### web gui login password 
 il est défini par le freepbx :  
 - settings/ end point manager / global settings /   
-- phone admin password .  
+- phone admin password .
+
 ### Reboot the Phone  
  - Press and hold the dial pad keys 0, 1, and 3 simultaneously for about three seconds, or until you hear a confirmation tone.  
+
 ###  Restore Factory Defaults
  - Press and hold the dial pad keys 1, 3, and 5 simultaneously during the Updater process until the password prompt appears.       - Enter the administrator password to initiate the reset. 
  - Resetting to factory defaults will also reset the administrator password to 456.  
+
 ### Upload Log Files  
  - Press and hold the dial pad keys 1, 5, and 9 simultaneously until you hear a three-second confirmation tone.  
+
 ### reset factory : 
  - loading software cancel -> hold 1;3;5 keys -> demande un password : 456 et c'est fait. Non pas toujours
 mais avec la mac address à la place de 456 c'est OK
 Reboot-> 0;1;3 ne marche pas  
 1;5;9 ne marche pas
+
 ### configuration du provisioning
 Dans le menu du phone: home - settings - advanced - administration setting - Network Configuration - provisioning server
 Server type : TFTP  
@@ -413,6 +419,13 @@ Settings - endpoint manager - brands - polycom - save rebuild config and update 
 
 ### Comment on fait pour mettre en place les boutons speed-dial
 TODO
+
+### Comment faire pour modifier ce qui s'affiche en haut de l'écran du téléphone ?
+Web gui dupolycom  / configuration simple / identification ligne SIP
+
+### Configuration réseau
+web gui du polycom / configuration / Ethernet. 
+
 
 # Quels sont les services que l'on peut utiliser pour tester son phone SIP
 `Admin -> Feature code`
