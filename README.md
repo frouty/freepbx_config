@@ -355,6 +355,11 @@ menu -> Status -> information
 # Comment rebooter un phone Sangoma
 Menu button -> * key 3 fois -> down arrow pour 10 s. Le téléphone reboot
 
+# Comment changer le nom qui s'affiche sur l'écran du Sangoma IP phone?
+Web Gui de l'ip phone
+login admin
+password habituelle
+Account / Label
 
 provisioning success
 ----
