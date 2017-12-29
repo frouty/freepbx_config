@@ -201,7 +201,7 @@ SIP REG USER 1
 ----state       -unregistered (user 1)
 blablabla
 ```  
--Expert config /  SIP profile / Modify
+- Expert config /  SIP profile / Modify  
     - Name : profile 1
     - interface ID : 9901
     - Local domain : IP address du freepbx
