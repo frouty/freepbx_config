@@ -1653,11 +1653,30 @@ After recording a message (incoming message, busy/unavailable greeting, or name)
 # message conversion
 http://wiki.kolmisoft.com/index.php/Convert_WAV_file_to_Asterisk_playable_format
 
+# Parking Module
+`Applications Parking`
+Ce module crée  des parking lots dans lesquels on peut transferer des appels qui pourront etre récupéré par une autre extension. On met l'appel en hold et on le récupère ailleur.
+La personne qui park l'appel s'appelle le parker.
+Le module standard ne propose qu'un seul parking lot. On peut l'éditer mais on ne peut pas en créer d'autres.
+- Parking lot extension :
+- Parking lot Name:
+- Parking Lot Starting Position:
+- Number of slots: Nombre total de parking slot dans ce lot.
+- Parking Timeout (seconds): La durée en seconde pendant laquelle l'appel peut rester dans le parking lot. Si l'appel n'est pas pris avant la fin de cette durée l'appel il sera envoyé automatiquement vers la timeout destination configurée dasn le Alternate destination.
+Parked music class: c'est la musique qui est joué à l'appel parké. Si une classe de musique est rattaché à l'appel avant qu'il soit parké, la classe de musique ne sera pas surchargée par cette classe.
+- Returned call behavior:
+- Announcement : message qui sera jouait avant de renvoyer l'appel parké à sa situation de départ ou à l'alternate destination.
+## Alternate destination
+- Come back to Origin YES l'appel est renvoyé vers ce qui l'a envyové au parking. si le téléphone ne repond pas, est occupé, l'appel est envyé vers destination ci dessous. Il faut donc une destination correcte: Voicemail, ring group, voicemail, ...
+S'il est à No les time out vont directement vers la destination. 
+- Destination : sera envoyé vers cette destination apres le time-out avec un Come Back to Origin to Yes.
+## Pickup parked call feature code
 
 # Parking module
 `Application / Parking`
 
 Dans le module standard vs le module pro, il n'y a que le default parking lot. 
+
 ## Parking lot settings
 - General settings
 	- Parking lot Extension
@@ -1712,6 +1731,16 @@ Elles permettent de modifier le comportement du systeme à partir du téléphone
 https://wiki.freepbx.org/display/FPG/Phone+Apps-Adding+a+Phone+Application+to+a+device
 
 
+# Beep call waiting
+Qd on est en ligne on a un beep quand arrive un deuxieme appel. C'est très désagréable car le beep est fréquent. Et géne la compréhension de la conversation.  
+Comment modifier ce beep?
+
+## Call waiting module
+https://wiki.freepbx.org/display/FPG/Call+Waiting+Module+User+Guide  
+https://wiki.freepbx.org/display/PHON/Call+Waiting  
+Mais pas d'information sur la façon de modifier la fréquence du beep.  
+J'ai trouvé : http://www.spinics.net/lists/asterisk/msg153399.html 
+A essayer
 # Connecter deux machines freepbx
 
 https://www.freepbx.org/connecting-two-freepbx-machines-together/ Bof un peu succint.
@@ -1740,7 +1769,7 @@ Dans le freepbx dialplan il y a :
 - 9 entre quelques milliseconds et 25 seconds plus tard le system A envoie un qualify message du port 4569 vers le port 4569 de B.
 - 10 ce processus 6-8 se répéte et aussi pour le firewall de B qui accepte et reset le timer.s
 
-#Remote SIP phone / VPN
+# Remote SIP phone / VPN
 
 tous les VPN peuvent marcher. Ce n'est pas spécifique à la VOIP.  
 Si le sever peut pinguer l'adresse IP privée de l'IPphone remote au bout du tunnel et qu'il répond avec sa propre IP  (no NAT) alors on a une connection réussi.
