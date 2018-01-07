@@ -165,7 +165,7 @@ Extension Module marche avec d'autres modules
   * Advanced Settings Module can be used to enable Device and User Mode. When Device and User Mode is enabled, the Extensions Module will disappear and be replaced with two separate modules called "Devices" and "Users."
 
 * User Management Module. In the User Management Module, a user may have a "primary linked extension." (?)
-# Où sst ce que l'on configure ce qui se passe lorsque l'on ne répond à son téléphone IP?
+# Où est ce que l'on configure ce qui se passe lorsque l'on ne répond à son téléphone IP?
  On peut configurer le cas ou :
  - il n'y a pas de réponse. Le temps d'attente avant de passer en non réponse se configure dans : `Application / Extension / Onglet Advanced / Extension Options / Ring time` 
  Ne doit pas etre dans une Queue ou un Ring Group.
@@ -355,6 +355,11 @@ menu -> Status -> information
 # Comment rebooter un phone Sangoma
 Menu button -> * key 3 fois -> down arrow pour 10 s. Le téléphone reboot
 
+# Comment changer le nom qui s'affiche sur l'écran du Sangoma IP phone?
+Web Gui de l'ip phone
+login admin
+password habituelle
+Account / Label
 
 provisioning success
 ----
@@ -377,6 +382,7 @@ https://wiki.freepbx.org/display/PHON/Setup+Phone+by+hard+setting+provisioning+s
 
 ## Phone Polycom 
 http://kb.digium.com/articles/Configuration/Polycom-Phone-Provisioning-Guide?retURL=%2Fapex%2FknowledgeProduct&popup=false
+
 ### Login / Password : 
 Username = Polycom (case sensitive)  
 Admin Password = 456  
@@ -386,19 +392,24 @@ admin acces unrestricted. user acces restricted
 ### web gui login password 
 il est défini par le freepbx :  
 - settings/ end point manager / global settings /   
-- phone admin password .  
+- phone admin password .
+
 ### Reboot the Phone  
  - Press and hold the dial pad keys 0, 1, and 3 simultaneously for about three seconds, or until you hear a confirmation tone.  
+
 ###  Restore Factory Defaults
  - Press and hold the dial pad keys 1, 3, and 5 simultaneously during the Updater process until the password prompt appears.       - Enter the administrator password to initiate the reset. 
  - Resetting to factory defaults will also reset the administrator password to 456.  
+
 ### Upload Log Files  
  - Press and hold the dial pad keys 1, 5, and 9 simultaneously until you hear a three-second confirmation tone.  
+
 ### reset factory : 
  - loading software cancel -> hold 1;3;5 keys -> demande un password : 456 et c'est fait. Non pas toujours
 mais avec la mac address à la place de 456 c'est OK
 Reboot-> 0;1;3 ne marche pas  
 1;5;9 ne marche pas
+
 ### configuration du provisioning
 Dans le menu du phone: home - settings - advanced - administration setting - Network Configuration - provisioning server
 Server type : TFTP  
@@ -413,6 +424,13 @@ Settings - endpoint manager - brands - polycom - save rebuild config and update 
 
 ### Comment on fait pour mettre en place les boutons speed-dial
 TODO
+
+### Comment faire pour modifier ce qui s'affiche en haut de l'écran du téléphone ?
+Web gui dupolycom  / configuration simple / identification ligne SIP
+
+### Configuration réseau
+web gui du polycom / configuration / Ethernet. 
+
 
 # Quels sont les services que l'on peut utiliser pour tester son phone SIP
 `Admin -> Feature code`
@@ -923,18 +941,22 @@ D'autre utilise le follow me sur l'extension.
 
 # Comment on gere les SDA du tronc numeris?
 ## Comment diriger les appels du 29629x vers un user phone?
-## Comment rediriger un appel vers un user phone vers un numéro extérieur?
+## Comment rediriger un appel entrant vers un numéro extérieur?
 J'utilise le module `Applications / Miscellaneous destination`
 Il y juste deux choses à remplir:
 - 1 Description 
-- 2 le numero que le systeme doit composer pour atteindre la destination finale.
+- 2 le numero que le systeme doit composer pour atteindre la destination finale.  
 Ensuite on va mapper l'appel entrant et cette miscellaneous destination qui est le numero vers lequel on veut faire suivre l'appel dans le module `Connection / Inbound Route`. Pour cela on a les champs :
-- 1 `DID Number` On regarde dans le log quel est le numéro DID qui passe dans le systeme pour l'utiliser ici.
+- 1 `DID Number` On regarde dans le log (en faisant un ssh sur le serveur) quel est le numéro DID qui passe dans le systeme pour l'utiliser ici.
 - 2 `Set Destination`. On choisit `Miscellaneous Destination` et la miscellanous destination qui nous interesse.
+- 3 A la place de Set destination / Miscellaneous destination on peut utiliser : set destination / Time condition / goeen open hours.  Mais je ne comprends dans le goeen open hours ou est configuré le forward hello cab.
+- 4 C'est cascade de time condition en time condition. Dans Time Condition / goeen open hours / Destination matches / Time Conditions = Holidays
+
+Dans un time group on ne met que des horaires. pas d'informations de set destination.
 
 Mais je ne comprends comment l'`Inbound Route`est reliée au port sur lequel est branché la ligne téléphonique.
 
-### log d'un appel exterieur vers le 281600 qui est redirigé vers un numero exterieur(ie plateforme telephonique)
+### log d'un appel exterieur vers le 281600 qui est redirigé vers un numero exterieur(ie plateforme telephonique)
 ```
  == Spawn extension (macro-hangupcall, s, 5) exited non-zero on 'SIP/vegaOut-000008e1' in macro 'hangupcall'
   == Spawn extension (macro-dialout-trunk, h, 1) exited non-zero on 'SIP/vegaOut-000008e1'
@@ -1590,6 +1612,11 @@ TRUNK Dial failed due to CONGESTION HANGUPCAUSE: 38
 configurer l'outbound route pour que qd le Trunk vega ne marche pas on passe sur une outbound route analogique.
 Mais pour cela il faudra attendre que l'analogique marche correctement.
 
+# Comment modifier/changer le numero forwardé (ex cabinet Goeen)
+`Inbound Routes / Destination /` click on link on keep going 
+
+# Comment retrouver le code à composer pour utiliser certaines lignes physiques (analogique, numerique, ...)
+`Outbound Routes \ tab :Dial Patterns`
 
 # Asterisk Voicemail Menu Flow
 Changing/setting voicemail greetings in asterisk, as well as FreePBX and other asterisk based solutions, can be done from the handset.
@@ -1809,4 +1836,6 @@ Si cela marche c'est bon.
  
  Home et office network sont connectés à internet par une gateway a une adresse IP public. Chaque gateway a 2 NIC. Une connectée à l'adress publique et l'autre au réseau privé. La gateway fournit NAT, firewall, service VPN.  
  
- 
+ # Comment rajouter une ligne pour les appels sortants?
+ Notamment quand on a des problemes avec le msg "busy".
+ `Outbound Route / Outbound Vega / Trunk sequence for matched routes / Add a trunk  : Trunk DAHDI_g0`

@@ -136,8 +136,8 @@ Je le mets dans les deux outgoing et incoming host=dynamic
         - bus master priory 1 pour le port 1 et 2 pour le port 2  
         - Restart layer 2 after disconnect: décoché
         - NT phantom power : decoche
-        -Line Type : pp 
-        -TEI : 0 
+        - Line Type : pp 
+        - TEI : 0 
         
 - Apply
 - Status dans la colonne de gauche. On devrait voir:
@@ -201,7 +201,7 @@ SIP REG USER 1
 ----state       -unregistered (user 1)
 blablabla
 ```  
--Expert config /  SIP profile / Modify
+- Expert config /  SIP profile / Modify  
     - Name : profile 1
     - interface ID : 9901
     - Local domain : IP address du freepbx
@@ -231,7 +231,7 @@ http://wiki.freepbx.org/display/FPG/Trunk+Sample+Configurations
 
 Pour debogger : Freepbx GUI / select "Reports / Asterisk Info," and then select "Full Report" on right.  In many cases, the information in this report can guide you in the right direction.
 
-### Peer details
+### Peer details
 
 - sip settings / outgoing settings
     - trunk name: ce que tu veux comme nom mais pas un déjà donné.

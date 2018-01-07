@@ -45,7 +45,7 @@ That will set a new password in the running (and startup config) so that you wil
 
 ## Changer de passwd
 - débrancher tous les cables
-- reset 
+- appuyer sur reset avec un trombone en facade avant du switch  
 - et voilà
 
 ## time
@@ -405,7 +405,7 @@ Un ACE contient le critere de l'access rule. L'ACE s'applique à l'ACL.
 https://sbkb.cisco.com/CiscoSB/ukp.aspx?login=1&pid=2&app=search&vw=1&articleid=3025&donelr=1  
 On crée d'abord un ACL puis on crée un ACE que l'on rattache à un ACL ou plusieurs ACL. 
 
-<<<<<<< HEAD
+
 # Save de la configuration avant de passer en L3:
 
 # Cisco traceroute
@@ -489,11 +489,16 @@ SW(config-if)#no switchport
 SW(config-if)#ip address ip_address network_mask
 ```
 
+# SSH ENABLE  
+ssh ne fonctionne pas.  
+Pour le mettre en route.
+security / TCP/UDP service / ssh enable.
+
 # CLI
 
 SW1> c'est le user mode  pour passer en administrateur on fait:
-SW1> enable
-SW1# priviledge mode
+SW1> enable  
+SW1# priviledge mode  
 SW1# disable  
 SW1# Erase  
 SW1# erase startup-config  
@@ -501,31 +506,31 @@ SW1# delete flash:vlan.dat
 SW1# reload  
 
 SW1# configure terminal
-SW1(config)#
-SW1(config)#hostname NEWNAME
-NEWNAME(config)# end
+SW1(config)#  
+SW1(config)#hostname NEWNAME  
+NEWNAME(config)# end  
 
-NEWNAME# show ip route
+NEWNAME# show ip route  
 
-## Comment définir une IP address pour le switch
+## Comment définir une IP address pour le switch
 il faut le faire pour pouvoir le manager à distance. C'est une management IP address
-SW1# config t
-SW1(config)# interface VLAN 1
-SW1(config-if)# ip address 192.168.1.254 255.255.255.0
+SW1# config t  
+SW1(config)# interface VLAN 1  
+SW1(config-if)# ip address 192.168.1.254 255.255.255.0  
 
-## default gateway
-SW1(config-if)# exit
-SW1(config)#ip default-gateway ip-adress-du-router-local (qui est dans le meme subnet que le switch)
-SW1(config)#exit
-SW1# copy running-config startup-config
-SW1#reload
+## default gateway  
+SW1(config-if)# exit  
+SW1(config)#ip default-gateway ip-adress-du-router-local (qui est dans le meme subnet que le switch)  
+SW1(config)#exit  
+SW1# copy running-config startup-config  
+SW1#reload  
 
 ## confirmation
-SW1# show startup-config
-SW1# show running-config
-sW1# show version
-SW1# show interfaces
-SW1# show interfaces fa0/22
+SW1# show startup-config  
+SW1# show running-config  
+sW1# show version  
+SW1# show interfaces #incomplete command  
+SW1# show interfaces gi1/1/22  commands non reconnue  
 
 ## MAC address table (layer 2)
 SW1# show mac address-table dynamic
@@ -583,14 +588,15 @@ https://supportforums.cisco.com/t5/small-business-switches/sg500-vlan-configurat
 
 show inventory gigabitethernet 2/1/49
 
-essayer `sh int status`
+essayer:
+ `SW#sh int status`
 
 https://www.packet6.com/getting-started-with-ciscos-500-series-smb-switches/
 
-`sh vlan brief` on the switch. This will show you the vlans on the switch and which ports are allocated into which vlan. You should then see, as Glen said, that port allocated to vlan 1.
+`SW#sh vlan` on the switch. This will show you the vlans on the switch and which ports are allocated into which vlan. You should then see, as Glen said, that port allocated to vlan 1.
 Un port ne peut etre unallocated il est par defaut VLAN1
 
-`show ip interface brief`
+`SW#show ip interface`
 
 
 ```
@@ -675,7 +681,7 @@ SW(coonfig)#interface gi1/1/1
 SW(config-if)#switchport mode access  
 SW(config-if)#switchport access vlan 2  
 
-- If a switchport will only be on 1 van, use access mode, not trunk mode.  
+- If a switchport will only be on one van, use access mode, not trunk mode.  
 switchport mode access  
 switchport access vlan X
 
@@ -699,8 +705,21 @@ interface ip ip-address | ip int|
 copy running-config startup-config||
 ip default-gateway 192.168.0.1 | |
 
+<<<<<<< HEAD
 Native vlan vs Regular vlan c'est que les frame de et vers le native sont untagged. c'est tout.
 
+=======
+# Comment obtenir une nouvelle adress ip sur un client?
+`sudo dhclient -r`  
+Je ne sais pas si cela marche
+
+# comment savoir si on a une address dhcp
+## log 
+`cat /var/log/syslog | grep -i dhcp`
+## dhcp lease
+`ls /var/lib/dhcp`  
+cat dhclient-*****  
+>>>>>>> 3f6a35902b498136b92607a82228b55280c2d982
 
 
 
