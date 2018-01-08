@@ -857,6 +857,96 @@ It turns out that if you are trying to connect from a non-Windows client, you ne
 
 That worked for me.
 
+
+# 1
+depuis la maison j'arrivais à me connecter en http sur le freepbx server et puis tout d'un coup plus possible. Impossible de pinguer.
+http sur le server odoo OK, http sur le router principal OK.
+pas de message d'erreur
+rien dans  system admin / detection d'intrusion.
+redemarrage du serveur openvpn sur le routeur principal du cabinet.
+opewrt TPLINK / services / openvpn /stop
+```
+Mon Jan  8 16:04:58 2018 event_wait : Interrupted system call (code=4)
+Mon Jan  8 16:04:58 2018 /sbin/route del -net 10.8.0.0 netmask 255.255.255.0
+Mon Jan  8 16:04:58 2018 Closing TUN/TAP interface
+Mon Jan  8 16:04:58 2018 /sbin/ifconfig tun0 0.0.0.0
+Mon Jan  8 16:04:58 2018 SIGTERM[hard,] received, process exiting
+Mon Jan  8 16:05:03 2018 OpenVPN 2.3.6 mips-openwrt-linux-gnu [SSL (OpenSSL)] [LZO] [EPOLL] [MH] [IPv6] built on Jul 25 2015
+Mon Jan  8 16:05:03 2018 library versions: OpenSSL 1.0.2g  1 Mar 2016, LZO 2.08
+Mon Jan  8 16:05:03 2018 Diffie-Hellman initialized with 2048 bit key
+Mon Jan  8 16:05:03 2018 Socket Buffers: R=[163840->131072] S=[163840->131072]
+Mon Jan  8 16:05:03 2018 TUN/TAP device tun0 opened
+Mon Jan  8 16:05:03 2018 TUN/TAP TX queue length set to 100
+Mon Jan  8 16:05:03 2018 do_ifconfig, tt->ipv6=0, tt->did_ifconfig_ipv6_setup=0
+Mon Jan  8 16:05:03 2018 /sbin/ifconfig tun0 10.8.0.1 pointopoint 10.8.0.2 mtu 1500
+Mon Jan  8 16:05:03 2018 /sbin/route add -net 10.8.0.0 netmask 255.255.255.0 gw 10.8.0.2
+Mon Jan  8 16:05:03 2018 UDPv4 link local (bound): [undef]
+Mon Jan  8 16:05:03 2018 UDPv4 link remote: [undef]
+Mon Jan  8 16:05:03 2018 MULTI: multi_init called, r=256 v=256
+Mon Jan  8 16:05:03 2018 IFCONFIG POOL: base=10.8.0.4 size=62, ipv6=0
+Mon Jan  8 16:05:03 2018 Initialization Sequence Completed
+```
+Je fais un ifconfig sur openwrt
+```
+tun0      Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  
+          inet addr:10.8.0.1  P-t-P:10.8.0.2  Mask:255.255.255.255
+          UP POINTOPOINT RUNNING NOARP MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:100 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+```
+Je m'attendais à ce que cette interface disparaisse.
+
+je fais un start
+ifconfig  
+```
+tun0      Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  
+          inet addr:10.8.0.1  P-t-P:10.8.0.2  Mask:255.255.255.255
+          UP POINTOPOINT RUNNING NOARP MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:100 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+```
+tun0 toujours là
+Je remarque que la case enabled est décochée. Je la coche
+ca change pas grand chose.
+ps | grep openvpn j'ai toujours un processus openvpn qui tourne
+/Status / startup / opnevpn stop   ps | grep openvpn et là plus de openvpn en processus plus d'interface tun0
+```
+Mon Jan  8 16:17:00 2018 TUN/TAP TX queue length set to 100
+Mon Jan  8 16:17:00 2018 do_ifconfig, tt->ipv6=0, tt->did_ifconfig_ipv6_setup=0
+Mon Jan  8 16:17:00 2018 /sbin/ifconfig tun0 10.8.0.1 pointopoint 10.8.0.2 mtu 1500
+Mon Jan  8 16:17:00 2018 /sbin/route add -net 10.8.0.0 netmask 255.255.255.0 gw 10.8.0.2
+Mon Jan  8 16:17:00 2018 UDPv4 link local (bound): [undef]
+Mon Jan  8 16:17:00 2018 UDPv4 link remote: [undef]
+Mon Jan  8 16:17:00 2018 MULTI: multi_init called, r=256 v=256
+Mon Jan  8 16:17:00 2018 IFCONFIG POOL: base=10.8.0.4 size=62, ipv6=0
+Mon Jan  8 16:17:00 2018 Initialization Sequence Completed
+Mon Jan  8 16:17:13 2018 103.17.45.190:1194 TLS: Initial packet from [AF_INET]103.17.45.190:1194, sid=92b538bf 175ffa85
+Mon Jan  8 16:17:17 2018 103.17.45.190:1194 VERIFY OK: depth=1, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=Fort-Funston CA, name=EasyRSA, emailAddress=me@myhost.mydomain
+Mon Jan  8 16:17:17 2018 103.17.45.190:1194 VERIFY OK: depth=0, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=my-openvpn-client, name=EasyRSA, emailAddress=me@myhost.mydomain
+Mon Jan  8 16:17:18 2018 103.17.45.190:1194 Data Channel Encrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Mon Jan  8 16:17:18 2018 103.17.45.190:1194 Data Channel Encrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Mon Jan  8 16:17:18 2018 103.17.45.190:1194 Data Channel Decrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Mon Jan  8 16:17:18 2018 103.17.45.190:1194 Data Channel Decrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Mon Jan  8 16:17:18 2018 103.17.45.190:1194 Control Channel: TLSv1, cipher TLSv1/SSLv3 DHE-RSA-AES256-SHA, 2048 bit RSA
+Mon Jan  8 16:17:18 2018 103.17.45.190:1194 [my-openvpn-client] Peer Connection Initiated with [AF_INET]103.17.45.190:1194
+Mon Jan  8 16:17:18 2018 my-openvpn-client/103.17.45.190:1194 MULTI_sva: pool returned IPv4=10.8.0.6, IPv6=(Not enabled)
+Mon Jan  8 16:17:18 2018 my-openvpn-client/103.17.45.190:1194 MULTI: Learn: 10.8.0.6 -> my-openvpn-client/103.17.45.190:1194
+Mon Jan  8 16:17:18 2018 my-openvpn-client/103.17.45.190:1194 MULTI: primary virtual IP for my-openvpn-client/103.17.45.190:1194: 10.8.0.6
+Mon Jan  8 16:17:20 2018 my-openvpn-client/103.17.45.190:1194 PUSH: Received control message: 'PUSH_REQUEST'
+Mon Jan  8 16:17:20 2018 my-openvpn-client/103.17.45.190:1194 send_push_reply(): safe_cap=940
+Mon Jan  8 16:17:20 2018 my-openvpn-client/103.17.45.190:1194 SENT CONTROL [my-openvpn-client]: 'PUSH_REPLY,route 10.66.0.0 255.255.255.0,dhcp-option DNS 10.66.0.1,route 10.8.0.1,topology net30,ping 10,ping-restart 120,ifconfig 10.8.0.6 10.8.0.5' (status=1)
+```
+Le message ne donne pas initialisation sequence completed  
+ifconfig tun0  OK  
+service / openvpn / myvpn enabled coché started yes (n°) . N° correspond bien au n° de processus obtenu par ps | grep openerp.
+Comme je n'avais pas initialisation sequence completed j'ai fait  system / startup /openvpn restart et là j'ai eu initialisation sequence completed.
+
+
+
 # Comprendre les tables de routage
 
 ```
