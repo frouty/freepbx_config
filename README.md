@@ -909,6 +909,18 @@ Fail2Ban
 ===
 admin - System admin - Intrusion detection
 
+## configuration du fail2ban
+
+Ban time :
+Max retry : nombre d'authentification
+Find time
+nbre d'essai dans un temps de find time il est banni pour un temps de ban time.
+
+On peut vérifier de temps en temps fail2ban.
+
+
+
+
 Couldn't connect to asterisk
 ===
 Apres un reboot forcé par interruption du courant j'ai le msg  
