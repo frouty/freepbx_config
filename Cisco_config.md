@@ -705,6 +705,10 @@ interface ip ip-address | ip int|
 copy running-config startup-config||
 ip default-gateway 192.168.0.1 | |
 
+<<<<<<< HEAD
+Native vlan vs Regular vlan c'est que les frame de et vers le native sont untagged. c'est tout.
+
+=======
 # Comment obtenir une nouvelle adress ip sur un client?
 `sudo dhclient -r`  
 Je ne sais pas si cela marche
@@ -715,6 +719,7 @@ Je ne sais pas si cela marche
 ## dhcp lease
 `ls /var/lib/dhcp`  
 cat dhclient-*****  
+>>>>>>> 3f6a35902b498136b92607a82228b55280c2d982
 
 
 
