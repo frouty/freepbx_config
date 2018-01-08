@@ -1442,6 +1442,9 @@ Template c'est l'arborescence que l'on veut mettre dans le backup.
 Backup items
 
 https://wiki.freepbx.org/display/FPG/Using+the+Backup+module#UsingtheBackupmodule-Overview
+
+Il y a des infos dans cette page sur le warm spare. https://wiki.freepbx.org/display/FPG/Warm+Spare+Setup
+
 # Voicemail 
 ## Comment accéder à sa voicemail
 - 1 a partir du téléphone:
