@@ -688,6 +688,7 @@ Thu Sep  7 13:34:34 2017 daemon.warn odhcpd[934]: DHCPV6 SOLICIT IA_NA from 0001
 - pas de `Iniatialisation sequence completed` ce n'est pas bon signe.
 
 - au niveau client j'ai:
+
 ```
 [...]
 (--ping-restart), restarting
@@ -719,6 +720,7 @@ Thu Sep  7 15:56:27 2017 Preserving previous TUN/TAP instance: tun0
 - que donne un traceroute de 10.8.0.6 et 10.8.0.5
 
 - sur le routeur sans le vpn, netstat -nr donne:
+
 ```
 Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 202.22.235.254  *               255.255.255.255 UH    0      0        0 pppoe-wan
@@ -726,10 +728,10 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 default         202.22.235.254  0.0.0.0         UG    0      0        0 pppoe-wan
 
 ```
-- 202.22.235.254 c'est une adresse mls.
+
+- 202.22.235.254 c'est une adresse mls.  
 - traceroute 202.22.235.254 pas de réponse interessante.
 - sur le router avec VPN: netstat -nr
-```
 
 ## openwrt openvpn on
 - netstat -nr
