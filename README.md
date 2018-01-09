@@ -738,6 +738,13 @@ Busy Lamp Field c'est une LED sur un IP phone qui te dit si une autre extension 
 # Modules commerciaux
 Call recording Reports : http://wiki.freepbx.org/display/FCM/Call+Recording+Reports
 
+# Comment réecouter un appel?
+ucp / call history mais pas tres pratique. car on a pas la destination de l'appel. Donc il y a en vrac les appels pour tout le monde.  
+freepbx gui / Reports / call recording . On a la destination :
+- 1600 pour cab goeen 
+- s je ne comprends pas pourquoi S. mutti
+- 269596 pour les orthoptistes.
+
 # Quelles sont les applications qui sont supportés par les IP phones. Liste
 http://wiki.freepbx.org/display/FPG/Phone+Apps-Supported+Devices
 
@@ -903,7 +910,13 @@ Et cela marche. Testé
 
 # Musique d'attente . MoH Music on Hold
 `Setting - MoH`  
-Je n'ai jamais entendu une telle music. TODO
+Je n'ai jamais entendu une telle music dans le telephone. TODO
+
+# call on hold 
+si l'appel est rejeté regardé https://wiki.freepbx.org/display/FOP/Calls+being+dropped+after+being+on+hold+for+5+minutes  
+
+
+
 
 Fail2Ban
 ===
@@ -1783,6 +1796,13 @@ https://wiki.freepbx.org/display/PHON/Call+Waiting
 Mais pas d'information sur la façon de modifier la fréquence du beep.  
 J'ai trouvé : http://www.spinics.net/lists/asterisk/msg153399.html 
 A essayer
+
+### disable all waiting signal
+si le call waiting est enable. Cela s'active dans Application / Extension /. On entendra un beep s'il y a un autre appel.  
+On peut enlever ce beep.  
+
+Settings / EPM / Brand Sangoma / Options / Call Waiting Signal Disable. 
+
 # Connecter deux machines freepbx
 
 https://www.freepbx.org/connecting-two-freepbx-machines-together/ Bof un peu succint.
