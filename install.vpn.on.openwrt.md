@@ -1393,8 +1393,43 @@ Donc je change d'abord le port udp du server openvpn du main router au cabinet.
 Et ensuite je crée un regle de NAT.
 
 
+
+## dans openwrt 
 - uci set firewall.Allow_OpenVPN_I::ound.dest_port=1194
-:- editer le fichier /etc/config/openvpn option port '1194' -> option port '1200'
+- editer le fichier /etc/config/openvpn option port '1194' -> option port '1200'
+## sur le pc client
+nano /etc/openvpn/client.conf remote fqdn du server 1194 ->  remote fqdn du server 1200
+
+## je crées ma regle de NAT en m'inspirant de odoo.
+sur le main router du server freepbx  
+Network / firewall / Port forwarding
+New port forwarding  
+Name : FreePBX VPN server  
+Protocol : UDP  
+Source zone : want
+Soure mac address : ___
+source ip address :  
+source port : 
+external ip address:   
+external port : 1194
+internal zone : lan
+internal ip address : 10.66.0.2 
+internal port : 1194
+External zone : wan  
+External port : ....
+
+
+# ssh dans le freepbx
+cd /etc/openvpn  
+on retrouve deux fichiers .conf de client.
+sysadmin_client0.conf   
+sysadmin_client3.conf  
+0 et 13 correspond aux id dans la vue : System Admin / VPN server / Clients.  
+Je sais que 13 n'est pas ok car remote `85922823.deployments.pbxact.com 1194` 
+je ne sais pas pourquoi il est configuré comme cela.
+le O -> `remote goeen.ddns.net 1194`. Ca a l'air meilleur. 
+EPM / extension mapping / edit extension / VPN client : VPN client for hellocab ip phone
+et pas 5-5 qui a été crée je ne sais qd.
 
 
 # Comprendre les tables de routage
