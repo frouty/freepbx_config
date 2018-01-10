@@ -1431,6 +1431,18 @@ le O -> `remote goeen.ddns.net 1194`. Ca a l'air meilleur.
 EPM / extension mapping / edit extension / VPN client : VPN client for hellocab ip phone
 et pas 5-5 qui a été crée je ne sais qd.
 
+J'ai tout repris à zero.  
+System admin /server VPN disable server, delete clients.
+Delete client dans EPM / extension / vpn client  
+Set ip phone to factory default.  
+Redemerrage du server dans system admon / VPN Server  enable et creation d'un client.  
+EPM / extension add VPN client 
+l'ip phone reboot et affiche VPN activated.  
+cd /etc/openvpn je n'ai plus qu'un fichier sysadmin_server1.conf  
+Pour les clients ils sont dans : /etc/openvpn/clients/  
+Sous ccd il deux fichier client12 et client13 qui sont vides.  
+
+
 
 # Comprendre les tables de routage
 
