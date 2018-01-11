@@ -1506,6 +1506,10 @@ Changement de l'adresse privée de source en une adresse publique
 on va mapper une addresse privée avec une adresse publique.  
 DNAT change l'adresse de destination des paquets passant par le router.  
 On l'utilise typiquement quand un hote (public) externe doite établir une connection avec un hote privé interne. 
+
+# Port source 
+c'est le port source du paquet décrivant ou un paquet en réponse sera envoyé. 
+Port destination le port de destination du paquet. 
 # My Config
 
 My config on what I call 
