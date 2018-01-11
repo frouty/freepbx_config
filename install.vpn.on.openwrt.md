@@ -1406,7 +1406,7 @@ Network / firewall / Port forwarding
 New port forwarding  
 Name : FreePBX VPN server  
 Protocol : UDP  
-Source zone : want
+Source zone : wan  
 Soure mac address : ___
 source ip address :  
 source port : 
@@ -1414,10 +1414,15 @@ external ip address:
 external port : 1194
 internal zone : lan
 internal ip address : 10.66.0.2 
-internal port : 1194
+internal port : 
 External zone : wan  
 External port : ....
 
+mais cela ne marche pas.
+## source port vs detination port
+la communication va de l'ordinateur source port xxxx choose ramdomly to a web server destination port 80 et depuis un web server (source port 80) to your computer destination port xxxx
+
+Les paquets sont de la forme : ` your_IP, server_IP, source_port (xxxxx), destination port (80)`
 
 # ssh dans le freepbx
 cd /etc/openvpn  
@@ -1442,8 +1447,80 @@ cd /etc/openvpn je n'ai plus qu'un fichier sysadmin_server1.conf
 Pour les clients ils sont dans : /etc/openvpn/clients/  
 Sous ccd il deux fichier client12 et client13 qui sont vides.  
 
+# comment tester un server openvpn a distance:
+
+echo "abcd" | netcat -u -v -w2 goeen.ddns.info 1194
+NS fwd/rev mismatch: goeen.ddns.info != 103-17-47-187-last22.mls.nc
+goeen.ddns.info [103.17.47.187] 1194 (openvpn) open
+
+Mais je pense que c'est la réponse du server openvpn qui tourne  sur le router principal du LAN. Mais là j'ai changé le port en 1200 et j'ai toujours la meme réponse. 
 
 
+
+Here is a shell one-liner:
+
+echo -e "\x38\x01\x00\x00\x00\x00\x00\x00\x00" | 
+   timeout 10 nc -u openvpnserver.com 1194 | cat -v
+
+if there is an openvpn on the other end the output will be
+
+@$M-^HM--LdM-t|M-^X^@^@^@^@^@@$M-^HM--LdM-t|M-^X^@^@^@^@^@@$M-^HM--LdM-t|M-^X...
+
+otherwise it will just be mute and timeout after 10 seconds or display something different.
+
+NOTE: this works only if tls-auth config option is not active, otherwise the server rejects messages with incorrect HMAC.
+
+# Comment savoir si un port est ouvert?
+
+- nmap -sP -O 127.0.0.1
+- netsat -nap / netsat -ntulp (ne donne que TCP UDP). 
+You can scan udp ports by using following command  
+
+- nmap -sU -v <hostname or ip>  
+
+
+
+Pour savoir si les ports sont exploitables  il faut faire cela sur l'adresse ip externe. Mais je ne sais pas comment on fait.
+
+# pas moyen de connecter l'ip phone sur le remote subnet.
+On me suggere de :
+You need to set an incoming port as well, please try adding `option src_dport 1194`
+moi j'ai :
+config redirect
+option target 'DNAT’
+option src 'wan’
+option dest 'lan’
+option proto 'udp’
+option name 'FreePBX VPN Server’
+option dest_ip '10.66.0.2’
+option dest_port ‘1194’
+
+J'ai essayé d'ajouter option src_dport 1194
+d'enlever option dest_port '1194' et d'ajouter option src_dport 1194. Cela ne change rien.
+
+# SNAT source network adress translation
+on va modifier l'addresse IP source des paquets passant par le router.  
+SNAT est typiquement utilisé qd un hote interne (privé) doit établir une connection avec un hote externe public. 
+Changement de l'adresse privée de source en une adresse publique
+# DNAT destination network adress translation
+on va mapper une addresse privée avec une adresse publique.  
+DNAT change l'adresse de destination des paquets passant par le router.  
+On l'utilise typiquement quand un hote (public) externe doite établir une connection avec un hote privé interne. 
+# My Config
+
+My config on what I call 
+
+-the LAN subnet:
+Main router TPLINK OpenWrt Chaos Calmer 15.05
+Switch Cisco L3
+VPN server on the openwrt 10.10.0.0 subnet port 1200
+VPN server on the Freepbx server 10.8.0.0 subnet port 1194
+Current Asterisk Version: 11.23.0
+Freepbx FreePBX 13.0.192.19
+Firewall redirect rule on the openwrt main router to LAN subnet IP of freepbx server
+
+-and a REMOTE subnet where I try to install a S700 sangoma ip phone.
+from the REMOTE  subnet  I can ping any server in the LAN subnet. 
 # Comprendre les tables de routage
 
 ```

@@ -1,5 +1,6 @@
 # freepx_config
-
+a59e816d
+76a12
 # My Config
 My config: Sangoma appliance, ip phones: sangoma s500 et polycom vx400  
 vega50 gateway for one BRI line, an sangoma FXO card 4 ports, 2 analogic lines.  
@@ -31,6 +32,8 @@ http://wiki.freepbx.org/display/FPG/Firewall+Command+Line
 `fwconsole firewall disable`  
 
 puis en GUI recherche -> firewall -> enable --> re-run wizard
+## The client machine you are using to manage this server (10.10.0.6/32) i
+ce n'est pas l'adresse du server mais l'adresse du client.
 # Power off
 `̀Admin / Sysadmin / Power Options / Power off`
 # Power on
@@ -119,7 +122,13 @@ amportal commands : deprecated
 Utiliser plutot : __fwconsole__
 
 http://wiki.freepbx.org/pages/viewpage.action?pageId=37912685
-
+# Can not connect to Asterisk
+ssh root@IPDUSERVER
+fwconsole restart
+## a essayer 
+su -m asterisk
+password : blank 
+cd /etc
 # Comment configurer son serveur de mail
 Admin / System Admin / Email Setup  
 ## Choix du SMTP server
