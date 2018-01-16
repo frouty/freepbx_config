@@ -290,7 +290,8 @@ Settings -> EndPointManager -> Global Settings
 -> sur le téléphone:  
 
 # Comment savoir si un téléphone SIP a été enregistré dans le serveur
-Son numéro d'appel s'affiche sur l'écran.
+Son numéro d'appel s'affiche sur l'écran.  
+Sur mon remote IP phone le numéro s'affiche mais je n'arrive pas téléphoner avec.
 
 
 # Inbound route  
