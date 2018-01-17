@@ -125,7 +125,7 @@ localhost.localdomain -> FreePBX.MLP
 - 2 On la link à un user : Link to a default user : Create New User.  
 Le systeme crée automatiquement un nouveau user que l'on peut configurer dans Admin / User Management.  
 
-## Une fois que l'on a crée l'extension on va la linker à un poste IP phone.
+## Une fois que l'on a crée l'extension on va la linker à un poste IP phone.
 - Settings / EndPoint Manager / Extension Mapping
 - Add Extension  
 - On choisit l'extension  qui elle même est mappée à un user.
@@ -137,7 +137,7 @@ Le systeme crée automatiquement un nouveau user que l'on peut configurer dans A
 	
 
 ## Application -> Extension -> Quick Extension Create
-
+TODO
 
 Normalement chaque IP phone est assigné à une extension. S'il y a plusieurs lines button sur le phone (?) http://wiki.freepbx.org/display/FPG/Extensions+Module
 
@@ -152,15 +152,16 @@ Extension Module marche avec d'autres modules
   * Advanced Settings Module can be used to enable Device and User Mode. When Device and User Mode is enabled, the Extensions Module will disappear and be replaced with two separate modules called "Devices" and "Users."
 
 * User Management Module. In the User Management Module, a user may have a "primary linked extension." (?)
+
 # Où est ce que l'on configure ce qui se passe lorsque l'on ne répond à son téléphone IP?
- On peut configurer le cas ou :
- - il n'y a pas de réponse. Le temps d'attente avant de passer en non réponse se configure dans : `Application / Extension / Onglet Advanced / Extension Options / Ring time` 
- Ne doit pas etre dans une Queue ou un Ring Group.
- - le poste est occupé
- - le poste n'est pas joingnable =  Le poste n'est pas branché
- `Application / Extension / Onglet Advanced / `
- - `No answer` choix de : 
- 	- unavailable voicemail if enable 
+On peut configurer le cas ou :
+- il n'y a pas de réponse. Le temps d'attente avant de passer en non réponse se configure dans : `Application / Extension / Onglet Advanced / Extension Options / Ring time` 
+Ne doit pas etre dans une Queue ou un Ring Group.
+- le poste est occupé
+- le poste n'est pas joingnable =  Le poste n'est pas branché
+`Application / Extension / Onglet Advanced / `
+- `No answer` choix de : 
+	- unavailable voicemail if enable 
 	- Extension 
 	- follow me 
 	- conference
@@ -170,18 +171,20 @@ Extension Module marche avec d'autres modules
 - `Busy` choix de :
 	- busy voicemail if enabld
 	- ...
-- `Reachable` qd le phone n'est pas branché.
+- `Not Reachable` qd le phone n'est pas branché.
 
 
 
 
 # FXO
--1 Je branche une ligne de mon PTOS vers un port FXO du freepbx  
--2 Connectivity / DADY channel DID : je choisi ce Chanel correspondant au port FXO que je viens de connecter à mon PTOS. Et je lui donne un DID de mon choix que je vais pouvoir utiliser par la suite.
--3 Une fois que j'ai défini un DID à ce channel je vais pouvoir créer une inbound route.
--4 A cette inbound Route il faut lui donner une destination. Qui peut etre une extension.
+Ligne analogique OPT  
 
-On donne un DID car avec  le fournisseur téléphonique PTOS il n'y a pas de DID.
+- 1 Je branche une ligne de mon PTOS vers un port FXO du freepbx  
+- 2 Connectivity / DADY channel DID : je choisi ce Chanel correspondant au port FXO que je viens de connecter à mon PTOS. Et je lui donne un DID de mon choix que je vais pouvoir utiliser par la suite.
+- 3 Une fois que j'ai défini un DID à ce channel je vais pouvoir créer une inbound route.
+- 4 A cette inbound Route il faut lui donner une destination. Qui peut etre une extension.
+
+On donne un DID car avec  le fournisseur téléphonique PTOS il n'y a pas de DID. Et le systeme utilise le DID pour router l'appel.
 
 # Comment mettre une Outbound route qui va utiliser un port FXO.
 Exemple les orthoptiste utilisent leur ligne FXO pour appeler.
@@ -194,40 +197,7 @@ Exemple les orthoptiste utilisent leur ligne FXO pour appeler.
 
 # DADHI extension c'est quoi?
 Je pense que c'est pour configuer un device analogique branché sur une FXS.  
-# Fichiers de configuration
 
-
- La configuration d'Asterisk s'articule sur les fichiers de configuration suivants :
-
-    /etc/asterisk/sip.conf : Configuration globale d'Asterisk. toutes les modifications sur ce fichiers doivent être faites par le web GUI
-    /etc/asterisk/users.conf : Configuration des utilisateurs
-    /etc/asterisk/extensions.conf : Configuration du Dialplan. Toutes les modifications sur ce fichiers doivent être faites par le web GUI
-
-[work]			; Nom du contexte  
-exten => _6XXX,1,Dial(SIP/${EXTEN},20)  
-exten => _6XXX,2,Hangup()  
-
-Dans ces trois lignes nous allons voir deux choses, les contextes et les extensions. [work] est le contexte c’est une sorte de conteneur dans lequel les utilisateurs faisant partis de ce contexte pourrons communiquer entre eux. Lors de la création de nos deux utilisateurs nous avons spécifié le contexte work.
-
-    exten ⇒ : déclare l’extension (on peut aussi simplement dire numéros)
-    _6XXX : Prend les extensions (ou numéros) de 6000 a 6999 le « _ » permet d’utiliser des regex
-    1 : Ordre de l’extension
-    Dial : application qui va être utilisé
-    SIP: Protocol qui va être utilisé
-    ${EXTEN} : variable de l’extension composé, si on appelle le 6001 la variable ${EXTEN} prendra comme valeur 6001
-    20: temps d’attente avant de passer a l’étape suivante.
-
-Donc la ligne exten ⇒ _6XXX,1,Dial(SIP/${EXTEN},20) se traduit par: Quand on compose le numéro (par exemple) 6001, on appelle le numéro 6001 et si au bout de 20 secondes il n’y a pas de réponses on passe à la ligne du dessous.
-
-La seconde ligne : exten ⇒ _6XXX,2,Hangup() permet de raccrocher si il n’y a pas de réponses au bout des 20 secondes. 
-
-Le numéro à appeler pour joindre un utilisateur est défini dans le fichier /etc/asterisk/users.conf  
-Context
-====
-?
-Dans le fichier /etc/asterisk/users.conf il y a un parametre : context = uncontext
-
-On retrouve ce context uncontext dans les extensions.  
 
 # Configuration d'une phone IP avec End Point Manager (EPM)
 
@@ -235,10 +205,11 @@ Il faut avoir une extension et un user manager account
 
 Settings -> EndPointManager -> Global Settings
 
-* internal address: ipadressipbx
-* external IP Address : (?)
+* internal address: ipadressipbx subnet de l'ipbx.
+* external IP Address : IP PUBLIC du Main Router.
 
--> Add brand  
+Settings -> EndPoint Manager -> Advanced -> Add brand
+
 * internal destination address : will pull the IP address from global settings
 * external:  l'address IP ou FQDN si le téléphone n'est pas local.
 * firmware version select firmware slot 1
@@ -267,8 +238,9 @@ Settings -> EndPointManager -> Global Settings
 
 # Comment savoir si un téléphone SIP a été enregistré dans le serveur
 Son numéro d'appel s'affiche sur l'écran.  
-Sur mon remote IP phone le numéro s'affiche mais je n'arrive pas téléphoner avec.
-
+Sur mon remote IP phone le numéro s'affiche mais je n'arrive pas téléphoner.  
+Essayer de téléphoner  
+Essayer *60 donne l'heure
 
 # Inbound route  
 When a call comes into your system from the outside, it will usually arrive along with information about the telephone number that was dialed (also known as the "DID") and the Caller ID of the person who called.
@@ -1884,3 +1856,39 @@ Pas facile à trouver faire CTRL F: Ring Time.
 # Voicemail 
 ## au bout de combien de temps la voicemail se met en route
  Applications / Extension / Tab Advanced / Extension Options / Ring Time : Default (se configure dans Settings / Advanced settings / Dialplan and operationnel / Ringtime default : 120)
+ 
+ 
+# Fichiers de configuration d'Asterisk
+
+
+ La configuration d'Asterisk s'articule sur les fichiers de configuration suivants :
+
+    /etc/asterisk/sip.conf : Configuration globale d'Asterisk. toutes les modifications sur ce fichiers doivent être faites par le web GUI
+    /etc/asterisk/users.conf : Configuration des utilisateurs
+    /etc/asterisk/extensions.conf : Configuration du Dialplan. Toutes les modifications sur ce fichiers doivent être faites par le web GUI
+
+[work]			; Nom du contexte  
+exten => _6XXX,1,Dial(SIP/${EXTEN},20)  
+exten => _6XXX,2,Hangup()  
+
+Dans ces trois lignes nous allons voir deux choses, les contextes et les extensions. [work] est le contexte c’est une sorte de conteneur dans lequel les utilisateurs faisant partis de ce contexte pourrons communiquer entre eux. Lors de la création de nos deux utilisateurs nous avons spécifié le contexte work.
+
+    exten ⇒ : déclare l’extension (on peut aussi simplement dire numéros)
+    _6XXX : Prend les extensions (ou numéros) de 6000 a 6999 le « _ » permet d’utiliser des regex
+    1 : Ordre de l’extension
+    Dial : application qui va être utilisé
+    SIP: Protocol qui va être utilisé
+    ${EXTEN} : variable de l’extension composé, si on appelle le 6001 la variable ${EXTEN} prendra comme valeur 6001
+    20: temps d’attente avant de passer a l’étape suivante.
+
+Donc la ligne exten ⇒ _6XXX,1,Dial(SIP/${EXTEN},20) se traduit par: Quand on compose le numéro (par exemple) 6001, on appelle le numéro 6001 et si au bout de 20 secondes il n’y a pas de réponses on passe à la ligne du dessous.
+
+La seconde ligne : exten ⇒ _6XXX,2,Hangup() permet de raccrocher si il n’y a pas de réponses au bout des 20 secondes. 
+
+Le numéro à appeler pour joindre un utilisateur est défini dans le fichier /etc/asterisk/users.conf  
+Context
+====
+?
+Dans le fichier /etc/asterisk/users.conf il y a un parametre : context = uncontext
+
+On retrouve ce context uncontext dans les extensions.  
