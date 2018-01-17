@@ -236,15 +236,13 @@ Settings -> EndPoint Manager -> Advanced -> Add brand
 -> wait reload the page ou confirm from submission. Green msg confirmant l'installation du firmware.  
 -> sur le téléphone:  
 
-# Comment savoir si un téléphone SIP a été enregistré dans le serveur
-Son numéro d'appel s'affiche sur l'écran.  
-Sur mon remote IP phone le numéro s'affiche mais je n'arrive pas téléphoner.  
+# Comment savoir si un téléphone SIP a été enregistré dans le serveur 
 Essayer de téléphoner  
 Essayer *60 donne l'heure
 
 # Inbound route  
 When a call comes into your system from the outside, it will usually arrive along with information about the telephone number that was dialed (also known as the "DID") and the Caller ID of the person who called.
-The Inbound Routes module is the mechanism used to tell your PBX where to route inbound calls based on the phone number or DID dialed
+The Inbound Routes module is the mechanism used to tell your PBX where to route inbound calls based on the phone number or DID dialed.  
 Calls come into your system on trunks that are configured in the Trunks module.
 
 # DID (Direct Inward Dialing) Number
@@ -256,45 +254,57 @@ Patterns must begin with an underscore (\_) to signify they are patterns. Within
 
 This field can also be left blank to match calls from all DIDs. This will also match calls that have no DID information.  
 
-CID (Caller ID) Number
-====
+# CID (Caller ID) Number
 Routing calls based on the caller ID : numero composé par l'appelant. Leave this field blank to match any or no CID info. In addition to standard dial sequences, you can also put “Private,” “Blocked,” “Unknown,” “Restricted,” “Anonymous” or “Unavailable” in order to catch these special cases if the telco transmits them.
 
 # IP Phones
 https://supportforums.cisco.com/document/113336/ip-phone-registration-issues
 
 Le phone va s'enregistrer aupres du PBX. L'adresse IP du Phone n'a pas d'importance elle peut rester en DHCP.
-L'incovénient c'est que pour utiliser le web GUI du phone cela ne va pas etre facile. Il faudra connaitre l'adresse IP. On peut la trouver sur le phone dans les menus.
+L'incovénient c'est que pour utiliser le web GUI du phone cela ne va pas etre facile. Il faudra connaitre l'adresse IP. On peut la trouver sur le phone dans les menus.  
 Un phone peut avoir plusieurs extensions. A quoi cela sert? 
 
 ## Phones Sangoma
 http://wiki.freepbx.org/display/PHON
 
-### Reset factory s500
-Web GUI
-Management -> Upgrade -> reset to factory
+### Reset factory
+- s500
+  - Web GUI
+    -Management -> Upgrade -> reset to factory
+- s700 
+  - sur le téléphone 
+  - Menu / Settings / Advanced  Settings / Password que l'on trouve dans le WebGui du Freepbx : Settings / EPM / Global settings / Phone admin password
+  - Phone Settings / Reset Factory
+- Polycom 
+  - TODO
 
-Connecter un sangoma phone à freepbx  
----
+### Connecter un sangoma phone à freepbx  
+
 http://wiki.freepbx.org/display/PHON/Connecting+Sangoma+Phone+to+FreePBX+or+PBXact+Indepth
+- 1 s'assurer que les provision protocoles HTTP et HTTPS sont OK : system admin / Provisionning protocols.
+- 2 s'assurer que le serveur PnP marche  
+System Admin / PnP configuration / PnP server status enable.  
+Pnp server configuration : automatic.
+- 3 configurer les bons protocoles http dans les template : Settings / EPM / Brand / Sangoma 
+- 4 S'assurer que l'IP phone est bien reset factory. 
+- 5 brancher l'IP phone. Accepter le PnP message.
+- 6 et voila. 
 
-3 facons de configurer un phone Sangoma
----
+#### 3 facons de configurer un phone Sangoma
+- 1  redirection service (zero-touch auto-provisioning)
+- 2  DHCP option 66
+- 3  hard setting provisioning server 
 
-1  redirection service (zero-touch auto-provisioning)
-2  DHCP option 66
-3  hard setting provisioning server 
+#### redirection service (zero-touch auto-provisioning)
 
-redirection service (zero-touch auto-provisioning)
-----
 Dans le web GUI on verifie
 * EndPointManagement -> Global Setting 
 * Admin -> USer management -> Onglet Groups -> on verifie que le user est bien dans le group "All Users"
 * Edit -> onglet **Phone Apps** -> Allow Access -> Yes
 * Users -> Edit button -> Onglet General -> verifier que les permission sont sur Inherit from the group.
 
-register le phone
-----
+#### register le phone
+
 pour utiliser le redirection service il faut l'enregistrer sur le portal de sangoma.
 https://portal.sangoma.com cloud service > sangoma phones > register phone tab
 
@@ -307,10 +317,11 @@ login/password : admin/admin
 Management -> Auto Provision - upgrade mode - config server path - autoprovision Now click
 
 
+
 # Comment trouver l'IP d'un phone Sangoma
 menu -> Status -> information
 
-# Comment rebooter un phone Sangoma
+# Comment rebooter un phone Sangoma sans password
 Menu button -> * key 3 fois -> down arrow pour 10 s. Le téléphone reboot
 
 # Comment changer le nom qui s'affiche sur l'écran du Sangoma IP phone?
