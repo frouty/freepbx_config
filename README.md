@@ -84,31 +84,41 @@ Faire un ssh puis
 
 
 # fwconsole
-
-
 http://wiki.freepbx.org/pages/viewpage.action?pageId=37912685
 # Can not connect to Asterisk
-ssh root@IPDUSERVER
-fwconsole restart
-## a essayer 
-su -m asterisk
-password : blank 
-cd /etc
+ssh root@IPDUSERVER  
+`fwconsole restart`
+# a essayer 
+su -m asterisk  
+password : blank   
+cd /etc  
+
+
 # Comment configurer son serveur de mail
 Admin / System Admin / Email Setup  
 ## Choix du SMTP server
+
 J'ai essayé gmail mais je n'ai pas réussi.  
 `Use built in SMTP server`  
 - hostname = ?
 - origin = ?
 - Domain = ?  
-## Debug
-Click sur debug. On va sur la page de debug et on peut lancer un tester de mail. A essayer.
+ 
+ J'ai essayé Use external SMTP server avec gmail mais cela n'a pas marché. Debug : network unreachable.
+ J'ai essayé USe buil in SMTP server et ca marche. j'ai changé My Origin  localhost.localdomain --> FreePBX.MLP. 
 
+ Mais cela part dans les spams.
+ 
+## Debug
+Click sur debug. On va sur la page de debug et on peut lancer un test de mail. 
 
 # Comment configurer les notifications par mail
-Admin>System Admin>Notification Settings
-
+Admin / System Admin / Notification Settings
+ 
+# Hostname
+Admin / System Admin / Hostname    
+localhost.localdomain -> FreePBX.MLP  
+  
 # Extension
 ## Comment Creer une extension
 - 1 On crée un user qui pourra être linké à cette extension.
@@ -1857,21 +1867,7 @@ Si cela marche c'est bon.
  J'appelle avec l'extendion en question et le téléphone appelé affiche +687 28 16 00
  Par contre si je mets " " <281608>  cela affiche  +687 296297
  
- # Configuration des emails dans freepbx
  
- Admin / System Admin / Email Setup  
- 
- J'ai essayé Use external SMTP server avec gmail mais cela n'a pas marché. Debug : network unreachable.
- J'ai essayé USe buil in SMTP server et ca marche. j'ai changé My Origin  localhost.localdomain --> FreePBX.MLP. 
- 
- localhost.localdomain
- 
- # Hostname
-  Admin / System Admin / Hostname   
-  localhost.localdomain -> FreePBX.MLP  
-  
-  Mais cela part dans les spams. 
-  
  
  # configuration du temps avant une nouvelle action si l'extension ne décroche pas
  
