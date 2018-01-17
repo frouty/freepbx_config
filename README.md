@@ -2,28 +2,19 @@
 a59e816d
 76a12
 # My Config
-My config: Sangoma appliance, ip phones: sangoma s500 et polycom vx400  
+My config: Sangoma appliance, ip phones: 2 sangoma s500, 1 sangoma S700 et 1 polycom vx400  
 vega50 gateway for one BRI line, an sangoma FXO card 4 ports, 2 analogic lines.  
 Cisco SG500-28P switch  
+Main router : TPLINK ARCHER C7 openwrt Chaos Calmer.
+
 
 
 # FAQ asterisk knowledgebase
 http://kb.digium.com/
 
 # Architecture réseau  
-freepbx sur cisco  
-phone ip sur cisco  
-cisco sur wrt54GL   
+Voir le repository sur reseau_informatique.MLP sur bitbucket.
 
-
-                                       PC
-                                       |
-freepbx ------ Cisco switch ----- Wrt54Gl ---- Internet
-                 |  |   |             | 
-                 |  |   phone IP     PC
-           phone ip |   
-				    
-                   vega
 # Comment configurer le firewall?
 
 http://wiki.freepbx.org/display/FPG/Firewall+Command+Line
@@ -34,6 +25,7 @@ http://wiki.freepbx.org/display/FPG/Firewall+Command+Line
 puis en GUI recherche -> firewall -> enable --> re-run wizard
 ## The client machine you are using to manage this server (10.10.0.6/32) i
 ce n'est pas l'adresse du server mais l'adresse du client.
+
 # Power off
 `̀Admin / Sysadmin / Power Options / Power off`
 # Power on
