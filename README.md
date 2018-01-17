@@ -308,14 +308,13 @@ Dans le web GUI on verifie
 pour utiliser le redirection service il faut l'enregistrer sur le portal de sangoma.
 https://portal.sangoma.com cloud service > sangoma phones > register phone tab
 
-## DHCP option 66
+#### DHCP option 66
 ll faut que le serveur dhcp du routeur support le dhcp option 66
 
-## The hard way
+#### The hard way
 from the GUI of the phone
 login/password : admin/admin
 Management -> Auto Provision - upgrade mode - config server path - autoprovision Now click
-
 
 
 # Comment trouver l'IP d'un phone Sangoma
@@ -330,17 +329,16 @@ login admin
 password habituelle
 Account / Label
 
-provisioning success
-----
+# provisioning success (Deprecated je la laisse au cas ou)
 dans le web GUI freepbx
 Settings - Endpoint manager - Brands - sangoma - Template - sangoma_default - firmware management
 et provision server Protocole : TFTP 
 
 Et configuration sur le phone de l'adresse tftp://ip_du_freepbx:  
-advanced - password : 222222 - autoprovisionning - upgrade mode - tftp  
-advanced - password : 222222 - Device reboot  
+advanced - password : ****** - autoprovisionning - upgrade mode - tftp  
+advanced - password : ****** - Device reboot  
 
-Ce password 222222 se trouve dans le freepbx à : *TODO*
+Ce password ****** se trouve dans le freepbx à : Settings / EPM / Global settings.
 
 Page tres complete sur le provisionning d'un tel sangoma:  
 https://wiki.freepbx.org/display/PHON/Setup+Phone+by+hard+setting+provisioning+server
@@ -357,7 +355,8 @@ Username = Polycom (case sensitive)
 Admin Password = 456  
 User Password = 123  
 ### difference entre user et admin
-admin acces unrestricted. user acces restricted  
+admin acces unrestricted. 
+user acces restricted  
 ### web gui login password 
 il est défini par le freepbx :  
 - settings/ end point manager / global settings /   
