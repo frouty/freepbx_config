@@ -88,6 +88,32 @@ http://wiki.freepbx.org/pages/viewpage.action?pageId=37912685
 # Can not connect to Asterisk
 ssh root@IPDUSERVER  
 `fwconsole restart`
+
+
+# Asterisk
+## Logger
+https://wiki.asterisk.org/wiki/display/AST/Collecting+Debug+Information
+
+Comment annuler les log output in CLI asterisk: CLI> __logger mute__
+
+## version-
+asterisk -r..
+ou  
+CLI> core show version
+
+## dahdi
+
+CLI> core show help dahdi  
+CLI> dahdi show channels group <num du group>  
+
+## How to activate Asterisk full debugging?
+`vi /etc/asterisk/logger.conf`  
+uncomment : `̀full => notice, warning, error, debug, verbose, dtmf, fax`  
+
+Toutes les infos de debugging seront logguées dans /var/log/asterisk/full.
+
+
+
 # a essayer 
 su -m asterisk  
 password : blank   
@@ -238,7 +264,9 @@ Settings -> EndPoint Manager -> Advanced -> Add brand
 
 # Comment savoir si un téléphone SIP a été enregistré dans le serveur 
 Essayer de téléphoner  
-Essayer *60 donne l'heure
+`Admin -> Feature code`  
+Clock *60  
+echo test *43
 
 # Inbound route  
 When a call comes into your system from the outside, it will usually arrive along with information about the telephone number that was dialed (also known as the "DID") and the Caller ID of the person who called.
@@ -347,38 +375,38 @@ https://wiki.freepbx.org/display/PHON/Setup+Phone+by+hard+setting+provisioning+s
 - 1 dans le web GUI c'est dans les templates : `Settings / Endpoint management /brand`
 - 2 dans le telephone : Menu / settings /basic settings / Ring tones
 
-## Phone Polycom 
+# Phone Polycom 
 http://kb.digium.com/articles/Configuration/Polycom-Phone-Provisioning-Guide?retURL=%2Fapex%2FknowledgeProduct&popup=false
 
-### Login / Password : 
+## Login / Password : 
 Username = Polycom (case sensitive)  
 Admin Password = 456  
 User Password = 123  
 ### difference entre user et admin
 admin acces unrestricted. 
 user acces restricted  
-### web gui login password 
+## web gui login password 
 il est défini par le freepbx :  
 - settings/ end point manager / global settings /   
 - phone admin password .
 
-### Reboot the Phone  
+## Reboot the Phone  
  - Press and hold the dial pad keys 0, 1, and 3 simultaneously for about three seconds, or until you hear a confirmation tone.  
 
-###  Restore Factory Defaults
+##  Restore Factory Defaults
  - Press and hold the dial pad keys 1, 3, and 5 simultaneously during the Updater process until the password prompt appears.       - Enter the administrator password to initiate the reset. 
  - Resetting to factory defaults will also reset the administrator password to 456.  
 
-### Upload Log Files  
+## Upload Log Files  
  - Press and hold the dial pad keys 1, 5, and 9 simultaneously until you hear a three-second confirmation tone.  
 
-### reset factory : 
+## reset factory : 
  - loading software cancel -> hold 1;3;5 keys -> demande un password : 456 et c'est fait. Non pas toujours
 mais avec la mac address à la place de 456 c'est OK
 Reboot-> 0;1;3 ne marche pas  
 1;5;9 ne marche pas
 
-### configuration du provisioning
+## configuration du provisioning
 Dans le menu du phone: home - settings - advanced - administration setting - Network Configuration - provisioning server
 Server type : TFTP  
 server address : ip du freepbx   
@@ -390,21 +418,17 @@ reboot phone
 
 Settings - endpoint manager - brands - polycom - save rebuild config and update phone : submit n'a pas marché
 
-### Comment on fait pour mettre en place les boutons speed-dial
+## Comment on fait pour mettre en place les boutons speed-dial
 TODO
 
-### Comment faire pour modifier ce qui s'affiche en haut de l'écran du téléphone ?
-Web gui dupolycom  / configuration simple / identification ligne SIP
+## Comment faire pour modifier ce qui s'affiche en haut de l'écran du téléphone ?
+Web gui du polycom  :  configuration simple / identification ligne SIP
 
 ### Configuration réseau
 web gui du polycom / configuration / Ethernet. 
 
 
-# Quels sont les services que l'on peut utiliser pour tester son phone SIP
-`Admin -> Feature code`
 
-Clock *60  
-echo test *43
 
 # configuration des FXO
 
@@ -648,6 +672,7 @@ Since the PBX routes all inbound calls based on the DID or number dialed, we nee
 Connectivity - DADHI channel DID - add DADHI DID - channel : g1 (mais je ne suis pas sur) 
 Channel : 
 The DAHDI Channel number to map to a DID. For example, If you have a 4-port card, your channels would be ports 1-4.
+
 ### en résumé pour router un appel arrivant d'une ligne analogique sur un port FXO:
 `Connectivity -DAHDI channel DID` pour définir un DID par port FXO (1, 2 , 3 , 4). Puis j'utilise ce DID dans la configuration des `Connectivity - Inbound Route - Set destination`.
 
@@ -666,7 +691,8 @@ on va dans l'UCP est on fait "send new fax". cela marche.
 A noter qu'il ne faut pas que la vielle machine de fax soit brancher sur la ligne qui envoie le fax.
 
 ## Fax - Réception de fax
-On définit la detection de fax dans : applications - extension. Mais cela n'a pas marché. Je ne trouve pas de parametre de fax dans application - extension
+On définit la detection de fax dans : Applications / Extension. 
+Mais cela n'a pas marché. Je ne trouve pas de parametre de fax dans application - extension
 
 Dans Connectivity -DHADI config - global setting - fax detection --> Yes et on essaye à nouveau.  
 
@@ -707,11 +733,11 @@ Busy Lamp Field c'est une LED sur un IP phone qui te dit si une autre extension 
 Call recording Reports : http://wiki.freepbx.org/display/FCM/Call+Recording+Reports
 
 # Comment réecouter un appel?
-ucp / call history mais pas tres pratique. car on a pas la destination de l'appel. Donc il y a en vrac les appels pour tout le monde.  
-freepbx gui / Reports / call recording . On a la destination :
-- 1600 pour cab goeen 
-- s je ne comprends pas pourquoi S. mutti
-- 269596 pour les orthoptistes.
+- ucp / call history mais pas tres pratique. car on a pas la destination de l'appel. Donc il y a en vrac les appels pour tout le monde.  
+- freepbx web gui / Reports / call recording . On a la destination :
+  - 1600 pour cab goeen 
+  - s je ne comprends pas pourquoi S. mutti
+  - 269596 pour les orthoptistes.
 
 # Quelles sont les applications qui sont supportés par les IP phones. Liste
 http://wiki.freepbx.org/display/FPG/Phone+Apps-Supported+Devices
@@ -720,49 +746,8 @@ http://wiki.freepbx.org/display/FPG/Phone+Apps-Supported+Devices
 # Echo cancellation troubleshooting
 http://wiki.freepbx.org/display/PC/Verify+if+Hardware+Echo+Cancellation+is+being+used
 
-# Asterisk
-## Logger
-https://wiki.asterisk.org/wiki/display/AST/Collecting+Debug+Information
 
-Comment annuler les log output in CLI asterisk: CLI> __logger mute__
 
-version
-----
-asterisk -r..
-ou  
-CLI> core show version
-
-dahdi
-----
-CLI> core show help dahdi  
-CLI> dahdi show channels group <num du group>  
-
-## How to activate Asterisk full debugging?
-`vi /etc/asterisk/logger.conf`  
-uncomment : `̀full => notice, warning, error, debug, verbose, dtmf, fax`  
-
-Toutes les infos de debugging seront logguées dans /var/log/asterisk/full.
-
-# mes ip phone n'obtiennent pas d'adress IP?
-Je ne les vois pas dans openwrt. malgré plusieurs boot.
-Mon architecture réseau n'était pas bonne.  
-Server Freepbx + IP phone sur le switch Cisco et switch Cisco sur router wrt54GL.
-
-# server freepbx n'obtient pas d'adresse IP
-Le serveur freepbx apres avoir débrancher le cable rj45 n'obtient pas l'adress IP.  
-reboot est-il la seule solution?
-# Troubleshooting
-Le system a perdu son adress ip. Le fait de brancher débrancher le cable rj45 ne regle pas le probleme.
-Je reboot. Mais comme il n'a pas d'adress ip pas moyen d'utiliser ssh.
-Donc je travaille en mode console avec un écran sur le port VGA. 
-A noter un temps tres long pour booter avec uniquement un curseur qui clignote.
-ensuite attention clavier qwerty. 
-password root sangoma
-nano /etc/syslog/keyboard 
-change us pour fr. 
-reboot.
-et là on a le clavier en azerty.
-Ce probleme d'ip c'est réglé quand j'ai branché port eth0 sur le router wrt54gl
 
 
 # probleme
@@ -1901,4 +1886,26 @@ Context
 ?
 Dans le fichier /etc/asterisk/users.conf il y a un parametre : context = uncontext
 
-On retrouve ce context uncontext dans les extensions.  
+On retrouve ce context uncontext dans les extensions. 
+
+
+# mes ip phone n'obtiennent pas d'adress IP?
+Je ne les vois pas dans openwrt. malgré plusieurs boot.
+Mon architecture réseau n'était pas bonne.  
+Server Freepbx + IP phone sur le switch Cisco et switch Cisco sur router wrt54GL.
+
+# server freepbx n'obtient pas d'adresse IP
+Le serveur freepbx apres avoir débrancher le cable rj45 n'obtient pas l'adress IP.  
+reboot est-il la seule solution?
+# Troubleshooting
+Le system a perdu son adress ip. Le fait de brancher débrancher le cable rj45 ne regle pas le probleme.
+Je reboot. Mais comme il n'a pas d'adress ip pas moyen d'utiliser ssh.
+Donc je travaille en mode console avec un écran sur le port VGA. 
+A noter un temps tres long pour booter avec uniquement un curseur qui clignote.
+ensuite attention clavier qwerty. 
+password root sangoma
+nano /etc/syslog/keyboard 
+change us pour fr. 
+reboot.
+et là on a le clavier en azerty.
+Ce probleme d'ip c'est réglé quand j'ai branché port eth0 sur le router wrt54gl
