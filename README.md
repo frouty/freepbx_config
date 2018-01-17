@@ -83,6 +83,12 @@ Faire un ssh puis
 - `sip set debug off`
 
 
+## Couldn't connect to asterisk
+
+Apres un reboot forcé par interruption du courant j'ai le msg  
+*couldn't connect to asterisk*  
+je n'ai rien fait j'ai attendu un peu.
+
 # fwconsole
 http://wiki.freepbx.org/pages/viewpage.action?pageId=37912685
 # Can not connect to Asterisk
@@ -834,20 +840,17 @@ Feature Code Password
 
 Convert To
 
-
-
-
 # Comment enregister des messages 
 
-`Admin / system recording`
+`Admin / system recording`  
 Va permettre d'enregistrer des messages qui pourront etre joué à l'appelant par d'autres modules.  
 File list for english : j'ai l'impression que cela permet de concatener plusieurs fichiers qui serons lus l'un à la suite de l'autre c'est comme cela que je le comprends.
 Si je veux pouvoir accéder à l'enregistrement via un ip phone :(pas sûr que cela soit utile)  
 Link to Feature Code  - YES  
 
-`Applications -> Annoucement`
+`Applications -> Annoucement`  
 Ne pas confondre ce module avec le system recording.  
-Il faut voir ce module comme un enveloppe d'un system record. Et c'est cette envellope qui va pouvoir etre appelé par le systeme.  
+Il faut voir ce module comme une enveloppe d'un system record. Et c'est cette enveloppe qui va pouvoir etre appelé par le systeme.  
 Le module annoucement permet de jouer une annonce créee avec system recording et de poursuivre le call flow.  
 
 recording : ne propose que les announces faites dans le system recording. Il faut donc créer l'annonce dans le module system recording avant.  
@@ -868,12 +871,10 @@ si l'appel est rejeté regardé https://wiki.freepbx.org/display/FOP/Calls+being
 
 
 
+# Fail2Ban
+Admin / System admin / Intrusion detection
 
-Fail2Ban
-===
-admin - System admin - Intrusion detection
-
-## configuration du fail2ban
+## configuration du fail2ban
 
 Ban time :
 Max retry : nombre d'authentification
@@ -881,15 +882,6 @@ Find time
 nbre d'essai dans un temps de find time il est banni pour un temps de ban time.
 
 On peut vérifier de temps en temps fail2ban.
-
-
-
-
-Couldn't connect to asterisk
-===
-Apres un reboot forcé par interruption du courant j'ai le msg  
-*couldn't connect to asterisk*  
-je n'ai rien fait j'ai attendu un peu.
 
 # Comment forwarder vers un numéro extérieur
 - `miscellenious destination ` ou
@@ -908,13 +900,27 @@ Avec un ring group or a queue vous pouvez definir le fail over destination to be
 
 D'autre utilise le follow me sur l'extension.
 
-# power off
-`admin / system admin / power option`
-
-# si pas de audio de voix
+# si pas de audio, pas de voix
 - Freepbx / settings / asterisk sip setting 
 - local network 192.168.1.0 / 24
 
+
+# Time 
+- 1 Création d'un time group  : Application / Time Group. Il y a uniquement des informations de temps
+- 2 On utilise ce time group dans une time condition qui est relié :
+  - à un time group 
+  - et qui fait une action si le time group match: Destination matches et là on peut faire d'autes actions.
+  - ou ne match pas : Destination not matches : on peut faire d'autres actions. 
+
+## Time group
+que du temps
+
+## Time condition 
+un time group et deux actions possibles si match ou match pas.
+
+## Config actuel 
+Inbound Route DID = 281600 --> Set Destination = Time conditions = gooen open hours  
+Si c'est en open hours va sur une autre time condition qui va sur Annoucenment closed ou Misc destination. 
 # Comment on gere les SDA du tronc numeris?
 ## Comment diriger les appels du 29629x vers un user phone?
 ## Comment rediriger un appel entrant vers un numéro extérieur?
@@ -1846,8 +1852,8 @@ Pas facile à trouver faire CTRL F: Ring Time.
 # Configuration de ce qui se passe si on ne répond pas, c'est occupé, ou l'extension n'est pas joignable.
  Applications / Extension / Tab Advanced / Extension Options / Tout en bas Optionnal destination.
  
-# Voicemail 
-## au bout de combien de temps la voicemail se met en route
+# Voicemail 
+## au bout de combien de temps la voicemail se met en route
  Applications / Extension / Tab Advanced / Extension Options / Ring Time : Default (se configure dans Settings / Advanced settings / Dialplan and operationnel / Ringtime default : 120)
  
  
