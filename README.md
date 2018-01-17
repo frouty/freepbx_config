@@ -121,20 +121,23 @@ localhost.localdomain -> FreePBX.MLP
   
 # Extension
 ## Comment Creer une extension
-- 1 On crée un user qui pourra être linké à cette extension.
-	- Pour créer un user : Admin /user Management
-- 2 On crée l'extension : Application / Extension / Add Extension / Add New CHAN_SIP Extension
-- 3 On la link à un user  
+- 1 On crée l'extension : Application / Extension / Add Extension / Add New CHAN_SIP Extension
+- 2 On la link à un user : Link to a default user : Create New User.  
+Le systeme crée automatiquement un nouveau user que l'on peut configurer dans Admin / User Management.  
+
 ## Une fois que l'on a crée l'extension on va la linker à un poste IP phone.
 - Settings / EndPoint Manager / Extension Mapping
-- Là on a le choix de mapper:
-	- un user avec un account (cet account est quelque chose dans le téléphone)
-	- une extension avec une MAC adress d'IP Phone.
+- Add Extension  
+- On choisit l'extension  qui elle même est mappée à un user.
+	- un account (cet account est quelque chose dans le téléphone)
+	- Une marque de téléphone 
+	- MAC adress d'IP Phone.  
+	- Template qui est un fichier de configuration qui correspond à un type de téléphone.
+	- Modele de téléphone.
 	
----
-Application -> Extension -> Quick Extension Create
 
-**Applications -> Extension**
+## Application -> Extension -> Quick Extension Create
+
 
 Normalement chaque IP phone est assigné à une extension. S'il y a plusieurs lines button sur le phone (?) http://wiki.freepbx.org/display/FPG/Extensions+Module
 
@@ -169,9 +172,7 @@ Extension Module marche avec d'autres modules
 	- ...
 - `Reachable` qd le phone n'est pas branché.
 
-## On configure le ring time dans :
- `Application / Extension / Onglet Advanced / Extension Options / Ring time`  
- On me dit que la valeur default se régle dans `àdvanced setting`. J'ai regardé dans `settings / Advanced Settings ` j'ai pas trouvé. Chercher `Ring Time Default`.
+
 
 
 # FXO
@@ -1856,30 +1857,30 @@ Si cela marche c'est bon.
  
  Home et office network sont connectés à internet par une gateway a une adresse IP public. Chaque gateway a 2 NIC. Une connectée à l'adress publique et l'autre au réseau privé. La gateway fournit NAT, firewall, service VPN.  
  
- # Comment rajouter une ligne pour les appels sortants?
+# Comment rajouter une ligne pour les appels sortants?
  Notamment quand on a des problemes avec le msg "busy"
  `Outbound Route / Outbound Vega / Trunk sequence for matched routes / Add a trunk  : Trunk DAHDI_g0`
  
- # Comment changer ce qui s'affiche sur le telephone de la personne appelée. CID. 
+# Comment changer ce qui s'affiche sur le telephone de la personne appelée. CID. 
  
- Applications / Extension / General / Edit Extension / Outbound CID / " " <281600> et ca à l'air de marcher. 
+Applications / Extension / General / Edit Extension / Outbound CID / " " <281600> et ca à l'air de marcher. 
  
- J'appelle avec l'extendion en question et le téléphone appelé affiche +687 28 16 00
- Par contre si je mets " " <281608>  cela affiche  +687 296297
+J'appelle avec l'extendion en question et le téléphone appelé affiche +687 28 16 00
+Par contre si je mets " " <281608>  cela affiche  +687 296297
  
  
  
- # configuration du temps avant une nouvelle action si l'extension ne décroche pas
- 
+# configuration du temps avant une nouvelle action si l'extension ne décroche pas
 Ringtime Default se configure dans : Default se configure dans Settings / Advanced settings / Dialplan and operationnel / Ringtime default : 120  
- 
- ## par extension 
+
+Pas facile à trouver faire CTRL F: Ring Time.
+
+## par extension 
  Applications / Extension / Tab Advanced / Extension Options / Ring Time
  
- # Configuration de ce qui se passe si on ne répond pas, c'est occupé, ou l'extension n'est pas joignable.
+# Configuration de ce qui se passe si on ne répond pas, c'est occupé, ou l'extension n'est pas joignable.
  Applications / Extension / Tab Advanced / Extension Options / Tout en bas Optionnal destination.
  
- # Voicemail 
- 
- ## au bout de combien de temps la voicemail se met en route
+# Voicemail 
+## au bout de combien de temps la voicemail se met en route
  Applications / Extension / Tab Advanced / Extension Options / Ring Time : Default (se configure dans Settings / Advanced settings / Dialplan and operationnel / Ringtime default : 120)
