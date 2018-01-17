@@ -13,8 +13,8 @@ Main router : TPLINK ARCHER C7 openwrt Chaos Calmer.
 http://kb.digium.com/
 
 # Architecture réseau  
-Voir le repository sur reseau_informatique.MLP sur bitbucket.
-
+Voir le repository sur reseau_informatique.MLP sur bitbucket.  
+https://bitbucket.org/frouty/reseau_informatique.mlp/src/1104dc9e30f5?at=master
 # Comment configurer le firewall?
 
 http://wiki.freepbx.org/display/FPG/Firewall+Command+Line
@@ -27,13 +27,13 @@ puis en GUI recherche -> firewall -> enable --> re-run wizard
 ce n'est pas l'adresse du server mais l'adresse du client.
 
 # Power off
-`̀Admin / Sysadmin / Power Options / Power off`
+`̀Admin / System Admin / Power Options / Power off`
 # Power on
 
 # Comment savoir l'état du disk  
-`̀Admin / Sysadmin / Storage`
+`̀Admin / System Admin / Storage`
 # Comment mettre à jour l'achat de modules commerciaux
-`Admin -> Sys admin -> Activation -> Update activation` (en bas à droite)
+`Admin -> System Admin -> Activation -> Update activation` (en bas à droite)
 # Comment lire les fichiers de config  
 `Admin / Config Edit`
 # Comment mettre à jour les modules?
@@ -49,7 +49,7 @@ on peut utiliser les commandes CLI dans le web GUI.
 
 On peut les utiliser apres un ssh root@freepbxIP
 
-Si on fait un CLI> core stop now.  
+Si on fait un CLI> `core stop now`    
 Mais là on ne peut plus se reconnecter à asterisk.   
 
 Faire un ssh puis  
@@ -58,29 +58,29 @@ Faire un ssh puis
 `fwconsole trunks`
 
 #### Pour entrer dans les commands line d'asterisk  
-`asterisk -r | asterisk -rvvv`    
-Le prompt change en localhost\*CLI>  
-? pour avoir toute les commandes  
-le log est sous /var/log/asterisk/full    
+- `asterisk -r | asterisk -rvvv`    
+- Le prompt change en localhost\*CLI>  
+- ? pour avoir toute les commandes  
+- le log est sous /var/log/asterisk/full    
 
-`sip show peers` 
+##### Quelques commandes utiles
+- `sip show peers` 
+- `sip show peer <extension number>`
+- `sip show regestry`
+- `asterisk -rx "sip show users"`
 
-`sip show peer <extension number>`
+## Version asterisk
 
-`sip show regestry`
-
-`sip set debug on`
-
-`asterisk -rx "sip show users"`
-
-Version asterisk
-====
 `core show version`  
 
 ## Déboger Asterisk
 - ssh root@FreePBXIP
 - asterisk -rvvv
+- `sip set debug on`
 
+- `sip set debug 10`
+
+- `sip set debug off`
 
 # Amportal commands
 http://wiki.freepbx.org/display/L1/amportal+commands
