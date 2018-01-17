@@ -112,8 +112,6 @@ uncomment : `̀full => notice, warning, error, debug, verbose, dtmf, fax`
 
 Toutes les infos de debugging seront logguées dans /var/log/asterisk/full.
 
-
-
 # a essayer 
 su -m asterisk  
 password : blank   
@@ -162,6 +160,11 @@ Le systeme crée automatiquement un nouveau user que l'on peut configurer dans A
 	- Modele de téléphone.
 	
 
+# Comment savoir à quelle IP phone un user est relié?
+Application / Extension  
+Et on peut relier un user à une extension dans:  
+Admin - User Management - Primary Linked Extension
+	
 ## Application -> Extension -> Quick Extension Create
 TODO
 
@@ -799,7 +802,7 @@ Puis dans Inbound Route on utilise ce DID pour router l'appel.
 # Comment enregistrer des annonces
 `Admin -> System Recordings`
 
-System recordings. C'est le module qui permet d'enregistrer ou d'uloader des messages qui pourront être joués aux appelants dans d'autres modules. On peut l'utiliser aussi pour des annonces pre-installées d'Asterisk.
+System recordings. C'est le module qui permet d'enregistrer ou d'uploader des messages qui pourront être joués aux appelants dans d'autres modules. On peut l'utiliser aussi pour des annonces pre-installées d'Asterisk.
 On peut utiliser un message dans un IVR, dans un annoucement. Pour cela on route l'appel entrant vers l'annoucement ou l'IVR en utilisant l'Inbound Route Module.
 
 Les modules qui permettent d'utiliser ces enregistrements sont:  
@@ -821,7 +824,7 @@ Upload Recording: format ogg, wav, flac, mais il y a bcp d'autres formats.
 
 Record in Browser : enregistrement en utilisant le PC
 
-Record over extension : le system appelle l'extension spécifiée. Tu décroches. Tu parles apres le bip. Tu raccroches qd c'est fini.
+Record over extension : le system appelle l'extension spécifiée. Tu décroches. Tu parles apres le bip. Tu raccroches qd c'est fini. Save
 
 Add system Recording : Pas compris ce que cela apporte
 
@@ -832,28 +835,23 @@ Feature Code Password
 Convert To
 
 
-Comment savoir à quelle IP phone un user est relié?
-===
-Application -- Extension  
-Et on peut relier un user à une extension dans:  
-Admin - User Management - Primary Linked Extension
 
-Admin -> system recording
-====
+
+# Comment enregister des messages 
+
+`Admin / system recording`
 Va permettre d'enregistrer des messages qui pourront etre joué à l'appelant par d'autres modules.  
-File list for english : j'ai l'impression que ce la permet de concatener plusieurs fichiers qui serons lus l'un à la suite de l'autre c'est comme cela que je le comprends.
-
+File list for english : j'ai l'impression que cela permet de concatener plusieurs fichiers qui serons lus l'un à la suite de l'autre c'est comme cela que je le comprends.
 Si je veux pouvoir accéder à l'enregistrement via un ip phone :(pas sûr que cela soit utile)  
 Link to Feature Code  - YES  
 
-Applications -> Annoucement
-====
+`Applications -> Annoucement`
 Ne pas confondre ce module avec le system recording.  
+Il faut voir ce module comme un enveloppe d'un system record. Et c'est cette envellope qui va pouvoir etre appelé par le systeme.  
 Le module annoucement permet de jouer une annonce créee avec system recording et de poursuivre le call flow.  
 
-recording : ne propose que les announces faites dans le system recording. Il faut donc créer l'annonce dans le module system recording.  
+recording : ne propose que les announces faites dans le system recording. Il faut donc créer l'annonce dans le module system recording avant.  
 
-Je ne comprends pas qd on définit à qui est joué cette annonces. Ce n'est pas dans le module que l'on définit qd/où est joué l'annonce mais dans d'autres modules
 
 # Jouer une annonce à tous les appels entrants:
 - 1 Créer le fichier son dans Admin - System recordings.  
@@ -1908,4 +1906,4 @@ nano /etc/syslog/keyboard
 change us pour fr. 
 reboot.
 et là on a le clavier en azerty.
-Ce probleme d'ip c'est réglé quand j'ai branché port eth0 sur le router wrt54gl
+Ce probleme d'ip c'est réglé quand j'ai branché port eth0 sur le router wrt54glfull
