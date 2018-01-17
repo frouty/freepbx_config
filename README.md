@@ -1882,5 +1882,43 @@ Si cela marche c'est bon.
  Home et office network sont connectés à internet par une gateway a une adresse IP public. Chaque gateway a 2 NIC. Une connectée à l'adress publique et l'autre au réseau privé. La gateway fournit NAT, firewall, service VPN.  
  
  # Comment rajouter une ligne pour les appels sortants?
- Notamment quand on a des problemes avec le msg "busy".
+ Notamment quand on a des problemes avec le msg "busy"
  `Outbound Route / Outbound Vega / Trunk sequence for matched routes / Add a trunk  : Trunk DAHDI_g0`
+ 
+ # Comment changer ce qui s'affiche sur le telephone de la personne appelée. CID. 
+ 
+ Applications / Extension / General / Edit Extension / Outbound CID / " " <281600> et ca à l'air de marcher. 
+ 
+ J'appelle avec l'extendion en question et le téléphone appelé affiche +687 28 16 00
+ Par contre si je mets " " <281608>  cela affiche  +687 296297
+ 
+ # Configuration des emails dans freepbx
+ 
+ Admin / System Admin / Email Setup  
+ 
+ J'ai essayé Use external SMTP server avec gmail mais cela n'a pas marché. Debug : network unreachable.
+ J'ai essayé USe buil in SMTP server et ca marche. j'ai changé My Origin  localhost.localdomain --> FreePBX.MLP. 
+ 
+ localhost.localdomain
+ 
+ # Hostname
+  Admin / System Admin / Hostname   
+  localhost.localdomain -> FreePBX.MLP  
+  
+  Mais cela part dans les spams. 
+  
+ 
+ # configuration du temps avant une nouvelle action si l'extension ne décroche pas
+ 
+Ringtime Default se configure dans : Default se configure dans Settings / Advanced settings / Dialplan and operationnel / Ringtime default : 120  
+ 
+ ## par extension 
+ Applications / Extension / Tab Advanced / Extension Options / Ring Time
+ 
+ # Configuration de ce qui se passe si on ne répond pas, c'est occupé, ou l'extension n'est pas joignable.
+ Applications / Extension / Tab Advanced / Extension Options / Tout en bas Optionnal destination.
+ 
+ # Voicemail 
+ 
+ ## au bout de combien de temps la voicemail se met en route
+ Applications / Extension / Tab Advanced / Extension Options / Ring Time : Default (se configure dans Settings / Advanced settings / Dialplan and operationnel / Ringtime default : 120)
