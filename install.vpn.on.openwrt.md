@@ -610,7 +610,7 @@ proto udp
 # The hostname/IP and port of the server.
 # You can have multiple remote entries
 # to load balance between the servers.
-remote 103.17.45.190 1194
+remote WAN_IP_IPPHONE_SUBNET 1194
 ;remote my-server-2 1194
 
 # Choose a random host from the remote
@@ -702,8 +702,8 @@ OpenVPN 2.3.4 x86_64-pc-linux-gnu [SSL (OpenSSL)] [LZO] [EPOLL] [PKCS11] [MH] [I
  WARNING: file 'my.client.key' is group or others accessible
  Socket Buffers: R=[212992->131072] S=[212992->131072]
  UDPv4 link local: [undef]
- UDPv4 link remote: [AF_INET]103.17.45.190:1194
- TLS: Initial packet from [AF_INET]103.17.45.190:1194, sid=66d68e07 4b481f65
+ UDPv4 link remote: [AF_INET]WAN_IP_IPPHONE_SUBNET:1194
+ TLS: Initial packet from [AF_INET]WAN_IP_IPPHONE_SUBNET:1194, sid=66d68e07 4b481f65
  VERIFY OK: depth=1, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=Fort-Funston CA, name=EasyRSA, emailAddress=me@myhost.mydomain
  VERIFY OK: nsCertType=SERVER
  VERIFY OK: depth=0, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=my.server, name=EasyRSA, emailAddress=me@myhost.mydomain
@@ -712,7 +712,7 @@ OpenVPN 2.3.4 x86_64-pc-linux-gnu [SSL (OpenSSL)] [LZO] [EPOLL] [PKCS11] [MH] [I
  Data Channel Decrypt: Cipher 'BF-CBC' initialized with 128 bit key
  Data Channel Decrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
  Control Channel: TLSv1, cipher TLSv1/SSLv3 DHE-RSA-AES256-SHA, 2048 bit RSA
- [my.server] Peer Connection Initiated with [AF_INET]103.17.45.190:1194
+ [my.server] Peer Connection Initiated with [AF_INET]WAN_IP_IPPHONE_SUBNET:1194
  SENT CONTROL [my.server]: 'PUSH_REQUEST' (status=1)
  PUSH: Received control message: 'PUSH_REPLY,route 10.8.0.1,topology net30,ping 10,ping-restart 120,ifconfig 10.8.0.6 10.8.0.5'
  OPTIONS IMPORT: timers and/or timeouts modified
@@ -731,8 +731,8 @@ OpenVPN 2.3.4 x86_64-pc-linux-gnu [SSL (OpenSSL)] [LZO] [EPOLL] [PKCS11] [MH] [I
  Restart pause, 2 second(s)
  Socket Buffers: R=[212992->131072] S=[212992->131072]
  UDPv4 link local: [undef]
- UDPv4 link remote: [AF_INET]103.17.45.190:1194
- TLS: Initial packet from [AF_INET]103.17.45.190:1194, sid=12d067d5 ad235fd0
+ UDPv4 link remote: [AF_INET]WAN_IP_IPPHONE_SUBNET:1194
+ TLS: Initial packet from [AF_INET]WAN_IP_IPPHONE_SUBNET:1194, sid=12d067d5 ad235fd0
  VERIFY OK: depth=1, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=Fort-Funston CA, name=EasyRSA, emailAddress=me@myhost.mydomain
  VERIFY OK: nsCertType=SERVER
  VERIFY OK: depth=0, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=my.server, name=EasyRSA, emailAddress=me@myhost.mydomain
@@ -741,7 +741,7 @@ OpenVPN 2.3.4 x86_64-pc-linux-gnu [SSL (OpenSSL)] [LZO] [EPOLL] [PKCS11] [MH] [I
  Data Channel Decrypt: Cipher 'BF-CBC' initialized with 128 bit key
  Data Channel Decrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
  Control Channel: TLSv1, cipher TLSv1/SSLv3 DHE-RSA-AES256-SHA, 2048 bit RSA
- [my.server] Peer Connection Initiated with [AF_INET]103.17.45.190:1194
+ [my.server] Peer Connection Initiated with [AF_INET]WAN_IP_IPPHONE_SUBNET:1194
  SENT CONTROL [my.server]: 'PUSH_REQUEST' (status=1)
  PUSH: Received control message: 'PUSH_REPLY,route 10.8.0.1,topology net30,ping 10,ping-restart 120,ifconfig 10.8.0.6 10.8.0.5'
  OPTIONS IMPORT: timers and/or timeouts modified
@@ -962,10 +962,10 @@ Thu Sep  7 15:56:21 2017 Restart pause, 2 second(s)
 Thu Sep  7 15:56:23 2017 Socket Buffers: R=[212992->131072]
 S=[212992->131072]
 Thu Sep  7 15:56:23 2017 UDPv4 link local: [undef]
-Thu Sep  7 15:56:23 2017 UDPv4 link remote: [AF_INET]103.17.45.190:1194     -----> IP public openwrt VPN server
+Thu Sep  7 15:56:23 2017 UDPv4 link remote: [AF_INET]WAN_IP_IPPHONE_SUBNET:1194     -----> IP public openwrt VPN server
 Thu Sep  7 15:56:23 2017 TLS: Initial packet from
 Thu Sep  7 15:56:25 2017 [my.server] Peer Connection Initiated with
-[AF_INET]103.17.45.190:1194         ----> c'est l'ip public de l'openwrt avec le server VPN
+[AF_INET]WAN_IP_IPPHONE_SUBNET:1194         ----> c'est l'ip public de l'openwrt avec le server VPN
 Thu Sep  7 15:56:27 2017 SENT CONTROL [my.server]: 'PUSH_REQUEST' (status=1)
 Thu Sep  7 15:56:27 2017 PUSH: Received control message:
 'PUSH_REPLY,route 10.66.0.0 255.255.255.0,dhcp-option DNS    ----> des informations sur le subnet de openwrt server VPN
@@ -1056,8 +1056,8 @@ Initialization Sequence Completed
  WARNING: file 'my.client.key' is group or others accessible
  Socket Buffers: R=[212992->131072] S=[212992->131072]
  UDPv4 link local: [undef]
- UDPv4 link remote: [AF_INET]103.17.45.190:1194
- TLS: Initial packet from [AF_INET]103.17.45.190:1194, sid=9bc7245d 140a4d35
+ UDPv4 link remote: [AF_INET]WAN_IP_IPPHONE_SUBNET:1194
+ TLS: Initial packet from [AF_INET]WAN_IP_IPPHONE_SUBNET:1194, sid=9bc7245d 140a4d35
  VERIFY OK: depth=1, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=Fort-Funston CA, name=EasyRSA, emailAddress=me@myhost.mydomain
  VERIFY OK: nsCertType=SERVER
  VERIFY OK: depth=0, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=my.server, name=EasyRSA, emailAddress=me@myhost.mydomain
@@ -1066,7 +1066,7 @@ Initialization Sequence Completed
  Data Channel Decrypt: Cipher 'BF-CBC' initialized with 128 bit key
  Data Channel Decrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
  Control Channel: TLSv1, cipher TLSv1/SSLv3 DHE-RSA-AES256-SHA, 2048 bit RSA
- [my.server] Peer Connection Initiated with [AF_INET]103.17.45.190:1194
+ [my.server] Peer Connection Initiated with [AF_INET]WAN_IP_IPPHONE_SUBNET:1194
  SENT CONTROL [my.server]: 'PUSH_REQUEST' (status=1)
  PUSH: Received control message: 'PUSH_REPLY,route 10.66.0.0 255.255.255.0,dhcp-option DNS 10.66.0.1,route 10.8.0.1,topology net30,ping 10,ping-restart 120,ifconfig 10.8.0.6 10.8.0.5'
  OPTIONS IMPORT: timers and/or timeouts modified
@@ -1194,21 +1194,21 @@ Mon Jan  8 16:17:00 2018 UDPv4 link remote: [undef]
 Mon Jan  8 16:17:00 2018 MULTI: multi_init called, r=256 v=256
 Mon Jan  8 16:17:00 2018 IFCONFIG POOL: base=10.8.0.4 size=62, ipv6=0
 Mon Jan  8 16:17:00 2018 Initialization Sequence Completed
-Mon Jan  8 16:17:13 2018 103.17.45.190:1194 TLS: Initial packet from [AF_INET]103.17.45.190:1194, sid=92b538bf 175ffa85
-Mon Jan  8 16:17:17 2018 103.17.45.190:1194 VERIFY OK: depth=1, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=Fort-Funston CA, name=EasyRSA, emailAddress=me@myhost.mydomain
-Mon Jan  8 16:17:17 2018 103.17.45.190:1194 VERIFY OK: depth=0, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=my-openvpn-client, name=EasyRSA, emailAddress=me@myhost.mydomain
-Mon Jan  8 16:17:18 2018 103.17.45.190:1194 Data Channel Encrypt: Cipher 'BF-CBC' initialized with 128 bit key
-Mon Jan  8 16:17:18 2018 103.17.45.190:1194 Data Channel Encrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
-Mon Jan  8 16:17:18 2018 103.17.45.190:1194 Data Channel Decrypt: Cipher 'BF-CBC' initialized with 128 bit key
-Mon Jan  8 16:17:18 2018 103.17.45.190:1194 Data Channel Decrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
-Mon Jan  8 16:17:18 2018 103.17.45.190:1194 Control Channel: TLSv1, cipher TLSv1/SSLv3 DHE-RSA-AES256-SHA, 2048 bit RSA
-Mon Jan  8 16:17:18 2018 103.17.45.190:1194 [my-openvpn-client] Peer Connection Initiated with [AF_INET]103.17.45.190:1194
-Mon Jan  8 16:17:18 2018 my-openvpn-client/103.17.45.190:1194 MULTI_sva: pool returned IPv4=10.8.0.6, IPv6=(Not enabled)
-Mon Jan  8 16:17:18 2018 my-openvpn-client/103.17.45.190:1194 MULTI: Learn: 10.8.0.6 -> my-openvpn-client/103.17.45.190:1194
-Mon Jan  8 16:17:18 2018 my-openvpn-client/103.17.45.190:1194 MULTI: primary virtual IP for my-openvpn-client/103.17.45.190:1194: 10.8.0.6
-Mon Jan  8 16:17:20 2018 my-openvpn-client/103.17.45.190:1194 PUSH: Received control message: 'PUSH_REQUEST'
-Mon Jan  8 16:17:20 2018 my-openvpn-client/103.17.45.190:1194 send_push_reply(): safe_cap=940
-Mon Jan  8 16:17:20 2018 my-openvpn-client/103.17.45.190:1194 SENT CONTROL [my-openvpn-client]: 'PUSH_REPLY,route 10.66.0.0 255.255.255.0,dhcp-option DNS 10.66.0.1,route 10.8.0.1,topology net30,ping 10,ping-restart 120,ifconfig 10.8.0.6 10.8.0.5' (status=1)
+Mon Jan  8 16:17:13 2018 WAN_IP_IPPHONE_SUBNET:1194 TLS: Initial packet from [AF_INET]WAN_IP_IPPHONE_SUBNET:1194, sid=92b538bf 175ffa85
+Mon Jan  8 16:17:17 2018 WAN_IP_IPPHONE_SUBNET:1194 VERIFY OK: depth=1, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=Fort-Funston CA, name=EasyRSA, emailAddress=me@myhost.mydomain
+Mon Jan  8 16:17:17 2018 WAN_IP_IPPHONE_SUBNET:1194 VERIFY OK: depth=0, C=US, ST=CA, L=SanFrancisco, O=Fort-Funston, OU=MyOrganizationalUnit, CN=my-openvpn-client, name=EasyRSA, emailAddress=me@myhost.mydomain
+Mon Jan  8 16:17:18 2018 WAN_IP_IPPHONE_SUBNET:1194 Data Channel Encrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Mon Jan  8 16:17:18 2018 WAN_IP_IPPHONE_SUBNET:1194 Data Channel Encrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Mon Jan  8 16:17:18 2018 WAN_IP_IPPHONE_SUBNET:1194 Data Channel Decrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Mon Jan  8 16:17:18 2018 WAN_IP_IPPHONE_SUBNET:1194 Data Channel Decrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Mon Jan  8 16:17:18 2018 WAN_IP_IPPHONE_SUBNET:1194 Control Channel: TLSv1, cipher TLSv1/SSLv3 DHE-RSA-AES256-SHA, 2048 bit RSA
+Mon Jan  8 16:17:18 2018 WAN_IP_IPPHONE_SUBNET:1194 [my-openvpn-client] Peer Connection Initiated with [AF_INET]WAN_IP_IPPHONE_SUBNET:1194
+Mon Jan  8 16:17:18 2018 my-openvpn-client/WAN_IP_IPPHONE_SUBNET:1194 MULTI_sva: pool returned IPv4=10.8.0.6, IPv6=(Not enabled)
+Mon Jan  8 16:17:18 2018 my-openvpn-client/WAN_IP_IPPHONE_SUBNET:1194 MULTI: Learn: 10.8.0.6 -> my-openvpn-client/WAN_IP_IPPHONE_SUBNET:1194
+Mon Jan  8 16:17:18 2018 my-openvpn-client/WAN_IP_IPPHONE_SUBNET:1194 MULTI: primary virtual IP for my-openvpn-client/WAN_IP_IPPHONE_SUBNET:1194: 10.8.0.6
+Mon Jan  8 16:17:20 2018 my-openvpn-client/WAN_IP_IPPHONE_SUBNET:1194 PUSH: Received control message: 'PUSH_REQUEST'
+Mon Jan  8 16:17:20 2018 my-openvpn-client/WAN_IP_IPPHONE_SUBNET:1194 send_push_reply(): safe_cap=940
+Mon Jan  8 16:17:20 2018 my-openvpn-client/WAN_IP_IPPHONE_SUBNET:1194 SENT CONTROL [my-openvpn-client]: 'PUSH_REPLY,route 10.66.0.0 255.255.255.0,dhcp-option DNS 10.66.0.1,route 10.8.0.1,topology net30,ping 10,ping-restart 120,ifconfig 10.8.0.6 10.8.0.5' (status=1)
 ```
 Le message ne donne pas initialisation sequence completed  
 ifconfig tun0  OK  
@@ -1244,7 +1244,7 @@ Si je le rm il n'est pas recrée par `service openvpn start` ni par `openvpn --c
 Un reboot et le fichier est recrée.  il est récrée avec des lignes alors que je n'ai pas lancer openvpn !!!!
 ps aux | grep openvpn J'ai bien openvpn qui tourne. pourquoi openvpn demarre au reboot? TODO
 ## debugging
-Je vois que [AF_INET]103.17.45.190:1194 qui est bien l'adresse IP du cabinet. C'est pas sur.
+Je vois que [AF_INET]WAN_IP_IPPHONE_SUBNET:1194 qui est bien l'adresse IP du cabinet. C'est pas sur.
 
 TLS Error: TLS key negotiation failed to occur within 60 seconds  
 Grossiere erreur dans le client.conf ce n'est pas kuendu.ddns.net qu'il faut mettre mais goeen.ddns.net.  
@@ -1406,7 +1406,7 @@ Network / firewall / Port forwarding
 New port forwarding  
 Name : FreePBX VPN server  
 Protocol : UDP  
-Source zone : want
+Source zone : wan  
 Soure mac address : ___
 source ip address :  
 source port : 
@@ -1414,10 +1414,15 @@ external ip address:
 external port : 1194
 internal zone : lan
 internal ip address : 10.66.0.2 
-internal port : 1194
+internal port : 
 External zone : wan  
 External port : ....
 
+mais cela ne marche pas.
+## source port vs detination port
+la communication va de l'ordinateur source port xxxx choose ramdomly to a web server destination port 80 et depuis un web server (source port 80) to your computer destination port xxxx
+
+Les paquets sont de la forme : ` your_IP, server_IP, source_port (xxxxx), destination port (80)`
 
 # ssh dans le freepbx
 cd /etc/openvpn  
@@ -1441,6 +1446,290 @@ l'ip phone reboot et affiche VPN activated.
 cd /etc/openvpn je n'ai plus qu'un fichier sysadmin_server1.conf  
 Pour les clients ils sont dans : /etc/openvpn/clients/  
 Sous ccd il deux fichier client12 et client13 qui sont vides.  
+
+# comment tester un server openvpn a distance:
+
+echo "abcd" | netcat -u -v -w2 goeen.ddns.info 1194
+NS fwd/rev mismatch: goeen.ddns.info != 103-17-47-187-last22.mls.nc
+goeen.ddns.info [103.17.47.187] 1194 (openvpn) open
+
+Mais je pense que c'est la réponse du server openvpn qui tourne  sur le router principal du LAN. Mais là j'ai changé le port en 1200 et j'ai toujours la meme réponse. 
+
+
+
+Here is a shell one-liner:
+
+echo -e "\x38\x01\x00\x00\x00\x00\x00\x00\x00" | 
+   timeout 10 nc -u openvpnserver.com 1194 | cat -v
+
+if there is an openvpn on the other end the output will be
+
+@$M-^HM--LdM-t|M-^X^@^@^@^@^@@$M-^HM--LdM-t|M-^X^@^@^@^@^@@$M-^HM--LdM-t|M-^X...
+
+otherwise it will just be mute and timeout after 10 seconds or display something different.
+
+NOTE: this works only if tls-auth config option is not active, otherwise the server rejects messages with incorrect HMAC.
+
+# Comment savoir si un port est ouvert?
+
+- nmap -sP -O 127.0.0.1
+- netsat -nap / netsat -ntulp (ne donne que TCP UDP). 
+You can scan udp ports by using following command  
+
+- nmap -sU -v <hostname or ip>  
+
+
+
+Pour savoir si les ports sont exploitables  il faut faire cela sur l'adresse ip externe. Mais je ne sais pas comment on fait.
+
+# pas moyen de connecter l'ip phone sur le remote subnet.
+On me suggere de :
+You need to set an incoming port as well, please try adding `option src_dport 1194`
+moi j'ai :
+config redirect
+option target 'DNAT’
+option src 'wan’
+option dest 'lan’
+option proto 'udp’
+option name 'FreePBX VPN Server’
+option dest_ip '10.66.0.2’
+option dest_port ‘1194’
+
+J'ai essayé d'ajouter option src_dport 1194
+d'enlever option dest_port '1194' et d'ajouter option src_dport 1194. Cela ne change rien.
+
+# SNAT source network adress translation
+on va modifier l'addresse IP source des paquets passant par le router.  
+SNAT est typiquement utilisé qd un hote interne (privé) doit établir une connection avec un hote externe public. 
+Changement de l'adresse privée de source en une adresse publique
+# DNAT destination network adress translation
+on va mapper une addresse privée avec une adresse publique.  
+DNAT change l'adresse de destination des paquets passant par le router.  
+On l'utilise typiquement quand un hote (public) externe doite établir une connection avec un hote privé interne. 
+
+# Port source 
+c'est le port source du paquet décrivant ou un paquet en réponse sera envoyé. 
+Port destination le port de destination du paquet. 
+# ressources potentiellement interessante
+https://github.com/OpenVPN/openvpn/blob/master/sample/sample-config-files/server.conf
+# essai de deguggage
+sur freepbx 
+rsync -avzh /etc/openvpn /etc/openvpn.ini  
+nano /etc/sysadmin_server1.conf  
+verb 9  
+proto  tcp  
+
+J'abandonne pour l'instant.
+
+# tail -f /var/log/messages
+sur le freepbx__
+/etc/init.d/openvpn stop  
+/etc/init.d/openvpn start  
+tail -f /var/log/messages  
+reboot the remote ip phone 
+```
+Jan 13 02:42:30 localhost openvpn[9604]: UDPv4 link local (bound): [undef]
+Jan 13 02:42:30 localhost openvpn[9604]: UDPv4 link remote: [undef]
+Jan 13 02:42:30 localhost openvpn[9604]: MULTI: multi_init called, r=256 v=256
+Jan 13 02:42:30 localhost openvpn[9604]: IFCONFIG POOL: base=10.8.0.2 size=252, ipv6=0
+Jan 13 02:42:30 localhost openvpn[9604]: IFCONFIG POOL LIST
+Jan 13 02:42:30 localhost openvpn[9604]: Initialization Sequence Completed
+Jan 13 02:42:32 localhost ntpd[1650]: Listen normally on 19 tun0 10.8.0.1 UDP 123
+Jan 13 02:42:32 localhost ntpd[1650]: peers refreshed
+Jan 13 02:42:43 localhost php: /sbin/ip6tables -A fpbxinterfaces -i tun0 -j zone-internal
+Jan 13 02:42:43 localhost php: /sbin/iptables -A fpbxinterfaces -i tun0 -j zone-internal
+Jan 13 02:44:07 localhost openvpn[9604]: WAN_IP_IPPHONE_SUBNET:33032 TLS: Initial packet from [AF_INET]WAN_IP_IPPHONE_SUBNET:33032, sid=6f7cc6db ad563709
+Jan 13 02:44:09 localhost openvpn[9604]: WAN_IP_IPPHONE_SUBNET:33032 CRL CHECK OK: CN=FreePBX
+Jan 13 02:44:09 localhost openvpn[9604]: WAN_IP_IPPHONE_SUBNET:33032 VERIFY OK: depth=1, CN=FreePBX
+Jan 13 02:44:09 localhost openvpn[9604]: WAN_IP_IPPHONE_SUBNET:33032 CRL CHECK OK: CN=client0
+Jan 13 02:44:09 localhost openvpn[9604]: WAN_IP_IPPHONE_SUBNET:33032 VERIFY OK: depth=0, CN=client0
+Jan 13 02:44:09 localhost openvpn[9604]: WAN_IP_IPPHONE_SUBNET:33032 TLS Auth Error: --client-config-dir authentication failed for common name 'client0' file='ccd/client0'
+Jan 13 02:44:09 localhost openvpn[9604]: WAN_IP_IPPHONE_SUBNET:33032 Control Channel: TLSv1, cipher TLSv1/SSLv3 DHE-RSA-AES256-SHA, 2048 bit RSA
+Jan 13 02:44:09 localhost openvpn[9604]: WAN_IP_IPPHONE_SUBNET:33032 [client0] Peer Connection Initiated with [AF_INET]WAN_IP_IPPHONE_SUBNET:33032
+Jan 13 02:44:14 localhost openvpn[9604]: WAN_IP_IPPHONE_SUBNET:33032 PUSH: Received control message: 'PUSH_REQUEST'
+Jan 13 02:44:14 localhost openvpn[9604]: WAN_IP_IPPHONE_SUBNET:33032 Delayed exit in 5 seconds
+Jan 13 02:44:14 localhost openvpn[9604]: WAN_IP_IPPHONE_SUBNET:33032 SENT CONTROL [client0]: 'AUTH_FAILED' (status=1)
+Jan 13 02:44:19 localhost openvpn[9604]: WAN_IP_IPPHONE_SUBNET:33032 SIGTERM[soft,delayed-exit] received, client-instance exiting
+```
+Je delete les clients dans le web gui. J'en crée un nouveau.
+```
+tail -f /var/log/messages
+Jan 13 03:27:50 localhost openvpn[6538]: UDPv4 link local (bound): [undef]
+Jan 13 03:27:50 localhost openvpn[6538]: UDPv4 link remote: [undef]
+Jan 13 03:27:50 localhost openvpn[6538]: MULTI: multi_init called, r=256 v=256
+Jan 13 03:27:50 localhost openvpn[6538]: IFCONFIG POOL: base=10.8.0.2 size=252, ipv6=0
+Jan 13 03:27:50 localhost openvpn[6538]: IFCONFIG POOL LIST
+Jan 13 03:27:50 localhost openvpn[6538]: Initialization Sequence Completed
+Jan 13 03:27:52 localhost ntpd[1651]: Listen normally on 9 tun0 10.8.0.1 UDP 123
+Jan 13 03:27:52 localhost ntpd[1651]: peers refreshed
+Jan 13 03:29:33 localhost ntpd[1651]: 0.0.0.0 c612 02 freq_set kernel -17.824 PPM
+Jan 13 03:29:33 localhost ntpd[1651]: 0.0.0.0 c615 05 clock_sync
+Jan 13 03:32:27 localhost openvpn[6538]: WAN_IP_IPPHONE_SUBNET:33032 TLS: Initial packet from [AF_INET]WAN_IP_IPPHONE_SUBNET:33032, sid=5d0e129b 7ada5f29
+Jan 13 03:32:29 localhost openvpn[6538]: WAN_IP_IPPHONE_SUBNET:33032 CRL CHECK OK: CN=FreePBX
+Jan 13 03:32:29 localhost openvpn[6538]: WAN_IP_IPPHONE_SUBNET:33032 VERIFY OK: depth=1, CN=FreePBX
+Jan 13 03:32:29 localhost openvpn[6538]: WAN_IP_IPPHONE_SUBNET:33032 CRL CHECK OK: CN=client0
+Jan 13 03:32:29 localhost openvpn[6538]: WAN_IP_IPPHONE_SUBNET:33032 VERIFY OK: depth=0, CN=client0
+Jan 13 03:32:29 localhost openvpn[6538]: WAN_IP_IPPHONE_SUBNET:33032 Data Channel Encrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Jan 13 03:32:29 localhost openvpn[6538]: WAN_IP_IPPHONE_SUBNET:33032 Data Channel Encrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Jan 13 03:32:29 localhost openvpn[6538]: WAN_IP_IPPHONE_SUBNET:33032 Data Channel Decrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Jan 13 03:32:29 localhost openvpn[6538]: WAN_IP_IPPHONE_SUBNET:33032 Data Channel Decrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Jan 13 03:32:29 localhost openvpn[6538]: WAN_IP_IPPHONE_SUBNET:33032 Control Channel: TLSv1, cipher TLSv1/SSLv3 DHE-RSA-AES256-SHA, 2048 bit RSA
+Jan 13 03:32:29 localhost openvpn[6538]: WAN_IP_IPPHONE_SUBNET:33032 [client0] Peer Connection Initiated with [AF_INET]WAN_IP_IPPHONE_SUBNET:33032
+Jan 13 03:32:29 localhost openvpn[6538]: client0/WAN_IP_IPPHONE_SUBNET:33032 OPTIONS IMPORT: reading client specific options from: ccd/client0
+Jan 13 03:32:29 localhost openvpn[6538]: client0/WAN_IP_IPPHONE_SUBNET:33032 MULTI_sva: pool returned IPv4=10.8.0.2, IPv6=(Not enabled)
+Jan 13 03:32:29 localhost openvpn[6538]: client0/WAN_IP_IPPHONE_SUBNET:33032 MULTI: Learn: 10.8.0.2 -> client0/WAN_IP_IPPHONE_SUBNET:33032
+Jan 13 03:32:29 localhost openvpn[6538]: client0/WAN_IP_IPPHONE_SUBNET:33032 MULTI: primary virtual IP for client0/WAN_IP_IPPHONE_SUBNET:33032: 10.8.0.2
+Jan 13 03:32:33 localhost openvpn[6538]: client0/WAN_IP_IPPHONE_SUBNET:33032 PUSH: Received control message: 'PUSH_REQUEST'
+Jan 13 03:32:33 localhost openvpn[6538]: client0/WAN_IP_IPPHONE_SUBNET:33032 send_push_reply(): safe_cap=940
+Jan 13 03:32:33 localhost openvpn[6538]: client0/WAN_IP_IPPHONE_SUBNET:33032 SENT CONTROL [client0]: 'PUSH_REPLY,route-gateway 10.8.0.1,topology subnet,ping 10,ping-restart 120,ifconfig 10.8.0.2 255.255.255.0' (status=1)
+```
+Je n'arrive toujours pas à telephoner. 
+
+Je vais voir dans asterisk -rvvv . Je fais un reboot du téléphone. Mais pas de message en console CLI>  
+J'essaie d'appeler. il ne se passe rien. 
+
+
+# cat sysadmin_server1-status.log 
+TITLE	OpenVPN 2.3.7 x86_64-redhat-linux-gnu [SSL (OpenSSL)] [LZO] [EPOLL] [PKCS11] [MH] [IPv6] built on Jun  9 2015
+TIME	Sat Jan 13 03:47:56 2018	1515775676
+HEADER	CLIENT_LIST	Common Name	Real Address	Virtual Address	Bytes Received	Bytes Sent	Connected Since	Connected Since (time_t)	Username
+CLIENT_LIST	client0	WAN_IP_IPPHONE_SUBNET:44552	10.8.0.2	5780	5964	Sat Jan 13 03:41:58 2018	1515775318	UNDEF
+HEADER	ROUTING_TABLE	Virtual Address	Common Name	Real Address	Last Ref	Last Ref (time_t)
+ROUTING_TABLE	10.8.0.2	client0	WAN_IP_IPPHONE_SUBNET:44552	Sat Jan 13 03:42:04 2018	1515775324
+GLOBAL_STATS	Max bcast/mcast queue length	0
+END
+
+# custom ip 
+
+http://a59e816d:76a12@goeen.ddns.net:83
+
+Je n'arrive pas à me registered. 
+Je vais dans I went on the web gui of ip phone.  
+Management / configuration /Sytem log / download system log :  
+```
+[01-13 05:15:31 50:19:73] DNSC: Domain goeen.ddns.net, ip 103.17.47.187, TTL 59
+[01-13 05:15:31 50:19:73] DNSC: resolv HostName -- goeen.ddns.net
+[01-13 05:15:31 50:19:73] DNSC: Domain goeen.ddns.net, ip 103.17.47.187, TTL 59
+[01-13 05:16:23 50:19:73] SIP: aid 0, cid 0, tid 0, did 0, REQUEST: REGISTER, Event: 2
+[01-13 05:16:23 50:19:73] SipProc:aid 0 enter NoAnswer SIP_REGISTRATION_FAILURE ====
+[01-13 05:16:23 50:19:73] CALL: State=0x60, Event=0x31e, Chn=0
+```
+donc c'est un problem de SIP
+
+asterisk -rvvv   
+
+sip show peers   
+```
+1/1                       10.66.0.180                              D  No         No          A  5060     OK (18 ms)                                   
+2/2                       10.66.0.235                              D  No         No          A  5060     OK (23 ms)                                   
+3/3                       10.66.0.154                              D  No         No          A  5060     OK (10 ms)                                   
+4/4                       10.66.0.152                              D  No         No          A  5060     OK (17 ms)                                   
+5                         (Unspecified)                            D  No         No          A  0        UNKNOWN                                      
+vega50/vega50             10.66.0.3                                D  Yes        Yes            5060     Unmonitored                                  
+vegaOut/vega50            10.66.0.3                                   Yes        Yes            5060     Unmonitored        
+```
+
+Je vois qu'il y a un probleme sur le 5
+
+sip show peer 5 <---- c'est le nom de l'account de l'ip phone remote
+
+sip set debug off  
+
+sip show settings  
+
+core set debug 10  
+core set debug 0  --> Core debug is now off.
+
+
+Application / Extension / hello cab / Advanced  / NAT mode No -(no) --> YES
+
+
+System Admin / VPN server / settings / Routes / 
+10.66.0.0 255.255.255.0 enabled Yes 
+10.8.0.0 255.255.255.0 No --> Yes submit.
+Et alors:
+```
+Jan 14 17:19:34 localhost openvpn[19548]: OpenVPN 2.3.7 x86_64-redhat-linux-gnu [SSL (OpenSSL)] [LZO] [EPOLL] [PKCS11] [MH] [IPv6] built on Jun  9 2015
+Jan 14 17:19:34 localhost openvpn[19548]: library versions: OpenSSL 1.0.1e-fips 11 Feb 2013, LZO 2.03
+Jan 14 17:19:34 localhost openvpn[19549]: Diffie-Hellman initialized with 2048 bit key
+Jan 14 17:19:34 localhost openvpn[19549]: Socket Buffers: R=[124928->131072] S=[124928->131072]
+Jan 14 17:19:34 localhost kernel: tun0: Disabled Privacy Extensions
+Jan 14 17:19:34 localhost openvpn[19549]: TUN/TAP device tun0 opened
+Jan 14 17:19:34 localhost openvpn[19549]: TUN/TAP TX queue length set to 100
+Jan 14 17:19:34 localhost openvpn[19549]: do_ifconfig, tt->ipv6=0, tt->did_ifconfig_ipv6_setup=0
+Jan 14 17:19:34 localhost openvpn[19549]: /sbin/ip link set dev tun0 up mtu 1500
+Jan 14 17:19:35 localhost openvpn[19549]: /sbin/ip addr add dev tun0 10.8.0.1/24 broadcast 10.8.0.255
+Jan 14 17:19:35 localhost openvpn[19549]: UDPv4 link local (bound): [undef]
+Jan 14 17:19:35 localhost openvpn[19549]: UDPv4 link remote: [undef]
+Jan 14 17:19:35 localhost openvpn[19549]: MULTI: multi_init called, r=256 v=256
+Jan 14 17:19:35 localhost openvpn[19549]: IFCONFIG POOL: base=10.8.0.2 size=252, ipv6=0
+Jan 14 17:19:35 localhost openvpn[19549]: ifconfig_pool_read(), in='client0,10.8.0.2', TODO: IPv6
+Jan 14 17:19:35 localhost openvpn[19549]: succeeded -> ifconfig_pool_set()
+Jan 14 17:19:35 localhost openvpn[19549]: IFCONFIG POOL LIST
+Jan 14 17:19:35 localhost openvpn[19549]: client0,10.8.0.2
+Jan 14 17:19:35 localhost openvpn[19549]: Initialization Sequence Completed
+Jan 14 17:19:36 localhost ntpd[1651]: Listen normally on 12 tun0 10.8.0.1 UDP 123
+Jan 14 17:19:36 localhost ntpd[1651]: peers refreshed
+Jan 14 17:19:39 localhost php: /sbin/ip6tables -A fpbxinterfaces -i tun0 -j zone-internal
+Jan 14 17:19:39 localhost php: /sbin/iptables -A fpbxinterfaces -i tun0 -j zone-internal
+Jan 14 17:20:07 localhost openvpn[19549]: IP_PUBLIC_REMOTE_SUBNET:59439 TLS: Initial packet from [AF_INET]IP_PUBLIC_REMOTE_SUBNET:59439, sid=b3fb3834 d1ccf04f
+Jan 14 17:20:09 localhost openvpn[19549]: IP_PUBLIC_REMOTE_SUBNET:59439 CRL CHECK OK: CN=FreePBX
+Jan 14 17:20:09 localhost openvpn[19549]: IP_PUBLIC_REMOTE_SUBNET:59439 VERIFY OK: depth=1, CN=FreePBX
+Jan 14 17:20:09 localhost openvpn[19549]: IP_PUBLIC_REMOTE_SUBNET:59439 CRL CHECK OK: CN=client0
+Jan 14 17:20:09 localhost openvpn[19549]: IP_PUBLIC_REMOTE_SUBNET:59439 VERIFY OK: depth=0, CN=client0
+Jan 14 17:20:09 localhost openvpn[19549]: IP_PUBLIC_REMOTE_SUBNET:59439 Data Channel Encrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Jan 14 17:20:09 localhost openvpn[19549]: IP_PUBLIC_REMOTE_SUBNET:59439 Data Channel Encrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Jan 14 17:20:09 localhost openvpn[19549]: IP_PUBLIC_REMOTE_SUBNET:59439 Data Channel Decrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Jan 14 17:20:09 localhost openvpn[19549]: IP_PUBLIC_REMOTE_SUBNET:59439 Data Channel Decrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Jan 14 17:20:09 localhost openvpn[19549]: IP_PUBLIC_REMOTE_SUBNET:59439 Control Channel: TLSv1, cipher TLSv1/SSLv3 DHE-RSA-AES256-SHA, 2048 bit RSA
+Jan 14 17:20:09 localhost openvpn[19549]: IP_PUBLIC_REMOTE_SUBNET:59439 [client0] Peer Connection Initiated with [AF_INET]IP_PUBLIC_REMOTE_SUBNET:59439
+Jan 14 17:20:09 localhost openvpn[19549]: client0/IP_PUBLIC_REMOTE_SUBNET:59439 OPTIONS IMPORT: reading client specific options from: ccd/client0
+Jan 14 17:20:09 localhost openvpn[19549]: client0/IP_PUBLIC_REMOTE_SUBNET:59439 MULTI_sva: pool returned IPv4=10.8.0.2, IPv6=(Not enabled)
+Jan 14 17:20:09 localhost openvpn[19549]: client0/IP_PUBLIC_REMOTE_SUBNET:59439 MULTI: Learn: 10.8.0.2 -> client0/IP_PUBLIC_REMOTE_SUBNET:59439
+Jan 14 17:20:09 localhost openvpn[19549]: client0/IP_PUBLIC_REMOTE_SUBNET:59439 MULTI: primary virtual IP for client0/IP_PUBLIC_REMOTE_SUBNET:59439: 10.8.0.2
+Jan 14 17:20:11 localhost openvpn[19549]: client0/IP_PUBLIC_REMOTE_SUBNET:59439 PUSH: Received control message: 'PUSH_REQUEST'
+Jan 14 17:20:11 localhost openvpn[19549]: client0/IP_PUBLIC_REMOTE_SUBNET:59439 send_push_reply(): safe_cap=940
+Jan 14 17:20:11 localhost openvpn[19549]: client0/IP_PUBLIC_REMOTE_SUBNET:59439 SENT CONTROL [client0]: 'PUSH_REPLY,route-gateway 10.8.0.1,topology subnet,ping 10,ping-restart 120,ifconfig 10.8.0.2 255.255.255.0' (status=1)
+
+Jan 14 17:22:33 localhost openvpn[19882]: OpenVPN 2.3.7 x86_64-redhat-linux-gnu [SSL (OpenSSL)] [LZO] [EPOLL] [PKCS11] [MH] [IPv6] built on Jun  9 2015
+Jan 14 17:22:33 localhost openvpn[19882]: library versions: OpenSSL 1.0.1e-fips 11 Feb 2013, LZO 2.03
+Jan 14 17:22:33 localhost openvpn[19883]: Diffie-Hellman initialized with 2048 bit key
+Jan 14 17:22:33 localhost openvpn[19883]: Socket Buffers: R=[124928->131072] S=[124928->131072]
+Jan 14 17:22:33 localhost kernel: tun0: Disabled Privacy Extensions
+Jan 14 17:22:33 localhost openvpn[19883]: TUN/TAP device tun0 opened
+Jan 14 17:22:33 localhost openvpn[19883]: TUN/TAP TX queue length set to 100
+Jan 14 17:22:33 localhost openvpn[19883]: do_ifconfig, tt->ipv6=0, tt->did_ifconfig_ipv6_setup=0
+Jan 14 17:22:33 localhost openvpn[19883]: /sbin/ip link set dev tun0 up mtu 1500
+Jan 14 17:22:33 localhost openvpn[19883]: /sbin/ip addr add dev tun0 10.8.0.1/24 broadcast 10.8.0.255
+Jan 14 17:22:33 localhost openvpn[19883]: UDPv4 link local (bound): [undef]
+Jan 14 17:22:33 localhost openvpn[19883]: UDPv4 link remote: [undef]
+Jan 14 17:22:33 localhost openvpn[19883]: MULTI: multi_init called, r=256 v=256
+Jan 14 17:22:33 localhost openvpn[19883]: IFCONFIG POOL: base=10.8.0.2 size=252, ipv6=0
+Jan 14 17:22:33 localhost openvpn[19883]: ifconfig_pool_read(), in='client0,10.8.0.2', TODO: IPv6
+Jan 14 17:22:33 localhost openvpn[19883]: succeeded -> ifconfig_pool_set()
+Jan 14 17:22:33 localhost openvpn[19883]: IFCONFIG POOL LIST
+Jan 14 17:22:33 localhost openvpn[19883]: client0,10.8.0.2
+Jan 14 17:22:33 localhost openvpn[19883]: Initialization Sequence Completed
+Jan 14 17:22:35 localhost ntpd[1651]: Listen normally on 13 tun0 10.8.0.1 UDP 123
+Jan 14 17:22:35 localhost ntpd[1651]: peers refreshed
+```
+
+# My Config
+
+My config on what I call 
+
+-the LAN subnet:
+Main router TPLINK OpenWrt Chaos Calmer 15.05
+Switch Cisco L3
+VPN server on the openwrt 10.10.0.0 subnet port 1200
+VPN server on the Freepbx server 10.8.0.0 subnet port 1194
+Current Asterisk Version: 11.23.0
+Freepbx FreePBX 13.0.192.19
+Firewall redirect rule on the openwrt main router to LAN subnet IP of freepbx server
+
+-and a REMOTE subnet where I try to install a S700 sangoma ip phone.
+from the REMOTE  subnet  I can ping any server in the LAN subnet. 
+
 
 
 
@@ -1529,3 +1818,140 @@ Dans les bonnes pratiques, on a l'habitude de mettre un adressage dynamique pour
 Le dhcp se base sur du broadcast. Donc limité au vlan.
 
 Si vous avez un serveur mail, un serveur d'authentification, un intranet, un serveur de gestion d'impression ... => il faut un DNS. Personnes d'autres que vous ne peut savoir où sont vos ressources en internes.
+
+
+
+
+# .ovpn et .conf
+C'est la meme chose on peut juste les renommer.
+
+
+# je fais des reset factory du ip phone, des reboot du ip phone branché sur le LAN du freepbx
+
+J'ai enlevé custom ip dans Setting / EPM / template / sangome_hellocab / Provisionning address custom --> External = IP WAN du main router sur le LAN de freepbx
+Jan 16 13:44:17 localhost xinetd[1642]: EXIT: tftp status=0 pid=16770 duration=905(sec)
+Jan 16 14:26:24 localhost sangoma_pnp: Sent 'http://a59e816d:76a12@10.66.0.2:83' to 10.66.0.136 identifiying as <sip:MAC005058501973@224.0.1.75>
+Jan 16 14:26:26 localhost sangoma_pnp: Sent 'http://a59e816d:76a12@10.66.0.2:83' to 10.66.0.136 identifiying as <sip:MAC005058501973@224.0.1.75>
+Jan 16 14:26:32 localhost sangoma_pnp: Sent 'http://a59e816d:76a12@10.66.0.2:83' to 10.66.0.136 identifiying as <sip:MAC005058501973@224.0.1.75>
+Jan 16 14:26:42 localhost sangoma_pnp: Sent 'http://a59e816d:76a12@10.66.0.2:83' to 10.66.0.136 identifiying as <sip:MAC005058501973@224.0.1.75>
+Jan 16 14:27:01 localhost sangoma_pnp: Sent 'http://a59e816d:76a12@10.66.0.2:83' to 10.66.0.136 identifiying as <sip:MAC005058501973@224.0.1.75>
+Jan 16 14:27:29 localhost sangoma_pnp: Sent 'http://a59e816d:76a12@10.66.0.2:83' to 10.66.0.136 identifiying as <sip:MAC005058501973@224.0.1.75>
+Jan 16 14:27:33 localhost sangoma_pnp: Sent 'http://a59e816d:76a12@10.66.0.2:83' to 10.66.0.136 identifiying as <sip:MAC005058501973@224.0.1.75>
+Jan 16 14:27:39 localhost sangoma_pnp: Sent 'http://a59e816d:76a12@10.66.0.2:83' to 10.66.0.136 identifiying as <sip:MAC005058501973@224.0.1.75>
+Jan 16 14:27:50 localhost sangoma_pnp: Sent 'http://a59e816d:76a12@10.66.0.2:83' to 10.66.0.136 identifiying as <sip:MAC005058501973@224.0.1.75>
+Jan 16 14:28:08 localhost sangoma_pnp: Sent 'http://a59e816d:76a12@10.66.0.2:83' to 10.66.0.136 identifiying as <sip:MAC005058501973@224.0.1.75>
+Jan 16 14:28:40 localhost sangoma_pnp: Sent 'http://a59e816d:76a12@10.66.0.2:83' to 10.66.0.136 identifiying as <sip:MAC005058501973@224.0.1.75>
+Jan 16 14:29:46 localhost sangoma_pnp: Sent 'http://a59e816d:76a12@10.66.0.2:83' to 10.66.0.136 identifiying as <sip:MAC005058501973@224.0.1.75>
+Jan 16 14:31:53 localhost sangoma_pnp: Sent 'http://a59e816d:76a12@10.66.0.2:83' to 10.66.0.136 identifiying as <sip:MAC005058501973@224.0.1.75>
+Jan 16 14:35:45 localhost sangoma_pnp: Sent 'http://a59e816d:76a12@10.66.0.2:83' to 10.66.0.136 identifiying as <sip:MAC005058501973@224.0.1.75>
+Jan 16 14:35:49 localhost sangoma_pnp: Sent 'http://a59e816d:76a12@10.66.0.2:83' to 10.66.0.136 identifiying as <sip:MAC005058501973@224.0.1.75>
+Jan 16 14:35:55 localhost sangoma_pnp: Sent 'http://a59e816d:76a12@10.66.0.2:83' to 10.66.0.136 identifiying as <sip:MAC005058501973@224.0.1.75>
+Jan 16 14:36:05 localhost sangoma_pnp: Sent 'http://a59e816d:76a12@10.66.0.2:83' to 10.66.0.136 identifiying as <sip:MAC005058501973@224.0.1.75>
+Jan 16 14:36:22 localhost sangoma_pnp: Sent 'http://a59e816d:76a12@10.66.0.2:83' to 10.66.0.136 identifiying as <sip:MAC005058501973@224.0.1.75>
+Jan 16 14:37:05 localhost sangoma_pnp: Sent 'http://a59e816d:76a12@10.66.0.2:83' to 10.66.0.136 identifiying as <sip:MAC005058501973@224.0.1.75>
+Jan 16 14:38:09 localhost sangoma_pnp: Sent 'http://a59e816d:76a12@10.66.0.2:83' to 10.66.0.136 identifiying as <sip:MAC005058501973@224.0.1.75>
+Jan 16 14:40:08 localhost sangoma_pnp: Sent 'http://a59e816d:76a12@10.66.0.2:83' to 10.66.0.136 identifiying as <sip:MAC005058501973@224.0.1.75>
+Jan 16 14:43:59 localhost sangoma_pnp: Sent 'http://a59e816d:76a12@10.66.0.2:83' to 10.66.0.136 identifiying as <sip:MAC005058501973@224.0.1.75>
+Jan 16 14:44:03 localhost sangoma_pnp: Sent 'http://a59e816d:76a12@10.66.0.2:83' to 10.66.0.136 identifiying as <sip:MAC005058501973@224.0.1.75>
+Jan 16 14:44:09 localhost sangoma_pnp: Sent 'http://a59e816d:76a12@10.66.0.2:83' to 10.66.0.136 identifiying as <sip:MAC005058501973@224.0.1.75>
+Jan 16 14:44:19 localhost sangoma_pnp: Sent 'http://a59e816d:76a12@10.66.0.2:83' to 10.66.0.136 identifiying as <sip:MAC005058501973@224.0.1.75>
+Jan 16 14:46:54 localhost openvpn[28303]: 10.66.0.1:57711 TLS: Initial packet from [AF_INET]10.66.0.1:57711, sid=6361bba4 7c2edbdf
+Jan 16 14:46:56 localhost openvpn[28303]: 10.66.0.1:57711 CRL CHECK OK: CN=FreePBX
+Jan 16 14:46:56 localhost openvpn[28303]: 10.66.0.1:57711 VERIFY OK: depth=1, CN=FreePBX
+Jan 16 14:46:56 localhost openvpn[28303]: 10.66.0.1:57711 CRL CHECK OK: CN=client1
+Jan 16 14:46:56 localhost openvpn[28303]: 10.66.0.1:57711 VERIFY OK: depth=0, CN=client1
+Jan 16 14:46:56 localhost openvpn[28303]: 10.66.0.1:57711 Data Channel Encrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Jan 16 14:46:56 localhost openvpn[28303]: 10.66.0.1:57711 Data Channel Encrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Jan 16 14:46:56 localhost openvpn[28303]: 10.66.0.1:57711 Data Channel Decrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Jan 16 14:46:56 localhost openvpn[28303]: 10.66.0.1:57711 Data Channel Decrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Jan 16 14:46:56 localhost openvpn[28303]: 10.66.0.1:57711 Control Channel: TLSv1, cipher TLSv1/SSLv3 DHE-RSA-AES256-SHA, 2048 bit RSA
+Jan 16 14:46:56 localhost openvpn[28303]: 10.66.0.1:57711 [client1] Peer Connection Initiated with [AF_INET]10.66.0.1:57711
+Jan 16 14:46:56 localhost openvpn[28303]: client1/10.66.0.1:57711 OPTIONS IMPORT: reading client specific options from: ccd/client1
+Jan 16 14:46:56 localhost openvpn[28303]: client1/10.66.0.1:57711 MULTI: Learn: 10.8.0.3 -> client1/10.66.0.1:57711
+Jan 16 14:46:56 localhost openvpn[28303]: client1/10.66.0.1:57711 MULTI: primary virtual IP for client1/10.66.0.1:57711: 10.8.0.3
+Jan 16 14:47:00 localhost openvpn[28303]: client1/10.66.0.1:57711 PUSH: Received control message: 'PUSH_REQUEST'
+Jan 16 14:47:00 localhost openvpn[28303]: client1/10.66.0.1:57711 send_push_reply(): safe_cap=940
+Jan 16 14:47:00 localhost openvpn[28303]: client1/10.66.0.1:57711 SENT CONTROL [client1]: 'PUSH_REPLY,route-gateway 10.8.0.1,topology subnet,ping 10,ping-restart 120,ifconfig 10.8.0.3 255.255.255.0' (status=1)
+Jan 16 14:47:19 localhost openvpn[28303]: 10.66.0.1:46899 TLS: Initial packet from [AF_INET]10.66.0.1:46899, sid=fadad13f aa56c5a0
+Jan 16 14:47:21 localhost openvpn[28303]: 10.66.0.1:46899 CRL CHECK OK: CN=FreePBX
+Jan 16 14:47:21 localhost openvpn[28303]: 10.66.0.1:46899 VERIFY OK: depth=1, CN=FreePBX
+Jan 16 14:47:21 localhost openvpn[28303]: 10.66.0.1:46899 CRL CHECK OK: CN=client1
+Jan 16 14:47:21 localhost openvpn[28303]: 10.66.0.1:46899 VERIFY OK: depth=0, CN=client1
+Jan 16 14:47:21 localhost openvpn[28303]: 10.66.0.1:46899 Data Channel Encrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Jan 16 14:47:21 localhost openvpn[28303]: 10.66.0.1:46899 Data Channel Encrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Jan 16 14:47:21 localhost openvpn[28303]: 10.66.0.1:46899 Data Channel Decrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Jan 16 14:47:21 localhost openvpn[28303]: 10.66.0.1:46899 Data Channel Decrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Jan 16 14:47:21 localhost openvpn[28303]: 10.66.0.1:46899 Control Channel: TLSv1, cipher TLSv1/SSLv3 DHE-RSA-AES256-SHA, 2048 bit RSA
+Jan 16 14:47:21 localhost openvpn[28303]: 10.66.0.1:46899 [client1] Peer Connection Initiated with [AF_INET]10.66.0.1:46899
+Jan 16 14:47:21 localhost openvpn[28303]: MULTI: new connection by client 'client1' will cause previous active sessions by this client to be dropped.  Remember to use the --duplicate-cn option if you want multiple clients using the same certificate or username to concurrently connect.
+Jan 16 14:47:21 localhost openvpn[28303]: OPTIONS IMPORT: reading client specific options from: ccd/client1
+Jan 16 14:47:21 localhost openvpn[28303]: MULTI: Learn: 10.8.0.3 -> client1/10.66.0.1:46899
+Jan 16 14:47:21 localhost openvpn[28303]: MULTI: primary virtual IP for client1/10.66.0.1:46899: 10.8.0.3
+Jan 16 14:47:23 localhost openvpn[28303]: client1/10.66.0.1:46899 PUSH: Received control message: 'PUSH_REQUEST'
+Jan 16 14:47:23 localhost openvpn[28303]: client1/10.66.0.1:46899 send_push_reply(): safe_cap=940
+Jan 16 14:47:23 localhost openvpn[28303]: client1/10.66.0.1:46899 SENT CONTROL [client1]: 'PUSH_REPLY,route-gateway 10.8.0.1,topology subnet,ping 10,ping-restart 120,ifconfig 10.8.0.3 255.255.255.0' (status=1)
+Jan 16 14:50:33 localhost openvpn[28303]: 10.66.0.1:40458 TLS: Initial packet from [AF_INET]10.66.0.1:40458, sid=df9b47d2 395a5ebb
+Jan 16 14:50:35 localhost openvpn[28303]: 10.66.0.1:40458 CRL CHECK OK: CN=FreePBX
+Jan 16 14:50:35 localhost openvpn[28303]: 10.66.0.1:40458 VERIFY OK: depth=1, CN=FreePBX
+Jan 16 14:50:35 localhost openvpn[28303]: 10.66.0.1:40458 CRL CHECK OK: CN=client1
+Jan 16 14:50:35 localhost openvpn[28303]: 10.66.0.1:40458 VERIFY OK: depth=0, CN=client1
+Jan 16 14:50:35 localhost openvpn[28303]: 10.66.0.1:40458 Data Channel Encrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Jan 16 14:50:35 localhost openvpn[28303]: 10.66.0.1:40458 Data Channel Encrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Jan 16 14:50:35 localhost openvpn[28303]: 10.66.0.1:40458 Data Channel Decrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Jan 16 14:50:35 localhost openvpn[28303]: 10.66.0.1:40458 Data Channel Decrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Jan 16 14:50:35 localhost openvpn[28303]: 10.66.0.1:40458 Control Channel: TLSv1, cipher TLSv1/SSLv3 DHE-RSA-AES256-SHA, 2048 bit RSA
+Jan 16 14:50:35 localhost openvpn[28303]: 10.66.0.1:40458 [client1] Peer Connection Initiated with [AF_INET]10.66.0.1:40458
+Jan 16 14:50:35 localhost openvpn[28303]: MULTI: new connection by client 'client1' will cause previous active sessions by this client to be dropped.  Remember to use the --duplicate-cn option if you want multiple clients using the same certificate or username to concurrently connect.
+Jan 16 14:50:35 localhost openvpn[28303]: OPTIONS IMPORT: reading client specific options from: ccd/client1
+Jan 16 14:50:35 localhost openvpn[28303]: MULTI: Learn: 10.8.0.3 -> client1/10.66.0.1:40458
+Jan 16 14:50:35 localhost openvpn[28303]: MULTI: primary virtual IP for client1/10.66.0.1:40458: 10.8.0.3
+Jan 16 14:50:38 localhost openvpn[28303]: client1/10.66.0.1:40458 PUSH: Received control message: 'PUSH_REQUEST'
+Jan 16 14:50:38 localhost openvpn[28303]: client1/10.66.0.1:40458 send_push_reply(): safe_cap=940
+Jan 16 14:50:38 localhost openvpn[28303]: client1/10.66.0.1:40458 SENT CONTROL [client1]: 'PUSH_REPLY,route-gateway 10.8.0.1,topology subnet,ping 10,ping-restart 120,ifconfig 10.8.0.3 255.255.255.0' (status=1)
+Jan 16 14:51:59 localhost php: /sbin/iptables -A fpbxregistrations -s 10.8.0.3/32 -j fpbxknownreg
+Jan 16 15:44:07 localhost openvpn[28303]: client1/10.66.0.1:40458 CRL CHECK OK: CN=FreePBX
+Jan 16 15:44:07 localhost openvpn[28303]: client1/10.66.0.1:40458 VERIFY OK: depth=1, CN=FreePBX
+Jan 16 15:44:07 localhost openvpn[28303]: client1/10.66.0.1:40458 CRL CHECK OK: CN=client1
+Jan 16 15:44:07 localhost openvpn[28303]: client1/10.66.0.1:40458 VERIFY OK: depth=0, CN=client1
+Jan 16 15:44:07 localhost openvpn[28303]: client1/10.66.0.1:40458 Data Channel Encrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Jan 16 15:44:07 localhost openvpn[28303]: client1/10.66.0.1:40458 Data Channel Encrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Jan 16 15:44:07 localhost openvpn[28303]: client1/10.66.0.1:40458 Data Channel Decrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Jan 16 15:44:07 localhost openvpn[28303]: client1/10.66.0.1:40458 Data Channel Decrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Jan 16 15:44:07 localhost openvpn[28303]: client1/10.66.0.1:40458 Control Channel: TLSv1, cipher TLSv1/SSLv3 DHE-RSA-AES256-SHA, 2048 bit RSA
+Jan 16 15:48:02 localhost auditd[980]: Audit daemon rotating log files
+Jan 16 16:44:05 localhost openvpn[28303]: client1/10.66.0.1:40458 TLS: tls_process: killed expiring key
+Jan 16 16:44:07 localhost openvpn[28303]: client1/10.66.0.1:40458 TLS: soft reset sec=0 bytes=127160/0 pkts=1068/0
+Jan 16 16:44:08 localhost openvpn[28303]: client1/10.66.0.1:40458 CRL CHECK OK: CN=FreePBX
+Jan 16 16:44:08 localhost openvpn[28303]: client1/10.66.0.1:40458 VERIFY OK: depth=1, CN=FreePBX
+Jan 16 16:44:08 localhost openvpn[28303]: client1/10.66.0.1:40458 CRL CHECK OK: CN=client1
+Jan 16 16:44:08 localhost openvpn[28303]: client1/10.66.0.1:40458 VERIFY OK: depth=0, CN=client1
+Jan 16 16:44:08 localhost openvpn[28303]: client1/10.66.0.1:40458 Data Channel Encrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Jan 16 16:44:08 localhost openvpn[28303]: client1/10.66.0.1:40458 Data Channel Encrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Jan 16 16:44:08 localhost openvpn[28303]: client1/10.66.0.1:40458 Data Channel Decrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Jan 16 16:44:08 localhost openvpn[28303]: client1/10.66.0.1:40458 Data Channel Decrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Jan 16 16:44:08 localhost openvpn[28303]: client1/10.66.0.1:40458 Control Channel: TLSv1, cipher TLSv1/SSLv3 DHE-RSA-AES256-SHA, 2048 bit RSA
+Jan 16 16:56:08 localhost openvpn[28303]: client1/10.66.0.1:40458 [client1] Inactivity timeout (--ping-restart), restarting
+Jan 16 16:56:08 localhost openvpn[28303]: client1/10.66.0.1:40458 SIGUSR1[soft,ping-restart] received, client-instance restarting
+Jan 16 16:56:51 localhost php: /sbin/iptables -D fpbxregistrations -s 10.8.0.3/32 -j fpbxknownreg
+
+Maintenant je branche l'ip phone sur le REMOTE subnet.
+
+ Jan 16 18:55:25 localhost openvpn[28303]: 103.17.45.190:33032 TLS: Initial packet from [AF_INET]103.17.45.190:33032, sid=38cd3d6a c162b61e
+Jan 16 18:55:28 localhost openvpn[28303]: 103.17.45.190:33032 CRL CHECK OK: CN=FreePBX
+Jan 16 18:55:28 localhost openvpn[28303]: 103.17.45.190:33032 VERIFY OK: depth=1, CN=FreePBX
+Jan 16 18:55:28 localhost openvpn[28303]: 103.17.45.190:33032 CRL CHECK OK: CN=client1
+Jan 16 18:55:28 localhost openvpn[28303]: 103.17.45.190:33032 VERIFY OK: depth=0, CN=client1
+Jan 16 18:55:28 localhost openvpn[28303]: 103.17.45.190:33032 Data Channel Encrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Jan 16 18:55:28 localhost openvpn[28303]: 103.17.45.190:33032 Data Channel Encrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Jan 16 18:55:28 localhost openvpn[28303]: 103.17.45.190:33032 Data Channel Decrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Jan 16 18:55:28 localhost openvpn[28303]: 103.17.45.190:33032 Data Channel Decrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Jan 16 18:55:28 localhost openvpn[28303]: 103.17.45.190:33032 Control Channel: TLSv1, cipher TLSv1/SSLv3 DHE-RSA-AES256-SHA, 2048 bit RSA
+Jan 16 18:55:28 localhost openvpn[28303]: 103.17.45.190:33032 [client1] Peer Connection Initiated with [AF_INET]103.17.45.190:33032
+Jan 16 18:55:28 localhost openvpn[28303]: client1/103.17.45.190:33032 OPTIONS IMPORT: reading client specific options from: ccd/client1
+Jan 16 18:55:28 localhost openvpn[28303]: client1/103.17.45.190:33032 MULTI: Learn: 10.8.0.3 -> client1/103.17.45.190:33032
+Jan 16 18:55:28 localhost openvpn[28303]: client1/103.17.45.190:33032 MULTI: primary virtual IP for client1/103.17.45.190:33032: 10.8.0.3
+Jan 16 18:55:32 localhost openvpn[28303]: client1/103.17.45.190:33032 PUSH: Received control message: 'PUSH_REQUEST'
+Jan 16 18:55:32 localhost openvpn[28303]: client1/103.17.45.190:33032 send_push_reply(): safe_cap=940
+Jan 16 18:55:32 localhost openvpn[28303]: client1/103.17.45.190:33032 SENT CONTROL [client1]: 'PUSH_REPLY,route-gateway 10.8.0.1,topology subnet,ping 10,ping-restart 120,ifconfig 10.8.0.3 255.255.255.0' (status=1)
+
+Sur l'écran de l'ip phone je vois retrieving config from http://10.8.0.1. Bingo.
