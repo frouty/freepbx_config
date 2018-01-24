@@ -1803,6 +1803,17 @@ On peut enlever ce beep.
 
 Settings / EPM / Brand Sangoma / Options / Call Waiting Signal Disable. 
 
+# Comment faire pour basculer les appels vers le 5 ou vers le numero d'hello cab?
+Application / Time Conditions / Set destination / Misc destination   
+ou  
+Application / Time Conditions / Set destination / Extension / 5   
+
+# comment faire pour avoir le call history et l'enregistrement des appels sur une extension dans l'ucp?
+Admin / User management / User / Onglet UCP / Call History / CDR Access et on rajoure les extensions au choix.
+
+# Comment effacer un enregistrement de conversation. Delete call history
+TODO 
+
 # Connecter deux machines freepbx
 
 https://www.freepbx.org/connecting-two-freepbx-machines-together/ Bof un peu succint.
