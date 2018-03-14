@@ -1924,3 +1924,6 @@ change us pour fr.
 reboot.
 et là on a le clavier en azerty.
 Ce probleme d'ip c'est réglé quand j'ai branché port eth0 sur le router wrt54glfull
+
+# Comment modifier l'affiche du numéro appelant sur l'écran du téléphone?
+Connectivity / Inbound route / general / CID name prefix / et voila....
