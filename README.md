@@ -1769,6 +1769,17 @@ On peut enlever ce beep.
 
 Settings / EPM / Brand Sangoma / Options / Call Waiting Signal Disable. 
 
+# Comment faire pour basculer les appels vers le 5 ou vers le numero d'hello cab?
+Application / Time Conditions / Set destination / Misc destination   
+ou  
+Application / Time Conditions / Set destination / Extension / 5   
+
+# comment faire pour avoir le call history et l'enregistrement des appels sur une extension dans l'ucp?
+Admin / User management / User / Onglet UCP / Call History / CDR Access et on rajoure les extensions au choix.
+
+# Comment effacer un enregistrement de conversation. Delete call history
+TODO 
+
 # Connecter deux machines freepbx
 
 https://www.freepbx.org/connecting-two-freepbx-machines-together/ Bof un peu succint.
@@ -1922,3 +1933,10 @@ change us pour fr.
 reboot.
 et là on a le clavier en azerty.
 Ce probleme d'ip c'est réglé quand j'ai branché port eth0 sur le router wrt54glfull
+<<<<<<< HEAD
+=======
+
+# Comment modifier l'affichage du numéro appelant sur l'écran du téléphone?
+Connectivity / Inbound route / general / CID name prefix / et voila....
+On peut mettre un prefix.
+>>>>>>> f0b3b4fd38e4c2e2f80c8350d34f411921935882
