@@ -1,6 +1,5 @@
 # freepx_config
-a59e816d
-76a12
+
 # My Config
 My config: Sangoma appliance, ip phones: 2 sangoma s500, 1 sangoma S700 et 1 polycom vx400  
 vega50 gateway for one BRI line, an sangoma FXO card 4 ports, 2 analogic lines.  
@@ -903,6 +902,13 @@ nbre d'essai dans un temps de find time il est banni pour un temps de ban time.
 
 On peut vérifier de temps en temps fail2ban.
 
+## fail2ban apache-auth banned ipaddress
+apache-auth loggerait les error dans /var/log/http/error_log.  
+On trouve dans des infos dans les error_log-$date
+On peut faire un grep sur l'adresse IP qui entraine la mise en ban.
+
+
+
 # Comment forwarder vers un numéro extérieur
 - `miscellenious destination ` ou
 - `follow-me` : si quelqu'un appelle mon extension, et que cela sonne 4 fois, i dont peek up instead of going to voice mail va vers mon cell phone.
@@ -1498,9 +1504,11 @@ https://wiki.freepbx.org/display/PC/Analog-+Audio+Issues
 
 - `dahdi show channels`
 - `dahdi show channel 1` pour avoir le détail.
+
 # wanpipe 
 C'est une suite pour linux/windows de driver pour le kernel et d'utilities qui controle les cartes TDM sangoma. 
 https://wiki.freepbx.org/display/PC/Card+Driver-+Overview
+
 # checking sangoma FXO status
 In order to check the analog status for a given analog channel in a Sangoma card you can do the following:
 `wanpipemon -i w1g1 -c astats -m 1`
@@ -1944,10 +1952,13 @@ change us pour fr.
 reboot.
 et là on a le clavier en azerty.
 Ce probleme d'ip c'est réglé quand j'ai branché port eth0 sur le router wrt54glfull
+<<<<<<< HEAD
+=======
 
 # Comment modifier l'affichage du numéro appelant sur l'écran du téléphone?
 Connectivity / Inbound route / general / CID name prefix / et voila....
 On peut mettre un prefix.
+
 
 
 # Connectivity / Trunks and weak secret 
@@ -1963,3 +1974,4 @@ dans VegaTrunk on a dans l'onglet "sip Setting" :
 	- l'ongle avec USER context : vega50
 	- et donc les peer Details et les USER details avec les paramétres et le weak secret  .  
 Si on change le password où faut-il le reporter aussi? Est ce qu'il suffit de les changer dans les deux onglets? 
+
