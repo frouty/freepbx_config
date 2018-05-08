@@ -188,12 +188,12 @@ Extension Module marche avec d'autres modules
 
 * User Management Module. In the User Management Module, a user may have a "primary linked extension." (?)
 
-# Où est ce que l'on configure ce qui se passe lorsque l'on ne répond à son téléphone IP?
+# Où est ce que l'on configure ce qui se passe lorsque l'on ne répond pas à son téléphone IP?
 On peut configurer le cas ou :
 - il n'y a pas de réponse. Le temps d'attente avant de passer en non réponse se configure dans : `Application / Extension / Onglet Advanced / Extension Options / Ring time` 
 Ne doit pas etre dans une Queue ou un Ring Group.
 - le poste est occupé
-- le poste n'est pas joingnable =  Le poste n'est pas branché
+- le poste n'est pas joignable =  Le poste n'est pas branché
 `Application / Extension / Onglet Advanced / `
 - `No answer` choix de : 
 	- unavailable voicemail if enable 
@@ -210,12 +210,32 @@ Ne doit pas etre dans une Queue ou un Ring Group.
 
 
 
+# Configuration dans freepbx des telephony cards.
+https://wiki.freepbx.org/display/PC/Telephony+Cards+with+FreePBX+Distro#TelephonyCardswithFreePBXDistro-Overview
 
-# FXO
-Ligne analogique OPT  
+Connectivity / Dahdi config
+
+Autodetect toutes les cartes installées. Je vois que dans l'onglet digital hardware il y a rien. Ce qui est normal car je n'ai pas de carte digitale dans l'appliance.
+Analog hardware il y a: FXO ports 1,2,3,4
+FXO Ports 1,2,3,4 Edit et on leur assigne un group. Group que l'on va utiliser dans connectivity / trunk / Add trunk onglet dahdi settings / Dahdi trunk choix des groups
+
+## outbound route
+Et aprés on utilise ce trunk en créant une outbound route.
+
+## inbound route
+pour les inbound route c'est différent.
+comme les lignes analogiques ne transmettent le DID il faut mapper les ports FXO avec un DID dans le software et cela se fait dans Connectivity / Channel DID
+- Channel : The DAHDI Channel number to map to a DID. For example, If you have a 4-port card, your channels would be ports 1-4.
+- Description : meaningfull description
+- DID le DID sera passé à l'incoming route donc le DID ici doit etre le meme que le did dans l'inbound route.
+
+Les appels entrants sur un port FXO seront dirigés en configurant le connectivity / Dahdi channel / channel = le port FXO qui nous interesse en lui affectant un DID et ensuite on configure une inbound pour rediriger le DID vers une destination finale comme une extension par exemple.
+
+## dit autrement
+Ligne analogique OPT --> port FXO  
 
 - 1 Je branche une ligne de mon PTOS vers un port FXO du freepbx  
-- 2 Connectivity / DADY channel DID : je choisi ce Chanel correspondant au port FXO que je viens de connecter à mon PTOS. Et je lui donne un DID de mon choix que je vais pouvoir utiliser par la suite.
+- 2 Connectivity / DADY channel DID : je choisi le Channel correspondant au port FXO que je viens de connecter à mon PTOS. Et je lui donne un DID de mon choix que je vais pouvoir utiliser par la suite.
 - 3 Une fois que j'ai défini un DID à ce channel je vais pouvoir créer une inbound route.
 - 4 A cette inbound Route il faut lui donner une destination. Qui peut etre une extension.
 
@@ -1928,3 +1948,18 @@ Ce probleme d'ip c'est réglé quand j'ai branché port eth0 sur le router wrt54
 # Comment modifier l'affichage du numéro appelant sur l'écran du téléphone?
 Connectivity / Inbound route / general / CID name prefix / et voila....
 On peut mettre un prefix.
+
+
+# Connectivity / Trunks and weak secret 
+
+On peut aller dans Setting / Weak Password detection et on trouve deux weak password  
+-SIP Trunk vega50 
+-SIP Trunk vegaOut
+
+Puis on va dans connectivity / Trunk / 
+On trouve Trunk_DAHDI_g0 VegaTrunk TrunkOrthoptiste
+dans VegaTrunk on a dans l'onglet "sip Setting" :
+	- l'onglet  "outgoing" trunk Name = vegaOut
+	- l'ongle avec USER context : vega50
+	- et donc les peer Details et les USER details avec les paramétres et le weak secret  .  
+Si on change le password où faut-il le reporter aussi? Est ce qu'il suffit de les changer dans les deux onglets? 
