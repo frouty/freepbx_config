@@ -1234,23 +1234,20 @@ s'assurer que le lien est up avec `ifconfig tun0`
 on doit avoir une ligne du genre : ` inet addr:10.8.0.6  P-t-P:10.8.0.5  Mask:255.255.255.255`
 s'assurer que cela fonctionne : `ping 10.8.0.1 -c 2
 
-
- 
-
 ## le fichier de log
-dans /etc/openvpn
+dans /etc/openvpn  
 nom : openvpn.log  
-Si je le rm il n'est pas recrée par `service openvpn start` ni par `openvpn --config /etc/openvpn/client.conf`
-Un reboot et le fichier est recrée.  il est récrée avec des lignes alors que je n'ai pas lancer openvpn !!!!
-ps aux | grep openvpn J'ai bien openvpn qui tourne. pourquoi openvpn demarre au reboot? TODO
-## debugging
-Je vois que [AF_INET]WAN_IP_IPPHONE_SUBNET:1194 qui est bien l'adresse IP du cabinet. C'est pas sur.
+Si je le rm il n'est pas recrée par `service openvpn start` ni par `openvpn --config /etc/openvpn/client.conf`  
+Un reboot et le fichier est recrée.  il est récrée avec des lignes alors que je n'ai pas lancer openvpn !!!!  
+ps aux | grep openvpn J'ai bien openvpn qui tourne. pourquoi openvpn demarre au reboot? TODO  
+## debugging
+Je vois que [AF_INET]WAN_IP_IPPHONE_SUBNET:1194 qui est bien l'adresse IP du cabinet. C'est pas sur.  
 
 TLS Error: TLS key negotiation failed to occur within 60 seconds  
 Grossiere erreur dans le client.conf ce n'est pas kuendu.ddns.net qu'il faut mettre mais goeen.ddns.net.  
 `service openvpn restart`  
-C'est nettement mieux :
 
+C'est nettement mieux :
 ```
 Thu Jan  4 06:26:02 2018 WARNING: file '/etc/openvpn/my-openvpn-client.key' is group or others accessible
 Thu Jan  4 06:26:02 2018 Socket Buffers: R=[212992->131072] S=[212992->131072]
@@ -1290,13 +1287,18 @@ Thu Jan  4 06:26:06 2018 Initialization Sequence Completed
 
 
 # comment on test depuis le client?
-## ping IP du server 
+## ping IP local de la machine où est le server openvpn 
 OK
 ## On vérifie la création de l'interface tun
 - 1 `cat /etc/openvpn/openvpn.log | grep tun`
-- 2 `ifconfig `  
-inet addr:10.8.0.6  P-t-P:10.8.0.5  Mask:255.255.255.255  
-
+- 2 `ifconfig` sur la machine server donne
+inet addr:10.10.0.1  P-t-P:10.10.0.2
+- 3 `ifconfig` sur le client
+ inet 10.10.0.6  netmask 255.255.255.255  destination 10.10.0.5
+- 4 cat /etc/openvpn/openvpn.log | grep tun sur le client.
+`Mon May 28 13:20:46 2018 TUN/TAP device tun0 opened
+Mon May 28 13:20:46 2018 /sbin/ip link set dev tun0 up mtu 1500
+Mon May 28 13:20:46 2018 /sbin/ip addr add dev tun0 local 10.10.0.6 peer 10.10.0.5`
 
 ## traceroute
 - `traceroute 10.8.0.1`  
@@ -1513,8 +1515,8 @@ Port destination le port de destination du paquet.
 # ressources potentiellement interessante
 https://github.com/OpenVPN/openvpn/blob/master/sample/sample-config-files/server.conf
 # essai de deguggage
-sur freepbx 
-rsync -avzh /etc/openvpn /etc/openvpn.ini  
+sur le freepbx server   
+rsync -avzh /etc/openvpn /etc/openvpn.ini    
 nano /etc/sysadmin_server1.conf  
 verb 9  
 proto  tcp  
@@ -1522,7 +1524,7 @@ proto  tcp
 J'abandonne pour l'instant.
 
 # tail -f /var/log/messages
-sur le freepbx__
+sur le freepbx  
 /etc/init.d/openvpn stop  
 /etc/init.d/openvpn start  
 tail -f /var/log/messages  

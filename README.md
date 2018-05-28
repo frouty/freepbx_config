@@ -1960,7 +1960,7 @@ On peut mettre un prefix.
 # Troubleshooting ip phone en OpenVPN
 - Absence d'appel recu sur l'ip phone
 - asterisk -rvvvv
-- sip show peers donne:
+- sip show peers donne:  
 ` Name/username             Host                                    Dyn Forcerport Comedia    ACL Port     Status      Description                      
 1/1                       10.66.0.180                              D  No         No          A  5060     OK (8 ms)                                    
 2/2                       10.66.0.235                              D  No         No          A  5060     OK (21 ms)                                   
@@ -1969,6 +1969,15 @@ On peut mettre un prefix.
 5/5                       (Unspecified)                            D  Yes        Yes         A  0        UNKNOWN                                      
 vega50/vega50             10.66.0.3                                D  Yes        Yes            5060     Unmonitored                                  
 vegaOut/vega50            10.66.0.3                                   Yes        Yes            5060     Unmonitored    ` 
+
+Je fais des reboot sur le ip phone en VPN. Est ce que cela suffit.
+Je fais un restart sur le service openvpn du freepbx  ` ./etc/init.d/openvpn restart`
+Je fais un reboot du main retour openwrt
+Mais je n'arrive plus de la maison à me connecter sur le reseau MLP
+Le server ODOO n'est plus accessible meme sur l'adresse dynamic dns.
+Il n'y avait plus de connetion extranet wan IPv4 sur le main router.
+J'ai rebooté le router adsl
+
 
 # Connectivity / Trunks and weak secret 
 On peut aller dans Setting / Weak Password detection et on trouve deux weak password  
