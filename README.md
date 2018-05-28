@@ -313,7 +313,9 @@ This field can also be left blank to match calls from all DIDs. This will also m
 # CID (Caller ID) Number
 Routing calls based on the caller ID : numero composé par l'appelant. Leave this field blank to match any or no CID info. In addition to standard dial sequences, you can also put “Private,” “Blocked,” “Unknown,” “Restricted,” “Anonymous” or “Unavailable” in order to catch these special cases if the telco transmits them.
 
-# IP Phones
+## Comment gérer ce qui s'affiche sur l'écran du téléphone pour un appel entrant.
+Connectivity / inbound route / Edit l'inbound route qui nous intéresse./ CID name prefix (pe 'mutti-' 'francois-'
+ # IP Phones
 https://supportforums.cisco.com/document/113336/ip-phone-registration-issues
 
 Le phone va s'enregistrer aupres du PBX. L'adresse IP du Phone n'a pas d'importance elle peut rester en DHCP.
