@@ -1925,7 +1925,7 @@ La seconde ligne : exten ⇒ _6XXX,2,Hangup() permet de raccrocher si il n’y a
 
 Le numéro à appeler pour joindre un utilisateur est défini dans le fichier /etc/asterisk/users.conf  
 Context
-====
+
 ?
 Dans le fichier /etc/asterisk/users.conf il y a un parametre : context = uncontext
 
@@ -1952,17 +1952,25 @@ change us pour fr.
 reboot.
 et là on a le clavier en azerty.
 Ce probleme d'ip c'est réglé quand j'ai branché port eth0 sur le router wrt54glfull
-<<<<<<< HEAD
-=======
 
 # Comment modifier l'affichage du numéro appelant sur l'écran du téléphone?
 Connectivity / Inbound route / general / CID name prefix / et voila....
 On peut mettre un prefix.
 
-
+# Troubleshooting ip phone en OpenVPN
+- Absence d'appel recu sur l'ip phone
+- asterisk -rvvvv
+- sip show peers donne:
+` Name/username             Host                                    Dyn Forcerport Comedia    ACL Port     Status      Description                      
+1/1                       10.66.0.180                              D  No         No          A  5060     OK (8 ms)                                    
+2/2                       10.66.0.235                              D  No         No          A  5060     OK (21 ms)                                   
+3/3                       10.66.0.154                              D  No         No          A  5060     OK (10 ms)                                   
+4/4                       10.66.0.152                              D  No         No          A  5060     OK (10 ms)                                   
+5/5                       (Unspecified)                            D  Yes        Yes         A  0        UNKNOWN                                      
+vega50/vega50             10.66.0.3                                D  Yes        Yes            5060     Unmonitored                                  
+vegaOut/vega50            10.66.0.3                                   Yes        Yes            5060     Unmonitored    ` 
 
 # Connectivity / Trunks and weak secret 
-
 On peut aller dans Setting / Weak Password detection et on trouve deux weak password  
 -SIP Trunk vega50 
 -SIP Trunk vegaOut
