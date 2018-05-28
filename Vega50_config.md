@@ -93,12 +93,36 @@ Ce SIP trunk sera utilisé par le vega50 pour se register avec le server Freepbx
 Mais j'ai un message d'erreur qui me dit que ce n'est pas configuré en dynamic host=dynamic. 
 Je le mets dans les deux outgoing et incoming host=dynamic  
 
-###   Configuration du vega gateway          
-
+###   Configuration du vega gateway vegapotiniere
+- Quick config mais attention si on fait un submit on perd certains settinfs mis en place dans expert config.
 - Onglet : *Basic Config*    
-        - General / Country : FR  
-        - LAN 1 Configuration / Physical / Duplex : full 
+        - General 
+		- Country : FR  
+		- Emergency number : ici mal configuré
+		- Timezone offset : +1100 mais cela n'a pas l'air de donner la bonne heure.
+		- Hostname : vegaponiere
+        - LAN 1 Configuration :
+		- Physical / Speed : Auto / Duplex : full
+		- Interface je suis en static c''est assez bizare car j'ai toujours une config pourl'ancien réseau en 192.168.1.3
+		
+	- Login Password on doit pouvoir modifier le password de connection au webgui du vega.
+	
 - Onglet : *VoIP*
+	- General VoIP Configuration :
+		- Registration Mode : Gateway
+		- Outbound Proxy Used?	: No
+	- Local Server Configuration
+		- SIP Local Port 5060
+	- Remote Server Configuration
+		- SIP Domain: 192.168.1.2 mais cela ne correspond plus à mon réseau
+		- SIP Outbound Server Transport Mode : udp
+		- SIP Server IP/Name: 192.168.1.2
+		- Outbound proxy IP/Name: 0.0.0.0
+		- SIP Outbound Server Port : 5060
+		- Registration and Authentication ID:un nom que l'on va retrouver dans 
+		- Authentication Password : le meme que celui de ?
+	- Codecs
+	
     - *VoIP Routing Mode*  : thick *send calls via VoIP Service Provider proxy*. Pas sûr qu'il y est cette information sur ma version ou modele de gateway.
     - *VoIP Device configuration*: (on va définir des parametres que l'on va utiliser dans la config du sip trunk dans le freepbx)
         - **proxy domain name**: default-reg-domain.com
@@ -214,8 +238,11 @@ blablabla
     - redirection host : local domain
     - transport : udp
     - capability set 2 voice +t38Udp
-    - blablabla
-    - SIP profile
+    - reliable provisional response : off
+    - DTMF transport rfc2833
+    - DTMF info mode 1
+    - RFC2833 payload : 101
+    - SIP profile 1 proxy parameters 1
         - SIP authentificaton configuration / sip authentification / modify
             - enable : thick
             - SIP profile : 1
@@ -367,3 +394,39 @@ Je le mets en dhcp static pour avoir toujours la meme adresse IP. Comme j'ai eu 
 ## Comment installer une adresse IP static  
 Quick Config / Un check "Obtain Settings automatically using DHCP"  
 click submit  
+C'est bizarre parce que là la configuration du reseau est en 192.168.1.0 ce qui plus le cas mais dans status j'ai bien 10.66.0.3
+
+# Expert config 
+-1 system 
+	- upgrade firmware
+	- upgrade licence
+	- Configuration
+	- administrator login
+	- user administration : on peut y creer de nouveau user
+	- user access : telnet, ssh, web server, https 
+	- Call control : ça sert à quoi?
+	- Time and date
+	- autoexec settings
+-2 logging
+-3 LAN/WAN
+	- Hostname
+	- LAN Configuration : configuration dans le bon réseau.
+	- default route : static address:  c'est la route de la gateway 
+	- ...
+-4 BRI
+-5 Dial plan
+-6 Media
+-7 Tones
+	- tones je choisit ce qui est en rapport avec la France
+-8 SIP
+	- Genaral
+		- SIP port 
+	- SIP profile modify . je n'ai rien qui concerne un password.
+	- Registration
+	- SIP Registration Users configuration. On peut configurer le username que l'on retrouve dans le Connectivity / Trunk / sip settings / Outgoing / username = le meme username
+	- SIP authentification configuration. où on peut modifier le password du username.
+		
+	
+	
+	
+-9 QOS
