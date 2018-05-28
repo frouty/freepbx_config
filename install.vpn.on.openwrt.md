@@ -1605,8 +1605,8 @@ END
 
 http://a59e816d:76a12@goeen.ddns.net:83
 
-Je n'arrive pas à me registered. 
-Je vais dans I went on the web gui of ip phone.  
+Je n'arrive pas à me registered.  
+I went on the web gui of ip phone.    
 Management / configuration /Sytem log / download system log :  
 ```
 [01-13 05:15:31 50:19:73] DNSC: Domain goeen.ddns.net, ip 103.17.47.187, TTL 59
