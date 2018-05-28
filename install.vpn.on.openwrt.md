@@ -1938,7 +1938,7 @@ Jan 16 16:56:08 localhost openvpn[28303]: client1/10.66.0.1:40458 SIGUSR1[soft,p
 Jan 16 16:56:51 localhost php: /sbin/iptables -D fpbxregistrations -s 10.8.0.3/32 -j fpbxknownreg
 ```
 Maintenant je branche l'ip phone sur le REMOTE subnet.
-
+```
  Jan 16 18:55:25 localhost openvpn[28303]: 103.17.45.190:33032 TLS: Initial packet from [AF_INET]103.17.45.190:33032, sid=38cd3d6a c162b61e
 Jan 16 18:55:28 localhost openvpn[28303]: 103.17.45.190:33032 CRL CHECK OK: CN=FreePBX
 Jan 16 18:55:28 localhost openvpn[28303]: 103.17.45.190:33032 VERIFY OK: depth=1, CN=FreePBX
@@ -1956,5 +1956,5 @@ Jan 16 18:55:28 localhost openvpn[28303]: client1/103.17.45.190:33032 MULTI: pri
 Jan 16 18:55:32 localhost openvpn[28303]: client1/103.17.45.190:33032 PUSH: Received control message: 'PUSH_REQUEST'
 Jan 16 18:55:32 localhost openvpn[28303]: client1/103.17.45.190:33032 send_push_reply(): safe_cap=940
 Jan 16 18:55:32 localhost openvpn[28303]: client1/103.17.45.190:33032 SENT CONTROL [client1]: 'PUSH_REPLY,route-gateway 10.8.0.1,topology subnet,ping 10,ping-restart 120,ifconfig 10.8.0.3 255.255.255.0' (status=1)
-
+```
 Sur l'écran de l'ip phone je vois retrieving config from http://10.8.0.1. Bingo.
