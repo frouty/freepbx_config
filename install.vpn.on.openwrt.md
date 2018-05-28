@@ -1831,6 +1831,7 @@ C'est la meme chose on peut juste les renommer.
 # je fais des reset factory du ip phone, des reboot du ip phone branché sur le LAN du freepbx
 
 J'ai enlevé custom ip dans Setting / EPM / template / sangome_hellocab / Provisionning address custom --> External = IP WAN du main router sur le LAN de freepbx
+```
 Jan 16 13:44:17 localhost xinetd[1642]: EXIT: tftp status=0 pid=16770 duration=905(sec)
 Jan 16 14:26:24 localhost sangoma_pnp: Sent 'http://a59e816d:76a12@10.66.0.2:83' to 10.66.0.136 identifiying as <sip:MAC005058501973@224.0.1.75>
 Jan 16 14:26:26 localhost sangoma_pnp: Sent 'http://a59e816d:76a12@10.66.0.2:83' to 10.66.0.136 identifiying as <sip:MAC005058501973@224.0.1.75>
@@ -1935,7 +1936,7 @@ Jan 16 16:44:08 localhost openvpn[28303]: client1/10.66.0.1:40458 Control Channe
 Jan 16 16:56:08 localhost openvpn[28303]: client1/10.66.0.1:40458 [client1] Inactivity timeout (--ping-restart), restarting
 Jan 16 16:56:08 localhost openvpn[28303]: client1/10.66.0.1:40458 SIGUSR1[soft,ping-restart] received, client-instance restarting
 Jan 16 16:56:51 localhost php: /sbin/iptables -D fpbxregistrations -s 10.8.0.3/32 -j fpbxknownreg
-
+```
 Maintenant je branche l'ip phone sur le REMOTE subnet.
 
  Jan 16 18:55:25 localhost openvpn[28303]: 103.17.45.190:33032 TLS: Initial packet from [AF_INET]103.17.45.190:33032, sid=38cd3d6a c162b61e
