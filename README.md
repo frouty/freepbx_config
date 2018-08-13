@@ -14,6 +14,7 @@ http://kb.digium.com/
 # Architecture réseau  
 Voir le repository sur reseau_informatique.MLP sur bitbucket.  
 https://bitbucket.org/frouty/reseau_informatique.mlp/src/1104dc9e30f5?at=master
+
 # Comment configurer le firewall?
 
 http://wiki.freepbx.org/display/FPG/Firewall+Command+Line
@@ -37,10 +38,24 @@ ce n'est pas l'adresse du server mais l'adresse du client.
 `Admin / Config Edit`
 # Comment mettre à jour les modules?
 `Admin -> Module Admin`
+
+# FWCONSOLE
+https://wiki.freepbx.org/pages/viewpage.action?pageId=37912685
+
+## Apply change en ligne de commande
+`fwconsole reload` 
+
 # Comment installer en ligne de commande un module 
 fwconsole ma --edge upgrade framework  
 Le plus dur va etre pour trouver le nom du module.
+# Comment lister les modules 
+fwconsole ma list
+# Comment obtenir de l'aide sur les commandes de ma
+fwconsole ma --help
+
 # Asterisk
+## Comment connaitre sa version d'asterisk
+`asterisk -x "core show version"`
 ## CLI
 on peut utiliser les commandes CLI dans le web GUI.
 - Admin
@@ -1857,7 +1872,7 @@ https://www.loganmarchione.com/2014/10/openwrt-with-openvpn-client-on-tp-link-tl
  
  Comment connaitre sa version de openvpn? 
  
-Dans le fichier de configuration du serveur; On ne donne pas d'adress IM public. On donne deux adresses IP privé des deux bouts du tuyau VPN. 
+Dans le fichier de configuration du serveur; On ne donne pas d'adress IP public. On donne deux adresses IP privé des deux bouts du tuyau VPN. 
 Dans le fichier de configuration du client on donne l'adress IP du serveur VPN.
 
 Si le VPN marche on pingue les adresses des bouts du tunnel. 
@@ -1992,3 +2007,16 @@ dans VegaTrunk on a dans l'onglet "sip Setting" :
 	- et donc les peer Details et les USER details avec les paramétres et le weak secret  .  
 Si on change le password où faut-il le reporter aussi? Est ce qu'il suffit de les changer dans les deux onglets? 
 
+# install du webrtc phone
+
+webgui /admin /user management / edit the user you want / onglet UCP /
+onglet WebRTC / switch inherit to Yes  
+on se logue sur l'UCP avec ce user. et on a une icone en forme de
+téléphone mais je n'arrive pas appeler une extension, un numero
+exterieur en effet quand je clique sur call rien ne se passe.
+
+Je mets à jour les modules. Mais cela ne suffit pas. J'ai:  
+PBX Firmware:10.13.66-14
+ce qui veut dire 10 majoir track  
+13 Freepbx version  
+66 centos version  
