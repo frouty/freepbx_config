@@ -1468,12 +1468,9 @@ https://wiki.freepbx.org/display/FPG/Using+the+Backup+module#UsingtheBackupmodul
 
 Il y a des infos dans cette page sur le warm spare. https://wiki.freepbx.org/display/FPG/Warm+Spare+Setup
 
-# Voicemail 
-## Comment accéder à sa voicemail
-- 1 a partir du téléphone:
-	- 1 le bouton avec l'icone enveloppe
-	- 2 le code : *\*97* 
-## Comment mettre son téléphone sur répondeur.
+
+
+# Comment mettre son téléphone sur répondeur.
 - 1 Créer une annonce dans system recording
 - 2 Créer une announcement
 - 3 Créer un Call flow avec comme:
@@ -1482,8 +1479,55 @@ Il y a des infos dans cette page sur le warm spare. https://wiki.freepbx.org/dis
 Les questions qu'il faut se poser sont :
 - 1 est ce que c'est à horaire fixe si oui faire une time condition 
 - 2 si non faire un call flow
-- 3 que veut on pour les deux possibilité du call flow
-- 4 toujours penser à ce que l'on fait apres. Apres un annoucement. 
+- 3 que veut-on pour les deux possibilité du call flow
+- 4 toujours penser à ce que l'on fait apres. Apres un annoucement.
+
+# Comment enregistrer un msg vocal.
+## je n'ai pas accés au téléphone IP. J'ai juste un smartphone pour faire l'enregistrement
+- 1 enregistre le fichier. On obtient un mp3 le transformer en 
+## exemple le secreteriat est fermé pendant une semaine je veux mettre un message.
+- 1 enregistre le fichier audio sur le smartphone
+- 2 le transferer sur un pc
+- 3 ouvrir le webgui FreePBX Admin / System Recording. 
+- 4 créer un time group. pe du 20 au 24 aout 
+  - Month day start 20
+  - Month day finish 24
+  - Month start : August
+  - Month stop : August.
+  et c'est tout ce qu'il faut mettre pour le time group__
+  On ne definit pas l'année.  
+  Donc en fait tous les ans il faut faire un travaille de mise en place des vacances.
+  
+- 4 cliquer sur List time condition et créer une time condition : Applications / Time condition qui utilise le time group des vacances de aout. Si cela match annoncement vacances.  
+Si cela ne marche pas time condition Holiday 
+
+J'ai choisi l'algorythme suivant :
+Je regarde si le cabinet et ouvert  
+si ouvert je regarde si c'est en holidays 
+Si c'est pas ouvert j'envoie vers un annoucement de fermeture.
+
+Là il faut que je change. 
+Si en vacances-2018 j'envoie vers l'annoucement de vacances.
+Si pas en vacances je regarde si en holiday
+si en holiday -> annoucement
+
+On a vite fait de s'y perdre donc :
+- 1 faire un schéma
+- 2 on commence par l'inbound route. Connectivity inbound route. On regarde la colonne destination.
+- 3 et on suit tous les times conditions.
+
+## Comment réecouter les annonces?
+Admin / System recording  
+Ce qui se passe à la fin d'une annonce se trouve dans Applications / Annoucment  
+
+
+
+# Voicemail 
+## Comment accéder à sa voicemail
+- 1 a partir du téléphone:
+	- 1 le bouton avec l'icone enveloppe
+	- 2 le code : *\*97* 
+ 
 
 ## Voicemail. Les messages sont de mauvaise qualité.
 `module show like timer` Mais je ne sais pas ce que je dois faire apres avec le résultat de cette commande.
