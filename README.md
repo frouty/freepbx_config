@@ -1960,6 +1960,9 @@ Connectivity / Inbound route / general / CID name prefix / et voila....
 On peut mettre un prefix.
 
 # Troubleshooting ip phone en OpenVPN
+## Panne du 28/05/2018 
+Apres deux jours de pluie intense.
+
 - Absence d'appel recu sur l'ip phone
 - asterisk -rvvvv
 - sip show peers donne:
@@ -1971,6 +1974,19 @@ On peut mettre un prefix.
 5/5                       (Unspecified)                            D  Yes        Yes         A  0        UNKNOWN                                      
 vega50/vega50             10.66.0.3                                D  Yes        Yes            5060     Unmonitored                                  
 vegaOut/vega50            10.66.0.3                                   Yes        Yes            5060     Unmonitored    ` 
+
+j'ai rebooté le main retour ; le routeur adsl ; redemarré le service openvpn du main routeur (dans le web GUI ) et du freepbx (./init.d/openvpn restart
+- sip show peers donne:
+
+`1/1                       10.66.0.180                              D  No         No          A  5060     OK (10 ms)                                   
+2/2                       10.66.0.235                              D  No         No          A  5060     OK (23 ms)                                   
+3/3                       10.66.0.154                              D  No         No          A  5060     OK (16 ms)                                   
+4/4                       10.66.0.152                              D  No         No          A  5060     OK (12 ms)                                   
+5/5                       10.8.0.3                                 D  Yes        Yes         A  5060     OK (49 ms)                                   
+vega50/vega50             10.66.0.3                                D  Yes        Yes            5060     Unmonitored                                  
+vegaOut/vega50            10.66.0.3                                   Yes        Yes            5060     Unmonitored                                  
+7 sip peers [Monitored: 5 online, 0 offline Unmonitored: 2 online, 0 offline]
+`
 
 # Connectivity / Trunks and weak secret 
 On peut aller dans Setting / Weak Password detection et on trouve deux weak password  
