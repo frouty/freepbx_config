@@ -14,6 +14,7 @@ http://kb.digium.com/
 # Architecture réseau  
 Voir le repository sur reseau_informatique.MLP sur bitbucket.  
 https://bitbucket.org/frouty/reseau_informatique.mlp/src/1104dc9e30f5?at=master
+
 # Comment configurer le firewall?
 
 http://wiki.freepbx.org/display/FPG/Firewall+Command+Line
@@ -37,10 +38,24 @@ ce n'est pas l'adresse du server mais l'adresse du client.
 `Admin / Config Edit`
 # Comment mettre à jour les modules?
 `Admin -> Module Admin`
+
+# FWCONSOLE
+https://wiki.freepbx.org/pages/viewpage.action?pageId=37912685
+
+## Apply change en ligne de commande
+`fwconsole reload` 
+
 # Comment installer en ligne de commande un module 
 fwconsole ma --edge upgrade framework  
 Le plus dur va etre pour trouver le nom du module.
+# Comment lister les modules 
+fwconsole ma list
+# Comment obtenir de l'aide sur les commandes de ma
+fwconsole ma --help
+
 # Asterisk
+## Comment connaitre sa version d'asterisk
+`asterisk -x "core show version"`
 ## CLI
 on peut utiliser les commandes CLI dans le web GUI.
 - Admin
@@ -449,7 +464,12 @@ reboot phone
 Settings - endpoint manager - brands - polycom - save rebuild config and update phone : submit n'a pas marché
 
 ## Comment on fait pour mettre en place les boutons speed-dial
-TODO
+### sur l'IP PHONE POLYCOM faire
+- pour les modifier home /directories / Favorites / 
+- Pour les ajouter ?
+
+### Sur les sangoma
+pour les créer Setting / Endpoint Management / Template du phone qui nous interesse / Model le modele qui nous interesse (S500 pour le sec) et line key
 
 ## Comment faire pour modifier ce qui s'affiche en haut de l'écran du téléphone ?
 Web gui du polycom  :  configuration simple / identification ligne SIP
@@ -1455,12 +1475,9 @@ https://wiki.freepbx.org/display/FPG/Using+the+Backup+module#UsingtheBackupmodul
 
 Il y a des infos dans cette page sur le warm spare. https://wiki.freepbx.org/display/FPG/Warm+Spare+Setup
 
-# Voicemail 
-## Comment accéder à sa voicemail
-- 1 a partir du téléphone:
-	- 1 le bouton avec l'icone enveloppe
-	- 2 le code : *\*97* 
-## Comment mettre son téléphone sur répondeur.
+
+
+# Comment mettre son téléphone sur répondeur.
 - 1 Créer une annonce dans system recording
 - 2 Créer une announcement
 - 3 Créer un Call flow avec comme:
@@ -1469,8 +1486,55 @@ Il y a des infos dans cette page sur le warm spare. https://wiki.freepbx.org/dis
 Les questions qu'il faut se poser sont :
 - 1 est ce que c'est à horaire fixe si oui faire une time condition 
 - 2 si non faire un call flow
-- 3 que veut on pour les deux possibilité du call flow
-- 4 toujours penser à ce que l'on fait apres. Apres un annoucement. 
+- 3 que veut-on pour les deux possibilité du call flow
+- 4 toujours penser à ce que l'on fait apres. Apres un annoucement.
+
+# Comment enregistrer un msg vocal.
+## je n'ai pas accés au téléphone IP. J'ai juste un smartphone pour faire l'enregistrement
+- 1 enregistre le fichier. On obtient un mp3 le transformer en 
+## exemple le secreteriat est fermé pendant une semaine je veux mettre un message.
+- 1 enregistre le fichier audio sur le smartphone
+- 2 le transferer sur un pc
+- 3 ouvrir le webgui FreePBX Admin / System Recording. 
+- 4 créer un time group. pe du 20 au 24 aout 
+  - Month day start 20
+  - Month day finish 24
+  - Month start : August
+  - Month stop : August.
+  et c'est tout ce qu'il faut mettre pour le time group__
+  On ne definit pas l'année.  
+  Donc en fait tous les ans il faut faire un travaille de mise en place des vacances.
+  
+- 4 cliquer sur List time condition et créer une time condition : Applications / Time condition qui utilise le time group des vacances de aout. Si cela match annoncement vacances.  
+Si cela ne marche pas time condition Holiday 
+
+J'ai choisi l'algorythme suivant :
+Je regarde si le cabinet et ouvert  
+si ouvert je regarde si c'est en holidays 
+Si c'est pas ouvert j'envoie vers un annoucement de fermeture.
+
+Là il faut que je change. 
+Si en vacances-2018 j'envoie vers l'annoucement de vacances.
+Si pas en vacances je regarde si en holiday
+si en holiday -> annoucement
+
+On a vite fait de s'y perdre donc :
+- 1 faire un schéma
+- 2 on commence par l'inbound route. Connectivity inbound route. On regarde la colonne destination.
+- 3 et on suit tous les times conditions.
+
+## Comment réecouter les annonces?
+Admin / System recording  
+Ce qui se passe à la fin d'une annonce se trouve dans Applications / Annoucment  
+
+
+
+# Voicemail 
+## Comment accéder à sa voicemail
+- 1 a partir du téléphone:
+	- 1 le bouton avec l'icone enveloppe
+	- 2 le code : *\*97* 
+ 
 
 ## Voicemail. Les messages sont de mauvaise qualité.
 `module show like timer` Mais je ne sais pas ce que je dois faire apres avec le résultat de cette commande.
@@ -1859,7 +1923,7 @@ https://www.loganmarchione.com/2014/10/openwrt-with-openvpn-client-on-tp-link-tl
  
  Comment connaitre sa version de openvpn? 
  
-Dans le fichier de configuration du serveur; On ne donne pas d'adress IM public. On donne deux adresses IP privé des deux bouts du tuyau VPN. 
+Dans le fichier de configuration du serveur; On ne donne pas d'adress IP public. On donne deux adresses IP privé des deux bouts du tuyau VPN. 
 Dans le fichier de configuration du client on donne l'adress IP du serveur VPN.
 
 Si le VPN marche on pingue les adresses des bouts du tunnel. 
@@ -1965,7 +2029,7 @@ Apres deux jours de pluie intense.
 
 - Absence d'appel recu sur l'ip phone
 - asterisk -rvvvv
-- sip show peers donne:
+- sip show peers donne:  
 ` Name/username             Host                                    Dyn Forcerport Comedia    ACL Port     Status      Description                      
 1/1                       10.66.0.180                              D  No         No          A  5060     OK (8 ms)                                    
 2/2                       10.66.0.235                              D  No         No          A  5060     OK (21 ms)                                   
@@ -1974,6 +2038,7 @@ Apres deux jours de pluie intense.
 5/5                       (Unspecified)                            D  Yes        Yes         A  0        UNKNOWN                                      
 vega50/vega50             10.66.0.3                                D  Yes        Yes            5060     Unmonitored                                  
 vegaOut/vega50            10.66.0.3                                   Yes        Yes            5060     Unmonitored    ` 
+
 
 j'ai rebooté le main retour ; le routeur adsl ; redemarré le service openvpn du main routeur (dans le web GUI ) et du freepbx (./init.d/openvpn restart
 - sip show peers donne:
@@ -1988,6 +2053,15 @@ vegaOut/vega50            10.66.0.3                                   Yes       
 7 sip peers [Monitored: 5 online, 0 offline Unmonitored: 2 online, 0 offline]
 `
 
+Je fais des reboot sur le ip phone en VPN. Est ce que cela suffit.
+Je fais un restart sur le service openvpn du freepbx  ` ./etc/init.d/openvpn restart`
+Je fais un reboot du main retour openwrt
+Mais je n'arrive plus de la maison à me connecter sur le reseau MLP
+Le server ODOO n'est plus accessible meme sur l'adresse dynamic dns.
+Il n'y avait plus de connetion extranet wan IPv4 sur le main router.
+J'ai rebooté le router adsl
+
+
 # Connectivity / Trunks and weak secret 
 On peut aller dans Setting / Weak Password detection et on trouve deux weak password  
 -SIP Trunk vega50 
@@ -2001,3 +2075,16 @@ dans VegaTrunk on a dans l'onglet "sip Setting" :
 	- et donc les peer Details et les USER details avec les paramétres et le weak secret  .  
 Si on change le password où faut-il le reporter aussi? Est ce qu'il suffit de les changer dans les deux onglets? 
 
+# install du webrtc phone
+
+webgui /admin /user management / edit the user you want / onglet UCP /
+onglet WebRTC / switch inherit to Yes  
+on se logue sur l'UCP avec ce user. et on a une icone en forme de
+téléphone mais je n'arrive pas appeler une extension, un numero
+exterieur en effet quand je clique sur call rien ne se passe.
+
+Je mets à jour les modules. Mais cela ne suffit pas. J'ai:  
+PBX Firmware:10.13.66-14
+ce qui veut dire 10 majoir track  
+13 Freepbx version  
+66 centos version  
