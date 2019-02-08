@@ -883,7 +883,7 @@ Convert To
 
 # Comment enregister des messages 
 
-`Admin / system recording`  
+`Admin / System recordings`  
 Va permettre d'enregistrer des messages qui pourront etre joué à l'appelant par d'autres modules.  
 File list for english : j'ai l'impression que cela permet de concatener plusieurs fichiers qui serons lus l'un à la suite de l'autre c'est comme cela que je le comprends.
 Si je veux pouvoir accéder à l'enregistrement via un ip phone :(pas sûr que cela soit utile)  
@@ -892,14 +892,14 @@ Link to Feature Code  - YES
 `Applications -> Annoucement`  
 Ne pas confondre ce module avec le system recording.  
 Il faut voir ce module comme une enveloppe d'un system record. Et c'est cette enveloppe qui va pouvoir etre appelé par le systeme.  
-Le module annoucement permet de jouer une annonce créee avec system recording et de poursuivre le call flow.  
+Le module `Annoucement` permet de jouer une annonce crée dans  `Admin \ System Recordings` et de poursuivre le call flow.  
 
-recording : ne propose que les announces faites dans le system recording. Il faut donc créer l'annonce dans le module system recording avant.  
+`Application / Annoucement` : ne propose que les announces faites dans le system recording. Il faut donc créer l'annonce dans le module system recording avant.  
 
 
 # Jouer une annonce à tous les appels entrants:
-- 1 Créer le fichier son dans Admin - System recordings.  
-- 2 Créer un announcement dans Applications - Announcement  
+- 1 Créer le fichier son dans `Admin - System recordings`.  
+- 2 Créer un announcement dans `Applications - Announcement`  
 - 3 Connectivity - Inbound Route - Destination : choisir l'announcement     
 Et cela marche. Testé  
 
