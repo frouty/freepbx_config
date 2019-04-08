@@ -328,7 +328,9 @@ This field can also be left blank to match calls from all DIDs. This will also m
 # CID (Caller ID) Number
 Routing calls based on the caller ID : numero composé par l'appelant. Leave this field blank to match any or no CID info. In addition to standard dial sequences, you can also put “Private,” “Blocked,” “Unknown,” “Restricted,” “Anonymous” or “Unavailable” in order to catch these special cases if the telco transmits them.
 
-# IP Phones
+## Comment gérer ce qui s'affiche sur l'écran du téléphone pour un appel entrant.
+Connectivity / inbound route / Edit l'inbound route qui nous intéresse./ CID name prefix (pe 'mutti-' 'francois-'
+ # IP Phones
 https://supportforums.cisco.com/document/113336/ip-phone-registration-issues
 
 Le phone va s'enregistrer aupres du PBX. L'adresse IP du Phone n'a pas d'importance elle peut rester en DHCP.
@@ -462,7 +464,12 @@ reboot phone
 Settings - endpoint manager - brands - polycom - save rebuild config and update phone : submit n'a pas marché
 
 ## Comment on fait pour mettre en place les boutons speed-dial
-TODO
+### sur l'IP PHONE POLYCOM faire
+- pour les modifier home /directories / Favorites / 
+- Pour les ajouter ?
+
+### Sur les sangoma
+pour les créer Setting / Endpoint Management / Template du phone qui nous interesse / Model le modele qui nous interesse (S500 pour le sec) et line key
 
 ## Comment faire pour modifier ce qui s'affiche en haut de l'écran du téléphone ?
 Web gui du polycom  :  configuration simple / identification ligne SIP
@@ -876,7 +883,7 @@ Convert To
 
 # Comment enregister des messages 
 
-`Admin / system recording`  
+`Admin / System recordings`  
 Va permettre d'enregistrer des messages qui pourront etre joué à l'appelant par d'autres modules.  
 File list for english : j'ai l'impression que cela permet de concatener plusieurs fichiers qui serons lus l'un à la suite de l'autre c'est comme cela que je le comprends.
 Si je veux pouvoir accéder à l'enregistrement via un ip phone :(pas sûr que cela soit utile)  
@@ -885,14 +892,14 @@ Link to Feature Code  - YES
 `Applications -> Annoucement`  
 Ne pas confondre ce module avec le system recording.  
 Il faut voir ce module comme une enveloppe d'un system record. Et c'est cette enveloppe qui va pouvoir etre appelé par le systeme.  
-Le module annoucement permet de jouer une annonce créee avec system recording et de poursuivre le call flow.  
+Le module `Annoucement` permet de jouer une annonce crée dans  `Admin \ System Recordings` et de poursuivre le call flow.  
 
-recording : ne propose que les announces faites dans le system recording. Il faut donc créer l'annonce dans le module system recording avant.  
+`Application / Annoucement` : ne propose que les announces faites dans le system recording. Il faut donc créer l'annonce dans le module system recording avant.  
 
 
 # Jouer une annonce à tous les appels entrants:
-- 1 Créer le fichier son dans Admin - System recordings.  
-- 2 Créer un announcement dans Applications - Announcement  
+- 1 Créer le fichier son dans `Admin - System recordings`.  
+- 2 Créer un announcement dans `Applications - Announcement`  
 - 3 Connectivity - Inbound Route - Destination : choisir l'announcement     
 Et cela marche. Testé  
 
@@ -2017,6 +2024,9 @@ Connectivity / Inbound route / general / CID name prefix / et voila....
 On peut mettre un prefix.
 
 # Troubleshooting ip phone en OpenVPN
+## Panne du 28/05/2018 
+Apres deux jours de pluie intense.
+
 - Absence d'appel recu sur l'ip phone
 - asterisk -rvvvv
 - sip show peers donne:  
@@ -2028,6 +2038,20 @@ On peut mettre un prefix.
 5/5                       (Unspecified)                            D  Yes        Yes         A  0        UNKNOWN                                      
 vega50/vega50             10.66.0.3                                D  Yes        Yes            5060     Unmonitored                                  
 vegaOut/vega50            10.66.0.3                                   Yes        Yes            5060     Unmonitored    ` 
+
+
+j'ai rebooté le main retour ; le routeur adsl ; redemarré le service openvpn du main routeur (dans le web GUI ) et du freepbx (./init.d/openvpn restart
+- sip show peers donne:
+
+`1/1                       10.66.0.180                              D  No         No          A  5060     OK (10 ms)                                   
+2/2                       10.66.0.235                              D  No         No          A  5060     OK (23 ms)                                   
+3/3                       10.66.0.154                              D  No         No          A  5060     OK (16 ms)                                   
+4/4                       10.66.0.152                              D  No         No          A  5060     OK (12 ms)                                   
+5/5                       10.8.0.3                                 D  Yes        Yes         A  5060     OK (49 ms)                                   
+vega50/vega50             10.66.0.3                                D  Yes        Yes            5060     Unmonitored                                  
+vegaOut/vega50            10.66.0.3                                   Yes        Yes            5060     Unmonitored                                  
+7 sip peers [Monitored: 5 online, 0 offline Unmonitored: 2 online, 0 offline]
+`
 
 Je fais des reboot sur le ip phone en VPN. Est ce que cela suffit.
 Je fais un restart sur le service openvpn du freepbx  ` ./etc/init.d/openvpn restart`
