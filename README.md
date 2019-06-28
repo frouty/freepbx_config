@@ -1958,13 +1958,27 @@ Pas facile à trouver faire CTRL F: Ring Time.
  Applications / Extension / Tab Advanced / Extension Options / Tout en bas Optionnal destination.
  
 # Voicemail 
-## au bout de combien de temps la voicemail se met en route
+## au bout de combien de temps la voicemail se met en route ?
  Applications / Extension / Tab Advanced / Extension Options / Ring Time : Default (se configure dans Settings / Advanced settings / Dialplan and operationnel / Ringtime default : 120)
- 
+## Comment accéder à sa voicemail?
+-1 sur le telephone : icone `enveloppe`
+-2 sur le télephone : \*97
+-3 sur un autre téléphone : \*98
+## comment écouter ses messages?
+il suffit de suivre les infos.
+- `*` rewind 3s
+- `#` fast forward 3s
+- `6` next msg
+- `7` delete
+## comment customiser le msg lorsque la voicemail entre en action?
+- log into voicemail
+- `0`:
+	- `1` msg principal
+	- `2` msg si busy (déjà au téléphone)
+	- `4` temporary msg qui vient surcharger le message principal
+		- `0-4-2` pour l'annuler 
  
 # Fichiers de configuration d'Asterisk
-
-
  La configuration d'Asterisk s'articule sur les fichiers de configuration suivants :
 
     /etc/asterisk/sip.conf : Configuration globale d'Asterisk. toutes les modifications sur ce fichiers doivent être faites par le web GUI
