@@ -1527,50 +1527,6 @@ On a vite fait de s'y perdre donc :
 Admin / System recording  
 Ce qui se passe à la fin d'une annonce se trouve dans Applications / Annoucment  
 
-
-
-# Voicemail 
-## Comment accéder à sa voicemail
-- 1 a partir du téléphone:
-	- 1 le bouton avec l'icone enveloppe
-	- 2 le code : *\*97* 
- 
-
-## Voicemail. Les messages sont de mauvaise qualité.
-`module show like timer` Mais je ne sais pas ce que je dois faire apres avec le résultat de cette commande.
-
-module show like timer  
-CLI> module show like timer  
-Module                         Description                              Use Count   
-res_timing_timerfd.so          Timerfd Timing Interface                 1           
-1 modules loaded  
-
-## Comment changer le msg de la voicemail
-I'm going to assume you want a standard message played for everybody's extension. The good news is that it's fairly simple, the bad news is that it has to be done individually for each extension,
-
-For each extension...
-
-- 1     Create an announcement using your pre recorded message. Note: Make sure you understand the format requirements for uploaded audio.
-
-- 2    Point the announcement fail over to the appropriate VM box for that extension.
-
-- 3    On the extension setup page, point the Unavailable and Busy fail overs to the above created announcement.
-
-TODO
-
-This greeting is in the users base directory of their voicemail (see /var/spool/asterisk/voicemail)
-
-TODO regarder sur l'extension setup page Unavailable and Busy fail overs voir si ca pointe vers un announcement.
-
-http://www.speedyshare.com/cszZT/pbxsound.wav
-
-You can watch the audio packets passing from the Asterisk CLI with `rtp set debug on`
-
-https://wiki.freepbx.org/display/PC/Analog-+Audio+Issues
-
-- `dahdi show channels`
-- `dahdi show channel 1` pour avoir le détail.
-
 # wanpipe 
 C'est une suite pour linux/windows de driver pour le kernel et d'utilities qui controle les cartes TDM sangoma. 
 https://wiki.freepbx.org/display/PC/Card+Driver-+Overview
@@ -1977,7 +1933,41 @@ il suffit de suivre les infos.
 	- `2` msg si busy (déjà au téléphone)
 	- `4` temporary msg qui vient surcharger le message principal
 		- `0-4-2` pour l'annuler 
- 
+
+## Voicemail. Les messages sont de mauvaise qualité.
+`module show like timer` Mais je ne sais pas ce que je dois faire apres avec le résultat de cette commande.
+
+module show like timer  
+CLI> module show like timer  
+Module                         Description                              Use Count   
+res_timing_timerfd.so          Timerfd Timing Interface                 1           
+1 modules loaded  
+
+## Comment changer le msg de la voicemail
+I'm going to assume you want a standard message played for everybody's extension. The good news is that it's fairly simple, the bad news is that it has to be done individually for each extension,
+
+For each extension...
+
+- 1     Create an announcement using your pre recorded message. Note: Make sure you understand the format requirements for uploaded audio.
+
+- 2    Point the announcement fail over to the appropriate VM box for that extension.
+
+- 3    On the extension setup page, point the Unavailable and Busy fail overs to the above created announcement.
+
+TODO
+
+This greeting is in the users base directory of their voicemail (see /var/spool/asterisk/voicemail)
+
+TODO regarder sur l'extension setup page Unavailable and Busy fail overs voir si ca pointe vers un announcement.
+
+http://www.speedyshare.com/cszZT/pbxsound.wav
+
+You can watch the audio packets passing from the Asterisk CLI with `rtp set debug on`
+
+https://wiki.freepbx.org/display/PC/Analog-+Audio+Issues
+
+- `dahdi show channels`
+- `dahdi show channel 1` pour avoir le détail.
 # Fichiers de configuration d'Asterisk
  La configuration d'Asterisk s'articule sur les fichiers de configuration suivants :
 
