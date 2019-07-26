@@ -463,10 +463,11 @@ reboot phone
 
 Settings - endpoint manager - brands - polycom - save rebuild config and update phone : submit n'a pas marché
 
-## Comment on fait pour mettre en place les boutons speed-dial
+## Comment on fait pour mettre en place les boutons 
+
 ### sur l'IP PHONE POLYCOM faire
 - pour les modifier home /directories / Favorites / 
-- Pour les ajouter ?
+- Pour les ajouter Home / Directories / Contact Directory
 
 ### Sur les sangoma
 pour les créer Setting / Endpoint Management / Template du phone qui nous interesse / Model le modele qui nous interesse (S500 pour le sec) et line key
