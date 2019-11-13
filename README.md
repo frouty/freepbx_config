@@ -2066,6 +2066,31 @@ Le server ODOO n'est plus accessible meme sur l'adresse dynamic dns.
 Il n'y avait plus de connetion extranet wan IPv4 sur le main router.
 J'ai rebooté le router adsl
 
+Je n'arrive pas a mettre le VPN client dans Endpoint Manager / Mapping Extendion / . Je renouvelle la licence de Endpoint Manager et mise à jour et voila je peux mettre mettre le VPN client.
+
+Il y a un probleme  avec la provisionning configuration. L'IP externe à changé au cabinet. Mais elle n'a pas changé sur le téléphone. Et j'ai dans le téléphone Menu /Settings / advanced settings / autoprovioning / :
+- Upgrade mode : http
+- firmware server http ::/user:passwd@IP ancienne du server freepbx:83/sangoma/1
+- config server : http ::/user:passwd@IP ancienne du server freepbx:83
+
+Est ce que je dois updater ces données manuellement sur le téléphone ou bien il devrait récuperer ces données sur le serveur automatiquement. Ca n'a pas l'air de changer si je fais un reboot du phone, force phone to check config. Du coup dans le téléphone Menu /Settings / advanced settings / Phone settings / Factory reset. Il y a d'autres facon de faire un reset (https://wiki.freepbx.org/display/PHON/Factory+Reset )  C'est assez long. L'ecran devient tres différent. Menu phone/ settings / advanced settings password "admin" / autoprovisioning on a config server : https://rs.sangoma.net/cfg
+Dans advanced settings / network / VPN / VPN active Disable.
+
+Je suis avec un ip phone factory resetté. http://ipduphone gui (password admin login admin) Je vais dans le gui pbx et je fais Endpoint Manager / estension Mapping / Edit  / Save, Rebuild Config and update Device : Apply. il ne se passe rien au niveau de l'IP phone.
+On essaye force phone to reboot. cela ne fait rien.
+
+Je vais dans le web gui du phone je fais Management / autoprovisionning :
+- firmware server path : http://user:passwod@goeen.ddns.net:83/sangoma/1
+- Config server path : http://user:passwod@goeen.ddns.net:83
+- save
+- autoprovisionning cela bouge sur l'ecran du phone. Mais au final je n'ai pas la meme configuration de l'écran du phone que celle que j'attendais. Restart sur le web gui du phone. j'ai pas la meme configuration de l'écran. Enpoint Manager / extension mapping / force phone to check config il ne se passe rien sur le phone, force reboot il ne se passe rien sur le phone.
+
+Je change les ip d'autoprovisionning je passe à IPlocalduserveur. autoprovisionning il se passe plein de chose au niveau du téléphone, initialise, checking firmware, c'est long; tail -f /var/log/httpd/access.log donne des infos sur ce qui se passe et c'est cohérent. Et j'ai l'écran de telephone que j'ai configuré dans le endpoint management / template. Et j'ai affiche VPN activated. Mais je ne peux pas appeler. Je vois que le password du phone est passé à ce qui est spécifié dans le gui freepbx et plus admin. Je vois que le provisionning à été changé en :
+http://user:password@FQDNDynamic:83.
+Je rentre à la maison et j'essaie de le connecter. 
+
+
+
 
 # Connectivity / Trunks and weak secret 
 On peut aller dans Setting / Weak Password detection et on trouve deux weak password  
