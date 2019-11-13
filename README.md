@@ -6,7 +6,8 @@ vega50 gateway for one BRI line, an sangoma FXO card 4 ports, 2 analogic lines.
 Cisco SG500-28P switch  
 Main router : TPLINK ARCHER C7 openwrt Chaos Calmer.
 
-
+# Le log de asterisk 
+- /var/log/asterisk/full mais c'est tres long.
 
 # FAQ asterisk knowledgebase
 http://kb.digium.com/
@@ -14,6 +15,10 @@ http://kb.digium.com/
 # Architecture réseau  
 Voir le repository sur reseau_informatique.MLP sur bitbucket.  
 https://bitbucket.org/frouty/reseau_informatique.mlp/src/1104dc9e30f5?at=master
+
+# comment se connecter en ssh sur le server freepbx
+- ssh root@IP_DU_SERVEUR_FREEPBX
+- password dans le mlp buttercup
 
 # Comment configurer le firewall?
 
@@ -75,13 +80,15 @@ Faire un ssh puis
 - `asterisk -r | asterisk -rvvv`    
 - Le prompt change en localhost\*CLI>  
 - ? pour avoir toute les commandes  
+
 - le log est sous /var/log/asterisk/full    
 
 ##### Quelques commandes utiles
 - `sip show peers` 
 - `sip show peer <extension number>`
-- `sip show regestry`
-- `asterisk -rx "sip show users"`
+- `sip show registry`
+- `asterisk -rx`
+- `sip show users`
 
 ## Version asterisk
 
@@ -2029,6 +2036,15 @@ Connectivity / Inbound route / general / CID name prefix / et voila....
 On peut mettre un prefix.
 
 # Troubleshooting ip phone en OpenVPN
+## Regarder si le VPN server service tourne
+ssh root@IPduFREEPBX
+/etc/init.d/openvpn status
+ifconfig rechercher une interface tun0
+asterisk -rvvvv
+sip show peers voir si l'ip phone est connecté.
+sip show peer ID  voir si l'IP phone est connecté.
+Si c'est bon j'ai une ligne du genre
+ 5/5                       10.8.0.3                                 D  Yes        Yes         A  5060
 ## Panne du 28/05/2018 
 Apres deux jours de pluie intense.
 
@@ -2065,6 +2081,40 @@ Mais je n'arrive plus de la maison à me connecter sur le reseau MLP
 Le server ODOO n'est plus accessible meme sur l'adresse dynamic dns.
 Il n'y avait plus de connetion extranet wan IPv4 sur le main router.
 J'ai rebooté le router adsl
+
+
+## Panne du 12/11/2019
+tous les appels vers le 281600 sont redirigé vers mon téléphone. 
+Si j'essaie de faire l'extension 5 l'appel est regirigé vers mon extension.
+
+J'ai essayé de redemarrer le main router, le server freepbx. Je n'ai pas redemarrer le routeur adsl.
+Je vois que dans le endpoint manager je ne peux pas choisir de client vpn.
+
+Je vais tester 
+OK I figured out what I needed to do for the VPN system to start generating VPN clients properly:
+
+    Disable VPN permission for all groups
+    Disable the VPN service under System Admin
+    Remove all VPN clients
+
+Run the following commands from the CLI:
+
+rm -rf /etc/openvpn/clients/*
+rm -rf /etc/openvpn/client/*
+rm -rf /etc/openvpn/ccd/*
+rm -rf /etc/openvpn/sysadmin_*
+rm -rf /etc/openvpn/ipp.txt
+cd /etc/openvpn/easyrsa3
+./easyrsa init-pki
+
+At this point you can reenable the VPN and it will recreate the CA and certificates. You can then reset your group permission to auto-assign VPN clients and then you can assign them to phones.
+
+The original bug of creating VPN clients for every single user in the system when dealing with a single user is still a problem though.
+
+Cela n'a pas suffit. J'ai renouveller la licence et là Endpoint Management / Extension Mapping / VPN client me propose la liste des clients VPN mis en place dans user management 
+
+
+https://wiki.freepbx.org/display/PHON/VPN+Setup
 
 
 # Connectivity / Trunks and weak secret 
