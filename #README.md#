@@ -2197,6 +2197,13 @@ Il y a bcp de firmware upgrade avec un path sur l'ancienne adresse IP PUBLIC du 
 - suppression des clients
 - vpn server / settings / no
 - user management / autocreate & link no submit apply config
+
+
+
+
+
+
+
 ## Nouveau protocole de configuration de l'IP phone VPN
 -1 Reset phone to factory:
 	- phone / Menu / ...
