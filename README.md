@@ -388,6 +388,8 @@ Dans le web GUI on verifie
 pour utiliser le redirection service il faut l'enregistrer sur le portal de sangoma.
 https://portal.sangoma.com cloud service > sangoma phones > register phone tab
 
+Je n'arrive pas. Claim adress mac du phone de hello cab. Me dit qu'il y a un probleme contacter le support.
+
 #### DHCP option 66
 ll faut que le serveur dhcp du routeur support le dhcp option 66
 
@@ -2197,6 +2199,106 @@ Il y a bcp de firmware upgrade avec un path sur l'ancienne adresse IP PUBLIC du 
 - suppression des clients
 - vpn server / settings / no
 - user management / autocreate & link no submit apply config
+- reboot freepbx 
+- sysadmin / DDNS / enable ddns services YES
+- system Admin / vpn server / setting: 
+  - enable yes
+  - server remote adress : j'ai mis l'IP PUBLIC DU ROUTER . Il faudrait peut etre mettre un FQDN TODO
+  - Redirect Gateway No
+-  system Admin / vpn server / client Add:
+   - enable : Yes
+   - Description 5-HelloCabVPNclient
+   - use DDNS : Yes
+   - Use server remote Address : No (mais j'ai pas compris)
+   - Client Remote Address : goeen.ddns.net:1194
+   - dans le client.conf on a : 
+```
+remote 85922823.deployments.pbxact.com 1194
+remote goeen.ddns.net 1194
+```
+	- Assigned address : 10.8.0.3 
+	- SUBMIT
+
+- Admin / User Management / Action / Edit le user qui nous interesse
+   - VPN tab
+   - Auto create & Link : No (not sure)
+   - Define additionnal VPN clients : 5-HelloCabVPNclient (c'est deja mis par le system)
+   - UCP tab / System Admin Tab / Allow VPN : Yes. C'est pour l'UCP pas sur que cela soit utile. 
+   - Submit / Apply config
+- Settings / Endpoint Manager / Extension Mapping 
+  - Action / Edit l'extension qui nous interesse
+	- VPN Client:  5-HelloCabVPNclient
+	- Save And Rebuild config / Apply
+
+normalement il est dit de connecter directement le phone sur le reseau du freepbx. La je vais le faire depuis la maison. Je vais changer un bouton pour voir s'il récupere la nouvelle config 
+
+- J'ai un openvpn qui tourne tun0 existe, dmesg est bon
+- System admin / VPN server / Client tab / 5-HelloCabVPNclient client IP : not connected connected : not connected
+- tail -f /var/log/messages 
+- tail -f /var/log/httpd/error.log 
+- reboot phone 
+- var/log/httpd/error.log me donne des erreurs en rapport avec tftpboot 
+  - System admin / Provisionning protocole / tftp server enabled -> Disabled./ Save
+- reboot the phone
+- j'ai toujours les erreurs suivantes 
+```
+[Sat Nov 16 05:43:53 2019] [error] [client IP_PUBLIC_REMOTE_ROUTER] File does not exist: /tftpboot/factory0700.bin
+[Sat Nov 16 05:43:55 2019] [error] [client IP_PUBLIC_REMOTE_ROUTER] File does not exist: /tftpboot/005058501973.cfg
+[Sat Nov 16 05:43:55 2019] [error] [client IP_PUBLIC_REMOTE_ROUTER] File does not exist: /tftpboot/cfg005058501973
+[Sat Nov 16 05:43:59 2019] [error] [client IP_PUBLIC_REMOTE_ROUTER] File does not exist: /tftpboot/ringtones/formatted/ring4.bin
+[Sat Nov 16 05:43:59 2019] [error] [client IP_PUBLIC_REMOTE_ROUTER] File does not exist: /tftpboot/ringtones/formatted/ring5.bin
+[Sat Nov 16 05:43:59 2019] [error] [client IP_PUBLIC_REMOTE_ROUTER] File does not exist: /tftpboot/ringtones/formatted/ring6.bin
+[Sat Nov 16 05:43:59 2019] [error] [client IP_PUBLIC_REMOTE_ROUTER] File does not exist: /tftpboot/ringtones/formatted/ring7.bin
+[Sat Nov 16 05:43:59 2019] [error] [client IP_PUBLIC_REMOTE_ROUTER] File does not exist: /tftpboot/ringtones/formatted/ring8.bin
+[Sat Nov 16 05:44:00 2019] [error] [client IP_PUBLIC_REMOTE_ROUTER] File does not exist: /tftpboot/ringtones/formatted/ring9.bin
+[Sat Nov 16 05:44:00 2019] [error] [client IP_PUBLIC_REMOTE_ROUTER] File does not exist: /tftpboot/ringtones/formatted/ring10.bin
+```
+- il n'y a rien dans le fichier sysadmin_server1.conf d'interessant. 
+- system admin / vpn server / clients / not connected.
+- reboot freepbx
+- toujours rien
+- je fais des modifications dans le web gui du phone
+- account / basic / sip server : 10.66.0.2:5060 -> 10.8.0.1:5060 ca change rien
+- je fais des reboot pour finalemen avoir un retour à 10.66.0.2:5060
+
+## Je vais tout refaire à zéro
+###  Provisioning un telephone from scratch
+- Reset factory le phone
+  - phone Menu / status / to get the ip of the phone
+  - web gui the phone login: admin password : in Endpoint Manager / Global setting
+	- Management / Upgrade / Reset factory
+- Endpoint manager / Global setting
+  - Internal Address : IP_LAN_FREEPBX
+  - External Address : IP_PUPLIC_ROUTER_FREEPBX (by auto firs)
+  - Ports hack a port forwarding in the router
+- Endpoint Manager / Brands / Sangoma / 
+  - SIP destination address : internal external custom (je ne sais pas que choisir)
+  - Provisionning address Custom http://user:password@IP_PUBLIC_ROUTER_FREEPBX:83
+  - PhoneApps protocole : HTTP
+  - ForceFirmware version : Firmware slot 1
+  - Save rebuild / apply
+- web gui phone loging admin password admin
+  - Management / Autoprovisionning 
+	- pnp Active No -> Yes
+	- upgrade mode :HTTP
+	- Firmware server path:http://user:password@IP_PUBLIC_ROUTER_FREEPBX:83/sangoma/1
+	- Config server path: http://user:password@IP_PUBLIC_ROUTER_FREEPBX:83
+- unplug / plug the phone. 
+- reboot the adsl modem.
+
+TODO LA SUITE
+
+
+	
+
+## DDNS 
+DEPLOYMENTNUMBER.deployments.pbxact.com semble etre une url ddns pour l'adresse IP externe du router freepbx
+
+je me demande si je ne peux pas utiliser ce DEPLOYMENT.deployment.pbxact.com 1194 come ddns pour d'autres services? TODO
+
+
+
+
 ## Nouveau protocole de configuration de l'IP phone VPN
 -1 Reset phone to factory:
 	- phone / Menu / ...
