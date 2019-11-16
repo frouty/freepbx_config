@@ -2309,6 +2309,65 @@ je me demande si je ne peux pas utiliser ce DEPLOYMENT.deployment.pbxact.com 119
 
 Reboot du server freepbx
 
+## samedi matin
+- reboot du modemadsl
+- plug de l'iP phone en local
+- ipphone 
+```
+tail -f /var/log/messages
+Nov 16 10:13:24 FreePBX openvpn[10669]: MULTI: new connection by client 'client0' will cause previous active sessions by this client to be dropped.  Remember to use the --duplicate-cn option if you want multiple clients using the same certificate or username to concurrently connect.
+Nov 16 10:13:24 FreePBX openvpn[10669]: OPTIONS IMPORT: reading client specific options from: ccd/client0
+Nov 16 10:13:24 FreePBX openvpn[10669]: MULTI: Learn: 10.8.0.3 -> client0/10.66.0.1:40679
+Nov 16 10:13:24 FreePBX openvpn[10669]: MULTI: primary virtual IP for client0/10.66.0.1:40679: 10.8.0.3
+Nov 16 10:13:26 FreePBX openvpn[10669]: client0/10.66.0.1:40679 PUSH: Received control message: 'PUSH_REQUEST'
+Nov 16 10:13:26 FreePBX openvpn[10669]: client0/10.66.0.1:40679 send_push_reply(): safe_cap=940
+Nov 16 10:13:26 FreePBX openvpn[10669]: client0/10.66.0.1:40679 SENT CONTROL [client0]: 'PUSH_REPLY,route-gateway 10.8.0.1,topology subnet,ping 10,ping-restart 120,ifconfig 10.8.0.3 255.255.255.0' (status=1)
+
+```
+sip show peers 
+5                         (Unspecified)                            D  Yes        Yes         A  0        UNKNOWN 
+
+- reset factory ipphone
+-  configure ipphone web gui 
+  - autoprovioning:
+    - firmware server path :	http://a59e816d:76a12@goeen.ddns.net:83/sangoma/1
+    - config server path : 	http://a59e816d:76a12@goeen.ddns.net:83
+- l'ipphone reboot. et j'ai gooen.ddns.net qui passe à IP PUBLIC_ROUTER_FREEPBX
+- System Admin / VPN server / Client / le client a une IP 10.8.0.3 et connected datetime
+- web gui ipphone / account / register failed.
+- c'est donc un probleme de sip 
+
+Je voudrais savoir si j'arrive à me register si pas de vpn. 
+- System admin / vpn server / setting : enable :No / submit
+- System admin / vpn server / client  delete
+- user management / edit a user / VPN tab / define additional VPN client est vide 
+- endpoint management / Extension mapping / VPN client : None / Save and rebuild / Apply
+- Settings / Asteris SIP Settings / General SIP settings / Local network remove 10.8.0.0/24 / submit / apply config
+- reboot ipphone
+- OK registered.
+On repart à zero sur la config du vpn.
+- Admin / system admin / VPN server /
+  -Setting :
+    -  Enable YES
+    - server range : 10.8.0.0/255.255.255.0
+    - server remote address : IP_PUBLIC_ROUTER_SERVER
+    - redirect gateway no
+    - route IP 10.66..0.0 255.225.255.0 enabled yes 
+    - route IP 10.8.0.0 255.255.255.0 enable NO (<-- c'est normal? pas plutot YES)
+    - submit apply config
+   - Client
+    - enable YES
+    - description : 5-HelloCabVPNclient
+    - use DDNS : YES
+    - use server remote address YES
+    - client remote address : IP PUBLIC ROUTER FREEPBX
+    - submit
+    
+- User management / VPN tab /autocreate and link No Define additional VPN client 5-helloCabVPNclient /submit / apply config
+
+
+
+
 # Connectivity / Trunks and weak secret 
 On peut aller dans Setting / Weak Password detection et on trouve deux weak password  
 -SIP Trunk vega50 
