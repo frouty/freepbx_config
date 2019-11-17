@@ -2263,7 +2263,13 @@ On repart à zero sur la config du vpn.
     
 - User management / VPN tab /autocreate and link No Define additional VPN client 5-helloCabVPNclient /submit / apply config
 
+- Enpoint manager / extension mapping / vpn client : 5-helloCabVPNclient / save and rebuild / apply 
 
+- Asterisk SIP setting / local network avec les deux networks. 
+
+- ipphone webgui Management / reboot
+
+ 
 
 
 # Connectivity / Trunks and weak secret 
