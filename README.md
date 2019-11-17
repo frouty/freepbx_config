@@ -2289,8 +2289,6 @@ normalement il est dit de connecter directement le phone sur le reseau du freepb
 TODO LA SUITE
 
 
-	
-
 ## DDNS 
 DEPLOYMENTNUMBER.deployments.pbxact.com semble etre une url ddns pour l'adresse IP externe du router freepbx
 
@@ -2373,6 +2371,408 @@ On repart à zero sur la config du vpn.
 
  
 
+# dimanche 17 11
+- remove EndPointManagement / Mapping extension / hello cabinet / select delete
+- Applications / Extensions / Quick Create Extension :
+  - chan sip 
+  - extension number 57
+  - display name : hello cab dimanche
+  - voicemail service : No
+- Admin / user management / :
+  - le system a crée automatiquement le user : login name : 57 
+
+- Settings / EndPointManagement / Sangoma / Sangoma default / Tasks / duplicate 
+  - name sango_171119
+  - Provisining adresse : http://user:admin@IP-PUbLIC-FreePBX:83
+- Application / Estensions / Edit extension / Other tab :
+  - brand
+  - MAC 
+  - Template
+  - Model 
+  - Account 1
+- Endpoint manager / Extension Mapping / Add Extension mapping et bien non c'est deja fait! 
+  - j'ai pas de VPN client dans le mapping extension
+- WebGui  du phone : Management / Auto provisionning	
+  - upgrade mode : http
+  - firmware Path 	http://IPlocalduserveur:83/sangoma/1
+  - Config Server Path 	http://IPlocalduserveur:83
+  - saveset
+  - auto provisionning
+  - provisionning success mais rien ne se passe vraiment.
+  - restart
+tail -f /var/log/httpd/accesslog . 
+je vois que le phone accede à freepbx
+c'est toujours pas l'ecran auquel je m'attendais. C'est toujours pas la bonne heure. pas d'ip dans mapping extension 
+on change les adresse avec en plus user:password
+  - restart. je vois que le phone fait des demandes au serveur freepbx. pas d'erreur. Puis reboot dhpc recive demande http au freepbx mais c'est les meme. 
+puis sur asterisx CLI> j'ai NOTICE[19664]: chan_sip.c:24654 handle_response_peerpoke: Peer '57' is now Reachable. (55ms / 2000ms)/.Et la le tel est reachable.
+On passe a l'installation en VPN 
+- Admin / System admin / VPN server / Client 
+  - delete all clients.
+  -  setting / enable no / submit
+  - setting / enable yes 
+  - do Verify server remote address correspond à l'IP dans openwrt / satus.
+  - submit
+tail -f /var/log/messages 
+```
+Nov 17 21:57:35 FreePBX openvpn[7849]: Initialization Sequence Completed
+Nov 17 21:57:37 FreePBX ntpd[1640]: Listen normally on 18 tun0 10.8.0.1 UDP 123
+Nov 17 21:57:37 FreePBX ntpd[1640]: peers refreshed
+```
+  - client Add 
+  - OpenVPN client : Enable YES
+  - Description 57HelloCabVPNClient
+  - use DDNS : NO default
+  - use server remote address : NO default 
+  - client remote address : IP_PUBLIC_ROUTER_FREEPBX and FQDNDDNS pas de port renseigné. Le system renseigne le bon port dans le fichier de conf du client. 
+  - assigned address:  10.8.0.3
+  - submit 
+- attribution du client VPN que l'on vient de créer à un user
+- Admin / User Management / Edit a user 
+  - VPN tab / Define Additional VPN client : 57HelloCabVPNClient
+  - Submit / apply config
+- Setting / EndPointManager / Extension mapping / edit 
+  - VPN client : 57HelloCabVPNClient
+The phone will need to be able to reach the PBX direct to receive its configuration files and VPN information.  Once it has the information and the phone is rebooted it should use the VPN for all future communications with the PBX for SIP and Phone Apps only
+- Webgui phone / reboot 
+```
+10.66.0.1 - a59e816d [17/Nov/2019:21:14:08 +1100] "GET /factory0700.bin HTTP/1.1" 404 292 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.1 - a59e816d [17/Nov/2019:21:14:08 +1100] "GET /cfg0700.xml HTTP/1.1" 200 703 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.1 - a59e816d [17/Nov/2019:21:14:10 +1100] "GET /005058501973.cfg HTTP/1.1" 404 293 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.1 - a59e816d [17/Nov/2019:21:14:10 +1100] "GET /cfg005058501973 HTTP/1.1" 404 292 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.1 - a59e816d [17/Nov/2019:21:14:10 +1100] "GET /cfg005058501973.xml HTTP/1.1" 200 63763 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.1 - a59e816d [17/Nov/2019:21:14:15 +1100] "GET /ringtones/formatted/ring4.bin HTTP/1.1" 404 306 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.1 - a59e816d [17/Nov/2019:21:14:15 +1100] "GET /ringtones/formatted/ring5.bin HTTP/1.1" 404 306 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.1 - a59e816d [17/Nov/2019:21:14:15 +1100] "GET /ringtones/formatted/ring6.bin HTTP/1.1" 404 306 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.1 - a59e816d [17/Nov/2019:21:14:15 +1100] "GET /ringtones/formatted/ring7.bin HTTP/1.1" 404 306 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.1 - a59e816d [17/Nov/2019:21:14:15 +1100] "GET /ringtones/formatted/ring8.bin HTTP/1.1" 404 306 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.1 - a59e816d [17/Nov/2019:21:14:15 +1100] "GET /ringtones/formatted/ring9.bin HTTP/1.1" 404 306 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.1 - a59e816d [17/Nov/2019:21:14:15 +1100] "GET /ringtones/formatted/ring10.bin HTTP/1.1" 404 307 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.1 - a59e816d [17/Nov/2019:21:14:15 +1100] "GET /005058501973-vpn.tar HTTP/1.1" 200 11776 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.1 - a59e816d [17/Nov/2019:21:14:15 +1100] "GET /cfg57-states.xml HTTP/1.1" 200 6016 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.1 - a59e816d [17/Nov/2019:21:14:21 +1100] "GET /sangoma/1/fw700.rom HTTP/1.1" 200 18536058 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.1 - a59e816d [17/Nov/2019:21:15:36 +1100] "GET /factory0700.bin HTTP/1.1" 404 292 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.1 - a59e816d [17/Nov/2019:21:15:36 +1100] "GET /cfg0700.xml HTTP/1.1" 200 703 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.1 - a59e816d [17/Nov/2019:21:15:38 +1100] "GET /005058501973.cfg HTTP/1.1" 404 293 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.1 - a59e816d [17/Nov/2019:21:15:38 +1100] "GET /cfg005058501973 HTTP/1.1" 404 292 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.1 - a59e816d [17/Nov/2019:21:15:38 +1100] "GET /cfg005058501973.xml HTTP/1.1" 200 63763 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.1 - a59e816d [17/Nov/2019:21:15:41 +1100] "GET /ringtones/formatted/ring4.bin HTTP/1.1" 404 306 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.1 - a59e816d [17/Nov/2019:21:15:41 +1100] "GET /ringtones/formatted/ring5.bin HTTP/1.1" 404 306 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.1 - a59e816d [17/Nov/2019:21:15:41 +1100] "GET /ringtones/formatted/ring6.bin HTTP/1.1" 404 306 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.1 - a59e816d [17/Nov/2019:21:15:41 +1100] "GET /ringtones/formatted/ring7.bin HTTP/1.1" 404 306 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.1 - a59e816d [17/Nov/2019:21:15:41 +1100] "GET /ringtones/formatted/ring8.bin HTTP/1.1" 404 306 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.1 - a59e816d [17/Nov/2019:21:15:41 +1100] "GET /ringtones/formatted/ring9.bin HTTP/1.1" 404 306 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.1 - a59e816d [17/Nov/2019:21:15:41 +1100] "GET /ringtones/formatted/ring10.bin HTTP/1.1" 404 307 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.1 - a59e816d [17/Nov/2019:21:15:41 +1100] "GET /005058501973-vpn.tar HTTP/1.1" 200 11776 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.1 - a59e816d [17/Nov/2019:21:15:41 +1100] "GET /cfg57-states.xml HTTP/1.1" 200 6016 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.138 - a59e816d [17/Nov/2019:21:15:41 +1100] "GET /005058501973-vpn.tar HTTP/1.1" 200 11776 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+10.66.0.1 - a59e816d [17/Nov/2019:21:15:41 +1100] "GET /sangoma/1/fw700.rom HTTP/1.1" 200 18536058 "-" "Sangoma S700 2.0.4.28 00:50:58:50:19:73"
+L'heure n'est pas bonne. On a le logeo de la Terre avec le cadenas
+```
+Le phone recupere les fichier de conf. 
+Le phone n'est pas connecté sip. 
+Le client vpn n'est pas connecté System admin / VPN server / clients tab not connecter no Client IP
+webgui phone reboot. toujours pareil
+tail -f /var/log/messages je vois une ligne qui me dit erreur d'identification client0.
+Je regarde /etc/openvpn/clients/sysadmin_client.conf et je vois remote 1194. Il y avait une ligne vide dans le webgui freepbx pour le vpn client. 
+reboot the phone et toujours pas connecté en VPN. 
+EndPointManager / extension Mapping / rebuild and save.
+User Management / user edit je verifie pas de client vpn submit apply config.
+System admin / VPN server / Setting / enable NO Submit
+reboot phone 
+Je m'attend a ce qu'il soit sip registered
+OK sip registered
+je reconfigure le VPN server
+Je verifie que le client VPN est affecté au bon user
+Je verifie le extension mapping / edit / VPN client / Save and rebuild / Apply 
+reboot phone
+Asterisk SIP settings je vérifie que j'ai bien dans local network 10.66.0.0/24 et 10.8.0.0/24
+C'est bon on VPN server / Client tab : client ip avec une IP Connected avec un timestamp. 
+Par contre aucun message de la part de SIP. 
+Donc je vais faire quelques modifications dans Settings / asterisk SIP settings: Chan SIP settings
+  - IP configuration : Static IP -> Public IP 
+  - Submit / apply config
+- reboot le phone
+- pas de sip registration
+- service asterisk restart
+- reboot le phone
+- sip show peers | grep <extension number> toujours pas
+Settings / asterisk SIP settings: Chan SIP settings:
+  - NAT YES -> NO
+service asterisk restart
+Ca ne change rien (Chan SIP setting : NAT NO / IP configuration Public IP)
+Settings / asterisk SIP settings: Chan SIP settings:
+  - NAT  NO
+  - IP configuration : STATIC IP
+service asterisk restart
+OK si pas de vpn. 
+En VPN ( pour cela on supprime l'extension mapping (select / Delete selected / use selected)  et on en récrée une avec un user qui un client vpn associé, on vérifie que la mapping extension avec edit a bien son VPN client)
+reboot the phone
+toujours pas on essaye de debogger
+asterisk -rdddvvv
+et on reboot le phone et on fait un : grep 10.660.138 /var/log/messages et on recupere que celle de la datetime du dernier reboot.
+
+Là il n'y a plus de ligne pour cette adresse ip. 
+CELA NE MARCHE PAS SI L'EXTENSION N'EST PAS REGISTERED. 
+
+Donc je refais une extension sans vpn qui va se sip register
+
+```
+asterisk -rdddvvv 
+et sur une autre console 
+grep ip_du_phone /var/log/messages
+
+SIP REGISTER OK....
+
+[2019-11-17 23:41:57] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:57] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for ef8799676741d3a@10.66.0.138 - REGISTER (No RTP)
+[2019-11-17 23:41:57] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+RemoteAddress: IPV4/UDP/10.66.0.138/5060
+[2019-11-17 23:41:58] VERBOSE[16667] chan_sip.c: Registered SIP '56' at 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'OPTIONS sip' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 200' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'NOTIFY sip:' onto UDP socket destined for 10.66.0.138:5060
+Address: 10.66.0.138:5060
+RemoteAddress: IPV4/UDP/10.66.0.138/5060
+Address: 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for 7582d9ef3418e9a@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for 6ce815c066fb96a@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for ff602ed1cd66778@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for bcc3972c597cef4@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for 9e84a310651dbca@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for b518aa11dd456b7@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for 5772ebd4abbca86@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for e73ca23da6e6803@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for b3d4c4efe2f821d@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for cd3183b5e354592@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for 75c693195ecc08d@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for 83f9e6aea69aca7@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for 13ef6bb861470c1@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for 1045a218d5fd693@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for 6254eee998ba576@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Destroying SIP dialog 7582d9ef3418e9a@10.66.0.138
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Destroying SIP dialog 6ce815c066fb96a@10.66.0.138
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Destroying SIP dialog ff602ed1cd66778@10.66.0.138
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Destroying SIP dialog bcc3972c597cef4@10.66.0.138
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Destroying SIP dialog 9e84a310651dbca@10.66.0.138
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Destroying SIP dialog b518aa11dd456b7@10.66.0.138
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Destroying SIP dialog 5772ebd4abbca86@10.66.0.138
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Destroying SIP dialog e73ca23da6e6803@10.66.0.138
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Destroying SIP dialog b3d4c4efe2f821d@10.66.0.138
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Destroying SIP dialog cd3183b5e354592@10.66.0.138
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Destroying SIP dialog 75c693195ecc08d@10.66.0.138
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Destroying SIP dialog 83f9e6aea69aca7@10.66.0.138
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Destroying SIP dialog 13ef6bb861470c1@10.66.0.138
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Destroying SIP dialog 1045a218d5fd693@10.66.0.138
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:58] DEBUG[16667] chan_sip.c: Destroying SIP dialog 6254eee998ba576@10.66.0.138
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+RemoteAddress: IPV4/UDP/10.66.0.138/5060
+Address: 10.66.0.138:5060
+Address: 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'OPTIONS sip' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 200' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'NOTIFY sip:' onto UDP socket destined for 10.66.0.138:5060
+RemoteAddress: IPV4/UDP/10.66.0.138/5060
+[2019-11-17 23:41:59] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for 6508d4c759b0e7e@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for 8a01c6eeea56f7d@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for b288d7f44d0f32c@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for 9f216bc3659ebc7@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for e6af363872e39e3@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for eb27507a860ddfd@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for 25ab04dfbb06703@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for d73e550c9d4cbc1@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for 7f86e4392ade0c4@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for 1e8a84b89e57f0e@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for 280f2ca1a3d9959@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for 5f4ab648cd39a06@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for 8299c69faecba2f@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for c4454e13564cebf@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for 7c39f9519c4ec4a@10.66.0.138 - SUBSCRIBE (No RTP)
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Destroying SIP dialog 6508d4c759b0e7e@10.66.0.138
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Destroying SIP dialog 8a01c6eeea56f7d@10.66.0.138
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Destroying SIP dialog b288d7f44d0f32c@10.66.0.138
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Destroying SIP dialog 9f216bc3659ebc7@10.66.0.138
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Destroying SIP dialog e6af363872e39e3@10.66.0.138
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Destroying SIP dialog eb27507a860ddfd@10.66.0.138
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Destroying SIP dialog 25ab04dfbb06703@10.66.0.138
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Destroying SIP dialog d73e550c9d4cbc1@10.66.0.138
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Destroying SIP dialog 7f86e4392ade0c4@10.66.0.138
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Destroying SIP dialog 1e8a84b89e57f0e@10.66.0.138
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Destroying SIP dialog 280f2ca1a3d9959@10.66.0.138
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Destroying SIP dialog 5f4ab648cd39a06@10.66.0.138
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Destroying SIP dialog 8299c69faecba2f@10.66.0.138
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Destroying SIP dialog c4454e13564cebf@10.66.0.138
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: build_route: Retaining previous route: <sip:56@10.66.0.138:5060;transport=UDP>
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 404' onto UDP socket destined for 10.66.0.138:5060
+[2019-11-17 23:41:59] DEBUG[16667] chan_sip.c: Destroying SIP dialog 7c39f9519c4ec4a@10.66.0.138
+[root@FreePBX ~]# 
+```
+
+j'ai une extension sip register
+Endpoint management / Esxtension mapping / delete extension  Delete selected / use selected 
+Create extension avec un user qui a vpn client (ou pas). 
+Add extension / Edit extension mapping / save and rebuild / use selected 
+verifier que le VPN client est renseigné / edit
+
+```
+asterisk -rdddvvv
+grep 10.66.0.138 /var/log/asterisk/full
+Je reboot avec une configuration pour un VPN et la rien. 
+[2019-11-18 00:04:55] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for a90468fba9a259e@10.66.0.138 - REGISTER (No RTP)
+[2019-11-18 00:04:55] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 401' onto UDP socket destined for 10.66.0.138:5060
+RemoteAddress: IPV4/UDP/10.66.0.138/5060
+[2019-11-18 00:04:55] DEBUG[16667] chan_sip.c: Trying to put 'SIP/2.0 200' onto UDP socket destined for 10.66.0.138:5060
+RemoteAddress: IPV4/UDP/10.66.0.138/5060
+[2019-11-18 00:05:27] DEBUG[16667] chan_sip.c: Auto destroying SIP dialog 'a90468fba9a259e@10.66.0.138'
+[2019-11-18 00:05:27] DEBUG[16667] chan_sip.c: Destroying SIP dialog a90468fba9a259e@10.66.0.138
+```
+
+J'essaie de monter le debug d'asterisk Ca change rien
+
+Chan Sip setting :
+
+- NAT NO | IP configuration : Static IP -> ca ne marche pas.
+- NAT NO | IP configuration : Public IP -> ca ne marche pas 
+- NAT YES |IP configuration : Static IP -> ca ne marche pas	
+- NAT YES | IP configuration : Public IP -> ca ne marche pas.
+
+USER MANAGEMENT / user / advanced / NAT mode No -> (YES force_rport ,comedia)/ submit apply config.
+reboot the phone
+
+
+
+pendant la configuration regarder les fichiers suivants:
+asterisk -rdddvvv
+tail -f /var/log/messages 
+tail -f /var/log/httpd/accesslog
+
+
+
+
+
+# comment tester sip connection
 
 # Connectivity / Trunks and weak secret 
 On peut aller dans Setting / Weak Password detection et on trouve deux weak password  
