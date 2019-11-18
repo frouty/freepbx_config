@@ -81,6 +81,7 @@ Faire un ssh puis
 - Le prompt change en localhost\*CLI>  
 - ? pour avoir toute les commandes  
 
+### Le log asterisk
 - le log est sous /var/log/asterisk/full    
 
 ##### Quelques commandes utiles
@@ -89,10 +90,6 @@ Faire un ssh puis
 - `sip show registry`
 - `asterisk -rx`
 - `sip show users`
-
-## Version asterisk
-
-`core show version`  
 
 ## Déboger Asterisk
 - ssh root@FreePBXIP
@@ -105,13 +102,13 @@ Faire un ssh puis
 
 
 ## Couldn't connect to asterisk
-
 Apres un reboot forcé par interruption du courant j'ai le msg  
 *couldn't connect to asterisk*  
 je n'ai rien fait j'ai attendu un peu.
 
 # fwconsole
 http://wiki.freepbx.org/pages/viewpage.action?pageId=37912685
+
 # Can not connect to Asterisk
 ssh root@IPDUSERVER  
 `fwconsole restart`
@@ -122,11 +119,6 @@ ssh root@IPDUSERVER
 https://wiki.asterisk.org/wiki/display/AST/Collecting+Debug+Information
 
 Comment annuler les log output in CLI asterisk: CLI> __logger mute__
-
-## version-
-asterisk -r..
-ou  
-CLI> core show version
 
 ## dahdi
 
@@ -147,6 +139,7 @@ cd /etc
 
 # Comment configurer son serveur de mail
 Admin / System Admin / Email Setup  
+
 ## Choix du SMTP server
 
 J'ai essayé gmail mais je n'ai pas réussi.  
@@ -398,7 +391,8 @@ from the GUI of the phone
 login/password : admin/admin
 Management -> Auto Provision - upgrade mode - config server path - autoprovision Now click
 
-
+# port used on freepbx
+https://wiki.freepbx.org/display/PPS/Ports+used+on+your+PBX
 # Comment trouver l'IP d'un phone Sangoma
 menu -> Status -> information
 
@@ -2259,7 +2253,9 @@ normalement il est dit de connecter directement le phone sur le reseau du freepb
 - toujours rien
 - je fais des modifications dans le web gui du phone
 - account / basic / sip server : 10.66.0.2:5060 -> 10.8.0.1:5060 ca change rien
-- je fais des reboot pour finalemen avoir un retour à 10.66.0.2:5060
+- je fais des reboot pour finalement avoir un retour à 10.66.0.2:5060
+
+
 
 ## Je vais tout refaire à zéro
 ###  Provisioning un telephone from scratch
@@ -2285,8 +2281,14 @@ normalement il est dit de connecter directement le phone sur le reseau du freepb
 	- Config server path: http://user:password@IP_PUBLIC_ROUTER_FREEPBX:83
 - unplug / plug the phone. 
 - reboot the adsl modem.
-
-TODO LA SUITE
+- reboot du phone. pas de connection. 
+J'abandonne le ddns  je mets tout en IP_PUBLIC_ROUTER_FREENAS.
+- System Admin / DDNS : 
+  - Enable DDNS Service 
+  - Submit
+- Settings / Asterisk SIP Setting 
+  - Tout est en IP
+- reboot ipphone 
 
 
 	
@@ -2297,19 +2299,7 @@ DEPLOYMENTNUMBER.deployments.pbxact.com semble etre une url ddns pour l'adresse 
 je me demande si je ne peux pas utiliser ce DEPLOYMENT.deployment.pbxact.com 1194 come ddns pour d'autres services? TODO
 
 
-
-
-## Nouveau protocole de configuration de l'IP phone VPN
--1 Reset phone to factory:
-	- phone / Menu / ...
--2 reboot du phone. 
--3 recuperer son adress IP : Menu / ...
--4 se connecter en web gui sur le phone admin/admin
--5 Management / autoprovisionning / ...
-
-Reboot du server freepbx
-
-## samedi matin
+## samedi matin
 - reboot du modemadsl
 - plug de l'iP phone en local
 - ipphone 
@@ -2326,6 +2316,8 @@ Nov 16 10:13:26 FreePBX openvpn[10669]: client0/10.66.0.1:40679 SENT CONTROL [cl
 ```
 sip show peers 
 5                         (Unspecified)                            D  Yes        Yes         A  0        UNKNOWN 
+
+Donc j'ai un probleme de register. 
 
 - reset factory ipphone
 -  configure ipphone web gui 
@@ -2345,6 +2337,7 @@ Je voudrais savoir si j'arrive à me register si pas de vpn.
 - Settings / Asteris SIP Settings / General SIP settings / Local network remove 10.8.0.0/24 / submit / apply config
 - reboot ipphone
 - OK registered.
+
 On repart à zero sur la config du vpn.
 - Admin / system admin / VPN server /
   -Setting :
@@ -2363,11 +2356,134 @@ On repart à zero sur la config du vpn.
     - client remote address : IP PUBLIC ROUTER FREEPBX
     - submit
     
-- User management / VPN tab /autocreate and link No Define additional VPN client 5-helloCabVPNclient /submit / apply config
+- User management / VPN tab:
+  - autocreate and link No 
+  - Define additional VPN client: 5-helloCabVPNclient
+  - submit / apply config
+- Reboot phone 
+- ipphone webgui / account / account status : Register failed. 
 
+- Je le plug en remote 
+  - ipphone webgui / account / account status : Register failed. 
+  - system admin / Clients / Client IP : 10.8.0.3 Connected : timestamp OK.
+  - tail -f /var/log/messages 
+  ``` 
+  Nov 16 12:18:07 FreePBX openvpn[10669]: IP_PUBLIC_REMOTE_ROUTER:33032 TLS: Initial packet from [AF_INET]IP_PUBLIC_REMOTE_ROUTER:33032, sid=747bdffc d3ca9936
+Nov 16 12:18:09 FreePBX openvpn[10669]: IP_PUBLIC_REMOTE_ROUTER:33032 CRL CHECK OK: CN=FreePBX
+Nov 16 12:18:09 FreePBX openvpn[10669]: IP_PUBLIC_REMOTE_ROUTER:33032 VERIFY OK: depth=1, CN=FreePBX
+Nov 16 12:18:09 FreePBX openvpn[10669]: IP_PUBLIC_REMOTE_ROUTER:33032 CRL CHECK OK: CN=client0
+Nov 16 12:18:09 FreePBX openvpn[10669]: IP_PUBLIC_REMOTE_ROUTER:33032 VERIFY OK: depth=0, CN=client0
+Nov 16 12:18:09 FreePBX openvpn[10669]: IP_PUBLIC_REMOTE_ROUTER:33032 Data Channel Encrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Nov 16 12:18:09 FreePBX openvpn[10669]: IP_PUBLIC_REMOTE_ROUTER:33032 Data Channel Encrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Nov 16 12:18:09 FreePBX openvpn[10669]: IP_PUBLIC_REMOTE_ROUTER:33032 Data Channel Decrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Nov 16 12:18:09 FreePBX openvpn[10669]: IP_PUBLIC_REMOTE_ROUTER:33032 Data Channel Decrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Nov 16 12:18:09 FreePBX openvpn[10669]: IP_PUBLIC_REMOTE_ROUTER:33032 Control Channel: TLSv1, cipher TLSv1/SSLv3 DHE-RSA-AES256-SHA, 2048 bit RSA
+Nov 16 12:18:09 FreePBX openvpn[10669]: IP_PUBLIC_REMOTE_ROUTER:33032 [client0] Peer Connection Initiated with [AF_INET]IP_PUBLIC_REMOTE_ROUTER:33032
+Nov 16 12:18:09 FreePBX openvpn[10669]: client0/IP_PUBLIC_REMOTE_ROUTER:33032 OPTIONS IMPORT: reading client specific options from: ccd/client0
+Nov 16 12:18:09 FreePBX openvpn[10669]: client0/IP_PUBLIC_REMOTE_ROUTER:33032 MULTI: Learn: 10.8.0.3 -> client0/IP_PUBLIC_REMOTE_ROUTER:33032
+Nov 16 12:18:09 FreePBX openvpn[10669]: client0/IP_PUBLIC_REMOTE_ROUTER:33032 MULTI: primary virtual IP for client0/IP_PUBLIC_REMOTE_ROUTER:33032: 10.8.0.3
+Nov 16 12:18:14 FreePBX openvpn[10669]: client0/IP_PUBLIC_REMOTE_ROUTER:33032 PUSH: Received control message: 'PUSH_REQUEST'
+Nov 16 12:18:14 FreePBX openvpn[10669]: client0/IP_PUBLIC_REMOTE_ROUTER:33032 send_push_reply(): safe_cap=940
+Nov 16 12:18:14 FreePBX openvpn[10669]: client0/IP_PUBLIC_REMOTE_ROUTER:33032 SENT CONTROL [client0]: 'PUSH_REPLY,route-gateway 10.8.0.1,topology subnet,ping 10,ping-restart 120,ifconfig 10.8.0.3 255.255.255.0' (status=1)
+Nov 16 12:58:31 FreePBX openvpn[10669]: client0/IP_PUBLIC_REMOTE_ROUTER:33032 CRL CHECK OK: CN=FreePBX
+Nov 16 12:58:31 FreePBX openvpn[10669]: client0/IP_PUBLIC_REMOTE_ROUTER:33032 VERIFY OK: depth=1, CN=FreePBX
+Nov 16 12:58:31 FreePBX openvpn[10669]: client0/IP_PUBLIC_REMOTE_ROUTER:33032 CRL CHECK OK: CN=client0
+Nov 16 12:58:31 FreePBX openvpn[10669]: client0/IP_PUBLIC_REMOTE_ROUTER:33032 VERIFY OK: depth=0, CN=client0
+Nov 16 12:58:31 FreePBX openvpn[10669]: client0/IP_PUBLIC_REMOTE_ROUTER:33032 Data Channel Encrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Nov 16 12:58:31 FreePBX openvpn[10669]: client0/IP_PUBLIC_REMOTE_ROUTER:33032 Data Channel Encrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Nov 16 12:58:31 FreePBX openvpn[10669]: client0/IP_PUBLIC_REMOTE_ROUTER:33032 Data Channel Decrypt: Cipher 'BF-CBC' initialized with 128 bit key
+Nov 16 12:58:31 FreePBX openvpn[10669]: client0/IP_PUBLIC_REMOTE_ROUTER:33032 Data Channel Decrypt: Using 160 bit message hash 'SHA1' for HMAC authentication
+Nov 16 12:58:31 FreePBX openvpn[10669]: client0/IP_PUBLIC_REMOTE_ROUTER:33032 Control Channel: TLSv1, cipher TLSv1/SSLv3 DHE-RSA-AES256-SHA, 2048 bit RSA
+```
+- from freepbx ping 10.8.0.3 OK. 
+- je vérifie que cela ne change pas si je l'éteint completement. 
+- unplug ipphone
+- System Admin / Client / Edit / Assigned Address / 10.8.0.3 -> 10.8.0.4 
+- tail -f /var/log/messages 
+```
+Nov 16 13:39:50 FreePBX openvpn[17089]: OpenVPN 2.3.7 x86_64-redhat-linux-gnu [SSL (OpenSSL)] [LZO] [EPOLL] [PKCS11] [MH] [IPv6] built on Jun  9 2015
+Nov 16 13:39:50 FreePBX openvpn[17089]: library versions: OpenSSL 1.0.1e-fips 11 Feb 2013, LZO 2.03
+Nov 16 13:39:50 FreePBX openvpn[17090]: Diffie-Hellman initialized with 2048 bit key
+Nov 16 13:39:50 FreePBX openvpn[17090]: Socket Buffers: R=[124928->131072] S=[124928->131072]
+Nov 16 13:39:50 FreePBX openvpn[17090]: TCP/UDP: Socket bind failed on local address [undef]: Address already in use
+Nov 16 13:39:50 FreePBX openvpn[17090]: Exiting due to fatal error
+Nov 16 13:41:32 FreePBX openvpn[10669]: client0/103.17.45.190:33032 [client0] Inactivity timeout (--ping-restart), restarting
+Nov 16 13:41:32 FreePBX openvpn[10669]: client0/103.17.45.190:33032 SIGUSR1[soft,ping-restart] received, client-instance restarting
+```
+- je plug l'ipphone
+  - tail /var/log/message :
+	- pas d'erreur 
+	- j'obtient bien une IP 10.18.0.4 
+   - System admin / VPN server / client connected .
+   - mais toujours pas register.
+ - System Admin / VPN server / setting :
+   - IP address | netmask | enable :
+	 - 10.66.0.0 | 255.255.255.0 | YES
+	 - 10.8.0.0 | 255.255.255.0 | No -> YES
+	 - Submit / save and apply
+ - plug ipphone
+   - pas de message d'erreur sur le var/log/message
+   - ping 10.18.0.4 from Freepbx OK 
+   - register No.
+  - J'ai lu qu'il fallait  faire  System Admin / reactivation. j'ai trouvé "updade réactivation. Cela ne change rien. Je crois que c'est utile si on utilise zero touch
+  
+  Je'essaie de changer :
+  -Endpoint Management / Template / General tab :
+	  - SIP destination adresse : Internal to external mais je ne comprends pas cela veut dire qu'il faut faire du port forwarding. 
+	  - Save and rebuild / apply
+	  - Extension mapping / select / save rebuild / use selected. 
+  - reboot ipphone. 
+  - unregistered
+  
+  Si c'est un problem de SIP 
+  tail -f /var/log/asterisk/ full 
+  reboot ipphone
+  il ne se passe rien . 
+  - responsive firewall disable
+  - disable firewall 
+  cela ne change rien
+  
+  Je me dis qu'il y a peut etre un probleme avec :
+  wegui ipphone / account/ Primary sip server / IPPUBLICROUTERFREEPX:5060 
+  j'essaie de la passer à IP LOCAL FREEPBX SERVER. 
+ endpoint manager /  template :SIP destination address : Internal 
+ save and rebuild Apply
+ endpoint manager / Extension mapping / select / edit  / save and rebuild apply
+ register failed meme avec sip destination address internal
+ On essaie 10.8.0.1 mais non je ne crois pas c'est pas ce que j'utilise comme addresse pour un vpn
+ 
+System admin / PnP configuration / PnP server Status / Enable.
 
+reboot router et modem adls de la maison.
+toujours le meme probleme
 
+Endpoint manager / template / general tab:
+	- Default internal template No
+	- Default external template YES
 
+  Je vais detruire l'extension / recréer l'extension:
+	- endpoint manager / EXtension mapping / select / delete selected. 
+	- user management / users / edit / Primary Linked Extension : None / Submit / Apply config
+    - Applications / Extension / select  / delete Apply config
+	- Add extension : Application / Extension / Add extension :
+		- Add New Chan Sip Extension 
+			- pour avoir un exemple voir dans icono Extension.....png
+			- Voicemail enable :NO
+			- ....
+			- Submit / Apply config. 
+	- System admin / Extension Mapping / Add Extension :
+		- Edit extension Mapping / VPN client : 5 HelloCabVPNclient / Save and rebuid / Apply
+	- reboot phone
+	- tail -f /var/log/messages : OK pour le VPN 
+	- tail -f /var/log/astrisk/full rien ne se passe ;.
+	
+Modification de Applications / Extension / Advanced 'Edit Extension' - 'NAT' No -> YEs / submit / apply config
+
+J'ajoute un port forwarding pour 5060. Ca ne marche pas je la supprime. 
+
+Setting / SIP setting / Chan Sip Settings :
+	- NAT Yes No never route ?
+	- IP configuration 
 # Connectivity / Trunks and weak secret 
 On peut aller dans Setting / Weak Password detection et on trouve deux weak password  
 -SIP Trunk vega50 
