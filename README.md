@@ -1978,6 +1978,21 @@ https://wiki.freepbx.org/display/PC/Analog-+Audio+Issues
 
 - `dahdi show channels`
 - `dahdi show channel 1` pour avoir le détail.
+
+
+## Voicemail
+unable to download xml.
+Je verifie que j'ai bien la voicemail enable dans les user module et application / extension
+C'est le cas .
+Je vois que je doit renouveller ma licence pour phone apps je le fais.
+Mais cela ne regle pas le probleme.
+Je vais dans webgui ipphone / Management / System log / Downlaod System Log / Download
+grep voicemail lefichierdelogdownloader
+Je vois un message d'erreur pas trop informatif mais surtout je vois une erreur de date et d'heure.
+je vais dans le endpoint manager / template / Regional et je mets le bon fuseau horaire.
+Et la c'est bon.  
+
+
 # Fichiers de configuration d'Asterisk
  La configuration d'Asterisk s'articule sur les fichiers de configuration suivants :
 
@@ -2760,6 +2775,56 @@ Chan Sip setting :
 
 USER MANAGEMENT / user / advanced / NAT mode No -> (YES force_rport ,comedia)/ submit apply config.
 reboot the phone
+
+
+
+
+# lundi 18 novembre
+je vais regarder les fichiers
+   - /var/log/messages |
+   - /var/log/httpd/acceslog et le fichier
+   - /var/log/asterisk/full
+   - le syslog du phone 
+en mettant en place un user 57 sans le VPN client et voir si cela fonctionne. Jevoudrois comment et le syslog du phone qd tout va bien.  
+
+- Endpoint manager / extension mapping / delete selected / use selected
+- User management / VPN tab / define Additionnal VPN Clients  : Clients (vide)- / submit 
+- Application Extension / Other / brand, template, MAC, phone model /submit apply config
+- Endpoint manager / extension mapping / elle vient d'etre créee on verifie qu'il n'y a pas de VPN client
+- reboot phone
+
+
+```
+grep ip-phone /valr/log/asterisk/full
+[2019-11-18 16:56:38] DEBUG[16667] acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
+[2019-11-18 16:56:38] DEBUG[16667] netsock2.c: Splitting '10.66.0.138:5060' into...
+[2019-11-18 16:56:38] DEBUG[16667] netsock2.c: ...host '10.66.0.138' and port '5060'.
+[2019-11-18 16:56:38] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for 57faf7a7b65c6db@10.66.0.138 - REGISTER (No RTP)
+[2019-11-18 16:56:38] DEBUG[16667] netsock2.c: Splitting '10.66.0.138:5060' into...
+[2019-11-18 16:56:38] DEBUG[16667] netsock2.c: ...host '10.66.0.138' and port '5060'.
+
+```
+
+```
+sylog de l'ip phone qd SIP registered
+[11-18 16:56:08 50:19:73] IniAccountSipUdp:1781===Aid=0==SIP Creat Socket Bind NetMode = 0======
+[11-18 16:56:08 50:19:73] Create Udp Socket: SrcIp=0x a42008a SrcPort=5060 Pno=4 Event=4111 NetId=0x80000000...
+[11-18 16:56:08 50:19:73] IPV4 Init UDPSocket: bind socket 181 Success, pos[159]locip[a42008a]port[5060]!
+[11-18 16:56:08 50:19:73] Create Udp Socket: CurPos=159 Port=5060 Create UDP Socket OK!
+[11-18 16:56:08 50:19:73] IniSipUdp: aid 0 Create UdpSocket OK pos 159!!!
+[11-18 16:56:08 50:19:73] IniSipUdp aid 0 OK
+[11-18 16:56:08 50:19:73] boot Read Head: len = 512 
+[11-18 16:56:08 50:19:73] check_boot_imge_new: ###### BOOT is the same with old in ROM file 
+ [11-18 16:56:08 50:19:73]  check_boot_imge_new ,6362!
+[11-18 16:56:08 50:19:73]  check_boot_imge_new ,6365!
+``` 
+
+
+
+
+
+
+
 
 
 
