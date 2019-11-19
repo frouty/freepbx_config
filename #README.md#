@@ -2784,7 +2784,7 @@ sylog du telphone quand register failed
 Je passe le Application Extension / extension edit / advanced tab / Edit extension / Nat mode  Yes -> No
 submit apply config.
 reboot phone 
-je crois pas que cela change grand chose on a toujours Account status registered. 
+je crois pas que cela change grand chose on a toujours Account status not  registered. 
 
 # SIP NAT
 ## Ou est ce qu'on peut configurer le NAT ?
