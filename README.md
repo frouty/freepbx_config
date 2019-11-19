@@ -3229,58 +3229,7 @@ sylog de l'ip phone avec le VPN clientte
 [11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 158 Success, pos[143]locip[a080003]port[12242]!
 [11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=143 Port=12242 Create UDP Socket OK!
 [11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12243 Pno=65535 Event=25 NetId=0x10047...
-[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 159 Success, pos[144]locip[a080003]port[12243]!
-[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=144 Port=12243 Create UDP Socket OK!
-[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12244 Pno=65535 Event=32 NetId=0x10048...
-[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 160 Success, pos[145]locip[a080003]port[12244]!
-[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=145 Port=12244 Create UDP Socket OK!
-[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12245 Pno=65535 Event=25 NetId=0x10048...
-[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 161 Success, pos[146]locip[a080003]port[12245]!
-[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=146 Port=12245 Create UDP Socket OK!
-[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12246 Pno=65535 Event=32 NetId=0x10049...
-[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 162 Success, pos[147]locip[a080003]port[12246]!
-[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=147 Port=12246 Create UDP Socket OK!
-[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12247 Pno=65535 Event=25 NetId=0x10049...
-[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 163 Success, pos[148]locip[a080003]port[12247]!
-[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=148 Port=12247 Create UDP Socket OK!
-[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12248 Pno=65535 Event=32 NetId=0x1004a...
-[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 164 Success, pos[149]locip[a080003]port[12248]!
-[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=149 Port=12248 Create UDP Socket OK!
-[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12249 Pno=65535 Event=25 NetId=0x1004a...
-[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 165 Success, pos[150]locip[a080003]port[12249]!
-[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=150 Port=12249 Create UDP Socket OK!
-[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12250 Pno=65535 Event=32 NetId=0x1004b...
-[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 166 Success, pos[151]locip[a080003]port[12250]!
-[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=151 Port=12250 Create UDP Socket OK!
-[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12251 Pno=65535 Event=25 NetId=0x1004b...
-[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 167 Success, pos[152]locip[a080003]port[12251]!
-[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=152 Port=12251 Create UDP Socket OK!
-[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12252 Pno=65535 Event=32 NetId=0x1004c...
-[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 168 Success, pos[153]locip[a080003]port[12252]!
-[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=153 Port=12252 Create UDP Socket OK!
-[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12253 Pno=65535 Event=25 NetId=0x1004c...
-[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 169 Success, pos[154]locip[a080003]port[12253]!
-[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=154 Port=12253 Create UDP Socket OK!
-[11-18 06:14:15 50:19:73] MSDspLibIni ... 
-[11-18 06:14:15 50:19:73] Ti3100: dac_samlpe_hz is 8000 already
-[11-18 06:14:15 50:19:73] BSP: SetCodec 8KHz
-[11-18 06:14:15 50:19:73] MSToneLibInit ... 
-[11-18 06:14:15 50:19:73] ######### Read Ring1 file len 48000
-[11-18 06:14:15 50:19:73] MS: ToneId 90 Load OK
-[11-18 06:14:15 50:19:73] ######### Read Ring2 file len 40000
-[11-18 06:14:15 50:19:73] MS: ToneId 91 Load OK
-[11-18 06:14:15 50:19:73] ######### Read Ring3 file len 40000
-[11-18 06:14:15 50:19:73] MS: ToneId 92 Load OK
-[11-18 06:14:15 50:19:73] ######### Read Ring4 file len 131072
-[11-18 06:14:15 50:19:73] MS: ToneId 93 Load OK
-[11-18 06:14:15 50:19:73] ######### Read Ring5 file len 131072
-[11-18 06:14:15 50:19:73] MS: ToneId 94 Load OK
-[11-18 06:14:15 50:19:73] Read Ring File: Open ring file /etc_ro/res/ring6.bin fail! fd -1 
-[11-18 06:14:15 50:19:73] Read Ring File: Open ring file /etc_ro/res/ring7.bin fail! fd -1 
-[11-18 06:14:15 50:19:73] Read Ring File: Open ring file /etc_ro/res/ring8.bin fail! fd -1 
-[11-18 06:14:15 50:19:73] Read Ring File: Open ring file /etc_ro/res/ring9.bin fail! fd -1 
-[11-18 06:14:15 50:19:73] Read Ring File: Open ring file /etc_ro/res/ring10.bin fail! fd -1 
-[11-18 06:14:15 50:19:73] ######### Read Test g722 file len 34816
+[...]
 [11-18 06:14:15 50:19:73] MSConfLibInit ... 
 [11-18 06:14:15 50:19:73] InitPnP ...
 [11-18 06:14:15 50:19:73] InitSche ...
@@ -3326,65 +3275,7 @@ sylog de l'ip phone avec le VPN clientte
 
 [11-18 06:14:15 50:19:73] init_ehs_mode 
 
-[11-18 06:14:15 50:19:73] Chn 0 digitmap: x+#|xx+*
-[11-18 06:14:15 50:19:73] Chn 0 use default digitmap: {[x*]+}
-[11-18 06:14:15 50:19:73] Chn 1 digitmap: x+#|xx+*
-[11-18 06:14:15 50:19:73] Chn 1 use default digitmap: {[x*]+}
-[11-18 06:14:15 50:19:73] Chn 2 digitmap: x+#|xx+*
-[11-18 06:14:15 50:19:73] Chn 2 use default digitmap: {[x*]+}
-[11-18 06:14:15 50:19:73] Chn 3 digitmap: x+#|xx+*
-[11-18 06:14:15 50:19:73] Chn 3 use default digitmap: {[x*]+}
-[11-18 06:14:15 50:19:73] Chn 4 digitmap: x+#|xx+*
-[11-18 06:14:15 50:19:73] Chn 4 use default digitmap: {[x*]+}
-[11-18 06:14:15 50:19:73] Chn 5 digitmap: x+#|xx+*
-[11-18 06:14:15 50:19:73] Chn 5 use default digitmap: {[x*]+}
-[11-18 06:14:15 50:19:73] NTP: TimeZoneChange, But SynNTPTime Fail!
-[11-18 06:14:15 50:19:73] NTP: NTP Server1 IP: 
-[11-18 06:14:15 50:19:73] errnoSet: new status 0x320001.
-[11-18 06:14:15 50:19:73] errnoSet: new status 0x710002.
-[11-18 06:14:15 50:19:73] NTP: GetNtpTime from  fail! reseaon: unknown
-[11-18 06:14:15 50:19:73] MSDspStopMute:2077####
-[11-18 06:14:15 50:19:73]  EXTRA_KILL_TIMER check Tmid Error!
-[11-18 06:14:15 50:19:73]  EXTRA_KILL_TIMER check Tmid Error!
-[11-18 06:14:15 50:19:73] chn=0, AEC_switch = 0
-[11-18 06:14:15 50:19:73] MS: Chn 0 MSDspStopSendRev
-[11-18 06:14:15 50:19:73] SIP: aid 0 RegTimer Start...
-[11-18 06:14:15 50:19:73] SIP: aid 1 RegTimer Start...
-[11-18 06:14:15 50:19:73] SIP: aid 2 RegTimer Start...
-[11-18 06:14:15 50:19:73] SIP: aid 3 RegTimer Start...
-[11-18 06:14:15 50:19:73] SIP: aid 4 RegTimer Start...
-[11-18 06:14:15 50:19:73] SIP: aid 5 RegTimer Start...
-[11-18 06:14:15 50:19:73] MultiCast Paging Init Start .........
-[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x       0 SrcPort=0 Pno=65535 Event=66 NetId=0x0...
-[11-18 06:14:15 50:19:73] Init UDPSocket: pos 158, fail LocalPort = 0 Error !
-[11-18 06:14:15 50:19:73] Create Udp Socket: Init UDP Socket Fail, pos = 158, port = 0!
-[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x       0 SrcPort=0 Pno=65535 Event=67 NetId=0x0...
-[11-18 06:14:15 50:19:73] Init UDPSocket: pos 158, fail LocalPort = 0 Error !
-[11-18 06:14:15 50:19:73] Create Udp Socket: Init UDP Socket Fail, pos = 158, port = 0!
-[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x       0 SrcPort=0 Pno=65535 Event=68 NetId=0x0...
-[11-18 06:14:15 50:19:73] Init UDPSocket: pos 158, fail LocalPort = 0 Error !
-[11-18 06:14:15 50:19:73] Create Udp Socket: Init UDP Socket Fail, pos = 158, port = 0!
-[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x       0 SrcPort=0 Pno=65535 Event=69 NetId=0x0...
-[11-18 06:14:15 50:19:73] Init UDPSocket: pos 158, fail LocalPort = 0 Error !
-[11-18 06:14:15 50:19:73] Create Udp Socket: Init UDP Socket Fail, pos = 158, port = 0!
-[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x       0 SrcPort=0 Pno=65535 Event=70 NetId=0x0...
-[11-18 06:14:15 50:19:73] Init UDPSocket: pos 158, fail LocalPort = 0 Error !
-[11-18 06:14:15 50:19:73] Create Udp Socket: Init UDP Socket Fail, pos = 158, port = 0!
-[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x       0 SrcPort=0 Pno=65535 Event=71 NetId=0x0...
-[11-18 06:14:15 50:19:73] Init UDPSocket: pos 158, fail LocalPort = 0 Error !
-[11-18 06:14:15 50:19:73] Create Udp Socket: Init UDP Socket Fail, pos = 158, port = 0!
-[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x       0 SrcPort=0 Pno=65535 Event=72 NetId=0x0...
-[11-18 06:14:15 50:19:73] Init UDPSocket: pos 158, fail LocalPort = 0 Error !
-[11-18 06:14:15 50:19:73] Create Udp Socket: Init UDP Socket Fail, pos = 158, port = 0!
-[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x       0 SrcPort=0 Pno=65535 Event=73 NetId=0x0...
-[11-18 06:14:15 50:19:73] Init UDPSocket: pos 158, fail LocalPort = 0 Error !
-[11-18 06:14:15 50:19:73] Create Udp Socket: Init UDP Socket Fail, pos = 158, port = 0!
-[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x       0 SrcPort=0 Pno=65535 Event=74 NetId=0x0...
-[11-18 06:14:15 50:19:73] Init UDPSocket: pos 158, fail LocalPort = 0 Error !
-[11-18 06:14:15 50:19:73] Create Udp Socket: Init UDP Socket Fail, pos = 158, port = 0!
-[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x       0 SrcPort=0 Pno=65535 Event=75 NetId=0x0...
-[11-18 06:14:15 50:19:73] Init UDPSocket: pos 158, fail LocalPort = 0 Error !
-[11-18 06:14:15 50:19:73] Create Udp Socket: Init UDP Socket Fail, pos = 158, port = 0!
+[...]
 [11-18 06:14:15 50:19:73] sip tcp lib init: Start SipTcp ScanTask OK!!!
 [11-18 06:14:15 50:19:73] iNet: resolv.conf: nameserver 10.66.0.1
 [11-18 06:14:15 50:19:73] iNet: GetDns from resolv.conf: 10.66.0.1
@@ -5281,7 +5172,32 @@ Connection: Keep-Alive
 [11-18 17:18:16 50:19:73] SYSLOG: read flash Flie /hlfs/message01 size = 836967 
 ``` 
 
-# lundi 19 11
+
+```
+syslog du phone quand c'est registered :
+```
+[11-17 20:31:44 50:19:73] SIP: aid 0, cid 0, tid 0, did 0, REQUEST: REGISTER, Event: 1
+[11-17 20:31:44 50:19:73] SIP: aid 0, cid 0, tid 0, did 0, RESPONSE: 200 OK, User is successfully registred!, Event: 1
+```
+
+dans l'endpoint management / extension mapping a une `IP address status`
+
+Je refais un reboot pour récuperer un syslog avec un vpn
+Endpoint management / Extension Mapping / edit / VPN client : 57HelloCabVPNclient / save and rebuild / apply
+reboot phone 
+```
+sylog du telphone quand register failed
+11-18 21:07:53 50:19:73] SIP: aid 0, cid 0, tid 14, did 0, REQUEST: SUBSCRIBE, Event: 40
+[11-18 21:07:53 50:19:73] SIP: aid 0, cid 0, tid 14, did 0, RESPONSE: 401 Unauthorized, 4xx received for SUBSCRIBE!, Event: 40
+`̀``
+Je passe le Application Extension / extension edit / advanced tab / Edit extension / Nat mode  Yes -> No
+submit apply config.
+reboot phone 
+je crois pas que cela change grand chose on a toujours Account status registered. 
+
+
+
+# mardi 19 11
 - suppression de l'extension mapping : Endpoint Management / Extension Mapping
 - suppression des extensions :  application / extensions. Je ne garde que les 4 extensions actives.
 - suppressions de tous les users inutiles : Admin / User Management / delete / apply config.. Reste plus que sec, mutti, orthop, francois 
@@ -5328,7 +5244,7 @@ Création de l'extension :
   - Model
   - Account
  - Admin / user management :
- Le user login 5 a été crée il n'a pas VPN client associé.
+ Le user login 5 a été crée,  il n'a pas VPN client associé.
  Il est lié à l'extension 5
  Dans Endpoint Manager / Extension Mapping / Add extension
  - je rentre l'account , l'address MAC, le model
@@ -5344,30 +5260,32 @@ USer Management / VPN tab
 On trouve un nouveau client dans system admin  / VPN server / Client 5-5
 mais je ne peux pas le lier au nouvel user?
 
-
->>>>>>> ba3fba1cc42c9aa81039534d8d94fdaa78a709ec
+Je supprime le client VPN System Admin / VPN server / delete client. 
+j'en crée un nouveau
+et là je peux choisir un VPN client dans User Management / VPN tab / Autocreate & Link No / Define Aditionnal VPN on peut choisir les clients
+Si Autocreate and Link YES alors on ne peut Define Aditionnal VPN
+Par contre on les retrouve ces VPN client dans Settings / Endpoint Manager / Extension Mapping. 
+Les VPN client crée avec Autocreate and Link ne peuvent pas etre mis dans le champ `Define Addionnal VPN` mais on peut les récupérer dans les Endpoint Manager / extension mapping. Et pour pouvoir lier d'autres clients VPN avec un user il faut mettre `Autocreate and Link` à NO et pourra ensuite les mettre dans Endpoint Manager / Extension mapping
 
 ```
-syslog du phone quand c'est registered :
-```
-[11-17 20:31:44 50:19:73] SIP: aid 0, cid 0, tid 0, did 0, REQUEST: REGISTER, Event: 1
-[11-17 20:31:44 50:19:73] SIP: aid 0, cid 0, tid 0, did 0, RESPONSE: 200 OK, User is successfully registred!, Event: 1
+syslog ip phone 
+vpn et registered 
+[11-20 00:24:20 50:19:73] SIP: aid 0 Reg Start...
+[11-20 00:24:20 50:19:73] SIP: sip_nict_init, no route, req_uri->host:port is 10.8.0.1:5060
+[11-20 00:24:20 50:19:73] SIP: aid 0, cid 0, tid 0, did 0, REQUEST: REGISTER, Event: 2
+[11-20 00:24:20 50:19:73] SIP: aid 0, cid 0, tid 0, did 0, RESPONSE: 401 Unauthorized, Registration failed!, Event: 2
+[11-20 00:24:20 50:19:73] SIP: find_authentication_info, aid 0, username: 5, realm: "asterisk"
+[11-20 00:24:20 50:19:73] SIP: find_auth_info, aid 0, username: 5, account match
+[11-20 00:24:20 50:19:73] SIP: sip_nict_init, no route, req_uri->host:port is 10.8.0.1:5060
+[11-20 00:24:20 50:19:73] SIP: aid 0, cid 0, tid 3, did 0, REQUEST: OPTIONS, Event: 27
+[11-20 00:24:20 50:19:73] SIP: aid 0, cid 0, tid 0, did 0, REQUEST: REGISTER, Event: 1
+[11-20 00:24:20 50:19:73] SIP: aid 0, cid 0, tid 0, did 0, RESPONSE: 200 OK, User is successfully registred!, Event: 1
+[11-20 00:24:20 50:19:73] SIP: aid 0, Fail to get User-Agent header
+[11-20 00:24:20 50:19:73] SIP: aid 0, expires: 900(900)
+[11-20 00:24:20 50:19:73] SIP: aid 0, expires: 900(900)
 ```
 
-dans l'endpoint management / extension mapping a une `IP address status`
 
-Je refais un reboot pour récuperer un syslog avec un vpn
-Endpoint management / Extension Mapping / edit / VPN client : 57HelloCabVPNclient / save and rebuild / apply
-reboot phone 
-```
-sylog du telphone quand register failed
-11-18 21:07:53 50:19:73] SIP: aid 0, cid 0, tid 14, did 0, REQUEST: SUBSCRIBE, Event: 40
-[11-18 21:07:53 50:19:73] SIP: aid 0, cid 0, tid 14, did 0, RESPONSE: 401 Unauthorized, 4xx received for SUBSCRIBE!, Event: 40
-`̀``
-Je passe le Application Extension / extension edit / advanced tab / Edit extension / Nat mode  Yes -> No
-submit apply config.
-reboot phone 
-je crois pas que cela change grand chose on a toujours Account status registered. 
 
 # SIP NAT
 ## Ou est ce qu'on peut configurer le NAT ?
@@ -5395,7 +5313,11 @@ tail -f /var/log/httpd/accesslog
 tail -f /var/log/asterisk/full.
 
 
-# comment tester sip connection
+mardi
+je crée  une extension, le system crée automatiquement un user. Je demande à ce user de créer et de mapper le client VPN  
+Il est effectivement créé mais je ne peux pas le et 
+
+
 
 
 	
