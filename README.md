@@ -28,6 +28,7 @@ http://wiki.freepbx.org/display/FPG/Firewall+Command+Line
 `fwconsole firewall disable`  
 
 puis en GUI recherche -> firewall -> enable --> re-run wizard
+
 ## The client machine you are using to manage this server (10.10.0.6/32) i
 ce n'est pas l'adresse du server mais l'adresse du client.
 
@@ -80,9 +81,6 @@ Faire un ssh puis
 - `asterisk -r | asterisk -rvvv`    
 - Le prompt change en localhost\*CLI>  
 - ? pour avoir toute les commandes  
-
-### Le log asterisk
-- le log est sous /var/log/asterisk/full    
 
 ##### Quelques commandes utiles
 - `sip show peers` 
@@ -149,7 +147,7 @@ J'ai essayé gmail mais je n'ai pas réussi.
 - Domain = ?  
  
  J'ai essayé Use external SMTP server avec gmail mais cela n'a pas marché. Debug : network unreachable.
- J'ai essayé USe buil in SMTP server et ca marche. j'ai changé My Origin  localhost.localdomain --> FreePBX.MLP. 
+ J'ai essayé USe built in SMTP server et ca marche. j'ai changé My Origin  localhost.localdomain --> FreePBX.MLP. 
 
  Mais cela part dans les spams.
  
@@ -171,7 +169,7 @@ Le systeme crée automatiquement un nouveau user que l'on peut configurer dans A
 
 ## Une fois que l'on a crée l'extension on va la linker à un poste IP phone.
 - Settings / EndPoint Manager / Extension Mapping
-- Add Extension  
+- Add Mapping  Extension  
 - On choisit l'extension  qui elle même est mappée à un user.
 	- un account (cet account est quelque chose dans le téléphone)
 	- Une marque de téléphone 
@@ -291,7 +289,7 @@ Settings -> EndPoint Manager -> Advanced -> Add brand
 * save model
 
 # Mappage d'un IP phone vers une extension
--> Extension Mapping -> Add Extension (dans le sous menu de Settings->EndPoint Manager)  
+-> Settings->EndPoint Manager -> Extension Mapping -> Add Extension   
 -> Extension/Name select l'extension et le compte que l'on veut associer au téléphone.  
 -> select le brand du telephone   
 -> entrer sa mac address  
@@ -363,6 +361,9 @@ Pnp server configuration : automatic.
 - 5 brancher l'IP phone. Accepter le PnP message.
 - 6 et voila. 
 
+#### Comment trouver l'IP d'un phone Sangoma
+menu -> Status -> information
+
 #### 3 facons de configurer un phone Sangoma
 - 1  redirection service (zero-touch auto-provisioning)
 - 2  DHCP option 66
@@ -393,8 +394,8 @@ Management -> Auto Provision - upgrade mode - config server path - autoprovision
 
 # port used on freepbx
 https://wiki.freepbx.org/display/PPS/Ports+used+on+your+PBX
-# Comment trouver l'IP d'un phone Sangoma
-menu -> Status -> information
+
+
 
 # Comment rebooter un phone Sangoma sans password
 Menu button -> * key 3 fois -> down arrow pour 10 s. Le téléphone reboot
