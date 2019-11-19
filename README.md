@@ -2752,6 +2752,7 @@ syslog de l'ip phone qd SIP registered
 [11-18 16:56:08 50:19:73]  check_boot_imge_new ,6365!
 ``` 
 
+<<<<<<< HEAD
 Je refais un reboot pour récupérer le syslog. 
 un syslog sans vpn 
 Endpoint extension / extension mapping / VPN Client : None / Save and Rebuild / Apply.
@@ -2763,6 +2764,2587 @@ acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
 [2019-11-18 21:08:09] DEBUG[16667] netsock2.c: Splitting '10.66.0.138:5060' into...
 [2019-11-18 21:08:09] DEBUG[16667] netsock2.c: ...host '10.66.0.138' and port '5060'.
 [2019-11-18 21:08:09] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for a4f2a061178e325@10.66.0.138 - REGISTER (No RTP)
+=======
+Je vais mettre un vpn client dans le user
+User management / VPN tab il y est deja alors que je l'avais enlevé tout à l'heure
+Endpoint management / extension mapping / edit / verifié qu'il y ait / save and rebuild / Apply
+
+
+```
+sylog de l'ip phone avec le VPN clientte
+
+[00-00 00:00:00 50:19:73] Syslog Task Start...
+[00-00 00:00:00 50:19:73] RTOS Timer Start...
+[11-18 06:14:15 50:19:73] Timer module Initailized success!
+[11-18 06:14:15 50:19:73] RTOS Get Product Type...
+[11-18 06:14:15 50:19:73] ###### Device is S700 ...
+[11-18 06:14:15 50:19:73] SRTPLibIni ...
+[11-18 06:14:15 50:19:73] srtp_init...
+[11-18 06:14:15 50:19:73] srtp: initialize error reporting system
+[11-18 06:14:15 50:19:73] srtp: load debug modules
+[11-18 06:14:15 50:19:73] srtp: initialize random number generator
+[11-18 06:14:15 50:19:73] srtp: run FIPS-140 statistical tests on rand_source
+[11-18 06:14:15 50:19:73] srtp: initialize pseudorandom number generator
+[11-18 06:14:15 50:19:73] srtp: run FIPS-140 statistical tests on ctr_prng
+[11-18 06:14:15 50:19:73] srtp: load cipher types NULL_CIPHER
+[11-18 06:14:15 50:19:73] srtp: load cipher types AES_128_ICM
+[11-18 06:14:15 50:19:73] srtp: load cipher types AES_128_CBC
+[11-18 06:14:15 50:19:73] srtp: load auth func types HMAC_SHA1
+[11-18 06:14:15 50:19:73] srtp: crypto kernel init OK
+[11-18 06:14:15 50:19:73] SRTPLibIni OK!!!
+[11-18 06:14:15 50:19:73] GetPBSerInfo ...
+[11-18 06:14:15 50:19:73] HpsUdpInit ...
+[11-18 06:14:15 50:19:73] HpsUdpInit: Start HpsUdpPro OK!!!
+[11-18 06:14:15 50:19:73] HpsUdpPro start...
+[11-18 06:14:15 50:19:73] HpsUdpPro work...
+[11-18 06:14:15 50:19:73] MSTermLibInit ...
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12100 Pno=65535 Event=32 NetId=0x10000...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 16 Success, pos[1]locip[a080003]port[12100]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=1 Port=12100 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 0, Set Socket Table pos 1[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12101 Pno=65535 Event=25 NetId=0x10000...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 17 Success, pos[2]locip[a080003]port[12101]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=2 Port=12101 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12102 Pno=65535 Event=32 NetId=0x10001...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 18 Success, pos[3]locip[a080003]port[12102]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=3 Port=12102 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 1, Set Socket Table pos 3[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12103 Pno=65535 Event=25 NetId=0x10001...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 19 Success, pos[4]locip[a080003]port[12103]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=4 Port=12103 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12104 Pno=65535 Event=32 NetId=0x10002...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 20 Success, pos[5]locip[a080003]port[12104]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=5 Port=12104 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 2, Set Socket Table pos 5[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12105 Pno=65535 Event=25 NetId=0x10002...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 21 Success, pos[6]locip[a080003]port[12105]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=6 Port=12105 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12106 Pno=65535 Event=32 NetId=0x10003...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 22 Success, pos[7]locip[a080003]port[12106]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=7 Port=12106 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 3, Set Socket Table pos 7[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12107 Pno=65535 Event=25 NetId=0x10003...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 23 Success, pos[8]locip[a080003]port[12107]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=8 Port=12107 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12108 Pno=65535 Event=32 NetId=0x10004...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 24 Success, pos[9]locip[a080003]port[12108]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=9 Port=12108 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 4, Set Socket Table pos 9[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12109 Pno=65535 Event=25 NetId=0x10004...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 25 Success, pos[10]locip[a080003]port[12109]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=10 Port=12109 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12110 Pno=65535 Event=32 NetId=0x10005...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 26 Success, pos[11]locip[a080003]port[12110]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=11 Port=12110 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 5, Set Socket Table pos 11[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12111 Pno=65535 Event=25 NetId=0x10005...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 27 Success, pos[12]locip[a080003]port[12111]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=12 Port=12111 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12112 Pno=65535 Event=32 NetId=0x10006...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 28 Success, pos[13]locip[a080003]port[12112]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=13 Port=12112 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 6, Set Socket Table pos 13[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12113 Pno=65535 Event=25 NetId=0x10006...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 29 Success, pos[14]locip[a080003]port[12113]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=14 Port=12113 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12114 Pno=65535 Event=32 NetId=0x10007...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 30 Success, pos[15]locip[a080003]port[12114]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=15 Port=12114 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 7, Set Socket Table pos 15[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12115 Pno=65535 Event=25 NetId=0x10007...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 31 Success, pos[16]locip[a080003]port[12115]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=16 Port=12115 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12116 Pno=65535 Event=32 NetId=0x10008...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 32 Success, pos[17]locip[a080003]port[12116]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=17 Port=12116 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 8, Set Socket Table pos 17[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12117 Pno=65535 Event=25 NetId=0x10008...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 33 Success, pos[18]locip[a080003]port[12117]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=18 Port=12117 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12118 Pno=65535 Event=32 NetId=0x10009...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 34 Success, pos[19]locip[a080003]port[12118]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=19 Port=12118 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 9, Set Socket Table pos 19[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12119 Pno=65535 Event=25 NetId=0x10009...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 35 Success, pos[20]locip[a080003]port[12119]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=20 Port=12119 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12120 Pno=65535 Event=32 NetId=0x1000a...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 36 Success, pos[21]locip[a080003]port[12120]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=21 Port=12120 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 10, Set Socket Table pos 21[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12121 Pno=65535 Event=25 NetId=0x1000a...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 37 Success, pos[22]locip[a080003]port[12121]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=22 Port=12121 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12122 Pno=65535 Event=32 NetId=0x1000b...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 38 Success, pos[23]locip[a080003]port[12122]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=23 Port=12122 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 11, Set Socket Table pos 23[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12123 Pno=65535 Event=25 NetId=0x1000b...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 39 Success, pos[24]locip[a080003]port[12123]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=24 Port=12123 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12124 Pno=65535 Event=32 NetId=0x1000c...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 40 Success, pos[25]locip[a080003]port[12124]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=25 Port=12124 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 12, Set Socket Table pos 25[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12125 Pno=65535 Event=25 NetId=0x1000c...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 41 Success, pos[26]locip[a080003]port[12125]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=26 Port=12125 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12126 Pno=65535 Event=32 NetId=0x1000d...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 42 Success, pos[27]locip[a080003]port[12126]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=27 Port=12126 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 13, Set Socket Table pos 27[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12127 Pno=65535 Event=25 NetId=0x1000d...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 43 Success, pos[28]locip[a080003]port[12127]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=28 Port=12127 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12128 Pno=65535 Event=32 NetId=0x1000e...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 44 Success, pos[29]locip[a080003]port[12128]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=29 Port=12128 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 14, Set Socket Table pos 29[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12129 Pno=65535 Event=25 NetId=0x1000e...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 45 Success, pos[30]locip[a080003]port[12129]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=30 Port=12129 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12130 Pno=65535 Event=32 NetId=0x1000f...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 46 Success, pos[31]locip[a080003]port[12130]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=31 Port=12130 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 15, Set Socket Table pos 31[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12131 Pno=65535 Event=25 NetId=0x1000f...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 47 Success, pos[32]locip[a080003]port[12131]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=32 Port=12131 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12132 Pno=65535 Event=32 NetId=0x10010...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 48 Success, pos[33]locip[a080003]port[12132]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=33 Port=12132 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 16, Set Socket Table pos 33[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12133 Pno=65535 Event=25 NetId=0x10010...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 49 Success, pos[34]locip[a080003]port[12133]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=34 Port=12133 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12134 Pno=65535 Event=32 NetId=0x10011...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 50 Success, pos[35]locip[a080003]port[12134]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=35 Port=12134 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 17, Set Socket Table pos 35[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12135 Pno=65535 Event=25 NetId=0x10011...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 51 Success, pos[36]locip[a080003]port[12135]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=36 Port=12135 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12136 Pno=65535 Event=32 NetId=0x10012...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 52 Success, pos[37]locip[a080003]port[12136]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=37 Port=12136 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 18, Set Socket Table pos 37[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12137 Pno=65535 Event=25 NetId=0x10012...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 53 Success, pos[38]locip[a080003]port[12137]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=38 Port=12137 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12138 Pno=65535 Event=32 NetId=0x10013...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 54 Success, pos[39]locip[a080003]port[12138]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=39 Port=12138 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 19, Set Socket Table pos 39[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12139 Pno=65535 Event=25 NetId=0x10013...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 55 Success, pos[40]locip[a080003]port[12139]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=40 Port=12139 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12140 Pno=65535 Event=32 NetId=0x10014...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 56 Success, pos[41]locip[a080003]port[12140]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=41 Port=12140 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 20, Set Socket Table pos 41[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12141 Pno=65535 Event=25 NetId=0x10014...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 57 Success, pos[42]locip[a080003]port[12141]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=42 Port=12141 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12142 Pno=65535 Event=32 NetId=0x10015...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 58 Success, pos[43]locip[a080003]port[12142]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=43 Port=12142 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 21, Set Socket Table pos 43[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12143 Pno=65535 Event=25 NetId=0x10015...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 59 Success, pos[44]locip[a080003]port[12143]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=44 Port=12143 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12144 Pno=65535 Event=32 NetId=0x10016...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 60 Success, pos[45]locip[a080003]port[12144]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=45 Port=12144 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 22, Set Socket Table pos 45[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12145 Pno=65535 Event=25 NetId=0x10016...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 61 Success, pos[46]locip[a080003]port[12145]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=46 Port=12145 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12146 Pno=65535 Event=32 NetId=0x10017...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 62 Success, pos[47]locip[a080003]port[12146]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=47 Port=12146 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 23, Set Socket Table pos 47[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12147 Pno=65535 Event=25 NetId=0x10017...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 63 Success, pos[48]locip[a080003]port[12147]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=48 Port=12147 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12148 Pno=65535 Event=32 NetId=0x10018...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 64 Success, pos[49]locip[a080003]port[12148]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=49 Port=12148 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 24, Set Socket Table pos 49[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12149 Pno=65535 Event=25 NetId=0x10018...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 65 Success, pos[50]locip[a080003]port[12149]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=50 Port=12149 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12150 Pno=65535 Event=32 NetId=0x10019...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 66 Success, pos[51]locip[a080003]port[12150]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=51 Port=12150 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 25, Set Socket Table pos 51[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12151 Pno=65535 Event=25 NetId=0x10019...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 67 Success, pos[52]locip[a080003]port[12151]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=52 Port=12151 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12152 Pno=65535 Event=32 NetId=0x1001a...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 68 Success, pos[53]locip[a080003]port[12152]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=53 Port=12152 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 26, Set Socket Table pos 53[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12153 Pno=65535 Event=25 NetId=0x1001a...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 69 Success, pos[54]locip[a080003]port[12153]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=54 Port=12153 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12154 Pno=65535 Event=32 NetId=0x1001b...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 70 Success, pos[55]locip[a080003]port[12154]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=55 Port=12154 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 27, Set Socket Table pos 55[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12155 Pno=65535 Event=25 NetId=0x1001b...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 71 Success, pos[56]locip[a080003]port[12155]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=56 Port=12155 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12156 Pno=65535 Event=32 NetId=0x1001c...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 72 Success, pos[57]locip[a080003]port[12156]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=57 Port=12156 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 28, Set Socket Table pos 57[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12157 Pno=65535 Event=25 NetId=0x1001c...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 73 Success, pos[58]locip[a080003]port[12157]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=58 Port=12157 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12158 Pno=65535 Event=32 NetId=0x1001d...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 74 Success, pos[59]locip[a080003]port[12158]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=59 Port=12158 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 29, Set Socket Table pos 59[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12159 Pno=65535 Event=25 NetId=0x1001d...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 75 Success, pos[60]locip[a080003]port[12159]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=60 Port=12159 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12160 Pno=65535 Event=32 NetId=0x1001e...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 76 Success, pos[61]locip[a080003]port[12160]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=61 Port=12160 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 30, Set Socket Table pos 61[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12161 Pno=65535 Event=25 NetId=0x1001e...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 77 Success, pos[62]locip[a080003]port[12161]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=62 Port=12161 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12162 Pno=65535 Event=32 NetId=0x1001f...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 78 Success, pos[63]locip[a080003]port[12162]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=63 Port=12162 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 31, Set Socket Table pos 63[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12163 Pno=65535 Event=25 NetId=0x1001f...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 79 Success, pos[64]locip[a080003]port[12163]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=64 Port=12163 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12164 Pno=65535 Event=32 NetId=0x10020...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 80 Success, pos[65]locip[a080003]port[12164]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=65 Port=12164 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 32, Set Socket Table pos 65[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12165 Pno=65535 Event=25 NetId=0x10020...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 81 Success, pos[66]locip[a080003]port[12165]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=66 Port=12165 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12166 Pno=65535 Event=32 NetId=0x10021...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 82 Success, pos[67]locip[a080003]port[12166]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=67 Port=12166 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 33, Set Socket Table pos 67[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12167 Pno=65535 Event=25 NetId=0x10021...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 83 Success, pos[68]locip[a080003]port[12167]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=68 Port=12167 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12168 Pno=65535 Event=32 NetId=0x10022...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 84 Success, pos[69]locip[a080003]port[12168]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=69 Port=12168 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 34, Set Socket Table pos 69[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12169 Pno=65535 Event=25 NetId=0x10022...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 85 Success, pos[70]locip[a080003]port[12169]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=70 Port=12169 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12170 Pno=65535 Event=32 NetId=0x10023...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 86 Success, pos[71]locip[a080003]port[12170]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=71 Port=12170 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 35, Set Socket Table pos 71[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12171 Pno=65535 Event=25 NetId=0x10023...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 87 Success, pos[72]locip[a080003]port[12171]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=72 Port=12171 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12172 Pno=65535 Event=32 NetId=0x10024...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 88 Success, pos[73]locip[a080003]port[12172]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=73 Port=12172 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 36, Set Socket Table pos 73[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12173 Pno=65535 Event=25 NetId=0x10024...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 89 Success, pos[74]locip[a080003]port[12173]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=74 Port=12173 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12174 Pno=65535 Event=32 NetId=0x10025...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 90 Success, pos[75]locip[a080003]port[12174]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=75 Port=12174 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 37, Set Socket Table pos 75[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12175 Pno=65535 Event=25 NetId=0x10025...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 91 Success, pos[76]locip[a080003]port[12175]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=76 Port=12175 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12176 Pno=65535 Event=32 NetId=0x10026...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 92 Success, pos[77]locip[a080003]port[12176]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=77 Port=12176 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 38, Set Socket Table pos 77[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12177 Pno=65535 Event=25 NetId=0x10026...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 93 Success, pos[78]locip[a080003]port[12177]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=78 Port=12177 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12178 Pno=65535 Event=32 NetId=0x10027...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 94 Success, pos[79]locip[a080003]port[12178]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=79 Port=12178 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 39, Set Socket Table pos 79[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12179 Pno=65535 Event=25 NetId=0x10027...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 95 Success, pos[80]locip[a080003]port[12179]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=80 Port=12179 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12180 Pno=65535 Event=32 NetId=0x10028...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 96 Success, pos[81]locip[a080003]port[12180]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=81 Port=12180 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 40, Set Socket Table pos 81[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12181 Pno=65535 Event=25 NetId=0x10028...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 97 Success, pos[82]locip[a080003]port[12181]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=82 Port=12181 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12182 Pno=65535 Event=32 NetId=0x10029...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 98 Success, pos[83]locip[a080003]port[12182]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=83 Port=12182 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 41, Set Socket Table pos 83[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12183 Pno=65535 Event=25 NetId=0x10029...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 99 Success, pos[84]locip[a080003]port[12183]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=84 Port=12183 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12184 Pno=65535 Event=32 NetId=0x1002a...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 100 Success, pos[85]locip[a080003]port[12184]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=85 Port=12184 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 42, Set Socket Table pos 85[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12185 Pno=65535 Event=25 NetId=0x1002a...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 101 Success, pos[86]locip[a080003]port[12185]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=86 Port=12185 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12186 Pno=65535 Event=32 NetId=0x1002b...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 102 Success, pos[87]locip[a080003]port[12186]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=87 Port=12186 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 43, Set Socket Table pos 87[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12187 Pno=65535 Event=25 NetId=0x1002b...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 103 Success, pos[88]locip[a080003]port[12187]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=88 Port=12187 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12188 Pno=65535 Event=32 NetId=0x1002c...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 104 Success, pos[89]locip[a080003]port[12188]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=89 Port=12188 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 44, Set Socket Table pos 89[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12189 Pno=65535 Event=25 NetId=0x1002c...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 105 Success, pos[90]locip[a080003]port[12189]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=90 Port=12189 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12190 Pno=65535 Event=32 NetId=0x1002d...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 106 Success, pos[91]locip[a080003]port[12190]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=91 Port=12190 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 45, Set Socket Table pos 91[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12191 Pno=65535 Event=25 NetId=0x1002d...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 107 Success, pos[92]locip[a080003]port[12191]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=92 Port=12191 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12192 Pno=65535 Event=32 NetId=0x1002e...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 108 Success, pos[93]locip[a080003]port[12192]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=93 Port=12192 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 46, Set Socket Table pos 93[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12193 Pno=65535 Event=25 NetId=0x1002e...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 109 Success, pos[94]locip[a080003]port[12193]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=94 Port=12193 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12194 Pno=65535 Event=32 NetId=0x1002f...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 110 Success, pos[95]locip[a080003]port[12194]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=95 Port=12194 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 47, Set Socket Table pos 95[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12195 Pno=65535 Event=25 NetId=0x1002f...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 111 Success, pos[96]locip[a080003]port[12195]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=96 Port=12195 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12196 Pno=65535 Event=32 NetId=0x10030...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 112 Success, pos[97]locip[a080003]port[12196]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=97 Port=12196 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 48, Set Socket Table pos 97[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12197 Pno=65535 Event=25 NetId=0x10030...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 113 Success, pos[98]locip[a080003]port[12197]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=98 Port=12197 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12198 Pno=65535 Event=32 NetId=0x10031...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 114 Success, pos[99]locip[a080003]port[12198]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=99 Port=12198 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Pool_Rtp_Set:2366##RTP Pool index 49, Set Socket Table pos 99[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12199 Pno=65535 Event=25 NetId=0x10031...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 115 Success, pos[100]locip[a080003]port[12199]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=100 Port=12199 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12200 Pno=65535 Event=32 NetId=0x10032...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 116 Success, pos[101]locip[a080003]port[12200]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=101 Port=12200 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12201 Pno=65535 Event=25 NetId=0x10032...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 117 Success, pos[102]locip[a080003]port[12201]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=102 Port=12201 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12202 Pno=65535 Event=32 NetId=0x10033...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 118 Success, pos[103]locip[a080003]port[12202]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=103 Port=12202 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12203 Pno=65535 Event=25 NetId=0x10033...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 119 Success, pos[104]locip[a080003]port[12203]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=104 Port=12203 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12204 Pno=65535 Event=32 NetId=0x10034...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 120 Success, pos[105]locip[a080003]port[12204]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=105 Port=12204 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12205 Pno=65535 Event=25 NetId=0x10034...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 121 Success, pos[106]locip[a080003]port[12205]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=106 Port=12205 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12206 Pno=65535 Event=32 NetId=0x10035...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 122 Success, pos[107]locip[a080003]port[12206]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=107 Port=12206 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12207 Pno=65535 Event=25 NetId=0x10035...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 123 Success, pos[108]locip[a080003]port[12207]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=108 Port=12207 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12208 Pno=65535 Event=32 NetId=0x10036...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 124 Success, pos[109]locip[a080003]port[12208]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=109 Port=12208 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12209 Pno=65535 Event=25 NetId=0x10036...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 125 Success, pos[110]locip[a080003]port[12209]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=110 Port=12209 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12210 Pno=65535 Event=32 NetId=0x10037...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 126 Success, pos[111]locip[a080003]port[12210]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=111 Port=12210 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12211 Pno=65535 Event=25 NetId=0x10037...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 127 Success, pos[112]locip[a080003]port[12211]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=112 Port=12211 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12212 Pno=65535 Event=32 NetId=0x10038...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 128 Success, pos[113]locip[a080003]port[12212]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=113 Port=12212 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12213 Pno=65535 Event=25 NetId=0x10038...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 129 Success, pos[114]locip[a080003]port[12213]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=114 Port=12213 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12214 Pno=65535 Event=32 NetId=0x10039...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 130 Success, pos[115]locip[a080003]port[12214]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=115 Port=12214 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12215 Pno=65535 Event=25 NetId=0x10039...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 131 Success, pos[116]locip[a080003]port[12215]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=116 Port=12215 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12216 Pno=65535 Event=32 NetId=0x1003a...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 132 Success, pos[117]locip[a080003]port[12216]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=117 Port=12216 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12217 Pno=65535 Event=25 NetId=0x1003a...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 133 Success, pos[118]locip[a080003]port[12217]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=118 Port=12217 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12218 Pno=65535 Event=32 NetId=0x1003b...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 134 Success, pos[119]locip[a080003]port[12218]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=119 Port=12218 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12219 Pno=65535 Event=25 NetId=0x1003b...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 135 Success, pos[120]locip[a080003]port[12219]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=120 Port=12219 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12220 Pno=65535 Event=32 NetId=0x1003c...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 136 Success, pos[121]locip[a080003]port[12220]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=121 Port=12220 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12221 Pno=65535 Event=25 NetId=0x1003c...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 137 Success, pos[122]locip[a080003]port[12221]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=122 Port=12221 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12222 Pno=65535 Event=32 NetId=0x1003d...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 138 Success, pos[123]locip[a080003]port[12222]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=123 Port=12222 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12223 Pno=65535 Event=25 NetId=0x1003d...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 139 Success, pos[124]locip[a080003]port[12223]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=124 Port=12223 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12224 Pno=65535 Event=32 NetId=0x1003e...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 140 Success, pos[125]locip[a080003]port[12224]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=125 Port=12224 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12225 Pno=65535 Event=25 NetId=0x1003e...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 141 Success, pos[126]locip[a080003]port[12225]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=126 Port=12225 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12226 Pno=65535 Event=32 NetId=0x1003f...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 142 Success, pos[127]locip[a080003]port[12226]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=127 Port=12226 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12227 Pno=65535 Event=25 NetId=0x1003f...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 143 Success, pos[128]locip[a080003]port[12227]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=128 Port=12227 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12228 Pno=65535 Event=32 NetId=0x10040...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 144 Success, pos[129]locip[a080003]port[12228]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=129 Port=12228 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12229 Pno=65535 Event=25 NetId=0x10040...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 145 Success, pos[130]locip[a080003]port[12229]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=130 Port=12229 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12230 Pno=65535 Event=32 NetId=0x10041...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 146 Success, pos[131]locip[a080003]port[12230]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=131 Port=12230 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12231 Pno=65535 Event=25 NetId=0x10041...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 147 Success, pos[132]locip[a080003]port[12231]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=132 Port=12231 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12232 Pno=65535 Event=32 NetId=0x10042...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 148 Success, pos[133]locip[a080003]port[12232]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=133 Port=12232 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12233 Pno=65535 Event=25 NetId=0x10042...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 149 Success, pos[134]locip[a080003]port[12233]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=134 Port=12233 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12234 Pno=65535 Event=32 NetId=0x10043...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 150 Success, pos[135]locip[a080003]port[12234]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=135 Port=12234 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12235 Pno=65535 Event=25 NetId=0x10043...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 151 Success, pos[136]locip[a080003]port[12235]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=136 Port=12235 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12236 Pno=65535 Event=32 NetId=0x10044...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 152 Success, pos[137]locip[a080003]port[12236]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=137 Port=12236 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12237 Pno=65535 Event=25 NetId=0x10044...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 153 Success, pos[138]locip[a080003]port[12237]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=138 Port=12237 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12238 Pno=65535 Event=32 NetId=0x10045...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 154 Success, pos[139]locip[a080003]port[12238]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=139 Port=12238 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12239 Pno=65535 Event=25 NetId=0x10045...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 155 Success, pos[140]locip[a080003]port[12239]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=140 Port=12239 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12240 Pno=65535 Event=32 NetId=0x10046...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 156 Success, pos[141]locip[a080003]port[12240]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=141 Port=12240 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12241 Pno=65535 Event=25 NetId=0x10046...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 157 Success, pos[142]locip[a080003]port[12241]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=142 Port=12241 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12242 Pno=65535 Event=32 NetId=0x10047...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 158 Success, pos[143]locip[a080003]port[12242]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=143 Port=12242 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12243 Pno=65535 Event=25 NetId=0x10047...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 159 Success, pos[144]locip[a080003]port[12243]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=144 Port=12243 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12244 Pno=65535 Event=32 NetId=0x10048...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 160 Success, pos[145]locip[a080003]port[12244]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=145 Port=12244 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12245 Pno=65535 Event=25 NetId=0x10048...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 161 Success, pos[146]locip[a080003]port[12245]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=146 Port=12245 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12246 Pno=65535 Event=32 NetId=0x10049...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 162 Success, pos[147]locip[a080003]port[12246]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=147 Port=12246 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12247 Pno=65535 Event=25 NetId=0x10049...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 163 Success, pos[148]locip[a080003]port[12247]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=148 Port=12247 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12248 Pno=65535 Event=32 NetId=0x1004a...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 164 Success, pos[149]locip[a080003]port[12248]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=149 Port=12248 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12249 Pno=65535 Event=25 NetId=0x1004a...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 165 Success, pos[150]locip[a080003]port[12249]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=150 Port=12249 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12250 Pno=65535 Event=32 NetId=0x1004b...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 166 Success, pos[151]locip[a080003]port[12250]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=151 Port=12250 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12251 Pno=65535 Event=25 NetId=0x1004b...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 167 Success, pos[152]locip[a080003]port[12251]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=152 Port=12251 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12252 Pno=65535 Event=32 NetId=0x1004c...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 168 Success, pos[153]locip[a080003]port[12252]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=153 Port=12252 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=12253 Pno=65535 Event=25 NetId=0x1004c...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 169 Success, pos[154]locip[a080003]port[12253]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=154 Port=12253 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] MSDspLibIni ... 
+[11-18 06:14:15 50:19:73] Ti3100: dac_samlpe_hz is 8000 already
+[11-18 06:14:15 50:19:73] BSP: SetCodec 8KHz
+[11-18 06:14:15 50:19:73] MSToneLibInit ... 
+[11-18 06:14:15 50:19:73] ######### Read Ring1 file len 48000
+[11-18 06:14:15 50:19:73] MS: ToneId 90 Load OK
+[11-18 06:14:15 50:19:73] ######### Read Ring2 file len 40000
+[11-18 06:14:15 50:19:73] MS: ToneId 91 Load OK
+[11-18 06:14:15 50:19:73] ######### Read Ring3 file len 40000
+[11-18 06:14:15 50:19:73] MS: ToneId 92 Load OK
+[11-18 06:14:15 50:19:73] ######### Read Ring4 file len 131072
+[11-18 06:14:15 50:19:73] MS: ToneId 93 Load OK
+[11-18 06:14:15 50:19:73] ######### Read Ring5 file len 131072
+[11-18 06:14:15 50:19:73] MS: ToneId 94 Load OK
+[11-18 06:14:15 50:19:73] Read Ring File: Open ring file /etc_ro/res/ring6.bin fail! fd -1 
+[11-18 06:14:15 50:19:73] Read Ring File: Open ring file /etc_ro/res/ring7.bin fail! fd -1 
+[11-18 06:14:15 50:19:73] Read Ring File: Open ring file /etc_ro/res/ring8.bin fail! fd -1 
+[11-18 06:14:15 50:19:73] Read Ring File: Open ring file /etc_ro/res/ring9.bin fail! fd -1 
+[11-18 06:14:15 50:19:73] Read Ring File: Open ring file /etc_ro/res/ring10.bin fail! fd -1 
+[11-18 06:14:15 50:19:73] ######### Read Test g722 file len 34816
+[11-18 06:14:15 50:19:73] MSConfLibInit ... 
+[11-18 06:14:15 50:19:73] InitPnP ...
+[11-18 06:14:15 50:19:73] InitSche ...
+[11-18 06:14:15 50:19:73] CreatSchTask: PNO 4, TaskId 7 OK
+[11-18 06:14:15 50:19:73] CreatSchTask: PNO 5, TaskId 8 OK
+[11-18 06:14:15 50:19:73] CreatSchTask: PNO 6, TaskId 9 OK
+[11-18 06:14:15 50:19:73] CreatSchTask: PNO 8, TaskId 10 OK
+[11-18 06:14:15 50:19:73] CreatSchTask: PNO 9, TaskId 11 OK
+[11-18 06:14:15 50:19:73] CreatSchTask: PNO 10, TaskId 12 OK
+[11-18 06:14:15 50:19:73] ScheOne Initialized success!
+[11-18 06:14:15 50:19:73] OSS system Initialized success!
+[11-18 06:14:15 50:19:73] upgrade_thread Task Start...
+[11-18 06:14:15 50:19:73] Web server Task Start...
+[11-18 06:14:15 50:19:73] HLGetDNS Task Start...
+[11-18 06:14:15 50:19:73] HLStun Task Start...
+[11-18 06:14:15 50:19:73] LLDP Task Start...
+[11-18 06:14:15 50:19:73] PCAP Task Start...
+[11-18 06:14:15 50:19:73] Action URL Task Start...
+[11-18 06:14:15 50:19:73] TR069 Task Start...
+[11-18 06:14:15 50:19:73] HL EHS MODE...
+[11-18 06:14:15 50:19:73] Check IP Conflict Task Start...
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=161 Pno=65535 Event=34 NetId=0x0...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 170 Success, pos[155]locip[a080003]port[161]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=155 Port=161 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x       0 SrcPort=65516 Pno=65535 Event=37 NetId=0x0...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 171 Success, pos[156]locip[0]port[65516]!
+[11-18 06:14:15 50:19:73] Planet Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=156 Port=65516 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=60000 Pno=1 Event=4115 NetId=0x80000008...
+[11-18 06:14:15 50:19:73] SIP Process Start...
+[11-18 06:14:15 50:19:73] SIP: sip trace init ...
+[11-18 06:14:15 50:19:73] CALL: Call Control Process Start...
+[11-18 06:14:15 50:19:73] ActionUrlTask Start...
+[11-18 06:14:15 50:19:73] LCMEntry........
+[11-18 06:14:15 50:19:73] RUNNING EHS MODE
+[11-18 06:14:15 50:19:73] FXS Call Control Process Start...
+[11-18 06:14:15 50:19:73] Xmpp Control Process Start...
+[11-18 06:14:15 50:19:73] IPV4 Init UDPSocket: bind socket 173 Success, pos[157]locip[a080003]port[60000]!
+[11-18 06:14:15 50:19:73] Create Udp Socket: CurPos=157 Port=60000 Create UDP Socket OK!
+[11-18 06:14:15 50:19:73] Open /dev/ttyS1 
+[11-18 06:14:15 50:19:73] IniSipMcastUdp: Create UdpSocket OK pos 157!!!
+[11-18 06:14:15 50:19:73] Baudrate is 2400
+
+[11-18 06:14:15 50:19:73] init_ehs_mode 
+
+[11-18 06:14:15 50:19:73] Chn 0 digitmap: x+#|xx+*
+[11-18 06:14:15 50:19:73] Chn 0 use default digitmap: {[x*]+}
+[11-18 06:14:15 50:19:73] Chn 1 digitmap: x+#|xx+*
+[11-18 06:14:15 50:19:73] Chn 1 use default digitmap: {[x*]+}
+[11-18 06:14:15 50:19:73] Chn 2 digitmap: x+#|xx+*
+[11-18 06:14:15 50:19:73] Chn 2 use default digitmap: {[x*]+}
+[11-18 06:14:15 50:19:73] Chn 3 digitmap: x+#|xx+*
+[11-18 06:14:15 50:19:73] Chn 3 use default digitmap: {[x*]+}
+[11-18 06:14:15 50:19:73] Chn 4 digitmap: x+#|xx+*
+[11-18 06:14:15 50:19:73] Chn 4 use default digitmap: {[x*]+}
+[11-18 06:14:15 50:19:73] Chn 5 digitmap: x+#|xx+*
+[11-18 06:14:15 50:19:73] Chn 5 use default digitmap: {[x*]+}
+[11-18 06:14:15 50:19:73] NTP: TimeZoneChange, But SynNTPTime Fail!
+[11-18 06:14:15 50:19:73] NTP: NTP Server1 IP: 
+[11-18 06:14:15 50:19:73] errnoSet: new status 0x320001.
+[11-18 06:14:15 50:19:73] errnoSet: new status 0x710002.
+[11-18 06:14:15 50:19:73] NTP: GetNtpTime from  fail! reseaon: unknown
+[11-18 06:14:15 50:19:73] MSDspStopMute:2077####
+[11-18 06:14:15 50:19:73]  EXTRA_KILL_TIMER check Tmid Error!
+[11-18 06:14:15 50:19:73]  EXTRA_KILL_TIMER check Tmid Error!
+[11-18 06:14:15 50:19:73] chn=0, AEC_switch = 0
+[11-18 06:14:15 50:19:73] MS: Chn 0 MSDspStopSendRev
+[11-18 06:14:15 50:19:73] SIP: aid 0 RegTimer Start...
+[11-18 06:14:15 50:19:73] SIP: aid 1 RegTimer Start...
+[11-18 06:14:15 50:19:73] SIP: aid 2 RegTimer Start...
+[11-18 06:14:15 50:19:73] SIP: aid 3 RegTimer Start...
+[11-18 06:14:15 50:19:73] SIP: aid 4 RegTimer Start...
+[11-18 06:14:15 50:19:73] SIP: aid 5 RegTimer Start...
+[11-18 06:14:15 50:19:73] MultiCast Paging Init Start .........
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x       0 SrcPort=0 Pno=65535 Event=66 NetId=0x0...
+[11-18 06:14:15 50:19:73] Init UDPSocket: pos 158, fail LocalPort = 0 Error !
+[11-18 06:14:15 50:19:73] Create Udp Socket: Init UDP Socket Fail, pos = 158, port = 0!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x       0 SrcPort=0 Pno=65535 Event=67 NetId=0x0...
+[11-18 06:14:15 50:19:73] Init UDPSocket: pos 158, fail LocalPort = 0 Error !
+[11-18 06:14:15 50:19:73] Create Udp Socket: Init UDP Socket Fail, pos = 158, port = 0!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x       0 SrcPort=0 Pno=65535 Event=68 NetId=0x0...
+[11-18 06:14:15 50:19:73] Init UDPSocket: pos 158, fail LocalPort = 0 Error !
+[11-18 06:14:15 50:19:73] Create Udp Socket: Init UDP Socket Fail, pos = 158, port = 0!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x       0 SrcPort=0 Pno=65535 Event=69 NetId=0x0...
+[11-18 06:14:15 50:19:73] Init UDPSocket: pos 158, fail LocalPort = 0 Error !
+[11-18 06:14:15 50:19:73] Create Udp Socket: Init UDP Socket Fail, pos = 158, port = 0!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x       0 SrcPort=0 Pno=65535 Event=70 NetId=0x0...
+[11-18 06:14:15 50:19:73] Init UDPSocket: pos 158, fail LocalPort = 0 Error !
+[11-18 06:14:15 50:19:73] Create Udp Socket: Init UDP Socket Fail, pos = 158, port = 0!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x       0 SrcPort=0 Pno=65535 Event=71 NetId=0x0...
+[11-18 06:14:15 50:19:73] Init UDPSocket: pos 158, fail LocalPort = 0 Error !
+[11-18 06:14:15 50:19:73] Create Udp Socket: Init UDP Socket Fail, pos = 158, port = 0!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x       0 SrcPort=0 Pno=65535 Event=72 NetId=0x0...
+[11-18 06:14:15 50:19:73] Init UDPSocket: pos 158, fail LocalPort = 0 Error !
+[11-18 06:14:15 50:19:73] Create Udp Socket: Init UDP Socket Fail, pos = 158, port = 0!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x       0 SrcPort=0 Pno=65535 Event=73 NetId=0x0...
+[11-18 06:14:15 50:19:73] Init UDPSocket: pos 158, fail LocalPort = 0 Error !
+[11-18 06:14:15 50:19:73] Create Udp Socket: Init UDP Socket Fail, pos = 158, port = 0!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x       0 SrcPort=0 Pno=65535 Event=74 NetId=0x0...
+[11-18 06:14:15 50:19:73] Init UDPSocket: pos 158, fail LocalPort = 0 Error !
+[11-18 06:14:15 50:19:73] Create Udp Socket: Init UDP Socket Fail, pos = 158, port = 0!
+[11-18 06:14:15 50:19:73] Create Udp Socket: SrcIp=0x       0 SrcPort=0 Pno=65535 Event=75 NetId=0x0...
+[11-18 06:14:15 50:19:73] Init UDPSocket: pos 158, fail LocalPort = 0 Error !
+[11-18 06:14:15 50:19:73] Create Udp Socket: Init UDP Socket Fail, pos = 158, port = 0!
+[11-18 06:14:15 50:19:73] sip tcp lib init: Start SipTcp ScanTask OK!!!
+[11-18 06:14:15 50:19:73] iNet: resolv.conf: nameserver 10.66.0.1
+[11-18 06:14:15 50:19:73] iNet: GetDns from resolv.conf: 10.66.0.1
+[11-18 06:14:15 50:19:73] iNet: resolv.conf: nameserver 10.66.0.1
+[11-18 06:14:15 50:19:73] iNet: DHCP Get IP 0xa080003, GW 0xa420001, NetMask 0xffffff00, DNS1 0xa420001, DNS2 0x0
+[11-18 06:14:15 50:19:73] dhcpcSetIP2CfgCallBack:5635======>>>>>dst->BasicIPAddr=10.8.0.3
+[11-18 06:14:15 50:19:73] CFG: aid 1, set to invalid
+[11-18 06:14:15 50:19:73] CFG: aid 2, set to invalid
+[11-18 06:14:15 50:19:73] CFG: aid 3, set to invalid
+[11-18 06:14:15 50:19:73] CFG: aid 4, set to invalid
+[11-18 06:14:15 50:19:73] CFG: aid 5, set to invalid
+[11-18 06:14:15 50:19:73] 
+
+[11-18 06:14:15 50:19:73] WanIPMode: DHCP
+[11-18 06:14:15 50:19:73] Wan IP Address: 10.8.0.3
+[11-18 06:14:15 50:19:73] Wan IP Netmask: 255.255.255.0
+[11-18 06:14:15 50:19:73] Wan IP NextHop: 10.66.0.1
+[11-18 06:14:15 50:19:73] 
+[11-18 06:14:15 50:19:73] DNS Server 1  : 10.66.0.1
+[11-18 06:14:15 50:19:73] DNS Server 2  : 0.0.0.0
+[11-18 06:14:15 50:19:73] DNSSpecialSer : 0.0.0.0
+[11-18 06:14:15 50:19:73] 
+[11-18 06:14:15 50:19:73] NTP Server    : 
+[11-18 06:14:15 50:19:73] 
+[11-18 06:14:15 50:19:73] dwTimeOffset    : 0
+[11-18 06:14:15 50:19:73] DHCP_TFTPSerName: 
+[11-18 06:14:15 50:19:73] DHCP_TFTPSer    : 
+[11-18 06:14:15 50:19:73] DHCP_NTPSer     : 
+[11-18 06:14:15 50:19:73] 
+
+[11-18 06:14:15 50:19:73] telnetd Task Start...
+[11-18 06:14:15 50:19:73] Xmpp Loop Task Start ...
+[11-18 06:14:15 50:19:73] server_contact_photo Task Start ...
+[11-18 06:14:15 50:19:73] sip tcp lib init: Start SipTcp ProTask OK!!!
+[11-18 06:14:15 50:19:73] WEBS: add user admin:222222 success
+[11-18 06:14:15 50:19:73] WEBS: add user user:111111 success
+[11-18 06:14:15 50:19:73] TLS: Load All TrustedCert ... 
+[11-18 06:14:15 50:19:73] TLS: commonName: Sangoma Root Certificate Authority
+[11-18 06:14:15 50:19:73] 
+CheckCAFile: File /hlcfg/ca/ca0.pem, Check OK:
+[11-18 06:14:15 50:19:73] =======================================================
+[11-18 06:14:15 50:19:73] issuer country:         CA
+[11-18 06:14:15 50:19:73] issuer state:           Ontario
+[11-18 06:14:15 50:19:73] issuer locality:        Toronto
+[11-18 06:14:15 50:19:73] issuer organization:    Sangoma Corporation
+[11-18 06:14:15 50:19:73] issuer orgUnit:         PKI
+[11-18 06:14:15 50:19:73] issuer commonName:      Sangoma Root Certificate Authority
+[11-18 06:14:15 50:19:73] 
+[11-18 06:14:15 50:19:73] subject country:        CA
+[11-18 06:14:15 50:19:73] subject state:          Ontario
+[11-18 06:14:15 50:19:73] subject locality:       Toronto
+[11-18 06:14:15 50:19:73] subject organization:   Sangoma Corporation
+[11-18 06:14:15 50:19:73] subject orgUnit:        PKI
+[11-18 06:14:15 50:19:73] subject commonName:     Sangoma Root Certificate Authority
+[11-18 06:14:15 50:19:73] 
+[11-18 06:14:15 50:19:73] notBeforeTimeType:      23
+[11-18 06:14:15 50:19:73] notAfterTimeType:       23
+[11-18 06:14:15 50:19:73] not Before:             Jan 29 07:33:38 2016 GMT
+[11-18 06:14:15 50:19:73] not After:              Jan 24 07:33:38 2036 GMT
+[11-18 06:14:15 50:19:73] =======================================================
+[11-18 06:14:15 50:19:73] TLS: commonName: Sangoma Root Certificate Authority
+[11-18 06:14:15 50:19:73] TLS: Load All(1) TrustedCert Success!!!
+
+[11-18 06:14:15 50:19:73] TLS: Load Server Certs Info ... 
+[11-18 06:14:15 50:19:73] TLS: Load Server Cert Info Success!!!
+
+[11-18 06:14:15 50:19:73] webs: SslOpen Success!!!
+[11-18 06:14:15 50:19:73] TLS: commonName: localhost
+[11-18 06:14:15 50:19:73] sips: Start sips ScanTask OK!!!
+[11-18 06:14:15 50:19:73] sips: Start sips ProTask OK!!!
+[11-18 06:14:15 50:19:73] sips: SIP TLS ProTask Start...
+[11-18 06:14:15 50:19:73] webs: SslLoadRsaKeys Success!!!
+[11-18 06:14:15 50:19:73] webs: Listening for HTTPS requests at port 443
+[11-18 06:14:15 50:19:73] 
+
+websSSLOpen()....
+
+[11-18 06:14:15 50:19:73] 
+====untar 2 times not success======
+
+[11-18 06:14:16 50:19:73] RTOS_Upgrade: voip get image manage header sucessed
+[11-18 06:14:16 50:19:73] ---------------------------------------------------------------------------------------------------------
+[11-18 06:14:16 50:19:73] VerManageHeader.WriteFlag           = 0xaa
+[11-18 06:14:16 50:19:73] VerManageHeader.PreRunImageId       = 2
+[11-18 06:14:16 50:19:73] VerManageHeader.NewUpdateVer        = 2
+[11-18 06:14:16 50:19:73] VerManageHeader.isImage2Bad         = 0
+[11-18 06:14:16 50:19:73] VerManageHeader.isImage1Bad         = 0
+[11-18 06:14:16 50:19:73] VerManageHeader.ImageRunSucessFlag  = 1
+[11-18 06:14:16 50:19:73] VerManageHeader.ImageRunFailCnt     = 0
+[11-18 06:14:16 50:19:73] VerManageHeader.FirstBootStatus     = 1
+[11-18 06:14:16 50:19:73] VerManageHeader.BootVerCur          = 2
+[11-18 06:14:16 50:19:73] VerManageHeader.BootCnt             = 1
+[11-18 06:14:16 50:19:73] ---------------------------------------------------------------------------------------------------------
+[11-18 06:14:16 50:19:73] save_version_manage_header 0: save to flash and read back success!!!
+[11-18 06:14:16 50:19:73] save_version_manage_header 1: save to flash and read back success!!!
+[11-18 06:14:17 50:19:73] romfile exist in /hlfs now...
+[11-18 06:14:17 50:19:73] RTOS_Upgrade: Start, Wait Network Ready...
+[11-18 06:14:17 50:19:73] vpn.cnf [8]file_path[/hlcfg/vpn/vpn.cnf]
+[11-18 06:14:17 50:19:73] openvpn  [ca]file[/hlcfg/vpn/keys/sysadmin_ca.crt]
+[11-18 06:14:17 50:19:73] open file[/hlcfg/vpn/keys/sysadmin_ca.crt]  fd[181]
+[11-18 06:14:17 50:19:73] openvpn  [cert]file[/hlcfg/vpn/keys/sysadmin_client0.crt]
+[11-18 06:14:17 50:19:73] open file[/hlcfg/vpn/keys/sysadmin_client0.crt]  fd[181]
+[11-18 06:14:17 50:19:73] open file[/hlcfg/vpn/keys/sysadmin_client0.key]  fd[181]
+[11-18 06:14:17 50:19:73] openvpn  [key]file[/hlcfg/vpn/keys/sysadmin_client0.key]
+[11-18 06:14:17 50:19:73] flag[0x7]
+[11-18 06:14:17 50:19:73] R_Upgrade: VPN IP OK!
+[11-18 06:14:17 50:19:73] vpn.cnf [8]file_path[/hlcfg/vpn/vpn.cnf]
+[11-18 06:14:17 50:19:73] openvpn  [ca]file[/hlcfg/vpn/keys/sysadmin_ca.crt]
+[11-18 06:14:17 50:19:73] open file[/hlcfg/vpn/keys/sysadmin_ca.crt]  fd[181]
+[11-18 06:14:17 50:19:73] openvpn  [cert]file[/hlcfg/vpn/keys/sysadmin_client0.crt]
+[11-18 06:14:17 50:19:73] open file[/hlcfg/vpn/keys/sysadmin_client0.crt]  fd[181]
+[11-18 06:14:17 50:19:73] open file[/hlcfg/vpn/keys/sysadmin_client0.key]  fd[181]
+[11-18 06:14:17 50:19:73] openvpn  [key]file[/hlcfg/vpn/keys/sysadmin_client0.key]
+[11-18 06:14:17 50:19:73] flag[0x7]
+[11-18 06:14:17 50:19:73] RTOS_Upgrade: running...
+[11-18 06:14:17 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=65516 Pno=65535 Event=33 NetId=0x0...
+[11-18 06:14:17 50:19:73] IPV4 Init UDPSocket: bind socket 179 Success, pos[158]locip[a080003]port[65516]!
+[11-18 06:14:17 50:19:73] Create Udp Socket: CurPos=158 Port=65516 Create UDP Socket OK!
+[11-18 06:14:17 50:19:73] Send Start Msg to Cfg Server: Error, cfg server 0x0, Local IP 0xa080003
+[11-18 06:14:18 50:19:73] WanLinkStatus = WAN_PORT_LINK!!!
+[11-18 06:14:18 50:19:73] DHCPC: OptionValue -- timezone
+
+[11-18 06:14:18 50:19:73] DHCPC: OptionValue -- ntpsrv
+
+[11-18 06:14:18 50:19:73] DHCPC: OptionValue -- tftp
+
+[11-18 06:14:18 50:19:73] DHCPC: OptionValue -- hl_use_128
+
+[11-18 06:14:18 50:19:73] DHCPC: OptionValue -- hl_use_150
+
+[11-18 06:14:18 50:19:73] DHCPC: OptionValue -- lease_seconds 21600
+
+[11-18 06:14:18 50:19:73] DHCPC: OptionValue -- vlan_id
+
+[11-18 06:14:18 50:19:73] iNet: resolv.conf: nameserver 10.66.0.1
+[11-18 06:14:18 50:19:73] iNet: GetDns from resolv.conf: 10.66.0.1
+[11-18 06:14:18 50:19:73] iNet: resolv.conf: nameserver 10.66.0.1
+[11-18 06:14:18 50:19:73] iNet: DHCP Get IP 0xa080003, GW 0xa420001, NetMask 0xffffff00, DNS1 0xa420001, DNS2 0x0
+[11-18 06:14:18 50:19:73] dhcpcSetIP2CfgCallBack:5635======>>>>>dst->BasicIPAddr=10.8.0.3
+[11-18 06:14:18 50:19:73] CFG: aid 1, set to invalid
+[11-18 06:14:18 50:19:73] CFG: aid 2, set to invalid
+[11-18 06:14:18 50:19:73] CFG: aid 3, set to invalid
+[11-18 06:14:18 50:19:73] CFG: aid 4, set to invalid
+[11-18 06:14:18 50:19:73] CFG: aid 5, set to invalid
+[11-18 06:14:18 50:19:73] 
+
+[11-18 06:14:18 50:19:73] WanIPMode: DHCP
+[11-18 06:14:18 50:19:73] Wan IP Address: 10.8.0.3
+[11-18 06:14:18 50:19:73] Wan IP Netmask: 255.255.255.0
+[11-18 06:14:18 50:19:73] Wan IP NextHop: 10.66.0.1
+[11-18 06:14:18 50:19:73] 
+[11-18 06:14:18 50:19:73] DNS Server 1  : 10.66.0.1
+[11-18 06:14:18 50:19:73] DNS Server 2  : 0.0.0.0
+[11-18 06:14:18 50:19:73] DNSSpecialSer : 0.0.0.0
+[11-18 06:14:18 50:19:73] 
+[11-18 06:14:18 50:19:73] NTP Server    : 
+[11-18 06:14:18 50:19:73] 
+[11-18 06:14:18 50:19:73] dwTimeOffset    : 0
+[11-18 06:14:18 50:19:73] DHCP_TFTPSerName: 
+[11-18 06:14:18 50:19:73] DHCP_TFTPSer    : 
+[11-18 06:14:18 50:19:73] DHCP_NTPSer     : 
+[11-18 06:14:18 50:19:73] 
+
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 16 from pos 1 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 16 Success, pos[1]locip[a080003]port[12100]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 1 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 17 from pos 2 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 17 Success, pos[2]locip[a080003]port[12101]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 2 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 18 from pos 3 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 18 Success, pos[3]locip[a080003]port[12102]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 3 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 19 from pos 4 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 19 Success, pos[4]locip[a080003]port[12103]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 4 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 20 from pos 5 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 20 Success, pos[5]locip[a080003]port[12104]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 5 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 21 from pos 6 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 21 Success, pos[6]locip[a080003]port[12105]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 6 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 22 from pos 7 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 22 Success, pos[7]locip[a080003]port[12106]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 7 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 23 from pos 8 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 23 Success, pos[8]locip[a080003]port[12107]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 8 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 24 from pos 9 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 24 Success, pos[9]locip[a080003]port[12108]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 9 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 25 from pos 10 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 25 Success, pos[10]locip[a080003]port[12109]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 10 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 26 from pos 11 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 26 Success, pos[11]locip[a080003]port[12110]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 11 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 27 from pos 12 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 27 Success, pos[12]locip[a080003]port[12111]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 12 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 28 from pos 13 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 28 Success, pos[13]locip[a080003]port[12112]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 13 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 29 from pos 14 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 29 Success, pos[14]locip[a080003]port[12113]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 14 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 30 from pos 15 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 30 Success, pos[15]locip[a080003]port[12114]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 15 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 31 from pos 16 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 31 Success, pos[16]locip[a080003]port[12115]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 16 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 32 from pos 17 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 32 Success, pos[17]locip[a080003]port[12116]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 17 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 33 from pos 18 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 33 Success, pos[18]locip[a080003]port[12117]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 18 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 34 from pos 19 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 34 Success, pos[19]locip[a080003]port[12118]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 19 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 35 from pos 20 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 35 Success, pos[20]locip[a080003]port[12119]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 20 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 36 from pos 21 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 36 Success, pos[21]locip[a080003]port[12120]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 21 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 37 from pos 22 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 37 Success, pos[22]locip[a080003]port[12121]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 22 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 38 from pos 23 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 38 Success, pos[23]locip[a080003]port[12122]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 23 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 39 from pos 24 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 39 Success, pos[24]locip[a080003]port[12123]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 24 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 40 from pos 25 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 40 Success, pos[25]locip[a080003]port[12124]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 25 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 41 from pos 26 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 41 Success, pos[26]locip[a080003]port[12125]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 26 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 42 from pos 27 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 42 Success, pos[27]locip[a080003]port[12126]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 27 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 43 from pos 28 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 43 Success, pos[28]locip[a080003]port[12127]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 28 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 44 from pos 29 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 44 Success, pos[29]locip[a080003]port[12128]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 29 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 45 from pos 30 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 45 Success, pos[30]locip[a080003]port[12129]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 30 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 46 from pos 31 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 46 Success, pos[31]locip[a080003]port[12130]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 31 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 47 from pos 32 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 47 Success, pos[32]locip[a080003]port[12131]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 32 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 48 from pos 33 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 48 Success, pos[33]locip[a080003]port[12132]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 33 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 49 from pos 34 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 49 Success, pos[34]locip[a080003]port[12133]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 34 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 50 from pos 35 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 50 Success, pos[35]locip[a080003]port[12134]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 35 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 51 from pos 36 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 51 Success, pos[36]locip[a080003]port[12135]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 36 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 52 from pos 37 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 52 Success, pos[37]locip[a080003]port[12136]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 37 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 53 from pos 38 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 53 Success, pos[38]locip[a080003]port[12137]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 38 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 54 from pos 39 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 54 Success, pos[39]locip[a080003]port[12138]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 39 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 55 from pos 40 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 55 Success, pos[40]locip[a080003]port[12139]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 40 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 56 from pos 41 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 56 Success, pos[41]locip[a080003]port[12140]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 41 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 57 from pos 42 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 57 Success, pos[42]locip[a080003]port[12141]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 42 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 58 from pos 43 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 58 Success, pos[43]locip[a080003]port[12142]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 43 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 59 from pos 44 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 59 Success, pos[44]locip[a080003]port[12143]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 44 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 60 from pos 45 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 60 Success, pos[45]locip[a080003]port[12144]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 45 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 61 from pos 46 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 61 Success, pos[46]locip[a080003]port[12145]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 46 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 62 from pos 47 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 62 Success, pos[47]locip[a080003]port[12146]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 47 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 63 from pos 48 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 63 Success, pos[48]locip[a080003]port[12147]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 48 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 64 from pos 49 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 64 Success, pos[49]locip[a080003]port[12148]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 49 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 65 from pos 50 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 65 Success, pos[50]locip[a080003]port[12149]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 50 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 66 from pos 51 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 66 Success, pos[51]locip[a080003]port[12150]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 51 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 67 from pos 52 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 67 Success, pos[52]locip[a080003]port[12151]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 52 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 68 from pos 53 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 68 Success, pos[53]locip[a080003]port[12152]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 53 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 69 from pos 54 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 69 Success, pos[54]locip[a080003]port[12153]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 54 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 70 from pos 55 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 70 Success, pos[55]locip[a080003]port[12154]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 55 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 71 from pos 56 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 71 Success, pos[56]locip[a080003]port[12155]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 56 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 72 from pos 57 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 72 Success, pos[57]locip[a080003]port[12156]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 57 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 73 from pos 58 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 73 Success, pos[58]locip[a080003]port[12157]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 58 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 74 from pos 59 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 74 Success, pos[59]locip[a080003]port[12158]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 59 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 75 from pos 60 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 75 Success, pos[60]locip[a080003]port[12159]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 60 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 76 from pos 61 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 76 Success, pos[61]locip[a080003]port[12160]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 61 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 77 from pos 62 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 77 Success, pos[62]locip[a080003]port[12161]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 62 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 78 from pos 63 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 78 Success, pos[63]locip[a080003]port[12162]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 63 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 79 from pos 64 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 79 Success, pos[64]locip[a080003]port[12163]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 64 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 80 from pos 65 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 80 Success, pos[65]locip[a080003]port[12164]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 65 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 81 from pos 66 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 81 Success, pos[66]locip[a080003]port[12165]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 66 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 82 from pos 67 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 82 Success, pos[67]locip[a080003]port[12166]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 67 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 83 from pos 68 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 83 Success, pos[68]locip[a080003]port[12167]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 68 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 84 from pos 69 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 84 Success, pos[69]locip[a080003]port[12168]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 69 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 85 from pos 70 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 85 Success, pos[70]locip[a080003]port[12169]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 70 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 86 from pos 71 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 86 Success, pos[71]locip[a080003]port[12170]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 71 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 87 from pos 72 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 87 Success, pos[72]locip[a080003]port[12171]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 72 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 88 from pos 73 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 88 Success, pos[73]locip[a080003]port[12172]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 73 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 89 from pos 74 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 89 Success, pos[74]locip[a080003]port[12173]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 74 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 90 from pos 75 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 90 Success, pos[75]locip[a080003]port[12174]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 75 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 91 from pos 76 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 91 Success, pos[76]locip[a080003]port[12175]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 76 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 92 from pos 77 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 92 Success, pos[77]locip[a080003]port[12176]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 77 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 93 from pos 78 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 93 Success, pos[78]locip[a080003]port[12177]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 78 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 94 from pos 79 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 94 Success, pos[79]locip[a080003]port[12178]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 79 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 95 from pos 80 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 95 Success, pos[80]locip[a080003]port[12179]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 80 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 96 from pos 81 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 96 Success, pos[81]locip[a080003]port[12180]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 81 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 97 from pos 82 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 97 Success, pos[82]locip[a080003]port[12181]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 82 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 98 from pos 83 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 98 Success, pos[83]locip[a080003]port[12182]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 83 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 99 from pos 84 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 99 Success, pos[84]locip[a080003]port[12183]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 84 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 100 from pos 85 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 100 Success, pos[85]locip[a080003]port[12184]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 85 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 101 from pos 86 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 101 Success, pos[86]locip[a080003]port[12185]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 86 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 102 from pos 87 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 102 Success, pos[87]locip[a080003]port[12186]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 87 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 103 from pos 88 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 103 Success, pos[88]locip[a080003]port[12187]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 88 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 104 from pos 89 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 104 Success, pos[89]locip[a080003]port[12188]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 89 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 105 from pos 90 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 105 Success, pos[90]locip[a080003]port[12189]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 90 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 106 from pos 91 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 106 Success, pos[91]locip[a080003]port[12190]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 91 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 107 from pos 92 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 107 Success, pos[92]locip[a080003]port[12191]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 92 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 108 from pos 93 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 108 Success, pos[93]locip[a080003]port[12192]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 93 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 109 from pos 94 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 109 Success, pos[94]locip[a080003]port[12193]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 94 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 110 from pos 95 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 110 Success, pos[95]locip[a080003]port[12194]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 95 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 111 from pos 96 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 111 Success, pos[96]locip[a080003]port[12195]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 96 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 112 from pos 97 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 112 Success, pos[97]locip[a080003]port[12196]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 97 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 113 from pos 98 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 113 Success, pos[98]locip[a080003]port[12197]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 98 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 114 from pos 99 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 114 Success, pos[99]locip[a080003]port[12198]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 99 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 115 from pos 100 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 115 Success, pos[100]locip[a080003]port[12199]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 100 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 116 from pos 101 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 116 Success, pos[101]locip[a080003]port[12200]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 101 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 117 from pos 102 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 117 Success, pos[102]locip[a080003]port[12201]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 102 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 118 from pos 103 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 118 Success, pos[103]locip[a080003]port[12202]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 103 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 119 from pos 104 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 119 Success, pos[104]locip[a080003]port[12203]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 104 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 120 from pos 105 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 120 Success, pos[105]locip[a080003]port[12204]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 105 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 121 from pos 106 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 121 Success, pos[106]locip[a080003]port[12205]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 106 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 122 from pos 107 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 122 Success, pos[107]locip[a080003]port[12206]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 107 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 123 from pos 108 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 123 Success, pos[108]locip[a080003]port[12207]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 108 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 124 from pos 109 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 124 Success, pos[109]locip[a080003]port[12208]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 109 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 125 from pos 110 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 125 Success, pos[110]locip[a080003]port[12209]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 110 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 126 from pos 111 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 126 Success, pos[111]locip[a080003]port[12210]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 111 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 127 from pos 112 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 127 Success, pos[112]locip[a080003]port[12211]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 112 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 128 from pos 113 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 128 Success, pos[113]locip[a080003]port[12212]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 113 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 129 from pos 114 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 129 Success, pos[114]locip[a080003]port[12213]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 114 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 130 from pos 115 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 130 Success, pos[115]locip[a080003]port[12214]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 115 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 131 from pos 116 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 131 Success, pos[116]locip[a080003]port[12215]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 116 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 132 from pos 117 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 132 Success, pos[117]locip[a080003]port[12216]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 117 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 133 from pos 118 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 133 Success, pos[118]locip[a080003]port[12217]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 118 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 134 from pos 119 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 134 Success, pos[119]locip[a080003]port[12218]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 119 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 135 from pos 120 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 135 Success, pos[120]locip[a080003]port[12219]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 120 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 136 from pos 121 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 136 Success, pos[121]locip[a080003]port[12220]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 121 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 137 from pos 122 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 137 Success, pos[122]locip[a080003]port[12221]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 122 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 138 from pos 123 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 138 Success, pos[123]locip[a080003]port[12222]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 123 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 139 from pos 124 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 139 Success, pos[124]locip[a080003]port[12223]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 124 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 140 from pos 125 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 140 Success, pos[125]locip[a080003]port[12224]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 125 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 141 from pos 126 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 141 Success, pos[126]locip[a080003]port[12225]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 126 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 142 from pos 127 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 142 Success, pos[127]locip[a080003]port[12226]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 127 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 143 from pos 128 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 143 Success, pos[128]locip[a080003]port[12227]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 128 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 144 from pos 129 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 144 Success, pos[129]locip[a080003]port[12228]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 129 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 145 from pos 130 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 145 Success, pos[130]locip[a080003]port[12229]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 130 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 146 from pos 131 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 146 Success, pos[131]locip[a080003]port[12230]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 131 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 147 from pos 132 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 147 Success, pos[132]locip[a080003]port[12231]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 132 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 148 from pos 133 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 148 Success, pos[133]locip[a080003]port[12232]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 133 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 149 from pos 134 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 149 Success, pos[134]locip[a080003]port[12233]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 134 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 150 from pos 135 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 150 Success, pos[135]locip[a080003]port[12234]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 135 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 151 from pos 136 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 151 Success, pos[136]locip[a080003]port[12235]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 136 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 152 from pos 137 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 152 Success, pos[137]locip[a080003]port[12236]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 137 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 153 from pos 138 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 153 Success, pos[138]locip[a080003]port[12237]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 138 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 154 from pos 139 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 154 Success, pos[139]locip[a080003]port[12238]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 139 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 155 from pos 140 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 155 Success, pos[140]locip[a080003]port[12239]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 140 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 156 from pos 141 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 156 Success, pos[141]locip[a080003]port[12240]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 141 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 157 from pos 142 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 157 Success, pos[142]locip[a080003]port[12241]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 142 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 158 from pos 143 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 158 Success, pos[143]locip[a080003]port[12242]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 143 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 159 from pos 144 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 159 Success, pos[144]locip[a080003]port[12243]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 144 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 160 from pos 145 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 160 Success, pos[145]locip[a080003]port[12244]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 145 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 161 from pos 146 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 161 Success, pos[146]locip[a080003]port[12245]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 146 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 162 from pos 147 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 162 Success, pos[147]locip[a080003]port[12246]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 147 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 163 from pos 148 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 163 Success, pos[148]locip[a080003]port[12247]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 148 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 164 from pos 149 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 164 Success, pos[149]locip[a080003]port[12248]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 149 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 165 from pos 150 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 165 Success, pos[150]locip[a080003]port[12249]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 150 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 166 from pos 151 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 166 Success, pos[151]locip[a080003]port[12250]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 151 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 167 from pos 152 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 167 Success, pos[152]locip[a080003]port[12251]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 152 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 168 from pos 153 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 168 Success, pos[153]locip[a080003]port[12252]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 153 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 169 from pos 154 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 169 Success, pos[154]locip[a080003]port[12253]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 154 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 170 from pos 155 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 170 Success, pos[155]locip[a080003]port[161]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 155 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 171 from pos 156 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 171 Success, pos[156]locip[a080003]port[65516]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 156 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 173 from pos 157 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 173 Success, pos[157]locip[a080003]port[60000]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 157 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: close the socket 179 from pos 158 !
+[11-18 06:14:18 50:19:73] IPV4 Init UDPSocket: bind socket 179 Success, pos[158]locip[a080003]port[65516]!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 158 ReInit UDPSocket OK !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 159 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 159 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 160 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 160 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 161 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 161 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 162 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 162 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 163 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 163 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 164 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 164 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 165 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 165 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 166 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 166 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 167 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 167 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 168 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 168 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 169 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 169 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 170 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 170 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 171 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 171 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 172 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 172 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 173 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 173 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 174 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 174 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 175 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 175 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 176 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 176 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 177 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 177 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 178 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 178 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 179 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 179 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 180 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 180 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 181 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 181 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 182 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 182 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 183 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 183 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 184 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 184 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 185 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 185 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 186 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 186 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 187 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 187 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] Init UDPSocket: HPS_UDP_Table at pos = 188 not used !!!
+[11-18 06:14:18 50:19:73] IpChangeProc: POS 188 ReInit UDPSocket fail !!!
+[11-18 06:14:18 50:19:73] CFG: aid 1, set to invalid
+[11-18 06:14:18 50:19:73] CFG: aid 2, set to invalid
+[11-18 06:14:18 50:19:73] CFG: aid 3, set to invalid
+[11-18 06:14:18 50:19:73] CFG: aid 4, set to invalid
+[11-18 06:14:18 50:19:73] CFG: aid 5, set to invalid
+[11-18 06:14:18 50:19:73] Cfg: aid 0========ReActive================
+[11-18 06:14:18 50:19:73] SIP: aid 0========ReActive================
+[11-18 06:14:18 50:19:73] 
+====untar 3 times not success======
+
+[11-18 06:14:18 50:19:73] ======untar  failed!!!!!!=======
+[11-18 06:14:18 50:19:73] 
+##############Untar webres.tar end!!!###############
+
+
+[11-18 06:14:18 50:19:73] Webs: admin login Web UI success, from 10.66.0.11!!
+[11-18 06:14:18 50:19:73] WEBS: reading web file /tmp/webres/index.htm 35779
+[11-18 06:14:18 50:19:73] boot Read Head: len = 512 
+[11-18 06:14:18 50:19:73] boot Read Head: len = 512 
+[11-18 06:14:18 50:19:73] Image_2 Read Head: len = 512 
+[11-18 06:14:18 50:19:73] Image_2 Read Head: len = 512 
+[11-18 06:14:18 50:19:73] /hlfs/head_fw700.rom Read Head: len = 512 
+[11-18 06:14:18 50:19:73] /hlfs/head_fw700.rom Read Head: len = 512 
+[11-18 06:14:18 50:19:73] No such file cfg head!
+[11-18 06:14:18 50:19:73] GetMTDFileHead: fail (fd -1)< 0
+[11-18 06:14:18 50:19:73] have no /hlfs/head_boot!!!!!
+[11-18 06:14:18 50:19:73] No such file cfg head!
+[11-18 06:14:18 50:19:73] GetMTDFileHead: fail (fd -1)< 0
+[11-18 06:14:18 50:19:73] No such file cfg head!
+[11-18 06:14:18 50:19:73] GetMTDFileHead: fail (fd -1)< 0
+[11-18 06:14:18 50:19:73] have no /hlfs/head_imge!!!!!
+[11-18 06:14:18 50:19:73] No such file cfg head!
+[11-18 06:14:18 50:19:73] GetMTDFileHead: fail (fd -1)< 0
+[11-18 06:14:18 50:19:73] No such file cfg head!
+[11-18 06:14:18 50:19:73] GetMTDFileHead: fail (fd -1)< 0
+[11-18 06:14:18 50:19:73] have no /hlfs/head_voip!!!!!
+[11-18 06:14:18 50:19:73] No such file cfg head!
+[11-18 06:14:18 50:19:73] GetMTDFileHead: fail (fd -1)< 0
+[11-18 06:14:18 50:19:73] No such file /hlfs/fw46.rom head!
+[11-18 06:14:18 50:19:73] GetMTDFileHead: fail (fd -1)< 0
+[11-18 06:14:18 50:19:73] have no MTD_UC46_ROM!!!!!
+[11-18 06:14:18 50:19:73] No such file /hlfs/fw46.rom head!
+[11-18 06:14:18 50:19:73] GetMTDFileHead: fail (fd -1)< 0
+[11-18 06:14:18 50:19:73] EHS update file version 1.2
+[11-18 06:14:18 50:19:73] GUI: EHS on phone Version:V1.2
+[11-18 06:14:18 50:19:73] GUI: GetEhsVerStr Error, version:0.0!!!
+[11-18 06:14:18 50:19:73] vpn.cnf [8]file_path[/hlcfg/vpn/vpn.cnf]
+[11-18 06:14:18 50:19:73] openvpn  [ca]file[/hlcfg/vpn/keys/sysadmin_ca.crt]
+[11-18 06:14:18 50:19:73] open file[/hlcfg/vpn/keys/sysadmin_ca.crt]  fd[185]
+[11-18 06:14:18 50:19:73] openvpn  [cert]file[/hlcfg/vpn/keys/sysadmin_client0.crt]
+[11-18 06:14:18 50:19:73] open file[/hlcfg/vpn/keys/sysadmin_client0.crt]  fd[185]
+[11-18 06:14:18 50:19:73] open file[/hlcfg/vpn/keys/sysadmin_client0.key]  fd[185]
+[11-18 06:14:18 50:19:73] openvpn  [key]file[/hlcfg/vpn/keys/sysadmin_client0.key]
+[11-18 06:14:18 50:19:73] flag[0x7]
+[11-18 06:14:18 50:19:73] ------------------------------------------------------
+[11-18 06:14:18 50:19:73] Free Memory Info:
+[11-18 06:14:18 50:19:73] memfree: 9084KB buffers: 2648KB cached: 29028KB
+[11-18 06:14:18 50:19:73] Total free memory: 40760 KB
+[11-18 06:14:18 50:19:73] ------------------------------------------------------
+
+[11-18 06:14:18 50:19:73] WEBS: Write web file 35264
+[11-18 06:14:20 50:19:73] addr:10.66.0.1 is IPV4 address
+[11-18 06:14:20 50:19:73] ====
+[11-18 06:14:20 50:19:73] DNSC: resolv HostName -- 0.oceania.pool.ntp.org
+[11-18 06:14:20 50:19:73] DNSC: Domain 0.oceania.pool.ntp.org, ip 13.55.50.68, TTL 82
+[11-18 06:14:21 50:19:73] GUI: 
+
+Load Version Photo Num is 94
+[11-18 06:14:21 50:19:73] GUI: Load from hlpres num is 88
+[11-18 06:14:21 50:19:73] GUI: Load from version num is 6
+
+
+[11-18 06:14:21 50:19:73] GUI:DEBUGINFO:can't open digit photo directory,File:phone.c------Line:4552
+[11-18 06:14:21 50:19:73] GUI: mkdir /tmp/xb/
+[11-18 06:14:23 50:19:73] WEBS: reading web file /tmp/webres/configuration.htm 27006
+[11-18 06:14:23 50:19:73] WEBS: Write web file 26002
+[11-18 06:14:24 50:19:73] ######### Read Ring4 file len 512
+[11-18 06:14:24 50:19:73] ParseSerPathStr: file is ring4.bin
+[11-18 06:14:24 50:19:73] ParseSerPathStr:====== addr is 163.47.249.85 
+[11-18 06:14:24 50:19:73] ParseSerPathStr: ip is 163.47.249.85, 0xa32ff955
+[11-18 06:14:24 50:19:73] ParseSerPathStr: path is ringtones/formatted/ring4.bin
+[11-18 06:14:24 50:19:73] ParseSerPathStr: file is 005058501973-vpn.tar
+[11-18 06:14:24 50:19:73] ParseSerPathStr:====== addr is 163.47.249.85 
+[11-18 06:14:24 50:19:73] ParseSerPathStr: ip is 163.47.249.85, 0xa32ff955
+[11-18 06:14:24 50:19:73] ParseSerPathStr: path is 005058501973-vpn.tar
+[11-18 06:14:24 50:19:73] ParseSerPathStr: file is cfg57-states.xml
+[11-18 06:14:24 50:19:73] ParseSerPathStr:====== addr is 163.47.249.85 
+[11-18 06:14:24 50:19:73] ParseSerPathStr: ip is 163.47.249.85, 0xa32ff955
+[11-18 06:14:24 50:19:73] ParseSerPathStr: path is cfg57-states.xml
+[11-18 06:14:24 50:19:73] ParseSerPathStr: file is 005058501973-vpn.tar
+[11-18 06:14:24 50:19:73] ParseSerPathStr:====== addr is 10.66.0.2 
+[11-18 06:14:24 50:19:73] ParseSerPathStr: ip is 10.66.0.2, 0xa420002
+[11-18 06:14:24 50:19:73] ParseSerPathStr: path is 005058501973-vpn.tar
+[11-18 06:14:24 50:19:73] RTOS_Upgrade: Will Parse Config Server Path http://a59e816d:76a12@163.47.249.85:83
+[11-18 06:14:24 50:19:73] ParseSerPathStr:====== addr is 163.47.249.85 
+[11-18 06:14:24 50:19:73] ParseSerPathStr: ip is 163.47.249.85, 0xa32ff955
+[11-18 06:14:24 50:19:73] ParseSerPathStr:====== addr is 163.47.249.85 
+[11-18 06:14:24 50:19:73] ParseSerPathStr: ip is 163.47.249.85, 0xa32ff955
+[11-18 06:14:24 50:19:73] ParseSerPathStr: path is sangoma/1
+[11-18 06:14:24 50:19:73] RTOS_Upgrade: Alloc ImgBuf
+[11-18 06:14:24 50:19:73] RTOS_Upgrade: Device Will Update Configuration File and Upgrade Firmware ...
+[11-18 06:14:26 50:19:73] HTTPC: Need Resolve Domain 163.47.249.85
+[11-18 06:14:26 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:26 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:26 50:19:73] CfgUpgradeOpen(Protocol HTTP, Port 83, Filename factory0700.bin)
+[11-18 06:14:26 50:19:73] HttpCOpen - AF_INET (4)
+[11-18 06:14:26 50:19:73] Image_2 Read Head: len = 512 
+[11-18 06:14:26 50:19:73] HttpCOpen: HTTP Command Size 187 bytes, Command:
+GET /factory0700.bin HTTP/1.1
+Host: 163.47.249.85
+User-Agent: Sangoma S700 2.0.4.28 00:50:58:50:19:73
+Accept: */*
+Connection: Keep-Alive
+Authorization: Basic YTU5ZTgxNmQ6NzZhMTI=
+
+
+[11-18 06:14:26 50:19:73] HttpCOpen: send 187 bytes success
+[11-18 06:14:26 50:19:73] HttpCOpen: recv 472 bytes back
+[11-18 06:14:26 50:19:73] HttpCOpen receive response 404, Free socket
+[11-18 06:14:26 50:19:73] HTTPC GetFile: Fail!!!
+[11-18 06:14:26 50:19:73] HTTPC get factory0700.bin from 163.47.249.85:83 fail
+[11-18 06:14:26 50:19:73] GetXmlMacCfgFileByHTTP: Config file path cfg0700.xml, line 3033
+[11-18 06:14:26 50:19:73] HTTPC: Need Resolve Domain 163.47.249.85
+[11-18 06:14:26 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:26 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:26 50:19:73] CfgUpgradeOpen(Protocol HTTP, Port 83, Filename cfg0700.xml)
+[11-18 06:14:26 50:19:73] HttpCOpen - AF_INET (4)
+[11-18 06:14:26 50:19:73] Image_2 Read Head: len = 512 
+[11-18 06:14:26 50:19:73] HttpCOpen: HTTP Command Size 183 bytes, Command:
+GET /cfg0700.xml HTTP/1.1
+Host: 163.47.249.85
+User-Agent: Sangoma S700 2.0.4.28 00:50:58:50:19:73
+Accept: */*
+Connection: Keep-Alive
+Authorization: Basic YTU5ZTgxNmQ6NzZhMTI=
+
+
+[11-18 06:14:26 50:19:73] HttpCOpen: send 183 bytes success
+[11-18 06:14:26 50:19:73] HttpCOpen: recv 957 bytes back
+[11-18 06:14:26 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:26 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:26 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:26 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:26 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:26 50:19:73] HttpCOpen Content-Length=703
+[11-18 06:14:26 50:19:73] HttpCOpen rev response 200
+[11-18 06:14:26 50:19:73] HttpCOpen piggy-back length 703
+[11-18 06:14:26 50:19:73] HttpCOpen OK
+[11-18 06:14:26 50:19:73] HttpC get file total len (703)
+[11-18 06:14:26 50:19:73] HTTPC GetFile: Will Get Total Len: 703 
+[11-18 06:14:26 50:19:73] HttpCRead: Return all remaining piggy-backed data 703 bytes
+[11-18 06:14:26 50:19:73] AutoP: NewCfgCheckSum: 0x6c20 CurCfgCheckSum: 0x0
+[11-18 06:14:26 50:19:73] AutoP: HTTP Ready to UPdate Cfg file... 
+[11-18 06:14:26 50:19:73] HttpCClose(18354f8)
+[11-18 06:14:26 50:19:73] HTTPC GetFile: Get Total Len: 703 Success 
+[11-18 06:14:26 50:19:73] HTTPC get cfg005058501973.xml OK, len 703
+[11-18 06:14:26 50:19:73] RTOS_Upgrade: Update ConfigFile, Start to load Xml config file, line= 2135
+[11-18 06:14:26 50:19:73] Enter Func LoadCfgFromXml
+[11-18 06:14:26 50:19:73] Write Cfg File length 660
+[11-18 06:14:26 50:19:73] LoadCfgFromXml: File ./source/R_File.c, Line 1070, PATH /tmp/cfg_tmp.xml
+[11-18 06:14:26 50:19:73] SaveCfg2Flash: ./source/R_Upgrade.c:2141
+[11-18 06:14:26 50:19:73] =======SET ADMIN USER INFO SUCCESS=========
+[11-18 06:14:26 50:19:73] =======SET USER INFO SUCCESS=========
+[11-18 06:14:26 50:19:73] UpdateTonesByTemplate:11254*******CountryCode*10*******
+[11-18 06:14:26 50:19:73] 802.1x Write to file len[86]
+[11-18 06:14:26 50:19:73] RTOS_Upgrade: Will Parse Config Server Path http://a59e816d:76a12@163.47.249.85:83
+[11-18 06:14:26 50:19:73] ParseSerPathStr:====== addr is 163.47.249.85 
+[11-18 06:14:26 50:19:73] ParseSerPathStr: ip is 163.47.249.85, 0xa32ff955
+[11-18 06:14:26 50:19:73] ParseSerPathStr:====== addr is 163.47.249.85 
+[11-18 06:14:26 50:19:73] ParseSerPathStr: ip is 163.47.249.85, 0xa32ff955
+[11-18 06:14:26 50:19:73] ParseSerPathStr: path is sangoma/1
+[11-18 06:14:26 50:19:73] CFG: aid 1, set to invalid
+[11-18 06:14:26 50:19:73] CFG: aid 2, set to invalid
+[11-18 06:14:26 50:19:73] CFG: aid 3, set to invalid
+[11-18 06:14:26 50:19:73] CFG: aid 4, set to invalid
+[11-18 06:14:26 50:19:73] CFG: aid 5, set to invalid
+[11-18 06:14:26 50:19:73] Chn 0 digitmap: x+#|xx+*
+[11-18 06:14:26 50:19:73] Chn 0 use default digitmap: {[x*]+}
+[11-18 06:14:26 50:19:73] Chn 1 digitmap: x+#|xx+*
+[11-18 06:14:26 50:19:73] Chn 1 use default digitmap: {[x*]+}
+[11-18 06:14:26 50:19:73] Chn 2 digitmap: x+#|xx+*
+[11-18 06:14:26 50:19:73] Chn 2 use default digitmap: {[x*]+}
+[11-18 06:14:26 50:19:73] Chn 3 digitmap: x+#|xx+*
+[11-18 06:14:26 50:19:73] Chn 3 use default digitmap: {[x*]+}
+[11-18 06:14:26 50:19:73] Chn 4 digitmap: x+#|xx+*
+[11-18 06:14:26 50:19:73] Chn 4 use default digitmap: {[x*]+}
+[11-18 06:14:26 50:19:73] Chn 5 digitmap: x+#|xx+*
+[11-18 06:14:26 50:19:73] Chn 5 use default digitmap: {[x*]+}
+[11-18 06:14:26 50:19:73] CFG: aid 1, setting has been change!!!
+[11-18 06:14:26 50:19:73] CFG: aid 1 Send CfgUpdate Event to SIPPro
+[11-18 06:14:26 50:19:73] CFG: aid 2 Send CfgUpdate Event to SIPPro
+[11-18 06:14:26 50:19:73] CFG: aid 3 Send CfgUpdate Event to SIPPro
+[11-18 06:14:26 50:19:73] WriteHlcfgFile:write hlcfg file sucessed !
+[11-18 06:14:26 50:19:73] SaveCfg2Flash:save Cfg file to Flash Sucessed!
+[11-18 06:14:26 50:19:73] GetXorcomMacCfgFileByHTTP: Config file path 005058501973.cfg, line 3072
+[11-18 06:14:26 50:19:73] HTTPC: Need Resolve Domain 163.47.249.85
+[11-18 06:14:26 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:26 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:26 50:19:73] CfgUpgradeOpen(Protocol HTTP, Port 83, Filename 005058501973.cfg)
+[11-18 06:14:26 50:19:73] HttpCOpen - AF_INET (4)
+[11-18 06:14:26 50:19:73] SIP: aid 1 Receive CfgUpdateEvent 
+[11-18 06:14:26 50:19:73] SIP: aid 1, BLF UnSubscribe, Account InValid
+[11-18 06:14:26 50:19:73] SIP: aid 1 CfgChange UnRegister1
+[11-18 06:14:26 50:19:73] SIP: aid 1, BLF UnRegister, Account InValid
+[11-18 06:14:26 50:19:73] Image_2 Read Head: len = 512 
+[11-18 06:14:26 50:19:73] HttpCOpen: HTTP Command Size 188 bytes, Command:
+GET /005058501973.cfg HTTP/1.1
+Host: 163.47.249.85
+User-Agent: Sangoma S700 2.0.4.28 00:50:58:50:19:73
+Accept: */*
+Connection: Keep-Alive
+Authorization: Basic YTU5ZTgxNmQ6NzZhMTI=
+
+
+[11-18 06:14:26 50:19:73] HttpCOpen: send 188 bytes success
+[11-18 06:14:26 50:19:73] HttpCOpen: recv 473 bytes back
+[11-18 06:14:26 50:19:73] HttpCOpen receive response 404, Free socket
+[11-18 06:14:26 50:19:73] HTTPC GetFile: Fail!!!
+[11-18 06:14:26 50:19:73] HTTPC get 005058501973.cfg from 163.47.249.85:83 Fail, cfg_len -1
+[11-18 06:14:26 50:19:73] HTTPC: Need Resolve Domain 163.47.249.85
+[11-18 06:14:26 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:26 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:26 50:19:73] CfgUpgradeOpen(Protocol HTTP, Port 83, Filename cfg005058501973)
+[11-18 06:14:26 50:19:73] HttpCOpen - AF_INET (4)
+[11-18 06:14:26 50:19:73] Image_2 Read Head: len = 512 
+[11-18 06:14:26 50:19:73] HttpCOpen: HTTP Command Size 187 bytes, Command:
+GET /cfg005058501973 HTTP/1.1
+Host: 163.47.249.85
+User-Agent: Sangoma S700 2.0.4.28 00:50:58:50:19:73
+Accept: */*
+Connection: Keep-Alive
+Authorization: Basic YTU5ZTgxNmQ6NzZhMTI=
+
+
+[11-18 06:14:26 50:19:73] HttpCOpen: send 187 bytes success
+[11-18 06:14:26 50:19:73] SIP: aid 2 Receive CfgUpdateEvent 
+[11-18 06:14:26 50:19:73] SIP: aid 2, BLF UnSubscribe, Account InValid
+[11-18 06:14:26 50:19:73] SIP: aid 2 CfgChange UnRegister1
+[11-18 06:14:26 50:19:73] SIP: aid 2, BLF UnRegister, Account InValid
+[11-18 06:14:26 50:19:73] HttpCOpen: recv 472 bytes back
+[11-18 06:14:26 50:19:73] HttpCOpen receive response 404, Free socket
+[11-18 06:14:26 50:19:73] HTTPC GetFile: Fail!!!
+[11-18 06:14:26 50:19:73] HTTPC get cfg005058501973 from 163.47.249.85:83 Fail
+[11-18 06:14:26 50:19:73] GetXmlMacCfgFileByHTTP: Config file path cfg005058501973.xml, line 3033
+[11-18 06:14:26 50:19:73] HTTPC: Need Resolve Domain 163.47.249.85
+[11-18 06:14:26 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:26 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:26 50:19:73] CfgUpgradeOpen(Protocol HTTP, Port 83, Filename cfg005058501973.xml)
+[11-18 06:14:26 50:19:73] HttpCOpen - AF_INET (4)
+[11-18 06:14:26 50:19:73] SIP: aid 3 Receive CfgUpdateEvent 
+[11-18 06:14:26 50:19:73] SIP: aid 3, BLF UnSubscribe, Account InValid
+[11-18 06:14:26 50:19:73] SIP: aid 3 CfgChange UnRegister1
+[11-18 06:14:26 50:19:73] SIP: aid 3, BLF UnRegister, Account InValid
+[11-18 06:14:26 50:19:73] Image_2 Read Head: len = 512 
+[11-18 06:14:26 50:19:73] HttpCOpen: HTTP Command Size 191 bytes, Command:
+GET /cfg005058501973.xml HTTP/1.1
+Host: 163.47.249.85
+User-Agent: Sangoma S700 2.0.4.28 00:50:58:50:19:73
+Accept: */*
+Connection: Keep-Alive
+Authorization: Basic YTU5ZTgxNmQ6NzZhMTI=
+
+
+[11-18 06:14:26 50:19:73] HttpCOpen: send 191 bytes success
+[11-18 06:14:26 50:19:73] HttpCOpen: recv 8188 bytes back
+[11-18 06:14:26 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:26 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:26 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:26 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:26 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:26 50:19:73] HttpCOpen Content-Length=64446
+[11-18 06:14:26 50:19:73] HttpCOpen rev response 200
+[11-18 06:14:26 50:19:73] HttpCOpen piggy-back length 7931
+[11-18 06:14:26 50:19:73] HttpCOpen OK
+[11-18 06:14:26 50:19:73] HttpC get file total len (64446)
+[11-18 06:14:26 50:19:73] HTTPC GetFile: Will Get Total Len: 64446 
+[11-18 06:14:26 50:19:73] HttpCRead: Return all remaining piggy-backed data 7931 bytes
+[11-18 06:14:26 50:19:73] AutoP: NewCfgCheckSum: 0x6c20 CurCfgCheckSum: 0x0
+[11-18 06:14:26 50:19:73] AutoP: HTTP Ready to UPdate Cfg file... 
+[11-18 06:14:26 50:19:73] HttpCClose(178a3d8)
+[11-18 06:14:26 50:19:73] HTTPC GetFile: Get Total Len: 64446 Success 
+[11-18 06:14:26 50:19:73] HTTPC get cfg005058501973.xml OK, len 64446
+[11-18 06:14:26 50:19:73] RTOS_Upgrade: Update ConfigFile, Start to load Xml config file, line= 2135
+[11-18 06:14:26 50:19:73] Enter Func LoadCfgFromXml
+[11-18 06:14:26 50:19:73] Write Cfg File length 64406
+[11-18 06:14:26 50:19:73] LoadCfgFromXml: File ./source/R_File.c, Line 1070, PATH /tmp/cfg_tmp.xml
+[11-18 06:14:28 50:19:73] ===============Account 4 SettingChange, Line 75 ================
+[11-18 06:14:28 50:19:73] ===============Account 5 SettingChange, Line 75 ================
+[11-18 06:14:28 50:19:73] WebsSetCfgValue: Unsupport P8519!
+[11-18 06:14:28 50:19:73] WebsSetCfgValue: Unsupport P8579!
+[11-18 06:14:28 50:19:73] WebsSetCfgValue: Unsupport P20992!
+[11-18 06:14:28 50:19:73] WebsSetCfgValue: Unsupport P23204!
+[11-18 06:14:28 50:19:73] WebsSetCfgValue: Unsupport P23205!
+[11-18 06:14:28 50:19:73] WebsSetCfgValue: Unsupport P23292!
+[11-18 06:14:28 50:19:73] WebsSetCfgValue: Unsupport P23388!
+[11-18 06:14:28 50:19:73] WebsSetCfgValue: Unsupport P23382!
+[11-18 06:14:28 50:19:73] WebsSetCfgValue: Unsupport P23500!
+[11-18 06:14:28 50:19:73] WebsSetCfgValue: Unsupport P24001!
+[11-18 06:14:28 50:19:73] WebsSetCfgValue: Unsupport P23400!
+[11-18 06:14:28 50:19:73] WebsSetCfgValue: Unsupport P23401!
+[11-18 06:14:28 50:19:73] SaveCfg2Flash: ./source/R_Upgrade.c:2141
+[11-18 06:14:28 50:19:73] =======SET ADMIN USER INFO SUCCESS=========
+[11-18 06:14:28 50:19:73] =======SET USER INFO SUCCESS=========
+[11-18 06:14:28 50:19:73] UpdateTonesByTemplate:11254*******CountryCode*10*******
+[11-18 06:14:28 50:19:73] 802.1x Write to file len[86]
+[11-18 06:14:28 50:19:73] RTOS_Upgrade: Will Parse Config Server Path http://a59e816d:76a12@163.47.249.85:83
+[11-18 06:14:28 50:19:73] ParseSerPathStr:====== addr is 163.47.249.85 
+[11-18 06:14:28 50:19:73] ParseSerPathStr: ip is 163.47.249.85, 0xa32ff955
+[11-18 06:14:28 50:19:73] ParseSerPathStr:====== addr is 163.47.249.85 
+[11-18 06:14:28 50:19:73] ParseSerPathStr: ip is 163.47.249.85, 0xa32ff955
+[11-18 06:14:28 50:19:73] ParseSerPathStr: path is sangoma/1
+[11-18 06:14:28 50:19:73] SaveCfg2Flash_DEBUG:1938=======aid 4, LocalSipPort Change!!=======haven't UnReg=======
+[11-18 06:14:28 50:19:73] SaveCfg2Flash_DEBUG:1938=======aid 5, LocalSipPort Change!!=======haven't UnReg=======
+[11-18 06:14:28 50:19:73] CFG: aid 1, set to invalid
+[11-18 06:14:28 50:19:73] CFG: aid 2, set to invalid
+[11-18 06:14:28 50:19:73] CFG: aid 3, set to invalid
+[11-18 06:14:28 50:19:73] CFG: aid 4, set to invalid
+[11-18 06:14:28 50:19:73] CFG: aid 5, set to invalid
+[11-18 06:14:28 50:19:73] SaveCfg2Flash_DEBUG:1954=======aid 4, LocalSipPort Change!!=======haven't UnReg=======
+[11-18 06:14:28 50:19:73] SaveCfg2Flash_DEBUG:1954=======aid 5, LocalSipPort Change!!=======haven't UnReg=======
+[11-18 06:14:28 50:19:73] Chn 0 digitmap: x+#|xx+*
+[11-18 06:14:28 50:19:73] Chn 0 use default digitmap: {[x*]+}
+[11-18 06:14:28 50:19:73] Chn 1 digitmap: x+#|xx+*
+[11-18 06:14:28 50:19:73] Chn 1 use default digitmap: {[x*]+}
+[11-18 06:14:28 50:19:73] Chn 2 digitmap: x+#|xx+*
+[11-18 06:14:28 50:19:73] Chn 2 use default digitmap: {[x*]+}
+[11-18 06:14:28 50:19:73] Chn 3 digitmap: x+#|xx+*
+[11-18 06:14:28 50:19:73] Chn 3 use default digitmap: {[x*]+}
+[11-18 06:14:28 50:19:73] Chn 4 digitmap: x+#|xx+*
+[11-18 06:14:28 50:19:73] Chn 4 use default digitmap: {[x*]+}
+[11-18 06:14:28 50:19:73] Chn 5 digitmap: x+#|xx+*
+[11-18 06:14:28 50:19:73] Chn 5 use default digitmap: {[x*]+}
+[11-18 06:14:28 50:19:73] CFG: aid 4, setting has been change!!!
+[11-18 06:14:28 50:19:73] CFG: aid 4 Send CfgUpdate Event to SIPPro
+[11-18 06:14:28 50:19:73] CFG: aid 5 Send CfgUpdate Event to SIPPro
+[11-18 06:14:28 50:19:73] WriteHlcfgFile:write hlcfg file sucessed !
+[11-18 06:14:28 50:19:73] SaveCfg2Flash:save Cfg file to Flash Sucessed!
+[11-18 06:14:28 50:19:73] RTOS_Upgrade: Will Parse Config Server Path http://a59e816d:76a12@163.47.249.85:83
+[11-18 06:14:28 50:19:73] ParseSerPathStr:====== addr is 163.47.249.85 
+[11-18 06:14:28 50:19:73] ParseSerPathStr: ip is 163.47.249.85, 0xa32ff955
+[11-18 06:14:28 50:19:73] ParseSerPathStr:====== addr is 163.47.249.85 
+[11-18 06:14:28 50:19:73] ParseSerPathStr: ip is 163.47.249.85, 0xa32ff955
+[11-18 06:14:28 50:19:73] ParseSerPathStr: path is sangoma/1
+[11-18 06:14:28 50:19:73] ######### Read Ring4 file len 512
+[11-18 06:14:28 50:19:73] ParseSerPathStr: file is ring4.bin
+[11-18 06:14:28 50:19:73] ParseSerPathStr:====== addr is 163.47.249.85 
+[11-18 06:14:28 50:19:73] ParseSerPathStr: ip is 163.47.249.85, 0xa32ff955
+[11-18 06:14:28 50:19:73] ParseSerPathStr: path is ringtones/formatted/ring4.bin
+[11-18 06:14:28 50:19:73] ParseSerPathStr: file is 005058501973-vpn.tar
+[11-18 06:14:28 50:19:73] ParseSerPathStr:====== addr is 163.47.249.85 
+[11-18 06:14:28 50:19:73] ParseSerPathStr: ip is 163.47.249.85, 0xa32ff955
+[11-18 06:14:28 50:19:73] ParseSerPathStr: path is 005058501973-vpn.tar
+[11-18 06:14:28 50:19:73] ParseSerPathStr: file is cfg57-states.xml
+[11-18 06:14:28 50:19:73] ParseSerPathStr:====== addr is 163.47.249.85 
+[11-18 06:14:28 50:19:73] ParseSerPathStr: ip is 163.47.249.85, 0xa32ff955
+[11-18 06:14:28 50:19:73] ParseSerPathStr: path is cfg57-states.xml
+[11-18 06:14:28 50:19:73] ParseSerPathStr: file is 005058501973-vpn.tar
+[11-18 06:14:28 50:19:73] ParseSerPathStr:====== addr is 10.66.0.2 
+[11-18 06:14:28 50:19:73] ParseSerPathStr: ip is 10.66.0.2, 0xa420002
+[11-18 06:14:28 50:19:73] ParseSerPathStr: path is 005058501973-vpn.tar
+[11-18 06:14:28 50:19:73] SIP: aid 4 Receive CfgUpdateEvent 
+[11-18 06:14:28 50:19:73] SIP: aid 4, BLF UnSubscribe, Account InValid
+[11-18 06:14:28 50:19:73] SIP: aid 4 CfgChange UnRegister1
+[11-18 06:14:28 50:19:73] SIP: aid 4, BLF UnRegister, Account InValid
+[11-18 06:14:28 50:19:73] SIP: aid 5 Receive CfgUpdateEvent 
+[11-18 06:14:28 50:19:73] SIP: aid 5, BLF UnSubscribe, Account InValid
+[11-18 06:14:28 50:19:73] SIP: aid 5 CfgChange UnRegister1
+[11-18 06:14:28 50:19:73] SIP: aid 5, BLF UnRegister, Account InValid
+[11-18 06:14:28 50:19:73] SYSLOG: load flash Flie 2 -1
+[11-18 06:14:28 50:19:73] ######### Read Ring4 file len 512
+[11-18 06:14:28 50:19:73] R_Upgrade: start Get file:http://a59e816d:76a12@163.47.249.85:83/ringtones/formatted/ring4.bin
+[11-18 06:14:28 50:19:73] ParseSerPathStr: file is ring4.bin
+[11-18 06:14:28 50:19:73] ParseSerPathStr:====== addr is 163.47.249.85 
+[11-18 06:14:28 50:19:73] ParseSerPathStr: ip is 163.47.249.85, 0xa32ff955
+[11-18 06:14:28 50:19:73] ParseSerPathStr: path is ringtones/formatted/ring4.bin
+[11-18 06:14:28 50:19:73] HTTPC: Need Resolve Domain 163.47.249.85
+[11-18 06:14:28 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:28 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:28 50:19:73] CfgUpgradeOpen(Protocol HTTP, Port 83, Filename ringtones/formatted/ring4.bin)
+[11-18 06:14:28 50:19:73] HttpCOpen - AF_INET (4)
+[11-18 06:14:28 50:19:73] Image_2 Read Head: len = 512 
+[11-18 06:14:28 50:19:73] HttpCOpen: HTTP Command Size 201 bytes, Command:
+GET /ringtones/formatted/ring4.bin HTTP/1.1
+Host: 163.47.249.85
+User-Agent: Sangoma S700 2.0.4.28 00:50:58:50:19:73
+Accept: */*
+Connection: Keep-Alive
+Authorization: Basic YTU5ZTgxNmQ6NzZhMTI=
+
+
+[11-18 06:14:28 50:19:73] HttpCOpen: send 201 bytes success
+[11-18 06:14:28 50:19:73] HttpCOpen: recv 486 bytes back
+[11-18 06:14:28 50:19:73] HttpCOpen receive response 404, Free socket
+[11-18 06:14:28 50:19:73] HTTPC GetFile: Fail!!!
+[11-18 06:14:28 50:19:73] R_Upgrade: Upgrade file failed!
+[11-18 06:14:28 50:19:73] ######### Read Ring5 file len 512
+[11-18 06:14:28 50:19:73] R_Upgrade: start Get file:http://a59e816d:76a12@163.47.249.85:83/ringtones/formatted/ring5.bin
+[11-18 06:14:28 50:19:73] ParseSerPathStr: file is ring5.bin
+[11-18 06:14:28 50:19:73] ParseSerPathStr:====== addr is 163.47.249.85 
+[11-18 06:14:28 50:19:73] ParseSerPathStr: ip is 163.47.249.85, 0xa32ff955
+[11-18 06:14:28 50:19:73] ParseSerPathStr: path is ringtones/formatted/ring5.bin
+[11-18 06:14:28 50:19:73] HTTPC: Need Resolve Domain 163.47.249.85
+[11-18 06:14:28 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:28 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:28 50:19:73] CfgUpgradeOpen(Protocol HTTP, Port 83, Filename ringtones/formatted/ring5.bin)
+[11-18 06:14:28 50:19:73] HttpCOpen - AF_INET (4)
+[11-18 06:14:28 50:19:73] Image_2 Read Head: len = 512 
+[11-18 06:14:28 50:19:73] HttpCOpen: HTTP Command Size 201 bytes, Command:
+GET /ringtones/formatted/ring5.bin HTTP/1.1
+Host: 163.47.249.85
+User-Agent: Sangoma S700 2.0.4.28 00:50:58:50:19:73
+Accept: */*
+Connection: Keep-Alive
+Authorization: Basic YTU5ZTgxNmQ6NzZhMTI=
+
+
+[11-18 06:14:28 50:19:73] HttpCOpen: send 201 bytes success
+[11-18 06:14:28 50:19:73] HttpCOpen: recv 486 bytes back
+[11-18 06:14:28 50:19:73] HttpCOpen receive response 404, Free socket
+[11-18 06:14:28 50:19:73] HTTPC GetFile: Fail!!!
+[11-18 06:14:28 50:19:73] R_Upgrade: Upgrade file failed!
+[11-18 06:14:28 50:19:73] Read Ring File Header: Open ring file /hlfs/ring6.bin fail! fd -1 
+[11-18 06:14:28 50:19:73] R_Upgrade: start Get file:http://a59e816d:76a12@163.47.249.85:83/ringtones/formatted/ring6.bin
+[11-18 06:14:28 50:19:73] ParseSerPathStr: file is ring6.bin
+[11-18 06:14:28 50:19:73] ParseSerPathStr:====== addr is 163.47.249.85 
+[11-18 06:14:28 50:19:73] ParseSerPathStr: ip is 163.47.249.85, 0xa32ff955
+[11-18 06:14:28 50:19:73] ParseSerPathStr: path is ringtones/formatted/ring6.bin
+[11-18 06:14:28 50:19:73] HTTPC: Need Resolve Domain 163.47.249.85
+[11-18 06:14:28 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:28 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:28 50:19:73] CfgUpgradeOpen(Protocol HTTP, Port 83, Filename ringtones/formatted/ring6.bin)
+[11-18 06:14:28 50:19:73] HttpCOpen - AF_INET (4)
+[11-18 06:14:28 50:19:73] Image_2 Read Head: len = 512 
+[11-18 06:14:28 50:19:73] HttpCOpen: HTTP Command Size 201 bytes, Command:
+GET /ringtones/formatted/ring6.bin HTTP/1.1
+Host: 163.47.249.85
+User-Agent: Sangoma S700 2.0.4.28 00:50:58:50:19:73
+Accept: */*
+Connection: Keep-Alive
+Authorization: Basic YTU5ZTgxNmQ6NzZhMTI=
+
+
+[11-18 06:14:28 50:19:73] HttpCOpen: send 201 bytes success
+[11-18 06:14:28 50:19:73] HttpCOpen: recv 486 bytes back
+[11-18 06:14:28 50:19:73] HttpCOpen receive response 404, Free socket
+[11-18 06:14:28 50:19:73] HTTPC GetFile: Fail!!!
+[11-18 06:14:28 50:19:73] R_Upgrade: Upgrade file failed!
+[11-18 06:14:28 50:19:73] Read Ring File Header: Open ring file /hlfs/ring7.bin fail! fd -1 
+[11-18 06:14:28 50:19:73] R_Upgrade: start Get file:http://a59e816d:76a12@163.47.249.85:83/ringtones/formatted/ring7.bin
+[11-18 06:14:28 50:19:73] ParseSerPathStr: file is ring7.bin
+[11-18 06:14:28 50:19:73] ParseSerPathStr:====== addr is 163.47.249.85 
+[11-18 06:14:28 50:19:73] ParseSerPathStr: ip is 163.47.249.85, 0xa32ff955
+[11-18 06:14:28 50:19:73] ParseSerPathStr: path is ringtones/formatted/ring7.bin
+[11-18 06:14:28 50:19:73] HTTPC: Need Resolve Domain 163.47.249.85
+[11-18 06:14:28 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:28 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:28 50:19:73] CfgUpgradeOpen(Protocol HTTP, Port 83, Filename ringtones/formatted/ring7.bin)
+[11-18 06:14:28 50:19:73] HttpCOpen - AF_INET (4)
+[11-18 06:14:28 50:19:73] Image_2 Read Head: len = 512 
+[11-18 06:14:28 50:19:73] HttpCOpen: HTTP Command Size 201 bytes, Command:
+GET /ringtones/formatted/ring7.bin HTTP/1.1
+Host: 163.47.249.85
+User-Agent: Sangoma S700 2.0.4.28 00:50:58:50:19:73
+Accept: */*
+Connection: Keep-Alive
+Authorization: Basic YTU5ZTgxNmQ6NzZhMTI=
+
+
+[11-18 06:14:28 50:19:73] HttpCOpen: send 201 bytes success
+[11-18 06:14:28 50:19:73] HttpCOpen: recv 486 bytes back
+[11-18 06:14:28 50:19:73] HttpCOpen receive response 404, Free socket
+[11-18 06:14:28 50:19:73] HTTPC GetFile: Fail!!!
+[11-18 06:14:28 50:19:73] R_Upgrade: Upgrade file failed!
+[11-18 06:14:28 50:19:73] Read Ring File Header: Open ring file /hlfs/ring8.bin fail! fd -1 
+[11-18 06:14:28 50:19:73] R_Upgrade: start Get file:http://a59e816d:76a12@163.47.249.85:83/ringtones/formatted/ring8.bin
+[11-18 06:14:28 50:19:73] ParseSerPathStr: file is ring8.bin
+[11-18 06:14:28 50:19:73] ParseSerPathStr:====== addr is 163.47.249.85 
+[11-18 06:14:28 50:19:73] ParseSerPathStr: ip is 163.47.249.85, 0xa32ff955
+[11-18 06:14:28 50:19:73] ParseSerPathStr: path is ringtones/formatted/ring8.bin
+[11-18 06:14:28 50:19:73] HTTPC: Need Resolve Domain 163.47.249.85
+[11-18 06:14:28 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:28 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:28 50:19:73] CfgUpgradeOpen(Protocol HTTP, Port 83, Filename ringtones/formatted/ring8.bin)
+[11-18 06:14:28 50:19:73] HttpCOpen - AF_INET (4)
+[11-18 06:14:28 50:19:73] Image_2 Read Head: len = 512 
+[11-18 06:14:28 50:19:73] HttpCOpen: HTTP Command Size 201 bytes, Command:
+GET /ringtones/formatted/ring8.bin HTTP/1.1
+Host: 163.47.249.85
+User-Agent: Sangoma S700 2.0.4.28 00:50:58:50:19:73
+Accept: */*
+Connection: Keep-Alive
+Authorization: Basic YTU5ZTgxNmQ6NzZhMTI=
+
+
+[11-18 06:14:28 50:19:73] HttpCOpen: send 201 bytes success
+[11-18 06:14:28 50:19:73] HttpCOpen: recv 486 bytes back
+[11-18 06:14:28 50:19:73] HttpCOpen receive response 404, Free socket
+[11-18 06:14:28 50:19:73] HTTPC GetFile: Fail!!!
+[11-18 06:14:28 50:19:73] R_Upgrade: Upgrade file failed!
+[11-18 06:14:28 50:19:73] ######### Read /hlcfg/hlpres.tar file len 512
+[11-18 06:14:28 50:19:73] R_Upgrade: start Get file:http://a59e816d:76a12@163.47.249.85:83/ringtones/formatted/ring9.bin
+[11-18 06:14:28 50:19:73] ParseSerPathStr: file is ring9.bin
+[11-18 06:14:28 50:19:73] ParseSerPathStr:====== addr is 163.47.249.85 
+[11-18 06:14:28 50:19:73] ParseSerPathStr: ip is 163.47.249.85, 0xa32ff955
+[11-18 06:14:28 50:19:73] ParseSerPathStr: path is ringtones/formatted/ring9.bin
+[11-18 06:14:28 50:19:73] HTTPC: Need Resolve Domain 163.47.249.85
+[11-18 06:14:28 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:28 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:28 50:19:73] CfgUpgradeOpen(Protocol HTTP, Port 83, Filename ringtones/formatted/ring9.bin)
+[11-18 06:14:28 50:19:73] HttpCOpen - AF_INET (4)
+[11-18 06:14:28 50:19:73] Image_2 Read Head: len = 512 
+[11-18 06:14:28 50:19:73] HttpCOpen: HTTP Command Size 201 bytes, Command:
+GET /ringtones/formatted/ring9.bin HTTP/1.1
+Host: 163.47.249.85
+User-Agent: Sangoma S700 2.0.4.28 00:50:58:50:19:73
+Accept: */*
+Connection: Keep-Alive
+Authorization: Basic YTU5ZTgxNmQ6NzZhMTI=
+
+
+[11-18 06:14:28 50:19:73] HttpCOpen: send 201 bytes success
+[11-18 06:14:29 50:19:73] HttpCOpen: recv 486 bytes back
+[11-18 06:14:29 50:19:73] HttpCOpen receive response 404, Free socket
+[11-18 06:14:29 50:19:73] HTTPC GetFile: Fail!!!
+[11-18 06:14:29 50:19:73] R_Upgrade: Upgrade file failed!
+[11-18 06:14:29 50:19:73] ######### Read /hlcfg/Language.tar file len 512
+[11-18 06:14:29 50:19:73] R_Upgrade: start Get file:http://a59e816d:76a12@163.47.249.85:83/ringtones/formatted/ring10.bin
+[11-18 06:14:29 50:19:73] ParseSerPathStr: file is ring10.bin
+[11-18 06:14:29 50:19:73] ParseSerPathStr:====== addr is 163.47.249.85 
+[11-18 06:14:29 50:19:73] ParseSerPathStr: ip is 163.47.249.85, 0xa32ff955
+[11-18 06:14:29 50:19:73] ParseSerPathStr: path is ringtones/formatted/ring10.bin
+[11-18 06:14:29 50:19:73] HTTPC: Need Resolve Domain 163.47.249.85
+[11-18 06:14:29 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:29 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:29 50:19:73] CfgUpgradeOpen(Protocol HTTP, Port 83, Filename ringtones/formatted/ring10.bin)
+[11-18 06:14:29 50:19:73] HttpCOpen - AF_INET (4)
+[11-18 06:14:29 50:19:73] Image_2 Read Head: len = 512 
+[11-18 06:14:29 50:19:73] HttpCOpen: HTTP Command Size 202 bytes, Command:
+GET /ringtones/formatted/ring10.bin HTTP/1.1
+Host: 163.47.249.85
+User-Agent: Sangoma S700 2.0.4.28 00:50:58:50:19:73
+Accept: */*
+Connection: Keep-Alive
+Authorization: Basic YTU5ZTgxNmQ6NzZhMTI=
+
+
+[11-18 06:14:29 50:19:73] HttpCOpen: send 202 bytes success
+[11-18 06:14:29 50:19:73] HttpCOpen: recv 487 bytes back
+[11-18 06:14:29 50:19:73] HttpCOpen receive response 404, Free socket
+[11-18 06:14:29 50:19:73] HTTPC GetFile: Fail!!!
+[11-18 06:14:29 50:19:73] R_Upgrade: Upgrade file failed!
+[11-18 06:14:29 50:19:73] R_Upgrade: start Get file:http://a59e816d:76a12@163.47.249.85:83/005058501973-vpn.tar
+[11-18 06:14:29 50:19:73] ParseSerPathStr: file is 005058501973-vpn.tar
+[11-18 06:14:29 50:19:73] ParseSerPathStr:====== addr is 163.47.249.85 
+[11-18 06:14:29 50:19:73] ParseSerPathStr: ip is 163.47.249.85, 0xa32ff955
+[11-18 06:14:29 50:19:73] ParseSerPathStr: path is 005058501973-vpn.tar
+[11-18 06:14:29 50:19:73] HTTPC: Need Resolve Domain 163.47.249.85
+[11-18 06:14:29 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:29 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:29 50:19:73] CfgUpgradeOpen(Protocol HTTP, Port 83, Filename 005058501973-vpn.tar)
+[11-18 06:14:29 50:19:73] HttpCOpen - AF_INET (4)
+[11-18 06:14:29 50:19:73] Image_2 Read Head: len = 512 
+[11-18 06:14:29 50:19:73] HttpCOpen: HTTP Command Size 192 bytes, Command:
+GET /005058501973-vpn.tar HTTP/1.1
+Host: 163.47.249.85
+User-Agent: Sangoma S700 2.0.4.28 00:50:58:50:19:73
+Accept: */*
+Connection: Keep-Alive
+Authorization: Basic YTU5ZTgxNmQ6NzZhMTI=
+
+
+[11-18 06:14:29 50:19:73] HttpCOpen: send 192 bytes success
+[11-18 06:14:29 50:19:73] HttpCOpen: recv 8188 bytes back
+[11-18 06:14:29 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:29 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:29 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:29 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:29 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:29 50:19:73] HttpCOpen Content-Length=11776
+[11-18 06:14:29 50:19:73] HttpCOpen rev response 200
+[11-18 06:14:29 50:19:73] HttpCOpen piggy-back length 7922
+[11-18 06:14:29 50:19:73] HttpCOpen OK
+[11-18 06:14:29 50:19:73] HttpC get file total len (11776)
+[11-18 06:14:29 50:19:73] HTTPC GetFile: Will Get Total Len: 11776 
+[11-18 06:14:29 50:19:73] HttpCRead: Return all remaining piggy-backed data 7922 bytes
+[11-18 06:14:29 50:19:73] HttpCClose(18c0520)
+[11-18 06:14:29 50:19:73] HTTPC GetFile: Get Total Len: 11776 Success 
+[11-18 06:14:29 50:19:73] R_Upgrade: /hlfs/provision/client.tar is same as server, need not upgrade !!
+[11-18 06:14:29 50:19:73] R_Upgrade: Upgrade file failed!
+[11-18 06:14:29 50:19:73] R_Upgrade: start Get file:http://a59e816d:76a12@163.47.249.85:83/cfg57-states.xml
+[11-18 06:14:29 50:19:73] ParseSerPathStr: file is cfg57-states.xml
+[11-18 06:14:29 50:19:73] ParseSerPathStr:====== addr is 163.47.249.85 
+[11-18 06:14:29 50:19:73] ParseSerPathStr: ip is 163.47.249.85, 0xa32ff955
+[11-18 06:14:29 50:19:73] ParseSerPathStr: path is cfg57-states.xml
+[11-18 06:14:29 50:19:73] HTTPC: Need Resolve Domain 163.47.249.85
+[11-18 06:14:29 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:29 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:29 50:19:73] CfgUpgradeOpen(Protocol HTTP, Port 83, Filename cfg57-states.xml)
+[11-18 06:14:29 50:19:73] HttpCOpen - AF_INET (4)
+[11-18 06:14:29 50:19:73] Image_2 Read Head: len = 512 
+[11-18 06:14:29 50:19:73] HttpCOpen: HTTP Command Size 188 bytes, Command:
+GET /cfg57-states.xml HTTP/1.1
+Host: 163.47.249.85
+User-Agent: Sangoma S700 2.0.4.28 00:50:58:50:19:73
+Accept: */*
+Connection: Keep-Alive
+Authorization: Basic YTU5ZTgxNmQ6NzZhMTI=
+
+
+[11-18 06:14:29 50:19:73] HttpCOpen: send 188 bytes success
+[11-18 06:14:29 50:19:73] HttpCOpen: recv 6272 bytes back
+[11-18 06:14:29 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:29 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:29 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:29 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:29 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:29 50:19:73] HttpCOpen Content-Length=6016
+[11-18 06:14:29 50:19:73] HttpCOpen rev response 200
+[11-18 06:14:29 50:19:73] HttpCOpen piggy-back length 6016
+[11-18 06:14:29 50:19:73] HttpCOpen OK
+[11-18 06:14:29 50:19:73] HttpC get file total len (6016)
+[11-18 06:14:29 50:19:73] HTTPC GetFile: Will Get Total Len: 6016 
+[11-18 06:14:29 50:19:73] HttpCRead: Return all remaining piggy-backed data 6016 bytes
+[11-18 06:14:29 50:19:73] HttpCClose(18354f8)
+[11-18 06:14:29 50:19:73] HTTPC GetFile: Get Total Len: 6016 Success 
+[11-18 06:14:29 50:19:73] R_Upgrade: /hlcfg/softkey/softkey.xml is same as server, need not upgrade !!
+[11-18 06:14:29 50:19:73] R_Upgrade: Upgrade file failed!
+[11-18 06:14:29 50:19:73] R_Upgrade: start Get file:http://a59e816d:76a12@10.66.0.2:83/005058501973-vpn.tar
+[11-18 06:14:29 50:19:73] ParseSerPathStr: file is 005058501973-vpn.tar
+[11-18 06:14:29 50:19:73] ParseSerPathStr:====== addr is 10.66.0.2 
+[11-18 06:14:29 50:19:73] ParseSerPathStr: ip is 10.66.0.2, 0xa420002
+[11-18 06:14:29 50:19:73] ParseSerPathStr: path is 005058501973-vpn.tar
+[11-18 06:14:29 50:19:73] HTTPC: Need Resolve Domain 10.66.0.2
+[11-18 06:14:29 50:19:73] HTTPC: Resolve Domain 10.66.0.2, IP 10.66.0.2
+[11-18 06:14:29 50:19:73] HTTPC: Resolve Domain 10.66.0.2, IP 10.66.0.2
+[11-18 06:14:29 50:19:73] CfgUpgradeOpen(Protocol HTTP, Port 83, Filename 005058501973-vpn.tar)
+[11-18 06:14:29 50:19:73] HttpCOpen - AF_INET (4)
+[11-18 06:14:29 50:19:73] Image_2 Read Head: len = 512 
+[11-18 06:14:29 50:19:73] HttpCOpen: HTTP Command Size 188 bytes, Command:
+GET /005058501973-vpn.tar HTTP/1.1
+Host: 10.66.0.2
+User-Agent: Sangoma S700 2.0.4.28 00:50:58:50:19:73
+Accept: */*
+Connection: Keep-Alive
+Authorization: Basic YTU5ZTgxNmQ6NzZhMTI=
+
+
+[11-18 06:14:29 50:19:73] HttpCOpen: send 188 bytes success
+[11-18 06:14:29 50:19:73] HttpCOpen: recv 8188 bytes back
+[11-18 06:14:29 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:29 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:29 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:29 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:29 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:29 50:19:73] HttpCOpen Content-Length=11776
+[11-18 06:14:29 50:19:73] HttpCOpen rev response 200
+[11-18 06:14:29 50:19:73] HttpCOpen piggy-back length 7922
+[11-18 06:14:29 50:19:73] HttpCOpen OK
+[11-18 06:14:29 50:19:73] HttpC get file total len (11776)
+[11-18 06:14:29 50:19:73] HTTPC GetFile: Will Get Total Len: 11776 
+[11-18 06:14:29 50:19:73] HttpCRead: Return all remaining piggy-backed data 7922 bytes
+[11-18 06:14:29 50:19:73] HttpCClose(18c0520)
+[11-18 06:14:29 50:19:73] HTTPC GetFile: Get Total Len: 11776 Success 
+[11-18 06:14:29 50:19:73] R_Upgrade: /hlfs/provision/client.tar is same as server, need not upgrade !!
+[11-18 06:14:29 50:19:73] R_Upgrade: Upgrade file failed!
+[11-18 06:14:29 50:19:73] 
+Before Upgrade FirmWare:
+[11-18 06:14:29 50:19:73] ------------------------------------------------------
+[11-18 06:14:29 50:19:73] Free Memory Info:
+[11-18 06:14:29 50:19:73] memfree: 5164KB buffers: 2928KB cached: 31676KB
+[11-18 06:14:29 50:19:73] Total free memory: 39768 KB
+[11-18 06:14:29 50:19:73] ------------------------------------------------------
+
+[11-18 06:14:29 50:19:73] 
+
+[11-18 06:14:29 50:19:73] SYSLOG: read flash Flie /hlfs/message02 size = 1084551 
+[11-18 06:14:29 50:19:73] RTOS_Upgrade: Get ROM File addr 163.47.249.85, path sangoma/1
+[11-18 06:14:29 50:19:73] total size 40372389
+[11-18 06:14:29 50:19:73] There isn't /etc/openvpn transition_rom_file, 6549!
+[11-18 06:14:29 50:19:73] chmod /hlfs/openvpn , transition_rom_file, 6554!
+[11-18 06:14:29 50:19:73] There isn't /etc/tcpdump, transition_rom_file, 6577!
+[11-18 06:14:29 50:19:73] chmod /hlfs/tcpdump, transition_rom_file, 6582!
+[11-18 06:14:29 50:19:73] RTOS_Upgrade: Ready Check file fw700.rom 
+[11-18 06:14:29 50:19:73] Will check file file_url sangoma/1/fw700.rom path  sangoma/1 Save as fw700.rom
+[11-18 06:14:29 50:19:73] HTTPC: Need Resolve Domain 163.47.249.85
+[11-18 06:14:29 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:29 50:19:73] HTTPC: Resolve Domain 163.47.249.85, IP 163.47.249.85
+[11-18 06:14:29 50:19:73] CfgUpgradeOpen(Protocol HTTP, Port 83, Filename sangoma/1/fw700.rom)
+[11-18 06:14:29 50:19:73] HttpCOpen - AF_INET (4)
+[11-18 06:14:29 50:19:73] Image_2 Read Head: len = 512 
+[11-18 06:14:29 50:19:73] HttpCOpen: HTTP Command Size 191 bytes, Command:
+GET /sangoma/1/fw700.rom HTTP/1.1
+Host: 163.47.249.85
+User-Agent: Sangoma S700 2.0.4.28 00:50:58:50:19:73
+Accept: */*
+Connection: Keep-Alive
+Authorization: Basic YTU5ZTgxNmQ6NzZhMTI=
+
+
+[11-18 06:14:29 50:19:73] HttpCOpen: send 191 bytes success
+[11-18 06:14:29 50:19:73] HttpCOpen: recv 8188 bytes back
+[11-18 06:14:29 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:29 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:29 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:29 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:29 50:19:73] HttpCOpen Content-Length=0
+[11-18 06:14:29 50:19:73] HttpCOpen Content-Length=18536058
+[11-18 06:14:29 50:19:73] HttpCOpen rev response 200
+[11-18 06:14:29 50:19:73] HttpCOpen piggy-back length 7908
+[11-18 06:14:29 50:19:73] HttpCOpen OK
+[11-18 06:14:29 50:19:73] HttpC get file total len (18536058)
+[11-18 06:14:29 50:19:73] HTTPC: Get Comm File -- Will Get Total Len: 18536058 pchFilename：sangoma/1/fw700.rom
+[11-18 06:14:29 50:19:73] HttpCRead: Return all remaining piggy-backed data 7908 bytes
+[11-18 06:14:29 50:19:73] HTTPC: same head /hlfs/fw700.rom  !
+[11-18 06:14:29 50:19:73] HttpCClose(18b9478)
+[11-18 06:14:29 50:19:73] RTOS Upgrade: ROM, ======>> Get sangoma/1/fw700.rom Fail, ret -1<<======
+[11-18 06:14:29 50:19:73] rom_file_check: file /hlfs/fw700.rom length is 18536058 !
+[11-18 06:14:29 50:19:73] Nand flash ID is 0x92f18095
+[11-18 06:14:29 50:19:73] check_version: no need to check........
+[11-18 06:14:29 50:19:73] hl_common_file_calcAddValue ,read /hlfs/fw700.rom  FileLen 9268029 !
+[11-18 06:14:30 50:19:73] CFG: aid 1, set to invalid
+[11-18 06:14:30 50:19:73] CFG: aid 2, set to invalid
+[11-18 06:14:30 50:19:73] CFG: aid 3, set to invalid
+[11-18 06:14:30 50:19:73] CFG: aid 4, set to invalid
+[11-18 06:14:30 50:19:73] CFG: aid 5, set to invalid
+[11-18 06:14:30 50:19:73] SIP: Update SipInfo
+[11-18 06:14:30 50:19:73] SIP: aid 0 RegTimer Start...
+[11-18 06:14:30 50:19:73] SIP: aid 1 RegTimer Start...
+[11-18 06:14:30 50:19:73] SIP: aid 2 RegTimer Start...
+[11-18 06:14:30 50:19:73] SIP: aid 3 RegTimer Start...
+[11-18 06:14:30 50:19:73] SIP: aid 4 RegTimer Start...
+[11-18 06:14:30 50:19:73] SIP: aid 5 RegTimer Start...
+[11-18 06:14:30 50:19:73] CFG: aid 1, set to invalid
+[11-18 06:14:30 50:19:73] CFG: aid 2, set to invalid
+[11-18 06:14:30 50:19:73] CFG: aid 3, set to invalid
+[11-18 06:14:30 50:19:73] CFG: aid 4, set to invalid
+[11-18 06:14:30 50:19:73] CFG: aid 5, set to invalid
+[11-18 06:14:30 50:19:73] SIP: Update SipInfo
+[11-18 06:14:30 50:19:73] SIP: aid 0 RegTimer Start...
+[11-18 06:14:30 50:19:73] SIP: aid 1 RegTimer Start...
+[11-18 06:14:30 50:19:73] SIP: aid 2 RegTimer Start...
+[11-18 06:14:30 50:19:73] SIP: aid 3 RegTimer Start...
+[11-18 06:14:30 50:19:73] SIP: aid 4 RegTimer Start...
+[11-18 06:14:30 50:19:73] SIP: aid 5 RegTimer Start...
+[11-18 06:14:30 50:19:73] CFG: aid 1, set to invalid
+[11-18 06:14:30 50:19:73] CFG: aid 2, set to invalid
+[11-18 06:14:30 50:19:73] CFG: aid 3, set to invalid
+[11-18 06:14:30 50:19:73] CFG: aid 4, set to invalid
+[11-18 06:14:30 50:19:73] CFG: aid 5, set to invalid
+[11-18 06:14:30 50:19:73] SIP: Update SipInfo
+[11-18 06:14:30 50:19:73] SIP: aid 0 RegTimer Start...
+[11-18 06:14:30 50:19:73] SIP: aid 1 RegTimer Start...
+[11-18 06:14:30 50:19:73] SIP: aid 2 RegTimer Start...
+[11-18 06:14:30 50:19:73] SIP: aid 3 RegTimer Start...
+[11-18 06:14:30 50:19:73] SIP: aid 4 RegTimer Start...
+[11-18 06:14:30 50:19:73] SIP: aid 5 RegTimer Start...
+[11-18 06:14:32 50:19:73] IniAccountSipUdp:1781===Aid=0==SIP Creat Socket Bind NetMode = 0======
+[11-18 06:14:32 50:19:73] Create Udp Socket: SrcIp=0x a080003 SrcPort=5060 Pno=4 Event=4111 NetId=0x80000000...
+[11-18 06:14:32 50:19:73] IPV4 Init UDPSocket: bind socket 185 Success, pos[159]locip[a080003]port[5060]!
+[11-18 06:14:32 50:19:73] Create Udp Socket: CurPos=159 Port=5060 Create UDP Socket OK!
+[11-18 06:14:32 50:19:73] IniSipUdp: aid 0 Create UdpSocket OK pos 159!!!
+[11-18 06:14:32 50:19:73] IniSipUdp aid 0 OK
+[11-18 06:14:32 50:19:73] CFG: aid 1, set to invalid
+[11-18 06:14:32 50:19:73] CFG: aid 2, set to invalid
+[11-18 06:14:32 50:19:73] CFG: aid 3, set to invalid
+[11-18 06:14:32 50:19:73] CFG: aid 4, set to invalid
+[11-18 06:14:32 50:19:73] CFG: aid 5, set to invalid
+[11-18 06:14:32 50:19:73] SIP: Update SipInfo
+[11-18 06:14:32 50:19:73] SIP: aid 0 RegTimer Start...
+[11-18 06:14:32 50:19:73] SIP: aid 1 RegTimer Start...
+[11-18 06:14:32 50:19:73] SIP: aid 2 RegTimer Start...
+[11-18 06:14:32 50:19:73] SIP: aid 3 RegTimer Start...
+[11-18 06:14:32 50:19:73] SIP: aid 4 RegTimer Start...
+[11-18 06:14:32 50:19:73] SIP: aid 5 RegTimer Start...
+[11-18 06:14:32 50:19:73] CFG: aid 1, set to invalid
+[11-18 06:14:32 50:19:73] CFG: aid 2, set to invalid
+[11-18 06:14:32 50:19:73] CFG: aid 3, set to invalid
+[11-18 06:14:32 50:19:73] CFG: aid 4, set to invalid
+[11-18 06:14:32 50:19:73] CFG: aid 5, set to invalid
+[11-18 06:14:32 50:19:73] SIP: Update SipInfo
+[11-18 06:14:32 50:19:73] SIP: aid 0 RegTimer Start...
+[11-18 06:14:32 50:19:73] SIP: aid 1 RegTimer Start...
+[11-18 06:14:32 50:19:73] SIP: aid 2 RegTimer Start...
+[11-18 06:14:32 50:19:73] SIP: aid 3 RegTimer Start...
+[11-18 06:14:32 50:19:73] SIP: aid 4 RegTimer Start...
+[11-18 06:14:32 50:19:73] SIP: aid 5 RegTimer Start...
+[11-18 06:14:34 50:19:73] ======>>> Read /hlfs/fw700.rom file len 1658 Fail
+[11-18 06:14:34 50:19:73] hl_common_file_calcAddValue ,read /hlfs/fw700.rom  1658 tail!
+[11-18 06:14:34 50:19:73] hl_common_file_calcAddValue , /hlfs/fw700.rom off_set 9268029 FileLen 9268029 !
+[11-18 06:14:34 50:19:73] FileLen 9268029, acc 0x0
+[11-18 06:14:34 50:19:73] FileLen 0x11ad67a 0x6c 0xcd,head_len 1024
+[11-18 06:14:40 50:19:73] ======>>> Read /hlfs/fw700.rom file len 634 Fail
+[11-18 06:14:40 50:19:73] File  Digest check OK
+[11-18 06:14:40 50:19:73] SYSLOG: use ram temp--------------------------------------------index 1, mode w+
+[11-18 06:14:42 50:19:73] GUI: ====load hlpres photo:wallpaper1.jpg error=======
+[11-18 06:14:50 50:19:73] GUI: set brightness:230
+[11-18 06:14:50 50:19:73] GUI: RemoteDir 3, BSDir 3, APDir 3
+[11-18 06:14:50 50:19:73] GUI:DEBUGINFO:DeleteAllPhoneBookItem Item is NULL,File:phone.c------Line:7356
+[11-18 06:14:50 50:19:73] LDAP: ldap_search_s:87
+[11-18 06:14:50 50:19:73] PostStartLogToServer, len:117253
+[11-18 06:14:51 50:19:73] GUI: Idle Softkey ,,,
+[11-18 06:14:51 50:19:73] LCM: Select aid:0
+[11-18 06:14:51 50:19:73] GUI: =====LoadSoftkeyLayoutFromXml start!========
+ [11-18 06:14:51 50:19:73] L2C: LCM set aid 0
+[11-18 06:14:51 50:19:73] GUI: aid:0, AccountInfo->name:Hello Cab dimanche-57
+[11-18 06:14:51 50:19:73] GUI: aid:0, AccountInfo->name:Hello Cab dimanche-57
+[11-18 06:14:51 50:19:73] GUI: aid:0, AccountInfo->name:Hello Cab dimanche-57
+[11-18 06:14:51 50:19:73] GUI: Idle Softkey History,,,Menu
+[11-18 06:14:51 50:19:73] GUI: aid:0, AccountInfo->name:Hello Cab dimanche-57
+[11-18 06:14:51 50:19:73] GUI: aid:0, AccountInfo->name:Hello Cab dimanche-57
+[11-18 06:14:51 50:19:73] GUI: aid:0, AccountInfo->name:Hello Cab dimanche-57
+[11-18 06:14:51 50:19:73] GUI: Idle Softkey History,,,Menu
+[11-18 06:14:51 50:19:73] mkdir /tmp/photo/
+[11-18 06:14:51 50:19:73] SYSTEM CALL:  echo 1 > /proc/sys/vm/drop_caches ; 
+[11-18 06:14:51 50:19:73] GUI: MSG_PAINT
+[11-18 06:14:51 50:19:73] GUI: num:0,HLGUIData.ScrewView.ScrewItemNum:0
+[11-18 06:14:51 50:19:73] GUI:DEBUGINFO:OpenXmlFile Fail!,File:./src/directory.c------Line:642
+[11-18 06:14:51 50:19:73] GUI: No ehs version!
+[11-18 06:14:51 50:19:73] GUI:CFG_SAVETO_FLASH_EVENT
+[11-18 06:14:51 50:19:73] GUI: aid:0, AccountInfo->name:Hello Cab dimanche-57
+[11-18 06:14:51 50:19:73] GUI: aid:0, AccountInfo->name:Hello Cab dimanche-57
+[11-18 06:14:51 50:19:73] GUI: aid:0, AccountInfo->name:Hello Cab dimanche-57
+[11-18 06:14:51 50:19:73] FXS Chn 0  Off Hook, tick 3778
+[11-18 06:14:51 50:19:73] Ti3100:HANDSET mode 
+[11-18 06:14:51 50:19:73] BSP: OpenHandset HandsetVolume :8, MicVolum 8
+[11-18 06:14:51 50:19:73] GUI: Idle Softkey History,,,Menu
+[11-18 06:14:51 50:19:73] GUI: RemoteDir 3, BSDir 3, APDir 3
+[11-18 06:14:51 50:19:73] CALL: State=0x60, Event=0x100, Chn=0
+[11-18 06:14:51 50:19:73] chn=0, AEC_switch = 0
+[11-18 06:14:51 50:19:73] MS: Chn 0 MSDspStopSendRev
+[11-18 06:14:51 50:19:73] CALL: Line 0 Req Stop RingTone
+[11-18 06:14:51 50:19:73] MS: tid 1 Req Stop RingTone
+[11-18 06:14:51 50:19:73] CallCtl: SendEvent2Lcm: aid 0, Line: 0, event 0x8dd
+[11-18 06:14:52 50:19:73] GUI: CALL_OFFHOOK, Index:0
+[11-18 06:14:52 50:19:73] GUI: MSG_PAINT
+[11-18 06:14:52 50:19:73] GUI: num:0,HLGUIData.ScrewView.ScrewItemNum:0
+[11-18 06:14:52 50:19:73] SIP: aid 0 Reg Start...
+[11-18 06:14:52 50:19:73] SIP: sip_nict_init, no route, req_uri->host:port is 10.66.0.2:5060
+[11-18 06:15:21 50:19:73] CALL: State=0x61, Event=0x1004, Chn=0
+[11-18 06:15:21 50:19:73] CALL: State=0x61, Event=0x122, Chn=0
+[11-18 06:15:21 50:19:73] CALL:21556--Resv Onhook---LcmLine=0,CurLine=0!!!
+[11-18 06:15:21 50:19:73] CALL: 17960, Line Seize Event=0x122,line=0,aid=0--0--0,LineState=97
+[11-18 06:15:21 50:19:73] CALL: CurLine 0, State 0x61, OnHook!!!
+[11-18 06:15:21 50:19:73] CallCtl: SendEvent2Lcm: aid 0, Line: 0, event 0x8de
+[11-18 06:15:21 50:19:73] CALL: line 0 OnHook, CurLineState 0x61
+[11-18 06:15:21 50:19:73] CALL: _XPhoneNextState...
+[11-18 06:15:21 50:19:73] CALL: Clear Transfer, Conf and NS Flag
+[11-18 06:15:21 50:19:73] CALL: There isn't any call, Release
+[11-18 06:15:21 50:19:73] CallCtl: SendEvent2Lcm: aid 0, Line: 0, event 0x8f7
+[11-18 06:15:21 50:19:73]  EXTRA_KILL_TIMER check Tmid Error!
+[11-18 06:15:21 50:19:73] CallCtl: SendEvent2Lcm: aid 0, Line: 0, event 0x954
+[11-18 06:15:21 50:19:73] SendSpecialEvent2LCM: Event=2534
+[11-18 06:15:21 50:19:73] MSDspStopMute:2077####
+[11-18 06:15:21 50:19:73] chn=0, AEC_switch = 0
+[11-18 06:15:21 50:19:73] MS: Chn 0 MSDspStopSendRev
+[11-18 06:15:21 50:19:73] L2Call receive NormalReleaseEvent, release
+[11-18 06:15:21 50:19:73] SIPPro: 12915, Release All Sip Dialog!!
+[11-18 06:15:21 50:19:73] GUI: CALL_ONHOOK,index:0
+[11-18 06:15:21 50:19:73] GUI: 2:Call LCMSUBCallData:23601672:subdatastatistic:1
+[11-18 06:15:21 50:19:73] CALL: State=0x60, Event=0x91c, Chn=0
+[11-18 06:15:21 50:19:73] CALL: LCM Exit MenuCfg
+[11-18 06:15:21 50:19:73] GUI: CALL_ONHOOK, Index:0
+[11-18 06:15:21 50:19:73] GUI: CALL_REL_ALL, Index:0
+[11-18 06:15:21 50:19:73] GUI: Receive CALL_BUSY_UNLOCK_KEYPAD!
+[11-18 06:15:22 50:19:73] GUI: Idle Softkey History,,,Menu
+[11-18 06:15:22 50:19:73] LCM: Select aid:0
+[11-18 06:15:22 50:19:73] L2C: LCM set aid 0
+[11-18 06:15:42 50:19:73] DNSC: resolv HostName -- 0.oceania.pool.ntp.org
+[11-18 06:15:42 50:19:73] DNSC: Domain 0.oceania.pool.ntp.org, ip 103.126.53.123, TTL 4
+[11-18 06:15:47 50:19:73] DNSC: resolv HostName -- 0.oceania.pool.ntp.org
+[11-18 06:15:47 50:19:73] DNSC: Domain 0.oceania.pool.ntp.org, ip 202.22.158.30, TTL 149
+[11-18 06:15:55 50:19:73] SIP: aid 0, cid 0, tid 0, did 0, REQUEST: REGISTER, Event: 2
+[11-18 06:15:55 50:19:73] SipProc:aid 0 enter NoAnswer SIP_REGISTRATION_FAILURE ====
+[11-18 06:15:55 50:19:73] CALL: State=0x60, Event=0x31e, Chn=0
+[11-18 06:15:55 50:19:73] CallCtl: SendEvent2Lcm: aid 0, Line: 0, event 0x8d3
+[11-18 06:15:55 50:19:73] GUI: Receive Call Register Failed!
+[11-18 06:15:55 50:19:73] LCM: Select aid:0
+[11-18 06:15:55 50:19:73] L2C: LCM set aid 0
+[11-18 06:15:56 50:19:73] SIP: aid 0, Need Re-Register after 32 seconds..
+[11-18 06:15:57 50:19:73] Ti3100:HANDSET mode 
+[11-18 06:15:57 50:19:73] BSP: OpenHandset HandsetVolume :8, MicVolum 8
+[11-18 06:15:57 50:19:73] Ti3100:HANDSET mode 
+[11-18 06:15:57 50:19:73] BSP: OpenHandset HandsetVolume :8, MicVolum 8
+[11-18 06:15:57 50:19:73] Dial Number-10, Duration 50
+[11-18 06:15:57 50:19:73] L2C: Receive SpecialHookOffEvent
+[11-18 06:15:57 50:19:73] Ti3100:HANDSET mode 
+[11-18 06:15:57 50:19:73] BSP: OpenHandset HandsetVolume :8, MicVolum 8
+[11-18 06:15:57 50:19:73] CALL: State=0x60, Event=0x70, Chn=0
+[11-18 06:15:57 50:19:73] chn=0, AEC_switch = 0
+[11-18 06:15:57 50:19:73] MS: Chn 0 MSDspStopSendRev
+[11-18 06:15:57 50:19:73] CallCtl: SendEvent2Lcm: aid 0, Line: 0, event 0x8dd
+[11-18 06:15:57 50:19:73] L2C: Receive SpecialDTMFEvent
+[11-18 06:15:57 50:19:73] GUI: CALL_OFFHOOK, Index:0
+[11-18 06:15:57 50:19:73] GUI: MSG_PAINT
+[11-18 06:15:58 50:19:73] Dial Number-4, Duration 50
+[11-18 06:15:58 50:19:73] GUI: num:0,HLGUIData.ScrewView.ScrewItemNum:0
+[11-18 06:15:58 50:19:73] GUI: CALL_OFFHOOKTYPE:2
+[11-18 06:15:58 50:19:73] GUI: MSG_CHAR
+[11-18 06:15:58 50:19:73] L2C: Lcm Dtmf Info: *, len = 1
+[11-18 06:15:58 50:19:73] L2C: Aid 0 Dial Plan matching..., digits *
+[11-18 06:15:58 50:19:73] GUI: MSG_CHAR
+[11-18 06:15:58 50:19:73] L2C: Lcm Dtmf Info: *4, len = 2
+[11-18 06:15:58 50:19:73] L2C: Aid 0 Dial Plan matching..., digits *4
+[11-18 06:16:00 50:19:73] Dial Number-3, Duration 60
+[11-18 06:16:00 50:19:73] GUI: MSG_CHAR
+[11-18 06:16:00 50:19:73] L2C: Lcm Dtmf Info: *43, len = 3
+[11-18 06:16:00 50:19:73] L2C: Aid 0 Dial Plan matching..., digits *43
+[11-18 06:16:01 50:19:73] Open /dev/ttyS1 
+[11-18 06:16:01 50:19:73] Baudrate is 2400
+
+[11-18 06:16:01 50:19:73] init_ehs_mode 
+
+[11-18 06:16:01 50:19:73] Dial SOFTKEY1
+[11-18 06:16:01 50:19:73] Chn 0 rev unprocess event 0x19a in L2_OFFHOOK!
+[11-18 06:16:01 50:19:73] L2C: LcmDialPro, line 0, Lcm Dial *43, len 3
+[11-18 06:16:01 50:19:73] L2C: Aid 0 Dial Plan matching..., digits *
+[11-18 06:16:01 50:19:73] L2C: Aid 0 Dial Plan matching..., digits *4
+[11-18 06:16:01 50:19:73] L2C: Aid 0 Dial Plan matching..., digits *43
+[11-18 06:16:01 50:19:73] L2C: Aid 0 Dial Plan matching..., digits *
+[11-18 06:16:01 50:19:73] L2C: Aid 0 Dial Plan matching..., digits *4
+[11-18 06:16:01 50:19:73] L2C: Aid 0 Dial Plan matching..., digits *43
+[11-18 06:16:01 50:19:73] L2C: Dial Plan matched, old_digits *43, new_digits *43
+[11-18 06:16:01 50:19:73] CALL: State=0x61, Event=0x127, Chn=0
+[11-18 06:16:01 50:19:73] CallCtl: SendEvent2Lcm: aid 0, Line: 0, event 0x8d7
+[11-18 06:16:01 50:19:73] ReDialInfo: aid 0, line 0, Number *43
+[11-18 06:16:01 50:19:73] SIP: sdp_message_pro: Local IP is 10.8.0.3
+[11-18 06:16:01 50:19:73] SIP: SendInvite to *43, cid 1, wIP 0xa080003, port 12100, Interval 2, Codec 0, Audio 0
+[11-18 06:16:01 50:19:73] CALL: State=0x62, Event=0x201, Chn=0
+[11-18 06:16:01 50:19:73] GUI: CALL_OUTGOING, Index:0
+[11-18 06:16:02 50:19:73] Dial Speaker
+[11-18 06:16:02 50:19:73] Ti3100:HANDFREE mode 
+[11-18 06:16:02 50:19:73] BSP: OpenSpeaker SpkVolume 8 MicVolum 8
+[11-18 06:16:02 50:19:73] GUI: CALL_OFFHOOKTYPE:1
+[11-18 06:16:12 50:19:73] Dial SOFTKEY4
+[11-18 06:16:12 50:19:73] Chn 0 rev unprocess event 0x19d in L2_SPK_OFFHOOK!
+[11-18 06:16:12 50:19:73] L2C: Press Cancel Softkey, CallCtlState 0x62
+[11-18 06:16:12 50:19:73] CALL: State=0x62, Event=0x1e2, Chn=0
+[11-18 06:16:12 50:19:73] CALL: CurLine 0, State 0x62, SKCancel!!!
+[11-18 06:16:12 50:19:73] chn=0, AEC_switch = 0
+[11-18 06:16:12 50:19:73] MS: Chn 0 MSDspStopSendRev
+[11-18 06:16:12 50:19:73] Ti3100: dac_samlpe_hz is 8000 already
+[11-18 06:16:12 50:19:73] CallCtl: SendEvent2Lcm: aid 0, Line: 0, event 0x8de
+[11-18 06:16:12 50:19:73] CALL: line 0 SKCancel, CurLineState 0x62
+[11-18 06:16:12 50:19:73] CALL: _XPhoneNextState...
+[11-18 06:16:12 50:19:73] CALL: Clear Transfer, Conf and NS Flag
+[11-18 06:16:12 50:19:73] CALL: There isn't any call, Release
+[11-18 06:16:12 50:19:73] CallCtl: SendEvent2Lcm: aid 0, Line: 0, event 0x8f7
+[11-18 06:16:12 50:19:73] CallCtl: SendEvent2Lcm: aid 0, Line: 0, event 0x954
+[11-18 06:16:12 50:19:73] SendSpecialEvent2LCM: Event=2534
+[11-18 06:16:12 50:19:73] MSDspStopMute:2077####
+[11-18 06:16:12 50:19:73] chn=0, AEC_switch = 0
+[11-18 06:16:12 50:19:73] MS: Chn 0 MSDspStopSendRev
+[11-18 06:16:12 50:19:73] GUI: SKCancelEvent phy_info.Line:0
+[11-18 06:16:12 50:19:73] SIP: ActionUrlCall, did < 0 and request is NULL!!!
+[11-18 06:16:12 50:19:73] 
+Sip: No established dialog!
+[11-18 06:16:12 50:19:73] Cancel Fail*********Start Rel Timer******CID*1***Index*0***
+[11-18 06:16:12 50:19:73] SIPPro: 12915, Release All Sip Dialog!!
+[11-18 06:16:12 50:19:73] GUI: CALL_ONHOOK,index:0
+[11-18 06:16:12 50:19:73] GUI: 2:Call LCMSUBCallData:23602624:subdatastatistic:2
+[11-18 06:16:12 50:19:73] GUI: CALL_ONHOOK, Index:0
+[11-18 06:16:12 50:19:73] GUI: Idle Softkey History,,,Menu
+[11-18 06:16:12 50:19:73] LCM: Select aid:0
+[11-18 06:16:12 50:19:73] L2Call receive NormalReleaseEvent, release
+[11-18 06:16:12 50:19:73] L2C: LCM set aid 0
+[11-18 06:16:12 50:19:73] CALL: State=0x60, Event=0x207, Chn=0
+[11-18 06:16:12 50:19:73] CALL: State=0x60, Event=0x91c, Chn=0
+[11-18 06:16:12 50:19:73] CALL: LCM Exit MenuCfg
+[11-18 06:16:12 50:19:73] GUI: Receive CALL_BUSY_UNLOCK_KEYPAD!
+[11-18 06:16:17 50:19:73] GUI:SaveCallhistoryList2Xml start!
+ [11-18 06:16:17 50:19:73] GUI: SaveCallhistoryList2Xml completed!
+ [11-18 06:16:17 50:19:73] NTP: NTP Server1 IP: 202.22.158.30
+[11-18 06:16:17 50:19:73] NTP: GetNtpTime from 202.22.158.30 OK, 1574057847 seconds
+[11-18 06:16:17 50:19:73] 
+Set time [1574057847] seconds  to linux 
+[11-18 06:16:17 50:19:73] Update the local time to flash for phone :2019-11-18 06:17:27
+[11-18 06:16:17 50:19:73] SaveCfg2Flash: cfg_if.c:9706
+[11-18 06:16:17 50:19:73] =======SET ADMIN USER INFO SUCCESS=========
+[11-18 06:16:17 50:19:73] =======SET USER INFO SUCCESS=========
+[11-18 06:16:17 50:19:73] UpdateTonesByTemplate:11254*******CountryCode*10*******
+[11-18 06:16:17 50:19:73] 802.1x Write to file len[86]
+[11-18 06:16:17 50:19:73] RTOS_Upgrade: Will Parse Config Server Path http://a59e816d:76a12@163.47.249.85:83
+[11-18 06:16:17 50:19:73] ParseSerPathStr:====== addr is 163.47.249.85 
+[11-18 06:16:17 50:19:73] ParseSerPathStr: ip is 163.47.249.85, 0xa32ff955
+[11-18 06:16:17 50:19:73] ParseSerPathStr:====== addr is 163.47.249.85 
+[11-18 06:16:17 50:19:73] ParseSerPathStr: ip is 163.47.249.85, 0xa32ff955
+[11-18 06:16:17 50:19:73] ParseSerPathStr: path is sangoma/1
+[11-18 06:16:17 50:19:73] CFG: aid 1, set to invalid
+[11-18 06:16:17 50:19:73] CFG: aid 2, set to invalid
+[11-18 06:16:17 50:19:73] CFG: aid 3, set to invalid
+[11-18 06:16:17 50:19:73] CFG: aid 4, set to invalid
+[11-18 06:16:17 50:19:73] CFG: aid 5, set to invalid
+[11-18 06:16:17 50:19:73] Chn 0 digitmap: x+#|xx+*
+[11-18 06:16:17 50:19:73] Chn 0 use default digitmap: {[x*]+}
+[11-18 06:16:17 50:19:73] Chn 1 digitmap: x+#|xx+*
+[11-18 06:16:17 50:19:73] Chn 1 use default digitmap: {[x*]+}
+[11-18 06:16:17 50:19:73] Chn 2 digitmap: x+#|xx+*
+[11-18 06:16:17 50:19:73] Chn 2 use default digitmap: {[x*]+}
+[11-18 06:16:17 50:19:73] Chn 3 digitmap: x+#|xx+*
+[11-18 06:16:17 50:19:73] Chn 3 use default digitmap: {[x*]+}
+[11-18 06:16:17 50:19:73] Chn 4 digitmap: x+#|xx+*
+[11-18 06:16:17 50:19:73] Chn 4 use default digitmap: {[x*]+}
+[11-18 06:16:17 50:19:73] Chn 5 digitmap: x+#|xx+*
+[11-18 06:16:17 50:19:73] Chn 5 use default digitmap: {[x*]+}
+[11-18 06:16:17 50:19:73] WriteHlcfgFile:write hlcfg file sucessed !
+[11-18 06:16:17 50:19:73] SaveCfg2Flash:save Cfg file to Flash Sucessed!
+[11-18 06:16:17 50:19:73] NTP: AdjustTimeZone, 816715047 seconds
+[11-18 06:16:17 50:19:73] NTP: Old Count1s is 122
+[11-18 06:16:17 50:19:73] NTP: New Count1s is 816715047
+[11-18 06:16:17 50:19:73] Ti3100:HANDSET mode 
+[11-18 06:16:17 50:19:73] BSP: OpenHandset HandsetVolume :8, MicVolum 8
+[11-18 06:16:17 50:19:73] GUI:CFG_SAVETO_FLASH_EVENT
+[11-18 06:16:17 50:19:73] GUI: aid:0, AccountInfo->name:Hello Cab dimanche-57
+[11-18 06:16:17 50:19:73] GUI: aid:0, AccountInfo->name:Hello Cab dimanche-57
+[11-18 06:16:17 50:19:73] GUI: aid:0, AccountInfo->name:Hello Cab dimanche-57
+[11-18 06:16:17 50:19:73] Ti3100:HANDSET mode 
+[11-18 06:16:17 50:19:73] BSP: OpenHandset HandsetVolume :8, MicVolum 8
+[11-18 06:16:17 50:19:73] Dial Number-5, Duration 70
+[11-18 06:16:17 50:19:73] L2C: Receive SpecialHookOffEvent
+[11-18 06:16:17 50:19:73] Ti3100:HANDSET mode 
+[11-18 06:16:17 50:19:73] BSP: OpenHandset HandsetVolume :8, MicVolum 8
+[11-18 06:16:17 50:19:73] L2C: Receive SpecialDTMFEvent
+[11-18 06:16:17 50:19:73] CALL: State=0x60, Event=0x70, Chn=0
+[11-18 06:16:17 50:19:73] chn=0, AEC_switch = 0
+[11-18 06:16:17 50:19:73] MS: Chn 0 MSDspStopSendRev
+[11-18 06:16:17 50:19:73] CallCtl: SendEvent2Lcm: aid 0, Line: 0, event 0x8dd
+[11-18 06:16:17 50:19:73] L2C: Receive TIMER_SPECIAL_DTMF_DELAY_EVENT
+[11-18 17:17:27 50:19:73] <Set SoftClock from 2019-11-18 06:16:17 to 2019-11-18 17:17:27>
+[11-18 17:17:27 50:19:73] GUI: Idle Softkey History,,,Menu
+[11-18 17:17:27 50:19:73] GUI: RemoteDir 3, BSDir 3, APDir 3
+[11-18 17:17:27 50:19:73] GUI: CALL_OFFHOOK, Index:0
+[11-18 17:17:27 50:19:73] GUI: CallWinCacheHandler: Cache msg:0x805
+[11-18 17:17:27 50:19:73] GUI: MSG_PAINT
+[11-18 17:17:28 50:19:73] GUI: num:0,HLGUIData.ScrewView.ScrewItemNum:0
+[11-18 17:17:28 50:19:73] GUI: CallWinCacheHandler: resend msg:0x805
+[11-18 17:17:28 50:19:73] GUI: MSG_CHAR
+[11-18 17:17:28 50:19:73] L2C: Lcm Dtmf Info: 5, len = 1
+[11-18 17:17:28 50:19:73] L2C: Aid 0 Dial Plan matching..., digits 5
+[11-18 17:17:29 50:19:73] Dial SOFTKEY1
+[11-18 17:17:29 50:19:73] Chn 0 rev unprocess event 0x19a in L2_OFFHOOK!
+[11-18 17:17:29 50:19:73] L2C: LcmDialPro, line 0, Lcm Dial 5, len 1
+[11-18 17:17:29 50:19:73] L2C: Aid 0 Dial Plan matching..., digits 5
+[11-18 17:17:29 50:19:73] L2C: Aid 0 Dial Plan matching..., digits 5
+[11-18 17:17:29 50:19:73] L2C: Dial Plan matched, old_digits 5, new_digits 5
+[11-18 17:17:29 50:19:73] CALL: State=0x61, Event=0x127, Chn=0
+[11-18 17:17:29 50:19:73] CallCtl: SendEvent2Lcm: aid 0, Line: 0, event 0x8d7
+[11-18 17:17:29 50:19:73] ReDialInfo: aid 0, line 0, Number 5
+[11-18 17:17:29 50:19:73] SIP: sdp_message_pro: Local IP is 10.8.0.3
+[11-18 17:17:29 50:19:73] SIP: SendInvite to 5, cid 2, wIP 0xa080003, port 12102, Interval 2, Codec 0, Audio 0
+[11-18 17:17:29 50:19:73] CALL: State=0x62, Event=0x201, Chn=0
+[11-18 17:17:29 50:19:73] GUI: CALL_OUTGOING, Index:0
+[11-18 17:17:31 50:19:73] Dial Speaker
+[11-18 17:17:31 50:19:73] Ti3100:HANDFREE mode 
+[11-18 17:17:31 50:19:73] BSP: OpenSpeaker SpkVolume 8 MicVolum 8
+[11-18 17:17:31 50:19:73] GUI: CALL_OFFHOOKTYPE:1
+[11-18 17:17:34 50:19:73] Dial SOFTKEY4
+[11-18 17:17:34 50:19:73] Chn 0 rev unprocess event 0x19d in L2_SPK_OFFHOOK!
+[11-18 17:17:34 50:19:73] L2C: Press Cancel Softkey, CallCtlState 0x62
+[11-18 17:17:34 50:19:73] CALL: State=0x62, Event=0x1e2, Chn=0
+[11-18 17:17:34 50:19:73] CALL: CurLine 0, State 0x62, SKCancel!!!
+[11-18 17:17:34 50:19:73] chn=0, AEC_switch = 0
+[11-18 17:17:34 50:19:73] MS: Chn 0 MSDspStopSendRev
+[11-18 17:17:34 50:19:73] Ti3100: dac_samlpe_hz is 8000 already
+[11-18 17:17:34 50:19:73] CallCtl: SendEvent2Lcm: aid 0, Line: 0, event 0x8de
+[11-18 17:17:34 50:19:73] CALL: line 0 SKCancel, CurLineState 0x62
+[11-18 17:17:34 50:19:73] CALL: _XPhoneNextState...
+[11-18 17:17:34 50:19:73] CALL: Clear Transfer, Conf and NS Flag
+[11-18 17:17:34 50:19:73] CALL: There isn't any call, Release
+[11-18 17:17:34 50:19:73] CallCtl: SendEvent2Lcm: aid 0, Line: 0, event 0x8f7
+[11-18 17:17:34 50:19:73] CallCtl: SendEvent2Lcm: aid 0, Line: 0, event 0x954
+[11-18 17:17:34 50:19:73] SendSpecialEvent2LCM: Event=2534
+[11-18 17:17:34 50:19:73] MSDspStopMute:2077####
+[11-18 17:17:34 50:19:73] chn=0, AEC_switch = 0
+[11-18 17:17:34 50:19:73] MS: Chn 0 MSDspStopSendRev
+[11-18 17:17:34 50:19:73] GUI: SKCancelEvent phy_info.Line:0
+[11-18 17:17:34 50:19:73] SIP: ActionUrlCall, did < 0 and request is NULL!!!
+[11-18 17:17:34 50:19:73] 
+Sip: No established dialog!
+[11-18 17:17:34 50:19:73] Cancel Fail*********Start Rel Timer******CID*2***Index*1***
+[11-18 17:17:34 50:19:73] SIPPro: 12915, Release All Sip Dialog!!
+[11-18 17:17:34 50:19:73] GUI: CALL_ONHOOK,index:0
+[11-18 17:17:34 50:19:73] GUI: 2:Call LCMSUBCallData:25330768:subdatastatistic:3
+[11-18 17:17:34 50:19:73] GUI: CALL_ONHOOK, Index:0
+[11-18 17:17:34 50:19:73] GUI: Idle Softkey History,,,Menu
+[11-18 17:17:34 50:19:73] LCM: Select aid:0
+[11-18 17:17:34 50:19:73] L2Call receive NormalReleaseEvent, release
+[11-18 17:17:34 50:19:73] L2C: LCM set aid 0
+[11-18 17:17:34 50:19:73] CALL: State=0x60, Event=0x207, Chn=0
+[11-18 17:17:34 50:19:73] CALL: State=0x60, Event=0x91c, Chn=0
+[11-18 17:17:34 50:19:73] CALL: LCM Exit MenuCfg
+[11-18 17:17:34 50:19:73] GUI: Receive CALL_BUSY_UNLOCK_KEYPAD!
+[11-18 17:17:38 50:19:73] SIP: aid 0, Re-Register Timer Timeout
+[11-18 17:17:38 50:19:73] SIP: aid 0, Re-Register Timer Timeout, Try to Re-Register...
+[11-18 17:17:38 50:19:73] SIP: aid 0 Reg Start...
+[11-18 17:17:38 50:19:73] SIP: sip_nict_init, no route, req_uri->host:port is 10.66.0.2:5060
+[11-18 17:17:39 50:19:73] GUI:SaveCallhistoryList2Xml start!
+ [11-18 17:17:39 50:19:73] GUI: SaveCallhistoryList2Xml completed!
+ [11-18 17:17:40 50:19:73] Dial LINE_6
+[11-18 17:17:40 50:19:73] line Key 6 ==> [11-18 17:17:40 50:19:73] GUI: LCM_DSS_LINE_KEY
+[11-18 17:17:40 50:19:73] GUI:rcv line key 5
+[11-18 17:17:40 50:19:73] GUI:Send line key event:5
+[11-18 17:17:40 50:19:73] DSS_SOFT_LINE_KEY_EVENT Key 6 ==> 
+[11-18 17:17:40 50:19:73] DSS_XML_BLF[11-18 17:17:40 50:19:73] Chn 0 rev unprocess event 0x1ff in L2_IDLE!
+[11-18 17:17:40 50:19:73] GUI: CONFIG_XMLBrowser
+[11-18 17:17:40 50:19:73] ParseSerPathStr:====== addr is 10.66.0.2 
+[11-18 17:17:40 50:19:73] ParseSerPathStr: ip is 10.66.0.2, 0xa420002
+[11-18 17:17:40 50:19:73] ParseSerPathStr: path is applications.php/daynight/main?token=df12e4cf-6572-4d6c-8a64-7e2888443478&user=57
+[11-18 17:17:40 50:19:73] HTTPC: Need Resolve Domain 10.66.0.2
+[11-18 17:17:40 50:19:73] HTTPC: Resolve Domain 10.66.0.2, IP 10.66.0.2
+[11-18 17:17:40 50:19:73] HTTPC: Resolve Domain 10.66.0.2, IP 10.66.0.2
+[11-18 17:17:40 50:19:73] CfgUpgradeOpen(Protocol HTTP, Port 82, Filename applications.php/daynight/main?token=df12e4cf-6572-4d6c-8a64-7e2888443478&user=57)
+[11-18 17:17:40 50:19:73] HttpCOpen - AF_INET (4)
+[11-18 17:17:40 50:19:73] Image_2 Read Head: len = 512 
+[11-18 17:17:40 50:19:73] HttpCOpen: HTTP Command Size 206 bytes, Command:
+GET /applications.php/daynight/main?token=df12e4cf-6572-4d6c-8a64-7e2888443478&user=57 HTTP/1.1
+Host: 10.66.0.2
+User-Agent: Sangoma S700 2.0.4.28 00:50:58:50:19:73
+Accept: */*
+Connection: Keep-Alive
+
+
+[11-18 17:17:40 50:19:73] HttpCOpen: send 206 bytes success
+[11-18 17:17:41 50:19:73] HttpCOpen: recv 1635 bytes back
+[11-18 17:17:41 50:19:73] HttpCOpen Content-Length=0
+[11-18 17:17:41 50:19:73] HttpCOpen Content-Length=0
+[11-18 17:17:41 50:19:73] HttpCOpen Content-Length=0
+[11-18 17:17:41 50:19:73] HttpCOpen Content-Length=0
+[11-18 17:17:41 50:19:73] HttpCOpen Content-Length=1418
+[11-18 17:17:41 50:19:73] HttpCOpen rev response 200
+[11-18 17:17:41 50:19:73] HttpCOpen piggy-back length 1418
+[11-18 17:17:41 50:19:73] HttpCOpen OK
+[11-18 17:17:41 50:19:73] HttpC get file total len (1418)
+[11-18 17:17:41 50:19:73] HTTPC GetFile: Will Get Total Len: 1418 
+[11-18 17:17:41 50:19:73] HttpCRead: Return all remaining piggy-backed data 1418 bytes
+[11-18 17:17:41 50:19:73] HttpCClose(1fafcd0)
+[11-18 17:17:41 50:19:73] HTTPC GetFile: Get Total Len: 1418 Success 
+[11-18 17:17:41 50:19:73] WriteFile /tmp/xb/main?token=df12e4cf-6572-4d6c-8a64-7e2888443478&user=57: Success Write 1418 bytes
+[11-18 17:17:42 50:19:73] GUI: HLGUIData.ConfigDesktopWnd[index]:33130808,index:109
+[11-18 17:17:42 50:19:73] CALL: State=0x60, Event=0x91b, Chn=0
+[11-18 17:17:42 50:19:73] CALL: LCM Enter MenuCfg
+[11-18 17:17:47 50:19:73] Dial DOWN
+[11-18 17:17:47 50:19:73] Chn 0 rev unprocess event 0x117 in L2_IDLE!
+[11-18 17:17:52 50:19:73] Dial SOFTKEY2
+[11-18 17:17:52 50:19:73] Chn 0 rev unprocess event 0x19b in L2_IDLE!
+[11-18 17:17:52 50:19:73] ParseSerPathStr:====== addr is 10.66.0.2 
+[11-18 17:17:52 50:19:73] ParseSerPathStr: ip is 10.66.0.2, 0xa420002
+[11-18 17:17:52 50:19:73] ParseSerPathStr: path is applications.php/daynight/main?user=57&token=df12e4cf-6572-4d6c-8a64-7e2888443478&selection=state_1&state_1=1
+[11-18 17:17:52 50:19:73] HTTPC: Need Resolve Domain 10.66.0.2
+[11-18 17:17:52 50:19:73] HTTPC: Resolve Domain 10.66.0.2, IP 10.66.0.2
+[11-18 17:17:52 50:19:73] HTTPC: Resolve Domain 10.66.0.2, IP 10.66.0.2
+[11-18 17:17:52 50:19:73] CfgUpgradeOpen(Protocol HTTP, Port 82, Filename applications.php/daynight/main?user=57&token=df12e4cf-6572-4d6c-8a64-7e2888443478&selection=state_1&state_1=1)
+[11-18 17:17:52 50:19:73] HttpCOpen - AF_INET (4)
+[11-18 17:17:52 50:19:73] Image_2 Read Head: len = 512 
+[11-18 17:17:52 50:19:73] HttpCOpen: HTTP Command Size 234 bytes, Command:
+GET /applications.php/daynight/main?user=57&token=df12e4cf-6572-4d6c-8a64-7e2888443478&selection=state_1&state_1=1 HTTP/1.1
+Host: 10.66.0.2
+User-Agent: Sangoma S700 2.0.4.28 00:50:58:50:19:73
+Accept: */*
+Connection: Keep-Alive
+
+
+[11-18 17:17:52 50:19:73] HttpCOpen: send 234 bytes success
+[11-18 17:17:53 50:19:73] HttpCOpen: recv 1637 bytes back
+[11-18 17:17:53 50:19:73] HttpCOpen Content-Length=0
+[11-18 17:17:53 50:19:73] HttpCOpen Content-Length=0
+[11-18 17:17:53 50:19:73] HttpCOpen Content-Length=0
+[11-18 17:17:53 50:19:73] HttpCOpen Content-Length=0
+[11-18 17:17:53 50:19:73] HttpCOpen Content-Length=1420
+[11-18 17:17:53 50:19:73] HttpCOpen rev response 200
+[11-18 17:17:53 50:19:73] HttpCOpen piggy-back length 1420
+[11-18 17:17:53 50:19:73] HttpCOpen OK
+[11-18 17:17:53 50:19:73] HttpC get file total len (1420)
+[11-18 17:17:53 50:19:73] HTTPC GetFile: Will Get Total Len: 1420 
+[11-18 17:17:53 50:19:73] HttpCRead: Return all remaining piggy-backed data 1420 bytes
+[11-18 17:17:53 50:19:73] HttpCClose(1fab2a8)
+[11-18 17:17:53 50:19:73] HTTPC GetFile: Get Total Len: 1420 Success 
+[11-18 17:17:53 50:19:73] WriteFile /tmp/xb/main?user=57&amp;token=df12e4cf-6572-4d6c-8a64-7e2888443478&sel: Success Write 1420 bytes
+[11-18 17:17:56 50:19:73] Dial SOFTKEY1
+[11-18 17:17:56 50:19:73] Chn 0 rev unprocess event 0x19a in L2_IDLE!
+[11-18 17:17:56 50:19:73] CALL: State=0x60, Event=0x91c, Chn=0
+[11-18 17:17:56 50:19:73] CALL: LCM Exit MenuCfg
+[11-18 17:17:56 50:19:73] CALL: State=0x60, Event=0x91c, Chn=0
+[11-18 17:17:56 50:19:73] CALL: LCM Exit MenuCfg
+[11-18 17:17:56 50:19:73] GUI: Idle Softkey History,,,Menu
+[11-18 17:17:56 50:19:73] LCM: Select aid:0
+[11-18 17:17:56 50:19:73] L2C: LCM set aid 0
+[11-18 17:18:07 50:19:73] websError: code 401
+<html><head><title>Document Error: Unauthorized</title></head>
+        <body><h2>Access Error: Unauthorized</h2>
+        <p>TimeOut, Need ReLogin</p></body></html>
+
+
+[11-18 17:18:07 50:19:73] Webserver Request: from 10.66.0.11, TimeOut or Logout, need ReLogin
+[11-18 17:18:14 50:19:73] Webs: admin login Web UI success, from 10.66.0.11!!
+[11-18 17:18:14 50:19:73] SYSLOG: load flash Flie 2 -1
+[11-18 17:18:15 50:19:73] SYSLOG: read flash Flie /hlfs/message02 size = 1084551 
+[11-18 17:18:16 50:19:73] SYSLOG: read flash Flie /hlfs/message01 size = 836967 
+``` 
+
+# lundi 19 11
+- suppression de l'extension mapping : Endpoint Management / Extension Mapping
+- suppression des extensions :  application / extensions. Je ne garde que les 4 extensions actives.
+- suppressions de tous les users inutiles : Admin / User Management / delete / apply config.. Reste plus que sec, mutti, orthop, francois 
+
+- création du template : Endpoint manager / sangoma /
+- General tab / Default internal template YES / NO ? je mets tout à YES
+- General tab / Default external template YES / NO ?
+- SIP destination adress : IP_DU_SERVER_FREEPEBX
+- Provisionning address : custom : http://user:password@IP_PUBLIC_ROUTER_FREEPBX
+- PhoneApps protocole : HTTP pas d'autre choix
+- Force Firmware version : Firmware slot 1
+
+- Setting / Advanced Settings
+  - Device settings : nombreux parametres SIP. Je mets SIP nat : No
+dans cette page on modifie /etc/amportal.conf
+- Setting / Asterisk SIP settings :
+ - general sip settings tab je ne change rien
+ - chan SIP settings tab : Nat? on met quoi? 
+https://wiki.freepbx.org/display/FPG/NAT+Configuration+FreePBX+12 d'apres cette page :
+- NAT YES
+- IP configuration :
+  - Static IP si on a un ISP qui nous donne une IP static
+  - Public IP ?
+  - Dynamic IP si on un dynddns :
+    - Dynamic host : MY_FQDNDDNS
+    - Dynamic host refresh : 120
+    - Submit / apply config
+- General SIP settings tab
+  - on me dit d'ouvrir les port RTP sur le firewall mais je ne l'ai jamais fait je ne comprends pas. 
+
+Création de l'extension :
+- Application / extension / add new chan SIP extension
+- General tab
+  * user extension : 5
+  * Display name :HelloCab
+  Link to a default user : Create new user 
+- Advanced tab:
+  -DID description : HelloCabDID
+  - NAT Mode :Yes car ca me dit que c'est bien si le device peut etre external.
+- Other tab:
+  - Brand Sangoma
+  - MAC
+  - Template
+  - Model
+  - Account
+ - Admin / user management :
+ Le user login 5 a été crée il n'a pas VPN client associé.
+ Il est lié à l'extension 5
+ Dans Endpoint Manager / Extension Mapping / Add extension
+ - je rentre l'account , l'address MAC, le model
+ - Save and rebuild configs / Use selected
+
+- reboot the phone
+- SIP registered .
+
+On passe au VPN. J'ai déja un client VPN : 57HelloCabVPNClient.
+USer Management / VPN tab
+     - autocreate and link : YES
+     - submit / apply config
+On trouve un nouveau client dans system admin  / VPN server / Client 5-5
+mais je ne peux pas le lier au nouvel user?
+
+
+>>>>>>> ba3fba1cc42c9aa81039534d8d94fdaa78a709ec
 
 ```
 syslog du phone quand c'est registered :
