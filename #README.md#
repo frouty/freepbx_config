@@ -5285,7 +5285,10 @@ vpn et registered
 [11-20 00:24:20 50:19:73] SIP: aid 0, expires: 900(900)
 ```
 
-
+sip show peers 
+Name/username             Host                                    Dyn Forcerport Comedia    ACL Port     Status      Description                      
+5/5                       10.8.0.2                                 D  Yes        Yes         A  5060     OK (14 ms)                                   
+vega50/vega50             10.66.0.3                                D  Yes        Yes            5060     Unmonitored      
 
 # SIP NAT
 ## Ou est ce qu'on peut configurer le NAT ?
@@ -5315,8 +5318,7 @@ tail -f /var/log/asterisk/full.
 
 mardi
 je crée  une extension, le system crée automatiquement un user. Je demande à ce user de créer et de mapper le client VPN  
-Il est effectivement créé 
-
+Il est effectivement créé mais je ne peux pas le et 
 
 
 
