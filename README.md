@@ -20,7 +20,11 @@ https://bitbucket.org/frouty/reseau_informatique.mlp/src/1104dc9e30f5?at=master
 - ssh root@IP_DU_SERVEUR_FREEPBX
 - password dans le mlp buttercup
 
-# Comment configurer le firewall?
+# Firewall 
+Connectivity / Firewall  
+il y a plusieurs pages de configurations  que l'on selectionne avec l'icone a droite.
+
+## Comment configurer le firewall?
 
 http://wiki.freepbx.org/display/FPG/Firewall+Command+Line
 
@@ -29,9 +33,32 @@ http://wiki.freepbx.org/display/FPG/Firewall+Command+Line
 
 puis en GUI recherche -> firewall -> enable --> re-run wizard
 
-## The client machine you are using to manage this server (10.10.0.6/32) i
-ce n'est pas l'adresse du server mais l'adresse du client.
+## Les zones 
+- Internet
+- Local 
+- Other
+- Reject 
+- Trusted
 
+On affecte des zones à des interfaces dans firewall / Main / Interfaces  
+Et on peut aussi affecter des reseaux ip a des zones. 
+## Trusted zone 
+Il faut mettre un reseau IP ou une machine dans la trusted zone comme cela en cas de probleme on peut qd acceder au server Freepbx. 
+Je mets l'ip de la linuxbox en Trusted zone
+## Comment bloquer une IP
+j'ai NOTICE[16667] chan_sip.c: Registration from '"555" <sip:555@163.47.249.85>' failed for '77.247.110.40:5941' - Wrong password
+des dizaines de fois.
+https://wiki.freepbx.org/display/FPG/Firewall+Blacklist
+
+`Connectivity / Firewall / Service / Blaklist tab`  
+
+Mais normalement avec le responsive firewall on a pas besoin de faire cela. 
+Mais moi j'ai pas l'impression que cela marche le responsive car 
+Connectivity / Firewall / 
+
+## Je me suis trouvé bloqué ne pouvant plus acceder au webgui a cause du firewall
+ssh root@IP_FREEPBX
+fwconsole firewall disable
 # Power off
 `̀Admin / System Admin / Power Options / Power off`
 # Power on
@@ -585,7 +612,7 @@ Connectivity -> Trunk
 J'ai un dahdi trunk. Mais je n'arrive pas a appeler l'exterieur
 
 Connectivity - Outbound routes : on y définit les regles qui s'appliquent en fonction du numéro composé.  
-Quelques exemples de regles: http://wiki.freepbx.org/display/FPG/Outbound+Routes+Configuration+Examples  
+quelques exemples de regles: http://wiki.freepbx.org/display/FPG/Outbound+Routes+Configuration+Examples  
 Le module outbound route: http://wiki.freepbx.org/display/FPG/Outbound+Routes+Module
 
 # DAHDI (Analog) Channel DIDs module
@@ -5356,3 +5383,21 @@ PBX Firmware:10.13.66-14
 ce qui veut dire 10 majoir track  
 13 Freepbx version  
 66 centos version  
+
+
+## Comment modifier le retroeclairage du telephone
+
+Setting / Endpoint Management / Sangoma / Template / Option tab :
+- Backlight timeout : c'est quoi ? je passe de 300 s  à 10 s
+- Backlight active level : Level 10 -> Level 1 je ne vois pas de différence
+Save rebuild and update phone
+
+- Screen saver Default Photo -> Time and logo
+- Screen saver Timeout Off -> 1 minute
+- Screen saver Text : Hi! pour voir
+- Save rebuild and update phone 
+Il ne se passe rien 
+Setting / endpoint manager / extension mapping / force phone to reboot marche
+
+Disable screen saver
+Baklight in active mode : Off
