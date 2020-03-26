@@ -2307,8 +2307,8 @@ normalement il est dit de connecter directement le phone sur le reseau du freepb
   - web gui the phone login: admin password : in Endpoint Manager / Global setting
 	- Management / Upgrade / Reset factory
 - Endpoint manager / Global setting
-  - Internal Address : IP_LAN_FREEPBX
-  - External Address : IP_PUPLIC_ROUTER_FREEPBX (by auto firs)
+  - Internal Address : IP_LAN_FREEPBX_SERVER
+  - External Address : IP_PUPLIC_ROUTER_FREEPBX (by auto firs) ou DYNDNS ADDRESS
   - Ports hack a port forwarding in the router
 - Endpoint Manager / Brands / Sangoma / 
   - SIP destination address : internal external custom (je ne sais pas que choisir)
@@ -2332,6 +2332,24 @@ J'abandonne le ddns  je mets tout en IP_PUBLIC_ROUTER_FREENAS.
 - Settings / Asterisk SIP Setting 
   - Tout est en IP
 - reboot ipphone 
+
+# VPN 23/03/2020 qui marche
+system admin / VPN server / setting / server remote address ipaddress du routeur principal en chiffres.
+Redirect gateway : no
+Routes : ip address 10.66.0.0 netmak 255.255.255.0 enable yes | 10.8.0.0 255.255.255.0 | enable no
+Onglet client : ID 17 | Description 5 - 5 | cllient IP 10.8.0.3 | connected 26032020 9:26:03
+si je fais edit :
+enabled : Yes | description 5 -5 | use ddns:  No | use server remote address : Yes | client remote address : IP public du routeur freepbx et address ddns. | assiged address : 10.* .*.n
+
+# installation d'un vpn pour tiaré au cours du COVID
+Admin / user management / users tab / auto create and link : inherit -> Yes Define additional VPN clients: je peux juste choisir le 5-5. C'est là que l'on definit le client qui peut etre downloadé
+Donc je pense qu'il faut que je crée un nouveau client
+System admin / VPN server / Clients tab Enabled : Yes | description mutti tiare | use ddns : No | use server remote address : ip public du router principal et ddns address | assigned address : 10.*.*.n+1 | submit
+## on configure le user pour qu'il puisse utiliser le client.
+Admin / user management / VPN onglet / Auto create & link je laisse inherit | define additional VPN client : je choisis celui crée précedemment dans vpn server. submit apply config
+## on configure le phone pour qu'il utilise le vpn
+Settings / endpoint management / Extension mapping / edit et VPN client (tout en bas) : None --> me proposait rien mais maintenant que j'ai configurer le user c'est bon.
+Save rebuild configs and update device.
 
 
 ## DDNS 
