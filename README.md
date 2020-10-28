@@ -365,6 +365,11 @@ Un phone peut avoir plusieurs extensions. A quoi cela sert?
 ## Phones Sangoma
 http://wiki.freepbx.org/display/PHON
 
+#### login / password sur l'ecran du phone sangoma
+
+### login / password du web gui l'ip phone sangoma
+admin / 222222
+
 ### Reset factory
 - s500
   - Web GUI
@@ -454,10 +459,16 @@ https://wiki.freepbx.org/display/PHON/Setup+Phone+by+hard+setting+provisioning+s
 # Phone Polycom 
 http://kb.digium.com/articles/Configuration/Polycom-Phone-Provisioning-Guide?retURL=%2Fapex%2FknowledgeProduct&popup=false
 
+## sur le telephone : Settings / advanced ... / password 22222
+j'ai changé on le trouve dans buttercup phone polycom
+C'est le meme que pour le Web gui avec l'ip du phone.
+
+
 ## Login / Password : 
 Username = Polycom (case sensitive)  
-Admin Password = 456  
-User Password = 123  
+Admin Password = cf buttercup  
+User Password = cf buttercup
+
 ### difference entre user et admin
 admin acces unrestricted. 
 user acces restricted  
@@ -465,7 +476,7 @@ user acces restricted
 il est défini par le freepbx :  
 - settings/ end point manager / global settings /   
 - phone admin password .
-
+- ne marche pas 
 ## Reboot the Phone  
  - Press and hold the dial pad keys 0, 1, and 3 simultaneously for about three seconds, or until you hear a confirmation tone.  
 
@@ -5419,3 +5430,10 @@ Setting / endpoint manager / extension mapping / force phone to reboot marche
 
 Disable screen saver
 Baklight in active mode : Off
+
+
+# Msg en rouge en haut à droite "cannot connect to asterisk"
+Apres un reboot j'ai eu se msg. J'ai attendu et il a disparu
+sinon on peut `asterisk -r` `exit`
+`fwconsole restart`
+il faut verifier que dans le WEB GUI freepbx Settings / advanced settings / Asterisk manager / asterisk manager password match le password dans /etc/asterisk/manager.conf.
