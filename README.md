@@ -32,7 +32,7 @@ My config:
 - fwconsole trunks --disable ne marche pas
 - fwconsole trunks --list
 - fwconsole trunks --help
-- 
+
 # Le log de asterisk 
 - /var/log/asterisk/full mais c'est tres long.
 
@@ -51,7 +51,7 @@ https://bitbucket.org/frouty/reseau_informatique.mlp/src/1104dc9e30f5?at=master
 - de cette machine locale se connecter  sur le freepbx: `ssh root@IPFREEPBX`
 - désactiver le firewall du freepbx: `fwconsole firewall disable` (reste disable after a reboot)
 - ça n'a pas marché.
-- 
+
 # Firewall 
 Connectivity / Firewall  
 il y a plusieurs pages de configurations  que l'on selectionne avec l'icone a droite.
