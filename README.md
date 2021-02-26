@@ -27,7 +27,12 @@ https://bitbucket.org/frouty/reseau_informatique.mlp/src/1104dc9e30f5?at=master
 # comment se connecter en ssh sur le server freepbx
 - ssh root@IP_DU_SERVEUR_FREEPBX
 - password dans le mlp buttercup
-
+## je n'arrive plus a me connecter de l'exterieur en VPN en ssh et en webGUI
+- se connecter sur une trusted machine du reseau local: `ssh 'user'@IPLINUXBOX`
+- de cette machine locale se connecter  sur le freepbx: `ssh root@IPFREEPBX`
+- désactiver le firewall du freepbx: `fwconsole firewall disable`
+- ça n'a pas marché.
+- 
 # Firewall 
 Connectivity / Firewall  
 il y a plusieurs pages de configurations  que l'on selectionne avec l'icone a droite.
@@ -36,8 +41,9 @@ il y a plusieurs pages de configurations  que l'on selectionne avec l'icone a dr
 
 http://wiki.freepbx.org/display/FPG/Firewall+Command+Line
 
-`fwconsole firewall --help`   
-`fwconsole firewall disable`  
+- `fwconsole firewall --help`   
+- `fwconsole firewall disable`
+- il y a bcp d'autre commandes : [ici](https://wiki.freepbx.org/display/FPG/Firewall+Command+Line)
 
 puis en GUI recherche -> firewall -> enable --> re-run wizard
 
@@ -64,11 +70,19 @@ Mais normalement avec le responsive firewall on a pas besoin de faire cela.
 Mais moi j'ai pas l'impression que cela marche le responsive car 
 Connectivity / Firewall / 
 
-## Je me suis trouvé bloqué ne pouvant plus acceder au webgui a cause du firewall
-ssh root@IP_FREEPBX
-fwconsole firewall disable
+## Je me suis trouvé bloqué ne pouvant plus acceder au webgui a cause du firewall
+-`ssh root@IP_FREEPBX`
+- `fwconsole firewall disable`
+ca ne marche pas toujours.
+
 # Power off
+## WebGUI
 `̀Admin / System Admin / Power Options / Power off`
+## ssh consol
+- `fwconsole stop`
+- puis `shutdown -r now`
+
+
 # Power on
 
 # Comment savoir l'état du disk  
