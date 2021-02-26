@@ -1,5 +1,6 @@
 # freepx_config
-
+# documentation 
+[ici](https://wiki.freepbx.org/#all-updates)
 # My Config
 My config: 
 - Sangoma appliance,
@@ -13,6 +14,20 @@ My config:
 - Cisco SG500-28P switch  
 - Main router: 
 	- TPLINK ARCHER C7 openwrt Chaos Calmer.
+# Connaitre sa version
+- `cat /etc/schmooze/pbx-version` : 10.13.66-14
+- webGUI : System Admin Module
+
+- 10.13.66-2 - The first number 10 represents the Major Track Number
+- 10.13.66-2 - The second number 13 refers to FreePBX 13 GUI 
+- 10.13.66-2 - The third number 66 refers to Linux OS 6.6 operating system
+- 10.13.66-2 - The final number 2 is used as the Minor Release Revision of this Major Track Number
+
+# upgrader de 13 à 15 
+[ici](https://wiki.freepbx.org/display/FOP/Upgrade+to+FreePBX+15)
+
+# liste des ports utilisés par freepbx
+[ici](https://wiki.freepbx.org/display/PPS/Ports+used+on+your+PBX)
 # fwconsole trunks
 - fwconsole trunks --disable ne marche pas
 - fwconsole trunks --list
