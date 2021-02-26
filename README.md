@@ -13,7 +13,11 @@ My config:
 - Cisco SG500-28P switch  
 - Main router: 
 	- TPLINK ARCHER C7 openwrt Chaos Calmer.
-
+# fwconsole trunks
+- fwconsole trunks --disable ne marche pas
+- fwconsole trunks --list
+- fwconsole trunks --help
+- 
 # Le log de asterisk 
 - /var/log/asterisk/full mais c'est tres long.
 
@@ -30,7 +34,7 @@ https://bitbucket.org/frouty/reseau_informatique.mlp/src/1104dc9e30f5?at=master
 ## je n'arrive plus a me connecter de l'exterieur en VPN en ssh et en webGUI
 - se connecter sur une trusted machine du reseau local: `ssh 'user'@IPLINUXBOX`
 - de cette machine locale se connecter  sur le freepbx: `ssh root@IPFREEPBX`
-- désactiver le firewall du freepbx: `fwconsole firewall disable`
+- désactiver le firewall du freepbx: `fwconsole firewall disable` (reste disable after a reboot)
 - ça n'a pas marché.
 - 
 # Firewall 
@@ -42,7 +46,7 @@ il y a plusieurs pages de configurations  que l'on selectionne avec l'icone a dr
 http://wiki.freepbx.org/display/FPG/Firewall+Command+Line
 
 - `fwconsole firewall --help`   
-- `fwconsole firewall disable`
+- `fwconsole firewall disable` (reste disable after a reboot)
 - il y a bcp d'autre commandes : [ici](https://wiki.freepbx.org/display/FPG/Firewall+Command+Line)
 
 puis en GUI recherche -> firewall -> enable --> re-run wizard
