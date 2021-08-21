@@ -48,12 +48,38 @@ http://wiki.freepbx.org/pages/viewpage.action?pageId=60522602
 
 `sip show peers` sur le freepbx apres un ssh root@<ip du freepbx>
 
+On se loggue dans le webgui du vega50. 
+Quick config / continue / 
+onglet : Basic config 
+country : fr
+je renseigne une ip static pour le vega, le gateway :ip du main router
+preferred dns server : ip du main router
+secondary dns 8.8.8.8
+ntp time server ?
+Onglet VoIP :
+registration mode : Gateway 
+outbound proxy used : No
+sip local port 5060
+sip domain : ip freepbx
+mode : udp
+sip server IP/Name ip du freepbx
+outbound proxy grisé 0.0.0.0
+sip outbound server port 5060
+registration and authentification ID vega 50 et authentifcation password je ne peux pas les modifier. J'ai du passer le registration mode en Off submit puis gateway pour avoir acces Registration and authentification id et password: vega50 
+pour les codec voir le screenshot.
+
+
+
 ## Backup/restore Gateway config  
 - Expert Config / system / System management / Configuration / Receive file from gateway / Download  
 - On recupere un fichier *config.txt* que l'on peut renomer. 
 
-
 http://wiki.freepbx.org/pages/viewpage.action?pageId=60522602  
+
+### restauration 
+Expert config / system / Configuration / send file to gateway / Browse / on cherche le fichier qui est dans freepbx_config / open /upload. 
+Qd l'upload est terminé on clique sur l'icon return.
+Save / Reboot
 
 ## Config Vega50 BRI avec Elastisk  
 
@@ -120,7 +146,7 @@ Je le mets dans les deux outgoing et incoming host=dynamic
 		- Outbound proxy IP/Name: 0.0.0.0
 		- SIP Outbound Server Port : 5060
 		- Registration and Authentication ID:un nom que l'on va retrouver dans 
-		- Authentication Password : le meme que celui de ?
+		- Authentication Password : le meme que celui de ?. Je n'ai pas la possibilité de le modifier.
 	- Codecs
 	
     - *VoIP Routing Mode*  : thick *send calls via VoIP Service Provider proxy*. Pas sûr qu'il y est cette information sur ma version ou modele de gateway.
@@ -258,6 +284,10 @@ http://wiki.freepbx.org/display/FPG/Trunk+Sample+Configurations
 
 Pour debogger : Freepbx GUI / select "Reports / Asterisk Info," and then select "Full Report" on right.  In many cases, the information in this report can guide you in the right direction.
 
+J'ai fait un Add Trunk / Add SIP chan_sip trunk.
+Mais il y a aussi ADD SIP chan_pjsip Trunk. Cela ne se présente pas de la meme facon du tout.
+
+
 ### Peer details
 
 - sip settings / outgoing settings
@@ -286,6 +316,8 @@ Pour debogger : Freepbx GUI / select "Reports / Asterisk Info," and then select 
     -type=peer
     -insecure=invite,port
 
+# Onglet dialed number manipulation rules.
+
 # My config qui marche du dial planner du vega50
 Permet d'avoir la présentation du numéro sur l'IP phone.  
 
@@ -300,8 +332,37 @@ ATTENTION a faire avant un reset sinon on perd la licence.
 
 pour plus d'infos : http://wiki.freepbx.org/display/VG/Factory+Reset  
 
+# Add an extension
+
+Applications / Extension / add extension / Add New SIP chan_sip extension
+User extension : le numero a composer pour joindre cette extension
+Diplay name : pe LFRANCOIS
+Outbound CID: leave blank
+Langauge code : default. Changer en francais todo pour voir ce que cela concerne.
+User manager setting : concerne le choix du user.
+Je select user directory : PBX internal directory.
+Link to a default user : lfs
+Password for new user n'est pas accessible car je n'ai pas créé ce password. 
+Groups : All users. 
+onglet voicemail : enabled no
+find me follow enable no
+onglet advanced : Assigned DID/CID : je ne comprends pas a quoi cela sert
+Add extension : je ne change rien je ne comprends pas grand chose.
+Other :endpoint contact / contact 1 / brand : sangoma / s700 / template : sangoma_default 
+mac address que je prends au dos de l'iphone
+account : account 1 je ne comprends pas
 
 
+setting / endpoint manager / 
+Global settings / Internal addresss: ip du freepbx / external address : auto. Il a fallu que le fasse plusieurs fois pour que l'ip public du router apparaisse. finalement j'ai mis le fqdn du dyn dns. 
+je ne change rien d'autre. 
+
+extension mapping : j'ai deja bcp d'information.
+ mais je ne vois pas mise à jour de l'ipphone.
+ 
+ donc je fais un reset factory de l'ipphone'
+ 
+ 
 ## Vega CLI Commands 
 Expert config / advanced / CLI commands  
 
@@ -317,6 +378,7 @@ On peut rajouter d'autres fichiers de config par pays voir : http://wiki.freepbx
 http://wiki.freepbx.org/display/VG/Freepbx
 
 ## config ENP avec FreePBX  
+
 
 ENP : Enhanced Network Proxy
 
