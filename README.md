@@ -23,6 +23,9 @@ My config:
 - 10.13.66-2 - The third number 66 refers to Linux OS 6.6 operating system
 - 10.13.66-2 - The final number 2 is used as the Minor Release Revision of this Major Track Number
 
+Comme j'ai racheté une nouvelle appliance je suis en :
+- 12.7.8.2107-3.sng7
+
 # upgrader de 13 à 15 
 [ici](https://wiki.freepbx.org/display/FOP/Upgrade+to+FreePBX+15)
 
@@ -46,6 +49,7 @@ https://bitbucket.org/frouty/reseau_informatique.mlp/src/1104dc9e30f5?at=master
 # comment se connecter en ssh sur le server freepbx
 - ssh root@IP_DU_SERVEUR_FREEPBX
 - password dans le mlp buttercup
+
 ## je n'arrive plus a me connecter de l'exterieur en VPN en ssh et en webGUI
 - se connecter sur une trusted machine du reseau local: `ssh 'user'@IPLINUXBOX`
 - de cette machine locale se connecter  sur le freepbx: `ssh root@IPFREEPBX`
@@ -108,6 +112,8 @@ ca ne marche pas toujours.
 `̀Admin / System Admin / Storage`
 # Comment mettre à jour l'achat de modules commerciaux
 `Admin -> System Admin -> Activation -> Update activation` (en bas à droite)
+Il faut faire l'activation pour pouvoir acheter des modules commerciaux.
+
 # Comment lire les fichiers de config  
 `Admin / Config Edit`
 # Comment mettre à jour les modules?
@@ -219,8 +225,12 @@ J'ai essayé gmail mais je n'ai pas réussi.
 
  Mais cela part dans les spams.
  
+ Avec la nouvelle appliance pour l'instant avec gmail je n'ai pas réussi, avec un builtin SMTP server je n'ai pas recu de mail encore.
+ 
+ 
 ## Debug
 Click sur debug. On va sur la page de debug et on peut lancer un test de mail. 
+Network unrecheable alors que le ping fonctionne.
 
 # Comment configurer les notifications par mail
 Admin / System Admin / Notification Settings
