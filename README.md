@@ -128,22 +128,6 @@ https://wiki.freepbx.org/pages/viewpage.action?pageId=37912685
 ## Apply change en ligne de commande
 `fwconsole reload` 
 
-# Comment installer en ligne de commande un module 
-fwconsole ma --edge upgrade framework  
-Le plus dur va etre pour trouver le nom du module.
-# Comment lister les modules 
-fwconsole ma list
-# Comment obtenir de l'aide sur les commandes de ma
-fwconsole ma --help
-
-
-
-# fwconsole
-http://wiki.freepbx.org/pages/viewpage.action?pageId=37912685
-
-
-
-
 # Asterisk
 
 
@@ -224,27 +208,10 @@ Autodetect toutes les cartes installées. Je vois que dans l'onglet digital hard
 Analog hardware il y a: FXO ports 1,2,3,4
 FXO Ports 1,2,3,4 Edit et on leur assigne un group. Group que l'on va utiliser dans connectivity / trunk / Add trunk onglet dahdi settings / Dahdi trunk choix des groups
 
-## outbound route
-Et aprés on utilise ce trunk en créant une outbound route.
 
-## inbound route
-pour les inbound route c'est différent.
-comme les lignes analogiques ne transmettent le DID il faut mapper les ports FXO avec un DID dans le software et cela se fait dans Connectivity / Channel DID
-- Channel : The DAHDI Channel number to map to a DID. For example, If you have a 4-port card, your channels would be ports 1-4.
-- Description : meaningfull description
-- DID le DID sera passé à l'incoming route donc le DID ici doit etre le meme que le did dans l'inbound route.
 
-Les appels entrants sur un port FXO seront dirigés en configurant le connectivity / Dahdi channel / channel = le port FXO qui nous interesse en lui affectant un DID et ensuite on configure une inbound pour rediriger le DID vers une destination finale comme une extension par exemple.
 
-## dit autrement
-Ligne analogique OPT --> port FXO  
 
-- 1 Je branche une ligne de mon PTOS vers un port FXO du freepbx  
-- 2 Connectivity / DADY channel DID : je choisi le Channel correspondant au port FXO que je viens de connecter à mon PTOS. Et je lui donne un DID de mon choix que je vais pouvoir utiliser par la suite.
-- 3 Une fois que j'ai défini un DID à ce channel je vais pouvoir créer une inbound route.
-- 4 A cette inbound Route il faut lui donner une destination. Qui peut etre une extension.
-
-On donne un DID car avec  le fournisseur téléphonique PTOS il n'y a pas de DID. Et le systeme utilise le DID pour router l'appel.
 
 # Comment mettre une Outbound route qui va utiliser un port FXO.
 Exemple les orthoptiste utilisent leur ligne FXO pour appeler.
@@ -327,14 +294,6 @@ https://supportforums.cisco.com/document/113336/ip-phone-registration-issues
 Le phone va s'enregistrer aupres du PBX. L'adresse IP du Phone n'a pas d'importance elle peut rester en DHCP.
 L'incovénient c'est que pour utiliser le web GUI du phone cela ne va pas etre facile. Il faudra connaitre l'adresse IP. On peut la trouver sur le phone dans les menus.  
 Un phone peut avoir plusieurs extensions. A quoi cela sert? 
-
-
-
-
-
-
-
-
 
 
 
@@ -435,15 +394,6 @@ web gui du polycom / configuration / Ethernet.
 
 # configuration des FXO
 
-http://wiki.freepbx.org/display/FPG/DAHDI+Configs  
-
-http://documentation.xivo.io/en/stable/administration/hardware/hardware.html
-
-http://www.voip-info.org/wiki/view/DAHDI
-
-cat /proc/dahdi   
-dahdi_hardware  
-asterisk -rvd  
 
 The userspace tools to control DAHDI spans/channels: 
 __dahdi_cfg__  
