@@ -79,3 +79,33 @@ Can not connect to Asterisk
 
 ssh root@IPFREEPBX  
 `fwconsole restart`
+
+Debugger asterisk
+-----------------
+
+https://support.telosalliance.com/article/nf69bavy6e-how-to-enable-asterisk-debug-logging
+
+Ca marche mais je n'ai pas reussi a faire quelque chose avec.
+
+CLI>
+asterisk -r
+core set verbose 5
+core set debug 5
+sip set debug on
+module logger reload
+
+
+the log file /var/log/asterisk/full
+
+Revert the logging level using the following commands:
+
+asterisk -r
+core set verbose 0
+core set debug 0
+sip set debug off
+module logger reload
+
+
+pour éviter d'avoir un espace disk full.
+
+

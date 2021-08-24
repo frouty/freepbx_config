@@ -482,26 +482,6 @@ Connectivity -> Trunk
 
 J'ai un dahdi trunk. Mais je n'arrive pas a appeler l'exterieur
 
-Connectivity - Outbound routes : on y définit les regles qui s'appliquent en fonction du numéro composé.  
-quelques exemples de regles: http://wiki.freepbx.org/display/FPG/Outbound+Routes+Configuration+Examples  
-Le module outbound route: http://wiki.freepbx.org/display/FPG/Outbound+Routes+Module
-
-# DAHDI (Analog) Channel DIDs module
-`Connectivity / DAHDI Channel DIDs`  
-
-Ce module permet d'assigner un DID (un numero de téléphone) à un channel anlogique spécifique. Contrairement SIP ou PRI trunk, les lignes analogique n'envoie pas le DID ou le numero composé. Et nous avons besoin de mapper chaque port analogique ou channel a un numero fake comme cela nous pouvons matcher ce numero à une Inbound Route et router l'appel.  
-
-Il est possible de mapper sur le même numéro de téléphone plusieurs channels.  
-Une fois que l'on a assigné un DID, on peut utiliser les Inbound Route pour router l'appel.  
-
-Il *FAUT* que le *context* du channel soit à *from-analog* : `context = from-analog` in your chan_dahdi.conf. Cela se fait dans le DAHDI config module
-
-# DAHDI Configs module
-Permet de configurer les DAHDI PSTN card (analog, T1/E1/PRI or BRI’s.).  
-
-On clique sur `Connectivity / DAHDI`  
-
-https://wiki.freepbx.org/display/FPG/DAHDI+Configs pour plus de détails.
 
 
 ## En haut de la fénétre on voit les cartes installées.
@@ -545,29 +525,7 @@ Les modifications faites ici  nécessitent un Restart Dahdi & Asterisk.
 Les modifications faites ici  nécessitent un `Restart Dahdi & Asterisk`: `Save / Apply config / Restart Asterisk Dahdi`. 
 
 
-# Outbound route - dial pattern
 
-(prepend) prefix | [pattern]/caller_id  
-
-Un Dial Pattern est un ensemble unique de numéro qui va selectionner cette route et envoyer l'appel au trunk désigné.  
-Si le dial pattern correspond à cette route,aucune autre route ne sera essayée. Si "Time Groups" est actif, les routes suivantes seront essayé pour chercher une correspondance en dehors du temps désigné.  
-Les régles:
-
-X	matches tous les chiffres de 0-9  
-Z	matches tous les chiffres de 1-9  
-N	matches tous les chiffres de 2-9  
-[1237-9]	matches tous les chiffres ou lettres entre crochets. (in this example, 1,2,3,7,8,9)
-.	wildcard, matches un ou plusieurs characteres. 
-
-prepend:	Digits to prepend to a successful match. If the dialed number matches the patterns specified by the subsequent columns, then this will be prepended before sending to the trunks.
-
-prefix:	Prefix sera enlevé sur une correspondance. Le numéro composé est comparé au prefix et à la colonne suivante (le pattern). S'il y a correspondance, le prefix est supprimé du numéro composé avant d'étre envoyé au trunk.
-
-match pattern:	Le numéro composé est comparé à prefix + pattern. S'il y a correspondance la partie "pattern" sera envoyée au trunk. 
-
-CallerID:	Si le callerID est fournie, le numéro composé correspondra au prefix + pattern si le caller ID transmit correspond à ce callerID. When extensions make outbound calls, the CallerID will be their extension number and NOT their Outbound CID. The above special matching sequences can be used for CallerID matching similar to other number matches.
-
-https://wiki.asterisk.org/wiki/display/AST/Pattern+Matching
 
 
 
@@ -685,20 +643,6 @@ Je vois  que le DID n'est pas passé.
 
 http://wiki.freepbx.org/display/FPG/DAHDI+(Analog)+Channel+DIDs  
 
-### What is the DAHDI Channel DIDs module used for?  
-The DAHDI Channel DIDs module allows you to assign a DID or phone number to specific analog channels.
-Unlike SIP or PRI trunks, analog lines do not send a DID or dialed number to the PBX. Since the PBX routes all inbound calls based on the DID or number dialed, we need to map each analog port or channel to a fake number so we can match that number to an Inbound Route number and route your calls.
-Each channel can be mapped to the same phone number if you want all calls on the analog lines to go to the same destination. This would be a common scenario if you have multiple POTS lines that are on a hunt group from your provider.
-You MUST assign the channel's context to from-analog for these settings to have effect. It will be a line that looks like: context = from-analog in your chan_dahdi.conf configuration affecting the specified channel(s). Once you have assigned DIDs, you can use standard Inbound Routes with the specified DIDs to route your calls.
-
-Channel
-The DAHDI Channel number to map to a DID. For example, If you have a 4-port card, your channels would be ports 1-4.
-
-### Comment faire pour qu'une ligne pstn soit affectée à une certaine inbound route?
-`Connectivity - DAHDI Channel DIDs` :
-A chaque ports FXO on assigne un DID (un numero de téléphone fictif. On mettra celui de la ligne PSTN). On mappe ainsi les FXO à une ligne PSTN.  
-Car le fournisseur ne passe pas le DID dans les lignes analogiques.  
-Puis dans Inbound Route on utilise ce DID pour router l'appel.
 
 # Comment enregistrer des annonces
 `Admin -> System Recordings`

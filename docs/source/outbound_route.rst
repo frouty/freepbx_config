@@ -72,7 +72,7 @@ Dialed Number Manipulation Rules:
 
 
 
-Dans Connectivity - Inbound Route je ne peux pas configurer le port FXO je ne comprends pas pourquoi.
+Dans Connectivity - Inbound Route je ne peux pas configurer le port FXO je ne comprends pas pourquoi. Dans les inbound route on utilise le DID pour se mapper à un port FXO donc une ligne PSTN? 
 Dans connectivity - outbound route je peux configurer le port FXO par l'intermediaire du parametre : Trunk Sequence for Matched Routes
 
 Since the PBX routes all inbound calls based on the DID or number dialed, we need to map each analog port or channel to a fake number so we can match that number to an inbound route number and route your calls.
@@ -81,5 +81,5 @@ Connectivity - DADHI channel DID - add DADHI DID - channel : g1 (mais je ne suis
 Channel : 
 The DAHDI Channel number to map to a DID. For example, If you have a 4-port card, your channels would be ports 1-4.
 
-### en résumé pour router un appel arrivant d'une ligne analogique sur un port FXO:
+En résumé pour router un appel arrivant d'une ligne analogique sur un port FXO:
 `Connectivity -DAHDI channel DID` pour définir un DID par port FXO (1, 2 , 3 , 4). Puis j'utilise ce DID dans la configuration des `Connectivity - Inbound Route - Set destination`.

@@ -7,7 +7,7 @@ http://documentation.xivo.io/en/stable/administration/hardware/hardware.html
 
 http://www.voip-info.org/wiki/view/DAHDI
 
-J'ai une carte avec 4 ports FXO sur l'appliance sangoma pour y brancher les cable analogique de l'OPT. 
+J'ai une carte avec 4 ports FXO sur l'appliance sangoma pour y brancher les cables analogiques de l'OPT. 
 
 cat /proc/dahdi   
 dahdi_hardware  
@@ -20,8 +20,6 @@ Permet de configurer les DAHDI PSTN card (analog, T1/E1/PRI or BRI’s.).
 On clique sur `Connectivity / DAHDI`  
 
 https://wiki.freepbx.org/display/FPG/DAHDI+Configs pour plus de détails.
-
-
 
 Comment savoir si ma telephony card est bien reconnue par le FreePBX
 --------------------------------------------------------------------
@@ -43,9 +41,9 @@ The DAHDI module n'arrive pas à voir et à voir/configurer les A200 Sangoma car
 
  https://issues.freepbx.org/browse/FREEPBX-12867
  
- Donc j'essaie :
+ Il faut faire:
  
- - Admin / Module Admin / DAHDI Config / Action : Disable.
+ - Desactiver le DAHDI module avec : Admin / Module Admin / DAHDI Config / Action : Disable.
  Process / Confirm / Apply config 
  - Reboot
  - Running "/usr/sbin/wancfg_dahdi" at the cli.
@@ -158,7 +156,7 @@ https://wiki.freepbx.org/display/FPG/DAHDI+Configs pour plus de détails.
 
  1 Stop asterisk
  2 Restart wanpipe driver : # wanrouter restart
- 3 check physical layer : wanpipemon -i w1g1 -c astats -m X (X = 1 , 2 , 3 , 4 les ports FXO)
+ 3 check physical layer : #wanpipemon -i w1g1 -c astats -m X (X = 1 , 2 , 3 , 4 les ports FXO)
  On voit s'ils sont connectés à l'OPT. 
  4 Check that the Wanpipe network interface is processing data properly: ifconfig
  [...]
@@ -192,4 +190,23 @@ Une fois que l'on a assigné un DID, on peut utiliser les Inbound Route pour rou
 
 Il *FAUT* que le *context* du channel soit à *from-analog* : `context = from-analog` in your chan_dahdi.conf. Cela se fait dans le DAHDI config module
 
- 
+What is the DAHDI Channel DIDs module used for?  
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The DAHDI Channel DIDs module allows you to assign a DID or phone number to specific analog channels.
+Unlike SIP or PRI trunks, analog lines do not send a DID or dialed number to the PBX. Since the PBX routes all inbound calls based on the DID or number dialed, we need to map each analog port or channel to a fake number so we can match that number to an Inbound Route number and route your calls.
+Each channel can be mapped to the same phone number if you want all calls on the analog lines to go to the same destination. This would be a common scenario if you have multiple POTS lines that are on a hunt group from your provider.
+You MUST assign the channel's context to from-analog for these settings to have effect. It will be a line that looks like: context = from-analog in your chan_dahdi.conf configuration affecting the specified channel(s). Once you have assigned DIDs, you can use standard Inbound Routes with the specified DIDs to route your calls.
+
+Channel
+The DAHDI Channel number to map to a DID. For example, If you have a 4-port card, your channels would be ports 1-4.
+
+Comment faire pour qu'une ligne pstn soit affectée à une certaine inbound route?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+`Connectivity - DAHDI Channel DIDs` :
+A chaque ports FXO on assigne un DID (un numero de téléphone fictif. On mettra celui de la ligne PSTN). On mappe ainsi les FXO à une ligne PSTN.  
+Car le fournisseur ne passe pas le DID dans les lignes analogiques.  
+Puis dans Inbound Route on utilise ce DID pour router l'appel.
+
+Commment savoir sur quel port de ma carte sangoma la ligne POTS est branchée?
+-----------------------------------------------------------------------------
+# wanpipemon -i w1g1 -c astats -m X il faut changer X avec le numero du port.
