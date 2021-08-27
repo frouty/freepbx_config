@@ -208,6 +208,8 @@ su -m asterisk
 password : blank   
 cd /etc  
 
+# Configuration de l'ipphone. 
+
 
 # Comment configurer son serveur de mail
 Admin / System Admin / Email Setup  
@@ -238,7 +240,11 @@ Admin / System Admin / Notification Settings
 # Hostname
 Admin / System Admin / Hostname    
 localhost.localdomain -> FreePBX.MLP  
-  
+
+1 configuration du vega 50
+2 connectivity / Trunk / Add trunk sip chan_sip
+3 connectivity outbound route
+4 connectivity / inbound route / on va mapper le CID entrant avec une extension.
 # Extension
 ## Comment Creer une extension
 - 1 On crée l'extension : Application / Extension / Add Extension / Add New CHAN_SIP Extension
@@ -255,6 +261,11 @@ Le systeme crée automatiquement un nouveau user que l'on peut configurer dans A
 	- Template qui est un fichier de configuration qui correspond à un type de téléphone.
 	- Modele de téléphone.
 	
+  dans le endpoint management je retrouve le login et le password que je vais mettre dans le webgui de l'ipphone : Management/autoprovisionning https/http password et login
+  puis management reboot. mais rien a faire le telephone ne recupere pas la config.
+  dans le webgui du tel je rentre l'adresse sous la forme http://username:password@ipfreepbx:port.
+  On trouve username / password / port dans Endpoint management / global settings et aussi dans Admin / System Admin / Provisionning protocole.
+  
 
 # Comment savoir à quelle IP phone un user est relié?
 Application / Extension  
