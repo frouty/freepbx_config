@@ -53,16 +53,13 @@ Onglet General:
     **Trunk name** : 
         To_Vega
 Onglet Sip settings / outgoing :
-    **Trunk name** : 
+    **trunk name** : 
         il doit correspondre au Register user dans le Vega. Lele même que dans general : To_Vega
 Onglet Sip Settings / Incoming:
     **User context** : 
 
 Comment voir si le trunk est up?
-================================
-
 Report / asterisk info / Peers / CHANSIP
-
 Name/username             Host                                    Dyn Forcerport Comedia    ACL Port     Status      Description
 1/1                       10.66.0.154                              D  Yes        Yes         A  5060     OK (9 ms)
 from-vega50/vega50        10.66.0.3                                   Yes        Yes            5060     OK (4 ms)
@@ -71,15 +68,16 @@ vega50/vega50             10.66.0.3                                   Yes       
 
 Là il y avait une seule extension en service. 
 
-J'ai toujours dans le vega : SIP  registration zéro. 
+J'ai toujours dans le vega : SIP  regisration zéro. 
 
-Si je téléphone au 296297, j'ai le number you have dialed is not in service.
+Si je dial 296297 j'ai le number you have dialed is not in service.
 
 Je crée une inbound routes 
 
 
-Une fois que j'ai eu configurer un **sip chan_sip trunk** qui ne me permettait pas de téléphoner, en ssh
 
+
+Une fois que j'ai eu configurer un sip chan_sip trunk qui ne me permettait pas de téléphoner, en ssh
 freepbx# fwconsole trunk list 
 
 Choose an ID to enable/disable

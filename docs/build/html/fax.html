@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Fax &#8212; Freenas Doc v1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="fax">
+<h1>Fax<a class="headerlink" href="#fax" title="Permalink to this headline">¶</a></h1>
+<p>voir module User Management</p>
+<p>J’ai le module fax pro qui permet d’envoyer des fax. Le module fax gratuit ne permet pas d’envoyer des fax.</p>
+<section id="fax-emission-de-fax">
+<h2>Fax - Émission de fax<a class="headerlink" href="#fax-emission-de-fax" title="Permalink to this headline">¶</a></h2>
+<p>J’ai une outbound route. Sans configuration particuliere pour les fax.
+Il n’y a pas de parametre de fax dans l’outbound route.
+Dans Admin - User management - onglet Fax pour autoriser le user à utiliser les fax.</p>
+<p>on va dans l’UCP est on fait “send new fax”. cela marche.</p>
+<p>A noter qu’il ne faut pas que la vielle machine de fax soit brancher sur la ligne qui envoie le fax.</p>
+</section>
+<section id="fax-reception-de-fax">
+<h2>Fax - Réception de fax<a class="headerlink" href="#fax-reception-de-fax" title="Permalink to this headline">¶</a></h2>
+<p>On définit la detection de fax dans : Applications / Extension.
+Mais cela n’a pas marché. Je ne trouve pas de parametre de fax dans application - extension</p>
+<p>Dans Connectivity -DHADI config - global setting - fax detection –&gt; Yes et on essaye à nouveau.</p>
+<p>Configuration pour recevoir les faxs:
+<cite>Connectivity -Inbound Route</cite>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>set destination - Fax recipient user2</cite></p></li>
+<li><p>Fax - Fax destination user2</p></li>
+</ul>
+</div></blockquote>
+<p>Pas de configuration des ports fxo dans les inbound route. Il faut travailler avec le DID. A faire. pour voir si cela marche.</p>
+</section>
+<section id="comment-faire-pour-ne-pas-recevoir-le-fax-par-email-mais-le-retrouver-dans-l-inbox">
+<h2>Comment faire pour ne pas recevoir le fax par email mais le retrouver dans l’inbox.<a class="headerlink" href="#comment-faire-pour-ne-pas-recevoir-le-fax-par-email-mais-le-retrouver-dans-l-inbox" title="Permalink to this headline">¶</a></h2>
+<p>j’essaie :
+Setting - Fax config - email address (not the outgoing email address) : leave empty
+Ca ne marche pas. Continue à l’envoyer par email
+Si les deux champs
+Setting -Fax config - outgoing email adress : empty.
+Ca ne marche</p>
+<p>user config - fax - email result -never ne marche pas non plus pour ne pas recevoir de fax</p>
+<p>Setting - Fax config - outgoing email address (and email adress) : leave empty</p>
+<p>Rien à faire j’ai toujours mon fax qui arrive par mail.</p>
+<p>email address –&gt; une autre adress mail non je recois toujours <a class="reference external" href="mailto:francois&#46;oph&#37;&#52;&#48;gmail&#46;com">francois<span>&#46;</span>oph<span>&#64;</span>gmail<span>&#46;</span>com</a></p>
+<p>Admin - Feature Code admin - Dial system fax c’est quoi?</p>
+<p><a class="reference external" href="http://www.emetrotel.com/tsd/content/dial-system-fax">http://www.emetrotel.com/tsd/content/dial-system-fax</a></p>
+<p>Mais cela ne me dit pas ce que je peux en faire.</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Freenas Doc</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Recovery_with_usb_key.html">Recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Resetting-password.html">Resetting password</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Laurent FRANCOIS.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/fax.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

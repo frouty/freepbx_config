@@ -1,5 +1,8 @@
-Configuration des FXO
-=====================
+============
+DAHDI Config
+============
+
+Dans ce mdule DAHDI Config on configure les port FXO
 
 http://wiki.freepbx.org/display/FPG/DAHDI+Configs  
 
@@ -33,7 +36,7 @@ Comment savoir si ma telephony card est bien reconnue par le FreePBX
 Ma carte est bien reconnue par le BIOS.
 
 
-FreePBX Wegui / Connectivity / DAHDI Configuration / Analog Hardware / il n'y a pas les port et pas d'action. 
+FreePBX Wegui / Connectivity / DAHDI Configuration / Analog Hardware / il n'y a pas les port et pas d'action possible. 
 
 `issue https://issues.freepbx.org/browse/FREEPBX-7437`
 

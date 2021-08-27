@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Firewall &#8212; Freenas Doc v1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="firewall">
+<h1>Firewall<a class="headerlink" href="#firewall" title="Permalink to this headline">¶</a></h1>
+<p>Connectivity / Firewall
+il y a plusieurs pages de configurations  que l’on selectionne avec l’icone a droite.</p>
+<section id="comment-configurer-le-firewall">
+<h2>Comment configurer le firewall?<a class="headerlink" href="#comment-configurer-le-firewall" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://wiki.freepbx.org/display/FPG/Firewall+Command+Line">http://wiki.freepbx.org/display/FPG/Firewall+Command+Line</a></p>
+<ul class="simple">
+<li><p><cite>fwconsole firewall –help</cite></p></li>
+<li><p><cite>fwconsole firewall disable</cite> (reste disable after a reboot)</p></li>
+<li><p>il y a bcp d’autre commandes : [ici](<a class="reference external" href="https://wiki.freepbx.org/display/FPG/Firewall+Command+Line">https://wiki.freepbx.org/display/FPG/Firewall+Command+Line</a>)</p></li>
+</ul>
+<p>puis en GUI recherche -&gt; firewall -&gt; enable –&gt; re-run wizard</p>
+</section>
+<section id="les-zones">
+<h2>Les zones<a class="headerlink" href="#les-zones" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Internet</p></li>
+<li><p>Local</p></li>
+<li><p>Other</p></li>
+<li><p>Reject</p></li>
+<li><p>Trusted</p></li>
+</ul>
+<p>On affecte des zones à des interfaces dans firewall / Main / Interfaces
+Et on peut aussi affecter des reseaux ip a des zones.</p>
+</section>
+<section id="trusted-zone">
+<h2>Trusted zone<a class="headerlink" href="#trusted-zone" title="Permalink to this headline">¶</a></h2>
+<p>Il faut mettre un reseau IP ou une machine dans la trusted zone comme cela en cas de probleme on peut qd acceder au server Freepbx.
+Je mets l’ip de la linuxbox en Trusted zone</p>
+</section>
+<section id="comment-bloquer-une-ip">
+<h2>Comment bloquer une IP<a class="headerlink" href="#comment-bloquer-une-ip" title="Permalink to this headline">¶</a></h2>
+<p>j’ai NOTICE[16667] chan_sip.c: Registration from ‘“555” &lt;<a class="reference external" href="sip:555&#64;163.47.249.85">sip:555&#64;163.47.249.85</a>&gt;’ failed for ‘77.247.110.40:5941’ - Wrong password
+des dizaines de fois.
+<a class="reference external" href="https://wiki.freepbx.org/display/FPG/Firewall+Blacklist">https://wiki.freepbx.org/display/FPG/Firewall+Blacklist</a></p>
+<p><cite>Connectivity / Firewall / Service / Blaklist tab</cite></p>
+<p>Mais normalement avec le responsive firewall on a pas besoin de faire cela.
+Mais moi j’ai pas l’impression que cela marche le responsive car
+Connectivity / Firewall /</p>
+</section>
+<section id="je-me-suis-trouve-bloque-ne-pouvant-plus-acceder-au-webgui-a-cause-du-firewall">
+<h2>Je me suis trouvé bloqué ne pouvant plus acceder au webgui a cause du firewall<a class="headerlink" href="#je-me-suis-trouve-bloque-ne-pouvant-plus-acceder-au-webgui-a-cause-du-firewall" title="Permalink to this headline">¶</a></h2>
+<p>-<cite>ssh root&#64;IP_FREEPBX</cite>
+- <cite>fwconsole firewall disable</cite>
+ca ne marche pas toujours.</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Freenas Doc</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Recovery_with_usb_key.html">Recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Resetting-password.html">Resetting password</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Laurent FRANCOIS.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/firewall.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

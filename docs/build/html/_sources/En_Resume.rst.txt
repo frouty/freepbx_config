@@ -2,9 +2,6 @@
 Config du Freepbx en resume.
 ============================
 
-Configuration des mails
------------------------
-
 Config du VEGA donc de la ligne BRI
 -----------------------------------
 
@@ -36,8 +33,6 @@ Mais pour le savoir physiquement il faut regarder les cables. Il faut les marque
 
 Creation des users 
 ------------------
-
-Admin / User Management
 
 Creation des extensions
 -----------------------
