@@ -1,0 +1,35 @@
+======================================
+Comment permettre à freepbx d'envoyer des emails
+======================================
+
+Admin / System Admin / Email Setup  
+
+Choix du SMTP server
+--------------------
+
+J'ai essayé gmail mais je n'ai pas réussi.  
+`Use built in SMTP server`  
+- hostname = ?
+- origin = ?
+- Domain = ?  
+ 
+ J'ai essayé Use external SMTP server avec gmail mais cela n'a pas marché. Debug : network unreachable.
+ J'ai essayé USe built in SMTP server et ca marche. j'ai changé My Origin  localhost.localdomain --> FreePBX.MLP. 
+
+ Mais cela part dans les spams.
+ 
+ Avec la nouvelle appliance pour l'instant avec gmail je n'ai pas réussi, avec un builtin SMTP server je n'ai pas recu de mail encore.
+ 
+ 
+Debug
+-----
+
+Click sur debug. On va sur la page de debug et on peut lancer un test de mail. 
+Network unrecheable alors que le ping fonctionne.
+
+
+
+Comment configurer les notifications par mail
+---------------------------------------------
+
+Admin / System Admin / Notification Settings

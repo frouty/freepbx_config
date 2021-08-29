@@ -120,7 +120,7 @@ Mais j'ai un message d'erreur qui me dit que ce n'est pas configuré en dynamic 
 Je le mets dans les deux outgoing et incoming host=dynamic  
 
 ###   Configuration du vega gateway vegapotiniere
-- Quick config mais attention si on fait un submit on perd certains settinfs mis en place dans expert config.
+- Quick config mais attention si on fait un submit on perd certains settings mis en place dans expert config.
 - Onglet : *Basic Config*    
         - General 
 		- Country : FR  
@@ -321,7 +321,7 @@ Mais il y a aussi ADD SIP chan_pjsip Trunk. Cela ne se présente pas de la meme 
 # My config qui marche du dial planner du vega50
 Permet d'avoir la présentation du numéro sur l'IP phone.  
 
-Experct config / Dial plan / To_SIP modify  
+Expert config / Dial plan / To_SIP modify  
 **source** : IF:0[3]..,TEL:<.*>,TELC:<.*>  
 **destination** : IF:9901,TEL:<1>,TELC:(<2>)  
 
