@@ -15,7 +15,7 @@
     <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Recovery" href="Recovery_with_usb_key.html" />
+    <link rel="next" title="Comment permettre à freepbx d’envoyer des emails" href="email_server_config.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -37,6 +37,12 @@
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="email_server_config.html">Comment permettre à freepbx d’envoyer des emails</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="email_server_config.html#choix-du-smtp-server">Choix du SMTP server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email_server_config.html#debug">Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email_server_config.html#comment-configurer-les-notifications-par-mail">Comment configurer les notifications par mail</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="Recovery_with_usb_key.html">Recovery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Resetting-password.html">Resetting password</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Resetting-password.html#forgotten-root-password">Forgotten root password</a></li>
@@ -44,6 +50,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="En_Resume.html">Config du Freepbx en resume.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="En_Resume.html#configuration-des-mails">Configuration des mails</a></li>
 <li class="toctree-l2"><a class="reference internal" href="En_Resume.html#config-du-vega-donc-de-la-ligne-bri">Config du VEGA donc de la ligne BRI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="En_Resume.html#config-des-lignes-analogiques">Config des lignes analogiques</a></li>
 <li class="toctree-l2"><a class="reference internal" href="En_Resume.html#creation-des-users">Creation des users</a></li>
@@ -60,6 +67,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html#comment-relier-le-vega-50-au-freepbx">Comment relier le VEGA 50 au Freepbx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html#comment-voir-si-le-trunk-est-up">Comment voir si le trunk est up?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DAHDI_config.html">DAHDI Config</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="DAHDI_config.html#dahdi-configs-module">DAHDI Configs module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DAHDI_config.html#comment-savoir-si-ma-telephony-card-est-bien-reconnue-par-le-freepbx">Comment savoir si ma telephony card est bien reconnue par le FreePBX</a></li>
@@ -75,6 +83,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Inbound_Route.html">Inbound Route</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Inbound_Route.html#dit-autrement">dit autrement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Inbound_Route.html#connectivity-inbound-route">Connectivity / Inbound Route</a></li>
 </ul>
 </li>
 </ul>
@@ -108,12 +117,14 @@
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="email_server_config.html">Comment permettre à freepbx d’envoyer des emails</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Recovery_with_usb_key.html">Recovery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Resetting-password.html">Resetting password</a></li>
 <li class="toctree-l1"><a class="reference internal" href="En_Resume.html">Config du Freepbx en resume.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Vega50_BRI_Config.html">Configuration du VEGA 50</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html">Connection du Freepbx au Vega50</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html#comment-relier-le-vega-50-au-freepbx">Comment relier le VEGA 50 au Freepbx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html#comment-voir-si-le-trunk-est-up">Comment voir si le trunk est up?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DAHDI_config.html">DAHDI Config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Outbound_Route.html">Outboud Route</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Inbound_Route.html">Inbound Route</a></li>
@@ -123,7 +134,7 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="#">Documentation overview</a><ul>
-      <li>Next: <a href="Recovery_with_usb_key.html" title="next chapter">Recovery</a></li>
+      <li>Next: <a href="email_server_config.html" title="next chapter">Comment permettre à freepbx d’envoyer des emails</a></li>
   </ul></li>
 </ul>
 </div>

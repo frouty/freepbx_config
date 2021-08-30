@@ -15,6 +15,7 @@
     <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Outboud Route" href="Outbound_Route.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -52,7 +53,24 @@ Comme la paire de cuivre qui arrive au niveau des FXO.</p>
 <li><p>3 Une fois que j’ai défini un DID à ce channel je vais pouvoir créer une inbound route.</p></li>
 <li><p>4 A cette inbound Route il faut lui donner une destination. Qui peut etre une extension.</p></li>
 </ul>
-<p>On donne un DID car avec  le fournisseur téléphonique PTOS il n’y a pas de DID. Et le systeme utilise le DID pour router l’appel.</p>
+<p>On donne un DID car le fournisseur téléphonique PTOS ne fournit pas le DID. Et le systeme utilise le DID pour router l’appel.</p>
+</section>
+<section id="connectivity-inbound-route">
+<h2>Connectivity / Inbound Route<a class="headerlink" href="#connectivity-inbound-route" title="Permalink to this headline">¶</a></h2>
+<p>When a call comes into your system from the outside, it will usually arrive along with information about the telephone number that was dialed (also known as the “DID”) and the Caller ID of the person who called.
+The Inbound Routes module is the mechanism used to tell your PBX where to route inbound calls based on the phone number or DID dialed.
+Calls come into your system on trunks that are configured in the Trunks module.</p>
+<p><strong>DID (Direct Inward Dialing) Number</strong></p>
+<blockquote>
+<div><p>Routing is based on the trunk on which the call is coming in. In the DID field, you will define the expected <strong>DID Number</strong> if your trunk passes the DID on incoming calls. Leave this blank to match calls with any or no DID info.</p>
+<p>The DID number entered must match the format of the provider sending the DID. You can also use a pattern match to match a range of numbers.</p>
+<p>Patterns must begin with an underscore (_) to signify they are patterns. Within patterns, X will match the numbers 0-9 and specific numbers can be matched if they are placed between square parentheses.</p>
+<p>This field can also be left blank to match calls from all DIDs. This will also match calls that have no DID information.</p>
+</div></blockquote>
+<p><strong>CID (Caller ID) Number</strong></p>
+<blockquote>
+<div><p>Routing calls based on the caller ID : numero composé par l’appelant. Leave this field blank to match any or no CID info. In addition to standard dial sequences, you can also put “Private,” “Blocked,” “Unknown,” “Restricted,” “Anonymous” or “Unavailable” in order to catch these special cases if the telco transmits them.</p>
+</div></blockquote>
 </section>
 </section>
 
@@ -74,15 +92,29 @@ Comme la paire de cuivre qui arrive au niveau des FXO.</p>
 
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="email_server_config.html">Comment permettre à freepbx d’envoyer des emails</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Recovery_with_usb_key.html">Recovery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Resetting-password.html">Resetting password</a></li>
+<li class="toctree-l1"><a class="reference internal" href="En_Resume.html">Config du Freepbx en resume.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vega50_BRI_Config.html">Configuration du VEGA 50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html">Connection du Freepbx au Vega50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html#comment-relier-le-vega-50-au-freepbx">Comment relier le VEGA 50 au Freepbx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html#comment-voir-si-le-trunk-est-up">Comment voir si le trunk est up?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DAHDI_config.html">DAHDI Config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Outbound_Route.html">Outboud Route</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Inbound Route</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dit-autrement">dit autrement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#connectivity-inbound-route">Connectivity / Inbound Route</a></li>
+</ul>
+</li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Outbound_Route.html" title="previous chapter">Outboud Route</a></li>
   </ul></li>
 </ul>
 </div>

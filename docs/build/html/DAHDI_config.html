@@ -15,6 +15,8 @@
     <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Outboud Route" href="Outbound_Route.html" />
+    <link rel="prev" title="Connection du Freepbx au Vega50" href="Connection_Vega50_Freepbx.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -35,17 +37,24 @@
 <h1>DAHDI Config<a class="headerlink" href="#dahdi-config" title="Permalink to this headline">¶</a></h1>
 <p>Dans ce mdule DAHDI Config on configure les port FXO</p>
 <p><a class="reference external" href="http://wiki.freepbx.org/display/FPG/DAHDI+Configs">http://wiki.freepbx.org/display/FPG/DAHDI+Configs</a></p>
+<p><a class="reference external" href="https://wiki.freepbx.org/display/PC/Telephony+Cards+with+FreePBX+Distro#TelephonyCardswithFreePBXDistro-Overview">https://wiki.freepbx.org/display/PC/Telephony+Cards+with+FreePBX+Distro#TelephonyCardswithFreePBXDistro-Overview</a></p>
 <p><a class="reference external" href="http://documentation.xivo.io/en/stable/administration/hardware/hardware.html">http://documentation.xivo.io/en/stable/administration/hardware/hardware.html</a></p>
 <p><a class="reference external" href="http://www.voip-info.org/wiki/view/DAHDI">http://www.voip-info.org/wiki/view/DAHDI</a></p>
 <p>J’ai une carte avec 4 ports FXO sur l’appliance sangoma pour y brancher les cables analogiques de l’OPT.</p>
 <p>cat /proc/dahdi
 dahdi_hardware
 asterisk -rvd</p>
+<p># Configuration dans freepbx des telephony cards.</p>
+<p>Connectivity / Dahdi config</p>
 <section id="dahdi-configs-module">
 <h2>DAHDI Configs module<a class="headerlink" href="#dahdi-configs-module" title="Permalink to this headline">¶</a></h2>
 <p>Permet de configurer les DAHDI PSTN card (analog, T1/E1/PRI or BRI’s.).</p>
 <p>On clique sur <cite>Connectivity / DAHDI</cite></p>
 <p><a class="reference external" href="https://wiki.freepbx.org/display/FPG/DAHDI+Configs">https://wiki.freepbx.org/display/FPG/DAHDI+Configs</a> pour plus de détails.</p>
+<p>Autodetect toutes les cartes installées. Je vois que dans l’onglet digital hardware il y a rien. Ce qui est normal car je n’ai pas de carte digitale dans l’appliance.</p>
+<p>Analog hardware il y a: FXO ports 1,2,3,4
+FXO Ports 1,2,3,4 Edit et on leur assigne un group. Group que l’on va utiliser dans connectivity / trunk / Add trunk onglet dahdi settings / Dahdi trunk choix des groups</p>
+<p>Lors de la deuxieme installation les cartes FXO n’ont pas été automatiquement reconnue. Voir ci-dessous le setup.</p>
 </section>
 <section id="comment-savoir-si-ma-telephony-card-est-bien-reconnue-par-le-freepbx">
 <h2>Comment savoir si ma telephony card est bien reconnue par le FreePBX<a class="headerlink" href="#comment-savoir-si-ma-telephony-card-est-bien-reconnue-par-le-freepbx" title="Permalink to this headline">¶</a></h2>
@@ -251,15 +260,33 @@ Puis dans Inbound Route on utilise ce DID pour router l’appel.</p>
 
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="email_server_config.html">Comment permettre à freepbx d’envoyer des emails</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Recovery_with_usb_key.html">Recovery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Resetting-password.html">Resetting password</a></li>
+<li class="toctree-l1"><a class="reference internal" href="En_Resume.html">Config du Freepbx en resume.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vega50_BRI_Config.html">Configuration du VEGA 50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html">Connection du Freepbx au Vega50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html#comment-relier-le-vega-50-au-freepbx">Comment relier le VEGA 50 au Freepbx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html#comment-voir-si-le-trunk-est-up">Comment voir si le trunk est up?</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DAHDI Config</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dahdi-configs-module">DAHDI Configs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#comment-savoir-si-ma-telephony-card-est-bien-reconnue-par-le-freepbx">Comment savoir si ma telephony card est bien reconnue par le FreePBX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a200-detected-on-slot-4-bus-8">A200 detected on slot:4 bus:8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dahdi-analog-channel-dids-module">DAHDI (Analog) Channel DIDs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commment-savoir-sur-quel-port-de-ma-carte-sangoma-la-ligne-pots-est-branchee">Commment savoir sur quel port de ma carte sangoma la ligne POTS est branchée?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Outbound_Route.html">Outboud Route</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Inbound_Route.html">Inbound Route</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Connection_Vega50_Freepbx.html" title="previous chapter">Connection du Freepbx au Vega50</a></li>
+      <li>Next: <a href="Outbound_Route.html" title="next chapter">Outboud Route</a></li>
   </ul></li>
 </ul>
 </div>

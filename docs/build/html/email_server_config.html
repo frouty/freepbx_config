@@ -15,6 +15,8 @@
     <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Recovery" href="Recovery_with_usb_key.html" />
+    <link rel="prev" title="Welcome to Freenas Doc’s documentation!" href="index.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -42,16 +44,28 @@
 - origin = ?
 - Domain = ?</p>
 <blockquote>
-<div><p>J’ai essayé Use external SMTP server avec gmail mais cela n’a pas marché. Debug : network unreachable.
-J’ai essayé USe built in SMTP server et ca marche. j’ai changé My Origin  localhost.localdomain –&gt; FreePBX.MLP.</p>
+<div><p>J’ai essayé Use external SMTP server avec gmail mais cela n’a pas marché. Debug : network unreachable.</p>
+<p>J’ai essayé USe built in SMTP server et ca marche. j’ai changé My Origin  localhost.localdomain –&gt; FreePBX.MLP.</p>
 <p>Mais cela part dans les spams.</p>
 <p>Avec la nouvelle appliance pour l’instant avec gmail je n’ai pas réussi, avec un builtin SMTP server je n’ai pas recu de mail encore.</p>
+<dl class="simple">
+<dt><strong>My Hostname</strong> :</dt><dd><p>vide</p>
+</dd>
+<dt><strong>My Origin</strong></dt><dd><p>localhost</p>
+</dd>
+<dt><strong>My Domain</strong></dt><dd><p>localdomain</p>
+</dd>
+</dl>
+<p>Le probleme c’est que je n’ai rien de tout cela. Je mets des valeurs au pif.</p>
 </div></blockquote>
+<p><a class="reference external" href="https://wiki.freepbx.org/display/PPS/Setup+Postfix+Manually">https://wiki.freepbx.org/display/PPS/Setup+Postfix+Manually</a></p>
 </section>
 <section id="debug">
 <h2>Debug<a class="headerlink" href="#debug" title="Permalink to this headline">¶</a></h2>
-<p>Click sur debug. On va sur la page de debug et on peut lancer un test de mail.
-Network unrecheable alors que le ping fonctionne.</p>
+<p>Click sur debug , en bas à droite à coté de Submit.</p>
+<p>On va sur la page de debug et on peut lancer un test de mail.</p>
+<p>Network unrecheable alors que le ping fonctionne.</p>
+<p>je vois que le from est : <a class="reference external" href="mailto:asterisk&#37;&#52;&#48;voIPFreepbxOPH&#46;freepbxOPH">asterisk<span>&#64;</span>voIPFreepbxOPH<span>&#46;</span>freepbxOPH</a></p>
 </section>
 <section id="comment-configurer-les-notifications-par-mail">
 <h2>Comment configurer les notifications par mail<a class="headerlink" href="#comment-configurer-les-notifications-par-mail" title="Permalink to this headline">¶</a></h2>
@@ -77,15 +91,31 @@ Network unrecheable alors que le ping fonctionne.</p>
 
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Comment permettre à freepbx d’envoyer des emails</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#choix-du-smtp-server">Choix du SMTP server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#debug">Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#comment-configurer-les-notifications-par-mail">Comment configurer les notifications par mail</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="Recovery_with_usb_key.html">Recovery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Resetting-password.html">Resetting password</a></li>
+<li class="toctree-l1"><a class="reference internal" href="En_Resume.html">Config du Freepbx en resume.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vega50_BRI_Config.html">Configuration du VEGA 50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html">Connection du Freepbx au Vega50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html#comment-relier-le-vega-50-au-freepbx">Comment relier le VEGA 50 au Freepbx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html#comment-voir-si-le-trunk-est-up">Comment voir si le trunk est up?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DAHDI_config.html">DAHDI Config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Outbound_Route.html">Outboud Route</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Inbound_Route.html">Inbound Route</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to Freenas Doc’s documentation!</a></li>
+      <li>Next: <a href="Recovery_with_usb_key.html" title="next chapter">Recovery</a></li>
   </ul></li>
 </ul>
 </div>

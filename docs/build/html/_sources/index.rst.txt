@@ -10,6 +10,7 @@ Welcome to Freenas Doc's documentation!
    :maxdepth: 2
    :caption: Contents:
    
+   email_server_config
    Recovery_with_usb_key
    Resetting-password
    En_Resume
