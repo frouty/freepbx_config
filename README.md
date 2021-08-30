@@ -158,21 +158,6 @@ Ne doit pas etre dans une Queue ou un Ring Group.
 - `Not Reachable` qd le phone n'est pas branché.
 
 
-
-# Configuration dans freepbx des telephony cards.
-https://wiki.freepbx.org/display/PC/Telephony+Cards+with+FreePBX+Distro#TelephonyCardswithFreePBXDistro-Overview
-
-Connectivity / Dahdi config
-
-Autodetect toutes les cartes installées. Je vois que dans l'onglet digital hardware il y a rien. Ce qui est normal car je n'ai pas de carte digitale dans l'appliance.
-Analog hardware il y a: FXO ports 1,2,3,4
-FXO Ports 1,2,3,4 Edit et on leur assigne un group. Group que l'on va utiliser dans connectivity / trunk / Add trunk onglet dahdi settings / Dahdi trunk choix des groups
-
-
-
-
-
-
 # Comment mettre une Outbound route qui va utiliser un port FXO.
 Exemple les orthoptiste utilisent leur ligne FXO pour appeler.
 - Connection / Outbound Route
@@ -181,10 +166,6 @@ Exemple les orthoptiste utilisent leur ligne FXO pour appeler.
 		- Connectivity / Trunk / Add trunk / de type :  DAHDI
 		- dans l'onglet dahdi settings : Analog channel 2 (je suppose que c'est le port FXO N°2)
 	
-
-# DADHI extension c'est quoi?
-Je pense que c'est pour configuer un device analogique branché sur une FXS.  
-
 
 # Configuration d'une phone IP avec End Point Manager (EPM)
 
@@ -229,22 +210,8 @@ Essayer de téléphoner
 Clock *60  
 echo test *43
 
-# Inbound route  
-When a call comes into your system from the outside, it will usually arrive along with information about the telephone number that was dialed (also known as the "DID") and the Caller ID of the person who called.
-The Inbound Routes module is the mechanism used to tell your PBX where to route inbound calls based on the phone number or DID dialed.  
-Calls come into your system on trunks that are configured in the Trunks module.
 
-# DID (Direct Inward Dialing) Number
-Routing is based on the trunk on which the call is coming in. In the DID field, you will define the expected **DID Number** if your trunk passes the DID on incoming calls. Leave this blank to match calls with any or no DID info.  
 
-The DID number entered must match the format of the provider sending the DID. You can also use a pattern match to match a range of numbers.
-
-Patterns must begin with an underscore (\_) to signify they are patterns. Within patterns, X will match the numbers 0-9 and specific numbers can be matched if they are placed between square parentheses. 
-
-This field can also be left blank to match calls from all DIDs. This will also match calls that have no DID information.  
-
-# CID (Caller ID) Number
-Routing calls based on the caller ID : numero composé par l'appelant. Leave this field blank to match any or no CID info. In addition to standard dial sequences, you can also put “Private,” “Blocked,” “Unknown,” “Restricted,” “Anonymous” or “Unavailable” in order to catch these special cases if the telco transmits them.
 
 ## Comment gérer ce qui s'affiche sur l'écran du téléphone pour un appel entrant.
 Connectivity / inbound route / Edit l'inbound route qui nous intéresse./ CID name prefix (pe 'mutti-' 'francois-'

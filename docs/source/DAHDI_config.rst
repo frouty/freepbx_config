@@ -6,6 +6,8 @@ Dans ce mdule DAHDI Config on configure les port FXO
 
 http://wiki.freepbx.org/display/FPG/DAHDI+Configs  
 
+https://wiki.freepbx.org/display/PC/Telephony+Cards+with+FreePBX+Distro#TelephonyCardswithFreePBXDistro-Overview
+
 http://documentation.xivo.io/en/stable/administration/hardware/hardware.html
 
 http://www.voip-info.org/wiki/view/DAHDI
@@ -16,6 +18,16 @@ cat /proc/dahdi
 dahdi_hardware  
 asterisk -rvd  
 
+# Configuration dans freepbx des telephony cards.
+
+
+Connectivity / Dahdi config
+
+
+
+
+
+
 DAHDI Configs module
 --------------------
 Permet de configurer les DAHDI PSTN card (analog, T1/E1/PRI or BRI’s.).  
@@ -23,6 +35,13 @@ Permet de configurer les DAHDI PSTN card (analog, T1/E1/PRI or BRI’s.).
 On clique sur `Connectivity / DAHDI`  
 
 https://wiki.freepbx.org/display/FPG/DAHDI+Configs pour plus de détails.
+
+Autodetect toutes les cartes installées. Je vois que dans l'onglet digital hardware il y a rien. Ce qui est normal car je n'ai pas de carte digitale dans l'appliance.
+
+Analog hardware il y a: FXO ports 1,2,3,4
+FXO Ports 1,2,3,4 Edit et on leur assigne un group. Group que l'on va utiliser dans connectivity / trunk / Add trunk onglet dahdi settings / Dahdi trunk choix des groups
+
+Lors de la deuxieme installation les cartes FXO n'ont pas été automatiquement reconnue. Voir ci-dessous le setup.
 
 Comment savoir si ma telephony card est bien reconnue par le FreePBX
 --------------------------------------------------------------------
@@ -50,6 +69,7 @@ The DAHDI module n'arrive pas à voir et à voir/configurer les A200 Sangoma car
  Process / Confirm / Apply config 
  - Reboot
  - Running "/usr/sbin/wancfg_dahdi" at the cli.
+ 
  je répond aux nombreuese questions. 
  
  puis 

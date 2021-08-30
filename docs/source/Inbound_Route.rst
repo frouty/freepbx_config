@@ -1,6 +1,9 @@
-################
 Inbound Route
-################
+=============
+ 
+When a call comes into your system from the outside, it will usually arrive along with information about the telephone number that was dialed (also known as the "DID") and the Caller ID of the person who called.
+The Inbound Routes module is the mechanism used to tell your PBX where to route inbound calls based on the phone number or DID dialed.  
+Calls come into your system on trunks that are configured in the Trunks module.
 
 Les appels entrants arrivent par différents tuyau. 
 On veut diriger ces appels entrants sur des  extensions par exemple. 
@@ -26,4 +29,22 @@ Ligne analogique OPT --> port FXO
 - 3 Une fois que j'ai défini un DID à ce channel je vais pouvoir créer une inbound route.
 - 4 A cette inbound Route il faut lui donner une destination. Qui peut etre une extension.
 
-On donne un DID car avec  le fournisseur téléphonique PTOS il n'y a pas de DID. Et le systeme utilise le DID pour router l'appel.
+On donne un DID car le fournisseur téléphonique PTOS ne fournit pas le DID. Et le systeme utilise le DID pour router l'appel.
+
+Connectivity / Inbound Route
+----------------------------
+
+
+**DID (Direct Inward Dialing) Number**
+
+    Routing is based on the trunk on which the call is coming in. In the DID field, you will define the expected **DID Number** if your trunk passes the DID on incoming calls. Leave this blank to match calls with any or no DID info.  
+
+    The DID number entered must match the format of the provider sending the DID. You can also use a pattern match to match a range of numbers.
+
+    Patterns must begin with an underscore (\_) to signify they are patterns. Within patterns, X will match the numbers 0-9 and specific numbers can be matched if they are placed between square parentheses. 
+
+    This field can also be left blank to match calls from all DIDs. This will also match calls that have no DID information.  
+
+**CID (Caller ID) Number**
+
+    Routing calls based on the caller ID : numero composé par l'appelant. Leave this field blank to match any or no CID info. In addition to standard dial sequences, you can also put “Private,” “Blocked,” “Unknown,” “Restricted,” “Anonymous” or “Unavailable” in order to catch these special cases if the telco transmits them.
