@@ -53,4 +53,9 @@ Comment configurer les notifications par mail
 
 Admin / System Admin / Notification Settings
 
+System Admin Pro
+----------------
+
+Pas de changement au niveau de l'interface. J'essaie avec Use built in smtp server 
+Mais en Debug j'ai network unreachable.
 
