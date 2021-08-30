@@ -34,6 +34,9 @@
             
   <section id="inbound-route">
 <h1>Inbound Route<a class="headerlink" href="#inbound-route" title="Permalink to this headline">¶</a></h1>
+<p>When a call comes into your system from the outside, it will usually arrive along with information about the telephone number that was dialed (also known as the “DID”) and the Caller ID of the person who called.
+The Inbound Routes module is the mechanism used to tell your PBX where to route inbound calls based on the phone number or DID dialed.
+Calls come into your system on trunks that are configured in the Trunks module.</p>
 <p>Les appels entrants arrivent par différents tuyau.
 On veut diriger ces appels entrants sur des  extensions par exemple.
 Cela se fait avec le DID au niveau des inbound route. Malheureusement certains tuyaux ne transmettent pas le DID.
@@ -57,9 +60,6 @@ Comme la paire de cuivre qui arrive au niveau des FXO.</p>
 </section>
 <section id="connectivity-inbound-route">
 <h2>Connectivity / Inbound Route<a class="headerlink" href="#connectivity-inbound-route" title="Permalink to this headline">¶</a></h2>
-<p>When a call comes into your system from the outside, it will usually arrive along with information about the telephone number that was dialed (also known as the “DID”) and the Caller ID of the person who called.
-The Inbound Routes module is the mechanism used to tell your PBX where to route inbound calls based on the phone number or DID dialed.
-Calls come into your system on trunks that are configured in the Trunks module.</p>
 <p><strong>DID (Direct Inward Dialing) Number</strong></p>
 <blockquote>
 <div><p>Routing is based on the trunk on which the call is coming in. In the DID field, you will define the expected <strong>DID Number</strong> if your trunk passes the DID on incoming calls. Leave this blank to match calls with any or no DID info.</p>

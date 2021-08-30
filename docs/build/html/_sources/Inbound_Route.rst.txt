@@ -1,5 +1,9 @@
 Inbound Route
 =============
+ 
+When a call comes into your system from the outside, it will usually arrive along with information about the telephone number that was dialed (also known as the "DID") and the Caller ID of the person who called.
+The Inbound Routes module is the mechanism used to tell your PBX where to route inbound calls based on the phone number or DID dialed.  
+Calls come into your system on trunks that are configured in the Trunks module.
 
 Les appels entrants arrivent par différents tuyau. 
 On veut diriger ces appels entrants sur des  extensions par exemple. 
@@ -29,10 +33,7 @@ On donne un DID car le fournisseur téléphonique PTOS ne fournit pas le DID. Et
 
 Connectivity / Inbound Route
 ----------------------------
- 
-When a call comes into your system from the outside, it will usually arrive along with information about the telephone number that was dialed (also known as the "DID") and the Caller ID of the person who called.
-The Inbound Routes module is the mechanism used to tell your PBX where to route inbound calls based on the phone number or DID dialed.  
-Calls come into your system on trunks that are configured in the Trunks module.
+
 
 **DID (Direct Inward Dialing) Number**
 

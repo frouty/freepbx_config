@@ -45,9 +45,17 @@ Network unrecheable alors que le ping fonctionne.
 
 je vois que le from est : asterisk@voIPFreepbxOPH.freepbxOPH
 
+
+https://www.youtube.com/watch?v=b1tNmc-jqok mais je n'ai pas réussi. 
+
 Comment configurer les notifications par mail
 ---------------------------------------------
 
 Admin / System Admin / Notification Settings
 
+System Admin Pro
+----------------
+
+Pas de changement au niveau de l'interface. J'essaie avec Use built in smtp server 
+Mais en Debug j'ai network unreachable.
 

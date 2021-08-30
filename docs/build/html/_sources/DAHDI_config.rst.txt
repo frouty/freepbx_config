@@ -2,7 +2,7 @@
 DAHDI Config
 ============
 
-Dans ce mdule DAHDI Config on configure les port FXO
+Dans ce module DAHDI Config on configure les port FXO
 
 http://wiki.freepbx.org/display/FPG/DAHDI+Configs  
 
@@ -18,15 +18,10 @@ cat /proc/dahdi
 dahdi_hardware  
 asterisk -rvd  
 
-# Configuration dans freepbx des telephony cards.
-
+Configuration dans freepbx des telephony cards.
+-----------------------------------------------
 
 Connectivity / Dahdi config
-
-
-
-
-
 
 DAHDI Configs module
 --------------------
@@ -66,9 +61,10 @@ The DAHDI module n'arrive pas à voir et à voir/configurer les A200 Sangoma car
  Il faut faire:
  
  - Desactiver le DAHDI module avec : Admin / Module Admin / DAHDI Config / Action : Disable.
- Process / Confirm / Apply config 
+    Process / Confirm / Apply config 
  - Reboot
  - Running "/usr/sbin/wancfg_dahdi" at the cli.
+ 
  je répond aux nombreuese questions. 
  
  puis 
@@ -103,6 +99,7 @@ Which Operation Mode will be used?
 [1-3, ENTER='FCC']:
 
 Press any key to continue: 
+
 AFT-200 configured on slot:4 bus:8 span:1
 
 Analog card configuration complete
@@ -159,9 +156,11 @@ CLI>  dahdi show channels
    Chan Extension       Context         Language   MOH Interpret        Blocked    In Service Description                     
  pseudo                 default                    default                         Yes    
  
- C'est pas tres bon signe.
+ C'est pas très bon signe.
  
- # DAHDI Configs module
+DAHDI Configs module
+---------------------
+
 Permet de configurer les DAHDI PSTN card (analog, T1/E1/PRI or BRI’s.).  
 
 On clique sur `Connectivity / DAHDI`  
@@ -169,11 +168,12 @@ On clique sur `Connectivity / DAHDI`
 https://wiki.freepbx.org/display/FPG/DAHDI+Configs pour plus de détails.
 
 
- Debugging sangoma card
- ----------------------
+Debugging sangoma card
+----------------------
  
  `ici <https://uclord.wordpress.com/tag/sangoma-card/>`_
- -> /etc/dahdi/system.conf 
+
+-> /etc/dahdi/system.conf 
 -> /etc/asterisk/chan_dahdi.conf  : contient les paramètres généraux du DAHDI channel.
 
  1 Stop asterisk
@@ -215,19 +215,23 @@ Il *FAUT* que le *context* du channel soit à *from-analog* : `context = from-an
 What is the DAHDI Channel DIDs module used for?  
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The DAHDI Channel DIDs module allows you to assign a DID or phone number to specific analog channels.
-Unlike SIP or PRI trunks, analog lines do not send a DID or dialed number to the PBX. Since the PBX routes all inbound calls based on the DID or number dialed, we need to map each analog port or channel to a fake number so we can match that number to an Inbound Route number and route your calls.
-Each channel can be mapped to the same phone number if you want all calls on the analog lines to go to the same destination. This would be a common scenario if you have multiple POTS lines that are on a hunt group from your provider.
-You MUST assign the channel's context to from-analog for these settings to have effect. It will be a line that looks like: context = from-analog in your chan_dahdi.conf configuration affecting the specified channel(s). Once you have assigned DIDs, you can use standard Inbound Routes with the specified DIDs to route your calls.
 
-Channel
-The DAHDI Channel number to map to a DID. For example, If you have a 4-port card, your channels would be ports 1-4.
+Unlike SIP or PRI trunks, analog lines do not send a DID or dialed number to the PBX. Since the PBX routes all inbound calls based on the DID or number dialed, we need to map each analog port or channel to a fake number so we can match that number to an Inbound Route number and route your calls.
+
+Each channel can be mapped to the same phone number if you want all calls on the analog lines to go to the same destination. This would be a common scenario if you have multiple POTS lines that are on a hunt group from your provider.
+
+You MUST assign the channel's context to from-analog for these settings to have effect. It will be a line that looks like: context = from-analog in your chan_dahdi.conf configuration affecting the specified channel(s). 
+
+Once you have assigned DIDs, you can use standard Inbound Routes with the specified DIDs to route your calls.
+
+Channel = The DAHDI Channel number to map to a DID. For example, If you have a 4-port card, your channels would be ports 1-4.
 
 Comment faire pour qu'une ligne pstn soit affectée à une certaine inbound route?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 `Connectivity - DAHDI Channel DIDs` :
 A chaque ports FXO on assigne un DID (un numero de téléphone fictif. On mettra celui de la ligne PSTN). On mappe ainsi les FXO à une ligne PSTN.  
 Car le fournisseur ne passe pas le DID dans les lignes analogiques.  
-Puis dans Inbound Route on utilise ce DID pour router l'appel.
+Puis dans Inbound Route on utilise ce DID pour router l'appel depuis l'exterieur vers une destination qui peut etre une extension, un fax, un IVR.
 
 Commment savoir sur quel port de ma carte sangoma la ligne POTS est branchée?
 -----------------------------------------------------------------------------

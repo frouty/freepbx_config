@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Users &#8212; Freenas Doc v1.0 documentation</title>
+    <title>Polycom phone config &#8212; Freenas Doc v1.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
@@ -31,14 +31,33 @@
 
           <div class="body" role="main">
             
-  <section id="users">
-<h1>Users<a class="headerlink" href="#users" title="Permalink to this headline">¶</a></h1>
+  <section id="polycom-phone-config">
+<h1>Polycom phone config<a class="headerlink" href="#polycom-phone-config" title="Permalink to this headline">¶</a></h1>
+<section id="creation-d-un-template">
+<h2>Création d’un template<a class="headerlink" href="#creation-d-un-template" title="Permalink to this headline">¶</a></h2>
+<p>Achat du module EPM pro</p>
+<p>Add brand /  polycom</p>
 <dl class="simple">
-<dt><strong>Primary Linked Extension</strong></dt><dd><p>je ne comprends pas trop. En fait cela va se mettre en place lors de la création de l’extension.</p>
+<dt><strong>destination</strong>:</dt><dd><p>ipfreepbx</p>
 </dd>
-<dt><strong>Onglet UCP</strong></dt><dd><p>Enormément de choses à configurer</p>
+<dt><strong>provisionning server protocol</strong></dt><dd><p>HTTP</p>
 </dd>
 </dl>
+<p>…</p>
+<p>SAVE  / apparotion du choix du modele / config des touches du téléphone /
+Save and rebuild config.</p>
+<p>Maintenant on va créer l’extension qui va utiliser ce nouveu template.</p>
+<p>Application / Extension / Add new chan-pjsip extension .</p>
+<p>Qd on crée une extension on la lie à un user mais pas un téléphone.</p>
+<p>extension management / extension mapping / add extension</p>
+<p>il nous faut la mac address du polycom phone on la trouve sur le
+téléphone Home/settings/status/platform/phone</p>
+<p>ensuite webGUI admin / password dans le MLP gestionnaire de mot de passe
+/ et je n’arrive plus à me connecter en webGUI au polycom qui a été provisionné. j’essaie avec
+le password de MLP et aussi le password de freepbx (endpoint management
+/ Global setting ) mais cela ne marche pas. par contre le password de
+freepbx (endpoint management / Global setting ) marche sur le téléphone.</p>
+</section>
 </section>
 
 
@@ -110,7 +129,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="_sources/users.rst.txt"
+      <a href="_sources/Polycom.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

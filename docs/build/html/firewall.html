@@ -33,6 +33,7 @@
             
   <section id="firewall">
 <h1>Firewall<a class="headerlink" href="#firewall" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://wiki.freepbx.org/display/FPG/Firewall">https://wiki.freepbx.org/display/FPG/Firewall</a></p>
 <p>Connectivity / Firewall
 il y a plusieurs pages de configurations  que l’on selectionne avec l’icone a droite.</p>
 <section id="comment-configurer-le-firewall">
@@ -77,6 +78,41 @@ Connectivity / Firewall /</p>
 <p>-<cite>ssh root&#64;IP_FREEPBX</cite>
 - <cite>fwconsole firewall disable</cite>
 ca ne marche pas toujours.</p>
+<p>Firewall net/ interfaces</p>
+<p>Qd on crée une interface elle est par défaut sur <strong>Trusted (Exclude from Firewall)</strong>. c’est une misconfiguration.
+Je la mets en <strong>Local(Local trusted traffic)</strong> Mais il faudrait la mettre en <strong>Internet(Default Firewall)</strong></p>
+<p>Firewall / Responsive Firewall / Responsive Firewall Enable.</p>
+<p>Toutes les network interfaces ont une zone par default et les datas qui arrivent à cette zone sont traitées comme appartenant à cette zone.</p>
+<p>Les zones sont :</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Reject</strong></dt><dd><p>Tous les paquets sont rejetés. Seul le traffic RTP est accepté.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Internet</strong></dt><dd><p>Accepte seulement https connection WEBgui, et UCP</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Other</strong></dt><dd><p>pour les advanced users, DMZ or OpenVPN network.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Local</strong></dt><dd><p>Pour les interfaces qui n’ont pas de traffic d’ordinateur de l’extérieur.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Trusted</strong></dt><dd><p>No firewalling is done on this interface, all incoming traffic from a trusted zone is permitted.
+On peut affecter un network ou un host à cette zone mais pas une interface.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>On affecte les services à des zones et ensuite des interfaces ou des reseaux à des zones.</p>
 </section>
 </section>
 
@@ -99,8 +135,17 @@ ca ne marche pas toujours.</p>
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="email_server_config.html">Comment permettre à freepbx d’envoyer des emails</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Recovery_with_usb_key.html">Recovery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Resetting-password.html">Resetting password</a></li>
+<li class="toctree-l1"><a class="reference internal" href="En_Resume.html">Config du Freepbx en resume.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vega50_BRI_Config.html">Configuration du VEGA 50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html">Connection du Freepbx au Vega50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html#comment-relier-le-vega-50-au-freepbx">Comment relier le VEGA 50 au Freepbx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html#comment-voir-si-le-trunk-est-up">Comment voir si le trunk est up?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DAHDI_config.html">DAHDI Config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Outbound_Route.html">Outboud Route</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Inbound_Route.html">Inbound Route</a></li>
 </ul>
 
 <div class="relations">
