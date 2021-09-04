@@ -27,3 +27,7 @@ Ligne analogique OPT --> port FXO
 - 4 A cette inbound Route il faut lui donner une destination. Qui peut etre une extension.
 
 On donne un DID car avec  le fournisseur téléphonique PTOS il n'y a pas de DID. Et le systeme utilise le DID pour router l'appel.
+
+Pour la ligne BRI du cabinet, je crée un inbound route et je mets en DID le numéro complet. Cela a marché pendant quelques jours. Puis en appelant ce numéro de l'extérieur on a le message the number you have dialed is not in servive et les quatres derniers chiffres du numéro de téléphone.
+
+Connexion / Inbound Route / DID : que les quatre derniers chiffres et c'est bon ça marche.
