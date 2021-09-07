@@ -30,6 +30,7 @@ Ligne analogique OPT --> port FXO
 - 3 Une fois que j'ai défini un DID à ce channel je vais pouvoir créer une inbound route.
 - 4 A cette inbound Route il faut lui donner une destination. Qui peut etre une extension.
 
+<<<<<<< HEAD
 On donne un DID car le fournisseur téléphonique PTOS ne fournit pas le DID. Et le systeme utilise le DID pour router l'appel.
 
 Connectivity / Inbound Route
@@ -51,3 +52,10 @@ Connectivity / Inbound Route
 **CID (Caller ID) Number**
 
     Routing calls based on the caller ID : numero composé par l'appelant. Leave this field blank to match any or no CID info. In addition to standard dial sequences, you can also put “Private,” “Blocked,” “Unknown,” “Restricted,” “Anonymous” or “Unavailable” in order to catch these special cases if the telco transmits them.
+=======
+On donne un DID car avec  le fournisseur téléphonique PTOS il n'y a pas de DID. Et le systeme utilise le DID pour router l'appel.
+
+Pour la ligne BRI du cabinet, je crée un inbound route et je mets en DID le numéro complet. Cela a marché pendant quelques jours. Puis en appelant ce numéro de l'extérieur on a le message the number you have dialed is not in servive et les quatres derniers chiffres du numéro de téléphone.
+
+Connexion / Inbound Route / DID : que les quatre derniers chiffres et c'est bon ça marche.
+>>>>>>> branch 'master' of git@github.com:frouty/freepbx_config.git

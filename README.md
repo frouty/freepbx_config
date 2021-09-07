@@ -87,9 +87,62 @@ CLI> core show help dahdi
 CLI> dahdi show channels group <num du group>  
 
 
+<<<<<<< HEAD
+# Configuration de l'ipphone. 
+
+
+# Comment configurer son serveur de mail
+Admin / System Admin / Email Setup  
+
+## Choix du SMTP server
+
+J'ai essayé gmail mais je n'ai pas réussi.  
+`Use built in SMTP server`  
+- hostname = ?
+- origin = ?
+- Domain = ?  
+ 
+ J'ai essayé Use external SMTP server avec gmail mais cela n'a pas marché. Debug : network unreachable.
+ J'ai essayé USe built in SMTP server et ca marche. j'ai changé My Origin  localhost.localdomain --> FreePBX.MLP. 
+
+ Mais cela part dans les spams.
+ 
+ Avec la nouvelle appliance pour l'instant avec gmail je n'ai pas réussi, avec un builtin SMTP server je n'ai pas recu de mail encore.
+ 
+ 
+## Debug
+Click sur debug. On va sur la page de debug et on peut lancer un test de mail. 
+Network unrecheable alors que le ping fonctionne.
+
+# Comment configurer les notifications par mail
+Admin / System Admin / Notification Settings
+ 
+# Hostname
+Admin / System Admin / Hostname    
+localhost.localdomain -> FreePBX.MLP  
+
+1 configuration du vega 50
+2 connectivity / Trunk / Add trunk sip chan_sip
+3 connectivity outbound route
+4 connectivity / inbound route / on va mapper le CID entrant avec une extension.
+=======
   
+<<<<<<< HEAD
+=======
+>>>>>>> c3d74e468ba8785461b55d0696c17a8d7740c8f1
+# Extension
+## Comment Creer une extension
+- 1 On crée l'extension : Application / Extension / Add Extension / Add New CHAN_SIP Extension
+- 2 On la link à un user : Link to a default user : Create New User.  
+Le systeme crée automatiquement un nouveau user que l'on peut configurer dans Admin / User Management.  
+>>>>>>> branch 'master' of git@github.com:frouty/freepbx_config.git
 
 	
+  dans le endpoint management je retrouve le login et le password que je vais mettre dans le webgui de l'ipphone : Management/autoprovisionning https/http password et login
+  puis management reboot. mais rien a faire le telephone ne recupere pas la config.
+  dans le webgui du tel je rentre l'adresse sous la forme http://username:password@ipfreepbx:port.
+  On trouve username / password / port dans Endpoint management / global settings et aussi dans Admin / System Admin / Provisionning protocole.
+  
 
 # Où est ce que l'on configure ce qui se passe lorsque l'on ne répond pas à son téléphone IP?
 On peut configurer le cas ou :
