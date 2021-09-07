@@ -33,7 +33,7 @@
             
   <section id="time-condition">
 <h1>Time Condition<a class="headerlink" href="#time-condition" title="Permalink to this headline">¶</a></h1>
-<p>1 Time Group à faire en premier.
+<p>1 Creation Time Group à faire en premier : Application / Time Group. Il y a uniquement des informations de temps
 2 Time Condition qui est une enveloppe d’un time group et d’une destination si match ou si match pas.</p>
 <p>On peut router les appels vers une time condition qui elle meme va router l’appel. A l’arrivée sur la time condition le systeme check time and date dans le time group et le systeme rooute le systeme sur une des deux destinations choisies.</p>
 <p>On peut utiliser une time condition partout où il y a une destination:
@@ -42,10 +42,27 @@
 - Announcement module
 - Time condition</p>
 <p>Time condition Holidays / destination match / Annoucement we are in holydays. / destination non matches : destination = Time condition.</p>
+<p>Time group que du temps</p>
+<p>Time condition un time group et deux actions possibles si match ou match pas.</p>
+<section id="config-actuel">
+<h2>Config actuel<a class="headerlink" href="#config-actuel" title="Permalink to this headline">¶</a></h2>
+<p>Inbound Route DID = 281600 –&gt; Set Destination = Time conditions = gooen open hours
+Si c’est en open hours va sur une autre time condition qui va sur Annoucenment closed ou Misc destination.</p>
+</section>
 </section>
 <section id="bank-holidays">
 <h1>Bank holidays<a class="headerlink" href="#bank-holidays" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="https://blog.ausics.net/archives/142-Holidays-With-FreePBX.html">https://blog.ausics.net/archives/142-Holidays-With-FreePBX.html</a></p>
+<p># Time
+- 1 Création d’un time group  :
+- 2 On utilise ce time group dans une time condition qui est relié :</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>à un time group</p></li>
+<li><p>et qui fait une action si le time group match: Destination matches et là on peut faire d’autes actions.</p></li>
+<li><p>ou ne match pas : Destination not matches : on peut faire d’autres actions.</p></li>
+</ul>
+</div></blockquote>
 </section>
 
 
@@ -78,6 +95,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../DAHDI_config.html">DAHDI Config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Outbound_Route.html">Outboud Route</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Inbound_Route.html">Inbound Route</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../firewall.html">Firewall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fail2ban.html">Fail2Ban</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VPN_IPphone_config.html">Configuration du VPN server pour pouvoir enregistrer un IPphone en VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VPN_IPphone_config.html#vpn-config-freepbx-15">VPN Config Freepbx 15</a></li>
 </ul>
 
 <div class="relations">

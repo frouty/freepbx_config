@@ -4,6 +4,9 @@ Polycom phone config
 Création d'un template
 ----------------------
 
+Phone Polycom 
+http://kb.digium.com/articles/Configuration/Polycom-Phone-Provisioning-Guide?retURL=%2Fapex%2FknowledgeProduct&popup=false
+
 Achat du module EPM pro
 
 Add brand /  polycom

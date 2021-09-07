@@ -61,21 +61,11 @@ https://bitbucket.org/frouty/reseau_informatique.mlp/src/1104dc9e30f5?at=master
 
 
 
-# Power off
-## WebGUI
-`̀Admin / System Admin / Power Options / Power off`
-## ssh consol
-- `fwconsole stop`
-- puis `shutdown -r now`
 
-
-# Power on
 
 # Comment savoir l'état du disk  
 `̀Admin / System Admin / Storage`
-# Comment mettre à jour l'achat de modules commerciaux
-`Admin -> System Admin -> Activation -> Update activation` (en bas à droite)
-Il faut faire l'activation pour pouvoir acheter des modules commerciaux.
+
 
 # Comment lire les fichiers de config  
 `Admin / Config Edit`
@@ -98,44 +88,8 @@ CLI> dahdi show channels group <num du group>
 
 
   
-# Extension
-## Comment Creer une extension
-- 1 On crée l'extension : Application / Extension / Add Extension / Add New CHAN_SIP Extension
-- 2 On la link à un user : Link to a default user : Create New User.  
-Le systeme crée automatiquement un nouveau user que l'on peut configurer dans Admin / User Management.  
 
-## Une fois que l'on a crée l'extension on va la linker à un poste IP phone.
-- Settings / EndPoint Manager / Extension Mapping
-- Add Mapping  Extension  
-- On choisit l'extension  qui elle même est mappée à un user.
-	- un account (cet account est quelque chose dans le téléphone)
-	- Une marque de téléphone 
-	- MAC adress d'IP Phone.  
-	- Template qui est un fichier de configuration qui correspond à un type de téléphone.
-	- Modele de téléphone.
 	
-
-# Comment savoir à quelle IP phone un user est relié?
-Application / Extension  
-Et on peut relier un user à une extension dans:  
-Admin - User Management - Primary Linked Extension
-	
-## Application -> Extension -> Quick Extension Create
-TODO
-
-Normalement chaque IP phone est assigné à une extension. S'il y a plusieurs lines button sur le phone (?) http://wiki.freepbx.org/display/FPG/Extensions+Module
-
-Extension Module marche avec d'autres modules
-* Inbound Routes Module, 
-* Ring Groups Module, 
-* Queues Module, 
-* Paging Module,
-* Follow Me Module, because each extension can have its own Follow Me options (?).
-* Advanced Settings Module. 
-  * Device Settings section of the Advanced Settings Module, you can change a number of the default settings that will apply when you create a new extension.
-  * Advanced Settings Module can be used to enable Device and User Mode. When Device and User Mode is enabled, the Extensions Module will disappear and be replaced with two separate modules called "Devices" and "Users."
-
-* User Management Module. In the User Management Module, a user may have a "primary linked extension." (?)
 
 # Où est ce que l'on configure ce qui se passe lorsque l'on ne répond pas à son téléphone IP?
 On peut configurer le cas ou :
@@ -252,8 +206,7 @@ https://wiki.freepbx.org/display/PHON/Setup+Phone+by+hard+setting+provisioning+s
 - 1 dans le web GUI c'est dans les templates : `Settings / Endpoint management /brand`
 - 2 dans le telephone : Menu / settings /basic settings / Ring tones
 
-# Phone Polycom 
-http://kb.digium.com/articles/Configuration/Polycom-Phone-Provisioning-Guide?retURL=%2Fapex%2FknowledgeProduct&popup=false
+
 
 ## sur le telephone : Settings / advanced ... / password 22222
 j'ai changé on le trouve dans buttercup phone polycom
@@ -634,22 +587,7 @@ D'autre utilise le follow me sur l'extension.
 - local network 192.168.1.0 / 24
 
 
-# Time 
-- 1 Création d'un time group  : Application / Time Group. Il y a uniquement des informations de temps
-- 2 On utilise ce time group dans une time condition qui est relié :
-  - à un time group 
-  - et qui fait une action si le time group match: Destination matches et là on peut faire d'autes actions.
-  - ou ne match pas : Destination not matches : on peut faire d'autres actions. 
 
-## Time group
-que du temps
-
-## Time condition 
-un time group et deux actions possibles si match ou match pas.
-
-## Config actuel 
-Inbound Route DID = 281600 --> Set Destination = Time conditions = gooen open hours  
-Si c'est en open hours va sur une autre time condition qui va sur Annoucenment closed ou Misc destination. 
 # Comment on gere les SDA du tronc numeris?
 ## Comment diriger les appels du 29629x vers un user phone?
 ## Comment rediriger un appel entrant vers un numéro extérieur?
@@ -1779,11 +1717,6 @@ Settings / endpoint management / Extension mapping / edit et VPN client (tout en
 Save rebuild configs and update device.
 
 
-## DDNS 
-DEPLOYMENTNUMBER.deployments.pbxact.com semble etre une url ddns pour l'adresse IP externe du router freepbx
-
-je me demande si je ne peux pas utiliser ce DEPLOYMENT.deployment.pbxact.com 1194 come ddns pour d'autres services? TODO
-
 
 ## samedi matin
 - reboot du modemadsl
@@ -2225,7 +2158,7 @@ syslog de l'ip phone qd SIP registered
 [11-18 16:56:08 50:19:73]  check_boot_imge_new ,6365!
 ``` 
 
-<<<<<<< HEAD
+
 Je refais un reboot pour récupérer le syslog. 
 un syslog sans vpn 
 Endpoint extension / extension mapping / VPN Client : None / Save and Rebuild / Apply.
@@ -2237,7 +2170,7 @@ acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
 [2019-11-18 21:08:09] DEBUG[16667] netsock2.c: Splitting '10.66.0.138:5060' into...
 [2019-11-18 21:08:09] DEBUG[16667] netsock2.c: ...host '10.66.0.138' and port '5060'.
 [2019-11-18 21:08:09] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for a4f2a061178e325@10.66.0.138 - REGISTER (No RTP)
-=======
+
 Je vais mettre un vpn client dans le user
 User management / VPN tab il y est deja alors que je l'avais enlevé tout à l'heure
 Endpoint management / extension mapping / edit / verifié qu'il y ait / save and rebuild / Apply

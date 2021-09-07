@@ -5,7 +5,8 @@ When a call comes into your system from the outside, it will usually arrive alon
 The Inbound Routes module is the mechanism used to tell your PBX where to route inbound calls based on the phone number or DID dialed.  
 Calls come into your system on trunks that are configured in the Trunks module.
 
-Les appels entrants arrivent par différents tuyau. 
+Les appels entrants arrivent par différents tuyaux.
+
 On veut diriger ces appels entrants sur des  extensions par exemple. 
 Cela se fait avec le DID au niveau des inbound route. Malheureusement certains tuyaux ne transmettent pas le DID.
 Comme la paire de cuivre qui arrive au niveau des FXO. 
@@ -41,10 +42,12 @@ Connectivity / Inbound Route
 
     The DID number entered must match the format of the provider sending the DID. You can also use a pattern match to match a range of numbers.
 
-    Patterns must begin with an underscore (\_) to signify they are patterns. Within patterns, X will match the numbers 0-9 and specific numbers can be matched if they are placed between square parentheses. 
+    Patterns must begin with an underscore (_) to signify they are patterns. Within patterns, X will match the numbers 0-9 and specific numbers can be matched if they are placed between square parentheses. 
 
     This field can also be left blank to match calls from all DIDs. This will also match calls that have no DID information.  
 
+    Pour le DID je mets le numero mais incomplet. Les quatres derniers chiffres pour la ligne BRI pour la ligne analogique je mets tout le numéro.
+    
 **CID (Caller ID) Number**
 
     Routing calls based on the caller ID : numero composé par l'appelant. Leave this field blank to match any or no CID info. In addition to standard dial sequences, you can also put “Private,” “Blocked,” “Unknown,” “Restricted,” “Anonymous” or “Unavailable” in order to catch these special cases if the telco transmits them.

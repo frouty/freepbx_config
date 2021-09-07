@@ -35,6 +35,12 @@
 <h1>Extension<a class="headerlink" href="#extension" title="Permalink to this headline">¶</a></h1>
 <p>Application / Extension</p>
 <p>Une extension est un objet lié à un user.</p>
+<section id="comment-creer-une-extension">
+<h2>Comment Creer une extension<a class="headerlink" href="#comment-creer-une-extension" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>1 On crée l’extension : Application / Extension / Add Extension / Add New CHAN_SIP Extension</p></li>
+<li><p>2 On la link à un user : Link to a default user : Create New User. Le systeme crée automatiquement un nouveau user que l’on peut configurer dans Admin / User Management.</p></li>
+</ul>
 <p>Add Extension:</p>
 <ul class="simple">
 <li><p>Custom extension</p></li>
@@ -78,6 +84,23 @@
 </div></blockquote>
 </div></blockquote>
 <p>de la creation du user orthop.</p>
+<p>## Une fois que l’on a crée l’extension on va la linker à un poste IP phone.
+- Settings / EndPoint Manager / Extension Mapping
+- Add Mapping  Extension
+- On choisit l’extension  qui elle même est mappée à un user.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>un account (cet account est quelque chose dans le téléphone)</p></li>
+<li><p>Une marque de téléphone</p></li>
+<li><p>MAC adress d’IP Phone.</p></li>
+<li><p>Template qui est un fichier de configuration qui correspond à un type de téléphone.</p></li>
+<li><p>Modele de téléphone.</p></li>
+</ul>
+</div></blockquote>
+<p># Comment savoir à quelle IP phone un user est relié?
+Application / Extension
+Et on peut relier un user à une extension dans:
+Admin - User Management - Primary Linked Extension</p>
 <p>Apres je vais lier cette extension à un téléphone : Endpoint /</p>
 <p>On va d’abord créer un template pour les orthoptistes.</p>
 <p>Brand  /  sangoma / New template / Save</p>
@@ -87,6 +110,7 @@ renseigne la mac address / on selecte le bon template / on selecte le model</p>
 <p>OKpour le fichier sur le sujet rajouter saveset et reboot</p>
 <p>Ou trouver le Webgui admin password de l’ipphone une fois qu’il s’est
 autoprovisionné : endpoint / general setting / phone admin password.</p>
+</section>
 </section>
 
 
@@ -119,6 +143,8 @@ autoprovisionné : endpoint / general setting / phone admin password.</p>
 <li class="toctree-l1"><a class="reference internal" href="DAHDI_config.html">DAHDI Config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Outbound_Route.html">Outboud Route</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Inbound_Route.html">Inbound Route</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fail2ban.html">Fail2Ban</a></li>
 </ul>
 
 <div class="relations">

@@ -19,6 +19,9 @@ Welcome to Freenas Doc's documentation!
    DAHDI_config
    Outbound_Route
    Inbound_Route
+   firewall
+   fail2ban
+   VPN_IPphone_config
    
 Indices and tables
 ==================

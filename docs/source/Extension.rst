@@ -5,6 +5,14 @@ Application / Extension
 
 Une extension est un objet lié à un user. 
 
+Comment Creer une extension
+---------------------------
+
+- 1 On crée l'extension : Application / Extension / Add Extension / Add New CHAN_SIP Extension
+
+- 2 On la link à un user : Link to a default user : Create New User. Le systeme crée automatiquement un nouveau user que l'on peut configurer dans Admin / User Management.  
+
+
 Add Extension:
 
 - Custom extension
@@ -54,6 +62,21 @@ User manager settings
         donné par le systeme qui n'est pas celui que j'avais donné lors
 de la creation du user orthop.
 
+## Une fois que l'on a crée l'extension on va la linker à un poste IP phone.
+- Settings / EndPoint Manager / Extension Mapping
+- Add Mapping  Extension  
+- On choisit l'extension  qui elle même est mappée à un user.
+    - un account (cet account est quelque chose dans le téléphone)
+    - Une marque de téléphone 
+    - MAC adress d'IP Phone.  
+    - Template qui est un fichier de configuration qui correspond à un type de téléphone.
+    - Modele de téléphone.
+    
+
+# Comment savoir à quelle IP phone un user est relié?
+Application / Extension  
+Et on peut relier un user à une extension dans:  
+Admin - User Management - Primary Linked Extension
 
 Apres je vais lier cette extension à un téléphone : Endpoint /
 
