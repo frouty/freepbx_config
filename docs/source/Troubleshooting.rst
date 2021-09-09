@@ -38,4 +38,5 @@ unable to write to /etc/wanpipe/global.conf
     fwconsole notification --list
     fwconsole notification --delete dahdiconfig SANGOMA
     generique : fwconsole notification --delete MODULE ID
-
+    
+    avec ca ca marche/
