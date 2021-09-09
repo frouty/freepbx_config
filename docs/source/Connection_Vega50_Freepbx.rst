@@ -63,6 +63,7 @@ Comment voir si le trunk est up?
 
 Report / asterisk info / Peers / CHANSIP
 
++=======================+====================================+=======+==========+========+=====+===+==============+=============+
 Name/username             Host                                    Dyn Forcerport Comedia    ACL Port     Status      Description
 1/1                       10.66.0.154                              D  Yes        Yes         A  5060     OK (9 ms)
 from-vega50/vega50        10.66.0.3                                   Yes        Yes            5060     OK (4 ms)
