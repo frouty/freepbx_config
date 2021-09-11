@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Logbook des pannes &#8212; Freenas Doc v1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="logbook-des-pannes">
+<h1>Logbook des pannes<a class="headerlink" href="#logbook-des-pannes" title="Permalink to this headline">¶</a></h1>
+<section id="panne-du-28-05-2018">
+<h2>Panne du 28/05/2018<a class="headerlink" href="#panne-du-28-05-2018" title="Permalink to this headline">¶</a></h2>
+<p>a
+Apres deux jours de pluie intense.</p>
+<ul class="simple">
+<li><p>Absence d’appel recu sur l’ip phone</p></li>
+<li><p>asterisk -rvvvv</p></li>
+<li><p>sip show peers donne:</p></li>
+</ul>
+<p>` Name/username             Host                                    Dyn Forcerport Comedia    ACL Port     Status      Description
+1/1                       10.66.0.180                              D  No         No          A  5060     OK (8 ms)
+2/2                       10.66.0.235                              D  No         No          A  5060     OK (21 ms)
+3/3                       10.66.0.154                              D  No         No          A  5060     OK (10 ms)
+4/4                       10.66.0.152                              D  No         No          A  5060     OK (10 ms)
+5/5                       (Unspecified)                            D  Yes        Yes         A  0        UNKNOWN
+vega50/vega50             10.66.0.3                                D  Yes        Yes            5060     Unmonitored
+vegaOut/vega50            10.66.0.3                                   Yes        Yes            5060     Unmonitored    `</p>
+<p>j’ai rebooté le main retour ; le routeur adsl ; redemarré le service openvpn du main routeur (dans le web GUI ) et du freepbx (./init.d/openvpn restart
+- sip show peers donne:</p>
+<p><a href="#id1"><span class="problematic" id="id2">`</span></a>1/1                       10.66.0.180                              D  No         No          A  5060     OK (10 ms)
+2/2                       10.66.0.235                              D  No         No          A  5060     OK (23 ms)
+3/3                       10.66.0.154                              D  No         No          A  5060     OK (16 ms)
+4/4                       10.66.0.152                              D  No         No          A  5060     OK (12 ms)
+5/5                       10.8.0.3                                 D  Yes        Yes         A  5060     OK (49 ms)
+vega50/vega50             10.66.0.3                                D  Yes        Yes            5060     Unmonitored
+vegaOut/vega50            10.66.0.3                                   Yes        Yes            5060     Unmonitored
+7 sip peers [Monitored: 5 online, 0 offline Unmonitored: 2 online, 0 offline]
+`</p>
+<p>Je fais des reboot sur le ip phone en VPN. Est ce que cela suffit.
+Je fais un restart sur le service openvpn du freepbx  ` ./etc/init.d/openvpn restart`
+Je fais un reboot du main retour openwrt
+Mais je n’arrive plus de la maison à me connecter sur le reseau MLP
+Le server ODOO n’est plus accessible meme sur l’adresse dynamic dns.
+Il n’y avait plus de connetion extranet wan IPv4 sur le main router.
+J’ai rebooté le router adsl</p>
+</section>
+<section id="panne-du-12-11-2019">
+<h2>Panne du 12/11/2019<a class="headerlink" href="#panne-du-12-11-2019" title="Permalink to this headline">¶</a></h2>
+<p>tous les appels vers le 281600 sont redirigé vers mon téléphone.
+Si j’essaie de faire l’extension 5 l’appel est regirigé vers mon extension.</p>
+<p>J’ai essayé de redemarrer le main router, le server freepbx. Je n’ai pas redemarrer le routeur adsl.
+Je vois que dans le endpoint manager je ne peux pas choisir de client vpn.</p>
+<p>Je vais tester
+OK I figured out what I needed to do for the VPN system to start generating VPN clients properly:</p>
+<blockquote>
+<div><p>Disable VPN permission for all groups
+Disable the VPN service under System Admin
+Remove all VPN clients</p>
+</div></blockquote>
+<p>Run the following commands from the CLI:</p>
+<p>rm -rf /etc/openvpn/clients/*
+rm -rf /etc/openvpn/client/*
+rm -rf /etc/openvpn/ccd/*
+rm -rf /etc/openvpn/sysadmin_*
+rm -rf /etc/openvpn/ipp.txt
+cd /etc/openvpn/easyrsa3
+./easyrsa init-pki</p>
+<p>At this point you can reenable the VPN and it will recreate the CA and certificates. You can then reset your group permission to auto-assign VPN clients and then you can assign them to phones.</p>
+<p>The original bug of creating VPN clients for every single user in the system when dealing with a single user is still a problem though.</p>
+<p>Je n’arrive pas a mettre le VPN client dans Endpoint Manager / Mapping Extendion / . Je renouvelle la licence de Endpoint Manager et mise à jour et voila je peux mettre mettre le VPN client.</p>
+<p>Il y a un probleme  avec la provisionning configuration. L’IP externe à changé au cabinet. Mais elle n’a pas changé sur le téléphone. Et j’ai dans le téléphone Menu /Settings / advanced settings / autoprovioning / :
+- Upgrade mode : http
+- firmware server http ::/user:passwd&#64;IP ancienne du server freepbx:83/sangoma/1
+- config server : http ::/user:passwd&#64;IP ancienne du server freepbx:83</p>
+<p>Est ce que je dois updater ces données manuellement sur le téléphone ou bien il devrait récuperer ces données sur le serveur automatiquement. Ca n’a pas l’air de changer si je fais un reboot du phone, force phone to check config. Du coup dans le téléphone Menu /Settings / advanced settings / Phone settings / Factory reset. Il y a d’autres facon de faire un reset (<a class="reference external" href="https://wiki.freepbx.org/display/PHON/Factory+Reset">https://wiki.freepbx.org/display/PHON/Factory+Reset</a> )  C’est assez long. L’ecran devient tres différent. Menu phone/ settings / advanced settings password “admin” / autoprovisioning on a config server : <a class="reference external" href="https://rs.sangoma.net/cfg">https://rs.sangoma.net/cfg</a>
+Dans advanced settings / network / VPN / VPN active Disable.</p>
+<p>Je suis avec un ip phone factory resetté. <a class="reference external" href="http://ipduphone">http://ipduphone</a> gui (password admin login admin) Je vais dans le gui pbx et je fais Endpoint Manager / estension Mapping / Edit  / Save, Rebuild Config and update Device : Apply. il ne se passe rien au niveau de l’IP phone.
+On essaye force phone to reboot. cela ne fait rien.</p>
+<p>Je vais dans le web gui du phone je fais Management / autoprovisionning :
+- firmware server path : <a class="reference external" href="http://user:passwod&#64;goeen.ddns.net:83/sangoma/1">http://user:passwod&#64;goeen.ddns.net:83/sangoma/1</a>
+- Config server path : <a class="reference external" href="http://user:passwod&#64;goeen.ddns.net:83">http://user:passwod&#64;goeen.ddns.net:83</a>
+- save
+- autoprovisionning cela bouge sur l’ecran du phone. Mais au final je n’ai pas la meme configuration de l’écran du phone que celle que j’attendais. Restart sur le web gui du phone. j’ai pas la meme configuration de l’écran. Enpoint Manager / extension mapping / force phone to check config il ne se passe rien sur le phone, force reboot il ne se passe rien sur le phone.</p>
+<p>Je change les ip d’autoprovisionning je passe à IPlocalduserveur. <cite>autoprovisionning</cite> il se passe plein de chose au niveau du téléphone, initialise, checking firmware, c’est long; tail -f /var/log/httpd/access.log donne des infos sur ce qui se passe et c’est cohérent. Et j’ai l’écran de telephone que j’ai configuré dans le endpoint management / template. Et j’ai affiche VPN activated. Mais je ne peux pas appeler. Je vois que le password du phone est passé à ce qui est spécifié dans le gui freepbx et n’est plus <cite>admin</cite>. Je vois que le provisionning à été changé en :
+<a class="reference external" href="http://user:password&#64;FQDNDynamic:83">http://user:password&#64;FQDNDynamic:83</a>.
+Je rentre à la maison et j’essaie de le connecter. A la maison boot du phone. Qui récupère une adresse ip local de la maison et donc cela ne marche pas. Tail -f /var/log/httpd/access.log ne donne rien.</p>
+<p>Donc je me dis que c’est goeen.ddns.net qui ne va pas. Endpoint manager / Global setting / Ip external : <cite>auto</cite> Save Global. Ip external passe à l’IP public du router. Je rentre cette ip dansle web gui du phone. SaveSet Autoprovision now autoprovision success. Dans le phone j’ai bien la nouvelle adresse. je fais un resart. Reboot please wait. Cela ne marche pas non plus j’ai toujours une adresse ip privée de la maison.</p>
+<p>Avec le web gui du tel depuis la maison je mets 10.66.0.2
+Autoprovisionning il ne passe pas grand chose. Restart. Reboot
+initialisation. Cela n’a rien changé. toujours une ip local au reseau de la maison.</p>
+<p><a class="reference external" href="https://wiki.freepbx.org/display/PHON/VPN+Setup">https://wiki.freepbx.org/display/PHON/VPN+Setup</a>
+<a class="reference external" href="https://wiki.freepbx.org/display/FPG/System+Admin+-+VPN+Server">https://wiki.freepbx.org/display/FPG/System+Admin+-+VPN+Server</a></p>
+<p>Je suis tres avancé dans la configuration du vpn mais le telephone récupère une adress ip locale et pas une ip vpn.
+Dans le fichier de conf du client je vois <cite>remote FQDNDDNS</cite> et je me demande si c’est pas cela le probleme. Je regarde comment sont les fichiers de conf du vpn de la maison qui fonctionne. et j’ai bien <cite>remote FQDNDDNS 1200</cite>. Donc c’est pas cela le probleme.</p>
+<p>reboot the phone sur un lan remote. tail -f /var/log/messages. Tout semble OK.
+System admin / VPN Server / le client à un address IP et Connected avec la date de la connection.</p>
+<p>reboot du phone il ne se passe rien dans le freenas# tail -f /var/log/messages
+reboot du phone <cite>tail -f /etc/openvpn/sysadmin_server1-status.log</cite> Il ne se passe rien.
+reboot du phone <cite>tail -f /var/log/messages</cite> il ne se passe rien.
+reboot du phone <cite>tail -f /var/log/httpd/accesslog</cite> il se passe des choses. Il semble que l’ipphone récupere des fichiers.</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Freenas Doc</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Recovery_with_usb_key.html">Recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Resetting-password.html">Resetting password</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Laurent FRANCOIS.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/logbook-pannes.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

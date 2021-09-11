@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Outboud Route &#8212; Freenas Doc v1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Inbound Route" href="Inbound_Route.html" />
+    <link rel="prev" title="DAHDI Config" href="DAHDI_config.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="outboud-route">
+<h1>Outboud Route<a class="headerlink" href="#outboud-route" title="Permalink to this headline">¶</a></h1>
+<p>Ici on configure la facon dont vont être gérés les appels sortants.
+Le point important c’est que l’on va affecter à une outbound route 1 ou plusieurs trunk.</p>
+<p>Connectivity - Outbound routes : on y définit les regles qui s’appliquent en fonction du numéro composé.
+quelques exemples de regles:
+<a class="reference external" href="http://wiki.freepbx.org/display/FPG/Outbound+Routes+Configuration+Examples">ici</a></p>
+<p>Le module outbound route: <a class="reference external" href="http://wiki.freepbx.org/display/FPG/Outbound+Routes+Module">http://wiki.freepbx.org/display/FPG/Outbound+Routes+Module</a></p>
+<section id="outbound-route-dial-pattern">
+<h2>Outbound route - dial pattern<a class="headerlink" href="#outbound-route-dial-pattern" title="Permalink to this headline">¶</a></h2>
+<p>(prepend) prefix | [pattern]/caller_id</p>
+<p>Un Dial Pattern est un ensemble unique de numéro qui va selectionner cette route et envoyer l’appel au trunk désigné.
+Si le dial pattern correspond à cette route,aucune autre route ne sera essayée. Si “Time Groups” est actif, les routes suivantes seront essayé pour chercher une correspondance en dehors du temps désigné.
+Les régles:</p>
+<p>X   matches tous les chiffres de 0-9
+Z   matches tous les chiffres de 1-9
+N   matches tous les chiffres de 2-9
+[1237-9]    matches tous les chiffres ou lettres entre crochets. (in this example, 1,2,3,7,8,9)
+.   wildcard, matches un ou plusieurs characteres.</p>
+<p>prepend:    Digits to prepend to a successful match. If the dialed number matches the patterns specified by the subsequent columns, then this will be prepended before sending to the trunks.</p>
+<p>prefix: Prefix sera enlevé sur une correspondance. Le numéro composé est comparé au prefix et à la colonne suivante (le pattern). S’il y a correspondance, le prefix est supprimé du numéro composé avant d’étre envoyé au trunk.</p>
+<p>match pattern:  Le numéro composé est comparé à prefix + pattern. S’il y a correspondance la partie “pattern” sera envoyée au trunk.</p>
+<p>CallerID:   Si le callerID est fournie, le numéro composé correspondra au prefix + pattern si le caller ID transmit correspond à ce callerID. When extensions make outbound calls, the CallerID will be their extension number and NOT their Outbound CID. The above special matching sequences can be used for CallerID matching similar to other number matches.</p>
+<p><a class="reference external" href="https://wiki.asterisk.org/wiki/display/AST/Pattern+Matching">https://wiki.asterisk.org/wiki/display/AST/Pattern+Matching</a></p>
+</section>
+<section id="outbound-route">
+<h2>Outbound Route<a class="headerlink" href="#outbound-route" title="Permalink to this headline">¶</a></h2>
+<p>on définit:
+* le trunk qui va etre utilisé. On peut définir plusieurs trunk. il faut donc définir le trunk avant l’outbound route.
+* le CID
+* le dial pattern qui va etre utilisé par cette route.
+On peut filtrer uniquement sur le CID, uniquement sur le Dial pattern ou les deux.
+On peut utiliser ce dial pattern pour forcer l’utilisation d’une route. Par example pour forcer l’utilisation de la ligne de fax on peut imaginer de taper 000numeroducorrespondant. Mais comment on fait pour modifier ce dial pattern pour que seul le numéro du correspondant soit envoyé sur l’OPT?
+<a class="reference external" href="http://wiki.freepbx.org/display/FPG/Trunk+Sample+Configurations">http://wiki.freepbx.org/display/FPG/Trunk+Sample+Configurations</a></p>
+<p>X   matches any digit from 0-9
+Z   matches any digit from 1-9
+N   matches any digit from 2-9
+[1237-9] matches any digit or letter in the brackets (in this example, 1,2,3,7,8,9)
+.   wildcard, matches one or more characters (not allowed before a | or +)</p>
+<section id="exemples">
+<h3>Exemples<a class="headerlink" href="#exemples" title="Permalink to this headline">¶</a></h3>
+<p>Dialed Number Manipulation Rules:</p>
+<p>(49)+0|Z                           : this will strip the 0 from long distance Germany calls and add insted cuntry code 49</p>
+<p>(49711)+|N                         : this will add country code 49 and area code 711 to local calls</p>
+<p>()+00|Z                            : this will just strip the double 0 for international calls</p>
+<ol class="arabic simple" start="18882472425">
+<li><ul class="simple">
+<li><p>411 |  empty        : re-routes 411 calls to 1-888-247-2425.</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" start="1212">
+<li><ul class="simple">
+<li><p>empty | XXXXXXX            : adds 1 + 212 to the beginning of any number that is seven digits long</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple">
+<li><ul class="simple">
+<li><p>empty | XXXXXXXXXX            : adds 1 + to the beginning of any ten digit number.</p></li>
+</ul>
+</li>
+</ol>
+<p>Dans Connectivity - Inbound Route je ne peux pas configurer le port FXO je ne comprends pas pourquoi. Dans les inbound route on utilise le DID pour se mapper à un port FXO donc une ligne PSTN?
+Dans connectivity - outbound route je peux configurer le port FXO par l’intermediaire du parametre : Trunk Sequence for Matched Routes</p>
+<p>Since the PBX routes all inbound calls based on the DID or number dialed, we need to map each analog port or channel to a fake number so we can match that number to an inbound route number and route your calls.</p>
+<p>Connectivity - DADHI channel DID - add DADHI DID - channel : g1 (mais je ne suis pas sur)
+Channel :
+The DAHDI Channel number to map to a DID. For example, If you have a 4-port card, your channels would be ports 1-4.</p>
+<p>En résumé pour router un appel arrivant d’une ligne analogique sur un port FXO:
+<cite>Connectivity -DAHDI channel DID</cite> pour définir un DID par port FXO (1, 2 , 3 , 4). Puis j’utilise ce DID dans la configuration des <cite>Connectivity - Inbound Route - Set destination</cite>.</p>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Freenas Doc</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Recovery_with_usb_key.html">Recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Resetting-password.html">Resetting password</a></li>
+<li class="toctree-l1"><a class="reference internal" href="En_Resume.html">Config du Freepbx en resume.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DAHDI_config.html">DAHDI Config</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Outboud Route</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#outbound-route-dial-pattern">Outbound route - dial pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#outbound-route">Outbound Route</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Inbound_Route.html">Inbound Route</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="DAHDI_config.html" title="previous chapter">DAHDI Config</a></li>
+      <li>Next: <a href="Inbound_Route.html" title="next chapter">Inbound Route</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Laurent FRANCOIS.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/Outbound_Route.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

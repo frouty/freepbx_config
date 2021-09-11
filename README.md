@@ -1,6 +1,8 @@
 # freepx_config
+
 # documentation 
 [ici](https://wiki.freepbx.org/#all-updates)
+
 # My Config
 My config: 
 - Sangoma appliance,
@@ -14,6 +16,7 @@ My config:
 - Cisco SG500-28P switch  
 - Main router: 
 	- TPLINK ARCHER C7 openwrt Chaos Calmer.
+
 # Connaitre sa version
 - `cat /etc/schmooze/pbx-version` : 10.13.66-14
 - webGUI : System Admin Module
@@ -56,63 +59,13 @@ https://bitbucket.org/frouty/reseau_informatique.mlp/src/1104dc9e30f5?at=master
 - désactiver le firewall du freepbx: `fwconsole firewall disable` (reste disable after a reboot)
 - ça n'a pas marché.
 
-# Firewall 
-Connectivity / Firewall  
-il y a plusieurs pages de configurations  que l'on selectionne avec l'icone a droite.
-
-## Comment configurer le firewall?
-
-http://wiki.freepbx.org/display/FPG/Firewall+Command+Line
-
-- `fwconsole firewall --help`   
-- `fwconsole firewall disable` (reste disable after a reboot)
-- il y a bcp d'autre commandes : [ici](https://wiki.freepbx.org/display/FPG/Firewall+Command+Line)
-
-puis en GUI recherche -> firewall -> enable --> re-run wizard
-
-## Les zones 
-- Internet
-- Local 
-- Other
-- Reject 
-- Trusted
-
-On affecte des zones à des interfaces dans firewall / Main / Interfaces  
-Et on peut aussi affecter des reseaux ip a des zones. 
-## Trusted zone 
-Il faut mettre un reseau IP ou une machine dans la trusted zone comme cela en cas de probleme on peut qd acceder au server Freepbx. 
-Je mets l'ip de la linuxbox en Trusted zone
-## Comment bloquer une IP
-j'ai NOTICE[16667] chan_sip.c: Registration from '"555" <sip:555@163.47.249.85>' failed for '77.247.110.40:5941' - Wrong password
-des dizaines de fois.
-https://wiki.freepbx.org/display/FPG/Firewall+Blacklist
-
-`Connectivity / Firewall / Service / Blaklist tab`  
-
-Mais normalement avec le responsive firewall on a pas besoin de faire cela. 
-Mais moi j'ai pas l'impression que cela marche le responsive car 
-Connectivity / Firewall / 
-
-## Je me suis trouvé bloqué ne pouvant plus acceder au webgui a cause du firewall
--`ssh root@IP_FREEPBX`
-- `fwconsole firewall disable`
-ca ne marche pas toujours.
-
-# Power off
-## WebGUI
-`̀Admin / System Admin / Power Options / Power off`
-## ssh consol
-- `fwconsole stop`
-- puis `shutdown -r now`
 
 
-# Power on
+
 
 # Comment savoir l'état du disk  
 `̀Admin / System Admin / Storage`
-# Comment mettre à jour l'achat de modules commerciaux
-`Admin -> System Admin -> Activation -> Update activation` (en bas à droite)
-Il faut faire l'activation pour pouvoir acheter des modules commerciaux.
+
 
 # Comment lire les fichiers de config  
 `Admin / Config Edit`
@@ -125,88 +78,17 @@ https://wiki.freepbx.org/pages/viewpage.action?pageId=37912685
 ## Apply change en ligne de commande
 `fwconsole reload` 
 
-# Comment installer en ligne de commande un module 
-fwconsole ma --edge upgrade framework  
-Le plus dur va etre pour trouver le nom du module.
-# Comment lister les modules 
-fwconsole ma list
-# Comment obtenir de l'aide sur les commandes de ma
-fwconsole ma --help
-
 # Asterisk
-## Comment connaitre sa version d'asterisk
-`asterisk -x "core show version"`
-## CLI
-on peut utiliser les commandes CLI dans le web GUI.
-- Admin
-- Asterisk CLI
 
-On peut les utiliser apres un ssh root@freepbxIP
-
-Si on fait un CLI> `core stop now`    
-Mais là on ne peut plus se reconnecter à asterisk.   
-
-Faire un ssh puis  
-`fwconsole stop`  
-`fwconsole restart`  
-`fwconsole trunks`
-
-#### Pour entrer dans les commands line d'asterisk  
-- `asterisk -r | asterisk -rvvv`    
-- Le prompt change en localhost\*CLI>  
-- ? pour avoir toute les commandes  
-
-##### Quelques commandes utiles
-- `sip show peers` 
-- `sip show peer <extension number>`
-- `sip show registry`
-- `asterisk -rx`
-- `sip show users`
-
-## Déboger Asterisk
-- ssh root@FreePBXIP
-- asterisk -rvvv
-- `sip set debug on`
-
-- `sip set debug 10`
-
-- `sip set debug off`
-
-
-## Couldn't connect to asterisk
-Apres un reboot forcé par interruption du courant j'ai le msg  
-*couldn't connect to asterisk*  
-je n'ai rien fait j'ai attendu un peu.
-
-# fwconsole
-http://wiki.freepbx.org/pages/viewpage.action?pageId=37912685
-
-# Can not connect to Asterisk
-ssh root@IPDUSERVER  
-`fwconsole restart`
-
-
-# Asterisk
-## Logger
-https://wiki.asterisk.org/wiki/display/AST/Collecting+Debug+Information
-
-Comment annuler les log output in CLI asterisk: CLI> __logger mute__
 
 ## dahdi
 
 CLI> core show help dahdi  
 CLI> dahdi show channels group <num du group>  
 
-## How to activate Asterisk full debugging?
-`vi /etc/asterisk/logger.conf`  
-uncomment : `̀full => notice, warning, error, debug, verbose, dtmf, fax`  
 
-Toutes les infos de debugging seront logguées dans /var/log/asterisk/full.
-
-# a essayer 
-su -m asterisk  
-password : blank   
-cd /etc  
+<<<<<<< HEAD
+# Configuration de l'ipphone. 
 
 
 # Comment configurer son serveur de mail
@@ -238,45 +120,29 @@ Admin / System Admin / Notification Settings
 # Hostname
 Admin / System Admin / Hostname    
 localhost.localdomain -> FreePBX.MLP  
+
+1 configuration du vega 50
+2 connectivity / Trunk / Add trunk sip chan_sip
+3 connectivity outbound route
+4 connectivity / inbound route / on va mapper le CID entrant avec une extension.
+=======
   
+<<<<<<< HEAD
+=======
+>>>>>>> c3d74e468ba8785461b55d0696c17a8d7740c8f1
 # Extension
 ## Comment Creer une extension
 - 1 On crée l'extension : Application / Extension / Add Extension / Add New CHAN_SIP Extension
 - 2 On la link à un user : Link to a default user : Create New User.  
 Le systeme crée automatiquement un nouveau user que l'on peut configurer dans Admin / User Management.  
+>>>>>>> branch 'master' of git@github.com:frouty/freepbx_config.git
 
-## Une fois que l'on a crée l'extension on va la linker à un poste IP phone.
-- Settings / EndPoint Manager / Extension Mapping
-- Add Mapping  Extension  
-- On choisit l'extension  qui elle même est mappée à un user.
-	- un account (cet account est quelque chose dans le téléphone)
-	- Une marque de téléphone 
-	- MAC adress d'IP Phone.  
-	- Template qui est un fichier de configuration qui correspond à un type de téléphone.
-	- Modele de téléphone.
 	
-
-# Comment savoir à quelle IP phone un user est relié?
-Application / Extension  
-Et on peut relier un user à une extension dans:  
-Admin - User Management - Primary Linked Extension
-	
-## Application -> Extension -> Quick Extension Create
-TODO
-
-Normalement chaque IP phone est assigné à une extension. S'il y a plusieurs lines button sur le phone (?) http://wiki.freepbx.org/display/FPG/Extensions+Module
-
-Extension Module marche avec d'autres modules
-* Inbound Routes Module, 
-* Ring Groups Module, 
-* Queues Module, 
-* Paging Module,
-* Follow Me Module, because each extension can have its own Follow Me options (?).
-* Advanced Settings Module. 
-  * Device Settings section of the Advanced Settings Module, you can change a number of the default settings that will apply when you create a new extension.
-  * Advanced Settings Module can be used to enable Device and User Mode. When Device and User Mode is enabled, the Extensions Module will disappear and be replaced with two separate modules called "Devices" and "Users."
-
-* User Management Module. In the User Management Module, a user may have a "primary linked extension." (?)
+  dans le endpoint management je retrouve le login et le password que je vais mettre dans le webgui de l'ipphone : Management/autoprovisionning https/http password et login
+  puis management reboot. mais rien a faire le telephone ne recupere pas la config.
+  dans le webgui du tel je rentre l'adresse sous la forme http://username:password@ipfreepbx:port.
+  On trouve username / password / port dans Endpoint management / global settings et aussi dans Admin / System Admin / Provisionning protocole.
+  
 
 # Où est ce que l'on configure ce qui se passe lorsque l'on ne répond pas à son téléphone IP?
 On peut configurer le cas ou :
@@ -299,38 +165,6 @@ Ne doit pas etre dans une Queue ou un Ring Group.
 - `Not Reachable` qd le phone n'est pas branché.
 
 
-
-# Configuration dans freepbx des telephony cards.
-https://wiki.freepbx.org/display/PC/Telephony+Cards+with+FreePBX+Distro#TelephonyCardswithFreePBXDistro-Overview
-
-Connectivity / Dahdi config
-
-Autodetect toutes les cartes installées. Je vois que dans l'onglet digital hardware il y a rien. Ce qui est normal car je n'ai pas de carte digitale dans l'appliance.
-Analog hardware il y a: FXO ports 1,2,3,4
-FXO Ports 1,2,3,4 Edit et on leur assigne un group. Group que l'on va utiliser dans connectivity / trunk / Add trunk onglet dahdi settings / Dahdi trunk choix des groups
-
-## outbound route
-Et aprés on utilise ce trunk en créant une outbound route.
-
-## inbound route
-pour les inbound route c'est différent.
-comme les lignes analogiques ne transmettent le DID il faut mapper les ports FXO avec un DID dans le software et cela se fait dans Connectivity / Channel DID
-- Channel : The DAHDI Channel number to map to a DID. For example, If you have a 4-port card, your channels would be ports 1-4.
-- Description : meaningfull description
-- DID le DID sera passé à l'incoming route donc le DID ici doit etre le meme que le did dans l'inbound route.
-
-Les appels entrants sur un port FXO seront dirigés en configurant le connectivity / Dahdi channel / channel = le port FXO qui nous interesse en lui affectant un DID et ensuite on configure une inbound pour rediriger le DID vers une destination finale comme une extension par exemple.
-
-## dit autrement
-Ligne analogique OPT --> port FXO  
-
-- 1 Je branche une ligne de mon PTOS vers un port FXO du freepbx  
-- 2 Connectivity / DADY channel DID : je choisi le Channel correspondant au port FXO que je viens de connecter à mon PTOS. Et je lui donne un DID de mon choix que je vais pouvoir utiliser par la suite.
-- 3 Une fois que j'ai défini un DID à ce channel je vais pouvoir créer une inbound route.
-- 4 A cette inbound Route il faut lui donner une destination. Qui peut etre une extension.
-
-On donne un DID car avec  le fournisseur téléphonique PTOS il n'y a pas de DID. Et le systeme utilise le DID pour router l'appel.
-
 # Comment mettre une Outbound route qui va utiliser un port FXO.
 Exemple les orthoptiste utilisent leur ligne FXO pour appeler.
 - Connection / Outbound Route
@@ -339,10 +173,6 @@ Exemple les orthoptiste utilisent leur ligne FXO pour appeler.
 		- Connectivity / Trunk / Add trunk / de type :  DAHDI
 		- dans l'onglet dahdi settings : Analog channel 2 (je suppose que c'est le port FXO N°2)
 	
-
-# DADHI extension c'est quoi?
-Je pense que c'est pour configuer un device analogique branché sur une FXS.  
-
 
 # Configuration d'une phone IP avec End Point Manager (EPM)
 
@@ -387,22 +217,8 @@ Essayer de téléphoner
 Clock *60  
 echo test *43
 
-# Inbound route  
-When a call comes into your system from the outside, it will usually arrive along with information about the telephone number that was dialed (also known as the "DID") and the Caller ID of the person who called.
-The Inbound Routes module is the mechanism used to tell your PBX where to route inbound calls based on the phone number or DID dialed.  
-Calls come into your system on trunks that are configured in the Trunks module.
 
-# DID (Direct Inward Dialing) Number
-Routing is based on the trunk on which the call is coming in. In the DID field, you will define the expected **DID Number** if your trunk passes the DID on incoming calls. Leave this blank to match calls with any or no DID info.  
 
-The DID number entered must match the format of the provider sending the DID. You can also use a pattern match to match a range of numbers.
-
-Patterns must begin with an underscore (\_) to signify they are patterns. Within patterns, X will match the numbers 0-9 and specific numbers can be matched if they are placed between square parentheses. 
-
-This field can also be left blank to match calls from all DIDs. This will also match calls that have no DID information.  
-
-# CID (Caller ID) Number
-Routing calls based on the caller ID : numero composé par l'appelant. Leave this field blank to match any or no CID info. In addition to standard dial sequences, you can also put “Private,” “Blocked,” “Unknown,” “Restricted,” “Anonymous” or “Unavailable” in order to catch these special cases if the telco transmits them.
 
 ## Comment gérer ce qui s'affiche sur l'écran du téléphone pour un appel entrant.
 Connectivity / inbound route / Edit l'inbound route qui nous intéresse./ CID name prefix (pe 'mutti-' 'francois-'
@@ -413,75 +229,11 @@ Le phone va s'enregistrer aupres du PBX. L'adresse IP du Phone n'a pas d'importa
 L'incovénient c'est que pour utiliser le web GUI du phone cela ne va pas etre facile. Il faudra connaitre l'adresse IP. On peut la trouver sur le phone dans les menus.  
 Un phone peut avoir plusieurs extensions. A quoi cela sert? 
 
-## Phones Sangoma
-http://wiki.freepbx.org/display/PHON
 
-#### login / password sur l'ecran du phone sangoma
-
-### login / password du web gui l'ip phone sangoma
-admin / 222222
-
-### Reset factory
-- s500
-  - Web GUI
-    -Management -> Upgrade -> reset to factory
-- s700 
-  - sur le téléphone 
-  - Menu / Settings / Advanced  Settings / Password que l'on trouve dans le WebGui du Freepbx : Settings / EPM / Global settings / Phone admin password
-  - Phone Settings / Reset Factory
-- Polycom 
-  - TODO
-
-### Connecter un sangoma phone à freepbx  
-
-http://wiki.freepbx.org/display/PHON/Connecting+Sangoma+Phone+to+FreePBX+or+PBXact+Indepth
-- 1 s'assurer que les provision protocoles HTTP et HTTPS sont OK : system admin / Provisionning protocols.
-- 2 s'assurer que le serveur PnP marche  
-System Admin / PnP configuration / PnP server status enable.  
-Pnp server configuration : automatic.
-- 3 configurer les bons protocoles http dans les template : Settings / EPM / Brand / Sangoma 
-- 4 S'assurer que l'IP phone est bien reset factory. 
-- 5 brancher l'IP phone. Accepter le PnP message.
-- 6 et voila. 
-
-#### Comment trouver l'IP d'un phone Sangoma
-menu -> Status -> information
-
-#### 3 facons de configurer un phone Sangoma
-- 1  redirection service (zero-touch auto-provisioning)
-- 2  DHCP option 66
-- 3  hard setting provisioning server 
-
-#### redirection service (zero-touch auto-provisioning)
-
-Dans le web GUI on verifie
-* EndPointManagement -> Global Setting 
-* Admin -> USer management -> Onglet Groups -> on verifie que le user est bien dans le group "All Users"
-* Edit -> onglet **Phone Apps** -> Allow Access -> Yes
-* Users -> Edit button -> Onglet General -> verifier que les permission sont sur Inherit from the group.
-
-#### register le phone
-
-pour utiliser le redirection service il faut l'enregistrer sur le portal de sangoma.
-https://portal.sangoma.com cloud service > sangoma phones > register phone tab
-
-Je n'arrive pas. Claim adress mac du phone de hello cab. Me dit qu'il y a un probleme contacter le support.
-
-#### DHCP option 66
-ll faut que le serveur dhcp du routeur support le dhcp option 66
-
-#### The hard way
-from the GUI of the phone
-login/password : admin/admin
-Management -> Auto Provision - upgrade mode - config server path - autoprovision Now click
 
 # port used on freepbx
 https://wiki.freepbx.org/display/PPS/Ports+used+on+your+PBX
 
-
-
-# Comment rebooter un phone Sangoma sans password
-Menu button -> * key 3 fois -> down arrow pour 10 s. Le téléphone reboot
 
 # Comment changer le nom qui s'affiche sur l'écran du Sangoma IP phone?
 Web Gui de l'ip phone
@@ -507,8 +259,7 @@ https://wiki.freepbx.org/display/PHON/Setup+Phone+by+hard+setting+provisioning+s
 - 1 dans le web GUI c'est dans les templates : `Settings / Endpoint management /brand`
 - 2 dans le telephone : Menu / settings /basic settings / Ring tones
 
-# Phone Polycom 
-http://kb.digium.com/articles/Configuration/Polycom-Phone-Provisioning-Guide?retURL=%2Fapex%2FknowledgeProduct&popup=false
+
 
 ## sur le telephone : Settings / advanced ... / password 22222
 j'ai changé on le trouve dans buttercup phone polycom
@@ -576,15 +327,6 @@ web gui du polycom / configuration / Ethernet.
 
 # configuration des FXO
 
-http://wiki.freepbx.org/display/FPG/DAHDI+Configs  
-
-http://documentation.xivo.io/en/stable/administration/hardware/hardware.html
-
-http://www.voip-info.org/wiki/view/DAHDI
-
-cat /proc/dahdi   
-dahdi_hardware  
-asterisk -rvd  
 
 The userspace tools to control DAHDI spans/channels: 
 __dahdi_cfg__  
@@ -673,26 +415,6 @@ Connectivity -> Trunk
 
 J'ai un dahdi trunk. Mais je n'arrive pas a appeler l'exterieur
 
-Connectivity - Outbound routes : on y définit les regles qui s'appliquent en fonction du numéro composé.  
-quelques exemples de regles: http://wiki.freepbx.org/display/FPG/Outbound+Routes+Configuration+Examples  
-Le module outbound route: http://wiki.freepbx.org/display/FPG/Outbound+Routes+Module
-
-# DAHDI (Analog) Channel DIDs module
-`Connectivity / DAHDI Channel DIDs`  
-
-Ce module permet d'assigner un DID (un numero de téléphone) à un channel anlogique spécifique. Contrairement SIP ou PRI trunk, les lignes analogique n'envoie pas le DID ou le numero composé. Et nous avons besoin de mapper chaque port analogique ou channel a un numero fake comme cela nous pouvons matcher ce numero à une Inbound Route et router l'appel.  
-
-Il est possible de mapper sur le même numéro de téléphone plusieurs channels.  
-Une fois que l'on a assigné un DID, on peut utiliser les Inbound Route pour router l'appel.  
-
-Il *FAUT* que le *context* du channel soit à *from-analog* : `context = from-analog` in your chan_dahdi.conf. Cela se fait dans le DAHDI config module
-
-# DAHDI Configs module
-Permet de configurer les DAHDI PSTN card (analog, T1/E1/PRI or BRI’s.).  
-
-On clique sur `Connectivity / DAHDI`  
-
-https://wiki.freepbx.org/display/FPG/DAHDI+Configs pour plus de détails.
 
 
 ## En haut de la fénétre on voit les cartes installées.
@@ -736,29 +458,7 @@ Les modifications faites ici  nécessitent un Restart Dahdi & Asterisk.
 Les modifications faites ici  nécessitent un `Restart Dahdi & Asterisk`: `Save / Apply config / Restart Asterisk Dahdi`. 
 
 
-# Outbound route - dial pattern
 
-(prepend) prefix | [pattern]/caller_id  
-
-Un Dial Pattern est un ensemble unique de numéro qui va selectionner cette route et envoyer l'appel au trunk désigné.  
-Si le dial pattern correspond à cette route,aucune autre route ne sera essayée. Si "Time Groups" est actif, les routes suivantes seront essayé pour chercher une correspondance en dehors du temps désigné.  
-Les régles:
-
-X	matches tous les chiffres de 0-9  
-Z	matches tous les chiffres de 1-9  
-N	matches tous les chiffres de 2-9  
-[1237-9]	matches tous les chiffres ou lettres entre crochets. (in this example, 1,2,3,7,8,9)
-.	wildcard, matches un ou plusieurs characteres. 
-
-prepend:	Digits to prepend to a successful match. If the dialed number matches the patterns specified by the subsequent columns, then this will be prepended before sending to the trunks.
-
-prefix:	Prefix sera enlevé sur une correspondance. Le numéro composé est comparé au prefix et à la colonne suivante (le pattern). S'il y a correspondance, le prefix est supprimé du numéro composé avant d'étre envoyé au trunk.
-
-match pattern:	Le numéro composé est comparé à prefix + pattern. S'il y a correspondance la partie "pattern" sera envoyée au trunk. 
-
-CallerID:	Si le callerID est fournie, le numéro composé correspondra au prefix + pattern si le caller ID transmit correspond à ce callerID. When extensions make outbound calls, the CallerID will be their extension number and NOT their Outbound CID. The above special matching sequences can be used for CallerID matching similar to other number matches.
-
-https://wiki.asterisk.org/wiki/display/AST/Pattern+Matching
 
 
 
@@ -820,55 +520,6 @@ The DAHDI Channel number to map to a DID. For example, If you have a 4-port card
 ### en résumé pour router un appel arrivant d'une ligne analogique sur un port FXO:
 `Connectivity -DAHDI channel DID` pour définir un DID par port FXO (1, 2 , 3 , 4). Puis j'utilise ce DID dans la configuration des `Connectivity - Inbound Route - Set destination`.
 
-# Fax 
-voir module User Management 
-
-J'ai le module fax pro qui permet d'envoyer des fax. Le module fax gratuit ne permet pas d'envoyer des fax.
-
-## Fax - Émission de fax
-J'ai une outbound route. Sans configuration particuliere pour les fax.  
-Il n'y a pas de parametre de fax dans l'outbound route.  
-Dans Admin - User management - onglet Fax pour autoriser le user à utiliser les fax.  
-
-on va dans l'UCP est on fait "send new fax". cela marche.
-
-A noter qu'il ne faut pas que la vielle machine de fax soit brancher sur la ligne qui envoie le fax.
-
-## Fax - Réception de fax
-On définit la detection de fax dans : Applications / Extension. 
-Mais cela n'a pas marché. Je ne trouve pas de parametre de fax dans application - extension
-
-Dans Connectivity -DHADI config - global setting - fax detection --> Yes et on essaye à nouveau.  
-
-Configuration pour recevoir les faxs:
-`Connectivity -Inbound Route`:
-   - `set destination - Fax recipient user2`  
-   - Fax - Fax destination user2 
-
-Pas de configuration des ports fxo dans les inbound route. Il faut travailler avec le DID. A faire. pour voir si cela marche.
-
-## Comment faire pour ne pas recevoir le fax par email mais le retrouver dans l'inbox.
-j'essaie :
-Setting - Fax config - email address (not the outgoing email address) : leave empty  
-Ca ne marche pas. Continue à l'envoyer par email
-Si les deux champs 
-Setting -Fax config - outgoing email adress : empty.
-Ca ne marche 
-
-user config - fax - email result -never ne marche pas non plus pour ne pas recevoir de fax
-
-
-Setting - Fax config - outgoing email address (and email adress) : leave empty  
-
-Rien à faire j'ai toujours mon fax qui arrive par mail.
-
-email address --> une autre adress mail non je recois toujours francois.oph@gmail.com
-
-Admin - Feature Code admin - Dial system fax c'est quoi?
----
-http://www.emetrotel.com/tsd/content/dial-system-fax
-
-Mais cela ne me dit pas ce que je peux en faire.
 
 # BLF
 Busy Lamp Field c'est une LED sur un IP phone qui te dit si une autre extension connecté au meme PBX est occupé ou non. 
@@ -925,20 +576,6 @@ Je vois  que le DID n'est pas passé.
 
 http://wiki.freepbx.org/display/FPG/DAHDI+(Analog)+Channel+DIDs  
 
-### What is the DAHDI Channel DIDs module used for?  
-The DAHDI Channel DIDs module allows you to assign a DID or phone number to specific analog channels.
-Unlike SIP or PRI trunks, analog lines do not send a DID or dialed number to the PBX. Since the PBX routes all inbound calls based on the DID or number dialed, we need to map each analog port or channel to a fake number so we can match that number to an Inbound Route number and route your calls.
-Each channel can be mapped to the same phone number if you want all calls on the analog lines to go to the same destination. This would be a common scenario if you have multiple POTS lines that are on a hunt group from your provider.
-You MUST assign the channel's context to from-analog for these settings to have effect. It will be a line that looks like: context = from-analog in your chan_dahdi.conf configuration affecting the specified channel(s). Once you have assigned DIDs, you can use standard Inbound Routes with the specified DIDs to route your calls.
-
-Channel
-The DAHDI Channel number to map to a DID. For example, If you have a 4-port card, your channels would be ports 1-4.
-
-### Comment faire pour qu'une ligne pstn soit affectée à une certaine inbound route?
-`Connectivity - DAHDI Channel DIDs` :
-A chaque ports FXO on assigne un DID (un numero de téléphone fictif. On mettra celui de la ligne PSTN). On mappe ainsi les FXO à une ligne PSTN.  
-Car le fournisseur ne passe pas le DID dans les lignes analogiques.  
-Puis dans Inbound Route on utilise ce DID pour router l'appel.
 
 # Comment enregistrer des annonces
 `Admin -> System Recordings`
@@ -975,53 +612,9 @@ Feature Code Password
 
 Convert To
 
-# Comment enregister des messages 
-
-`Admin / System recordings`  
-Va permettre d'enregistrer des messages qui pourront etre joué à l'appelant par d'autres modules.  
-File list for english : j'ai l'impression que cela permet de concatener plusieurs fichiers qui serons lus l'un à la suite de l'autre c'est comme cela que je le comprends.
-Si je veux pouvoir accéder à l'enregistrement via un ip phone :(pas sûr que cela soit utile)  
-Link to Feature Code  - YES  
-
-`Applications -> Annoucement`  
-Ne pas confondre ce module avec le system recording.  
-Il faut voir ce module comme une enveloppe d'un system record. Et c'est cette enveloppe qui va pouvoir etre appelé par le systeme.  
-Le module `Annoucement` permet de jouer une annonce crée dans  `Admin \ System Recordings` et de poursuivre le call flow.  
-
-`Application / Annoucement` : ne propose que les announces faites dans le system recording. Il faut donc créer l'annonce dans le module system recording avant.  
-
-
-# Jouer une annonce à tous les appels entrants:
-- 1 Créer le fichier son dans `Admin - System recordings`.  
-- 2 Créer un announcement dans `Applications - Announcement`  
-- 3 Connectivity - Inbound Route - Destination : choisir l'announcement     
-Et cela marche. Testé  
-
-# Musique d'attente . MoH Music on Hold
-`Setting - MoH`  
-Je n'ai jamais entendu une telle music dans le telephone. TODO
-
-# call on hold 
-si l'appel est rejeté regardé https://wiki.freepbx.org/display/FOP/Calls+being+dropped+after+being+on+hold+for+5+minutes  
 
 
 
-# Fail2Ban
-Admin / System admin / Intrusion detection
-
-## configuration du fail2ban
-
-Ban time :
-Max retry : nombre d'authentification
-Find time
-nbre d'essai dans un temps de find time il est banni pour un temps de ban time.
-
-On peut vérifier de temps en temps fail2ban.
-
-## fail2ban apache-auth banned ipaddress
-apache-auth loggerait les error dans /var/log/http/error_log.  
-On trouve dans des infos dans les error_log-$date
-On peut faire un grep sur l'adresse IP qui entraine la mise en ban.
 
 
 
@@ -1047,22 +640,7 @@ D'autre utilise le follow me sur l'extension.
 - local network 192.168.1.0 / 24
 
 
-# Time 
-- 1 Création d'un time group  : Application / Time Group. Il y a uniquement des informations de temps
-- 2 On utilise ce time group dans une time condition qui est relié :
-  - à un time group 
-  - et qui fait une action si le time group match: Destination matches et là on peut faire d'autes actions.
-  - ou ne match pas : Destination not matches : on peut faire d'autres actions. 
 
-## Time group
-que du temps
-
-## Time condition 
-un time group et deux actions possibles si match ou match pas.
-
-## Config actuel 
-Inbound Route DID = 281600 --> Set Destination = Time conditions = gooen open hours  
-Si c'est en open hours va sur une autre time condition qui va sur Annoucenment closed ou Misc destination. 
 # Comment on gere les SDA du tronc numeris?
 ## Comment diriger les appels du 29629x vers un user phone?
 ## Comment rediriger un appel entrant vers un numéro extérieur?
@@ -1104,35 +682,6 @@ Application / call flow control / add call flow taggle code /
 -3 password pas nécessaire
 -4 
 
-# Trunk module
-Il est utilisé pour connecté le Freepbx/asterisk à un autre systeme de VOIP. Comme cela on peut envoyer ou recevoir des apels depuis et vers cet autre système VOIP. 
-Comme :
-- Internet Telephone Service Providers
-- Autre système Freepbx/asterisk
-- FXO gateway qui connecte une ligne téléphonique ordinaire avec systeme de VOIP.
-- FXO cards qui permet de se connecter à un systeme téléphonique ordinaire.
-
-Si tu n'as pas de trunk de configuré, alors on ne peut faire des appels que vers les extensions du système.
-
-Trunk module est rélié à:
-- 1 Outbound Route
-- 2 Inbound Route
-
-Deux principaux type de trunk:
-- 1 SIP
-- 2 DAHDI
-
-## Trunk Name 
-un nom pour décrire le trunk
-## Outbound CallerID
-Utiliser ce champ pour ?  
-J'ai l'impression que cela ne sert pas.
-## CID Options
-## Maximum Channels 
-controle le nombre maximum d'outbound chanel (appels simultanés)
-## Continue if busy
-## Disable trunk
-## Dial pattern manipulation rules
 
 # Inbound Route
 https://wiki.freepbx.org/display/FPG/Inbound+Route+User+Guide  
@@ -1165,7 +714,7 @@ L'appel arrive dans le system sur un trunk qui est configuré dans le trunk modu
 ## DID number 
 C'est le numéro composé par l'appelant. On peut filtrer sur ce numéro. PE : 296 298
 ## Caller ID
-C'est le numéro de l'appelant. On pouvoir router en fonction de l'appelant.
+C'est le numéro de l'appelant. On va pouvoir router en fonction de l'appelant.
 ## CID Priority route
 YES/NO pour décider si cette route est une Priority Route caller ID. Cela n'affecte que les routes qui n'ont pas d'entrée dans le DID.  
 Si sur YES alors meme s'il existe  une route pour le DID qui a été appelé alors c'est cette route qui est utilisée. Le comportement normal est que la DID route prenne l'appel. 
@@ -1250,47 +799,7 @@ les files sont dans :
 - 4 Optional password : ? 
 - 5 Normal Flow | Override Flow : == Choose one == 
 
-# Admin / System recording
 
-On y enregistre des messages. 
-On peut concatener des messages. 
-On peut utiliser ces messages dans les modules qui supportent la lecture des recordigns, comme:
-- IVR
-- Announcement 
-- Follow Me
-- Queues 
-- Ring group
-Ceux sont des modules qui ont des options pour selectionner un recording.
-
-On peut mettre ces messages dans connectivity / Inbound route / set destination / Play recording / on choisit un des messages que l'on aura enregistrer auparavant.
-
-Si un message est rouge cela veut dire qu'il n'est pas disponible.  
-Ma croix rouge c'est pour supprimer le fichier.  
-
-## Comment enregistrer un message?
-- 1 upload à partir de fichier de l'ordinateur: `upload recording`
-- 2 enregistrer avec l'ordinateur : `record in browser`. Mais il faut un micro
-- 3 enregister à partir un téléphone : `record over extension`
-	- 1 enter extension
-	- 2 click call
-	- 3 le téléphone sonne. Répondre. Et parler apres le beep. 
-	- 4 raccrocher qd c'est fini
-	- 5 save and name le message ou delete.
-
-### on peut utiliser audacity.  http://whymailbox.blogspot.com/2009/06/create-great-sounding-recordings-in.html
-et aussi 
-For recording software I use Audacity.  
-Go into Preference > Quality and set the “Default Sample Rate” to 8000 and “Default Sample Format” to 32 bit.  
-Go ahead and record your tracks (in Mono) and do any cleanup/trimming necessary.  
-Then you need to get the file out; go to File > Export. 
-Use “Other uncompressed files” > Options, set “Headers” to WAV and Encoding to “U-law”.
-Change the extension of filename to ulaw. 
-Finally, I have found it necessary to boost the sound. You can do this by going to the "Effect" menu, then select "Amplify..." In my case, I set my "Amplification (db)" to 12-15. For some reason, that sounds a bit loud at my computer, but it sounds fine when it is uploaded to my PBX.
-Upload du fichier dans asterisk
-On peut aussi le convertir dans asterisk avec `file convert /full/path/before.ulaw /full/path/after.g729`
-
-## Add System recording
-permet d'ajouter n'importe quel system recording préalablement enregistré à la liste.
 
 ## Link to Feature Code
 YES/NO  
@@ -1303,36 +812,7 @@ Ce qui permet de changer le code directement par le user, sans passer par l'admi
 ## Feature code password
 uniquement des digit.  
 
-# Announcements module
-la possibilité de diriger les appels en fonction d'horaire.
-Il permet de créer une destination qui va jouer un message à un appelant. Apres le message, l'appel va vers une autre destination. Où est défini cette autre destination?  
-Ce module est lié à tout module qui a un champ `Set Destination`:
-- 1 IVR
-- 2 Inbound Routes Module
-- 3 Ring group module
-- 4 Queues Module
-- 5 Call Flow control module 
-- 6 Time Conditions module
-- 7 Miscellaneous applications module.
 
-Announcement module va chercher les recording du module system recordiong.  
-
-## Description
-## Recording
-C'est là que l'on choisit son message. Il est crée dans system recording
-## Repeat
-On peut choisir une touche que l'appelant appui pour rejouer le message.  
-Il faudra mettre les instructions dans le msg : "To hear our hours again, press pound."  
-## Allow skip
-YES/No allow the caller to press any key to end the message. Et ensuite l'appel va vers la destination définie dans cet annoucement.  
-## Return to IVR
-YES/NO  
- If set to Yes, a caller who came from an IVR will be sent back to the IVR after the announcement, instead of being sent to the destination set below. This is handy if you have more than one IVR pointing to this announcement, because otherwise you would need to create a separate announcement for each IVR. (A single announcement can only route the caller to one defined destination.) If set to No, the caller will only be routed to the destination set below, and will not be sent back to the IVR they came from.
- ## Don't answer Channel
-No Answer the call and play the message.  
-YES joue le message comme early media. J'ai pas compris à quoi cela sert.  
-Laisser No c'est plus sur.  
-## Destination after playback
 
 # Time condition module
 controle le call flow par rapport à des horaires. 
@@ -1556,19 +1036,6 @@ permet d'envoyer un msg à plusieurs utilisateurs.
 - Freepbx / settings / asterisk sip setting 
 - local network 192.168.1.0 / 24
 
-# Module backup and restore
-Admin / backup and restore
-
-Backups : backups job, Quand, et tous les combiens, ce qui doit etre inclus dans le backup.
-Restores: On peut restorer à partir d'un dossier en local, ou en FTP, SSH...
-Servers : Serveurs PBX, DATABASE ou linux box, FTP servers, où on veut mettre le backup.
-Template c'est l'arborescence que l'on veut mettre dans le backup.
-Backup items
-
-https://wiki.freepbx.org/display/FPG/Using+the+Backup+module#UsingtheBackupmodule-Overview
-
-Il y a des infos dans cette page sur le warm spare. https://wiki.freepbx.org/display/FPG/Warm+Spare+Setup
-
 
 
 # Comment mettre son téléphone sur répondeur.
@@ -1617,9 +1084,7 @@ On a vite fait de s'y perdre donc :
 - 2 on commence par l'inbound route. Connectivity inbound route. On regarde la colonne destination.
 - 3 et on suit tous les times conditions.
 
-## Comment réecouter les annonces?
-Admin / System recording  
-Ce qui se passe à la fin d'une annonce se trouve dans Applications / Annoucment  
+
 
 # wanpipe 
 C'est une suite pour linux/windows de driver pour le kernel et d'utilities qui controle les cartes TDM sangoma. 
@@ -1734,7 +1199,7 @@ https://wiki.freepbx.org/display/PC/Analog-+Audio+Issues
 http://www.voiptroubleshooter.com/problems/robotic.html
 # Dynamic port configuration
 
- # Probleme avec le busy now.
+# Probleme avec le busy now.
 "Dial failed for some reason with DIALSTATUS = CONGESTION and HANGUPCAUSE = 38"
 TRUNK Dial failed due to CONGESTION HANGUPCAUSE: 38
 ## une solution
@@ -1806,8 +1271,7 @@ After recording a message (incoming message, busy/unavailable greeting, or name)
 
 (2) On FreePBX based systems *98 will prompt you for your user extension and pin number. *97 will provide direct access to the voicemail of the extension you are calling from.
 
-# message conversion
-http://wiki.kolmisoft.com/index.php/Convert_WAV_file_to_Asterisk_playable_format
+
 
 # Parking Module
 `Applications Parking`
@@ -2116,9 +1580,7 @@ Je ne les vois pas dans openwrt. malgré plusieurs boot.
 Mon architecture réseau n'était pas bonne.  
 Server Freepbx + IP phone sur le switch Cisco et switch Cisco sur router wrt54GL.
 
-# server freepbx n'obtient pas d'adresse IP
-Le serveur freepbx apres avoir débrancher le cable rj45 n'obtient pas l'adress IP.  
-reboot est-il la seule solution?
+
 # Troubleshooting
 Le system a perdu son adress ip. Le fait de brancher débrancher le cable rj45 ne regle pas le probleme.
 Je reboot. Mais comme il n'a pas d'adress ip pas moyen d'utiliser ssh.
@@ -2158,113 +1620,7 @@ sip show peers voir si l'ip phone est connecté.
 sip show peer ID  voir si l'IP phone est connecté.
 Si c'est bon j'ai une ligne du genre
  5/5                       10.8.0.3                                 D  Yes        Yes         A  5060
-## Panne du 28/05/2018 
-Apres deux jours de pluie intense.
 
-- Absence d'appel recu sur l'ip phone
-- asterisk -rvvvv
-- sip show peers donne:  
-` Name/username             Host                                    Dyn Forcerport Comedia    ACL Port     Status      Description                      
-1/1                       10.66.0.180                              D  No         No          A  5060     OK (8 ms)                                    
-2/2                       10.66.0.235                              D  No         No          A  5060     OK (21 ms)                                   
-3/3                       10.66.0.154                              D  No         No          A  5060     OK (10 ms)                                   
-4/4                       10.66.0.152                              D  No         No          A  5060     OK (10 ms)                                   
-5/5                       (Unspecified)                            D  Yes        Yes         A  0        UNKNOWN                                      
-vega50/vega50             10.66.0.3                                D  Yes        Yes            5060     Unmonitored                                  
-vegaOut/vega50            10.66.0.3                                   Yes        Yes            5060     Unmonitored    ` 
-
-
-j'ai rebooté le main retour ; le routeur adsl ; redemarré le service openvpn du main routeur (dans le web GUI ) et du freepbx (./init.d/openvpn restart
-- sip show peers donne:
-
-`1/1                       10.66.0.180                              D  No         No          A  5060     OK (10 ms)                                   
-2/2                       10.66.0.235                              D  No         No          A  5060     OK (23 ms)                                   
-3/3                       10.66.0.154                              D  No         No          A  5060     OK (16 ms)                                   
-4/4                       10.66.0.152                              D  No         No          A  5060     OK (12 ms)                                   
-5/5                       10.8.0.3                                 D  Yes        Yes         A  5060     OK (49 ms)                                   
-vega50/vega50             10.66.0.3                                D  Yes        Yes            5060     Unmonitored                                  
-vegaOut/vega50            10.66.0.3                                   Yes        Yes            5060     Unmonitored                                  
-7 sip peers [Monitored: 5 online, 0 offline Unmonitored: 2 online, 0 offline]
-`
-
-Je fais des reboot sur le ip phone en VPN. Est ce que cela suffit.
-Je fais un restart sur le service openvpn du freepbx  ` ./etc/init.d/openvpn restart`
-Je fais un reboot du main retour openwrt
-Mais je n'arrive plus de la maison à me connecter sur le reseau MLP
-Le server ODOO n'est plus accessible meme sur l'adresse dynamic dns.
-Il n'y avait plus de connetion extranet wan IPv4 sur le main router.
-J'ai rebooté le router adsl
-## Panne du 12/11/2019
-tous les appels vers le 281600 sont redirigé vers mon téléphone. 
-Si j'essaie de faire l'extension 5 l'appel est regirigé vers mon extension.
-
-J'ai essayé de redemarrer le main router, le server freepbx. Je n'ai pas redemarrer le routeur adsl.
-Je vois que dans le endpoint manager je ne peux pas choisir de client vpn.
-
-Je vais tester 
-OK I figured out what I needed to do for the VPN system to start generating VPN clients properly:
-
-    Disable VPN permission for all groups
-    Disable the VPN service under System Admin
-    Remove all VPN clients
-
-Run the following commands from the CLI:
-
-rm -rf /etc/openvpn/clients/*
-rm -rf /etc/openvpn/client/*
-rm -rf /etc/openvpn/ccd/*
-rm -rf /etc/openvpn/sysadmin_*
-rm -rf /etc/openvpn/ipp.txt
-cd /etc/openvpn/easyrsa3
-./easyrsa init-pki
-
-At this point you can reenable the VPN and it will recreate the CA and certificates. You can then reset your group permission to auto-assign VPN clients and then you can assign them to phones.
-
-The original bug of creating VPN clients for every single user in the system when dealing with a single user is still a problem though.
-
-Je n'arrive pas a mettre le VPN client dans Endpoint Manager / Mapping Extendion / . Je renouvelle la licence de Endpoint Manager et mise à jour et voila je peux mettre mettre le VPN client.
-
-Il y a un probleme  avec la provisionning configuration. L'IP externe à changé au cabinet. Mais elle n'a pas changé sur le téléphone. Et j'ai dans le téléphone Menu /Settings / advanced settings / autoprovioning / :
-- Upgrade mode : http
-- firmware server http ::/user:passwd@IP ancienne du server freepbx:83/sangoma/1
-- config server : http ::/user:passwd@IP ancienne du server freepbx:83
-
-Est ce que je dois updater ces données manuellement sur le téléphone ou bien il devrait récuperer ces données sur le serveur automatiquement. Ca n'a pas l'air de changer si je fais un reboot du phone, force phone to check config. Du coup dans le téléphone Menu /Settings / advanced settings / Phone settings / Factory reset. Il y a d'autres facon de faire un reset (https://wiki.freepbx.org/display/PHON/Factory+Reset )  C'est assez long. L'ecran devient tres différent. Menu phone/ settings / advanced settings password "admin" / autoprovisioning on a config server : https://rs.sangoma.net/cfg
-Dans advanced settings / network / VPN / VPN active Disable.
-
-Je suis avec un ip phone factory resetté. http://ipduphone gui (password admin login admin) Je vais dans le gui pbx et je fais Endpoint Manager / estension Mapping / Edit  / Save, Rebuild Config and update Device : Apply. il ne se passe rien au niveau de l'IP phone.
-On essaye force phone to reboot. cela ne fait rien.
-
-Je vais dans le web gui du phone je fais Management / autoprovisionning :
-- firmware server path : http://user:passwod@goeen.ddns.net:83/sangoma/1
-- Config server path : http://user:passwod@goeen.ddns.net:83
-- save
-- autoprovisionning cela bouge sur l'ecran du phone. Mais au final je n'ai pas la meme configuration de l'écran du phone que celle que j'attendais. Restart sur le web gui du phone. j'ai pas la meme configuration de l'écran. Enpoint Manager / extension mapping / force phone to check config il ne se passe rien sur le phone, force reboot il ne se passe rien sur le phone.
-
-Je change les ip d'autoprovisionning je passe à IPlocalduserveur. `autoprovisionning` il se passe plein de chose au niveau du téléphone, initialise, checking firmware, c'est long; tail -f /var/log/httpd/access.log donne des infos sur ce qui se passe et c'est cohérent. Et j'ai l'écran de telephone que j'ai configuré dans le endpoint management / template. Et j'ai affiche VPN activated. Mais je ne peux pas appeler. Je vois que le password du phone est passé à ce qui est spécifié dans le gui freepbx et n'est plus `admin`. Je vois que le provisionning à été changé en :
-http://user:password@FQDNDynamic:83.
-Je rentre à la maison et j'essaie de le connecter. A la maison boot du phone. Qui récupère une adresse ip local de la maison et donc cela ne marche pas. Tail -f /var/log/httpd/access.log ne donne rien. 
-
-Donc je me dis que c'est goeen.ddns.net qui ne va pas. Endpoint manager / Global setting / Ip external : `auto` Save Global. Ip external passe à l'IP public du router. Je rentre cette ip dansle web gui du phone. SaveSet Autoprovision now autoprovision success. Dans le phone j'ai bien la nouvelle adresse. je fais un resart. Reboot please wait. Cela ne marche pas non plus j'ai toujours une adresse ip privée de la maison.
-
-Avec le web gui du tel depuis la maison je mets 10.66.0.2 
-Autoprovisionning il ne passe pas grand chose. Restart. Reboot
-initialisation. Cela n'a rien changé. toujours une ip local au reseau de la maison.
-
-https://wiki.freepbx.org/display/PHON/VPN+Setup
-https://wiki.freepbx.org/display/FPG/System+Admin+-+VPN+Server
-
-
-Je suis tres avancé dans la configuration du vpn mais le telephone récupère une adress ip locale et pas une ip vpn. 
-Dans le fichier de conf du client je vois `remote FQDNDDNS` et je me demande si c'est pas cela le probleme. Je regarde comment sont les fichiers de conf du vpn de la maison qui fonctionne. et j'ai bien `remote FQDNDDNS 1200`. Donc c'est pas cela le probleme.
-
-reboot the phone sur un lan remote. tail -f /var/log/messages. Tout semble OK. 
-System admin / VPN Server / le client à un address IP et Connected avec la date de la connection. 
-
-reboot du phone il ne se passe rien dans le freenas# tail -f /var/log/messages
-reboot du phone `tail -f /etc/openvpn/sysadmin_server1-status.log` Il ne se passe rien. 
-reboot du phone `tail -f /var/log/messages` il ne se passe rien. 
-reboot du phone `tail -f /var/log/httpd/accesslog` il se passe des choses. Il semble que l'ipphone récupere des fichiers.
 
 ## Settings / asterisk sip settings TRES IMPORTANT PEUT ETRE 
 je vois que NAT settings external adress n'est plus la bonne. Je clique sur `Detect Network settings` / SUBMIT / Apply config.
@@ -2413,11 +1769,6 @@ Admin / user management / VPN onglet / Auto create & link je laisse inherit | de
 Settings / endpoint management / Extension mapping / edit et VPN client (tout en bas) : None --> me proposait rien mais maintenant que j'ai configurer le user c'est bon.
 Save rebuild configs and update device.
 
-
-## DDNS 
-DEPLOYMENTNUMBER.deployments.pbxact.com semble etre une url ddns pour l'adresse IP externe du router freepbx
-
-je me demande si je ne peux pas utiliser ce DEPLOYMENT.deployment.pbxact.com 1194 come ddns pour d'autres services? TODO
 
 
 ## samedi matin
@@ -2860,7 +2211,7 @@ syslog de l'ip phone qd SIP registered
 [11-18 16:56:08 50:19:73]  check_boot_imge_new ,6365!
 ``` 
 
-<<<<<<< HEAD
+
 Je refais un reboot pour récupérer le syslog. 
 un syslog sans vpn 
 Endpoint extension / extension mapping / VPN Client : None / Save and Rebuild / Apply.
@@ -2872,7 +2223,7 @@ acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
 [2019-11-18 21:08:09] DEBUG[16667] netsock2.c: Splitting '10.66.0.138:5060' into...
 [2019-11-18 21:08:09] DEBUG[16667] netsock2.c: ...host '10.66.0.138' and port '5060'.
 [2019-11-18 21:08:09] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for a4f2a061178e325@10.66.0.138 - REGISTER (No RTP)
-=======
+
 Je vais mettre un vpn client dans le user
 User management / VPN tab il y est deja alors que je l'avais enlevé tout à l'heure
 Endpoint management / extension mapping / edit / verifié qu'il y ait / save and rebuild / Apply
@@ -5425,17 +4776,6 @@ je crée  une extension, le system crée automatiquement un user. Je demande à 
 Il est effectivement créé 
 
 
-
-
-
-	
-	
-	
-	
-	
-	
-	
-	
 	
 # Connectivity / Trunks and weak secret 
 On peut aller dans Setting / Weak Password detection et on trouve deux weak password  

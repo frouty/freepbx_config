@@ -9,9 +9,20 @@ Welcome to Freenas Doc's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-   Recovery
+   
+   email_server_config
+   Recovery_with_usb_key
    Resetting-password
-
+   En_Resume
+   Vega50_BRI_Config
+   Connection_Vega50_Freepbx
+   DAHDI_config
+   Outbound_Route
+   Inbound_Route
+   firewall
+   fail2ban
+   VPN_IPphone_config
+   
 Indices and tables
 ==================
 

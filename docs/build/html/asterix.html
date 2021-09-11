@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Asterisk &#8212; Freenas Doc v1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="asterisk">
+<h1>Asterisk<a class="headerlink" href="#asterisk" title="Permalink to this headline">¶</a></h1>
+<section id="comment-connaitre-sa-version-d-asterisk">
+<h2>Comment connaitre sa version d’asterisk<a class="headerlink" href="#comment-connaitre-sa-version-d-asterisk" title="Permalink to this headline">¶</a></h2>
+<p>asterisk -x “core show version”</p>
+</section>
+<section id="cli">
+<h2>CLI<a class="headerlink" href="#cli" title="Permalink to this headline">¶</a></h2>
+<p>on peut utiliser les commandes CLI dans le web GUI.
+- Admin
+- Asterisk CLI</p>
+<p>On peut les utiliser apres un ssh <a class="reference external" href="mailto:root&#37;&#52;&#48;freepbxIP">root<span>&#64;</span>freepbxIP</a></p>
+<p>Si on fait un CLI&gt; <cite>core stop now</cite>
+Mais là on ne peut plus se reconnecter à asterisk.</p>
+<p>Faire un ssh puis
+<cite>fwconsole stop</cite>
+<cite>fwconsole restart</cite>
+<cite>fwconsole trunks</cite></p>
+<section id="pour-entrer-dans-les-commands-line-d-asterisk">
+<h3>Pour entrer dans les commands line d’asterisk<a class="headerlink" href="#pour-entrer-dans-les-commands-line-d-asterisk" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><cite>asterisk -r | asterisk -rvvv</cite></p></li>
+<li><p>Le prompt change en localhost*CLI&gt;</p></li>
+<li><p>? pour avoir toute les commandes</p></li>
+</ul>
+</section>
+<section id="quelques-commandes-utiles">
+<h3>Quelques commandes utiles<a class="headerlink" href="#quelques-commandes-utiles" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><cite>sip show peers</cite></p></li>
+<li><p><cite>sip show peer &lt;extension number&gt;</cite></p></li>
+<li><p><cite>sip show registry</cite></p></li>
+<li><p><cite>asterisk -rx</cite></p></li>
+<li><p><cite>sip show users</cite></p></li>
+</ul>
+</section>
+</section>
+<section id="deboger-asterisk">
+<h2>Déboger Asterisk<a class="headerlink" href="#deboger-asterisk" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>ssh <a class="reference external" href="mailto:root&#37;&#52;&#48;FreePBXIP">root<span>&#64;</span>FreePBXIP</a></p></li>
+<li><p>asterisk -rvvv</p></li>
+<li><p><cite>sip set debug on</cite></p></li>
+<li><p><cite>sip set debug 10</cite></p></li>
+<li><p><cite>sip set debug off</cite></p></li>
+</ul>
+</section>
+<section id="logger">
+<h2>Logger<a class="headerlink" href="#logger" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://wiki.asterisk.org/wiki/display/AST/Collecting+Debug+Information">https://wiki.asterisk.org/wiki/display/AST/Collecting+Debug+Information</a></p>
+<section id="comment-annuler-les-log-output">
+<h3>Comment annuler les log output<a class="headerlink" href="#comment-annuler-les-log-output" title="Permalink to this headline">¶</a></h3>
+<p>Comment annuler les log output in CLI asterisk: CLI&gt; logger mute</p>
+</section>
+<section id="comment-avoir-des-infos-sur-les-autres-commandes-de-logger">
+<h3>Comment avoir des infos sur les autres commandes de logger<a class="headerlink" href="#comment-avoir-des-infos-sur-les-autres-commandes-de-logger" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>core show help logger</p>
+</div></blockquote>
+</section>
+</section>
+<section id="couldn-t-connect-to-asterisk">
+<h2>Couldn’t connect to asterisk<a class="headerlink" href="#couldn-t-connect-to-asterisk" title="Permalink to this headline">¶</a></h2>
+<p>Apres un reboot forcé par interruption du courant j’ai le msg
+<em>couldn’t connect to asterisk</em>
+je n’ai rien fait j’ai attendu un peu.</p>
+<section id="can-not-connect-to-asterisk">
+<h3>Can not connect to Asterisk<a class="headerlink" href="#can-not-connect-to-asterisk" title="Permalink to this headline">¶</a></h3>
+<p>ssh <a class="reference external" href="mailto:root&#37;&#52;&#48;IPFREEPBX">root<span>&#64;</span>IPFREEPBX</a>
+<cite>fwconsole restart</cite></p>
+</section>
+</section>
+<section id="debugger-asterisk">
+<h2>Debugger asterisk<a class="headerlink" href="#debugger-asterisk" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://support.telosalliance.com/article/nf69bavy6e-how-to-enable-asterisk-debug-logging">https://support.telosalliance.com/article/nf69bavy6e-how-to-enable-asterisk-debug-logging</a></p>
+<p>Ca marche mais je n’ai pas reussi a faire quelque chose avec.</p>
+<p>CLI&gt;
+asterisk -r
+core set verbose 5
+core set debug 5
+sip set debug on
+module logger reload</p>
+<p>the log file /var/log/asterisk/full</p>
+<p>Revert the logging level using the following commands:</p>
+<p>asterisk -r
+core set verbose 0
+core set debug 0
+sip set debug off
+module logger reload</p>
+<p>pour éviter d’avoir un espace disk full.</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Freenas Doc</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Recovery_with_usb_key.html">Recovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Resetting-password.html">Resetting password</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Laurent FRANCOIS.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/asterix.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
