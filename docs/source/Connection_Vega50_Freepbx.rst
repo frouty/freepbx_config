@@ -1,6 +1,14 @@
 Connection du Freepbx au Vega50
 ===============================
 
+- 1 Creer un trunk
+- 2 Creer une oubound route qui va utiliser le trunk créé ci-dessus
+- 3 Créer une extension 
+- 4 Créer une inbound route 
+- 5 Configuration du vega 50 `ici <https://www.elastix.org/wp-content/uploads/sites/34/2016/01/sangoma-vega-50-bri_gateway_setupguide.pdf>`_
+
+
+
 Connectivity / Trunk 
 
 Trunk module
