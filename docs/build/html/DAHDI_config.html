@@ -15,6 +15,8 @@
     <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Outboud Route" href="Outbound_Route.html" />
+    <link rel="prev" title="Connection du Freepbx au Vega50" href="Connection_Vega50_Freepbx.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -33,19 +35,28 @@
             
   <section id="dahdi-config">
 <h1>DAHDI Config<a class="headerlink" href="#dahdi-config" title="Permalink to this headline">¶</a></h1>
-<p>Dans ce mdule DAHDI Config on configure les port FXO</p>
+<p>Dans ce module DAHDI Config on configure les port FXO</p>
 <p><a class="reference external" href="http://wiki.freepbx.org/display/FPG/DAHDI+Configs">http://wiki.freepbx.org/display/FPG/DAHDI+Configs</a></p>
+<p><a class="reference external" href="https://wiki.freepbx.org/display/PC/Telephony+Cards+with+FreePBX+Distro#TelephonyCardswithFreePBXDistro-Overview">https://wiki.freepbx.org/display/PC/Telephony+Cards+with+FreePBX+Distro#TelephonyCardswithFreePBXDistro-Overview</a></p>
 <p><a class="reference external" href="http://documentation.xivo.io/en/stable/administration/hardware/hardware.html">http://documentation.xivo.io/en/stable/administration/hardware/hardware.html</a></p>
 <p><a class="reference external" href="http://www.voip-info.org/wiki/view/DAHDI">http://www.voip-info.org/wiki/view/DAHDI</a></p>
 <p>J’ai une carte avec 4 ports FXO sur l’appliance sangoma pour y brancher les cables analogiques de l’OPT.</p>
-<p>cat /proc/dahdi
-dahdi_hardware
-asterisk -rvd</p>
+<p>cat /proc/dahdi</p>
+<p>dahdi_hardware</p>
+<p>asterisk -rvd</p>
+<section id="configuration-dans-freepbx-des-telephony-cards">
+<h2>Configuration dans freepbx des telephony cards.<a class="headerlink" href="#configuration-dans-freepbx-des-telephony-cards" title="Permalink to this headline">¶</a></h2>
+<p>Connectivity / Dahdi config</p>
+</section>
 <section id="dahdi-configs-module">
 <h2>DAHDI Configs module<a class="headerlink" href="#dahdi-configs-module" title="Permalink to this headline">¶</a></h2>
 <p>Permet de configurer les DAHDI PSTN card (analog, T1/E1/PRI or BRI’s.).</p>
 <p>On clique sur <cite>Connectivity / DAHDI</cite></p>
 <p><a class="reference external" href="https://wiki.freepbx.org/display/FPG/DAHDI+Configs">https://wiki.freepbx.org/display/FPG/DAHDI+Configs</a> pour plus de détails.</p>
+<p>Autodetect toutes les cartes installées. Je vois que dans l’onglet digital hardware il y a rien. Ce qui est normal car je n’ai pas de carte digitale dans l’appliance.</p>
+<p>Analog hardware il y a: FXO ports 1,2,3,4
+FXO Ports 1,2,3,4 Edit et on leur assigne un group. Group que l’on va utiliser dans connectivity / trunk / Add trunk onglet dahdi settings / Dahdi trunk choix des groups</p>
+<p>Lors de la deuxieme installation les cartes FXO n’ont pas été automatiquement reconnue. Voir ci-dessous le setup.</p>
 </section>
 <section id="comment-savoir-si-ma-telephony-card-est-bien-reconnue-par-le-freepbx">
 <h2>Comment savoir si ma telephony card est bien reconnue par le FreePBX<a class="headerlink" href="#comment-savoir-si-ma-telephony-card-est-bien-reconnue-par-le-freepbx" title="Permalink to this headline">¶</a></h2>
@@ -62,12 +73,15 @@ asterisk -rvd</p>
 <div><p><a class="reference external" href="https://issues.freepbx.org/browse/FREEPBX-12867">https://issues.freepbx.org/browse/FREEPBX-12867</a></p>
 <p>Il faut faire:</p>
 <ul class="simple">
-<li><p>Desactiver le DAHDI module avec : Admin / Module Admin / DAHDI Config / Action : Disable.</p></li>
+<li><dl class="simple">
+<dt>Desactiver le DAHDI module avec<span class="classifier">Admin / Module Admin / DAHDI Config / Action</span><span class="classifier">Disable.</span></dt><dd><p>Process / Confirm / Apply config</p>
+</dd>
+</dl>
+</li>
+<li><p>Reboot</p></li>
+<li><p>Running “/usr/sbin/wancfg_dahdi” at the cli.</p></li>
 </ul>
-<p>Process / Confirm / Apply config
-- Reboot
-- Running “/usr/sbin/wancfg_dahdi” at the cli.
-je répond aux nombreuese questions.</p>
+<p>je répond aux nombreuese questions.</p>
 </div></blockquote>
 </section>
 <section id="a200-detected-on-slot-4-bus-8">
@@ -113,8 +127,8 @@ je répond aux nombreuese questions.</p>
 </dd>
 </dl>
 <p>[1-3, ENTER=’FCC’]:</p>
-<p>Press any key to continue:
-AFT-200 configured on slot:4 bus:8 span:1</p>
+<p>Press any key to continue:</p>
+<p>AFT-200 configured on slot:4 bus:8 span:1</p>
 <p>Analog card configuration complete</p>
 <p>Press any key to continue:
 Dahdi and Wanpipe configuration complete: choose action</p>
@@ -163,18 +177,23 @@ wrtdm Board 1                            OK      0      0      0      CAS Unk   
 <div><p>Chan Extension       Context         Language   MOH Interpret        Blocked    In Service Description</p>
 </div></blockquote>
 <p>pseudo                 default                    default                         Yes</p>
-<p>C’est pas tres bon signe.</p>
-<p># DAHDI Configs module</p>
+<p>C’est pas très bon signe.</p>
 </dd>
 </dl>
+</section>
+<section id="id1">
+<h2>DAHDI Configs module<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>Permet de configurer les DAHDI PSTN card (analog, T1/E1/PRI or BRI’s.).</p>
 <p>On clique sur <cite>Connectivity / DAHDI</cite></p>
 <p><a class="reference external" href="https://wiki.freepbx.org/display/FPG/DAHDI+Configs">https://wiki.freepbx.org/display/FPG/DAHDI+Configs</a> pour plus de détails.</p>
+</section>
+<section id="debugging-sangoma-card">
+<h2>Debugging sangoma card<a class="headerlink" href="#debugging-sangoma-card" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><p><a class="reference external" href="https://uclord.wordpress.com/tag/sangoma-card/">ici</a>
--&gt; /etc/dahdi/system.conf</p>
+<div><p><a class="reference external" href="https://uclord.wordpress.com/tag/sangoma-card/">ici</a></p>
 </div></blockquote>
-<p>-&gt; /etc/asterisk/chan_dahdi.conf  : contient les paramètres généraux du DAHDI channel.</p>
+<p>-&gt; /etc/dahdi/system.conf
+-&gt; /etc/asterisk/chan_dahdi.conf  : contient les paramètres généraux du DAHDI channel.</p>
 <blockquote>
 <div><p>1 Stop asterisk
 2 Restart wanpipe driver : # wanrouter restart
@@ -212,19 +231,19 @@ Une fois que l’on a assigné un DID, on peut utiliser les Inbound Route pour r
 <p>Il <em>FAUT</em> que le <em>context</em> du channel soit à <em>from-analog</em> : <cite>context = from-analog</cite> in your chan_dahdi.conf. Cela se fait dans le DAHDI config module</p>
 <section id="what-is-the-dahdi-channel-dids-module-used-for">
 <h3>What is the DAHDI Channel DIDs module used for?<a class="headerlink" href="#what-is-the-dahdi-channel-dids-module-used-for" title="Permalink to this headline">¶</a></h3>
-<p>The DAHDI Channel DIDs module allows you to assign a DID or phone number to specific analog channels.
-Unlike SIP or PRI trunks, analog lines do not send a DID or dialed number to the PBX. Since the PBX routes all inbound calls based on the DID or number dialed, we need to map each analog port or channel to a fake number so we can match that number to an Inbound Route number and route your calls.
-Each channel can be mapped to the same phone number if you want all calls on the analog lines to go to the same destination. This would be a common scenario if you have multiple POTS lines that are on a hunt group from your provider.
-You MUST assign the channel’s context to from-analog for these settings to have effect. It will be a line that looks like: context = from-analog in your chan_dahdi.conf configuration affecting the specified channel(s). Once you have assigned DIDs, you can use standard Inbound Routes with the specified DIDs to route your calls.</p>
-<p>Channel
-The DAHDI Channel number to map to a DID. For example, If you have a 4-port card, your channels would be ports 1-4.</p>
+<p>The DAHDI Channel DIDs module allows you to assign a DID or phone number to specific analog channels.</p>
+<p>Unlike SIP or PRI trunks, analog lines do not send a DID or dialed number to the PBX. Since the PBX routes all inbound calls based on the DID or number dialed, we need to map each analog port or channel to a fake number so we can match that number to an Inbound Route number and route your calls.</p>
+<p>Each channel can be mapped to the same phone number if you want all calls on the analog lines to go to the same destination. This would be a common scenario if you have multiple POTS lines that are on a hunt group from your provider.</p>
+<p>You MUST assign the channel’s context to from-analog for these settings to have effect. It will be a line that looks like: context = from-analog in your chan_dahdi.conf configuration affecting the specified channel(s).</p>
+<p>Once you have assigned DIDs, you can use standard Inbound Routes with the specified DIDs to route your calls.</p>
+<p>Channel = The DAHDI Channel number to map to a DID. For example, If you have a 4-port card, your channels would be ports 1-4.</p>
 </section>
 <section id="comment-faire-pour-qu-une-ligne-pstn-soit-affectee-a-une-certaine-inbound-route">
 <h3>Comment faire pour qu’une ligne pstn soit affectée à une certaine inbound route?<a class="headerlink" href="#comment-faire-pour-qu-une-ligne-pstn-soit-affectee-a-une-certaine-inbound-route" title="Permalink to this headline">¶</a></h3>
 <p><cite>Connectivity - DAHDI Channel DIDs</cite> :
 A chaque ports FXO on assigne un DID (un numero de téléphone fictif. On mettra celui de la ligne PSTN). On mappe ainsi les FXO à une ligne PSTN.
 Car le fournisseur ne passe pas le DID dans les lignes analogiques.
-Puis dans Inbound Route on utilise ce DID pour router l’appel.</p>
+Puis dans Inbound Route on utilise ce DID pour router l’appel depuis l’exterieur vers une destination qui peut etre une extension, un fax, un IVR.</p>
 </section>
 </section>
 <section id="commment-savoir-sur-quel-port-de-ma-carte-sangoma-la-ligne-pots-est-branchee">
@@ -251,15 +270,36 @@ Puis dans Inbound Route on utilise ce DID pour router l’appel.</p>
 
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="email_server_config.html">Comment permettre à freepbx d’envoyer des emails</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Recovery_with_usb_key.html">Recovery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Resetting-password.html">Resetting password</a></li>
+<li class="toctree-l1"><a class="reference internal" href="En_Resume.html">Config du Freepbx en resume.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vega50_BRI_Config.html">Configuration du VEGA 50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html">Connection du Freepbx au Vega50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html#comment-relier-le-vega-50-au-freepbx">Comment relier le VEGA 50 au Freepbx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html#comment-voir-si-le-trunk-est-up">Comment voir si le trunk est up?</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DAHDI Config</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-dans-freepbx-des-telephony-cards">Configuration dans freepbx des telephony cards.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dahdi-configs-module">DAHDI Configs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#comment-savoir-si-ma-telephony-card-est-bien-reconnue-par-le-freepbx">Comment savoir si ma telephony card est bien reconnue par le FreePBX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a200-detected-on-slot-4-bus-8">A200 detected on slot:4 bus:8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">DAHDI Configs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#debugging-sangoma-card">Debugging sangoma card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dahdi-analog-channel-dids-module">DAHDI (Analog) Channel DIDs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commment-savoir-sur-quel-port-de-ma-carte-sangoma-la-ligne-pots-est-branchee">Commment savoir sur quel port de ma carte sangoma la ligne POTS est branchée?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Outbound_Route.html">Outboud Route</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Inbound_Route.html">Inbound Route</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Connection_Vega50_Freepbx.html" title="previous chapter">Connection du Freepbx au Vega50</a></li>
+      <li>Next: <a href="Outbound_Route.html" title="next chapter">Outboud Route</a></li>
   </ul></li>
 </ul>
 </div>

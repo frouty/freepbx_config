@@ -2,6 +2,8 @@
 Firewall 
 ========
 
+https://wiki.freepbx.org/display/FPG/Firewall
+
 Connectivity / Firewall  
 il y a plusieurs pages de configurations  que l'on selectionne avec l'icone a droite.
 
@@ -51,3 +53,34 @@ Je me suis trouvé bloqué ne pouvant plus acceder au webgui a cause du firewall
 -`ssh root@IP_FREEPBX`
 - `fwconsole firewall disable`
 ca ne marche pas toujours.
+
+Firewall net/ interfaces 
+
+Qd on crée une interface elle est par défaut sur **Trusted (Exclude from Firewall)**. c'est une misconfiguration. 
+Je la mets en **Local(Local trusted traffic)** Mais il faudrait la mettre en **Internet(Default Firewall)**
+
+Firewall / Responsive Firewall / Responsive Firewall Enable.
+
+
+Toutes les network interfaces ont une zone par default et les datas qui arrivent à cette zone sont traitées comme appartenant à cette zone. 
+
+Les zones sont :
+
+- **Reject**
+    Tous les paquets sont rejetés. Seul le traffic RTP est accepté.
+     
+- **Internet** 
+    Accepte seulement https connection WEBgui, et UCP
+
+- **Other**
+    pour les advanced users, DMZ or OpenVPN network. 
+
+- **Local**
+    Pour les interfaces qui n'ont pas de traffic d'ordinateur de l'extérieur.
+    
+- **Trusted**
+    No firewalling is done on this interface, all incoming traffic from a trusted zone is permitted.
+    On peut affecter un network ou un host à cette zone mais pas une interface.
+    
+On affecte les services à des zones et ensuite des interfaces ou des reseaux à des zones.
+    

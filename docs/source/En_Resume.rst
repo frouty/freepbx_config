@@ -9,11 +9,13 @@ Config du VEGA donc de la ligne BRI
 -----------------------------------
 
 1 configuration du vega avec le webGUI du vega
-2 Configuration d'un sip (chan_pjsip) (chan_sip je n'ai pas reussi à le faire marcher) qui relie  le vega au freepbx
-4 outbound route : on y  fait un mapping entre une numerotation et d'autres criteres et un trunk de sortie de l'appel.
-5 inbound route : on y fait un mapping entre un DID (destination id) et une destination comme une extension par exemple.
-le DID semble etre tout simplement le numero de telephone. Peut etre que les 4 derniers chiffres.
 
+2 Configuration d'un sip (chan_pjsip) (chan_sip je n'ai pas reussi à le faire marcher) qui relie  le vega au freepbx
+
+4 outbound route : on y  fait un mapping entre une numerotation et d'autres criteres et un trunk de sortie de l'appel.
+
+5 inbound route : on y fait un mapping entre un DID (destination id) et une destination comme une extension par exemple.
+le DID semble etre tout simplement le numero de telephone. Peut etre que les 4 derniers chiffres. On peut mettre ANY, c'était comme cela en 13 mais je ne comprends pas tres bien.
 Config des lignes analogiques 
 -----------------------------
 

@@ -3,19 +3,7 @@
 # documentation 
 [ici](https://wiki.freepbx.org/#all-updates)
 
-# My Config
-My config: 
-- Sangoma appliance,
-- ip phones: 
-	- 2 sangoma s500, 
-	- 1 sangoma S700 et 
-	- 1 polycom vx400  
 
-- vega50 gateway for one BRI line, 
-- a sangoma FXO card 4 ports for 2 analogic lines.  
-- Cisco SG500-28P switch  
-- Main router: 
-	- TPLINK ARCHER C7 openwrt Chaos Calmer.
 
 # Connaitre sa version
 - `cat /etc/schmooze/pbx-version` : 10.13.66-14
@@ -61,21 +49,11 @@ https://bitbucket.org/frouty/reseau_informatique.mlp/src/1104dc9e30f5?at=master
 
 
 
-# Power off
-## WebGUI
-`̀Admin / System Admin / Power Options / Power off`
-## ssh consol
-- `fwconsole stop`
-- puis `shutdown -r now`
 
-
-# Power on
 
 # Comment savoir l'état du disk  
 `̀Admin / System Admin / Storage`
-# Comment mettre à jour l'achat de modules commerciaux
-`Admin -> System Admin -> Activation -> Update activation` (en bas à droite)
-Il faut faire l'activation pour pouvoir acheter des modules commerciaux.
+
 
 # Comment lire les fichiers de config  
 `Admin / Config Edit`
@@ -137,50 +115,22 @@ localhost.localdomain -> FreePBX.MLP
 4 connectivity / inbound route / on va mapper le CID entrant avec une extension.
 =======
   
+<<<<<<< HEAD
+=======
 >>>>>>> c3d74e468ba8785461b55d0696c17a8d7740c8f1
 # Extension
 ## Comment Creer une extension
 - 1 On crée l'extension : Application / Extension / Add Extension / Add New CHAN_SIP Extension
 - 2 On la link à un user : Link to a default user : Create New User.  
 Le systeme crée automatiquement un nouveau user que l'on peut configurer dans Admin / User Management.  
+>>>>>>> branch 'master' of git@github.com:frouty/freepbx_config.git
 
-## Une fois que l'on a crée l'extension on va la linker à un poste IP phone.
-- Settings / EndPoint Manager / Extension Mapping
-- Add Mapping  Extension  
-- On choisit l'extension  qui elle même est mappée à un user.
-	- un account (cet account est quelque chose dans le téléphone)
-	- Une marque de téléphone 
-	- MAC adress d'IP Phone.  
-	- Template qui est un fichier de configuration qui correspond à un type de téléphone.
-	- Modele de téléphone.
 	
   dans le endpoint management je retrouve le login et le password que je vais mettre dans le webgui de l'ipphone : Management/autoprovisionning https/http password et login
   puis management reboot. mais rien a faire le telephone ne recupere pas la config.
   dans le webgui du tel je rentre l'adresse sous la forme http://username:password@ipfreepbx:port.
   On trouve username / password / port dans Endpoint management / global settings et aussi dans Admin / System Admin / Provisionning protocole.
   
-
-# Comment savoir à quelle IP phone un user est relié?
-Application / Extension  
-Et on peut relier un user à une extension dans:  
-Admin - User Management - Primary Linked Extension
-	
-## Application -> Extension -> Quick Extension Create
-TODO
-
-Normalement chaque IP phone est assigné à une extension. S'il y a plusieurs lines button sur le phone (?) http://wiki.freepbx.org/display/FPG/Extensions+Module
-
-Extension Module marche avec d'autres modules
-* Inbound Routes Module, 
-* Ring Groups Module, 
-* Queues Module, 
-* Paging Module,
-* Follow Me Module, because each extension can have its own Follow Me options (?).
-* Advanced Settings Module. 
-  * Device Settings section of the Advanced Settings Module, you can change a number of the default settings that will apply when you create a new extension.
-  * Advanced Settings Module can be used to enable Device and User Mode. When Device and User Mode is enabled, the Extensions Module will disappear and be replaced with two separate modules called "Devices" and "Users."
-
-* User Management Module. In the User Management Module, a user may have a "primary linked extension." (?)
 
 # Où est ce que l'on configure ce qui se passe lorsque l'on ne répond pas à son téléphone IP?
 On peut configurer le cas ou :
@@ -203,21 +153,6 @@ Ne doit pas etre dans une Queue ou un Ring Group.
 - `Not Reachable` qd le phone n'est pas branché.
 
 
-
-# Configuration dans freepbx des telephony cards.
-https://wiki.freepbx.org/display/PC/Telephony+Cards+with+FreePBX+Distro#TelephonyCardswithFreePBXDistro-Overview
-
-Connectivity / Dahdi config
-
-Autodetect toutes les cartes installées. Je vois que dans l'onglet digital hardware il y a rien. Ce qui est normal car je n'ai pas de carte digitale dans l'appliance.
-Analog hardware il y a: FXO ports 1,2,3,4
-FXO Ports 1,2,3,4 Edit et on leur assigne un group. Group que l'on va utiliser dans connectivity / trunk / Add trunk onglet dahdi settings / Dahdi trunk choix des groups
-
-
-
-
-
-
 # Comment mettre une Outbound route qui va utiliser un port FXO.
 Exemple les orthoptiste utilisent leur ligne FXO pour appeler.
 - Connection / Outbound Route
@@ -226,10 +161,6 @@ Exemple les orthoptiste utilisent leur ligne FXO pour appeler.
 		- Connectivity / Trunk / Add trunk / de type :  DAHDI
 		- dans l'onglet dahdi settings : Analog channel 2 (je suppose que c'est le port FXO N°2)
 	
-
-# DADHI extension c'est quoi?
-Je pense que c'est pour configuer un device analogique branché sur une FXS.  
-
 
 # Configuration d'une phone IP avec End Point Manager (EPM)
 
@@ -274,22 +205,8 @@ Essayer de téléphoner
 Clock *60  
 echo test *43
 
-# Inbound route  
-When a call comes into your system from the outside, it will usually arrive along with information about the telephone number that was dialed (also known as the "DID") and the Caller ID of the person who called.
-The Inbound Routes module is the mechanism used to tell your PBX where to route inbound calls based on the phone number or DID dialed.  
-Calls come into your system on trunks that are configured in the Trunks module.
 
-# DID (Direct Inward Dialing) Number
-Routing is based on the trunk on which the call is coming in. In the DID field, you will define the expected **DID Number** if your trunk passes the DID on incoming calls. Leave this blank to match calls with any or no DID info.  
 
-The DID number entered must match the format of the provider sending the DID. You can also use a pattern match to match a range of numbers.
-
-Patterns must begin with an underscore (\_) to signify they are patterns. Within patterns, X will match the numbers 0-9 and specific numbers can be matched if they are placed between square parentheses. 
-
-This field can also be left blank to match calls from all DIDs. This will also match calls that have no DID information.  
-
-# CID (Caller ID) Number
-Routing calls based on the caller ID : numero composé par l'appelant. Leave this field blank to match any or no CID info. In addition to standard dial sequences, you can also put “Private,” “Blocked,” “Unknown,” “Restricted,” “Anonymous” or “Unavailable” in order to catch these special cases if the telco transmits them.
 
 ## Comment gérer ce qui s'affiche sur l'écran du téléphone pour un appel entrant.
 Connectivity / inbound route / Edit l'inbound route qui nous intéresse./ CID name prefix (pe 'mutti-' 'francois-'
@@ -330,8 +247,7 @@ https://wiki.freepbx.org/display/PHON/Setup+Phone+by+hard+setting+provisioning+s
 - 1 dans le web GUI c'est dans les templates : `Settings / Endpoint management /brand`
 - 2 dans le telephone : Menu / settings /basic settings / Ring tones
 
-# Phone Polycom 
-http://kb.digium.com/articles/Configuration/Polycom-Phone-Provisioning-Guide?retURL=%2Fapex%2FknowledgeProduct&popup=false
+
 
 ## sur le telephone : Settings / advanced ... / password 22222
 j'ai changé on le trouve dans buttercup phone polycom
@@ -712,22 +628,7 @@ D'autre utilise le follow me sur l'extension.
 - local network 192.168.1.0 / 24
 
 
-# Time 
-- 1 Création d'un time group  : Application / Time Group. Il y a uniquement des informations de temps
-- 2 On utilise ce time group dans une time condition qui est relié :
-  - à un time group 
-  - et qui fait une action si le time group match: Destination matches et là on peut faire d'autes actions.
-  - ou ne match pas : Destination not matches : on peut faire d'autres actions. 
 
-## Time group
-que du temps
-
-## Time condition 
-un time group et deux actions possibles si match ou match pas.
-
-## Config actuel 
-Inbound Route DID = 281600 --> Set Destination = Time conditions = gooen open hours  
-Si c'est en open hours va sur une autre time condition qui va sur Annoucenment closed ou Misc destination. 
 # Comment on gere les SDA du tronc numeris?
 ## Comment diriger les appels du 29629x vers un user phone?
 ## Comment rediriger un appel entrant vers un numéro extérieur?
@@ -1857,11 +1758,6 @@ Settings / endpoint management / Extension mapping / edit et VPN client (tout en
 Save rebuild configs and update device.
 
 
-## DDNS 
-DEPLOYMENTNUMBER.deployments.pbxact.com semble etre une url ddns pour l'adresse IP externe du router freepbx
-
-je me demande si je ne peux pas utiliser ce DEPLOYMENT.deployment.pbxact.com 1194 come ddns pour d'autres services? TODO
-
 
 ## samedi matin
 - reboot du modemadsl
@@ -2303,7 +2199,7 @@ syslog de l'ip phone qd SIP registered
 [11-18 16:56:08 50:19:73]  check_boot_imge_new ,6365!
 ``` 
 
-<<<<<<< HEAD
+
 Je refais un reboot pour récupérer le syslog. 
 un syslog sans vpn 
 Endpoint extension / extension mapping / VPN Client : None / Save and Rebuild / Apply.
@@ -2315,7 +2211,7 @@ acl.c: For destination '10.66.0.138', our source address is '10.66.0.2'.
 [2019-11-18 21:08:09] DEBUG[16667] netsock2.c: Splitting '10.66.0.138:5060' into...
 [2019-11-18 21:08:09] DEBUG[16667] netsock2.c: ...host '10.66.0.138' and port '5060'.
 [2019-11-18 21:08:09] DEBUG[16667] chan_sip.c: Allocating new SIP dialog for a4f2a061178e325@10.66.0.138 - REGISTER (No RTP)
-=======
+
 Je vais mettre un vpn client dans le user
 User management / VPN tab il y est deja alors que je l'avais enlevé tout à l'heure
 Endpoint management / extension mapping / edit / verifié qu'il y ait / save and rebuild / Apply

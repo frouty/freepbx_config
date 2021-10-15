@@ -10,6 +10,7 @@ Welcome to Freenas Doc's documentation!
    :maxdepth: 2
    :caption: Contents:
    
+   email_server_config
    Recovery_with_usb_key
    Resetting-password
    En_Resume
@@ -18,6 +19,9 @@ Welcome to Freenas Doc's documentation!
    DAHDI_config
    Outbound_Route
    Inbound_Route
+   firewall
+   fail2ban
+   VPN_IPphone_config
    
 Indices and tables
 ==================
