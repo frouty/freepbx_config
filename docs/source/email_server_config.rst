@@ -2,14 +2,24 @@
 Comment permettre à freepbx d'envoyer des emails
 ================================================
 
+https://wiki.freepbx.org/display/FPG/System+Admin+-+Email+Setup
+
 Admin / System Admin / Email Setup  
+
 
 Choix du SMTP server
 --------------------
 
+gmail
+~~~~~
 J'ai essayé gmail mais je n'ai pas réussi.  
-`Use built in SMTP server`  
-- hostname = ?
+
+
+
+Use built in SMTP server  
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+- hostname = ? je ne comprends pas les explications du wiki
 - origin = ?
 - Domain = ?  
  
