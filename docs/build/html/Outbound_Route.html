@@ -4,12 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Outboud Route &#8212; Freenas Doc v1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
@@ -33,7 +32,7 @@
 
           <div class="body" role="main">
             
-  <section id="outboud-route">
+  <div class="section" id="outboud-route">
 <h1>Outboud Route<a class="headerlink" href="#outboud-route" title="Permalink to this headline">¶</a></h1>
 <p>Ici on configure la facon dont vont être gérés les appels sortants.
 Le point important c’est que l’on va affecter à une outbound route 1 ou plusieurs trunk.</p>
@@ -41,7 +40,7 @@ Le point important c’est que l’on va affecter à une outbound route 1 ou plu
 quelques exemples de regles:
 <a class="reference external" href="http://wiki.freepbx.org/display/FPG/Outbound+Routes+Configuration+Examples">ici</a></p>
 <p>Le module outbound route: <a class="reference external" href="http://wiki.freepbx.org/display/FPG/Outbound+Routes+Module">http://wiki.freepbx.org/display/FPG/Outbound+Routes+Module</a></p>
-<section id="outbound-route-dial-pattern">
+<div class="section" id="outbound-route-dial-pattern">
 <h2>Outbound route - dial pattern<a class="headerlink" href="#outbound-route-dial-pattern" title="Permalink to this headline">¶</a></h2>
 <p>(prepend) prefix | [pattern]/caller_id</p>
 <p>Un Dial Pattern est un ensemble unique de numéro qui va selectionner cette route et envoyer l’appel au trunk désigné.
@@ -57,8 +56,8 @@ N   matches tous les chiffres de 2-9
 <p>match pattern:  Le numéro composé est comparé à prefix + pattern. S’il y a correspondance la partie “pattern” sera envoyée au trunk.</p>
 <p>CallerID:   Si le callerID est fournie, le numéro composé correspondra au prefix + pattern si le caller ID transmit correspond à ce callerID. When extensions make outbound calls, the CallerID will be their extension number and NOT their Outbound CID. The above special matching sequences can be used for CallerID matching similar to other number matches.</p>
 <p><a class="reference external" href="https://wiki.asterisk.org/wiki/display/AST/Pattern+Matching">https://wiki.asterisk.org/wiki/display/AST/Pattern+Matching</a></p>
-</section>
-<section id="outbound-route">
+</div>
+<div class="section" id="outbound-route">
 <h2>Outbound Route<a class="headerlink" href="#outbound-route" title="Permalink to this headline">¶</a></h2>
 <p>on définit:
 * le trunk qui va etre utilisé. On peut définir plusieurs trunk. il faut donc définir le trunk avant l’outbound route.
@@ -72,7 +71,7 @@ Z   matches any digit from 1-9
 N   matches any digit from 2-9
 [1237-9] matches any digit or letter in the brackets (in this example, 1,2,3,7,8,9)
 .   wildcard, matches one or more characters (not allowed before a | or +)</p>
-<section id="exemples">
+<div class="section" id="exemples">
 <h3>Exemples<a class="headerlink" href="#exemples" title="Permalink to this headline">¶</a></h3>
 <p>Dialed Number Manipulation Rules:</p>
 <p>(49)+0|Z                           : this will strip the 0 from long distance Germany calls and add insted cuntry code 49</p>
@@ -104,9 +103,9 @@ Channel :
 The DAHDI Channel number to map to a DID. For example, If you have a 4-port card, your channels would be ports 1-4.</p>
 <p>En résumé pour router un appel arrivant d’une ligne analogique sur un port FXO:
 <cite>Connectivity -DAHDI channel DID</cite> pour définir un DID par port FXO (1, 2 , 3 , 4). Puis j’utilise ce DID dans la configuration des <cite>Connectivity - Inbound Route - Set destination</cite>.</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
           </div>
@@ -127,9 +126,14 @@ The DAHDI Channel number to map to a DID. For example, If you have a 4-port card
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="email_server_config.html">Comment permettre à freepbx d’envoyer des emails</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Recovery_with_usb_key.html">Recovery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Resetting-password.html">Resetting password</a></li>
 <li class="toctree-l1"><a class="reference internal" href="En_Resume.html">Config du Freepbx en resume.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vega50_BRI_Config.html">Configuration du VEGA 50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html">Connection du Freepbx au Vega50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html#comment-relier-le-vega-50-au-freepbx">Comment relier le VEGA 50 au Freepbx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html#comment-voir-si-le-trunk-est-up">Comment voir si le trunk est up?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DAHDI_config.html">DAHDI Config</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Outboud Route</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#outbound-route-dial-pattern">Outbound route - dial pattern</a></li>
@@ -137,6 +141,12 @@ The DAHDI Channel number to map to a DID. For example, If you have a 4-port card
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Inbound_Route.html">Inbound Route</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fail2ban.html">Fail2Ban</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html">Configuration du VPN server pour pouvoir enregistrer un IPphone en VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#comment-connaitre-la-status-de-openvpn">Comment connaitre la status de Openvpn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#vpn-23-03-2020-qui-marche">VPN 23/03/2020 qui marche</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#vpn-config-freepbx-15">VPN Config Freepbx 15</a></li>
 </ul>
 
 <div class="relations">
@@ -174,7 +184,7 @@ The DAHDI Channel number to map to a DID. For example, If you have a 4-port card
       &copy;2021, Laurent FRANCOIS.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

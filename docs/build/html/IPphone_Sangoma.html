@@ -4,12 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IPPhone Sangoma &#8212; Freenas Doc v1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
@@ -31,15 +30,15 @@
 
           <div class="body" role="main">
             
-  <section id="ipphone-sangoma">
+  <div class="section" id="ipphone-sangoma">
 <h1>IPPhone Sangoma<a class="headerlink" href="#ipphone-sangoma" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="http://wiki.freepbx.org/display/PHON">http://wiki.freepbx.org/display/PHON</a></p>
-<section id="comment-reset-factory-sans-connaitre-le-mot-de-passe">
+<div class="section" id="comment-reset-factory-sans-connaitre-le-mot-de-passe">
 <h2>Comment reset factory sans connaitre le mot de passe<a class="headerlink" href="#comment-reset-factory-sans-connaitre-le-mot-de-passe" title="Permalink to this headline">¶</a></h2>
 <p>Menu button -&gt; * key 3 fois -&gt; down arrow pour 10 s. Le téléphone reboot</p>
 <p>Le login / password par default apres un reset factory est : admin / admin</p>
-</section>
-<section id="reset-factory-connaissant-le-mote-de-passe">
+</div>
+<div class="section" id="reset-factory-connaissant-le-mote-de-passe">
 <h2>Reset factory connaissant le mote de passe<a class="headerlink" href="#reset-factory-connaissant-le-mote-de-passe" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p>s500
@@ -55,27 +54,27 @@
 <li><p>Polycom
 - TODO</p></li>
 </ul>
-</section>
-<section id="comment-trouver-l-ip-d-un-phone-sangoma-sur-l-ipphone">
+</div>
+<div class="section" id="comment-trouver-l-ip-d-un-phone-sangoma-sur-l-ipphone">
 <h2>Comment trouver l’IP d’un phone Sangoma sur l’ipphone<a class="headerlink" href="#comment-trouver-l-ip-d-un-phone-sangoma-sur-l-ipphone" title="Permalink to this headline">¶</a></h2>
 <p>menu -&gt; Status -&gt; information</p>
-</section>
-<section id="comment-trouver-modifier-login-password-pour-se-connecter-en-webgui-ou-sur-l-ecran-de-l-ipphone">
+</div>
+<div class="section" id="comment-trouver-modifier-login-password-pour-se-connecter-en-webgui-ou-sur-l-ecran-de-l-ipphone">
 <h2>Comment trouver/modifier  login/password pour se connecter en WebGUI ou sur l’ecran de l’ipphone?<a class="headerlink" href="#comment-trouver-modifier-login-password-pour-se-connecter-en-webgui-ou-sur-l-ecran-de-l-ipphone" title="Permalink to this headline">¶</a></h2>
 <p>On peut modifier de password dans : ?</p>
 <p>Setting / Endpoint Management / Global settings.</p>
 <p>C’est vrai une fois que l’ipphone c’est auto-provisionné sur le freepbx.</p>
-</section>
-<section id="comment-provisionner-un-ipphone-sur-le-freepbx">
+</div>
+<div class="section" id="comment-provisionner-un-ipphone-sur-le-freepbx">
 <h2>Comment provisionner un IPphone sur le freepbx<a class="headerlink" href="#comment-provisionner-un-ipphone-sur-le-freepbx" title="Permalink to this headline">¶</a></h2>
-<section id="les-3-facons-de-configurer-un-phone-sangoma">
+<div class="section" id="les-3-facons-de-configurer-un-phone-sangoma">
 <h3>Les 3 facons de configurer un phone Sangoma<a class="headerlink" href="#les-3-facons-de-configurer-un-phone-sangoma" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>1  redirection service (zero-touch auto-provisioning)</p></li>
 <li><p>2  DHCP option 66</p></li>
 <li><p>3  hard setting provisioning server</p></li>
 </ul>
-<section id="redirection-service-zero-touch-auto-provisioning">
+<div class="section" id="redirection-service-zero-touch-auto-provisioning">
 <h4>redirection service (zero-touch auto-provisioning)<a class="headerlink" href="#redirection-service-zero-touch-auto-provisioning" title="Permalink to this headline">¶</a></h4>
 <p>Dans le web GUI on verifie</p>
 <ul class="simple">
@@ -87,13 +86,13 @@
 <p>Pour utiliser le redirection service il faut l’enregistrer sur le portal de sangoma.
 <a class="reference external" href="https://portal.sangoma.com">https://portal.sangoma.com</a> cloud service &gt; sangoma phones &gt; register phone tab</p>
 <p>Je n’arrive pas. Claim adress mac du phone de hello cab. Me dit qu’il y a un probleme contacter le support.</p>
-</section>
-<section id="dhcp-option-66">
+</div>
+<div class="section" id="dhcp-option-66">
 <h4>DHCP option 66<a class="headerlink" href="#dhcp-option-66" title="Permalink to this headline">¶</a></h4>
 <p>ll faut que le serveur dhcp du routeur support le dhcp option 66</p>
 <p>Jamais fait comme cela</p>
-</section>
-<section id="the-hard-way">
+</div>
+<div class="section" id="the-hard-way">
 <h4>The hard way<a class="headerlink" href="#the-hard-way" title="Permalink to this headline">¶</a></h4>
 <p>C’est comme cela que je fais  chez moi.</p>
 <p>from the GUI of the phone
@@ -102,8 +101,8 @@ Management -&gt; Auto Provision - upgrade mode - config server path - autoprovis
 <p>upgrade mode = HTTP
 firmware server path : <a class="reference external" href="http://username:password&#64;IPFREEPBX:port">http://username:password&#64;IPFREEPBX:port</a>
 avec username / password / port que l’on trouve dans  System Admin / Provisionning protocole ou dans Endpoint Management / Global Setting c’est mieux.</p>
-</section>
-<section id="connecter-un-sangoma-phone-a-freepbx">
+</div>
+<div class="section" id="connecter-un-sangoma-phone-a-freepbx">
 <h4>Connecter un sangoma phone à freepbx<a class="headerlink" href="#connecter-un-sangoma-phone-a-freepbx" title="Permalink to this headline">¶</a></h4>
 <p><a class="reference external" href="http://wiki.freepbx.org/display/PHON/Connecting+Sangoma+Phone+to+FreePBX+or+PBXact+Indepth">http://wiki.freepbx.org/display/PHON/Connecting+Sangoma+Phone+to+FreePBX+or+PBXact+Indepth</a>
 - 1 s’assurer que les provision protocoles HTTP et HTTPS sont OK : system admin / Provisionning protocols.
@@ -115,10 +114,10 @@ Pnp server configuration : automatic.
 - 5 brancher l’IP phone. Accepter le PnP message.
 - 6 et voila.</p>
 <p>Moi j’ai du en plus rentrer dans le WebGui de l’ipphone est configurer Management / auto provisionning voir the hard way.</p>
-</section>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
+</div>
 
 
           </div>
@@ -139,8 +138,23 @@ Pnp server configuration : automatic.
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="email_server_config.html">Comment permettre à freepbx d’envoyer des emails</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Recovery_with_usb_key.html">Recovery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Resetting-password.html">Resetting password</a></li>
+<li class="toctree-l1"><a class="reference internal" href="En_Resume.html">Config du Freepbx en resume.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vega50_BRI_Config.html">Configuration du VEGA 50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html">Connection du Freepbx au Vega50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html#comment-relier-le-vega-50-au-freepbx">Comment relier le VEGA 50 au Freepbx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html#comment-voir-si-le-trunk-est-up">Comment voir si le trunk est up?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DAHDI_config.html">DAHDI Config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Outbound_Route.html">Outboud Route</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Inbound_Route.html">Inbound Route</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fail2ban.html">Fail2Ban</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html">Configuration du VPN server pour pouvoir enregistrer un IPphone en VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#comment-connaitre-la-status-de-openvpn">Comment connaitre la status de Openvpn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#vpn-23-03-2020-qui-marche">VPN 23/03/2020 qui marche</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#vpn-config-freepbx-15">VPN Config Freepbx 15</a></li>
 </ul>
 
 <div class="relations">
@@ -176,7 +190,7 @@ Pnp server configuration : automatic.
       &copy;2021, Laurent FRANCOIS.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

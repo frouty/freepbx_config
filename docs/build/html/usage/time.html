@@ -4,12 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Time Condition &#8212; Freenas Doc v1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -31,7 +30,7 @@
 
           <div class="body" role="main">
             
-  <section id="time-condition">
+  <div class="section" id="time-condition">
 <h1>Time Condition<a class="headerlink" href="#time-condition" title="Permalink to this headline">¶</a></h1>
 <p>1 Creation Time Group à faire en premier : Application / Time Group. Il y a uniquement des informations de temps
 2 Time Condition qui est une enveloppe d’un time group et d’une destination si match ou si match pas.</p>
@@ -44,13 +43,13 @@
 <p>Time condition Holidays / destination match / Annoucement we are in holydays. / destination non matches : destination = Time condition.</p>
 <p>Time group que du temps</p>
 <p>Time condition un time group et deux actions possibles si match ou match pas.</p>
-<section id="config-actuel">
+<div class="section" id="config-actuel">
 <h2>Config actuel<a class="headerlink" href="#config-actuel" title="Permalink to this headline">¶</a></h2>
 <p>Inbound Route DID = 281600 –&gt; Set Destination = Time conditions = gooen open hours
 Si c’est en open hours va sur une autre time condition qui va sur Annoucenment closed ou Misc destination.</p>
-</section>
-</section>
-<section id="bank-holidays">
+</div>
+</div>
+<div class="section" id="bank-holidays">
 <h1>Bank holidays<a class="headerlink" href="#bank-holidays" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="https://blog.ausics.net/archives/142-Holidays-With-FreePBX.html">https://blog.ausics.net/archives/142-Holidays-With-FreePBX.html</a></p>
 <p># Time
@@ -63,7 +62,7 @@ Si c’est en open hours va sur une autre time condition qui va sur Annoucenment
 <li><p>ou ne match pas : Destination not matches : on peut faire d’autres actions.</p></li>
 </ul>
 </div></blockquote>
-</section>
+</div>
 
 
           </div>
@@ -98,6 +97,8 @@ Si c’est en open hours va sur une autre time condition qui va sur Annoucenment
 <li class="toctree-l1"><a class="reference internal" href="../firewall.html">Firewall</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../fail2ban.html">Fail2Ban</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../VPN_IPphone_config.html">Configuration du VPN server pour pouvoir enregistrer un IPphone en VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VPN_IPphone_config.html#comment-connaitre-la-status-de-openvpn">Comment connaitre la status de Openvpn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VPN_IPphone_config.html#vpn-23-03-2020-qui-marche">VPN 23/03/2020 qui marche</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../VPN_IPphone_config.html#vpn-config-freepbx-15">VPN Config Freepbx 15</a></li>
 </ul>
 
@@ -134,7 +135,7 @@ Si c’est en open hours va sur une autre time condition qui va sur Annoucenment
       &copy;2021, Laurent FRANCOIS.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

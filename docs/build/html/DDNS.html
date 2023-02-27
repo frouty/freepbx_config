@@ -4,17 +4,18 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DDNS &#8212; Freenas Doc v1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Extension" href="Extension.html" />
+    <link rel="prev" title="Certificate management" href="Certificate_Management.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -31,19 +32,19 @@
 
           <div class="body" role="main">
             
-  <section id="ddns">
+  <div class="section" id="ddns">
 <h1>DDNS<a class="headerlink" href="#ddns" title="Permalink to this headline">¶</a></h1>
 <p>Admin / System Admin</p>
 <dl class="simple">
 <dt><strong>Enabled DDNS Services</strong></dt><dd><p>Yes</p>
 </dd>
 </dl>
-<p>DEPLOYMENTNUMBER.deployments.pbxact.com semble etre une url ddns pour l’adresse IP externe du router freepbx</p>
-<p>je me demande si je ne peux pas utiliser ce DEPLOYMENT.deployment.pbxact.com 1194 come ddns pour d’autres services? TODO
-oui j’ai réussi à me connecter au nextcloud a mon logiciel métier. Mais bon ce n’est pas tres pratique à retenir.</p>
+<p>DEPLOYMENTNUMBER.deployments.pbxact.com semble être une url ddns pour l’adresse IP externe du router freepbx</p>
+<p>Je me demande si je ne peux pas utiliser ce DEPLOYMENT.deployment.pbxact.com 1194 come ddns pour d’autres services? TODO</p>
+<p>Oui j’ai réussi à me connecter au nextcloud, à mon logiciel métier. Mais bon ce n’est pas très pratique à retenir.</p>
 <p>ping DEPLOYMENTNUMBER.deployments.pbxact.com ne donne rien au début et au bout d’un certain temps c’est bon ça ping.</p>
 <p>Il y a peu de choses à configurer ici.</p>
-</section>
+</div>
 
 
           </div>
@@ -63,7 +64,7 @@ oui j’ai réussi à me connecter au nextcloud a mon logiciel métier. Mais bon
 
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="email_server_config.html">Comment permettre à freepbx d’envoyer des emails</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Recovery_with_usb_key.html">Recovery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Resetting-password.html">Resetting password</a></li>
@@ -78,13 +79,23 @@ oui j’ai réussi à me connecter au nextcloud a mon logiciel métier. Mais bon
 <li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fail2ban.html">Fail2Ban</a></li>
 <li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html">Configuration du VPN server pour pouvoir enregistrer un IPphone en VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#comment-connaitre-la-status-de-openvpn">Comment connaitre la status de Openvpn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#vpn-23-03-2020-qui-marche">VPN 23/03/2020 qui marche</a></li>
 <li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#vpn-config-freepbx-15">VPN Config Freepbx 15</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CallerID_on_Phone.html">Caller ID on phone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Certificate_Management.html">Certificate management</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DDNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Extension.html">Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IPphone_Sangoma.html">IPPhone Sangoma</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modules_Commerciaux.html">Modules commerciaux</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Certificate_Management.html" title="previous chapter">Certificate management</a></li>
+      <li>Next: <a href="Extension.html" title="next chapter">Extension</a></li>
   </ul></li>
 </ul>
 </div>
@@ -114,7 +125,7 @@ oui j’ai réussi à me connecter au nextcloud a mon logiciel métier. Mais bon
       &copy;2021, Laurent FRANCOIS.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

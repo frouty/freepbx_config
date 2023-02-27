@@ -4,12 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Connection du Freepbx au Vega50 &#8212; Freenas Doc v1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
@@ -33,10 +32,17 @@
 
           <div class="body" role="main">
             
-  <section id="connection-du-freepbx-au-vega50">
+  <div class="section" id="connection-du-freepbx-au-vega50">
 <h1>Connection du Freepbx au Vega50<a class="headerlink" href="#connection-du-freepbx-au-vega50" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>1 Creer un trunk</p></li>
+<li><p>2 Creer une oubound route qui va utiliser le trunk créé ci-dessus</p></li>
+<li><p>3 Créer une extension</p></li>
+<li><p>4 Créer une inbound route</p></li>
+<li><p>5 Configuration du vega 50 <a class="reference external" href="https://www.elastix.org/wp-content/uploads/sites/34/2016/01/sangoma-vega-50-bri_gateway_setupguide.pdf">ici</a></p></li>
+</ul>
 <p>Connectivity / Trunk</p>
-<section id="trunk-module">
+<div class="section" id="trunk-module">
 <h2>Trunk module<a class="headerlink" href="#trunk-module" title="Permalink to this headline">¶</a></h2>
 <p>Il est utilisé pour connecté le Freepbx/asterisk à un autre systeme de VOIP. Comme cela on peut envoyer ou recevoir des apels depuis et vers cet autre système VOIP.
 Comme :</p>
@@ -72,9 +78,9 @@ J’ai l’impression que cela ne sert pas.</p>
 <p><strong>Continue if busy</strong></p>
 <p><strong>Disable trunk</strong></p>
 <p><strong>Dial pattern manipulation rules</strong></p>
-</section>
-</section>
-<section id="comment-relier-le-vega-50-au-freepbx">
+</div>
+</div>
+<div class="section" id="comment-relier-le-vega-50-au-freepbx">
 <h1>Comment relier le VEGA 50 au Freepbx<a class="headerlink" href="#comment-relier-le-vega-50-au-freepbx" title="Permalink to this headline">¶</a></h1>
 <p>Par un trunk</p>
 <p>Connectivity / Trunk / add trunk / Add SIP chan_sip Trunk</p>
@@ -92,11 +98,12 @@ J’ai l’impression que cela ne sert pas.</p>
 <dt>Onglet Sip Settings / Incoming:</dt><dd><p><strong>User context</strong> :</p>
 </dd>
 </dl>
-</section>
-<section id="comment-voir-si-le-trunk-est-up">
+</div>
+<div class="section" id="comment-voir-si-le-trunk-est-up">
 <h1>Comment voir si le trunk est up?<a class="headerlink" href="#comment-voir-si-le-trunk-est-up" title="Permalink to this headline">¶</a></h1>
 <p>Report / asterisk info / Peers / CHANSIP</p>
-<p>Name/username             Host                                    Dyn Forcerport Comedia    ACL Port     Status      Description
+<p>+=======================+====================================+=======+==========+========+=====+===+==============+=============+
+Name/username             Host                                    Dyn Forcerport Comedia    ACL Port     Status      Description
 1/1                       10.66.0.154                              D  Yes        Yes         A  5060     OK (9 ms)
 from-vega50/vega50        10.66.0.3                                   Yes        Yes            5060     OK (4 ms)
 vega50/vega50             10.66.0.3                                   Yes        Yes            5060     OK (4 ms)
@@ -133,7 +140,7 @@ Choose an ID to enable/disable
 </div></blockquote>
 <p>&gt;
 Je ne vois pas trop a quoi cela sert.</p>
-</section>
+</div>
 
 
           </div>
@@ -154,6 +161,7 @@ Je ne vois pas trop a quoi cela sert.</p>
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="email_server_config.html">Comment permettre à freepbx d’envoyer des emails</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Recovery_with_usb_key.html">Recovery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Resetting-password.html">Resetting password</a></li>
 <li class="toctree-l1"><a class="reference internal" href="En_Resume.html">Config du Freepbx en resume.</a></li>
@@ -167,6 +175,12 @@ Je ne vois pas trop a quoi cela sert.</p>
 <li class="toctree-l1"><a class="reference internal" href="DAHDI_config.html">DAHDI Config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Outbound_Route.html">Outboud Route</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Inbound_Route.html">Inbound Route</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fail2ban.html">Fail2Ban</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html">Configuration du VPN server pour pouvoir enregistrer un IPphone en VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#comment-connaitre-la-status-de-openvpn">Comment connaitre la status de Openvpn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#vpn-23-03-2020-qui-marche">VPN 23/03/2020 qui marche</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#vpn-config-freepbx-15">VPN Config Freepbx 15</a></li>
 </ul>
 
 <div class="relations">
@@ -204,7 +218,7 @@ Je ne vois pas trop a quoi cela sert.</p>
       &copy;2021, Laurent FRANCOIS.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

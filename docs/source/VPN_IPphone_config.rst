@@ -82,7 +82,7 @@ J'ai des messages d'erreur dans /var/log/messages concernant le client0 qui corr
 
 Je verrais ce qui s'est passé sur le téléphone IP
 
-Comment connaitre la status de Openvpn 
+Comment connaitre la status de Openvpn
 ======================================
 systemctl status openvpn@sysadmin_server1.service
 
@@ -90,8 +90,12 @@ VPN 23/03/2020 qui marche
 =========================
 system admin / VPN server / Onglet settings / 
 
+**server range** 
+   10.8.0.0 / 255.255.255.0
+**server port**
+   1194
 **server remote address**
-    ipaddress du routeur principal en chiffres.
+    ipaddress du routeur principal en chiffres. Et maintenant j'ai l'address domain de mon dddns.
 **Redirect gateway** :
     no
 **Routes** : 
@@ -106,21 +110,40 @@ system admin / VPN server / Onglet settings /
     * - 10.66.0.0
       - 255.255.255.0
       - Yes
-        
-        
-+----------+--------------+---------+
-|ip address|*Netmask*     |*Enabled*|
-+==========+==============+=========+
-|10.66.0.0 | 255.255.255.0|  yes    | 
-+----------+--------------+---------+
-|10.8.0.0  | 255.255.255.0|  no     | 
-+----------+--------------+---------+
+      
++------------+---------------+--------+
+| IP address | Netmask       | Enable |
++============+===============+========+
+| 10.8.0.0   | 255.255.255.0 | No     |
++------------+---------------+--------+
+| 10.66.0.0  | 255.255.255.0 | No     |
++------------+---------------+--------+
 
 
 
-Onglet client : ID 17 | Description 5 - 5 | cllient IP 10.8.0.3 | connected 26032020 9:26:03
+
+system admin / VPN server /Onglet client 
+
++-------+-------------+------------+-----------+
+| ID 17 | Description | cllient IP | Connected |
++=======+=============+============+===========+
+10.8.0.3 | secoph -10 | 26032020 9:26:03 |
+++++++++++++++++++++++++++++++++++++++++++
 si je fais edit :
-enabled : Yes | description 5 -5 | use ddns:  No | use server remote address : Yes | client remote address : IP public du routeur freepbx et address ddns. | assiged address : 10.* .*.n
+
+**enabled:**
+    Yes 
+**description**
+    secoph - 10
+
+**use ddns**
+     Yes 
+**use server remote address :**
+    Yes 
+**client remote address :**
+    vide ou IP public du routeur freepbx et address ddns. 
+**assiged address :**
+    none ou 10.* .*.n
 
 VPN Config Freepbx 15
 =====================

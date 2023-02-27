@@ -4,12 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DAHDI Config &#8212; Freenas Doc v1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
@@ -33,7 +32,7 @@
 
           <div class="body" role="main">
             
-  <section id="dahdi-config">
+  <div class="section" id="dahdi-config">
 <h1>DAHDI Config<a class="headerlink" href="#dahdi-config" title="Permalink to this headline">¶</a></h1>
 <p>Dans ce module DAHDI Config on configure les port FXO</p>
 <p><a class="reference external" href="http://wiki.freepbx.org/display/FPG/DAHDI+Configs">http://wiki.freepbx.org/display/FPG/DAHDI+Configs</a></p>
@@ -44,11 +43,11 @@
 <p>cat /proc/dahdi</p>
 <p>dahdi_hardware</p>
 <p>asterisk -rvd</p>
-<section id="configuration-dans-freepbx-des-telephony-cards">
+<div class="section" id="configuration-dans-freepbx-des-telephony-cards">
 <h2>Configuration dans freepbx des telephony cards.<a class="headerlink" href="#configuration-dans-freepbx-des-telephony-cards" title="Permalink to this headline">¶</a></h2>
 <p>Connectivity / Dahdi config</p>
-</section>
-<section id="dahdi-configs-module">
+</div>
+<div class="section" id="dahdi-configs-module">
 <h2>DAHDI Configs module<a class="headerlink" href="#dahdi-configs-module" title="Permalink to this headline">¶</a></h2>
 <p>Permet de configurer les DAHDI PSTN card (analog, T1/E1/PRI or BRI’s.).</p>
 <p>On clique sur <cite>Connectivity / DAHDI</cite></p>
@@ -57,8 +56,8 @@
 <p>Analog hardware il y a: FXO ports 1,2,3,4
 FXO Ports 1,2,3,4 Edit et on leur assigne un group. Group que l’on va utiliser dans connectivity / trunk / Add trunk onglet dahdi settings / Dahdi trunk choix des groups</p>
 <p>Lors de la deuxieme installation les cartes FXO n’ont pas été automatiquement reconnue. Voir ci-dessous le setup.</p>
-</section>
-<section id="comment-savoir-si-ma-telephony-card-est-bien-reconnue-par-le-freepbx">
+</div>
+<div class="section" id="comment-savoir-si-ma-telephony-card-est-bien-reconnue-par-le-freepbx">
 <h2>Comment savoir si ma telephony card est bien reconnue par le FreePBX<a class="headerlink" href="#comment-savoir-si-ma-telephony-card-est-bien-reconnue-par-le-freepbx" title="Permalink to this headline">¶</a></h2>
 <p># lspci
 00:00.0 Host bridge: Intel Corporation Atom Processor Z36xxx/Z37xxx Series SoC Transaction Register (rev 11)
@@ -83,8 +82,8 @@ FXO Ports 1,2,3,4 Edit et on leur assigne un group. Group que l’on va utiliser
 </ul>
 <p>je répond aux nombreuese questions.</p>
 </div></blockquote>
-</section>
-<section id="a200-detected-on-slot-4-bus-8">
+</div>
+<div class="section" id="a200-detected-on-slot-4-bus-8">
 <h2>A200 detected on slot:4 bus:8<a class="headerlink" href="#a200-detected-on-slot-4-bus-8" title="Permalink to this headline">¶</a></h2>
 <dl class="simple">
 <dt>Would you like to configure AFT-200 on slot:4 bus:8</dt><dd><ol class="arabic simple">
@@ -180,14 +179,14 @@ wrtdm Board 1                            OK      0      0      0      CAS Unk   
 <p>C’est pas très bon signe.</p>
 </dd>
 </dl>
-</section>
-<section id="id1">
+</div>
+<div class="section" id="id1">
 <h2>DAHDI Configs module<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>Permet de configurer les DAHDI PSTN card (analog, T1/E1/PRI or BRI’s.).</p>
 <p>On clique sur <cite>Connectivity / DAHDI</cite></p>
 <p><a class="reference external" href="https://wiki.freepbx.org/display/FPG/DAHDI+Configs">https://wiki.freepbx.org/display/FPG/DAHDI+Configs</a> pour plus de détails.</p>
-</section>
-<section id="debugging-sangoma-card">
+</div>
+<div class="section" id="debugging-sangoma-card">
 <h2>Debugging sangoma card<a class="headerlink" href="#debugging-sangoma-card" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p><a class="reference external" href="https://uclord.wordpress.com/tag/sangoma-card/">ici</a></p>
@@ -221,15 +220,15 @@ DID : numero du fax par exemple.</p>
 </dl>
 <p>pseudo                 default                    default                         Yes</p>
 </div></blockquote>
-</section>
-<section id="dahdi-analog-channel-dids-module">
+</div>
+<div class="section" id="dahdi-analog-channel-dids-module">
 <h2>DAHDI (Analog) Channel DIDs module<a class="headerlink" href="#dahdi-analog-channel-dids-module" title="Permalink to this headline">¶</a></h2>
 <p><cite>Connectivity / DAHDI Channel DIDs</cite></p>
 <p>Ce module permet d’assigner un DID (un numero de téléphone) à un channel anlogique spécifique. Contrairement SIP ou PRI trunk, les lignes analogique n’envoie pas le DID ou le numero composé. Et nous avons besoin de mapper chaque port analogique ou channel a un numero fake comme cela nous pouvons matcher ce numero à une Inbound Route et router l’appel.</p>
 <p>Il est possible de mapper sur le même numéro de téléphone plusieurs channels.
 Une fois que l’on a assigné un DID, on peut utiliser les Inbound Route pour router l’appel.</p>
 <p>Il <em>FAUT</em> que le <em>context</em> du channel soit à <em>from-analog</em> : <cite>context = from-analog</cite> in your chan_dahdi.conf. Cela se fait dans le DAHDI config module</p>
-<section id="what-is-the-dahdi-channel-dids-module-used-for">
+<div class="section" id="what-is-the-dahdi-channel-dids-module-used-for">
 <h3>What is the DAHDI Channel DIDs module used for?<a class="headerlink" href="#what-is-the-dahdi-channel-dids-module-used-for" title="Permalink to this headline">¶</a></h3>
 <p>The DAHDI Channel DIDs module allows you to assign a DID or phone number to specific analog channels.</p>
 <p>Unlike SIP or PRI trunks, analog lines do not send a DID or dialed number to the PBX. Since the PBX routes all inbound calls based on the DID or number dialed, we need to map each analog port or channel to a fake number so we can match that number to an Inbound Route number and route your calls.</p>
@@ -237,20 +236,20 @@ Une fois que l’on a assigné un DID, on peut utiliser les Inbound Route pour r
 <p>You MUST assign the channel’s context to from-analog for these settings to have effect. It will be a line that looks like: context = from-analog in your chan_dahdi.conf configuration affecting the specified channel(s).</p>
 <p>Once you have assigned DIDs, you can use standard Inbound Routes with the specified DIDs to route your calls.</p>
 <p>Channel = The DAHDI Channel number to map to a DID. For example, If you have a 4-port card, your channels would be ports 1-4.</p>
-</section>
-<section id="comment-faire-pour-qu-une-ligne-pstn-soit-affectee-a-une-certaine-inbound-route">
+</div>
+<div class="section" id="comment-faire-pour-qu-une-ligne-pstn-soit-affectee-a-une-certaine-inbound-route">
 <h3>Comment faire pour qu’une ligne pstn soit affectée à une certaine inbound route?<a class="headerlink" href="#comment-faire-pour-qu-une-ligne-pstn-soit-affectee-a-une-certaine-inbound-route" title="Permalink to this headline">¶</a></h3>
 <p><cite>Connectivity - DAHDI Channel DIDs</cite> :
 A chaque ports FXO on assigne un DID (un numero de téléphone fictif. On mettra celui de la ligne PSTN). On mappe ainsi les FXO à une ligne PSTN.
 Car le fournisseur ne passe pas le DID dans les lignes analogiques.
 Puis dans Inbound Route on utilise ce DID pour router l’appel depuis l’exterieur vers une destination qui peut etre une extension, un fax, un IVR.</p>
-</section>
-</section>
-<section id="commment-savoir-sur-quel-port-de-ma-carte-sangoma-la-ligne-pots-est-branchee">
+</div>
+</div>
+<div class="section" id="commment-savoir-sur-quel-port-de-ma-carte-sangoma-la-ligne-pots-est-branchee">
 <h2>Commment savoir sur quel port de ma carte sangoma la ligne POTS est branchée?<a class="headerlink" href="#commment-savoir-sur-quel-port-de-ma-carte-sangoma-la-ligne-pots-est-branchee" title="Permalink to this headline">¶</a></h2>
 <p># wanpipemon -i w1g1 -c astats -m X il faut changer X avec le numero du port.</p>
-</section>
-</section>
+</div>
+</div>
 
 
           </div>
@@ -292,6 +291,12 @@ Puis dans Inbound Route on utilise ce DID pour router l’appel depuis l’exter
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Outbound_Route.html">Outboud Route</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Inbound_Route.html">Inbound Route</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fail2ban.html">Fail2Ban</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html">Configuration du VPN server pour pouvoir enregistrer un IPphone en VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#comment-connaitre-la-status-de-openvpn">Comment connaitre la status de Openvpn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#vpn-23-03-2020-qui-marche">VPN 23/03/2020 qui marche</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#vpn-config-freepbx-15">VPN Config Freepbx 15</a></li>
 </ul>
 
 <div class="relations">
@@ -329,7 +334,7 @@ Puis dans Inbound Route on utilise ce DID pour router l’appel depuis l’exter
       &copy;2021, Laurent FRANCOIS.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

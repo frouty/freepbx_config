@@ -4,12 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fax &#8212; Freenas Doc v1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
@@ -31,19 +30,19 @@
 
           <div class="body" role="main">
             
-  <section id="fax">
+  <div class="section" id="fax">
 <h1>Fax<a class="headerlink" href="#fax" title="Permalink to this headline">¶</a></h1>
 <p>voir module User Management</p>
 <p>J’ai le module fax pro qui permet d’envoyer des fax. Le module fax gratuit ne permet pas d’envoyer des fax.</p>
-<section id="fax-emission-de-fax">
+<div class="section" id="fax-emission-de-fax">
 <h2>Fax - Émission de fax<a class="headerlink" href="#fax-emission-de-fax" title="Permalink to this headline">¶</a></h2>
 <p>J’ai une outbound route. Sans configuration particuliere pour les fax.
 Il n’y a pas de parametre de fax dans l’outbound route.
 Dans Admin - User management - onglet Fax pour autoriser le user à utiliser les fax.</p>
 <p>on va dans l’UCP est on fait “send new fax”. cela marche.</p>
 <p>A noter qu’il ne faut pas que la vielle machine de fax soit brancher sur la ligne qui envoie le fax.</p>
-</section>
-<section id="fax-reception-de-fax">
+</div>
+<div class="section" id="fax-reception-de-fax">
 <h2>Fax - Réception de fax<a class="headerlink" href="#fax-reception-de-fax" title="Permalink to this headline">¶</a></h2>
 <p>On définit la detection de fax dans : Applications / Extension.
 Mais cela n’a pas marché. Je ne trouve pas de parametre de fax dans application - extension</p>
@@ -57,8 +56,8 @@ Mais cela n’a pas marché. Je ne trouve pas de parametre de fax dans applicati
 </ul>
 </div></blockquote>
 <p>Pas de configuration des ports fxo dans les inbound route. Il faut travailler avec le DID. A faire. pour voir si cela marche.</p>
-</section>
-<section id="comment-faire-pour-ne-pas-recevoir-le-fax-par-email-mais-le-retrouver-dans-l-inbox">
+</div>
+<div class="section" id="comment-faire-pour-ne-pas-recevoir-le-fax-par-email-mais-le-retrouver-dans-l-inbox">
 <h2>Comment faire pour ne pas recevoir le fax par email mais le retrouver dans l’inbox.<a class="headerlink" href="#comment-faire-pour-ne-pas-recevoir-le-fax-par-email-mais-le-retrouver-dans-l-inbox" title="Permalink to this headline">¶</a></h2>
 <p>j’essaie :
 Setting - Fax config - email address (not the outgoing email address) : leave empty
@@ -73,8 +72,8 @@ Ca ne marche</p>
 <p>Admin - Feature Code admin - Dial system fax c’est quoi?</p>
 <p><a class="reference external" href="http://www.emetrotel.com/tsd/content/dial-system-fax">http://www.emetrotel.com/tsd/content/dial-system-fax</a></p>
 <p>Mais cela ne me dit pas ce que je peux en faire.</p>
-</section>
-</section>
+</div>
+</div>
 
 
           </div>
@@ -95,8 +94,23 @@ Ca ne marche</p>
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="email_server_config.html">Comment permettre à freepbx d’envoyer des emails</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Recovery_with_usb_key.html">Recovery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Resetting-password.html">Resetting password</a></li>
+<li class="toctree-l1"><a class="reference internal" href="En_Resume.html">Config du Freepbx en resume.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vega50_BRI_Config.html">Configuration du VEGA 50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html">Connection du Freepbx au Vega50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html#comment-relier-le-vega-50-au-freepbx">Comment relier le VEGA 50 au Freepbx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html#comment-voir-si-le-trunk-est-up">Comment voir si le trunk est up?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DAHDI_config.html">DAHDI Config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Outbound_Route.html">Outboud Route</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Inbound_Route.html">Inbound Route</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fail2ban.html">Fail2Ban</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html">Configuration du VPN server pour pouvoir enregistrer un IPphone en VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#comment-connaitre-la-status-de-openvpn">Comment connaitre la status de Openvpn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#vpn-23-03-2020-qui-marche">VPN 23/03/2020 qui marche</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#vpn-config-freepbx-15">VPN Config Freepbx 15</a></li>
 </ul>
 
 <div class="relations">
@@ -132,7 +146,7 @@ Ca ne marche</p>
       &copy;2021, Laurent FRANCOIS.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

@@ -24,14 +24,14 @@ Avec la solution pour configurer le SIP trunk.
 - 5 Onglet basic config :
 
         - Country FR
-        - Timezone
+        - Timezone : +11
         - hostname on choisit ce que l'on veut.
         - Le mettre en static ip decocher obtain ip settings using dhcp.
 -6 onglet VoIP: 
     - Registration mode : Gateway
     - SIP domain : ipfreepbx server.
-    - Registration and authentification ID: 
-    - Authentification password : on les note on aura besoin lors de la configuration du trunk sur le freepbx.
+    - Registration and authentification ID:  On utilise le nom du Trunk
+    - Authentification password : On met celui definit dans le truind ou on les note on aura besoin lors de la configuration du trunk sur le freepbx.
     
      
 Les onglets en haut a cote de basic config vont dependre du type de port que l'on a sur le vega. 

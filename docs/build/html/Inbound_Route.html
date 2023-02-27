@@ -4,17 +4,17 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inbound Route &#8212; Freenas Doc v1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Firewall" href="firewall.html" />
     <link rel="prev" title="Outboud Route" href="Outbound_Route.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -32,7 +32,7 @@
 
           <div class="body" role="main">
             
-  <section id="inbound-route">
+  <div class="section" id="inbound-route">
 <h1>Inbound Route<a class="headerlink" href="#inbound-route" title="Permalink to this headline">¶</a></h1>
 <p>When a call comes into your system from the outside, it will usually arrive along with information about the telephone number that was dialed (also known as the “DID”) and the Caller ID of the person who called.
 The Inbound Routes module is the mechanism used to tell your PBX where to route inbound calls based on the phone number or DID dialed.
@@ -47,7 +47,7 @@ Comme la paire de cuivre qui arrive au niveau des FXO.</p>
 - DID le DID sera passé à l’incoming route donc le DID ici doit etre le meme que le did dans l’inbound route.</p>
 <p>Les appels entrants sur un port FXO seront dirigés en configurant le connectivity / Dahdi channel / channel = le port FXO qui nous interesse en lui affectant un DID et ensuite on configure une inbound pour rediriger le DID vers une destination finale comme une extension par exemple.</p>
 <p>Inboud and DID pour diriger l’appel entrant.</p>
-<section id="dit-autrement">
+<div class="section" id="dit-autrement">
 <h2>dit autrement<a class="headerlink" href="#dit-autrement" title="Permalink to this headline">¶</a></h2>
 <p>Ligne analogique OPT –&gt; port FXO</p>
 <ul class="simple">
@@ -56,9 +56,10 @@ Comme la paire de cuivre qui arrive au niveau des FXO.</p>
 <li><p>3 Une fois que j’ai défini un DID à ce channel je vais pouvoir créer une inbound route.</p></li>
 <li><p>4 A cette inbound Route il faut lui donner une destination. Qui peut etre une extension.</p></li>
 </ul>
-<p>On donne un DID car le fournisseur téléphonique PTOS ne fournit pas le DID. Et le systeme utilise le DID pour router l’appel.</p>
-</section>
-<section id="connectivity-inbound-route">
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+On donne un DID car le fournisseur téléphonique PTOS ne fournit pas le DID. Et le systeme utilise le DID pour router l’appel.</p>
+</div>
+<div class="section" id="connectivity-inbound-route">
 <h2>Connectivity / Inbound Route<a class="headerlink" href="#connectivity-inbound-route" title="Permalink to this headline">¶</a></h2>
 <p><strong>DID (Direct Inward Dialing) Number</strong></p>
 <blockquote>
@@ -72,8 +73,11 @@ Comme la paire de cuivre qui arrive au niveau des FXO.</p>
 <blockquote>
 <div><p>Routing calls based on the caller ID : numero composé par l’appelant. Leave this field blank to match any or no CID info. In addition to standard dial sequences, you can also put “Private,” “Blocked,” “Unknown,” “Restricted,” “Anonymous” or “Unavailable” in order to catch these special cases if the telco transmits them.</p>
 </div></blockquote>
-</section>
-</section>
+<p>Pour la ligne BRI du cabinet, je crée un inbound route et je mets en DID le numéro complet. Cela a marché pendant quelques jours. Puis en appelant ce numéro de l’extérieur on a le message the number you have dialed is not in servive et les quatres derniers chiffres du numéro de téléphone.</p>
+<p>Connexion / Inbound Route / DID : que les quatre derniers chiffres et c’est bon ça marche.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; branch ‘master’ of <a class="reference external" href="mailto:git&#37;&#52;&#48;github&#46;com">git<span>&#64;</span>github<span>&#46;</span>com</a>:frouty/freepbx_config.git</p>
+</div>
+</div>
 
 
           </div>
@@ -109,6 +113,12 @@ Comme la paire de cuivre qui arrive au niveau des FXO.</p>
 <li class="toctree-l2"><a class="reference internal" href="#connectivity-inbound-route">Connectivity / Inbound Route</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fail2ban.html">Fail2Ban</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html">Configuration du VPN server pour pouvoir enregistrer un IPphone en VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#comment-connaitre-la-status-de-openvpn">Comment connaitre la status de Openvpn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#vpn-23-03-2020-qui-marche">VPN 23/03/2020 qui marche</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#vpn-config-freepbx-15">VPN Config Freepbx 15</a></li>
 </ul>
 
 <div class="relations">
@@ -116,6 +126,7 @@ Comme la paire de cuivre qui arrive au niveau des FXO.</p>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="Outbound_Route.html" title="previous chapter">Outboud Route</a></li>
+      <li>Next: <a href="firewall.html" title="next chapter">Firewall</a></li>
   </ul></li>
 </ul>
 </div>
@@ -145,7 +156,7 @@ Comme la paire de cuivre qui arrive au niveau des FXO.</p>
       &copy;2021, Laurent FRANCOIS.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

@@ -4,12 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Comment enregister des messages &#8212; Freenas Doc v1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
@@ -31,7 +30,7 @@
 
           <div class="body" role="main">
             
-  <section id="comment-enregister-des-messages">
+  <div class="section" id="comment-enregister-des-messages">
 <h1>Comment enregister des messages<a class="headerlink" href="#comment-enregister-des-messages" title="Permalink to this headline">¶</a></h1>
 <p><cite>Admin / System recordings</cite>
 Va permettre d’enregistrer des messages qui pourront etre joué à l’appelant par d’autres modules.
@@ -55,7 +54,7 @@ Ne pas confondre ce module avec le system recording.
 Il faut voir ce module comme une enveloppe d’un system record. Et c’est cette enveloppe qui va pouvoir etre appelé par le systeme.
 Le module <cite>Annoucement</cite> permet de jouer une annonce crée dans  <cite>Admin System Recordings</cite> et de poursuivre le call flow.</p>
 <p><cite>Application / Annoucement</cite> : ne propose que les announces faites dans le system recording. Il faut donc créer l’annonce dans le module system recording avant.</p>
-<section id="jouer-une-annonce-a-tous-les-appels-entrants">
+<div class="section" id="jouer-une-annonce-a-tous-les-appels-entrants">
 <h2>Jouer une annonce à tous les appels entrants:<a class="headerlink" href="#jouer-une-annonce-a-tous-les-appels-entrants" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>1 Créer le fichier son dans <cite>Admin - System recordings</cite>.</p></li>
@@ -63,17 +62,17 @@ Le module <cite>Annoucement</cite> permet de jouer une annonce crée dans  <cite
 <li><p>3 Connectivity - Inbound Route - Destination : choisir l’announcement</p></li>
 </ul>
 <p>Et cela marche. Testé</p>
-</section>
-<section id="musique-d-attente-moh-music-on-hold">
+</div>
+<div class="section" id="musique-d-attente-moh-music-on-hold">
 <h2>Musique d’attente . MoH Music on Hold<a class="headerlink" href="#musique-d-attente-moh-music-on-hold" title="Permalink to this headline">¶</a></h2>
 <p><cite>Setting - MoH</cite>
 Je n’ai jamais entendu une telle music dans le telephone. TODO</p>
-</section>
-<section id="call-on-hold">
+</div>
+<div class="section" id="call-on-hold">
 <h2>call on hold<a class="headerlink" href="#call-on-hold" title="Permalink to this headline">¶</a></h2>
 <p>si l’appel est rejeté regardé <a class="reference external" href="https://wiki.freepbx.org/display/FOP/Calls+being+dropped+after+being+on+hold+for+5+minutes">https://wiki.freepbx.org/display/FOP/Calls+being+dropped+after+being+on+hold+for+5+minutes</a></p>
-</section>
-<section id="comment-enregistrer-un-message">
+</div>
+<div class="section" id="comment-enregistrer-un-message">
 <h2>Comment enregistrer un message?<a class="headerlink" href="#comment-enregistrer-un-message" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p>1 upload à partir de fichier de l’ordinateur: <cite>upload recording</cite></p></li>
@@ -90,7 +89,7 @@ Je n’ai jamais entendu une telle music dans le telephone. TODO</p>
 </dl>
 </li>
 </ul>
-<section id="on-peut-utiliser-audacity">
+<div class="section" id="on-peut-utiliser-audacity">
 <h3>on peut utiliser audacity.<a class="headerlink" href="#on-peut-utiliser-audacity" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><p><a class="reference external" href="http://whymailbox.blogspot.com/2009/06/create-great-sounding-recordings-in.html">http://whymailbox.blogspot.com/2009/06/create-great-sounding-recordings-in.html</a></p>
@@ -105,9 +104,9 @@ Change the extension of filename to ulaw.
 Finally, I have found it necessary to boost the sound. You can do this by going to the “Effect” menu, then select “Amplify…” In my case, I set my “Amplification (db)” to 12-15. For some reason, that sounds a bit loud at my computer, but it sounds fine when it is uploaded to my PBX.
 Upload du fichier dans asterisk
 On peut aussi le convertir dans asterisk avec <cite>file convert /full/path/before.ulaw /full/path/after.g729</cite></p>
-</section>
-</section>
-<section id="add-system-recording">
+</div>
+</div>
+<div class="section" id="add-system-recording">
 <h2>Add System recording<a class="headerlink" href="#add-system-recording" title="Permalink to this headline">¶</a></h2>
 <p>permet d’ajouter n’importe quel system recording préalablement enregistré à la liste.</p>
 <p># Announcements module
@@ -140,17 +139,17 @@ YES/NO</p>
 YES joue le message comme early media. J’ai pas compris à quoi cela sert.
 Laisser No c’est plus sur.
 ## Destination after playback</p>
-</section>
-<section id="comment-reecouter-les-annonces">
+</div>
+<div class="section" id="comment-reecouter-les-annonces">
 <h2>Comment réecouter les annonces?<a class="headerlink" href="#comment-reecouter-les-annonces" title="Permalink to this headline">¶</a></h2>
 <p>Admin / System recording
 Ce qui se passe à la fin d’une annonce se trouve dans Applications / Annoucment</p>
-</section>
-<section id="message-conversion-de-format">
+</div>
+<div class="section" id="message-conversion-de-format">
 <h2>message conversion de format<a class="headerlink" href="#message-conversion-de-format" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://wiki.kolmisoft.com/index.php/Convert_WAV_file_to_Asterisk_playable_format">http://wiki.kolmisoft.com/index.php/Convert_WAV_file_to_Asterisk_playable_format</a></p>
-</section>
-</section>
+</div>
+</div>
 
 
           </div>
@@ -171,8 +170,23 @@ Ce qui se passe à la fin d’une annonce se trouve dans Applications / Annoucme
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="email_server_config.html">Comment permettre à freepbx d’envoyer des emails</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Recovery_with_usb_key.html">Recovery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Resetting-password.html">Resetting password</a></li>
+<li class="toctree-l1"><a class="reference internal" href="En_Resume.html">Config du Freepbx en resume.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Vega50_BRI_Config.html">Configuration du VEGA 50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html">Connection du Freepbx au Vega50</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html#comment-relier-le-vega-50-au-freepbx">Comment relier le VEGA 50 au Freepbx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html#comment-voir-si-le-trunk-est-up">Comment voir si le trunk est up?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DAHDI_config.html">DAHDI Config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Outbound_Route.html">Outboud Route</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Inbound_Route.html">Inbound Route</a></li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fail2ban.html">Fail2Ban</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html">Configuration du VPN server pour pouvoir enregistrer un IPphone en VPN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#comment-connaitre-la-status-de-openvpn">Comment connaitre la status de Openvpn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#vpn-23-03-2020-qui-marche">VPN 23/03/2020 qui marche</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#vpn-config-freepbx-15">VPN Config Freepbx 15</a></li>
 </ul>
 
 <div class="relations">
@@ -208,7 +222,7 @@ Ce qui se passe à la fin d’une annonce se trouve dans Applications / Annoucme
       &copy;2021, Laurent FRANCOIS.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
