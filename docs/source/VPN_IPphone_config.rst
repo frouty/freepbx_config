@@ -142,7 +142,7 @@ si je fais edit :
     Yes 
 **client remote address :**
     vide ou IP public du routeur freepbx et address ddns. 
-**assiged address :**
+**assigned address :**
     none ou 10.* .*.n
 
 VPN Config Freepbx 15
