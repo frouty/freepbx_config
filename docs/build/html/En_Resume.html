@@ -14,8 +14,8 @@
     <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Configuration du VEGA 50" href="Vega50_BRI_Config.html" />
-    <link rel="prev" title="Resetting password" href="Resetting-password.html" />
+    <link rel="next" title="Asterisk" href="asterix.html" />
+    <link rel="prev" title="Users" href="users.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -39,18 +39,27 @@
 </div>
 <div class="section" id="config-du-vega-donc-de-la-ligne-bri">
 <h2>Config du VEGA donc de la ligne BRI<a class="headerlink" href="#config-du-vega-donc-de-la-ligne-bri" title="Permalink to this headline">¶</a></h2>
-<p>1 configuration du vega avec le webGUI du vega</p>
-<p>2 Configuration d’un sip (chan_pjsip) (chan_sip je n’ai pas reussi à le faire marcher) qui relie  le vega au freepbx</p>
-<p>4 outbound route : on y  fait un mapping entre une numerotation et d’autres criteres et un trunk de sortie de l’appel.</p>
-<p>5 inbound route : on y fait un mapping entre un DID (destination id) et une destination comme une extension par exemple.
-le DID semble etre tout simplement le numero de telephone. Peut etre que les 4 derniers chiffres. On peut mettre ANY, c’était comme cela en 13 mais je ne comprends pas tres bien.
-Config des lignes analogiques
-—————————–</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>1 configuration du vega avec le webGUI du vega</p></li>
+<li><p>2 Configuration d’un sip (chan_pjsip) (chan_sip je n’ai pas reussi à le faire marcher) qui relie  le vega au freepbx</p></li>
+<li><p>4 outbound route : on y  fait un mapping entre une numerotation et d’autres criteres et un trunk de sortie de l’appel.</p></li>
+<li><p>5 inbound route : on y fait un mapping entre un DID (destination id) et une destination comme une extension par exemple.</p></li>
+</ul>
+</div></blockquote>
+<p>le DID semble etre tout simplement le numero de telephone. Cela peut tre que les 4 derniers chiffres. On peut mettre ANY, c’était comme cela en 13 mais je ne comprends pas très bien.</p>
+</div>
+<div class="section" id="config-des-lignes-analogiques">
+<h2>Config des lignes analogiques<a class="headerlink" href="#config-des-lignes-analogiques" title="Permalink to this headline">¶</a></h2>
 <p>C’est la config des carte FXO</p>
-<p>1 DAHDI config / Analog FXO port j’ai juste changer Group
-2 DAHDI Channel - DID : mapping entre le n° de port FXO est un DID. On le fait ici car la ligne ne transmet pas cette information.
-2 DAHDI Trunk mappe au FXO par le groupe C’est là que l’on voit le role de Group  defini ci dessus
-3 Inbound route avec un mapping DID- destination</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>1 DAHDI config / Analog FXO port j’ai juste changer Group</p></li>
+<li><p>2 DAHDI Channel - DID : mapping entre le n° de port FXO est un DID. On le fait ici car la ligne ne transmet pas cette information.</p></li>
+<li><p>3 DAHDI Trunk mappe au FXO par le groupe C’est là que l’on voit le role de Group  defini ci dessus</p></li>
+<li><p>4 Inbound route avec un mapping DID- destination</p></li>
+</ul>
+</div></blockquote>
 <p>Au 27/08/2021 :</p>
 <ul class="simple">
 <li><p>La ligne  des orthoptistes est sur le port (channel) FXO 1.  groupe 0 qui se configure dans Connectivity / DAHDI  config</p></li>
@@ -87,16 +96,23 @@ Config des lignes analogiques
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="activation.html">Activation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="email_server_config.html">Comment permettre à freepbx d’envoyer des emails</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Recovery_with_usb_key.html">Recovery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Resetting-password.html">Resetting password</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/On_Off_Freepbx.html">Power On Power Off</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/WebGUI.html">WebGUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="users.html">Users</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Config du Freepbx en resume.</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#configuration-des-mails">Configuration des mails</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#config-du-vega-donc-de-la-ligne-bri">Config du VEGA donc de la ligne BRI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#config-des-lignes-analogiques">Config des lignes analogiques</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#creation-des-users">Creation des users</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#creation-des-extensions">Creation des extensions</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="asterix.html">Asterisk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module_freepbx.html">Gestion des modules dans FreePBX</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Vega50_BRI_Config.html">Configuration du VEGA 50</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html">Connection du Freepbx au Vega50</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html#comment-relier-le-vega-50-au-freepbx">Comment relier le VEGA 50 au Freepbx</a></li>
@@ -104,20 +120,46 @@ Config des lignes analogiques
 <li class="toctree-l1"><a class="reference internal" href="DAHDI_config.html">DAHDI Config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Outbound_Route.html">Outboud Route</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Inbound_Route.html">Inbound Route</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trunk.html">Trunk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trunk.html#trunk-chan-sip">Trunk chan_sip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trunk.html#trunk-chan-pjsip">Trunk  chan_pjsip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trunk.html#trunk-dahdi">Trunk DAHDI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fail2ban.html">Fail2Ban</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ucp.html">UCP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html">Configuration du VPN server pour pouvoir enregistrer un IPphone en VPN</a></li>
 <li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#comment-connaitre-la-status-de-openvpn">Comment connaitre la status de Openvpn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#vpn-23-03-2020-qui-marche">VPN 23/03/2020 qui marche</a></li>
 <li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#vpn-config-freepbx-15">VPN Config Freepbx 15</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Caller_ID.html">Comment modifier le numéro qui s’affiche sur le teléphone de la personne appelée?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CallerID_on_Phone.html">Caller ID on phone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Certificate_Management.html">Certificate management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DDNS.html">DDNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Extension.html">Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IPphone_Sangoma.html">IPPhone Sangoma</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Polycom.html">Polycom phone config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="edd-probe.html">EDD probe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fax.html">Fax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hostname.html">Connaitre et/ou changer son hostname</a></li>
+<li class="toctree-l1"><a class="reference internal" href="annonces.html">Comment enregister des messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/Call_Recording.html">Call Recording Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/time.html">Time Condition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/time.html#bank-holidays">Bank holidays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup-restore.html">Module backup and restore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modules_Commerciaux.html">Modules commerciaux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MyConfig.html">My Config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MyConfig.html#connaitre-sa-version">Connaitre sa version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Voicemail.html">Voicemail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logbook-pannes.html">Logbook des pannes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Troubleshooting.html">Troubleshooting</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="Resetting-password.html" title="previous chapter">Resetting password</a></li>
-      <li>Next: <a href="Vega50_BRI_Config.html" title="next chapter">Configuration du VEGA 50</a></li>
+      <li>Previous: <a href="users.html" title="previous chapter">Users</a></li>
+      <li>Next: <a href="asterix.html" title="next chapter">Asterisk</a></li>
   </ul></li>
 </ul>
 </div>

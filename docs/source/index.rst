@@ -14,11 +14,12 @@ Welcome to Freenas Doc's documentation!
    email_server_config
    Recovery_with_usb_key
    Resetting-password
-   On_Off_Freepbx
-   WebGUI
+   usage/On_Off_Freepbx
+   usage/WebGUI
+   users
    En_Resume
    asterix
-   moduled_freepbx
+   module_freepbx
    Vega50_BRI_Config
    Connection_Vega50_Freepbx
    DAHDI_config
@@ -40,6 +41,8 @@ Welcome to Freenas Doc's documentation!
    fax
    hostname
    annonces
+   usage/Call_Recording
+   usage/time
    backup-restore
    Modules_Commerciaux
    MyConfig

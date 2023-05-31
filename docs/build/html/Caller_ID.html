@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; Freenas Doc v1.0 documentation</title>
+    <title>Comment modifier le numéro qui s’affiche sur le teléphone de la personne appelée? &#8212; Freenas Doc v1.0 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -14,6 +14,8 @@
     <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Caller ID on phone" href="CallerID_on_Phone.html" />
+    <link rel="prev" title="Configuration du VPN server pour pouvoir enregistrer un IPphone en VPN" href="VPN_IPphone_config.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -30,7 +32,9 @@
 
           <div class="body" role="main">
             
-  <p>Comment modifier le numéro qui s’affiche sur le teléphone de la personne appelée.rearff</p>
+  <div class="section" id="comment-modifier-le-numero-qui-s-affiche-sur-le-telephone-de-la-personne-appelee">
+<h1>Comment modifier le numéro qui s’affiche sur le teléphone de la personne appelée?<a class="headerlink" href="#comment-modifier-le-numero-qui-s-affiche-sur-le-telephone-de-la-personne-appelee" title="Permalink to this headline">¶</a></h1>
+</div>
 
 
           </div>
@@ -50,11 +54,17 @@
 
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="activation.html">Activation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="email_server_config.html">Comment permettre à freepbx d’envoyer des emails</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Recovery_with_usb_key.html">Recovery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Resetting-password.html">Resetting password</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/On_Off_Freepbx.html">Power On Power Off</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/WebGUI.html">WebGUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="users.html">Users</a></li>
 <li class="toctree-l1"><a class="reference internal" href="En_Resume.html">Config du Freepbx en resume.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="asterix.html">Asterisk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module_freepbx.html">Gestion des modules dans FreePBX</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Vega50_BRI_Config.html">Configuration du VEGA 50</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html">Connection du Freepbx au Vega50</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html#comment-relier-le-vega-50-au-freepbx">Comment relier le VEGA 50 au Freepbx</a></li>
@@ -62,18 +72,46 @@
 <li class="toctree-l1"><a class="reference internal" href="DAHDI_config.html">DAHDI Config</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Outbound_Route.html">Outboud Route</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Inbound_Route.html">Inbound Route</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trunk.html">Trunk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trunk.html#trunk-chan-sip">Trunk chan_sip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trunk.html#trunk-chan-pjsip">Trunk  chan_pjsip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="trunk.html#trunk-dahdi">Trunk DAHDI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="firewall.html">Firewall</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fail2ban.html">Fail2Ban</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ucp.html">UCP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html">Configuration du VPN server pour pouvoir enregistrer un IPphone en VPN</a></li>
 <li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#comment-connaitre-la-status-de-openvpn">Comment connaitre la status de Openvpn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#vpn-23-03-2020-qui-marche">VPN 23/03/2020 qui marche</a></li>
 <li class="toctree-l1"><a class="reference internal" href="VPN_IPphone_config.html#vpn-config-freepbx-15">VPN Config Freepbx 15</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Comment modifier le numéro qui s’affiche sur le teléphone de la personne appelée?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CallerID_on_Phone.html">Caller ID on phone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Certificate_Management.html">Certificate management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DDNS.html">DDNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Extension.html">Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IPphone_Sangoma.html">IPPhone Sangoma</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Polycom.html">Polycom phone config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="edd-probe.html">EDD probe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fax.html">Fax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hostname.html">Connaitre et/ou changer son hostname</a></li>
+<li class="toctree-l1"><a class="reference internal" href="annonces.html">Comment enregister des messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/Call_Recording.html">Call Recording Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/time.html">Time Condition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/time.html#bank-holidays">Bank holidays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup-restore.html">Module backup and restore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Modules_Commerciaux.html">Modules commerciaux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MyConfig.html">My Config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MyConfig.html#connaitre-sa-version">Connaitre sa version</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Voicemail.html">Voicemail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logbook-pannes.html">Logbook des pannes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Troubleshooting.html">Troubleshooting</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="VPN_IPphone_config.html" title="previous chapter">Configuration du VPN server pour pouvoir enregistrer un IPphone en VPN</a></li>
+      <li>Next: <a href="CallerID_on_Phone.html" title="next chapter">Caller ID on phone</a></li>
   </ul></li>
 </ul>
 </div>

@@ -5,26 +5,22 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Search &#8212; Freenas Doc v1.0 documentation</title>
+    <title>Gestion des modules dans FreePBX &#8212; Freenas Doc v1.0 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/searchtools.js"></script>
-    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" />
-  <script src="searchindex.js" defer></script>
-  
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Configuration du VEGA 50" href="Vega50_BRI_Config.html" />
+    <link rel="prev" title="Asterisk" href="asterix.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
 
   </head><body>
   
@@ -36,27 +32,35 @@
 
           <div class="body" role="main">
             
-  <h1 id="search-documentation">Search</h1>
-  <div id="fallback" class="admonition warning">
-  <script>$('#fallback').hide();</script>
-  <p>
-    Please activate JavaScript to enable the search
-    functionality.
-  </p>
-  </div>
-  <p>
-    Searching for multiple words only shows matches that contain
-    all words.
-  </p>
-  <form action="" method="get">
-    <input type="text" name="q" aria-labelledby="search-documentation" value="" />
-    <input type="submit" value="search" />
-    <span id="search-progress" style="padding-left: 10px"></span>
-  </form>
-  
-  <div id="search-results">
-  
-  </div>
+  <div class="section" id="gestion-des-modules-dans-freepbx">
+<h1>Gestion des modules dans FreePBX<a class="headerlink" href="#gestion-des-modules-dans-freepbx" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="comment-installer-en-ligne-de-commande-un-module">
+<h2>Comment installer en ligne de commande un module<a class="headerlink" href="#comment-installer-en-ligne-de-commande-un-module" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fwconsole</span> <span class="n">ma</span> <span class="o">--</span><span class="n">edge</span> <span class="n">upgrade</span> <span class="n">framework</span>
+</pre></div>
+</div>
+<p>Le plus dur va être pour trouver le nom du module.</p>
+</div>
+<div class="section" id="comment-lister-les-modules">
+<h2>Comment lister les modules<a class="headerlink" href="#comment-lister-les-modules" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fwconsole</span> <span class="n">ma</span> <span class="nb">list</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="comment-obtenir-de-l-aide-sur-les-commandes-de-ma">
+<h2>Comment obtenir de l’aide sur les commandes de ma<a class="headerlink" href="#comment-obtenir-de-l-aide-sur-les-commandes-de-ma" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fwconsole</span> <span class="n">ma</span> <span class="o">--</span><span class="n">help</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="comment-downloader-un-module">
+<h2>Comment downloader un module?<a class="headerlink" href="#comment-downloader-un-module" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fwconsole</span> <span class="n">ma</span> <span class="n">download</span> <span class="p">[</span><span class="n">nom_module</span><span class="p">]</span> <span class="p">(</span><span class="n">endpoint</span> <span class="n">par</span> <span class="n">exemple</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
 
           </div>
           
@@ -75,7 +79,7 @@
 
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="activation.html">Activation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="email_server_config.html">Comment permettre à freepbx d’envoyer des emails</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Recovery_with_usb_key.html">Recovery</a></li>
@@ -85,7 +89,13 @@
 <li class="toctree-l1"><a class="reference internal" href="users.html">Users</a></li>
 <li class="toctree-l1"><a class="reference internal" href="En_Resume.html">Config du Freepbx en resume.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="asterix.html">Asterisk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="module_freepbx.html">Gestion des modules dans FreePBX</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Gestion des modules dans FreePBX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#comment-installer-en-ligne-de-commande-un-module">Comment installer en ligne de commande un module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#comment-lister-les-modules">Comment lister les modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#comment-obtenir-de-l-aide-sur-les-commandes-de-ma">Comment obtenir de l’aide sur les commandes de ma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#comment-downloader-un-module">Comment downloader un module?</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="Vega50_BRI_Config.html">Configuration du VEGA 50</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html">Connection du Freepbx au Vega50</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Connection_Vega50_Freepbx.html#comment-relier-le-vega-50-au-freepbx">Comment relier le VEGA 50 au Freepbx</a></li>
@@ -131,9 +141,21 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="asterix.html" title="previous chapter">Asterisk</a></li>
+      <li>Next: <a href="Vega50_BRI_Config.html" title="next chapter">Configuration du VEGA 50</a></li>
   </ul></li>
 </ul>
 </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
 
 
 
@@ -153,6 +175,9 @@
       Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
+      |
+      <a href="_sources/module_freepbx.rst.txt"
+          rel="nofollow">Page source</a>
     </div>
 
     

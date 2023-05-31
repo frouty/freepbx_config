@@ -162,7 +162,6 @@ CLI> core show help dahdi
 CLI> dahdi show channels group <num du group>  
 
 
-<<<<<<< HEAD
 # Configuration de l'ipphone. 
 
 
@@ -200,17 +199,13 @@ localhost.localdomain -> FreePBX.MLP
 2 connectivity / Trunk / Add trunk sip chan_sip
 3 connectivity outbound route
 4 connectivity / inbound route / on va mapper le CID entrant avec une extension.
-=======
-  
-<<<<<<< HEAD
-=======
->>>>>>> c3d74e468ba8785461b55d0696c17a8d7740c8f1
+
 # Extension
 ## Comment Creer une extension
 - 1 On crée l'extension : Application / Extension / Add Extension / Add New CHAN_SIP Extension
 - 2 On la link à un user : Link to a default user : Create New User.  
 Le systeme crée automatiquement un nouveau user que l'on peut configurer dans Admin / User Management.  
->>>>>>> branch 'master' of git@github.com:frouty/freepbx_config.git
+ branch 'master' of git@github.com:frouty/freepbx_config.git
 
 	
   dans le endpoint management je retrouve le login et le password que je vais mettre dans le webgui de l'ipphone : Management/autoprovisionning https/http password et login
