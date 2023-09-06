@@ -27,7 +27,9 @@ Onglet Clients / + ADD
 **Description**
     Ce que l'on veut.
     
-On peut donc bloquer la connection d'un client en mettant Enabled sur No, ou en effacant le client.
+Pour  bloquer la connection d'un client :
+   -  mettre Enabled sur No, ou en 
+   -  Effacer le client.
 
 **Use DDNS**
     Yes
